@@ -174,7 +174,7 @@ namespace MathStructs
 #if DEBUG
             if (Avx.IsSupported && AllowAvx)
 #else
-            if (Avx.IsSupported)
+            if (Avx2.IsSupported)
 #endif
             {
                 var vector = Avx.LoadVector256(&left.M11);
