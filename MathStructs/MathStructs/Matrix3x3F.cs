@@ -8,6 +8,10 @@ namespace MathStructs
 {
     public struct Matrix3x3F : IEquatable<Matrix3x3F>
     {
+#if DEBUG
+        public static bool AllowAvx = true;
+        public static bool AllowSse = true;
+#endif
         public float M11;
         public float M12;
         public float M13;
@@ -17,7 +21,11 @@ namespace MathStructs
         public float M31;
         public float M32;
         public float M33;
+#pragma warning disable IDE0044 // Add readonly modifier
+#pragma warning disable IDE0052 // Remove unread private members
         private float padding;
+#pragma warning restore IDE0052 // Remove unread private members
+#pragma warning restore IDE0044 // Add readonly modifier
         private static readonly Matrix3x3F _identity = new Matrix3x3F(1, 0, 0, 0, 1, 0, 0, 0, 1);
         public static Matrix3x3F Identity => _identity;
         public readonly bool IsIdentity =>
@@ -46,14 +54,21 @@ namespace MathStructs
         public static unsafe Matrix3x3F operator -(Matrix3x3F value)
         {
             var result = new Matrix3x3F();
-
+#if DEBUG
+            if (Avx.IsSupported && AllowAvx)
+#else
             if (Avx.IsSupported)
+#endif
             {
                 var zero = Vector256<float>.Zero;
 
                 Avx.Store(&result.M11, Avx.Subtract(zero, Avx.LoadVector256(&value.M11)));
             }
+#if DEBUG
+            else if (Sse.IsSupported && AllowSse)
+#else
             else if (Sse.IsSupported)
+#endif
             {
                 var zero = Vector128<float>.Zero;
 
@@ -80,10 +95,18 @@ namespace MathStructs
         {
             var result = new Matrix3x3F();
 
+#if DEBUG
+            if (Avx.IsSupported && AllowAvx)
+#else
             if (Avx.IsSupported)
+#endif
                 Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
 
+#if DEBUG
+            else if (Sse.IsSupported && AllowSse)
+#else
             else if (Sse.IsSupported)
+#endif
             {
                 Sse.Store(&result.M11, Sse.Add(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
                 Sse.Store(&result.M22, Sse.Add(Sse.LoadVector128(&left.M22), Sse.LoadVector128(&right.M22)));
@@ -106,10 +129,18 @@ namespace MathStructs
         {
             var result = new Matrix3x3F();
 
+#if DEBUG
+            if (Avx.IsSupported && AllowAvx)
+#else
             if (Avx.IsSupported)
+#endif
                 Avx.Store(&result.M11, Avx.Subtract(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
 
+#if DEBUG
+            else if (Sse.IsSupported && AllowSse)
+#else
             else if (Sse.IsSupported)
+#endif
             {
                 Sse.Store(&result.M11, Sse.Subtract(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
                 Sse.Store(&result.M22, Sse.Subtract(Sse.LoadVector128(&left.M22), Sse.LoadVector128(&right.M22)));
@@ -132,7 +163,11 @@ namespace MathStructs
         {
             var result = new Matrix3x3F();
 
+#if DEBUG
+            if (Sse.IsSupported && AllowSse)
+#else
             if (Sse.IsSupported)
+#endif
             {
                 var vector = Sse.LoadVector128(&left.M11);
                 Sse.Store(&result.M11, Sse.Add(Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0),
@@ -175,10 +210,18 @@ namespace MathStructs
         {
             var result = new Matrix3x3F();
 
+#if DEBUG
+            if (Avx.IsSupported && AllowAvx)
+#else
             if (Avx.IsSupported)
+#endif
                 Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&left.M11), Vector256.Create(right)));
 
+#if DEBUG
+            else if (Sse.IsSupported && AllowSse)
+#else
             else if (Sse.IsSupported)
+#endif
             {
                 var r = Vector128.Create(right);
                 Sse.Store(&result.M11, Sse.Multiply(Sse.LoadVector128(&left.M11), r));
@@ -204,10 +247,18 @@ namespace MathStructs
             Sse.MoveMask(Sse.CompareNotEqual(left, right)) == 0;
         public static unsafe bool operator ==(Matrix3x3F left, Matrix3x3F right)
         {
+#if DEBUG
+            if (Avx.IsSupported && AllowAvx)
+#else
             if (Avx.IsSupported)
+#endif
                 return Equal(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)) &&
                        left.M33 == right.M33;
+#if DEBUG
+            else if (Sse.IsSupported && AllowSse)
+#else
             else if (Sse.IsSupported)
+#endif
                 return Equal(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)) &&
                        Equal(Sse.LoadVector128(&left.M22), Sse.LoadVector128(&right.M22)) &&
                        left.M33 == right.M33;
