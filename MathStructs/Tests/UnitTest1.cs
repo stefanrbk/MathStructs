@@ -13,17 +13,21 @@ namespace Tests
         {
             var rand = new Random();
             var m = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
+#if DEBUG
             Matrix3x3D.AllowAvx = false;
             Matrix3x3D.AllowSse = false;
+#endif
             var expected = -m;
+#if DEBUG
             Matrix3x3D.AllowSse = true;
+#endif
             var actual = -m;
-
+#if DEBUG
             Assert.That(actual, Is.EqualTo(expected));
 
             Matrix3x3D.AllowAvx = true;
             actual = -m;
-
+#endif
             Assert.That(actual, Is.EqualTo(expected));
         }
         [Test]
@@ -32,17 +36,21 @@ namespace Tests
             var rand = new Random();
             var m = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
             var n = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
+#if DEBUG
             Matrix3x3D.AllowAvx = false;
             Matrix3x3D.AllowSse = false;
+#endif
             var expected = m + n;
+#if DEBUG
             Matrix3x3D.AllowSse = true;
+#endif
             var actual = m + n;
-
+#if DEBUG
             Assert.That(actual, Is.EqualTo(expected));
 
             Matrix3x3D.AllowAvx = true;
             actual = m + n;
-
+#endif
             Assert.That(actual, Is.EqualTo(expected));
         }
         [Test]
@@ -51,17 +59,21 @@ namespace Tests
             var rand = new Random();
             var m = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
             var n = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
+#if DEBUG
             Matrix3x3D.AllowAvx = false;
             Matrix3x3D.AllowSse = false;
+#endif
             var expected = m - n;
+#if DEBUG
             Matrix3x3D.AllowSse = true;
+#endif
             var actual = m - n;
-
+#if DEBUG
             Assert.That(actual, Is.EqualTo(expected));
 
             Matrix3x3D.AllowAvx = true;
             actual = m - n;
-
+#endif
             Assert.That(actual, Is.EqualTo(expected));
         }
         [Test]
@@ -70,16 +82,22 @@ namespace Tests
             var rand = new Random();
             var m = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
             var n = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
+#if DEBUG
             Matrix3x3D.AllowAvx = false;
             Matrix3x3D.AllowSse = false;
+#endif
             var expected = m * n;
+#if DEBUG
             Matrix3x3D.AllowSse = true;
+#endif
             var actual = m * n;
 
+#if DEBUG
             Assert.That(actual, Is.EqualTo(expected));
 
             Matrix3x3D.AllowAvx = true;
             actual = m * n;
+#endif
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -89,16 +107,22 @@ namespace Tests
             var rand = new Random();
             var m = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
             var n = rand.NextDouble();
+#if DEBUG
             Matrix3x3D.AllowAvx = false;
             Matrix3x3D.AllowSse = false;
+#endif
             var expected = m * n;
+#if DEBUG
             Matrix3x3D.AllowSse = true;
+#endif
             var actual = m * n;
+#if DEBUG
 
             Assert.That(actual, Is.EqualTo(expected));
 
             Matrix3x3D.AllowAvx = true;
             actual = m * n;
+#endif
 
             Assert.That(actual, Is.EqualTo(expected));
         }
