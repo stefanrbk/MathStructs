@@ -177,26 +177,32 @@ namespace MathStructs
             if (Avx2.IsSupported)
 #endif
             {
-                var vector = Avx.LoadVector256(&left.M11);
-                Avx.Store(&result.M11, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
+                var vector1 = Vector256.Create(left.M11);
+                var vector2 = Vector256.Create(left.M12);
+                var vector3 = Vector256.Create(left.M13);
+                Avx.Store(&result.M11, Avx.Add(Avx.Add(Avx.Multiply(vector1,
                                                                     Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(Avx2.Permute4x64(vector, 85),
+                                                       Avx.Multiply(vector2,
                                                                     Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(Avx2.Permute4x64(vector, 170),
+                                               Avx.Multiply(vector3,
                                                             Avx.LoadVector256(&right.M31))));
-                vector = Avx.LoadVector256(&left.M21);
-                Avx.Store(&result.M21, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
+                vector1 = Vector256.Create(left.M21);
+                vector2 = Vector256.Create(left.M22);
+                vector3 = Vector256.Create(left.M23);
+                Avx.Store(&result.M21, Avx.Add(Avx.Add(Avx.Multiply(vector1,
                                                                     Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(Avx2.Permute4x64(vector, 85),
+                                                       Avx.Multiply(vector2,
                                                                     Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(Avx2.Permute4x64(vector, 170),
+                                               Avx.Multiply(vector3,
                                                             Avx.LoadVector256(&right.M31))));
-                vector = Avx.LoadVector256(&left.M31);
-                Avx.Store(&result.M31, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
+                vector1 = Vector256.Create(left.M31);
+                vector2 = Vector256.Create(left.M32);
+                vector3 = Vector256.Create(left.M33);
+                Avx.Store(&result.M31, Avx.Add(Avx.Add(Avx.Multiply(vector1,
                                                                     Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(Avx2.Permute4x64(vector, 85),
+                                                       Avx.Multiply(vector2,
                                                                     Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(Avx2.Permute4x64(vector, 170),
+                                               Avx.Multiply(vector3,
                                                             Avx.LoadVector256(&right.M31))));
             }
 #if DEBUG
