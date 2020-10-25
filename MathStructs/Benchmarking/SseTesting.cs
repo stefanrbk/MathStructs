@@ -79,19 +79,5 @@ namespace Benchmarking
             }
             return temp;
         }
-
-        [Benchmark]
-        public unsafe Matrix3x3D[] Divide()
-        {
-            fixed (Matrix3x3D* v = values)
-            {
-                fixed (Matrix3x3D* t = temp)
-                {
-                    for (var i = 0; i < 1024; i++)
-                        temp[i] = values[i] / 7;
-                }
-            }
-            return temp;
-        }
     }
 }

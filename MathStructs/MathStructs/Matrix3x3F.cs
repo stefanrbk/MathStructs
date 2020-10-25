@@ -99,7 +99,7 @@ namespace MathStructs
                 result.M31 = left.M31 + right.M31;
                 result.M32 = left.M32 + right.M32;
             }
-            result.M32 = left.M33 + right.M33;
+            result.M33 = left.M33 + right.M33;
             return result;
         }
         public static unsafe Matrix3x3F operator -(Matrix3x3F left, Matrix3x3F right)
@@ -125,7 +125,7 @@ namespace MathStructs
                 result.M31 = left.M31 - right.M31;
                 result.M32 = left.M32 - right.M32;
             }
-            result.M32 = left.M33 - right.M33;
+            result.M33 = left.M33 - right.M33;
             return result;
         }
         public static unsafe Matrix3x3F operator *(Matrix3x3F left, Matrix3x3F right)
@@ -160,13 +160,13 @@ namespace MathStructs
             {
                 result.M11 = left.M11 * right.M11 + left.M12 * right.M21 + left.M13 * right.M31;
                 result.M12 = left.M11 * right.M12 + left.M12 * right.M22 + left.M13 * right.M32;
-                result.M13 = left.M11 * right.M13 + left.M13 * right.M23 + left.M13 * right.M33;
+                result.M13 = left.M11 * right.M13 + left.M12 * right.M23 + left.M13 * right.M33;
                 result.M21 = left.M21 * right.M11 + left.M22 * right.M21 + left.M23 * right.M31;
                 result.M22 = left.M21 * right.M12 + left.M22 * right.M22 + left.M23 * right.M32;
-                result.M23 = left.M21 * right.M13 + left.M23 * right.M23 + left.M23 * right.M33;
+                result.M23 = left.M21 * right.M13 + left.M22 * right.M23 + left.M23 * right.M33;
                 result.M31 = left.M31 * right.M11 + left.M32 * right.M21 + left.M33 * right.M31;
                 result.M32 = left.M31 * right.M12 + left.M32 * right.M22 + left.M33 * right.M32;
-                result.M33 = left.M31 * right.M13 + left.M33 * right.M23 + left.M33 * right.M33;
+                result.M33 = left.M31 * right.M13 + left.M32 * right.M23 + left.M33 * right.M33;
             }
 
             return result;
@@ -195,34 +195,7 @@ namespace MathStructs
                 result.M31 = left.M31 * right;
                 result.M32 = left.M32 * right;
             }
-            result.M32 = left.M33 * right;
-            return result;
-        }
-        public static unsafe Matrix3x3F operator /(Matrix3x3F left, float right)
-        {
-            var result = new Matrix3x3F();
-
-            if (Avx.IsSupported)
-                Avx.Store(&result.M11, Avx.Divide(Avx.LoadVector256(&left.M11), Vector256.Create(right)));
-
-            else if (Sse.IsSupported)
-            {
-                var r = Vector128.Create(right);
-                Sse.Store(&result.M11, Sse.Divide(Sse.LoadVector128(&left.M11), r));
-                Sse.Store(&result.M22, Sse.Divide(Sse.LoadVector128(&left.M22), r));
-            }
-            else
-            {
-                result.M11 = left.M11 / right;
-                result.M12 = left.M12 / right;
-                result.M13 = left.M13 / right;
-                result.M21 = left.M21 / right;
-                result.M22 = left.M22 / right;
-                result.M23 = left.M23 / right;
-                result.M31 = left.M31 / right;
-                result.M32 = left.M32 / right;
-            }
-            result.M32 = left.M33 / right;
+            result.M33 = left.M33 * right;
             return result;
         }
         private static bool Equal(Vector256<float> left, Vector256<float> right) =>

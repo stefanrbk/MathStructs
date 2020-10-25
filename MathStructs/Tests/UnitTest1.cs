@@ -102,24 +102,5 @@ namespace Tests
 
             Assert.That(actual, Is.EqualTo(expected));
         }
-        [Test]
-        public void DivideScalar()
-        {
-            var rand = new Random();
-            var m = new Matrix3x3D(rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next(), rand.Next());
-            var n = rand.NextDouble();
-            Matrix3x3D.AllowAvx = false;
-            Matrix3x3D.AllowSse = false;
-            var expected = m / n;
-            Matrix3x3D.AllowSse = true;
-            var actual = m / n;
-
-            Assert.That(actual, Is.EqualTo(expected));
-
-            Matrix3x3D.AllowAvx = true;
-            actual = m / n;
-
-            Assert.That(actual, Is.EqualTo(expected));
-        }
     }
 }

@@ -126,7 +126,7 @@ namespace MathStructs
                 result.M31 = left.M31 + right.M31;
                 result.M32 = left.M32 + right.M32;
             }
-            result.M32 = left.M33 + right.M33;
+            result.M33 = left.M33 + right.M33;
             return result;
         }
         public static unsafe Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
@@ -164,7 +164,7 @@ namespace MathStructs
                 result.M31 = left.M31 - right.M31;
                 result.M32 = left.M32 - right.M32;
             }
-            result.M32 = left.M33 - right.M33;
+            result.M33 = left.M33 - right.M33;
             return result;
         }
         public static unsafe Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
@@ -300,47 +300,7 @@ namespace MathStructs
                 result.M31 = left.M31 * right;
                 result.M32 = left.M32 * right;
             }
-            result.M32 = left.M33 * right;
-            return result;
-        }
-        public static unsafe Matrix3x3D operator /(Matrix3x3D left, double right)
-        {
-            var result = new Matrix3x3D();
-
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx.IsSupported)
-#endif
-            {
-                var r = Vector256.Create(right);
-                Avx.Store(&result.M11, Avx.Divide(Avx.LoadVector256(&left.M11), r));
-                Avx.Store(&result.M22, Avx.Divide(Avx.LoadVector256(&left.M22), r));
-            }
-#if DEBUG
-            else if (Sse2.IsSupported && AllowSse)
-#else
-            else if (Sse2.IsSupported)
-#endif
-            {
-                var r = Vector128.Create(right);
-                Sse2.Store(&result.M11, Sse2.Divide(Sse2.LoadVector128(&left.M11), r));
-                Sse2.Store(&result.M13, Sse2.Divide(Sse2.LoadVector128(&left.M13), r));
-                Sse2.Store(&result.M22, Sse2.Divide(Sse2.LoadVector128(&left.M22), r));
-                Sse2.Store(&result.M31, Sse2.Divide(Sse2.LoadVector128(&left.M31), r));
-            }
-            else
-            {
-                result.M11 = left.M11 / right;
-                result.M12 = left.M12 / right;
-                result.M13 = left.M13 / right;
-                result.M21 = left.M21 / right;
-                result.M22 = left.M22 / right;
-                result.M23 = left.M23 / right;
-                result.M31 = left.M31 / right;
-                result.M32 = left.M32 / right;
-            }
-            result.M32 = left.M33 / right;
+            result.M33 = left.M33 * right;
             return result;
         }
         private static bool Equal(Vector256<double> left, Vector256<double> right) =>
