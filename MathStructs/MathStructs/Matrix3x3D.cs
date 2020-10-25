@@ -21,7 +21,11 @@ namespace MathStructs
         public double M31;
         public double M32;
         public double M33;
+#pragma warning disable IDE0044 // Add readonly modifier
+#pragma warning disable IDE0052 // Remove unread private members
         private double padding;
+#pragma warning restore IDE0052 // Remove unread private members
+#pragma warning restore IDE0044 // Add readonly modifier
         private static readonly Matrix3x3D _identity = new Matrix3x3D(1, 0, 0, 0, 1, 0, 0, 0, 1);
         public static Matrix3x3D Identity => _identity;
         public readonly bool IsIdentity =>
