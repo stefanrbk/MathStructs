@@ -1,25 +1,34 @@
 name: .NET Core
 
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CORE_SDK_VERSION: 5.0.100-rc.2.20479.15
+  SOLUTION_PATH: './MathStructs/MathStructs.sln'
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: '${{ env.DOTNET_CORE_SDK_VERSION }}'
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore '${{ env.SOLUTION_PATH }}'
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build '${{ env.SOLUTION_PATH }}' --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --no-restore --verbosity normal
+    - name: Pack
+      run: dotnet pack '${{ env.SOLUTION_PATH }}' --output './nuget-packages' --verbosity minimal --configuration Release --no-build
