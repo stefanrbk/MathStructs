@@ -63,7 +63,7 @@ jobs:
           echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.commitsSinceVersionSource }}"
           echo "CommitsSinceVersionSourcePadded: ${{ steps.gitversion.outputs.commitsSinceVersionSourcePadded }}"
           echo "CommitDate: ${{ steps.gitversion.outputs.commitDate }}"
-          echo "${{ steps.gitversion.outputs.nuGetVersion }}"  >> nuget-version.txt
+          echo "${{ steps.gitversion.outputs.majorMinorPatch }}-${{ steps.gitversion.outputs.preReleaseNumber }}.${{ steps.gitversion.outputs.buildMetaDataPadded }}"  >> nuget-version.txt
       - name: 'Upload NuGetVersion version artifact'
         uses: actions/upload-artifact@v2
         with:
