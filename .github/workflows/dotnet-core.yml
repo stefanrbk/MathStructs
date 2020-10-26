@@ -97,7 +97,7 @@ jobs:
       - name: Install dependencies
         run: dotnet restore '${{ env.SOLUTION_PATH }}' --verbosity quiet
       - name: "Build Solution"
-        run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore -p:Version=$nuGetVersion
+        run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore -p:Version=${{ env.nuGetVersion }}
       - name: Test
         run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --verbosity normal --configuration Release
       - name: Pack
