@@ -86,8 +86,7 @@ jobs:
         shell: bash
         run: |
           ls -a
-          export NUGET_VERSION=$(cat nuget-version.txt)
-          echo "nuGetVersion=$NUGET_VERSION" >> $GITHUB_ENV
+          echo "nuGetVersion=$(cat nuget-version.txt)" >> $GITHUB_ENV
       - name: "Checkout repository"
         uses: actions/checkout@v2
       - name: "Setup .NET Core CLI"
