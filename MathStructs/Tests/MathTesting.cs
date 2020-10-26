@@ -16,6 +16,7 @@ namespace Tests
         private readonly Matrix4x4 AlteredIdentity = new Matrix4x4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0);
         private readonly Matrix4x4 Pow24x4 = new Matrix4x4(1, 2, 4, 0, 8, 16, 32, 0, 64, 128, 256, 0, 0, 0, 0, 0);
         private readonly Matrix3x3D Pow23x3D = new Matrix3x3D(1, 2, 4, 8, 16, 32, 64, 128, 256);
+        private readonly Matrix3x3F Pow23x3F = new Matrix3x3F(1, 2, 4, 8, 16, 32, 64, 128, 256);
 
         private bool Equal(Matrix3x3D left, Matrix4x4 right) =>
             (float)left.M11 == right.M11 &&
@@ -27,6 +28,16 @@ namespace Tests
             (float)left.M31 == right.M31 &&
             (float)left.M32 == right.M32 &&
             (float)left.M33 == right.M33;
+        private bool Equal(Matrix3x3F left, Matrix4x4 right) =>
+            left.M11 == right.M11 &&
+            left.M12 == right.M12 &&
+            left.M13 == right.M13 &&
+            left.M21 == right.M21 &&
+            left.M22 == right.M22 &&
+            left.M23 == right.M23 &&
+            left.M31 == right.M31 &&
+            left.M32 == right.M32 &&
+            left.M33 == right.M33;
         [Test]
         public void IdentityAddTest()
         {
@@ -131,6 +142,116 @@ namespace Tests
         {
             var actual = Pow23x3D *4;
             var expected = Pow24x4 *4;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void IdentityFAddTest()
+        {
+            var actual = Matrix3x3F.Identity + Matrix3x3F.Identity;
+            var expected = AlteredIdentity + AlteredIdentity;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void IdentityFSubtractTest()
+        {
+            var actual = Matrix3x3F.Identity - Matrix3x3F.Identity;
+            var expected = AlteredIdentity - AlteredIdentity;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void IdentityFNegateTest()
+        {
+            var actual = -Matrix3x3F.Identity;
+            var expected = -AlteredIdentity;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void IdentityFMultiplyTest()
+        {
+            var actual = Matrix3x3F.Identity * Matrix3x3F.Identity;
+            var expected = AlteredIdentity * AlteredIdentity;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void IdentityFMultiplyScalarTest()
+        {
+            var actual = Matrix3x3F.Identity * 4;
+            var expected = AlteredIdentity * 4;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void Pow2FAddTest()
+        {
+            var actual = Pow23x3F + Pow23x3F;
+            var expected = Pow24x4 + Pow24x4;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void Pow2FSubtractTest()
+        {
+            var actual = Pow23x3F - Pow23x3F;
+            var expected = Pow24x4 - Pow24x4;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void Pow2FNegateTest()
+        {
+            var actual = -Pow23x3F;
+            var expected = -Pow24x4;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void Pow2FMultiplyTest()
+        {
+            var actual = Pow23x3F * Pow23x3F;
+            var expected = Pow24x4 * Pow24x4;
+
+            Console.WriteLine(actual.ToString());
+            Console.WriteLine(expected.ToString());
+
+            Assert.That(Equal(actual, expected));
+        }
+        [Test]
+        public void Pow2FMultiplyScalarTest()
+        {
+            var actual = Pow23x3F * 4;
+            var expected = Pow24x4 * 4;
 
             Console.WriteLine(actual.ToString());
             Console.WriteLine(expected.ToString());
