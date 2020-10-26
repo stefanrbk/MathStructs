@@ -24,12 +24,12 @@ jobs:
       - name: "Fetch all history for all tags and branches"
         run: git fetch --prune --unshallow
       - name: "Install GitVersion"
-        uses: gittools/actions/gitversion/setup@v0.9.3
+        uses: gittools/actions/gitversion/setup@v0.9.4
         with:
           versionSpec: '5.2.x'
       - name: "Use GitVersion"
         id: gitversion
-        uses: gittools/actions/gitversion/execute@v0.9.3
+        uses: gittools/actions/gitversion/execute@v0.9.4
       - name: "Echo version info"
         run: |
           echo "Major: ${{ steps.gitversion.outputs.major }}"
@@ -131,4 +131,4 @@ jobs:
       run: find ./nuget-packages/ -not -type d -exec basename {} \;
       
     - name: "Upload Packages"
-      run: dotnet nuget push './**/*.nupkg' -s https://api.nuget.org/v3/index.json --skip-duplicate -k $NUGET_ACCESS_TOKEN
+      run: dotnet nuget push './**/*.nupkg' -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ env.NUGET_ACCESS_TOKEN }}
