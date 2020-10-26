@@ -20,11 +20,6 @@ namespace MathStructs
         public double M31;
         public double M32;
         public double M33;
-#pragma warning disable IDE0044 // Add readonly modifier
-#pragma warning disable IDE0052 // Remove unread private members
-        private double padding;
-#pragma warning restore IDE0052 // Remove unread private members
-#pragma warning restore IDE0044 // Add readonly modifier
         private static readonly Matrix3x3D _identity = new Matrix3x3D(1, 0, 0, 0, 1, 0, 0, 0, 1);
         public static Matrix3x3D Identity => _identity;
         public readonly bool IsIdentity =>
@@ -48,7 +43,7 @@ namespace MathStructs
             M31 = m31;
             M32 = m32;
             M33 = m33;
-            padding = 0;
+            //padding = 0;
         }
         public static unsafe Matrix3x3D operator -(Matrix3x3D value)
         {
@@ -180,6 +175,8 @@ namespace MathStructs
             if (Avx2.IsSupported)
 #endif
             {
+                var outMask = Vector256.Create(-1L, -1L, -1L, 0L);
+
                 var vector1 = Vector256.Create(left.M11);
                 var vector2 = Vector256.Create(left.M12);
                 var vector3 = Vector256.Create(left.M13);
@@ -201,12 +198,12 @@ namespace MathStructs
                 vector1 = Vector256.Create(left.M31);
                 vector2 = Vector256.Create(left.M32);
                 vector3 = Vector256.Create(left.M33);
-                Avx.Store(&result.M31, Avx.Add(Avx.Add(Avx.Multiply(vector1,
-                                                                    Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(vector2,
-                                                                    Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(vector3,
-                                                            Avx.LoadVector256(&right.M31))));
+                Avx.MaskStore(&result.M31, outMask.AsDouble(), Avx.Add(Avx.Add(Avx.Multiply(vector1,
+                                                                                            Avx.LoadVector256(&right.M11)),
+                                                                               Avx.Multiply(vector2,
+                                                                                            Avx.LoadVector256(&right.M21))),
+                                                                       Avx.Multiply(vector3,
+                                                                                    Avx.LoadVector256(&right.M31))));
             }
 #if DEBUG
             else if (Sse2.IsSupported && AllowSse)
@@ -250,12 +247,12 @@ namespace MathStructs
                                                                         Sse2.LoadVector128(&right.M21))),
                                                  Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
                                                                Sse2.LoadVector128(&right.M31))));
-                Sse2.Store(&result.M33, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                        Sse2.LoadScalarVector128(&right.M13)),
-                                                          Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                        Sse2.LoadScalarVector128(&right.M23))),
-                                                 Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                               Sse2.LoadScalarVector128(&right.M33))));
+                Sse2.StoreLow(&result.M33, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
+                                                                           Sse2.LoadScalarVector128(&right.M13)),
+                                                             Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
+                                                                           Sse2.LoadScalarVector128(&right.M23))),
+                                                    Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
+                                                                  Sse2.LoadScalarVector128(&right.M33))));
             }
             else
             {
