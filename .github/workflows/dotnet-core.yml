@@ -4,7 +4,7 @@ env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CORE_SDK_VERSION: 5.0.100-rc.2.20479.15
   SOLUTION_PATH: './MathStructs/MathStructs.sln'
-  NUGET_ACCESS_TOKEN: ${{ secrets.Nuget_Key }}
+  NUGET_ACCESS_TOKEN: ${{ secrets.NUGET_KEY }}
   NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
 on:
   push:
@@ -87,7 +87,7 @@ jobs:
         run: |
           ls -a
           export NUGET_VERSION=$(cat nuget-version.txt)
-          echo ::set-output name=nuGetVersion::$NUGET_VERSION
+          echo "nuGetVersion=$NUGET_VERSION" >> $GITHUB_ENV
       - name: "Checkout repository"
         uses: actions/checkout@v2
       - name: "Setup .NET Core CLI"
@@ -131,4 +131,4 @@ jobs:
       run: find ./nuget-packages/ -not -type d -exec basename {} \;
       
     - name: "Upload Packages"
-      run: dotnet nuget push './**/*.nupkg' --source nuget.org --skip-duplicate --api-key $NUGET_ACCESS_TOKEN
+      run: dotnet nuget push './**/*.nupkg' -s https://api.nuget.org/v3/index.json --skip-duplicate -k $NUGET_ACCESS_TOKEN
