@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 
@@ -344,7 +343,7 @@ namespace MathStructs
         }
         public static bool operator !=(Matrix3x3D left, Matrix3x3D right) =>
             !(left == right);
-        
+
         public bool Equals([AllowNull] Matrix3x3D other) =>
             this == other;
 
