@@ -102,7 +102,7 @@ jobs:
         run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --verbosity normal --configuration Release
       - name: Pack
         if: matrix.os == 'ubuntu-latest'
-        run: dotnet pack '${{ env.SOLUTION_PATH }}' --nologo --output './nuget-packages' --verbosity minimal --configuration Release --no-build -p:PackageVersion=$nuGetVersion
+        run: dotnet pack '${{ env.SOLUTION_PATH }}' --nologo --output './nuget-packages' --verbosity minimal --configuration Release --no-build -p:PackageVersion=${{ env.nuGetVersion }}
       - name: 'Upload packed artifacts'
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v2
