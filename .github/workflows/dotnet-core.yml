@@ -86,7 +86,7 @@ jobs:
         run: |
           ls -a
           export NUGET_VERSION=$(cat nuget-version.txt)
-          echo ::set-output name = nuGetVersion::$NUGET_VERSION
+          echo ::set-output name=nuGetVersion::$NUGET_VERSION
       - name: "Checkout repository"
         uses: actions/checkout@v2
       - name: "Setup .NET Core CLI"
