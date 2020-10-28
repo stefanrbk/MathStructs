@@ -180,11 +180,12 @@ namespace MathStructs
                 var vector1 = Vector256.Create(left.M11);
                 var vector2 = Vector256.Create(left.M12);
                 var vector3 = Vector256.Create(left.M13);
+                var test = Avx2.Permute4x64(vector3, 0);
                 Avx.Store(&result.M11, Avx.Add(Avx.Add(Avx.Multiply(vector1,
                                                                     Avx.LoadVector256(&right.M11)),
                                                        Avx.Multiply(vector2,
                                                                     Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(vector3,
+                                               Avx.Multiply(test,
                                                             Avx.LoadVector256(&right.M31))));
                 vector1 = Vector256.Create(left.M21);
                 vector2 = Vector256.Create(left.M22);
