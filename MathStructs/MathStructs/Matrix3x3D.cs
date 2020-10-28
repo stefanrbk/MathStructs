@@ -176,6 +176,7 @@ namespace MathStructs
 #endif
             {
                 var vector = Avx.LoadVector256(&left.M11);
+                var mask = Vector256.Create(-1L, -1L, -1L, 0L);
                 Avx.Store(&result.M11, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
                                                                     Avx.LoadVector256(&right.M11)),
                                                        Avx.Multiply(Avx2.Permute4x64(vector, 85),
@@ -190,12 +191,12 @@ namespace MathStructs
                                                Avx.Multiply(Avx2.Permute4x64(vector, 170),
                                                             Avx.LoadVector256(&right.M31))));
                 vector = Avx.LoadVector256(&left.M31);
-                Avx.Store(&result.M31, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
-                                                                    Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(Avx2.Permute4x64(vector, 85),
-                                                                    Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(Avx2.Permute4x64(vector, 170),
-                                                            Avx.LoadVector256(&right.M31))));
+                Avx.MaskStore(&result.M31, mask.AsDouble(), Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
+                                                                                         Avx.LoadVector256(&right.M11)),
+                                                                            Avx.Multiply(Avx2.Permute4x64(vector, 85),
+                                                                                         Avx.LoadVector256(&right.M21))),
+                                                                    Avx.Multiply(Avx2.Permute4x64(vector, 170),
+                                                                                 Avx.LoadVector256(&right.M31))));
             }
 #if DEBUG
             else if (Sse2.IsSupported && AllowSse)
