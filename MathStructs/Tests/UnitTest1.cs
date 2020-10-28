@@ -245,6 +245,8 @@ namespace Tests
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+        
+        // This may fail if run from a Windows machine after running "bcdedit.exe /set xsavedisable 1"
         [Test]
         public void Avx2IsSupportedTest()
         {
