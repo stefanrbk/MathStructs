@@ -49,7 +49,7 @@ jobs:
     
     - name: Save test log
       if: matrix.os == 'ubuntu-latest'
-      uses: actions/upload-artifacts@v2
+      uses: actions/upload-artifact@v2
       with:
         name: test-logs
         path: './TestResults/**'
