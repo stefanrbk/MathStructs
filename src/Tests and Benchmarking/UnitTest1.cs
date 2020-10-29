@@ -3,6 +3,7 @@ using MathStructs;
 using NUnit.Framework;
 
 using System;
+using System.Runtime.Intrinsics.X86;
 
 namespace Tests
 {
@@ -243,6 +244,13 @@ namespace Tests
 #endif
 
             Assert.That(actual, Is.EqualTo(expected));
+        }
+        
+        // This may fail if run from a Windows machine after running "bcdedit.exe /set xsavedisable 1"
+        [Test]
+        public void Avx2IsSupportedTest()
+        {
+            Assert.That(Avx2.IsSupported, Is.EqualTo((X86Base.CpuId(7, 0).Ebx & (1 << 5)) != 0));
         }
     }
 }

@@ -20,11 +20,6 @@ namespace MathStructs
         public float M31;
         public float M32;
         public float M33;
-#pragma warning disable IDE0044 // Add readonly modifier
-#pragma warning disable IDE0052 // Remove unread private members
-        private float padding;
-#pragma warning restore IDE0052 // Remove unread private members
-#pragma warning restore IDE0044 // Add readonly modifier
         private static readonly Matrix3x3F _identity = new Matrix3x3F(1, 0, 0, 0, 1, 0, 0, 0, 1);
         public static Matrix3x3F Identity => _identity;
         public readonly bool IsIdentity =>
@@ -48,7 +43,6 @@ namespace MathStructs
             M31 = m31;
             M32 = m32;
             M33 = m33;
-            padding = 0;
         }
         public static unsafe Matrix3x3F operator -(Matrix3x3F value)
         {
@@ -183,12 +177,14 @@ namespace MathStructs
                                                Sse.Multiply(Sse.Shuffle(vector, vector, 170),
                                                             Sse.LoadVector128(&right.M31))));
                 vector = Sse.LoadVector128(&left.M31);
-                Sse.Store(&result.M31, Sse.Add(Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0),
-                                                                    Sse.LoadVector128(&right.M11)),
-                                                       Sse.Multiply(Sse.Shuffle(vector, vector, 85),
-                                                                    Sse.LoadVector128(&right.M21))),
-                                               Sse.Multiply(Sse.Shuffle(vector, vector, 170),
-                                                            Sse.LoadVector128(&right.M31))));
+                vector = Sse.Add(Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0),
+                                                      Sse.LoadVector128(&right.M11)),
+                                         Sse.Multiply(Sse.Shuffle(vector, vector, 85),
+                                                      Sse.LoadVector128(&right.M21))),
+                                 Sse.Multiply(Sse.Shuffle(vector, vector, 170),
+                                              Sse.LoadVector128(&right.M31)));
+                Sse.StoreLow(&result.M31, vector);
+                Sse.StoreScalar(&result.M33, Sse.Shuffle(vector, vector, 170));
             }
             else
             {
