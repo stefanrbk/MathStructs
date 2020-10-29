@@ -3,7 +3,7 @@ name: .NET Core
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CORE_SDK_VERSION: 5.0.100-rc.2.20479.15
-  SOLUTION_PATH: './MathStructs/MathStructs.sln'
+  SOLUTION_PATH: './src/MathStructs.sln'
 on:
   push:
     branches: [ main, develop ]
@@ -11,24 +11,45 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build:
-
+  build-test-pack-job:
+    name: 'Build, test, & pack solution'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '${{ env.DOTNET_CORE_SDK_VERSION }}'
+
     - name: Install dependencies
-      run: dotnet restore '${{ env.SOLUTION_PATH }}'
+      run: dotnet restore '${{ env.SOLUTION_PATH }}' --verbosity quiet
+
     - name: Build
-      run: dotnet build '${{ env.SOLUTION_PATH }}' --configuration Release --no-restore
+      run: dotnet build '${{ env.SOLUTION_PATH }}'--nologo --verbosity minimal --configuration Release --no-restore
+
     - name: Test
-      run: dotnet test '${{ env.SOLUTION_PATH }}' --no-restore --verbosity normal
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
+
     - name: Pack
+      if: matrix.os == 'ubuntu-latest'
       run: dotnet pack '${{ env.SOLUTION_PATH }}' --output './nuget-packages' --verbosity minimal --configuration Release --no-build
+
+    - name: Save NuGet package
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/upload-artifact@v2
+      with:
+        name: nuget-packages
+        path: './nuget-packages/*/**'
+    
+    - name: Save test log
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/upload-artifacts@v2
+      with:
+        name: test-logs
+        path: './TestResults/**'
