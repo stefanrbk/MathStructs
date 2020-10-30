@@ -1,4 +1,4 @@
-name: Publish NuGet Package
+name: 'Publish NuGet Package'
 
 env:
   DOTNET_CORE_SDK_VERSION: 5.0.100-rc.2.20479.15
@@ -6,7 +6,7 @@ env:
   NUGET_ACCESS_TOKEN: ${{ secrets.NUGET_KEY }}
   
 on:
-  package:
+  release:
     types: [published]
 
 jobs:
