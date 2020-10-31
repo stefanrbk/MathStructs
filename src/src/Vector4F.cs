@@ -6,6 +6,8 @@ namespace MathStructs
 {
     public struct Vector4F : IEquatable<Vector4F>, IFormattable
     {
+        private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
+
         public float X;
         public float Y;
         public float Z;
@@ -26,7 +28,7 @@ namespace MathStructs
         public override int GetHashCode() =>
             HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public override bool Equals(object? obj) =>
             obj is Vector4F vec && Equals(vec);
         public override string ToString() =>
@@ -36,97 +38,97 @@ namespace MathStructs
         public string ToString(string? format, IFormatProvider? formatProvider) =>
             $"<{X.ToString(format, formatProvider)}, {Y.ToString(format, formatProvider)}, {Z.ToString(format, formatProvider)}, {W.ToString(format, formatProvider)}>";
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public float Length() =>
             MathF.Sqrt(Dot(this, this));
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public float LengthSquared() =>
             Dot(this, this);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static float Distance(Vector4F vector1, Vector4F vector2) =>
             (vector1 - vector2).Length();
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public float Distance(Vector4F value) =>
             Distance(this, value);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static float DistanceSquared(Vector4F vector1, Vector4F vector2) =>
             (vector1 - vector2).LengthSquared();
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public float DistanceSquared(Vector4F value) =>
             DistanceSquared(this, value);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Normalize(Vector4F vector) =>
             vector / vector.Length();
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public Vector4F Normalize() =>
             Normalize(this);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Clamp(Vector4F value, Vector4F min, Vector4F max) =>
             Min(Max(value, min), max);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public Vector4F Clamp(Vector4F min, Vector4F max) =>
             Clamp(this, min, max);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Lerp(Vector4F bounds1, Vector4F bounds2, float amount) =>
             bounds1 * (1f - amount) + bounds2 * amount;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Transform(Vector3F vector, Matrix4x4F matrix) =>
             new Vector4F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42,
                          vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43,
                          vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + matrix.M44);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Transform(Vector4F vector, Matrix4x4F matrix) =>
             new Vector4F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41,
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42,
                          vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43,
                          vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public Vector4F Transform(Matrix4x4F matrix) =>
             Transform(this, matrix);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Add(Vector4F left, Vector4F right) =>
             left + right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Subtract(Vector4F left, Vector4F right) =>
             left - right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Multiply(Vector4F left, Vector4F right) =>
             left * right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Multiply(Vector4F left, float right) =>
             left * right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Multiply(float left, Vector4F right) =>
             left * right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Divide(Vector4F left, Vector4F right) =>
             left / right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Divide(Vector4F left, float right) =>
             left / right;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Negate(Vector4F value) =>
             -value;
 
@@ -149,11 +151,11 @@ namespace MathStructs
             W = w;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public void CopyTo(float[] array) =>
             CopyTo(array, 0);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public void CopyTo(float[] array, int index)
         {
             if (index < 0 || index >= array.Length)
@@ -166,80 +168,80 @@ namespace MathStructs
             array[index + 3] = W;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public bool Equals(Vector4F other) =>
             this == other;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static float Dot(Vector4F left, Vector4F right) =>
             left.X * right.X +
             left.Y * right.Y +
             left.Z * right.Z +
             left.W * right.W;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Min(Vector4F left, Vector4F right) =>
             new Vector4F(left.X < right.X ? left.X : right.X,
                          left.Y < right.Y ? left.Y : right.Y,
                          left.Z < right.Z ? left.Z : right.Z,
                          left.W < right.W ? left.W : right.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Max(Vector4F left, Vector4F right) =>
             new Vector4F(left.X > right.X ? left.X : right.X,
                          left.Y > right.Y ? left.Y : right.Y,
                          left.Z > right.Z ? left.Z : right.Z,
                          left.W > right.W ? left.W : right.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F Abs(Vector4F value) =>
             new Vector4F(MathF.Abs(value.X), MathF.Abs(value.Y), MathF.Abs(value.Z), MathF.Abs(value.W));
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F SquareRoot(Vector4F value) =>
             new Vector4F(MathF.Sqrt(value.X), MathF.Sqrt(value.Y), MathF.Sqrt(value.Z), MathF.Sqrt(value.W));
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator +(Vector4F value) =>
             value;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator -(Vector4F value) =>
             new Vector4F(-value.X, -value.Y, -value.Z, -value.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator +(Vector4F left, Vector4F right) =>
             new Vector4F(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator -(Vector4F left, Vector4F right) =>
             new Vector4F(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator *(Vector4F left, Vector4F right) =>
             new Vector4F(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator *(Vector4F left, float right) =>
             new Vector4F(left.X * right, left.Y * right, left.Z * right, left.W * right);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator *(float left, Vector4F right) =>
             right * left;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator /(Vector4F left, Vector4F right) =>
             new Vector4F(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static Vector4F operator /(Vector4F left, float right) =>
             new Vector4F(left.X / right, left.Y / right, left.Z / right, left.W / right);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static bool operator ==(Vector4F left, Vector4F right) =>
             left.X == right.X && left.Y == right.Y && left.Z == right.Z && left.W == right.W;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(Inline)]
         public static bool operator !=(Vector4F left, Vector4F right) =>
             left.X != right.X && left.Y != right.Y && left.Z != right.Z && left.W != right.W;
     }
