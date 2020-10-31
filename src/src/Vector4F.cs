@@ -83,9 +83,9 @@ namespace MathStructs
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector4F Transform(Vector4F vector, Matrix4x4F matrix) =>
             new Vector4F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41,
-                         vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41,
-                         vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41,
-                         vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41);
+                         vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42,
+                         vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43,
+                         vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Vector4F Transform(Matrix4x4F matrix) =>
