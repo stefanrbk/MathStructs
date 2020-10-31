@@ -160,6 +160,10 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
+        public Vector4F With(float? x = null, float? y = null, float? z = null, float? w = null) =>
+            new Vector4F(x ?? X, y ?? Y, z ?? Z, w ?? W);
+
+        [MethodImpl(Inline)]
         public void CopyTo(float[] array) =>
             CopyTo(array, 0);
 

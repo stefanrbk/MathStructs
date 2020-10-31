@@ -164,6 +164,10 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
+        public Vector3F With(float? x = null, float? y = null, float? z = null) =>
+            new Vector3F(x ?? X, y ?? Y, z ?? Z);
+
+        [MethodImpl(Inline)]
         public void CopyTo(float[] array) =>
             CopyTo(array, 0);
 
