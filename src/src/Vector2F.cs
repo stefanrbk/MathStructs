@@ -171,6 +171,10 @@ namespace MathStructs
             left.Y * right.Y;
 
         [MethodImpl(Inline)]
+        public float Dot(Vector2F vector) =>
+            Dot(this, vector);
+
+        [MethodImpl(Inline)]
         public static Vector2F Min(Vector2F left, Vector2F right) =>
             new Vector2F(left.X < right.X ? left.X : right.X,
                          left.Y < right.Y ? left.Y : right.Y);

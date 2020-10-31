@@ -188,6 +188,10 @@ namespace MathStructs
             left.W * right.W;
 
         [MethodImpl(Inline)]
+        public float Dot(Vector4F vector) =>
+            Dot(this, vector);
+
+        [MethodImpl(Inline)]
         public static Vector4F Min(Vector4F left, Vector4F right) =>
             new Vector4F(left.X < right.X ? left.X : right.X,
                          left.Y < right.Y ? left.Y : right.Y,

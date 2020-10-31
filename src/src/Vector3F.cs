@@ -190,6 +190,10 @@ namespace MathStructs
             left.Z * right.Z;
 
         [MethodImpl(Inline)]
+        public float Dot(Vector3F vector) =>
+            Dot(this, vector);
+
+        [MethodImpl(Inline)]
         public static Vector3F Min(Vector3F left, Vector3F right) =>
             new Vector3F(left.X < right.X ? left.X : right.X,
                          left.Y < right.Y ? left.Y : right.Y,
