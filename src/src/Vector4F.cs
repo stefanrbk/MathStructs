@@ -151,6 +151,14 @@ namespace MathStructs
             W = w;
         }
 
+        public Vector4F(Vector2F vector, float z, float w)
+        {
+            X = vector.X;
+            Y = vector.Y;
+            Z = z;
+            W = w;
+        }
+
         [MethodImpl(Inline)]
         public void CopyTo(float[] array) =>
             CopyTo(array, 0);

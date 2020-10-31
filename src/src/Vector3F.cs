@@ -149,6 +149,9 @@ namespace MathStructs
         public Vector3F(float value)
             : this(value, value, value) { }
 
+        public Vector3F(Vector2F value, float z)
+            : this(value.X, value.Y, z) { }
+
         public Vector3F(float x, float y, float z)
         {
             X = x;
