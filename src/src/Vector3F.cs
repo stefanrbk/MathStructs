@@ -75,6 +75,10 @@ namespace MathStructs
             new Vector3F(vector1.Y * vector2.Z - vector1.Z * vector2.Y, vector1.Z * vector2.X - vector1.X * vector2.Z, vector1.X * vector2.Y - vector1.X * vector2.Y);
 
         [MethodImpl(Inline)]
+        public Vector3F Cross(Vector3F vector) =>
+            Cross(this, vector);
+
+        [MethodImpl(Inline)]
         public static Vector3F Reflect(Vector3F vector, Vector3F normal) =>
             vector - normal * Dot(vector, normal) * 2f;
 
