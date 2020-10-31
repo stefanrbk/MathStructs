@@ -8,6 +8,18 @@ namespace MathStructs
 {
     public struct Matrix4x4F
     {
+        //private struct CanonicalBasis
+        //{
+        //    public Vector3F Row0;
+        //    public Vector3F Row1;
+        //    public Vector3F Row2;
+        //}
+        //private struct VectorBasis
+        //{
+        //    public unsafe Vector3F* Element0;
+        //    public unsafe Vector3F* Element1;
+        //    public unsafe Vector3F* Element2;
+        //}
         public float M11;
         public float M12;
         public float M13;
