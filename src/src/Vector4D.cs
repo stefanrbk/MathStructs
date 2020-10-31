@@ -183,6 +183,10 @@ namespace MathStructs
             new Vector4D(Math.Abs(value.X), Math.Abs(value.Y), Math.Abs(value.Z), Math.Abs(value.W));
 
         [MethodImpl(Inline)]
+        public Vector4D Abs() =>
+            Abs(this);
+
+        [MethodImpl(Inline)]
         public static Vector4D SquareRoot(Vector4D value) =>
             new Vector4D(Math.Sqrt(value.X), Math.Sqrt(value.Y), Math.Sqrt(value.Z), Math.Sqrt(value.W));
 

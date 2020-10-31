@@ -199,6 +199,10 @@ namespace MathStructs
             new Vector3F(MathF.Abs(value.X), MathF.Abs(value.Y), MathF.Abs(value.Z));
 
         [MethodImpl(Inline)]
+        public Vector3F Abs() =>
+            Abs(this);
+
+        [MethodImpl(Inline)]
         public static Vector3F SquareRoot(Vector3F value) =>
             new Vector3F(MathF.Sqrt(value.X), MathF.Sqrt(value.Y), MathF.Sqrt(value.Z));
 
