@@ -164,6 +164,21 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
+        public void Deconstruct(out Vector2F vector, out float z)
+        {
+            vector = new Vector2F(X, Y);
+            z = Z;
+        }
+
+        [MethodImpl(Inline)]
+        public void Deconstruct(out float x, out float y, out float z)
+        {
+            x = X;
+            y = Y;
+            z = Z;
+        }
+
+        [MethodImpl(Inline)]
         public Vector3F With(float? x = null, float? y = null, float? z = null) =>
             new Vector3F(x ?? X, y ?? Y, z ?? Z);
 
