@@ -72,7 +72,7 @@ namespace MathStructs
 
         [MethodImpl(Inline)]
         public static Vector3F Cross(Vector3F vector1, Vector3F vector2) =>
-            new Vector3F(vector1.Y * vector2.Z - vector1.Z * vector2.Y, vector1.Z * vector2.X - vector1.X * vector2.Z, vector1.X * vector2.Y - vector1.X * vector2.Y);
+            new Vector3F(vector1.Y * vector2.Z - vector1.Z * vector2.Y, vector1.Z * vector2.X - vector1.X * vector2.Z, vector1.X * vector2.Y - vector1.Y * vector2.X);
 
         [MethodImpl(Inline)]
         public Vector3F Cross(Vector3F vector) =>
@@ -107,6 +107,24 @@ namespace MathStructs
         [MethodImpl(Inline)]
         public Vector3F Transform(Matrix4x4F matrix) =>
             Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public static Vector3F Transform(Vector3F value, QuaternionF rotation)
+        {
+            var num = rotation.X + rotation.X;
+            var num2 = rotation.Y + rotation.Y;
+            var num3 = rotation.Z + rotation.Z;
+            var num4 = rotation.W * num;
+            var num5 = rotation.W * num2;
+            var num6 = rotation.W * num3;
+            var num7 = rotation.X * num;
+            var num8 = rotation.X * num2;
+            var num9 = rotation.X * num3;
+            var num10 = rotation.Y * num2;
+            var num11 = rotation.Y * num3;
+            var num12 = rotation.Z * num3;
+            return new Vector3F(value.X * (1f - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1f - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1f - num7 - num10));
+        }
 
         [MethodImpl(Inline)]
         public static Vector3F TransformNormal(Vector3F normal, Matrix4x4F matrix) =>
@@ -278,6 +296,6 @@ namespace MathStructs
 
         [MethodImpl(Inline)]
         public static bool operator !=(Vector3F left, Vector3F right) =>
-            left.X != right.X && left.Y != right.Y && left.Z != right.Z;
+            left.X != right.X || left.Y != right.Y || left.Z != right.Z;
     }
 }

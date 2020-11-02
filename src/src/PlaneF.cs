@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,10 +36,12 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static PlaneF CreateFromVertices(Vector3F point1, Vector3F point2, Vector3F point3)
         {
-            (var p1, var p2, var p3) = (point1, point2, point3);
-
-            var v1 = p2 - p1;
-            return new PlaneF(v1.Cross(p3 - p1).Normalize(), -v1.Dot(p1));
+            var vector = point2 - point1;
+            var vector2 = point3 - point1;
+            var value = Vector3F.Cross(vector, vector2);
+            var vector3 = Vector3F.Normalize(value);
+            var d = 0f - Vector3F.Dot(vector3, point1);
+            return new PlaneF(vector3, d);
         }
 
         [MethodImpl(Optimize)]
@@ -147,7 +148,7 @@ namespace MathStructs
             obj is PlaneF p && this == p;
 
         public override string ToString() =>
-            $"{{{{Normal:{Normal} D:{D}}}}}";
+            $"{{Normal:{Normal} D:{D}}}";
 
         public override int GetHashCode() =>
             Normal.GetHashCode() + D.GetHashCode();

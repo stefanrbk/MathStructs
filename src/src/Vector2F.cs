@@ -97,6 +97,24 @@ namespace MathStructs
             Transform(this, matrix);
 
         [MethodImpl(Inline)]
+        public static Vector2F Transform(Vector2F value, QuaternionF rotation)
+        {
+            var n1 = rotation.X + rotation.X;
+            var n2 = rotation.Y + rotation.Y;
+            var n3 = rotation.Z + rotation.Z;
+            var n4 = rotation.W * n3;
+            var n5 = rotation.X * n1;
+            var n6 = rotation.X * n2;
+            var n7 = rotation.Y * n2;
+            var n8 = rotation.Z * n3;
+            return new Vector2F(value.X * (1 - n7 - n8) + value.Y * (n6 - n4), value.X * (n6 + n4) + value.Y * (1 - n5 - n8));
+        }
+
+        [MethodImpl(Inline)]
+        public Vector2F Transform(QuaternionF rotation) =>
+            Transform(this, rotation);
+
+        [MethodImpl(Inline)]
         public static Vector2F TransformNormal(Vector2F normal, Matrix4x4F matrix) =>
             new Vector2F(normal.X * matrix.M11 + normal.Y * matrix.M21,
                          normal.X * matrix.M12 + normal.Y * matrix.M22);
@@ -249,6 +267,6 @@ namespace MathStructs
 
         [MethodImpl(Inline)]
         public static bool operator !=(Vector2F left, Vector2F right) =>
-            left.X != right.X && left.Y != right.Y;
+            left.X != right.X || left.Y != right.Y;
     }
 }

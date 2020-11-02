@@ -76,15 +76,24 @@ namespace MathStructs
 
         [MethodImpl(Inline)]
         public QuaternionF Conjugate() =>
-            -With(w: W);
+            (-this).With(w: W);
 
         [MethodImpl(Inline)]
         public static QuaternionF Conjugate(QuaternionF value) =>
             value.Conjugate();
 
         [MethodImpl(Inline)]
-        public QuaternionF Inverse() =>
-            Conjugate() * (1 / Length());
+        public QuaternionF Inverse()
+        {
+            float num = X * X + Y * Y + Z * Z + W * W;
+            float num2 = 1f / num;
+            QuaternionF result;
+            result.X = (0f - X) * num2;
+            result.Y = (0f - Y) * num2;
+            result.Z = (0f - Z) * num2;
+            result.W = W * num2;
+            return result;
+        }
 
         [MethodImpl(Inline)]
         public static QuaternionF Inverse(QuaternionF value) =>
@@ -120,7 +129,7 @@ namespace MathStructs
         [MethodImpl(Inline)]
         public static QuaternionF CreateFromRotationMatrix(Matrix4x4F matrix)
         {
-            var n = matrix.M11 + matrix.M12 + matrix.M13;
+            var n = matrix.M11 + matrix.M22 + matrix.M33;
             if (n > 0f)
             {
                 var n2 = MathF.Sqrt(n + 1);
@@ -155,7 +164,7 @@ namespace MathStructs
                 return new QuaternionF((matrix.M31 + matrix.M13) * n3,
                                        (matrix.M32 + matrix.M23) * n3,
                                        0.5f * n2,
-                                       (matrix.M12 + matrix.M21) * n3);
+                                       (matrix.M12 - matrix.M21) * n3);
             }
         }
 
@@ -208,13 +217,26 @@ namespace MathStructs
             Concatenate(this, value);
 
         [MethodImpl(Inline)]
-        public static QuaternionF Concatenate(QuaternionF q1, QuaternionF q2)
+        public static QuaternionF Concatenate(QuaternionF value1, QuaternionF value2)
         {
-            (var v1, _) = q1;
-            (var v2, _) = q2;
-            var q3 = new QuaternionF(v1.Cross(v2), v1.Dot(v2));
-
-            return q1 * q2.W + q2 * q1.W + q3;
+            float x = value2.X;
+            float y = value2.Y;
+            float z = value2.Z;
+            float w = value2.W;
+            float x2 = value1.X;
+            float y2 = value1.Y;
+            float z2 = value1.Z;
+            float w2 = value1.W;
+            float num = y * z2 - z * y2;
+            float num2 = z * x2 - x * z2;
+            float num3 = x * y2 - y * x2;
+            float num4 = x * x2 + y * y2 + z * z2;
+            QuaternionF result;
+            result.X = x * w2 + x2 * w + num;
+            result.Y = y * w2 + y2 * w + num2;
+            result.Z = z * w2 + z2 * w + num3;
+            result.W = w * w2 - num4;
+            return result;
         }
 
         [MethodImpl(Inline)]
@@ -276,8 +298,29 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
-        public static QuaternionF operator /(QuaternionF left, QuaternionF right) =>
-            left * right.Inverse();
+        public static QuaternionF operator /(QuaternionF left, QuaternionF right)
+        {
+            float x = left.X;
+            float y = left.Y;
+            float z = left.Z;
+            float w = left.W;
+            float num = right.X * right.X + right.Y * right.Y + right.Z * right.Z + right.W * right.W;
+            float num2 = 1f / num;
+            float num3 = (0f - right.X) * num2;
+            float num4 = (0f - right.Y) * num2;
+            float num5 = (0f - right.Z) * num2;
+            float num6 = right.W * num2;
+            float num7 = y * num5 - z * num4;
+            float num8 = z * num3 - x * num5;
+            float num9 = x * num4 - y * num3;
+            float num10 = x * num3 + y * num4 + z * num5;
+            QuaternionF result;
+            result.X = x * num6 + num3 * w + num7;
+            result.Y = y * num6 + num4 * w + num8;
+            result.Z = z * num6 + num5 * w + num9;
+            result.W = w * num6 - num10;
+            return result;
+        }
 
         [MethodImpl(Inline)]
         public static bool operator ==(QuaternionF left, QuaternionF right) =>
@@ -297,7 +340,7 @@ namespace MathStructs
 
         [MethodImpl(Inline)]
         public override string ToString() =>
-            $"{{{{X:{X} Y:{Y} Z:{Z} W:{W}}}}}";
+            $"{{X:{X} Y:{Y} Z:{Z} W:{W}}}";
 
         [MethodImpl(Inline)]
         public override int GetHashCode() =>
