@@ -1088,19 +1088,19 @@ namespace Tests
         {
             Vector2F a = Vector2F.Normalize(new Vector2F(1.0f, 1.0f));
 
-            // Reflect on XZ plane.
+            // Reflect on XZ PlaneF.
             Vector2F n = new Vector2F(0.0f, 1.0f);
             Vector2F expected = new Vector2F(a.X, -a.Y);
             Vector2F actual = Vector2F.Reflect(a, n);
             Assert.True(MathHelper.Equal(expected, actual), "Vector2f.Reflect did not return the expected value.");
 
-            // Reflect on XY plane.
+            // Reflect on XY PlaneF.
             n = new Vector2F(0.0f, 0.0f);
             expected = new Vector2F(a.X, a.Y);
             actual = Vector2F.Reflect(a, n);
             Assert.True(MathHelper.Equal(expected, actual), "Vector2f.Reflect did not return the expected value.");
 
-            // Reflect on YZ plane.
+            // Reflect on YZ PlaneF.
             n = new Vector2F(1.0f, 0.0f);
             expected = new Vector2F(-a.X, a.Y);
             actual = Vector2F.Reflect(a, n);

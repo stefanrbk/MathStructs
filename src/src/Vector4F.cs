@@ -83,6 +83,12 @@ namespace MathStructs
             bounds1 * (1f - amount) + bounds2 * amount;
 
         [MethodImpl(Inline)]
+        public static Vector4F Transform(Vector2F position, Matrix4x4F matrix)
+        {
+            return new Vector4F(position.X * matrix.M11 + position.Y * matrix.M21 + matrix.M41, position.X * matrix.M12 + position.Y * matrix.M22 + matrix.M42, position.X * matrix.M13 + position.Y * matrix.M23 + matrix.M43, position.X * matrix.M14 + position.Y * matrix.M24 + matrix.M44);
+        }
+
+        [MethodImpl(Inline)]
         public static Vector4F Transform(Vector3F vector, Matrix4x4F matrix) =>
             new Vector4F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42,
@@ -95,6 +101,60 @@ namespace MathStructs
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42,
                          vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43,
                          vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
+
+        [MethodImpl(Inline)]
+        public static Vector4F Transform(Vector2F value, QuaternionF rotation)
+        {
+            float num = rotation.X + rotation.X;
+            float num2 = rotation.Y + rotation.Y;
+            float num3 = rotation.Z + rotation.Z;
+            float num4 = rotation.W * num;
+            float num5 = rotation.W * num2;
+            float num6 = rotation.W * num3;
+            float num7 = rotation.X * num;
+            float num8 = rotation.X * num2;
+            float num9 = rotation.X * num3;
+            float num10 = rotation.Y * num2;
+            float num11 = rotation.Y * num3;
+            float num12 = rotation.Z * num3;
+            return new Vector4F(value.X * (1f - num10 - num12) + value.Y * (num8 - num6), value.X * (num8 + num6) + value.Y * (1f - num7 - num12), value.X * (num9 - num5) + value.Y * (num11 + num4), 1f);
+        }
+
+        [MethodImpl(Inline)]
+        public static Vector4F Transform(Vector3F value, QuaternionF rotation)
+        {
+            float num = rotation.X + rotation.X;
+            float num2 = rotation.Y + rotation.Y;
+            float num3 = rotation.Z + rotation.Z;
+            float num4 = rotation.W * num;
+            float num5 = rotation.W * num2;
+            float num6 = rotation.W * num3;
+            float num7 = rotation.X * num;
+            float num8 = rotation.X * num2;
+            float num9 = rotation.X * num3;
+            float num10 = rotation.Y * num2;
+            float num11 = rotation.Y * num3;
+            float num12 = rotation.Z * num3;
+            return new Vector4F(value.X * (1f - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1f - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1f - num7 - num10), 1f);
+        }
+
+        [MethodImpl(Inline)]
+        public static Vector4F Transform(Vector4F value, QuaternionF rotation)
+        {
+            float num = rotation.X + rotation.X;
+            float num2 = rotation.Y + rotation.Y;
+            float num3 = rotation.Z + rotation.Z;
+            float num4 = rotation.W * num;
+            float num5 = rotation.W * num2;
+            float num6 = rotation.W * num3;
+            float num7 = rotation.X * num;
+            float num8 = rotation.X * num2;
+            float num9 = rotation.X * num3;
+            float num10 = rotation.Y * num2;
+            float num11 = rotation.Y * num3;
+            float num12 = rotation.Z * num3;
+            return new Vector4F(value.X * (1f - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1f - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1f - num7 - num10), value.W);
+        }
 
         [MethodImpl(Inline)]
         public Vector4F Transform(Matrix4x4F matrix) =>
@@ -287,6 +347,6 @@ namespace MathStructs
 
         [MethodImpl(Inline)]
         public static bool operator !=(Vector4F left, Vector4F right) =>
-            left.X != right.X && left.Y != right.Y && left.Z != right.Z && left.W != right.W;
+            left.X != right.X || left.Y != right.Y || left.Z != right.Z || left.W != right.W;
     }
 }
