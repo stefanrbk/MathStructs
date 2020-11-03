@@ -28,6 +28,7 @@ namespace MathStructs
             public unsafe Vector3F* Element1;
             public unsafe Vector3F* Element2;
         }
+
         public float M11;
         public float M12;
         public float M13;
@@ -46,7 +47,11 @@ namespace MathStructs
         public float M44;
 
         private static readonly Matrix4x4F _identity = new Matrix4x4F(1f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 0f, 1f);
+        private static readonly Matrix4x4F _nan = new Matrix4x4F(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN);
+
         public static Matrix4x4F Identity => _identity;
+
+        public static Matrix4x4F NaN => _nan;
 
         public bool IsIdentity =>
             this == Identity;
@@ -57,6 +62,7 @@ namespace MathStructs
             set => (M41, M42, M43) = (value.X, value.Y, value.Z);
         }
 
+        [MethodImpl(Optimize)]
         public Matrix4x4F(float m11, float m12, float m13, float m14, float m21, float m22, float m23, float m24, float m31, float m32, float m33, float m34, float m41, float m42, float m43, float m44)
         {
             M11 = m11;
@@ -77,6 +83,7 @@ namespace MathStructs
             M44 = m44;
         }
 
+        [MethodImpl(Optimize)]
         public unsafe void Deconstruct(out Vector3F scale, out QuaternionF rotation, out Vector3F translation)
         {
             fixed (Vector3F* ptr = &scale)
@@ -183,6 +190,7 @@ namespace MathStructs
             }
         }
 
+        [MethodImpl(Optimize)]
         public Matrix4x4F With(float? m11 = null, float? m12 = null, float? m13 = null, float? m14 = null, float? m21 = null, float? m22 = null, float? m23 = null, float? m24 = null, float? m31 = null, float? m32 = null, float? m33 = null, float? m34 = null, float? m41 = null, float? m42 = null, float? m43 = null, float? m44 = null) =>
             new Matrix4x4F(
             m11 ?? M11,
@@ -269,7 +277,7 @@ namespace MathStructs
         {
             var n1 = MathF.Cos(radians);
             var n2 = MathF.Sin(radians);
-            return _identity.With(m22:n1, m23: n2, m32: -n2, m33: n1);
+            return _identity.With(m22: n1, m23: n2, m32: -n2, m33: n1);
         }
 
         public static Matrix4x4F CreateRotationX(float radians, Vector3F centerPoint)
@@ -277,7 +285,7 @@ namespace MathStructs
             var n1 = MathF.Cos(radians);
             var n2 = MathF.Sin(radians);
             var m1 = centerPoint.Y * (1 - n1) + centerPoint.Z * n2;
-            var m2 = centerPoint.Z * (1 - n1) + centerPoint.Y * n2;
+            var m2 = centerPoint.Z * (1 - n1) - centerPoint.Y * n2;
             return CreateRotationX(radians).With(m42: m1, m43: m2);
         }
 
@@ -292,7 +300,7 @@ namespace MathStructs
         {
             var n1 = MathF.Cos(radians);
             var n2 = MathF.Sin(radians);
-            var m1 = centerPoint.X * (1 - n1) + centerPoint.Z * n2;
+            var m1 = centerPoint.X * (1 - n1) - centerPoint.Z * n2;
             var m2 = centerPoint.Z * (1 - n1) + centerPoint.X * n2;
             return CreateRotationY(radians).With(m41: m1, m43: m2);
         }
@@ -309,8 +317,8 @@ namespace MathStructs
             var n1 = MathF.Cos(radians);
             var n2 = MathF.Sin(radians);
             var m1 = centerPoint.X * (1 - n1) + centerPoint.Y * n2;
-            var m2 = centerPoint.Y * (1 - n1) + centerPoint.X * n2;
-            return CreateRotationX(radians).With(m41: m1, m42: m2);
+            var m2 = centerPoint.Y * (1 - n1) - centerPoint.X * n2;
+            return CreateRotationZ(radians).With(m41: m1, m42: m2);
         }
 
         public static Matrix4x4F CreateFromAxisAngle(Vector3F axis, float angle)
@@ -331,7 +339,7 @@ namespace MathStructs
                                   m22: n4 + n2 * (1 - n4),
                                   m23: n8 - n2 * n8 + n1 * x,
                                   m31: n7 - n2 * n7 + n1 * y,
-                                  m32: n8 - n2 * n8 - n1 * y,
+                                  m32: n8 - n2 * n8 - n1 * x,
                                   m33: n5 + n2 * (1 - n5));
         }
 
@@ -511,8 +519,12 @@ namespace MathStructs
                                   m43: v2.Z * value.D);
         }
 
-        public static void Decompose(Matrix4x4F matrix, out Vector3F scale, out QuaternionF rotation, out Vector3F translation) =>
-            (scale, rotation, translation) = matrix;
+        [MethodImpl(Optimize)]
+        public static bool Decompose(Matrix4x4F matrix, out Vector3F scales, out QuaternionF rotation, out Vector3F translation) 
+        { 
+            (scales, rotation, translation) = matrix;
+            return scales != Vector3F.Zero || translation != Vector3F.Zero || rotation != QuaternionF.Identity;
+        }
 
         public float GetDeterminant()
         {
@@ -556,113 +568,113 @@ namespace MathStructs
             {
                 unsafe
                 {
-                    var l1 = Sse.LoadVector128(&matrix.M11);
-                    var r1 = Sse.LoadVector128(&matrix.M21);
-                    var l2 = Sse.LoadVector128(&matrix.M31);
-                    var r2 = Sse.LoadVector128(&matrix.M41);
-                    var l3 = Sse.Shuffle(l1, r1, 68);
-                    var l4 = Sse.Shuffle(l1, r1, 238);
-                    var r3 = Sse.Shuffle(l2, r2, 68);
-                    var r4 = Sse.Shuffle(l2, r2, 238);
-                    l1 = Sse.Shuffle(l3, r3, 136);
-                    r1 = Sse.Shuffle(l3, r3, 221);
-                    l2 = Sse.Shuffle(l4, r4, 136);
-                    r2 = Sse.Shuffle(l4, r4, 221);
-                    var l5 = Permute(l2, 80);
-                    var r5 = Permute(r2, 238);
-                    var l6 = Permute(l1, 80);
-                    var r6 = Permute(r1, 238);
-                    var l7 = Sse.Shuffle(l2, l1, 136);
-                    var r7 = Sse.Shuffle(r2, r1, 221);
-                    var l8 = Sse.Multiply(l5, r5);
-                    var l9 = Sse.Multiply(l6, r6);
-                    var l10 = Sse.Multiply(l7, r7);
-                    l5 = Permute(l2, 238);
-                    r5 = Permute(r2, 80);
-                    l6 = Permute(l1, 238);
-                    r6 = Permute(r1, 80);
-                    l7 = Sse.Shuffle(l2, l1, 221);
-                    r7 = Sse.Shuffle(r2, r1, 136);
-                    l8 = Sse.Subtract(l8, Sse.Multiply(l5, r5));
-                    l9 = Sse.Subtract(l9, Sse.Multiply(l6, r6));
-                    l10 = Sse.Subtract(l10, Sse.Multiply(l7, r7));
-                    r6 = Sse.Shuffle(l8, l10, 93);
-                    l5 = Permute(r1, 73);
-                    r5 = Sse.Shuffle(r6, l8, 50);
-                    l6 = Permute(l1, 18);
-                    r6 = Sse.Shuffle(r6, l8, 153);
-                    var l11 = Sse.Shuffle(l9, l10, 253);
-                    l7 = Permute(r2, 73);
-                    r7 = Sse.Shuffle(l11, l9, 50);
-                    var l12 = Permute(l2, 18);
-                    l11 = Sse.Shuffle(l11, l9, 153);
-                    var l13 = Sse.Multiply(l5, r5);
-                    var l14 = Sse.Multiply(l6, r6);
-                    var l15 = Sse.Multiply(l7, r7);
-                    var l16 = Sse.Multiply(l12, l11);
-                    r6 = Sse.Shuffle(l8, l10, 4);
-                    l5 = Permute(r1, 158);
-                    r5 = Sse.Shuffle(l8, r6, 147);
-                    l6 = Permute(l1, 123);
-                    r6 = Sse.Shuffle(l8, r6, 38);
-                    l11 = Sse.Shuffle(l9, l10, 164);
-                    l7 = Permute(r2, 158);
-                    r7 = Sse.Shuffle(l9, l11, 147);
-                    l12 = Permute(l2, 123);
-                    l11 = Sse.Shuffle(l9, l11, 38);
-                    l13 = Sse.Subtract(l13, Sse.Multiply(l5, r5));
-                    l14 = Sse.Subtract(l14, Sse.Multiply(l6, r6));
-                    l15 = Sse.Subtract(l15, Sse.Multiply(l7, r7));
-                    l16 = Sse.Subtract(l16, Sse.Multiply(l12, l11));
-                    l5 = Permute(r1, 51);
-                    r5 = Sse.Shuffle(l8, l10, 74);
-                    r5 = Permute(r5, 44);
-                    l6 = Permute(l1, 141);
-                    r6 = Sse.Shuffle(l8, l10, 76);
-                    r6 = Permute(r6, 147);
-                    l7 = Permute(r2, 51);
-                    r7 = Sse.Shuffle(l9, l10, 234);
-                    r7 = Permute(r7, 44);
-                    l12 = Permute(l2, 141);
-                    l11 = Sse.Shuffle(l9, l10, 236);
-                    l11 = Permute(l11, 147);
-                    l5 = Sse.Multiply(l5, r5);
-                    l6 = Sse.Multiply(l6, r6);
-                    l7 = Sse.Multiply(l7, r7);
-                    l12 = Sse.Multiply(l12, l11);
-                    var r8 = Sse.Subtract(l13, l5);
-                    l13 = Sse.Add(l13, l5);
-                    var r9 = Sse.Add(l14, l6);
-                    l14 = Sse.Subtract(l14, l6);
-                    var r10 = Sse.Subtract(l15, l7);
-                    l15 = Sse.Add(l15, l7);
-                    var r11 = Sse.Add(l16, l12);
-                    l16 = Sse.Subtract(l16, l12);
-                    l13 = Sse.Shuffle(l13, r8, 216);
-                    l14 = Sse.Shuffle(l14, r9, 216);
-                    l15 = Sse.Shuffle(l15, r10, 216);
-                    l16 = Sse.Shuffle(l16, r11, 216);
-                    l13 = Permute(l13, 216);
-                    l14 = Permute(l14, 216);
-                    l15 = Permute(l15, 216);
-                    l16 = Permute(l16, 216);
-                    r3 = l1;
-                    var num = l13.AsVector4F().Dot(r3.AsVector4F());
-                    if (MathF.Abs(num) < float.Epsilon)
-                        return new Matrix4x4F(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN);
-                    var l17 = Vector128.Create(1f);
-                    var r12 = Vector128.Create(num);
-                    r12 = Sse.Divide(l17, r12);
-                    l1 = Sse.Multiply(l12, r12);
-                    r1 = Sse.Multiply(l14, r12);
-                    l2 = Sse.Multiply(l15, r12);
-                    r2 = Sse.Multiply(l16, r12);
+                    var left = Sse.LoadVector128(&matrix.M11);
+                    var right = Sse.LoadVector128(&matrix.M21);
+                    var left2 = Sse.LoadVector128(&matrix.M31);
+                    var right2 = Sse.LoadVector128(&matrix.M41);
+                    var left3 = Sse.Shuffle(left, right, 68);
+                    var left4 = Sse.Shuffle(left, right, 238);
+                    var right3 = Sse.Shuffle(left2, right2, 68);
+                    var right4 = Sse.Shuffle(left2, right2, 238);
+                    left = Sse.Shuffle(left3, right3, 136);
+                    right = Sse.Shuffle(left3, right3, 221);
+                    left2 = Sse.Shuffle(left4, right4, 136);
+                    right2 = Sse.Shuffle(left4, right4, 221);
+                    var left5 = Permute(left2, 80);
+                    var right5 = Permute(right2, 238);
+                    var left6 = Permute(left, 80);
+                    var right6 = Permute(right, 238);
+                    var left7 = Sse.Shuffle(left2, left, 136);
+                    var right7 = Sse.Shuffle(right2, right, 221);
+                    var left8 = Sse.Multiply(left5, right5);
+                    var left9 = Sse.Multiply(left6, right6);
+                    var left10 = Sse.Multiply(left7, right7);
+                    left5 = Permute(left2, 238);
+                    right5 = Permute(right2, 80);
+                    left6 = Permute(left, 238);
+                    right6 = Permute(right, 80);
+                    left7 = Sse.Shuffle(left2, left, 221);
+                    right7 = Sse.Shuffle(right2, right, 136);
+                    left8 = Sse.Subtract(left8, Sse.Multiply(left5, right5));
+                    left9 = Sse.Subtract(left9, Sse.Multiply(left6, right6));
+                    left10 = Sse.Subtract(left10, Sse.Multiply(left7, right7));
+                    right6 = Sse.Shuffle(left8, left10, 93);
+                    left5 = Permute(right, 73);
+                    right5 = Sse.Shuffle(right6, left8, 50);
+                    left6 = Permute(left, 18);
+                    right6 = Sse.Shuffle(right6, left8, 153);
+                    var left11 = Sse.Shuffle(left9, left10, 253);
+                    left7 = Permute(right2, 73);
+                    right7 = Sse.Shuffle(left11, left9, 50);
+                    var left12 = Permute(left2, 18);
+                    left11 = Sse.Shuffle(left11, left9, 153);
+                    var left13 = Sse.Multiply(left5, right5);
+                    var left14 = Sse.Multiply(left6, right6);
+                    var left15 = Sse.Multiply(left7, right7);
+                    var left16 = Sse.Multiply(left12, left11);
+                    right6 = Sse.Shuffle(left8, left10, 4);
+                    left5 = Permute(right, 158);
+                    right5 = Sse.Shuffle(left8, right6, 147);
+                    left6 = Permute(left, 123);
+                    right6 = Sse.Shuffle(left8, right6, 38);
+                    left11 = Sse.Shuffle(left9, left10, 164);
+                    left7 = Permute(right2, 158);
+                    right7 = Sse.Shuffle(left9, left11, 147);
+                    left12 = Permute(left2, 123);
+                    left11 = Sse.Shuffle(left9, left11, 38);
+                    left13 = Sse.Subtract(left13, Sse.Multiply(left5, right5));
+                    left14 = Sse.Subtract(left14, Sse.Multiply(left6, right6));
+                    left15 = Sse.Subtract(left15, Sse.Multiply(left7, right7));
+                    left16 = Sse.Subtract(left16, Sse.Multiply(left12, left11));
+                    left5 = Permute(right, 51);
+                    right5 = Sse.Shuffle(left8, left10, 74);
+                    right5 = Permute(right5, 44);
+                    left6 = Permute(left, 141);
+                    right6 = Sse.Shuffle(left8, left10, 76);
+                    right6 = Permute(right6, 147);
+                    left7 = Permute(right2, 51);
+                    right7 = Sse.Shuffle(left9, left10, 234);
+                    right7 = Permute(right7, 44);
+                    left12 = Permute(left2, 141);
+                    left11 = Sse.Shuffle(left9, left10, 236);
+                    left11 = Permute(left11, 147);
+                    left5 = Sse.Multiply(left5, right5);
+                    left6 = Sse.Multiply(left6, right6);
+                    left7 = Sse.Multiply(left7, right7);
+                    left12 = Sse.Multiply(left12, left11);
+                    var right8 = Sse.Subtract(left13, left5);
+                    left13 = Sse.Add(left13, left5);
+                    var right9 = Sse.Add(left14, left6);
+                    left14 = Sse.Subtract(left14, left6);
+                    var right10 = Sse.Subtract(left15, left7);
+                    left15 = Sse.Add(left15, left7);
+                    var right11 = Sse.Add(left16, left12);
+                    left16 = Sse.Subtract(left16, left12);
+                    left13 = Sse.Shuffle(left13, right8, 216);
+                    left14 = Sse.Shuffle(left14, right9, 216);
+                    left15 = Sse.Shuffle(left15, right10, 216);
+                    left16 = Sse.Shuffle(left16, right11, 216);
+                    left13 = Permute(left13, 216);
+                    left14 = Permute(left14, 216);
+                    left15 = Permute(left15, 216);
+                    left16 = Permute(left16, 216);
+                    right3 = left;
+                    float num25 = Vector4F.Dot(left13.AsVector4F(), right3.AsVector4F());
+                    if (MathF.Abs(num25) < float.Epsilon)
+                        return _nan;
+                    var left17 = Vector128.Create(1f);
+                    var right12 = Vector128.Create(num25);
+                    right12 = Sse.Divide(left17, right12);
+                    left = Sse.Multiply(left13, right12);
+                    right = Sse.Multiply(left14, right12);
+                    left2 = Sse.Multiply(left15, right12);
+                    right2 = Sse.Multiply(left16, right12);
                     Unsafe.SkipInit<Matrix4x4F>(out var result);
                     ref var reference = ref Unsafe.As<Matrix4x4F, Vector128<float>>(ref result);
-                    reference = l1;
-                    Unsafe.Add(ref reference, 1) = r1;
-                    Unsafe.Add(ref reference, 2) = l2;
-                    Unsafe.Add(ref reference, 3) = r2;
+                    reference = left;
+                    Unsafe.Add(ref reference, 1) = right;
+                    Unsafe.Add(ref reference, 2) = left2;
+                    Unsafe.Add(ref reference, 3) = right2;
                     return result;
                 }
             }
@@ -694,7 +706,7 @@ namespace MathStructs
             float n10 = -(m5 * n3 - m6 * n5 + m7 * n6);
             float n11 = m1 * n7 + m2 * n8 + m3 * n9 + m4 * n10;
             if (MathF.Abs(n11) < float.Epsilon)
-                return new Matrix4x4F(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN);
+                return _nan;
             float n12 = 1f / n11;
             float n13 = m7 * m16 - m8 * m15;
             float n14 = m6 * m16 - m8 * m14;
@@ -708,26 +720,27 @@ namespace MathStructs
             float n22 = m5 * m12 - m8 * m9;
             float n23 = m5 * m11 - m7 * m9;
             float n24 = m5 * m10 - m6 * m9;
-            return new Matrix4x4F(n7 * n12,
-                                  n8 * n12,
-                                  n9 * n12,
-                                  n10 * n12,
-                                  (-(m2 * n1 - m3 * n2 + m4 * n3)) * n12,
-                                  (m1 * n1 - m3 * n4 + m4 * n5) * n12,
-                                  (-(m1 * n2 - m2 * n4 + m4 * n6)) * n12,
-                                  (m1 * n3 - m2 * n5 + m3 * n6) * n12,
-                                  (m2 * n13 - m3 * n14 + m4 * n15) * n12,
-                                  (-(m1 * n13 - m3 * n16 + m4 * n17)) * n12,
-                                  (m1 * n14 - m2 * n16 + m4 * n18) * n12,
-                                  (-(m1 * n15 - m2 * n17 + m3 * n18)) * n12,
-                                  (-(m2 * n19 - m3 * n20 + m4 * n21)) * n12,
-                                  (m1 * n19 - m3 * n22 + m4 * n23) * n12,
-                                  (-(m1 * n20 - m2 * n22 + m4 * n24)) * n12,
-                                  (m1 * n21 - m2 * n23 + m3 * n24) * n12);
+            return new Matrix4x4F(m11: n7 * n12,
+                                  m21: n8 * n12,
+                                  m31: n9 * n12,
+                                  m41: n10 * n12,
+                                  m12: (-(m2 * n1 - m3 * n2 + m4 * n3)) * n12,
+                                  m22: (m1 * n1 - m3 * n4 + m4 * n5) * n12,
+                                  m32: (-(m1 * n2 - m2 * n4 + m4 * n6)) * n12,
+                                  m42: (m1 * n3 - m2 * n5 + m3 * n6) * n12,
+                                  m13: (m2 * n13 - m3 * n14 + m4 * n15) * n12,
+                                  m23: (-(m1 * n13 - m3 * n16 + m4 * n17)) * n12,
+                                  m33: (m1 * n14 - m2 * n16 + m4 * n18) * n12,
+                                  m43: (-(m1 * n15 - m2 * n17 + m3 * n18)) * n12,
+                                  m14: (-(m2 * n19 - m3 * n20 + m4 * n21)) * n12,
+                                  m24: (m1 * n19 - m3 * n22 + m4 * n23) * n12,
+                                  m34: (-(m1 * n20 - m2 * n22 + m4 * n24)) * n12,
+                                  m44: (m1 * n21 - m2 * n23 + m3 * n24) * n12);
 
 
         }
 
+        [MethodImpl(Optimize)]
         public Matrix4x4F Transform(QuaternionF rotation)
         {
             float n1 = rotation.X + rotation.X;
@@ -769,9 +782,11 @@ namespace MathStructs
                                   M44);
         }
 
+        [MethodImpl(Optimize)]
         public static Matrix4x4F Transform(Matrix4x4F value, QuaternionF rotation) =>
             value.Transform(rotation);
 
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F Transpose(Matrix4x4F matrix)
         {
             if (Sse.IsSupported)
@@ -796,9 +811,11 @@ namespace MathStructs
                                   matrix.M14, matrix.M24, matrix.M34, matrix.M44);
         }
 
+        [MethodImpl(Optimize)]
         public Matrix4x4F Transpose() =>
             Transpose(this);
 
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F Lerp(Matrix4x4F matrix1, Matrix4x4F matrix2, float amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
@@ -829,9 +846,27 @@ namespace MathStructs
                                   m1.M44 + (m2.M44 - m1.M44) * amount);
         }
 
+        [MethodImpl(Optimize)]
         public static Matrix4x4F Negate(Matrix4x4F value) =>
             -value;
 
+        [MethodImpl(Optimize)]
+        public static Matrix4x4F Add(Matrix4x4F left, Matrix4x4F right) =>
+            left + right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix4x4F Subtract(Matrix4x4F left, Matrix4x4F right) =>
+            left - right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix4x4F Multiply(Matrix4x4F left, Matrix4x4F right) =>
+            left * right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix4x4F Multiply(Matrix4x4F left, float right) =>
+            left * right;
+
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator -(Matrix4x4F value)
         {
             if (Sse.IsSupported)
@@ -849,9 +884,11 @@ namespace MathStructs
                                   -value.M41, -value.M42, -value.M43, -value.M44);
         }
 
+        [MethodImpl(Optimize)]
         public static Matrix4x4F operator +(Matrix4x4F value) =>
             value;
 
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator +(Matrix4x4F left, Matrix4x4F right)
         {
             if (Sse.IsSupported)
@@ -869,6 +906,7 @@ namespace MathStructs
                                   left.M41 + right.M41, left.M42 + right.M42, left.M43 + right.M43, left.M44 + right.M44);
         }
 
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator -(Matrix4x4F left, Matrix4x4F right)
         {
             if (Sse.IsSupported)
@@ -886,6 +924,7 @@ namespace MathStructs
                                   left.M41 - right.M41, left.M42 - right.M42, left.M43 - right.M43, left.M44 - right.M44);
         }
 
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator *(Matrix4x4F value1, Matrix4x4F value2)
         {
             if (Sse.IsSupported)
@@ -916,6 +955,7 @@ namespace MathStructs
             return result;
         }
 
+        [MethodImpl(Optimize)]
         private static unsafe Vector128<float> MultiplyRow(Matrix4x4F value2, Vector128<float> vector)
         {
             return Sse.Add(Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0),
@@ -928,6 +968,7 @@ namespace MathStructs
                                                 Sse.LoadVector128(&value2.M41))));
         }
 
+        [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator *(Matrix4x4F value1, float value2)
         {
             if (Sse.IsSupported)
@@ -959,6 +1000,7 @@ namespace MathStructs
             return result;
         }
 
+        [MethodImpl(Optimize)]
         public unsafe static bool operator ==(Matrix4x4F value1, Matrix4x4F value2)
         {
             if (Sse.IsSupported)
@@ -972,6 +1014,7 @@ namespace MathStructs
             return false;
         }
 
+        [MethodImpl(Optimize)]
         public unsafe static bool operator !=(Matrix4x4F value1, Matrix4x4F value2)
         {
             if (Sse.IsSupported)
@@ -985,11 +1028,13 @@ namespace MathStructs
             return true;
         }
 
+        [MethodImpl(Optimize)]
         public readonly bool Equals(Matrix4x4F other)
         {
             return this == other;
         }
 
+        [MethodImpl(Optimize)]
         public override readonly bool Equals(object? obj)
         {
             if (obj is Matrix4x4F)
@@ -1001,21 +1046,46 @@ namespace MathStructs
         }
 
         public override readonly string ToString() =>
-            $"{{{{ {{{{M11:{M11} M12:{M12} M13:{M13} M14:{M14}}} {{M21:{M21} M22:{M22} M23:{M23} M24:{M24}}}}} {{{{M31:{M31} M32:{M32} M33:{M33} M34:{M34}}}}} {{{{M41:{M41} M42:{M42} M43:{M43} M44:{M44}}}}} }}}}";
+            $"{{ {{M11:{M11} M12:{M12} M13:{M13} M14:{M14}}} {{M21:{M21} M22:{M22} M23:{M23} M24:{M24}}} {{M31:{M31} M32:{M32} M33:{M33} M34:{M34}}} {{M41:{M41} M42:{M42} M43:{M43} M44:{M44}}} }}";
 
-        public override readonly int GetHashCode()
+        public override int GetHashCode()
         {
-            return M11.GetHashCode() + M12.GetHashCode() + M13.GetHashCode() + M14.GetHashCode() + M21.GetHashCode() + M22.GetHashCode() + M23.GetHashCode() + M24.GetHashCode() + M31.GetHashCode() + M32.GetHashCode() + M33.GetHashCode() + M34.GetHashCode() + M41.GetHashCode() + M42.GetHashCode() + M43.GetHashCode() + M44.GetHashCode();
+            var hash = new HashCode();
+            hash.Add(M11);
+            hash.Add(M12);
+            hash.Add(M13);
+            hash.Add(M14);
+            hash.Add(M21);
+            hash.Add(M22);
+            hash.Add(M23);
+            hash.Add(M24);
+            hash.Add(M31);
+            hash.Add(M32);
+            hash.Add(M33);
+            hash.Add(M34);
+            hash.Add(M41);
+            hash.Add(M42);
+            hash.Add(M43);
+            hash.Add(M44);
+            return hash.ToHashCode();
         }
+
+        internal Matrix3x3F As3x3() =>
+            new Matrix3x3F(M11, M12, M13,
+                           M21, M22, M23,
+                           M31, M32, M33);
 
         private static class VectorMath
         {
+        [MethodImpl(Optimize)]
             public static Vector128<float> Lerp(Vector128<float> a, Vector128<float> b, Vector128<float> t) =>
                 Sse.Add(a, Sse.Multiply(Sse.Subtract(b, a), t));
 
+        [MethodImpl(Optimize)]
             public static bool Equal(Vector128<float> a, Vector128<float> b) =>
                 Sse.MoveMask(Sse.CompareNotEqual(a, b)) == 0;
 
+        [MethodImpl(Optimize)]
             public static bool NotEqual(Vector128<float> a, Vector128<float> b) =>
                 Sse.MoveMask(Sse.CompareNotEqual(a, b)) != 0;
         }
