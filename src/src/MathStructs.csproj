@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/stefanrbk/MathStructs</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Configurations>Debug;Release;Test</Configurations>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
