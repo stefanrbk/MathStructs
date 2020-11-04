@@ -1037,9 +1037,8 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public override readonly bool Equals(object? obj)
         {
-            if (obj is Matrix4x4F)
+            if (obj is Matrix4x4F value)
             {
-                Matrix4x4F value = (Matrix4x4F)obj;
                 return this == value;
             }
             return false;

@@ -193,9 +193,11 @@ namespace Tests
         [Test]
         public void Vector2LengthTest1()
         {
-            Vector2F target = new Vector2F();
-            target.X = 0.0f;
-            target.Y = 0.0f;
+            Vector2F target = new Vector2F
+            {
+                X = 0.0f,
+                Y = 0.0f
+            };
 
             float expected = 0.0f;
             float actual;
@@ -883,7 +885,7 @@ namespace Tests
             Vector2F b = new Vector2F(1.0f, 2.0f);
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -1178,7 +1180,7 @@ namespace Tests
         struct Vector2PlusFloat
         {
             private Vector2F _v;
-            private float _f;
+            private readonly float _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -1191,9 +1193,11 @@ namespace Tests
         [Test]
         public void SetFieldsTest()
         {
-            Vector2F v3 = new Vector2F(4f, 5f);
-            v3.X = 1.0f;
-            v3.Y = 2.0f;
+            Vector2F v3 = new Vector2F(4f, 5f)
+            {
+                X = 1.0f,
+                Y = 2.0f
+            };
             Assert.AreEqual(1.0f, v3.X);
             Assert.AreEqual(2.0f, v3.Y);
             Vector2F v4 = v3;

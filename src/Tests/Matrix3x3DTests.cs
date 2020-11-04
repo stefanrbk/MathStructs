@@ -10,23 +10,25 @@ namespace Tests
 {
     public class Matrix3x3DTests
     {
-        static Matrix4x4D As4x4(Matrix3x3D m) =>
-            Matrix4x4D.Identity.With(m11: m.M11, m12: m.M12, m13: m.M13, m21: m.M21, m22: m.M22, m23: m.M23, m31: m.M31, m32: m.M32, m33: m.M33);
+        //static Matrix4x4D As4x4(Matrix3x3D m) =>
+        //    Matrix4x4D.Identity.With(m11: m.M11, m12: m.M12, m13: m.M13, m21: m.M21, m22: m.M22, m23: m.M23, m31: m.M31, m32: m.M32, m33: m.M33);
         static Matrix3x3D As3x3(Matrix4x4D m) =>
             new Matrix3x3D(m.M11, m.M12, m.M13, m.M21, m.M22, m.M23, m.M31, m.M32, m.M33);
 
         static Matrix3x3D GenerateIncrementalMatrixNumber(double value = 0.0f)
         {
-            Matrix3x3D a = new Matrix3x3D();
-            a.M11 = value + 1.0f;
-            a.M12 = value + 2.0f;
-            a.M13 = value + 3.0f;
-            a.M21 = value + 4.0f;
-            a.M22 = value + 5.0f;
-            a.M23 = value + 6.0f;
-            a.M31 = value + 7.0f;
-            a.M32 = value + 8.0f;
-            a.M33 = value + 9.0f;
+            Matrix3x3D a = new Matrix3x3D
+            {
+                M11 = value + 1.0,
+                M12 = value + 2.0,
+                M13 = value + 3.0,
+                M21 = value + 4.0,
+                M22 = value + 5.0,
+                M23 = value + 6.0,
+                M31 = value + 7.0,
+                M32 = value + 8.0,
+                M33 = value + 9.0
+            };
             return a;
         }
 
@@ -60,22 +62,24 @@ namespace Tests
         [Test]
         public void Matrix3x3DDeterminantTest1()
         {
-            Matrix3x3D a = new Matrix3x3D();
-            a.M11 = 5.0f;
-            a.M12 = 2.0f;
-            a.M13 = 8.25f;
-            a.M21 = 12.0f;
-            a.M22 = 6.8f;
-            a.M23 = 2.14f;
-            a.M31 = 6.5f;
-            a.M32 = 1.0f;
-            a.M33 = 3.14f;
+            Matrix3x3D a = new Matrix3x3D
+            {
+                M11 = 5.0,
+                M12 = 2.0,
+                M13 = 8.25,
+                M21 = 12.0,
+                M22 = 6.8,
+                M23 = 2.14,
+                M31 = 6.5,
+                M32 = 1.0,
+                M33 = 3.14
+            };
             Matrix3x3D i = a.Invert();
             Assert.AreNotEqual(i, Matrix3x3D.NaN);
 
             double detA = a.GetDeterminant();
             double detI = i.GetDeterminant();
-            double t = 1.0f / detI;
+            double t = 1.0 / detI;
 
             // only accurate to 3 precision
             Assert.Less(Math.Abs(detA - t), 1e-3, "Matrix3x3D.Determinant was not set correctly.");
@@ -98,19 +102,21 @@ namespace Tests
         [Test]
         public void Matrix3x3DInvertTest1()
         {
-            Matrix3x3D a = new Matrix3x3D();
-            a.M11 = 1.0f;
-            a.M12 = 2.0f;
-            a.M13 = 3.0f;
-            a.M21 = 4.0f;
-            a.M22 = 5.0f;
-            a.M23 = 6.0f;
-            a.M31 = 7.0f;
-            a.M32 = 8.0f;
-            a.M33 = 9.0f;
+            Matrix3x3D a = new Matrix3x3D
+            {
+                M11 = 1.0,
+                M12 = 2.0,
+                M13 = 3.0,
+                M21 = 4.0,
+                M22 = 5.0,
+                M23 = 6.0,
+                M31 = 7.0,
+                M32 = 8.0,
+                M33 = 9.0
+            };
 
             double detA = a.GetDeterminant();
-            Assert.AreEqual(detA, 0.0f, "Matrix3x3D.Invert did not return the expected value.");
+            Assert.AreEqual(detA, 0.0, "Matrix3x3D.Invert did not return the expected value.");
 
             Matrix3x3D actual = a.Invert();
 
@@ -126,33 +132,37 @@ namespace Tests
         [Test]
         public void Matrix3x3DLerpTest()
         {
-            Matrix3x3D a = new Matrix3x3D();
-            a.M11 = 11.0f;
-            a.M12 = 12.0f;
-            a.M13 = 13.0f;
-            a.M21 = 14.0f;
-            a.M22 = 21.0f;
-            a.M23 = 22.0f;
-            a.M31 = 23.0f;
-            a.M32 = 24.0f;
-            a.M33 = 31.0f;
+            Matrix3x3D a = new Matrix3x3D
+            {
+                M11 = 11.0,
+                M12 = 12.0,
+                M13 = 13.0,
+                M21 = 14.0,
+                M22 = 21.0,
+                M23 = 22.0,
+                M31 = 23.0,
+                M32 = 24.0,
+                M33 = 31.0
+            };
 
             Matrix3x3D b = GenerateIncrementalMatrixNumber();
 
-            double t = 0.5f;
+            double t = 0.5;
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 + (b.M11 - a.M11) * t;
-            expected.M12 = a.M12 + (b.M12 - a.M12) * t;
-            expected.M13 = a.M13 + (b.M13 - a.M13) * t;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 + (b.M11 - a.M11) * t,
+                M12 = a.M12 + (b.M12 - a.M12) * t,
+                M13 = a.M13 + (b.M13 - a.M13) * t,
 
-            expected.M21 = a.M21 + (b.M21 - a.M21) * t;
-            expected.M22 = a.M22 + (b.M22 - a.M22) * t;
-            expected.M23 = a.M23 + (b.M23 - a.M23) * t;
+                M21 = a.M21 + (b.M21 - a.M21) * t,
+                M22 = a.M22 + (b.M22 - a.M22) * t,
+                M23 = a.M23 + (b.M23 - a.M23) * t,
 
-            expected.M31 = a.M31 + (b.M31 - a.M31) * t;
-            expected.M32 = a.M32 + (b.M32 - a.M32) * t;
-            expected.M33 = a.M33 + (b.M33 - a.M33) * t;
+                M31 = a.M31 + (b.M31 - a.M31) * t,
+                M32 = a.M32 + (b.M32 - a.M32) * t,
+                M33 = a.M33 + (b.M33 - a.M33) * t
+            };
 
             Matrix3x3D actual;
             actual = Matrix3x3D.Lerp(a, b, t);
@@ -165,16 +175,18 @@ namespace Tests
         {
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = -1.0f;
-            expected.M12 = -2.0f;
-            expected.M13 = -3.0f;
-            expected.M21 = -4.0f;
-            expected.M22 = -5.0f;
-            expected.M23 = -6.0f;
-            expected.M31 = -7.0f;
-            expected.M32 = -8.0f;
-            expected.M33 = -9.0f;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = -1.0,
+                M12 = -2.0,
+                M13 = -3.0,
+                M21 = -4.0,
+                M22 = -5.0,
+                M23 = -6.0,
+                M31 = -7.0,
+                M32 = -8.0,
+                M33 = -9.0
+            };
 
             Matrix3x3D actual = -a;
             Assert.AreEqual(expected, actual, "Matrix3x3D.operator - did not return the expected value.");
@@ -187,16 +199,18 @@ namespace Tests
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
             Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 - b.M11;
-            expected.M12 = a.M12 - b.M12;
-            expected.M13 = a.M13 - b.M13;
-            expected.M21 = a.M21 - b.M21;
-            expected.M22 = a.M22 - b.M22;
-            expected.M23 = a.M23 - b.M23;
-            expected.M31 = a.M31 - b.M31;
-            expected.M32 = a.M32 - b.M32;
-            expected.M33 = a.M33 - b.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 - b.M11,
+                M12 = a.M12 - b.M12,
+                M13 = a.M13 - b.M13,
+                M21 = a.M21 - b.M21,
+                M22 = a.M22 - b.M22,
+                M23 = a.M23 - b.M23,
+                M31 = a.M31 - b.M31,
+                M32 = a.M32 - b.M32,
+                M33 = a.M33 - b.M33
+            };
 
             Matrix3x3D actual = a - b;
             Assert.AreEqual(expected, actual, "Matrix3x3D.operator - did not return the expected value.");
@@ -209,18 +223,20 @@ namespace Tests
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
             Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31;
-            expected.M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32;
-            expected.M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31,
+                M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32,
+                M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33,
 
-            expected.M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31;
-            expected.M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32;
-            expected.M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33;
+                M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31,
+                M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32,
+                M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33,
 
-            expected.M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31;
-            expected.M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32;
-            expected.M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33;
+                M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31,
+                M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32,
+                M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33
+            };
 
             Matrix3x3D actual = a * b;
             Assert.AreEqual(expected, actual, "Matrix3x3D.operator * did not return the expected value.");
@@ -231,19 +247,20 @@ namespace Tests
         [Test]
         public void Matrix3x3DMultiplyTest4()
         {
-            Matrix3x3D a = new Matrix3x3D();
-            a.M11 = 1.0f;
-            a.M12 = 2.0f;
-            a.M13 = 3.0f;
-            a.M21 = 4.0f;
-            a.M22 = 5.0f;
-            a.M23 = -6.0f;
-            a.M31 = 7.0f;
-            a.M32 = -8.0f;
-            a.M33 = 9.0f;
+            Matrix3x3D a = new Matrix3x3D
+            {
+                M11 = 1.0,
+                M12 = 2.0,
+                M13 = 3.0,
+                M21 = 4.0,
+                M22 = 5.0,
+                M23 = -6.0,
+                M31 = 7.0,
+                M32 = -8.0,
+                M33 = 9.0
+            };
 
-            Matrix3x3D b = new Matrix3x3D();
-            b = Matrix3x3D.Identity;
+            Matrix3x3D b = Matrix3x3D.Identity;
 
             Matrix3x3D expected = a;
             Matrix3x3D actual = a * b;
@@ -256,18 +273,20 @@ namespace Tests
         public void Matrix3x3DAdditionTest()
         {
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
-            Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 + b.M11;
-            expected.M12 = a.M12 + b.M12;
-            expected.M13 = a.M13 + b.M13;
-            expected.M21 = a.M21 + b.M21;
-            expected.M22 = a.M22 + b.M22;
-            expected.M23 = a.M23 + b.M23;
-            expected.M31 = a.M31 + b.M31;
-            expected.M32 = a.M32 + b.M32;
-            expected.M33 = a.M33 + b.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 + b.M11,
+                M12 = a.M12 + b.M12,
+                M13 = a.M13 + b.M13,
+                M21 = a.M21 + b.M21,
+                M22 = a.M22 + b.M22,
+                M23 = a.M23 + b.M23,
+                M31 = a.M31 + b.M31,
+                M32 = a.M32 + b.M32,
+                M33 = a.M33 + b.M33
+            };
 
             Matrix3x3D actual = a + b;
             Assert.AreEqual(expected, actual, "Matrix3x3D.operator + did not return the expected value.");
@@ -279,16 +298,18 @@ namespace Tests
         {
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11;
-            expected.M12 = a.M21;
-            expected.M13 = a.M31;
-            expected.M21 = a.M12;
-            expected.M22 = a.M22;
-            expected.M23 = a.M32;
-            expected.M31 = a.M13;
-            expected.M32 = a.M23;
-            expected.M33 = a.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11,
+                M12 = a.M21,
+                M13 = a.M31,
+                M21 = a.M12,
+                M22 = a.M22,
+                M23 = a.M32,
+                M31 = a.M13,
+                M32 = a.M23,
+                M33 = a.M33
+            };
 
             Matrix3x3D actual = Matrix3x3D.Transpose(a);
             Assert.AreEqual(expected, actual, "Matrix3x3D.Transpose did not return the expected value.");
@@ -310,16 +331,18 @@ namespace Tests
         [Test]
         public void Matrix3x3DToStringTest()
         {
-            Matrix3x3D a = new Matrix3x3D();
-            a.M11 = 11.0;
-            a.M12 = -12.0;
-            a.M13 = -13.3;
-            a.M21 = 14.4;
-            a.M22 = 21.0;
-            a.M23 = 22.0;
-            a.M31 = 23.0;
-            a.M32 = 24.0;
-            a.M33 = 31.0;
+            Matrix3x3D a = new Matrix3x3D
+            {
+                M11 = 11.0,
+                M12 = -12.0,
+                M13 = -13.3,
+                M21 = 14.4,
+                M22 = 21.0,
+                M23 = 22.0,
+                M31 = 23.0,
+                M32 = 24.0,
+                M33 = 31.0
+            };
 
             string expected = string.Format(CultureInfo.CurrentCulture,
                 "{{ {{M11:{0} M12:{1} M13:{2}}} {{M21:{3} M22:{4} M23:{5}}} {{M31:{6} M32:{7} M33:{8}}} }}",
@@ -338,16 +361,18 @@ namespace Tests
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
             Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 + b.M11;
-            expected.M12 = a.M12 + b.M12;
-            expected.M13 = a.M13 + b.M13;
-            expected.M21 = a.M21 + b.M21;
-            expected.M22 = a.M22 + b.M22;
-            expected.M23 = a.M23 + b.M23;
-            expected.M31 = a.M31 + b.M31;
-            expected.M32 = a.M32 + b.M32;
-            expected.M33 = a.M33 + b.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 + b.M11,
+                M12 = a.M12 + b.M12,
+                M13 = a.M13 + b.M13,
+                M21 = a.M21 + b.M21,
+                M22 = a.M22 + b.M22,
+                M23 = a.M23 + b.M23,
+                M31 = a.M31 + b.M31,
+                M32 = a.M32 + b.M32,
+                M33 = a.M33 + b.M33
+            };
 
             Matrix3x3D actual = Matrix3x3D.Add(a, b);
             Assert.AreEqual(expected, actual);
@@ -420,18 +445,20 @@ namespace Tests
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
             Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31;
-            expected.M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32;
-            expected.M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31,
+                M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32,
+                M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33,
 
-            expected.M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31;
-            expected.M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32;
-            expected.M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33;
+                M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31,
+                M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32,
+                M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33,
 
-            expected.M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31;
-            expected.M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32;
-            expected.M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33;
+                M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31,
+                M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32,
+                M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33
+            };
             Matrix3x3D actual;
             actual = Matrix3x3D.Multiply(a, b);
 
@@ -466,16 +493,18 @@ namespace Tests
         {
             Matrix3x3D m = GenerateIncrementalMatrixNumber();
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = -1.0f;
-            expected.M12 = -2.0f;
-            expected.M13 = -3.0f;
-            expected.M21 = -4.0f;
-            expected.M22 = -5.0f;
-            expected.M23 = -6.0f;
-            expected.M31 = -7.0f;
-            expected.M32 = -8.0f;
-            expected.M33 = -9.0f;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = -1.0,
+                M12 = -2.0,
+                M13 = -3.0,
+                M21 = -4.0,
+                M22 = -5.0,
+                M23 = -6.0,
+                M31 = -7.0,
+                M32 = -8.0,
+                M33 = -9.0
+            };
             Matrix3x3D actual;
 
             actual = Matrix3x3D.Negate(m);
@@ -527,16 +556,18 @@ namespace Tests
             Matrix3x3D a = GenerateIncrementalMatrixNumber();
             Matrix3x3D b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3D expected = new Matrix3x3D();
-            expected.M11 = a.M11 - b.M11;
-            expected.M12 = a.M12 - b.M12;
-            expected.M13 = a.M13 - b.M13;
-            expected.M21 = a.M21 - b.M21;
-            expected.M22 = a.M22 - b.M22;
-            expected.M23 = a.M23 - b.M23;
-            expected.M31 = a.M31 - b.M31;
-            expected.M32 = a.M32 - b.M32;
-            expected.M33 = a.M33 - b.M33;
+            Matrix3x3D expected = new Matrix3x3D
+            {
+                M11 = a.M11 - b.M11,
+                M12 = a.M12 - b.M12,
+                M13 = a.M13 - b.M13,
+                M21 = a.M21 - b.M21,
+                M22 = a.M22 - b.M22,
+                M23 = a.M23 - b.M23,
+                M31 = a.M31 - b.M31,
+                M32 = a.M32 - b.M32,
+                M33 = a.M33 - b.M33
+            };
 
             Matrix3x3D actual = Matrix3x3D.Subtract(a, b);
             Assert.AreEqual(expected, actual);

@@ -144,9 +144,11 @@ namespace Tests
         public void Vector3DistanceTest1()
         {
             Vector3D a = new Vector3D(1.051f, 2.05f, 3.478f);
-            Vector3D b = new Vector3D(new Vector2D(1.051f, 0.0f), 1);
-            b.Y = 2.05f;
-            b.Z = 3.478f;
+            Vector3D b = new Vector3D(new Vector2D(1.051f, 0.0f), 1)
+            {
+                Y = 2.05f,
+                Z = 3.478f
+            };
 
             double actual = Vector3D.Distance(a, b);
             Assert.AreEqual(0.0f, actual);
@@ -664,7 +666,6 @@ namespace Tests
         {
             Vector3D a = new Vector3D(0.0f, 0.0f, 0.0f);
 
-            Vector3D expected = new Vector3D(0.0f, 0.0f, 0.0f);
             Vector3D actual = Vector3D.Normalize(a);
             Assert.True(double.IsNaN(actual.X) && double.IsNaN(actual.Y) && double.IsNaN(actual.Z), "Vector3D.Normalize did not return the expected value.");
         }
@@ -934,7 +935,7 @@ namespace Tests
             Vector3D b = new Vector3D(1.0f, 2.0f, 3.0f);
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -1208,7 +1209,7 @@ namespace Tests
         struct Vector3Plusdouble
         {
             private Vector3D _v;
-            private double _f;
+            private readonly double _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -1221,10 +1222,12 @@ namespace Tests
         [Test]
         public void SetFieldsTest()
         {
-            Vector3D v3 = new Vector3D(4f, 5f, 6f);
-            v3.X = 1.0f;
-            v3.Y = 2.0f;
-            v3.Z = 3.0f;
+            Vector3D v3 = new Vector3D(4f, 5f, 6f)
+            {
+                X = 1.0f,
+                Y = 2.0f,
+                Z = 3.0f
+            };
             Assert.AreEqual(1.0f, v3.X);
             Assert.AreEqual(2.0f, v3.Y);
             Assert.AreEqual(3.0f, v3.Z);

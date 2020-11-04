@@ -134,8 +134,10 @@ namespace Tests
         public void Vector4DistanceTest1()
         {
             Vector4D a = new Vector4D(new Vector2D(1.051, 2.05), 3.478, 1.0);
-            Vector4D b = new Vector4D(new Vector3D(1.051, 2.05, 3.478), 0.0);
-            b.W = 1.0;
+            Vector4D b = new Vector4D(new Vector3D(1.051, 2.05, 3.478), 0.0)
+            {
+                W = 1.0
+            };
 
             double actual = Vector4D.Distance(a, b);
             Assert.AreEqual(0.0, actual);
@@ -856,7 +858,6 @@ namespace Tests
         {
             Vector4D a = new Vector4D(0.0f, 0.0f, 0.0f, 0.0f);
 
-            Vector4D expected = new Vector4D(0.0f, 0.0f, 0.0f, 0.0f);
             Vector4D actual = Vector4D.Normalize(a);
             Assert.True(double.IsNaN(actual.X) && double.IsNaN(actual.Y) && double.IsNaN(actual.Z) && double.IsNaN(actual.W), "Vector4D.Normalize did not return the expected value.");
         }
@@ -1147,7 +1148,7 @@ namespace Tests
             Vector4D b = new Vector4D(1.0f, 2.0f, 3.0f, 4.0f);
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -1434,7 +1435,7 @@ namespace Tests
         struct Vector4Plusdouble
         {
             private Vector4D _v;
-            private double _f;
+            private readonly double _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -1447,38 +1448,40 @@ namespace Tests
         [Test]
         public void SetFieldsTest()
         {
-            Vector4D v3 = new Vector4D(4f, 5f, 6f, 7f);
-            v3.X = 1.0f;
-            v3.Y = 2.0f;
-            v3.Z = 3.0f;
-            v3.W = 4.0f;
-            Assert.AreEqual(1.0f, v3.X);
-            Assert.AreEqual(2.0f, v3.Y);
-            Assert.AreEqual(3.0f, v3.Z);
-            Assert.AreEqual(4.0f, v3.W);
+            Vector4D v3 = new Vector4D(4, 5, 6, 7)
+            {
+                X = 1.0,
+                Y = 2.0,
+                Z = 3.0,
+                W = 4.0
+            };
+            Assert.AreEqual(1.0, v3.X);
+            Assert.AreEqual(2.0, v3.Y);
+            Assert.AreEqual(3.0, v3.Z);
+            Assert.AreEqual(4.0, v3.W);
             Vector4D v4 = v3;
-            v4.Y = 0.5f;
-            v4.Z = 2.2f;
-            v4.W = 3.5f;
-            Assert.AreEqual(1.0f, v4.X);
-            Assert.AreEqual(0.5f, v4.Y);
-            Assert.AreEqual(2.2f, v4.Z);
-            Assert.AreEqual(3.5f, v4.W);
-            Assert.AreEqual(2.0f, v3.Y);
+            v4.Y = 0.5;
+            v4.Z = 2.2;
+            v4.W = 3.5;
+            Assert.AreEqual(1.0, v4.X);
+            Assert.AreEqual(0.5, v4.Y);
+            Assert.AreEqual(2.2, v4.Z);
+            Assert.AreEqual(3.5, v4.W);
+            Assert.AreEqual(2.0, v3.Y);
         }
 
         [Test]
         public void EmbeddedVectorSetFields()
         {
             EmbeddedVectorObject evo = new EmbeddedVectorObject();
-            evo.FieldVector.X = 5.0f;
-            evo.FieldVector.Y = 5.0f;
-            evo.FieldVector.Z = 5.0f;
-            evo.FieldVector.W = 5.0f;
-            Assert.AreEqual(5.0f, evo.FieldVector.X);
-            Assert.AreEqual(5.0f, evo.FieldVector.Y);
-            Assert.AreEqual(5.0f, evo.FieldVector.Z);
-            Assert.AreEqual(5.0f, evo.FieldVector.W);
+            evo.FieldVector.X = 5.0;
+            evo.FieldVector.Y = 5.0;
+            evo.FieldVector.Z = 5.0;
+            evo.FieldVector.W = 5.0;
+            Assert.AreEqual(5.0, evo.FieldVector.X);
+            Assert.AreEqual(5.0, evo.FieldVector.Y);
+            Assert.AreEqual(5.0, evo.FieldVector.Z);
+            Assert.AreEqual(5.0, evo.FieldVector.W);
         }
 
         [Test]
@@ -1562,16 +1565,26 @@ namespace Tests
         {
             public static DeeplyEmbeddedStruct Create()
             {
-                var obj = new DeeplyEmbeddedStruct();
-                obj.L0 = new Level0();
-                obj.L0.L1 = new Level0.Level1();
-                obj.L0.L1.L2 = new Level0.Level1.Level2();
-                obj.L0.L1.L2.L3 = new Level0.Level1.Level2.Level3();
-                obj.L0.L1.L2.L3.L4 = new Level0.Level1.Level2.Level3.Level4();
-                obj.L0.L1.L2.L3.L4.L5 = new Level0.Level1.Level2.Level3.Level4.Level5();
-                obj.L0.L1.L2.L3.L4.L5.L6 = new Level0.Level1.Level2.Level3.Level4.Level5.Level6();
-                obj.L0.L1.L2.L3.L4.L5.L6.L7 = new Level0.Level1.Level2.Level3.Level4.Level5.Level6.Level7();
-                obj.L0.L1.L2.L3.L4.L5.L6.L7.EmbeddedVector = new Vector4D(1, 5, 1, -5);
+                var obj = new DeeplyEmbeddedStruct
+                {
+                    L0 = new Level0()
+                };
+                obj.L0.L1 = new Level0.Level1
+                {
+                    L2 = new Level0.Level1.Level2()
+                };
+                obj.L0.L1.L2.L3 = new Level0.Level1.Level2.Level3
+                {
+                    L4 = new Level0.Level1.Level2.Level3.Level4()
+                };
+                obj.L0.L1.L2.L3.L4.L5 = new Level0.Level1.Level2.Level3.Level4.Level5
+                {
+                    L6 = new Level0.Level1.Level2.Level3.Level4.Level5.Level6()
+                };
+                obj.L0.L1.L2.L3.L4.L5.L6.L7 = new Level0.Level1.Level2.Level3.Level4.Level5.Level6.Level7
+                {
+                    EmbeddedVector = new Vector4D(1, 5, 1, -5)
+                };
 
                 return obj;
             }
@@ -1580,38 +1593,43 @@ namespace Tests
             public Vector4D RootEmbeddedObject { get { return L0.L1.L2.L3.L4.L5.L6.L7.EmbeddedVector; } }
             public struct Level0
             {
-                private double _buffer0, _buffer1;
+#pragma warning disable IDE0051 // Remove unused private members
+                private readonly double _buffer0;
+                private readonly double _buffer1;
                 public Level1 L1;
-                private double _buffer2;
+                private readonly double _buffer2;
                 public struct Level1
                 {
-                    private double _buffer0, _buffer1;
+                    private readonly double _buffer0;
+                    private readonly double _buffer1;
                     public Level2 L2;
-                    private byte _buffer2;
+                    private readonly byte _buffer2;
                     public struct Level2
                     {
                         public Level3 L3;
-                        private double _buffer0;
-                        private byte _buffer1;
+                        private readonly double _buffer0;
+                        private readonly byte _buffer1;
                         public struct Level3
                         {
                             public Level4 L4;
                             public struct Level4
                             {
-                                private double _buffer0;
+                                private readonly double _buffer0;
                                 public Level5 L5;
-                                private long _buffer1;
-                                private byte _buffer2;
-                                private double _buffer3;
+                                private readonly long _buffer1;
+                                private readonly byte _buffer2;
+                                private readonly double _buffer3;
                                 public struct Level5
                                 {
-                                    private byte _buffer0;
+                                    private readonly byte _buffer0;
                                     public Level6 L6;
                                     public struct Level6
                                     {
-                                        private byte _buffer0;
+                                        private readonly byte _buffer0;
                                         public Level7 L7;
-                                        private byte _buffer1, _buffer2;
+                                        private readonly byte _buffer1;
+                                        private readonly byte _buffer2;
+
                                         public struct Level7
                                         {
                                             public Vector4D EmbeddedVector;
@@ -1622,6 +1640,7 @@ namespace Tests
                         }
                     }
                 }
+#pragma warning restore IDE0051 // Remove unused private members
             }
         }
 #pragma warning restore 0169

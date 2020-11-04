@@ -193,14 +193,10 @@ namespace Tests
         [Test]
         public void Vector2LengthTest1()
         {
-            Vector2D target = new Vector2D();
-            target.X = 0.0f;
-            target.Y = 0.0f;
+            Vector2D target = new Vector2D(0.0);
 
-            double expected = 0.0f;
-            double actual;
-
-            actual = target.Length();
+            double expected = 0.0;
+            double actual = target.Length();
 
             Assert.True(MathHelper.Equal(expected, actual), "Vector2D.Length did not return the expected value.");
         }
@@ -883,7 +879,7 @@ namespace Tests
             Vector2D b = new Vector2D(1.0, 2.0);
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -1178,7 +1174,7 @@ namespace Tests
         struct Vector2Plusdouble
         {
             private Vector2D _v;
-            private double _f;
+            private readonly double _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -1191,26 +1187,28 @@ namespace Tests
         [Test]
         public void SetFieldsTest()
         {
-            Vector2D v3 = new Vector2D(4f, 5f);
-            v3.X = 1.0f;
-            v3.Y = 2.0f;
-            Assert.AreEqual(1.0f, v3.X);
-            Assert.AreEqual(2.0f, v3.Y);
+            Vector2D v3 = new Vector2D(4.0, 5.0)
+            {
+                X = 1.0,
+                Y = 2.0
+            };
+            Assert.AreEqual(1.0, v3.X);
+            Assert.AreEqual(2.0, v3.Y);
             Vector2D v4 = v3;
-            v4.Y = 0.5f;
-            Assert.AreEqual(1.0f, v4.X);
-            Assert.AreEqual(0.5f, v4.Y);
-            Assert.AreEqual(2.0f, v3.Y);
+            v4.Y = 0.5;
+            Assert.AreEqual(1.0, v4.X);
+            Assert.AreEqual(0.5, v4.Y);
+            Assert.AreEqual(2.0, v3.Y);
         }
 
         [Test]
         public void EmbeddedVectorSetFields()
         {
             EmbeddedVectorObject evo = new EmbeddedVectorObject();
-            evo.FieldVector.X = 5.0f;
-            evo.FieldVector.Y = 5.0f;
-            Assert.AreEqual(5.0f, evo.FieldVector.X);
-            Assert.AreEqual(5.0f, evo.FieldVector.Y);
+            evo.FieldVector.X = 5.0;
+            evo.FieldVector.Y = 5.0;
+            Assert.AreEqual(5.0, evo.FieldVector.X);
+            Assert.AreEqual(5.0, evo.FieldVector.Y);
         }
 
         private class EmbeddedVectorObject

@@ -42,7 +42,7 @@ namespace Tests
             PlaneD b = new PlaneD(1.0f, 2.0f, 3.0f, 4.0f);
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -356,7 +356,7 @@ namespace Tests
         struct PlanePlusdouble
         {
             private PlaneD _v;
-            private double _f;
+            private readonly double _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]

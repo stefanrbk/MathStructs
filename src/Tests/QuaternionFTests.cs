@@ -571,7 +571,7 @@ namespace Tests
             QuaternionF b = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -960,7 +960,7 @@ namespace Tests
         struct QuaternionFPlusFloat
         {
             private QuaternionF _v;
-            private float _f;
+            private readonly float _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]

@@ -17,23 +17,25 @@ namespace Tests
     {
         static Matrix4x4F GenerateIncrementalMatrixNumber(float value = 0.0f)
         {
-            Matrix4x4F a = new Matrix4x4F();
-            a.M11 = value + 1.0f;
-            a.M12 = value + 2.0f;
-            a.M13 = value + 3.0f;
-            a.M14 = value + 4.0f;
-            a.M21 = value + 5.0f;
-            a.M22 = value + 6.0f;
-            a.M23 = value + 7.0f;
-            a.M24 = value + 8.0f;
-            a.M31 = value + 9.0f;
-            a.M32 = value + 10.0f;
-            a.M33 = value + 11.0f;
-            a.M34 = value + 12.0f;
-            a.M41 = value + 13.0f;
-            a.M42 = value + 14.0f;
-            a.M43 = value + 15.0f;
-            a.M44 = value + 16.0f;
+            Matrix4x4F a = new Matrix4x4F
+            {
+                M11 = value + 1.0f,
+                M12 = value + 2.0f,
+                M13 = value + 3.0f,
+                M14 = value + 4.0f,
+                M21 = value + 5.0f,
+                M22 = value + 6.0f,
+                M23 = value + 7.0f,
+                M24 = value + 8.0f,
+                M31 = value + 9.0f,
+                M32 = value + 10.0f,
+                M33 = value + 11.0f,
+                M34 = value + 12.0f,
+                M41 = value + 13.0f,
+                M42 = value + 14.0f,
+                M43 = value + 15.0f,
+                M44 = value + 16.0f
+            };
             return a;
         }
 
@@ -77,23 +79,25 @@ namespace Tests
         [Test]
         public void Matrix4x4DeterminantTest1()
         {
-            Matrix4x4F a = new Matrix4x4F();
-            a.M11 = 5.0f;
-            a.M12 = 2.0f;
-            a.M13 = 8.25f;
-            a.M14 = 1.0f;
-            a.M21 = 12.0f;
-            a.M22 = 6.8f;
-            a.M23 = 2.14f;
-            a.M24 = 9.6f;
-            a.M31 = 6.5f;
-            a.M32 = 1.0f;
-            a.M33 = 3.14f;
-            a.M34 = 2.22f;
-            a.M41 = 0f;
-            a.M42 = 0.86f;
-            a.M43 = 4.0f;
-            a.M44 = 1.0f;
+            Matrix4x4F a = new Matrix4x4F
+            {
+                M11 = 5.0f,
+                M12 = 2.0f,
+                M13 = 8.25f,
+                M14 = 1.0f,
+                M21 = 12.0f,
+                M22 = 6.8f,
+                M23 = 2.14f,
+                M24 = 9.6f,
+                M31 = 6.5f,
+                M32 = 1.0f,
+                M33 = 3.14f,
+                M34 = 2.22f,
+                M41 = 0f,
+                M42 = 0.86f,
+                M43 = 4.0f,
+                M44 = 1.0f
+            };
             Matrix4x4F i = a.Invert();
             Assert.True(i != Matrix4x4F.NaN);
 
@@ -114,26 +118,28 @@ namespace Tests
                 Matrix4x4F.CreateRotationY(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4F.CreateRotationZ(MathHelper.ToRadians(30.0f));
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.74999994f;
-            expected.M12 = -0.216506317f;
-            expected.M13 = 0.62499994f;
-            expected.M14 = 0.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.74999994f,
+                M12 = -0.216506317f,
+                M13 = 0.62499994f,
+                M14 = 0.0f,
 
-            expected.M21 = 0.433012635f;
-            expected.M22 = 0.87499994f;
-            expected.M23 = -0.216506317f;
-            expected.M24 = 0.0f;
+                M21 = 0.433012635f,
+                M22 = 0.87499994f,
+                M23 = -0.216506317f,
+                M24 = 0.0f,
 
-            expected.M31 = -0.49999997f;
-            expected.M32 = 0.433012635f;
-            expected.M33 = 0.74999994f;
-            expected.M34 = 0.0f;
+                M31 = -0.49999997f,
+                M32 = 0.433012635f,
+                M33 = 0.74999994f,
+                M34 = 0.0f,
 
-            expected.M41 = 0.0f;
-            expected.M42 = 0.0f;
-            expected.M43 = 0.0f;
-            expected.M44 = 0.99999994f;
+                M41 = 0.0f,
+                M42 = 0.0f,
+                M43 = 0.0f,
+                M44 = 0.99999994f
+            };
 
             Matrix4x4F actual = mtx.Invert();
 
@@ -241,7 +247,7 @@ namespace Tests
             Assert.False(MathHelper.Equal(i, Matrix4x4F.Identity));
         }
 
-        void DecomposeTest(float yaw, float pitch, float roll, Vector3F expectedTranslation, Vector3F expectedScales)
+        static void DecomposeTest(float yaw, float pitch, float roll, Vector3F expectedTranslation, Vector3F expectedScales)
         {
             QuaternionF expectedRotation = QuaternionF.CreateFromYawPitchRoll(MathHelper.ToRadians(yaw),
                                                                             MathHelper.ToRadians(pitch),
@@ -251,11 +257,7 @@ namespace Tests
                           Matrix4x4F.CreateFromQuaternion(expectedRotation) *
                           Matrix4x4F.CreateTranslation(expectedTranslation);
 
-            Vector3F scales;
-            QuaternionF rotation;
-            Vector3F translation;
-
-            bool actualResult = Matrix4x4F.Decompose(m, out scales, out rotation, out translation);
+            bool actualResult = Matrix4x4F.Decompose(m, out Vector3F scales, out QuaternionF rotation, out Vector3F translation);
             Assert.True(actualResult, "Matrix4x4F.Decompose did not return expected value.");
 
             bool scaleIsZeroOrNegative = expectedScales.X <= 0 ||
@@ -340,16 +342,13 @@ namespace Tests
             DecomposeTest(0, 0, 0, new Vector3F(10, 20, 30), new Vector3F(1, 1, -1));
         }
 
-        void DecomposeScaleTest(float sx, float sy, float sz)
+        static void DecomposeScaleTest(float sx, float sy, float sz)
         {
             Matrix4x4F m = Matrix4x4F.CreateScale(sx, sy, sz);
 
             Vector3F expectedScales = new Vector3F(sx, sy, sz);
-            Vector3F scales;
-            QuaternionF rotation;
-            Vector3F translation;
 
-            bool actualResult = Matrix4x4F.Decompose(m, out scales, out rotation, out translation);
+            bool actualResult = Matrix4x4F.Decompose(m, out Vector3F scales, out QuaternionF rotation, out Vector3F translation);
             Assert.True(actualResult, "Matrix4x4F.Decompose did not return expected value.");
             Assert.True(MathHelper.Equal(expectedScales, scales), "Matrix4x4F.Decompose did not return expected value.");
             Assert.True(MathHelper.EqualRotation(QuaternionF.Identity, rotation), "Matrix4x4F.Decompose did not return expected value.");
@@ -371,11 +370,7 @@ namespace Tests
         [Test]
         public void Matrix4x4DecomposeTest04()
         {
-            Vector3F scales;
-            QuaternionF rotation;
-            Vector3F translation;
-
-            Assert.False(Matrix4x4F.Decompose(GenerateIncrementalMatrixNumber(), out scales, out rotation, out translation), "decompose should have failed.");
+            Assert.False(Matrix4x4F.Decompose(GenerateIncrementalMatrixNumber(), out _, out _, out _), "decompose should have failed.");
         }
 
         // Transform by QuaternionF test
@@ -403,14 +398,15 @@ namespace Tests
         {
             float radians = MathHelper.ToRadians(30.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-
-            expected.M11 = 1.0f;
-            expected.M22 = 0.8660254f;
-            expected.M23 = 0.5f;
-            expected.M32 = -0.5f;
-            expected.M33 = 0.8660254f;
-            expected.M44 = 1.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 1.0f,
+                M22 = 0.8660254f,
+                M23 = 0.5f,
+                M32 = -0.5f,
+                M33 = 0.8660254f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual;
 
@@ -452,14 +448,15 @@ namespace Tests
         {
             float radians = MathHelper.ToRadians(60.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-
-            expected.M11 = 0.49999997f;
-            expected.M13 = -0.866025448f;
-            expected.M22 = 1.0f;
-            expected.M31 = 0.866025448f;
-            expected.M33 = 0.49999997f;
-            expected.M44 = 1.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.49999997f,
+                M13 = -0.866025448f,
+                M22 = 1.0f,
+                M31 = 0.866025448f,
+                M33 = 0.49999997f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.CreateRotationY(radians);
@@ -473,14 +470,15 @@ namespace Tests
         {
             float radians = MathHelper.ToRadians(-300.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-
-            expected.M11 = 0.49999997f;
-            expected.M13 = -0.866025448f;
-            expected.M22 = 1.0f;
-            expected.M31 = 0.866025448f;
-            expected.M33 = 0.49999997f;
-            expected.M44 = 1.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.49999997f,
+                M13 = -0.866025448f,
+                M22 = 1.0f,
+                M31 = 0.866025448f,
+                M33 = 0.49999997f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual = Matrix4x4F.CreateRotationY(radians);
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.CreateRotationY did not return the expected value.");
@@ -696,7 +694,7 @@ namespace Tests
             }
         }
 
-        void CreateReflectionTest(PlaneF PlaneF, Matrix4x4F expected)
+        static void CreateReflectionTest(PlaneF PlaneF, Matrix4x4F expected)
         {
             Matrix4x4F actual = Matrix4x4F.CreateReflection(PlaneF);
             Assert.True(MathHelper.Equal(actual, expected), "Matrix4x4F.CreateReflection did not return expected value.");
@@ -754,13 +752,15 @@ namespace Tests
         {
             float radians = MathHelper.ToRadians(50.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.642787635f;
-            expected.M12 = 0.766044438f;
-            expected.M21 = -0.766044438f;
-            expected.M22 = 0.642787635f;
-            expected.M33 = 1.0f;
-            expected.M44 = 1.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.642787635f,
+                M12 = 0.766044438f,
+                M21 = -0.766044438f,
+                M22 = 0.642787635f,
+                M33 = 1.0f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.CreateRotationZ(radians);
@@ -791,23 +791,25 @@ namespace Tests
             Vector3F cameraTarget = new Vector3F(3.0f, 2.0f, -4.0f);
             Vector3F cameraUpVector = new Vector3F(0.0f, 1.0f, 0.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.979457f;
-            expected.M12 = -0.0928267762f;
-            expected.M13 = 0.179017f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.979457f,
+                M12 = -0.0928267762f,
+                M13 = 0.179017f,
 
-            expected.M21 = 0.0f;
-            expected.M22 = 0.8877481f;
-            expected.M23 = 0.460329473f;
+                M21 = 0.0f,
+                M22 = 0.8877481f,
+                M23 = 0.460329473f,
 
-            expected.M31 = -0.201652914f;
-            expected.M32 = -0.450872928f;
-            expected.M33 = 0.8695112f;
+                M31 = -0.201652914f,
+                M32 = -0.450872928f,
+                M33 = 0.8695112f,
 
-            expected.M41 = -3.74498272f;
-            expected.M42 = -3.30050683f;
-            expected.M43 = -37.0820961f;
-            expected.M44 = 1.0f;
+                M41 = -3.74498272f,
+                M42 = -3.30050683f,
+                M43 = -37.0820961f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual = Matrix4x4F.CreateLookAt(cameraPosition, cameraTarget, cameraUpVector);
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.CreateLookAt did not return the expected value.");
@@ -821,26 +823,28 @@ namespace Tests
             Vector3F objectForwardDirection = new Vector3F(3.0f, 2.0f, -4.0f);
             Vector3F objectUpVector = new Vector3F(0.0f, 1.0f, 0.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.799999952f;
-            expected.M12 = 0;
-            expected.M13 = 0.599999964f;
-            expected.M14 = 0;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.799999952f,
+                M12 = 0,
+                M13 = 0.599999964f,
+                M14 = 0,
 
-            expected.M21 = -0.2228344f;
-            expected.M22 = 0.928476632f;
-            expected.M23 = 0.297112525f;
-            expected.M24 = 0;
+                M21 = -0.2228344f,
+                M22 = 0.928476632f,
+                M23 = 0.297112525f,
+                M24 = 0,
 
-            expected.M31 = -0.557086f;
-            expected.M32 = -0.371390671f;
-            expected.M33 = 0.742781341f;
-            expected.M34 = 0;
+                M31 = -0.557086f,
+                M32 = -0.371390671f,
+                M33 = 0.742781341f,
+                M34 = 0,
 
-            expected.M41 = 10;
-            expected.M42 = 20;
-            expected.M43 = 30;
-            expected.M44 = 1.0f;
+                M41 = 10,
+                M42 = 20,
+                M43 = 30,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual = Matrix4x4F.CreateWorld(objectPosition, objectForwardDirection, objectUpVector);
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.CreateWorld did not return the expected value.");
@@ -859,12 +863,14 @@ namespace Tests
             float zNearPlane = 1.5f;
             float zFarPlane = 1000.0f;
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.02f;
-            expected.M22 = 0.01f;
-            expected.M33 = -0.00100150227f;
-            expected.M43 = -0.00150225335f;
-            expected.M44 = 1.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.02f,
+                M22 = 0.01f,
+                M33 = -0.00100150227f,
+                M43 = -0.00150225335f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.CreateOrthographic(width, height, zNearPlane, zFarPlane);
@@ -882,14 +888,16 @@ namespace Tests
             float zNearPlane = 1.5f;
             float zFarPlane = 1000.0f;
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.025f;
-            expected.M22 = 0.0125f;
-            expected.M33 = -0.00100150227f;
-            expected.M41 = -1.25f;
-            expected.M42 = -1.25f;
-            expected.M43 = -0.00150225335f;
-            expected.M44 = 1.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.025f,
+                M22 = 0.0125f,
+                M33 = -0.00100150227f,
+                M41 = -1.25f,
+                M42 = -1.25f,
+                M43 = -0.00150225335f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.CreateOrthographicOffCenter(left, right, bottom, top, zNearPlane, zFarPlane);
@@ -905,12 +913,14 @@ namespace Tests
             float zNearPlane = 1.5f;
             float zFarPlane = 1000.0f;
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.03f;
-            expected.M22 = 0.015f;
-            expected.M33 = -1.00150228f;
-            expected.M34 = -1.0f;
-            expected.M43 = -1.50225341f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.03f,
+                M22 = 0.015f,
+                M33 = -1.00150228f,
+                M34 = -1.0f,
+                M43 = -1.50225341f
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.CreatePerspective(width, height, zNearPlane, zFarPlane);
@@ -975,12 +985,14 @@ namespace Tests
             float zNearPlane = 1.5f;
             float zFarPlane = 1000.0f;
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 2.09927845f;
-            expected.M22 = 3.73205066f;
-            expected.M33 = -1.00150228f;
-            expected.M34 = -1.0f;
-            expected.M43 = -1.50225341f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 2.09927845f,
+                M22 = 3.73205066f,
+                M33 = -1.00150228f,
+                M34 = -1.0f,
+                M43 = -1.50225341f
+            };
             Matrix4x4F actual;
 
             actual = Matrix4x4F.CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, zNearPlane, zFarPlane);
@@ -1053,14 +1065,16 @@ namespace Tests
             float zNearPlane = 1.5f;
             float zFarPlane = 1000.0f;
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.0375f;
-            expected.M22 = 0.01875f;
-            expected.M31 = 1.25f;
-            expected.M32 = 1.25f;
-            expected.M33 = -1.00150228f;
-            expected.M34 = -1.0f;
-            expected.M43 = -1.50225341f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.0375f,
+                M22 = 0.01875f,
+                M31 = 1.25f,
+                M32 = 1.25f,
+                M33 = -1.00150228f,
+                M34 = -1.0f,
+                M43 = -1.50225341f
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.CreatePerspectiveOffCenter(left, right, bottom, top, zNearPlane, zFarPlane);
@@ -1108,23 +1122,25 @@ namespace Tests
         [Test]
         public void Matrix4x4InvertTest1()
         {
-            Matrix4x4F a = new Matrix4x4F();
-            a.M11 = 1.0f;
-            a.M12 = 2.0f;
-            a.M13 = 3.0f;
-            a.M14 = 4.0f;
-            a.M21 = 5.0f;
-            a.M22 = 6.0f;
-            a.M23 = 7.0f;
-            a.M24 = 8.0f;
-            a.M31 = 9.0f;
-            a.M32 = 10.0f;
-            a.M33 = 11.0f;
-            a.M34 = 12.0f;
-            a.M41 = 13.0f;
-            a.M42 = 14.0f;
-            a.M43 = 15.0f;
-            a.M44 = 16.0f;
+            Matrix4x4F a = new Matrix4x4F
+            {
+                M11 = 1.0f,
+                M12 = 2.0f,
+                M13 = 3.0f,
+                M14 = 4.0f,
+                M21 = 5.0f,
+                M22 = 6.0f,
+                M23 = 7.0f,
+                M24 = 8.0f,
+                M31 = 9.0f,
+                M32 = 10.0f,
+                M33 = 11.0f,
+                M34 = 12.0f,
+                M41 = 13.0f,
+                M42 = 14.0f,
+                M43 = 15.0f,
+                M44 = 16.0f
+            };
 
             float detA = a.GetDeterminant();
             Assert.True(MathHelper.Equal(detA, 0.0f), "Matrix4x4F.Invert did not return the expected value.");
@@ -1144,48 +1160,52 @@ namespace Tests
         [Test]
         public void Matrix4x4LerpTest()
         {
-            Matrix4x4F a = new Matrix4x4F();
-            a.M11 = 11.0f;
-            a.M12 = 12.0f;
-            a.M13 = 13.0f;
-            a.M14 = 14.0f;
-            a.M21 = 21.0f;
-            a.M22 = 22.0f;
-            a.M23 = 23.0f;
-            a.M24 = 24.0f;
-            a.M31 = 31.0f;
-            a.M32 = 32.0f;
-            a.M33 = 33.0f;
-            a.M34 = 34.0f;
-            a.M41 = 41.0f;
-            a.M42 = 42.0f;
-            a.M43 = 43.0f;
-            a.M44 = 44.0f;
+            Matrix4x4F a = new Matrix4x4F
+            {
+                M11 = 11.0f,
+                M12 = 12.0f,
+                M13 = 13.0f,
+                M14 = 14.0f,
+                M21 = 21.0f,
+                M22 = 22.0f,
+                M23 = 23.0f,
+                M24 = 24.0f,
+                M31 = 31.0f,
+                M32 = 32.0f,
+                M33 = 33.0f,
+                M34 = 34.0f,
+                M41 = 41.0f,
+                M42 = 42.0f,
+                M43 = 43.0f,
+                M44 = 44.0f
+            };
 
             Matrix4x4F b = GenerateIncrementalMatrixNumber();
 
             float t = 0.5f;
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 + (b.M11 - a.M11) * t;
-            expected.M12 = a.M12 + (b.M12 - a.M12) * t;
-            expected.M13 = a.M13 + (b.M13 - a.M13) * t;
-            expected.M14 = a.M14 + (b.M14 - a.M14) * t;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 + (b.M11 - a.M11) * t,
+                M12 = a.M12 + (b.M12 - a.M12) * t,
+                M13 = a.M13 + (b.M13 - a.M13) * t,
+                M14 = a.M14 + (b.M14 - a.M14) * t,
 
-            expected.M21 = a.M21 + (b.M21 - a.M21) * t;
-            expected.M22 = a.M22 + (b.M22 - a.M22) * t;
-            expected.M23 = a.M23 + (b.M23 - a.M23) * t;
-            expected.M24 = a.M24 + (b.M24 - a.M24) * t;
+                M21 = a.M21 + (b.M21 - a.M21) * t,
+                M22 = a.M22 + (b.M22 - a.M22) * t,
+                M23 = a.M23 + (b.M23 - a.M23) * t,
+                M24 = a.M24 + (b.M24 - a.M24) * t,
 
-            expected.M31 = a.M31 + (b.M31 - a.M31) * t;
-            expected.M32 = a.M32 + (b.M32 - a.M32) * t;
-            expected.M33 = a.M33 + (b.M33 - a.M33) * t;
-            expected.M34 = a.M34 + (b.M34 - a.M34) * t;
+                M31 = a.M31 + (b.M31 - a.M31) * t,
+                M32 = a.M32 + (b.M32 - a.M32) * t,
+                M33 = a.M33 + (b.M33 - a.M33) * t,
+                M34 = a.M34 + (b.M34 - a.M34) * t,
 
-            expected.M41 = a.M41 + (b.M41 - a.M41) * t;
-            expected.M42 = a.M42 + (b.M42 - a.M42) * t;
-            expected.M43 = a.M43 + (b.M43 - a.M43) * t;
-            expected.M44 = a.M44 + (b.M44 - a.M44) * t;
+                M41 = a.M41 + (b.M41 - a.M41) * t,
+                M42 = a.M42 + (b.M42 - a.M42) * t,
+                M43 = a.M43 + (b.M43 - a.M43) * t,
+                M44 = a.M44 + (b.M44 - a.M44) * t
+            };
 
             Matrix4x4F actual;
             actual = Matrix4x4F.Lerp(a, b, t);
@@ -1198,23 +1218,25 @@ namespace Tests
         {
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = -1.0f;
-            expected.M12 = -2.0f;
-            expected.M13 = -3.0f;
-            expected.M14 = -4.0f;
-            expected.M21 = -5.0f;
-            expected.M22 = -6.0f;
-            expected.M23 = -7.0f;
-            expected.M24 = -8.0f;
-            expected.M31 = -9.0f;
-            expected.M32 = -10.0f;
-            expected.M33 = -11.0f;
-            expected.M34 = -12.0f;
-            expected.M41 = -13.0f;
-            expected.M42 = -14.0f;
-            expected.M43 = -15.0f;
-            expected.M44 = -16.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = -1.0f,
+                M12 = -2.0f,
+                M13 = -3.0f,
+                M14 = -4.0f,
+                M21 = -5.0f,
+                M22 = -6.0f,
+                M23 = -7.0f,
+                M24 = -8.0f,
+                M31 = -9.0f,
+                M32 = -10.0f,
+                M33 = -11.0f,
+                M34 = -12.0f,
+                M41 = -13.0f,
+                M42 = -14.0f,
+                M43 = -15.0f,
+                M44 = -16.0f
+            };
 
             Matrix4x4F actual = -a;
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.operator - did not return the expected value.");
@@ -1227,23 +1249,25 @@ namespace Tests
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
             Matrix4x4F b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 - b.M11;
-            expected.M12 = a.M12 - b.M12;
-            expected.M13 = a.M13 - b.M13;
-            expected.M14 = a.M14 - b.M14;
-            expected.M21 = a.M21 - b.M21;
-            expected.M22 = a.M22 - b.M22;
-            expected.M23 = a.M23 - b.M23;
-            expected.M24 = a.M24 - b.M24;
-            expected.M31 = a.M31 - b.M31;
-            expected.M32 = a.M32 - b.M32;
-            expected.M33 = a.M33 - b.M33;
-            expected.M34 = a.M34 - b.M34;
-            expected.M41 = a.M41 - b.M41;
-            expected.M42 = a.M42 - b.M42;
-            expected.M43 = a.M43 - b.M43;
-            expected.M44 = a.M44 - b.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 - b.M11,
+                M12 = a.M12 - b.M12,
+                M13 = a.M13 - b.M13,
+                M14 = a.M14 - b.M14,
+                M21 = a.M21 - b.M21,
+                M22 = a.M22 - b.M22,
+                M23 = a.M23 - b.M23,
+                M24 = a.M24 - b.M24,
+                M31 = a.M31 - b.M31,
+                M32 = a.M32 - b.M32,
+                M33 = a.M33 - b.M33,
+                M34 = a.M34 - b.M34,
+                M41 = a.M41 - b.M41,
+                M42 = a.M42 - b.M42,
+                M43 = a.M43 - b.M43,
+                M44 = a.M44 - b.M44
+            };
 
             Matrix4x4F actual = a - b;
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.operator - did not return the expected value.");
@@ -1256,26 +1280,28 @@ namespace Tests
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
             Matrix4x4F b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41;
-            expected.M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42;
-            expected.M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43;
-            expected.M14 = a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41,
+                M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42,
+                M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43,
+                M14 = a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44,
 
-            expected.M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41;
-            expected.M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42;
-            expected.M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43;
-            expected.M24 = a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44;
+                M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41,
+                M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42,
+                M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43,
+                M24 = a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44,
 
-            expected.M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41;
-            expected.M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42;
-            expected.M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43;
-            expected.M34 = a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44;
+                M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41,
+                M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42,
+                M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43,
+                M34 = a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44,
 
-            expected.M41 = a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41;
-            expected.M42 = a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42;
-            expected.M43 = a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43;
-            expected.M44 = a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44;
+                M41 = a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41,
+                M42 = a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42,
+                M43 = a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43,
+                M44 = a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44
+            };
 
             Matrix4x4F actual = a * b;
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.operator * did not return the expected value.");
@@ -1286,26 +1312,27 @@ namespace Tests
         [Test]
         public void Matrix4x4MultiplyTest4()
         {
-            Matrix4x4F a = new Matrix4x4F();
-            a.M11 = 1.0f;
-            a.M12 = 2.0f;
-            a.M13 = 3.0f;
-            a.M14 = 4.0f;
-            a.M21 = 5.0f;
-            a.M22 = -6.0f;
-            a.M23 = 7.0f;
-            a.M24 = -8.0f;
-            a.M31 = 9.0f;
-            a.M32 = 10.0f;
-            a.M33 = 11.0f;
-            a.M34 = 12.0f;
-            a.M41 = 13.0f;
-            a.M42 = -14.0f;
-            a.M43 = 15.0f;
-            a.M44 = -16.0f;
+            Matrix4x4F a = new Matrix4x4F
+            {
+                M11 = 1.0f,
+                M12 = 2.0f,
+                M13 = 3.0f,
+                M14 = 4.0f,
+                M21 = 5.0f,
+                M22 = -6.0f,
+                M23 = 7.0f,
+                M24 = -8.0f,
+                M31 = 9.0f,
+                M32 = 10.0f,
+                M33 = 11.0f,
+                M34 = 12.0f,
+                M41 = 13.0f,
+                M42 = -14.0f,
+                M43 = 15.0f,
+                M44 = -16.0f
+            };
 
-            Matrix4x4F b = new Matrix4x4F();
-            b = Matrix4x4F.Identity;
+            Matrix4x4F b = Matrix4x4F.Identity;
 
             Matrix4x4F expected = a;
             Matrix4x4F actual = a * b;
@@ -1320,23 +1347,25 @@ namespace Tests
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
             Matrix4x4F b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 + b.M11;
-            expected.M12 = a.M12 + b.M12;
-            expected.M13 = a.M13 + b.M13;
-            expected.M14 = a.M14 + b.M14;
-            expected.M21 = a.M21 + b.M21;
-            expected.M22 = a.M22 + b.M22;
-            expected.M23 = a.M23 + b.M23;
-            expected.M24 = a.M24 + b.M24;
-            expected.M31 = a.M31 + b.M31;
-            expected.M32 = a.M32 + b.M32;
-            expected.M33 = a.M33 + b.M33;
-            expected.M34 = a.M34 + b.M34;
-            expected.M41 = a.M41 + b.M41;
-            expected.M42 = a.M42 + b.M42;
-            expected.M43 = a.M43 + b.M43;
-            expected.M44 = a.M44 + b.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 + b.M11,
+                M12 = a.M12 + b.M12,
+                M13 = a.M13 + b.M13,
+                M14 = a.M14 + b.M14,
+                M21 = a.M21 + b.M21,
+                M22 = a.M22 + b.M22,
+                M23 = a.M23 + b.M23,
+                M24 = a.M24 + b.M24,
+                M31 = a.M31 + b.M31,
+                M32 = a.M32 + b.M32,
+                M33 = a.M33 + b.M33,
+                M34 = a.M34 + b.M34,
+                M41 = a.M41 + b.M41,
+                M42 = a.M42 + b.M42,
+                M43 = a.M43 + b.M43,
+                M44 = a.M44 + b.M44
+            };
 
             Matrix4x4F actual = a + b;
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.operator + did not return the expected value.");
@@ -1348,23 +1377,25 @@ namespace Tests
         {
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11;
-            expected.M12 = a.M21;
-            expected.M13 = a.M31;
-            expected.M14 = a.M41;
-            expected.M21 = a.M12;
-            expected.M22 = a.M22;
-            expected.M23 = a.M32;
-            expected.M24 = a.M42;
-            expected.M31 = a.M13;
-            expected.M32 = a.M23;
-            expected.M33 = a.M33;
-            expected.M34 = a.M43;
-            expected.M41 = a.M14;
-            expected.M42 = a.M24;
-            expected.M43 = a.M34;
-            expected.M44 = a.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11,
+                M12 = a.M21,
+                M13 = a.M31,
+                M14 = a.M41,
+                M21 = a.M12,
+                M22 = a.M22,
+                M23 = a.M32,
+                M24 = a.M42,
+                M31 = a.M13,
+                M32 = a.M23,
+                M33 = a.M33,
+                M34 = a.M43,
+                M41 = a.M14,
+                M42 = a.M24,
+                M43 = a.M34,
+                M44 = a.M44
+            };
 
             Matrix4x4F actual = Matrix4x4F.Transpose(a);
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.Transpose did not return the expected value.");
@@ -1389,26 +1420,28 @@ namespace Tests
             Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
             QuaternionF q = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = 0.875595033f;
-            expected.M12 = 0.420031041f;
-            expected.M13 = -0.2385524f;
-            expected.M14 = 0.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = 0.875595033f,
+                M12 = 0.420031041f,
+                M13 = -0.2385524f,
+                M14 = 0.0f,
 
-            expected.M21 = -0.38175258f;
-            expected.M22 = 0.904303849f;
-            expected.M23 = 0.1910483f;
-            expected.M24 = 0.0f;
+                M21 = -0.38175258f,
+                M22 = 0.904303849f,
+                M23 = 0.1910483f,
+                M24 = 0.0f,
 
-            expected.M31 = 0.295970082f;
-            expected.M32 = -0.07621294f;
-            expected.M33 = 0.952151954f;
-            expected.M34 = 0.0f;
+                M31 = 0.295970082f,
+                M32 = -0.07621294f,
+                M33 = 0.952151954f,
+                M34 = 0.0f,
 
-            expected.M41 = 0.0f;
-            expected.M42 = 0.0f;
-            expected.M43 = 0.0f;
-            expected.M44 = 1.0f;
+                M41 = 0.0f,
+                M42 = 0.0f,
+                M43 = 0.0f,
+                M44 = 1.0f
+            };
 
             Matrix4x4F target = Matrix4x4F.CreateFromQuaternion(q);
             Assert.True(MathHelper.Equal(expected, target), "Matrix4x4F.Matrix4x4F(QuaternionF) did not return the expected value.");
@@ -1516,23 +1549,25 @@ namespace Tests
         [Test]
         public void Matrix4x4ToStringTest()
         {
-            Matrix4x4F a = new Matrix4x4F();
-            a.M11 = 11.0f;
-            a.M12 = -12.0f;
-            a.M13 = -13.3f;
-            a.M14 = 14.4f;
-            a.M21 = 21.0f;
-            a.M22 = 22.0f;
-            a.M23 = 23.0f;
-            a.M24 = 24.0f;
-            a.M31 = 31.0f;
-            a.M32 = 32.0f;
-            a.M33 = 33.0f;
-            a.M34 = 34.0f;
-            a.M41 = 41.0f;
-            a.M42 = 42.0f;
-            a.M43 = 43.0f;
-            a.M44 = 44.0f;
+            Matrix4x4F a = new Matrix4x4F
+            {
+                M11 = 11.0f,
+                M12 = -12.0f,
+                M13 = -13.3f,
+                M14 = 14.4f,
+                M21 = 21.0f,
+                M22 = 22.0f,
+                M23 = 23.0f,
+                M24 = 24.0f,
+                M31 = 31.0f,
+                M32 = 32.0f,
+                M33 = 33.0f,
+                M34 = 34.0f,
+                M41 = 41.0f,
+                M42 = 42.0f,
+                M43 = 43.0f,
+                M44 = 44.0f
+            };
 
             string expected = string.Format(CultureInfo.CurrentCulture,
                 "{{ {{M11:{0} M12:{1} M13:{2} M14:{3}}} {{M21:{4} M22:{5} M23:{6} M24:{7}}} {{M31:{8} M32:{9} M33:{10} M34:{11}}} {{M41:{12} M42:{13} M43:{14} M44:{15}}} }}",
@@ -1552,23 +1587,25 @@ namespace Tests
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
             Matrix4x4F b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 + b.M11;
-            expected.M12 = a.M12 + b.M12;
-            expected.M13 = a.M13 + b.M13;
-            expected.M14 = a.M14 + b.M14;
-            expected.M21 = a.M21 + b.M21;
-            expected.M22 = a.M22 + b.M22;
-            expected.M23 = a.M23 + b.M23;
-            expected.M24 = a.M24 + b.M24;
-            expected.M31 = a.M31 + b.M31;
-            expected.M32 = a.M32 + b.M32;
-            expected.M33 = a.M33 + b.M33;
-            expected.M34 = a.M34 + b.M34;
-            expected.M41 = a.M41 + b.M41;
-            expected.M42 = a.M42 + b.M42;
-            expected.M43 = a.M43 + b.M43;
-            expected.M44 = a.M44 + b.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 + b.M11,
+                M12 = a.M12 + b.M12,
+                M13 = a.M13 + b.M13,
+                M14 = a.M14 + b.M14,
+                M21 = a.M21 + b.M21,
+                M22 = a.M22 + b.M22,
+                M23 = a.M23 + b.M23,
+                M24 = a.M24 + b.M24,
+                M31 = a.M31 + b.M31,
+                M32 = a.M32 + b.M32,
+                M33 = a.M33 + b.M33,
+                M34 = a.M34 + b.M34,
+                M41 = a.M41 + b.M41,
+                M42 = a.M42 + b.M42,
+                M43 = a.M43 + b.M43,
+                M44 = a.M44 + b.M44
+            };
 
             Matrix4x4F actual = Matrix4x4F.Add(a, b);
             Assert.AreEqual(expected, actual);
@@ -1582,7 +1619,7 @@ namespace Tests
             Matrix4x4F b = GenerateIncrementalMatrixNumber();
 
             // case 1: compare between same values
-            object obj = b;
+            object? obj = b;
 
             bool expected = true;
             bool actual = a.Equals(obj);
@@ -1649,26 +1686,28 @@ namespace Tests
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
             Matrix4x4F b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41;
-            expected.M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42;
-            expected.M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43;
-            expected.M14 = a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41,
+                M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42,
+                M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43,
+                M14 = a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44,
 
-            expected.M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41;
-            expected.M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42;
-            expected.M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43;
-            expected.M24 = a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44;
+                M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41,
+                M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42,
+                M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43,
+                M24 = a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44,
 
-            expected.M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41;
-            expected.M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42;
-            expected.M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43;
-            expected.M34 = a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44;
+                M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41,
+                M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42,
+                M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43,
+                M34 = a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44,
 
-            expected.M41 = a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41;
-            expected.M42 = a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42;
-            expected.M43 = a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43;
-            expected.M44 = a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44;
+                M41 = a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41,
+                M42 = a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42,
+                M43 = a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43,
+                M44 = a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44
+            };
             Matrix4x4F actual;
             actual = Matrix4x4F.Multiply(a, b);
 
@@ -1703,23 +1742,25 @@ namespace Tests
         {
             Matrix4x4F m = GenerateIncrementalMatrixNumber();
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = -1.0f;
-            expected.M12 = -2.0f;
-            expected.M13 = -3.0f;
-            expected.M14 = -4.0f;
-            expected.M21 = -5.0f;
-            expected.M22 = -6.0f;
-            expected.M23 = -7.0f;
-            expected.M24 = -8.0f;
-            expected.M31 = -9.0f;
-            expected.M32 = -10.0f;
-            expected.M33 = -11.0f;
-            expected.M34 = -12.0f;
-            expected.M41 = -13.0f;
-            expected.M42 = -14.0f;
-            expected.M43 = -15.0f;
-            expected.M44 = -16.0f;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = -1.0f,
+                M12 = -2.0f,
+                M13 = -3.0f,
+                M14 = -4.0f,
+                M21 = -5.0f,
+                M22 = -6.0f,
+                M23 = -7.0f,
+                M24 = -8.0f,
+                M31 = -9.0f,
+                M32 = -10.0f,
+                M33 = -11.0f,
+                M34 = -12.0f,
+                M41 = -13.0f,
+                M42 = -14.0f,
+                M43 = -15.0f,
+                M44 = -16.0f
+            };
             Matrix4x4F actual;
 
             actual = Matrix4x4F.Negate(m);
@@ -1771,29 +1812,31 @@ namespace Tests
             Matrix4x4F a = GenerateIncrementalMatrixNumber();
             Matrix4x4F b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix4x4F expected = new Matrix4x4F();
-            expected.M11 = a.M11 - b.M11;
-            expected.M12 = a.M12 - b.M12;
-            expected.M13 = a.M13 - b.M13;
-            expected.M14 = a.M14 - b.M14;
-            expected.M21 = a.M21 - b.M21;
-            expected.M22 = a.M22 - b.M22;
-            expected.M23 = a.M23 - b.M23;
-            expected.M24 = a.M24 - b.M24;
-            expected.M31 = a.M31 - b.M31;
-            expected.M32 = a.M32 - b.M32;
-            expected.M33 = a.M33 - b.M33;
-            expected.M34 = a.M34 - b.M34;
-            expected.M41 = a.M41 - b.M41;
-            expected.M42 = a.M42 - b.M42;
-            expected.M43 = a.M43 - b.M43;
-            expected.M44 = a.M44 - b.M44;
+            Matrix4x4F expected = new Matrix4x4F
+            {
+                M11 = a.M11 - b.M11,
+                M12 = a.M12 - b.M12,
+                M13 = a.M13 - b.M13,
+                M14 = a.M14 - b.M14,
+                M21 = a.M21 - b.M21,
+                M22 = a.M22 - b.M22,
+                M23 = a.M23 - b.M23,
+                M24 = a.M24 - b.M24,
+                M31 = a.M31 - b.M31,
+                M32 = a.M32 - b.M32,
+                M33 = a.M33 - b.M33,
+                M34 = a.M34 - b.M34,
+                M41 = a.M41 - b.M41,
+                M42 = a.M42 - b.M42,
+                M43 = a.M43 - b.M43,
+                M44 = a.M44 - b.M44
+            };
 
             Matrix4x4F actual = Matrix4x4F.Subtract(a, b);
             Assert.AreEqual(expected, actual);
         }
 
-        private void CreateBillboardFact(Vector3F placeDirection, Vector3F cameraUpVector, Matrix4x4F expectedRotation)
+        private static void CreateBillboardFact(Vector3F placeDirection, Vector3F cameraUpVector, Matrix4x4F expectedRotation)
         {
             Vector3F cameraPosition = new Vector3F(3.0f, 4.0f, 5.0f);
             Vector3F objectPosition = cameraPosition + placeDirection * 10.0f;
@@ -1948,7 +1991,7 @@ namespace Tests
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.CreateBillboard did not return the expected value.");
         }
 
-        private void CreateConstrainedBillboardFact(Vector3F placeDirection, Vector3F rotateAxis, Matrix4x4F expectedRotation)
+        private static void CreateConstrainedBillboardFact(Vector3F placeDirection, Vector3F rotateAxis, Matrix4x4F expectedRotation)
         {
             Vector3F cameraPosition = new Vector3F(3.0f, 4.0f, 5.0f);
             Vector3F objectPosition = cameraPosition + placeDirection * 10.0f;
@@ -2513,7 +2556,7 @@ namespace Tests
         struct Matrix4x4PlusFloat
         {
             private Matrix4x4F _v;
-            private float _f;
+            private readonly float _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
