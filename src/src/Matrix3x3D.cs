@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 
@@ -7,10 +8,9 @@ namespace MathStructs
 {
     public struct Matrix3x3D : IEquatable<Matrix3x3D>
     {
-#if DEBUG
-        public static bool AllowAvx = true;
-        public static bool AllowSse = true;
-#endif
+        private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
+        private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
+
         public double M11;
         public double M12;
         public double M13;
@@ -20,18 +20,15 @@ namespace MathStructs
         public double M31;
         public double M32;
         public double M33;
+
         private static readonly Matrix3x3D _identity = new Matrix3x3D(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        private static readonly Matrix3x3D _nan = new Matrix3x3D(double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN);
         public static Matrix3x3D Identity => _identity;
+        public static Matrix3x3D NaN => _nan;
         public readonly bool IsIdentity =>
-            M11 is 1.0 &&
-            M12 is 0.0 &&
-            M13 is 0.0 &&
-            M21 is 0.0 &&
-            M22 is 1.0 &&
-            M23 is 0.0 &&
-            M31 is 0.0 &&
-            M32 is 0.0 &&
-            M33 is 1.0;
+            this == _identity;
+
+        [MethodImpl(Optimize)]
         public Matrix3x3D(double m11, double m12, double m13, double m21, double m22, double m23, double m31, double m32, double m33)
         {
             M11 = m11;
@@ -43,210 +40,19 @@ namespace MathStructs
             M31 = m31;
             M32 = m32;
             M33 = m33;
-            //padding = 0;
         }
-        public static unsafe Matrix3x3D operator -(Matrix3x3D value)
-        {
-            var result = new Matrix3x3D();
 
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx.IsSupported)
-#endif
-            {
-                var zero = Vector256<double>.Zero;
+        [MethodImpl(Optimize)]
+        public Matrix3x3D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m21 = null, double? m22 = null, double? m23 = null, double? m31 = null, double? m32 = null, double? m33 = null) =>
+            new Matrix3x3D(m11 ?? M11, m12 ?? M12, m13 ?? M13, m21 ?? M21, m22 ?? M22, m23 ?? M23, m31 ?? M31, m32 ?? M32, m33 ?? M33);
 
-                Avx.Store(&result.M11, Avx.Subtract(zero, Avx.LoadVector256(&value.M11)));
-                Avx.Store(&result.M22, Avx.Subtract(zero, Avx.LoadVector256(&value.M22)));
-            }
-#if DEBUG
-            else if (Sse.IsSupported && AllowSse)
-#else
-            else if (Sse.IsSupported)
-#endif
-            {
-                var zero = Vector128<double>.Zero;
-
-                Sse2.Store(&result.M11, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M11)));
-                Sse2.Store(&result.M13, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M13)));
-                Sse2.Store(&result.M22, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M22)));
-                Sse2.Store(&result.M31, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M31)));
-            }
-            else
-            {
-                result.M11 = -value.M11;
-                result.M12 = -value.M12;
-                result.M13 = -value.M13;
-                result.M21 = -value.M21;
-                result.M22 = -value.M22;
-                result.M23 = -value.M23;
-                result.M31 = -value.M31;
-                result.M32 = -value.M32;
-            }
-            result.M33 = -value.M33;
-            return result;
-        }
-        public static Matrix3x3D operator +(Matrix3x3D value) =>
-            value;
-        public static unsafe Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
-        {
-            var result = new Matrix3x3D();
-
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx.IsSupported)
-#endif
-            {
-                Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
-                Avx.Store(&result.M22, Avx.Add(Avx.LoadVector256(&left.M22), Avx.LoadVector256(&right.M22)));
-            }
-#if DEBUG
-            else if (Sse2.IsSupported && AllowSse)
-#else
-            else if (Sse2.IsSupported)
-#endif
-            {
-                Sse2.Store(&result.M11, Sse2.Add(Sse2.LoadVector128(&left.M11), Sse2.LoadVector128(&right.M11)));
-                Sse2.Store(&result.M13, Sse2.Add(Sse2.LoadVector128(&left.M13), Sse2.LoadVector128(&right.M13)));
-                Sse2.Store(&result.M22, Sse2.Add(Sse2.LoadVector128(&left.M22), Sse2.LoadVector128(&right.M22)));
-                Sse2.Store(&result.M31, Sse2.Add(Sse2.LoadVector128(&left.M31), Sse2.LoadVector128(&right.M31)));
-            }
-            else
-            {
-                result.M11 = left.M11 + right.M11;
-                result.M12 = left.M12 + right.M12;
-                result.M13 = left.M13 + right.M13;
-                result.M21 = left.M21 + right.M21;
-                result.M22 = left.M22 + right.M22;
-                result.M23 = left.M23 + right.M23;
-                result.M31 = left.M31 + right.M31;
-                result.M32 = left.M32 + right.M32;
-            }
-            result.M33 = left.M33 + right.M33;
-            return result;
-        }
-        public static unsafe Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
-        {
-            var result = new Matrix3x3D();
-
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx.IsSupported)
-#endif
-            {
-                Avx.Store(&result.M11, Avx.Subtract(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
-                Avx.Store(&result.M22, Avx.Subtract(Avx.LoadVector256(&left.M22), Avx.LoadVector256(&right.M22)));
-            }
-#if DEBUG
-            else if (Sse2.IsSupported && AllowSse)
-#else
-            else if (Sse2.IsSupported)
-#endif
-            {
-                Sse2.Store(&result.M11, Sse2.Subtract(Sse2.LoadVector128(&left.M11), Sse2.LoadVector128(&right.M11)));
-                Sse2.Store(&result.M13, Sse2.Subtract(Sse2.LoadVector128(&left.M13), Sse2.LoadVector128(&right.M13)));
-                Sse2.Store(&result.M22, Sse2.Subtract(Sse2.LoadVector128(&left.M22), Sse2.LoadVector128(&right.M22)));
-                Sse2.Store(&result.M31, Sse2.Subtract(Sse2.LoadVector128(&left.M31), Sse2.LoadVector128(&right.M31)));
-            }
-            else
-            {
-                result.M11 = left.M11 - right.M11;
-                result.M12 = left.M12 - right.M12;
-                result.M13 = left.M13 - right.M13;
-                result.M21 = left.M21 - right.M21;
-                result.M22 = left.M22 - right.M22;
-                result.M23 = left.M23 - right.M23;
-                result.M31 = left.M31 - right.M31;
-                result.M32 = left.M32 - right.M32;
-            }
-            result.M33 = left.M33 - right.M33;
-            return result;
-        }
+        [MethodImpl(Optimize)]
         public static unsafe Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
         {
             var result = new Matrix3x3D();
 
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx2.IsSupported)
-#endif
-            {
-                var vector = Avx.LoadVector256(&left.M11);
-                var mask = Vector256.Create(-1L, -1L, -1L, 0L);
-                Avx.Store(&result.M11, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
-                                                                    Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(Avx2.Permute4x64(vector, 85),
-                                                                    Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(Avx2.Permute4x64(vector, 170),
-                                                            Avx.LoadVector256(&right.M31))));
-                vector = Avx.LoadVector256(&left.M21);
-                Avx.Store(&result.M21, Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
-                                                                    Avx.LoadVector256(&right.M11)),
-                                                       Avx.Multiply(Avx2.Permute4x64(vector, 85),
-                                                                    Avx.LoadVector256(&right.M21))),
-                                               Avx.Multiply(Avx2.Permute4x64(vector, 170),
-                                                            Avx.LoadVector256(&right.M31))));
-                vector = Avx.LoadVector256(&left.M31);
-                Avx.MaskStore(&result.M31, mask.AsDouble(), Avx.Add(Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 0),
-                                                                                         Avx.LoadVector256(&right.M11)),
-                                                                            Avx.Multiply(Avx2.Permute4x64(vector, 85),
-                                                                                         Avx.LoadVector256(&right.M21))),
-                                                                    Avx.Multiply(Avx2.Permute4x64(vector, 170),
-                                                                                 Avx.LoadVector256(&right.M31))));
-            }
-#if DEBUG
-            else if (Sse2.IsSupported && AllowSse)
-#else
-            else if (Sse2.IsSupported)
-#endif
-            {
-                var vector1 = Sse2.LoadVector128(&left.M11);
-                var vector2 = Sse2.LoadScalarVector128(&left.M13);
-                Sse2.Store(&result.M11, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                        Sse2.LoadVector128(&right.M11)),
-                                                          Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                        Sse2.LoadVector128(&right.M21))),
-                                                 Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                               Sse2.LoadVector128(&right.M31))));
-                Sse2.Store(&result.M13, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                        Sse2.LoadScalarVector128(&right.M13)),
-                                                          Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                        Sse2.LoadScalarVector128(&right.M23))),
-                                                 Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                               Sse2.LoadScalarVector128(&right.M33))));
-                vector1 = Sse2.LoadVector128(&left.M21);
-                vector2 = Sse2.LoadScalarVector128(&left.M23);
-                Sse2.Store(&result.M21, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                        Sse2.LoadVector128(&right.M11)),
-                                                          Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                        Sse2.LoadVector128(&right.M21))),
-                                                 Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                               Sse2.LoadVector128(&right.M31))));
-                Sse2.Store(&result.M23, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                        Sse2.LoadScalarVector128(&right.M13)),
-                                                          Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                        Sse2.LoadScalarVector128(&right.M23))),
-                                                 Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                               Sse2.LoadScalarVector128(&right.M33))));
-                vector1 = Sse2.LoadVector128(&left.M31);
-                vector2 = Sse2.LoadScalarVector128(&left.M33);
-                Sse2.Store(&result.M31, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                        Sse2.LoadVector128(&right.M11)),
-                                                          Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                        Sse2.LoadVector128(&right.M21))),
-                                                 Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                               Sse2.LoadVector128(&right.M31))));
-                Sse2.StoreLow(&result.M33, Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0),
-                                                                           Sse2.LoadScalarVector128(&right.M13)),
-                                                             Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 3),
-                                                                           Sse2.LoadScalarVector128(&right.M23))),
-                                                    Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0),
-                                                                  Sse2.LoadScalarVector128(&right.M33))));
-            }
+            if (Sse.IsSupported)
+                result = (left.As4x4() * right.As4x4()).As3x3();
             else
             {
                 result.M11 = left.M11 * right.M11 + left.M12 * right.M21 + left.M13 * right.M31;
@@ -262,90 +68,204 @@ namespace MathStructs
 
             return result;
         }
+
+        [MethodImpl(Optimize)]
+        public Matrix3x3D Invert() =>
+            Invert(this);
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Invert(Matrix3x3D matrix)
+        {
+            var det = matrix.GetDeterminant();
+            if (Math.Abs(det) < double.Epsilon)
+                return _nan;
+
+            var invdet = 1 / det;
+
+            return new Matrix3x3D((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
+                                  (matrix.M13 * matrix.M32 - matrix.M12 * matrix.M33) * invdet,
+                                  (matrix.M12 * matrix.M23 - matrix.M13 * matrix.M22) * invdet,
+                                  (matrix.M23 * matrix.M31 - matrix.M21 * matrix.M33) * invdet,
+                                  (matrix.M11 * matrix.M33 - matrix.M13 * matrix.M31) * invdet,
+                                  (matrix.M21 * matrix.M13 - matrix.M11 * matrix.M23) * invdet,
+                                  (matrix.M21 * matrix.M32 - matrix.M31 * matrix.M22) * invdet,
+                                  (matrix.M31 * matrix.M12 - matrix.M11 * matrix.M32) * invdet,
+                                  (matrix.M11 * matrix.M22 - matrix.M21 * matrix.M12) * invdet);
+        }
+
+        [MethodImpl(Optimize)]
+        public unsafe static Matrix3x3D Lerp(Matrix3x3D matrix1, Matrix3x3D matrix2, double amount)
+        {
+            (var m1, var m2) = (matrix1, matrix2);
+            if (Sse.IsSupported)
+                return Matrix4x4D.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
+            return new Matrix3x3D(m1.M11 + (m2.M11 - m1.M11) * amount,
+                                  m1.M12 + (m2.M12 - m1.M12) * amount,
+                                  m1.M13 + (m2.M13 - m1.M13) * amount,
+                                  m1.M21 + (m2.M21 - m1.M21) * amount,
+                                  m1.M22 + (m2.M22 - m1.M22) * amount,
+                                  m1.M23 + (m2.M23 - m1.M23) * amount,
+                                  m1.M31 + (m2.M31 - m1.M31) * amount,
+                                  m1.M32 + (m2.M32 - m1.M32) * amount,
+                                  m1.M33 + (m2.M33 - m1.M33) * amount);
+        }
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Transpose(Matrix3x3D matrix)
+        {
+            if (Sse.IsSupported)
+                return Matrix4x4D.Transpose(matrix.As4x4()).As3x3();
+            return new Matrix3x3D(matrix.M11, matrix.M21, matrix.M31,
+                                  matrix.M12, matrix.M22, matrix.M32,
+                                  matrix.M13, matrix.M23, matrix.M33);
+        }
+
+        [MethodImpl(Optimize)]
+        public double GetDeterminant() =>
+            M11 * (M22 * M33 - M32 * M23) -
+            M12 * (M21 * M33 - M23 * M31) +
+            M13 * (M21 * M32 - M22 * M31);
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Add(Matrix3x3D left, Matrix3x3D right) =>
+            left + right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Subtract(Matrix3x3D left, Matrix3x3D right) =>
+            left - right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Multiply(Matrix3x3D left, Matrix3x3D right) =>
+            left * right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Multiply(Matrix3x3D left, double right) =>
+            left * right;
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D Negate(Matrix3x3D value) =>
+            -value;
+
+        [MethodImpl(Optimize)]
+        public static unsafe Vector3D operator *(Matrix3x3D left, Vector3D right)
+        {
+            return new Vector3D(left.M11 * right.X + left.M12 * right.Y + left.M13 * right.Z,
+                                left.M21 * right.X + left.M22 * right.Y + left.M23 * right.Z,
+                                left.M31 * right.X + left.M32 * right.Y + left.M33 * right.Z);
+        }
+
+        [MethodImpl(Optimize)]
+        public static Vector3D operator *(Vector3D left, Matrix3x3D right) =>
+            right * left;
+
+        [MethodImpl(Optimize)]
+        public static unsafe Vector4D operator *(Matrix3x3D left, Vector4D right)
+        {
+            (var v, _) = right;
+            return new Vector4D(left * v, right.W);
+        }
+
+        [MethodImpl(Optimize)]
+        public static Vector4D operator *(Vector4D left, Matrix3x3D right) =>
+            right * left;
+
+        [MethodImpl(Optimize)]
+        public static unsafe Matrix3x3D operator -(Matrix3x3D value)
+        {
+            if (Sse.IsSupported)
+                return (-value.As4x4()).As3x3();
+            else
+                return new Matrix3x3D(-value.M11, -value.M12, -value.M13,
+                                      -value.M21, -value.M22, -value.M23,
+                                      -value.M31, -value.M32, -value.M33);
+        }
+
+        [MethodImpl(Optimize)]
+        public static Matrix3x3D operator +(Matrix3x3D value) =>
+            value;
+
+        [MethodImpl(Optimize)]
+        public static unsafe Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
+        {
+            if (Sse.IsSupported)
+                return (left.As4x4() + right.As4x4()).As3x3();
+            else
+                return new Matrix3x3D(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13,
+                                      left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23,
+                                      left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33);
+        }
+
+        [MethodImpl(Optimize)]
+        public static unsafe Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
+        {
+            if (Sse.IsSupported)
+                return (left.As4x4() - right.As4x4()).As3x3();
+            else
+                return new Matrix3x3D(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13,
+                                      left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23,
+                                      left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33);
+        }
+
+        [MethodImpl(Optimize)]
         public static unsafe Matrix3x3D operator *(Matrix3x3D left, double right)
         {
-            var result = new Matrix3x3D();
-
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx.IsSupported)
-#endif
-            {
-                var r = Vector256.Create(right);
-                Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&left.M11), r));
-                Avx.Store(&result.M22, Avx.Multiply(Avx.LoadVector256(&left.M22), r));
-            }
-#if DEBUG
-            else if (Sse2.IsSupported && AllowSse)
-#else
-            else if (Sse2.IsSupported)
-#endif
-            {
-                var r = Vector128.Create(right);
-                Sse2.Store(&result.M11, Sse2.Multiply(Sse2.LoadVector128(&left.M11), r));
-                Sse2.Store(&result.M13, Sse2.Multiply(Sse2.LoadVector128(&left.M13), r));
-                Sse2.Store(&result.M22, Sse2.Multiply(Sse2.LoadVector128(&left.M22), r));
-                Sse2.Store(&result.M31, Sse2.Multiply(Sse2.LoadVector128(&left.M31), r));
-            }
+            if (Sse.IsSupported)
+                return (left.As4x4() * right).As3x3();
             else
-            {
-                result.M11 = left.M11 * right;
-                result.M12 = left.M12 * right;
-                result.M13 = left.M13 * right;
-                result.M21 = left.M21 * right;
-                result.M22 = left.M22 * right;
-                result.M23 = left.M23 * right;
-                result.M31 = left.M31 * right;
-                result.M32 = left.M32 * right;
-            }
-            result.M33 = left.M33 * right;
-            return result;
+                return new Matrix3x3D(left.M11 * right, left.M12 * right, left.M13 * right,
+                                      left.M21 * right, left.M22 * right, left.M23 * right,
+                                      left.M31 * right, left.M32 * right, left.M33 * right);
         }
-        private static bool Equal(Vector256<double> left, Vector256<double> right) =>
-            Avx.MoveMask(Avx.CompareNotEqual(left, right)) == 0;
-        private static bool Equal(Vector128<double> left, Vector128<double> right) =>
-            Sse2.MoveMask(Sse2.CompareNotEqual(left, right)) == 0;
+
+        [MethodImpl(Optimize)]
         public static unsafe bool operator ==(Matrix3x3D left, Matrix3x3D right)
         {
-#if DEBUG
-            if (Avx.IsSupported && AllowAvx)
-#else
-            if (Avx.IsSupported)
-#endif
-                return Equal(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)) &&
-                       Equal(Avx.LoadVector256(&left.M22), Avx.LoadVector256(&right.M22)) &&
-                       left.M33 == right.M33;
-#if DEBUG
-            else if (Sse2.IsSupported && AllowSse)
-#else
-            else if (Sse2.IsSupported)
-#endif
-                return Equal(Sse2.LoadVector128(&left.M11), Sse2.LoadVector128(&right.M11)) &&
-                       Equal(Sse2.LoadVector128(&left.M13), Sse2.LoadVector128(&right.M13)) &&
-                       Equal(Sse2.LoadVector128(&left.M22), Sse2.LoadVector128(&right.M22)) &&
-                       Equal(Sse2.LoadVector128(&left.M31), Sse2.LoadVector128(&right.M31)) &&
-                       Equal(Sse2.LoadScalarVector128(&left.M33), Sse2.LoadScalarVector128(&right.M33));
+            if (Sse.IsSupported)
+                return left.As4x4() == right.As4x4();
             else
                 return left.M11 == right.M11 && left.M12 == right.M12 && left.M13 == right.M13 &&
                        left.M21 == right.M21 && left.M22 == right.M22 && left.M23 == right.M23 &&
                        left.M31 == right.M31 && left.M32 == right.M32 && left.M33 == right.M33;
         }
-        public static bool operator !=(Matrix3x3D left, Matrix3x3D right) =>
-            !(left == right);
 
+        [MethodImpl(Optimize)]
+        public static bool operator !=(Matrix3x3D left, Matrix3x3D right)
+        {
+            if (Sse.IsSupported)
+                return left.As4x4() != right.As4x4();
+            else
+                return left.M11 != right.M11 || left.M12 != right.M12 || left.M13 != right.M13 ||
+                       left.M21 != right.M21 || left.M22 != right.M22 || left.M23 != right.M23 ||
+                       left.M31 != right.M31 || left.M32 != right.M32 || left.M33 != right.M33;
+        }
+
+        [MethodImpl(Optimize)]
         public bool Equals([AllowNull] Matrix3x3D other) =>
             this == other;
 
+        [MethodImpl(Optimize)]
         public override bool Equals(object? obj) =>
             obj is Matrix3x3D matrix && this == matrix;
 
         public override string ToString() =>
-            $"{{{{ {{{{M11:{M11} M12:{M12} M13:{M13}}}}} {{{{M21:{M21} M22:{M22} M23:{M23}}}}} {{{{M31:{M31} M32:{M32} M33:{M33}}}}} }}}}";
+            $"{{ {{M11:{M11} M12:{M12} M13:{M13}}} {{M21:{M21} M22:{M22} M23:{M23}}} {{M31:{M31} M32:{M32} M33:{M33}}} }}";
 
-        public override int GetHashCode() =>
-            M11.GetHashCode() + M12.GetHashCode() + M13.GetHashCode() +
-            M21.GetHashCode() + M22.GetHashCode() + M23.GetHashCode() +
-            M31.GetHashCode() + M32.GetHashCode() + M33.GetHashCode();
+        public override int GetHashCode()
+        {
+            var hash = new HashCode();
+            hash.Add(M11);
+            hash.Add(M12);
+            hash.Add(M13);
+            hash.Add(M21);
+            hash.Add(M22);
+            hash.Add(M23);
+            hash.Add(M31);
+            hash.Add(M32);
+            hash.Add(M33);
+            return hash.ToHashCode();
+        }
+
+        internal Matrix4x4D As4x4() =>
+            Matrix4x4D.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
     }
 }

@@ -99,17 +99,17 @@ namespace MathStructs
             bounds1 * (1d - amount) + bounds2 * amount;
 
         [MethodImpl(Inline)]
-        public static Vector3D Transform(Vector3D vector, Matrix4x4F matrix) =>
+        public static Vector3D Transform(Vector3D vector, Matrix4x4D matrix) =>
             new Vector3D(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42,
                          vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43);
 
         [MethodImpl(Inline)]
-        public Vector3D Transform(Matrix4x4F matrix) =>
+        public Vector3D Transform(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         [MethodImpl(Inline)]
-        public static Vector3D Transform(Vector3D value, QuaternionF rotation)
+        public static Vector3D Transform(Vector3D value, QuaternionD rotation)
         {
             var num = rotation.X + rotation.X;
             var num2 = rotation.Y + rotation.Y;
@@ -127,13 +127,13 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
-        public static Vector3D TransformNormal(Vector3D normal, Matrix4x4F matrix) =>
+        public static Vector3D TransformNormal(Vector3D normal, Matrix4x4D matrix) =>
             new Vector3D(normal.X * matrix.M11 + normal.Y * matrix.M21 + normal.Z * matrix.M31,
                          normal.X * matrix.M12 + normal.Y * matrix.M22 + normal.Z * matrix.M32,
                          normal.X * matrix.M13 + normal.Y * matrix.M23 + normal.Z * matrix.M33);
 
         [MethodImpl(Inline)]
-        public Vector3D TransformNormal(Matrix4x4F matrix) =>
+        public Vector3D TransformNormal(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         [MethodImpl(Inline)]

@@ -88,16 +88,16 @@ namespace MathStructs
             bounds1 * (1d - amount) + bounds2 * amount;
 
         [MethodImpl(Inline)]
-        public static Vector2D Transform(Vector2D vector, Matrix4x4F matrix) =>
+        public static Vector2D Transform(Vector2D vector, Matrix4x4D matrix) =>
             new Vector2D(vector.X * matrix.M11 + vector.Y * matrix.M21 + matrix.M41,
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + matrix.M42);
 
         [MethodImpl(Inline)]
-        public Vector2D Transform(Matrix4x4F matrix) =>
+        public Vector2D Transform(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         [MethodImpl(Inline)]
-        public static Vector2D Transform(Vector2D value, QuaternionF rotation)
+        public static Vector2D Transform(Vector2D value, QuaternionD rotation)
         {
             var n1 = rotation.X + rotation.X;
             var n2 = rotation.Y + rotation.Y;
@@ -111,16 +111,16 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
-        public Vector2D Transform(QuaternionF rotation) =>
+        public Vector2D Transform(QuaternionD rotation) =>
             Transform(this, rotation);
 
         [MethodImpl(Inline)]
-        public static Vector2D TransformNormal(Vector2D normal, Matrix4x4F matrix) =>
+        public static Vector2D TransformNormal(Vector2D normal, Matrix4x4D matrix) =>
             new Vector2D(normal.X * matrix.M11 + normal.Y * matrix.M21,
                          normal.X * matrix.M12 + normal.Y * matrix.M22);
 
         [MethodImpl(Inline)]
-        public Vector2D TransformNormal(Matrix4x4F matrix) =>
+        public Vector2D TransformNormal(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         [MethodImpl(Inline)]
@@ -193,6 +193,11 @@ namespace MathStructs
         [MethodImpl(Inline)]
         public bool Equals(Vector2D other) =>
             this == other;
+        [MethodImpl(Inline)]
+        public bool Equals(Vector2D other, double delta) =>
+            delta == 0.0 ? this == other
+                         : Math.Abs(X - other.X) < delta &&
+                           Math.Abs(Y - other.Y) < delta;
 
         [MethodImpl(Inline)]
         public static double Dot(Vector2D left, Vector2D right) =>
