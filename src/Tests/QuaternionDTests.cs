@@ -251,10 +251,10 @@ namespace Tests
         [Test]
         public void QuaternionDAdditionTest()
         {
-            QuaternionD a = new QuaternionD(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionD b = new QuaternionD(5.0f, 6.0f, 7.0f, 8.0f);
+            QuaternionD a = new QuaternionD(1.0, 2.0, 3.0, 4.0);
+            QuaternionD b = new QuaternionD(5.0, 6.0, 7.0, 8.0);
 
-            QuaternionD expected = new QuaternionD(6.0f, 8.0f, 10.0f, 12.0f);
+            QuaternionD expected = new QuaternionD(6.0, 8.0, 10.0, 12.0);
             QuaternionD actual;
 
             actual = a + b;
@@ -266,10 +266,10 @@ namespace Tests
         [Test]
         public void QuaternionDConstructorTest()
         {
-            double x = 1.0f;
-            double y = 2.0f;
-            double z = 3.0f;
-            double w = 4.0f;
+            double x = 1.0;
+            double y = 2.0;
+            double z = 3.0;
+            double w = 4.0;
 
             QuaternionD target = new QuaternionD(x, y, z, w);
 
@@ -281,8 +281,8 @@ namespace Tests
         [Test]
         public void QuaternionDConstructorTest1()
         {
-            Vector3D v = new Vector3D(1.0f, 2.0f, 3.0f);
-            double w = 4.0f;
+            Vector3D v = new Vector3D(1.0, 2.0, 3.0);
+            double w = 4.0;
 
             QuaternionD target = new QuaternionD(v, w);
             Assert.True(MathHelper.Equal(target.X, v.X) && MathHelper.Equal(target.Y, v.Y) && MathHelper.Equal(target.Z, v.Z) && MathHelper.Equal(target.W, w),
@@ -293,10 +293,10 @@ namespace Tests
         [Test]
         public void QuaternionDCreateFromAxisAngleTest()
         {
-            Vector3D axis = Vector3D.Normalize(new Vector3D(1.0f, 2.0f, 3.0f));
-            double angle = MathHelper.ToRadians(30.0f);
+            Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
+            double angle = MathHelper.ToRadiansD(30.0);
 
-            QuaternionD expected = new QuaternionD(0.0691723f, 0.1383446f, 0.207516879f, 0.9659258f);
+            QuaternionD expected = new QuaternionD(0.0691723, 0.1383446, 0.207516879, 0.9659258);
             QuaternionD actual;
 
             actual = QuaternionD.CreateFromAxisAngle(axis, angle);
@@ -377,9 +377,9 @@ namespace Tests
                 {
                     for (double rollAngle = -720.0f; rollAngle <= 720.0f; rollAngle += step)
                     {
-                        double yawRad = MathHelper.ToRadians(yawAngle);
-                        double pitchRad = MathHelper.ToRadians(pitchAngle);
-                        double rollRad = MathHelper.ToRadians(rollAngle);
+                        double yawRad = MathHelper.ToRadiansD(yawAngle);
+                        double pitchRad = MathHelper.ToRadiansD(pitchAngle);
+                        double rollRad = MathHelper.ToRadiansD(rollAngle);
 
                         QuaternionD yaw = QuaternionD.CreateFromAxisAngle(Vector3D.UnitY, yawRad);
                         QuaternionD pitch = QuaternionD.CreateFromAxisAngle(Vector3D.UnitX, pitchRad);
@@ -398,12 +398,12 @@ namespace Tests
         public void QuaternionDSlerpTest()
         {
             Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
-            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0));
-            QuaternionD b = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0));
+            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(10.0));
+            QuaternionD b = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(30.0));
 
             double t = 0.5;
 
-            QuaternionD expected = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(20.0));
+            QuaternionD expected = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(20.0));
             QuaternionD actual;
 
             actual = QuaternionD.Slerp(a, b, t);
@@ -421,8 +421,8 @@ namespace Tests
         public void QuaternionDSlerpTest1()
         {
             Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
-            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0));
-            QuaternionD b = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0));
+            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(10.0));
+            QuaternionD b = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(30.0));
 
             double t = 0.0f;
 
@@ -437,8 +437,8 @@ namespace Tests
         public void QuaternionDSlerpTest2()
         {
             Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
-            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0));
-            QuaternionD b = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0));
+            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(10.0));
+            QuaternionD b = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(30.0));
 
             double t = 1.0f;
 
@@ -453,7 +453,7 @@ namespace Tests
         public void QuaternionDSlerpTest3()
         {
             Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
-            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0));
+            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(10.0));
             QuaternionD b = -a;
 
             double t = 1.0;
@@ -472,8 +472,8 @@ namespace Tests
         public void QuaternionDSlerpTest4()
         {
             Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
-            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0));
-            QuaternionD b = -QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0));
+            QuaternionD a = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(10.0));
+            QuaternionD b = -QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(30.0));
 
             double t = 0.0;
 

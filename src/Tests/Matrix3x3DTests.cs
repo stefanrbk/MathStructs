@@ -47,9 +47,9 @@ namespace Tests
         public void Matrix3x3DDeterminantTest()
         {
             Matrix3x3D target = As3x3(
-                    Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
-                    Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                    Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0)));
+                    Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(30.0)) *
+                    Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(30.0)) *
+                    Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(30.0)));
 
             double val = 1.0;
             double det = target.GetDeterminant();

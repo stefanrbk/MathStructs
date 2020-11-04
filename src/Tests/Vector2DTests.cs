@@ -468,9 +468,9 @@ namespace Tests
         {
             Vector2D v = new Vector2D(1.0, 2.0);
             Matrix4x4D m =
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(30.0));
             m.M41 = 10.0;
             m.M42 = 20.0;
             m.M43 = 30.0;
@@ -504,9 +504,9 @@ namespace Tests
         {
             Vector2D v = new Vector2D(1.0, 2.0);
             Matrix4x4D m =
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(30.0));
             m.M41 = 10.0;
             m.M42 = 20.0;
             m.M43 = 30.0;
@@ -541,9 +541,9 @@ namespace Tests
             Vector2D v = new Vector2D(1.0, 2.0);
 
             Matrix4x4D m =
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(30.0));
             QuaternionD q = QuaternionD.CreateFromRotationMatrix(m);
 
             Vector2D expected = Vector2D.Transform(v, m);

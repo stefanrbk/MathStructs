@@ -114,9 +114,9 @@ namespace Tests
         public void Matrix4x4InvertTest()
         {
             Matrix4x4D mtx =
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(30.0)) *
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(30.0));
 
             Matrix4x4D expected = new Matrix4x4D
             {
@@ -249,9 +249,9 @@ namespace Tests
 
         static void DecomposeTest(double yaw, double pitch, double roll, Vector3D expectedTranslation, Vector3D expectedScales)
         {
-            QuaternionD expectedRotation = QuaternionD.CreateFromYawPitchRoll(MathHelper.ToRadians(yaw),
-                                                                            MathHelper.ToRadians(pitch),
-                                                                            MathHelper.ToRadians(roll));
+            QuaternionD expectedRotation = QuaternionD.CreateFromYawPitchRoll(MathHelper.ToRadiansD(yaw),
+                                                                            MathHelper.ToRadiansD(pitch),
+                                                                            MathHelper.ToRadiansD(roll));
 
             Matrix4x4D m = Matrix4x4D.CreateScale(expectedScales) *
                           Matrix4x4D.CreateFromQuaternion(expectedRotation) *
@@ -395,7 +395,7 @@ namespace Tests
         [Test]
         public void Matrix4x4CreateRotationXTest()
         {
-            double radians = MathHelper.ToRadians(30.0);
+            double radians = MathHelper.ToRadiansD(30.0);
 
             Matrix4x4D expected = new Matrix4x4D
             {
@@ -445,7 +445,7 @@ namespace Tests
         [Test]
         public void Matrix4x4CreateRotationYTest()
         {
-            double radians = MathHelper.ToRadians(60.0);
+            double radians = MathHelper.ToRadiansD(60.0);
 
             Matrix4x4D expected = new Matrix4x4D
             {
@@ -467,7 +467,7 @@ namespace Tests
         [Test]
         public void Matrix4x4CreateRotationYTest1()
         {
-            double radians = MathHelper.ToRadians(-300.0);
+            double radians = MathHelper.ToRadiansD(-300.0);
 
             Matrix4x4D expected = new Matrix4x4D
             {
@@ -570,9 +570,9 @@ namespace Tests
                 {
                     for (double rollAngle = -720.0f; rollAngle <= 720.0f; rollAngle += step)
                     {
-                        double yawRad = MathHelper.ToRadians(yawAngle);
-                        double pitchRad = MathHelper.ToRadians(pitchAngle);
-                        double rollRad = MathHelper.ToRadians(rollAngle);
+                        double yawRad = MathHelper.ToRadiansD(yawAngle);
+                        double pitchRad = MathHelper.ToRadiansD(pitchAngle);
+                        double rollRad = MathHelper.ToRadiansD(rollAngle);
                         Matrix4x4D yaw = Matrix4x4D.CreateFromAxisAngle(Vector3D.UnitY, yawRad);
                         Matrix4x4D pitch = Matrix4x4D.CreateFromAxisAngle(Vector3D.UnitX, pitchRad);
                         Matrix4x4D roll = Matrix4x4D.CreateFromAxisAngle(Vector3D.UnitZ, rollRad);
@@ -749,7 +749,7 @@ namespace Tests
         [Test]
         public void Matrix4x4CreateRotationZTest()
         {
-            double radians = MathHelper.ToRadians(50.0);
+            double radians = MathHelper.ToRadiansD(50.0);
 
             Matrix4x4D expected = new Matrix4x4D
             {
@@ -770,7 +770,7 @@ namespace Tests
         [Test]
         public void Matrix4x4CreateRotationZCenterTest()
         {
-            double radians = MathHelper.ToRadians(30.0);
+            double radians = MathHelper.ToRadiansD(30.0);
             Vector3D center = new Vector3D(23, 42, 66);
 
             Matrix4x4D rotateAroundZero = Matrix4x4D.CreateRotationZ(radians, Vector3D.Zero);
@@ -979,7 +979,7 @@ namespace Tests
         [Test]
         public void Matrix4x4CreatePerspectiveFieldOfViewTest()
         {
-            double fieldOfView = MathHelper.ToRadians(30.0);
+            double fieldOfView = MathHelper.ToRadiansD(30.0);
             double aspectRatio = 1280.0 / 720.0;
             double zNearPlane = 1.5;
             double zFarPlane = 1000.0;
@@ -1417,7 +1417,7 @@ namespace Tests
         public void Matrix4x4DFromQuaternionTest1()
         {
             Vector3D axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
-            QuaternionD q = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0));
+            QuaternionD q = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadiansD(30.0));
 
             Matrix4x4D expected = new Matrix4x4D
             {
@@ -1850,7 +1850,7 @@ namespace Tests
         public void Matrix4x4CreateBillboardTest01()
         {
             // Object placed at Forward of camera. result must be same as 180 degrees rotate along y-axis.
-            CreateBillboardFact(new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadians(180.0)));
+            CreateBillboardFact(new Vector3D(0, 0, -1), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(180.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1859,7 +1859,7 @@ namespace Tests
         public void Matrix4x4CreateBillboardTest02()
         {
             // Object placed at Backward of camera. This result must be same as 0 degrees rotate along y-axis.
-            CreateBillboardFact(new Vector3D(0, 0, 1), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadians(0.0)));
+            CreateBillboardFact(new Vector3D(0, 0, 1), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(0.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1868,7 +1868,7 @@ namespace Tests
         public void Matrix4x4CreateBillboardTest03()
         {
             // Place object at Right side of camera. This result must be same as 90 degrees rotate along y-axis.
-            CreateBillboardFact(new Vector3D(1, 0, 0), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadians(90.0)));
+            CreateBillboardFact(new Vector3D(1, 0, 0), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(90.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1877,7 +1877,7 @@ namespace Tests
         public void Matrix4x4CreateBillboardTest04()
         {
             // Place object at Left side of camera. This result must be same as -90 degrees rotate along y-axis.
-            CreateBillboardFact(new Vector3D(-1, 0, 0), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadians(-90.0)));
+            CreateBillboardFact(new Vector3D(-1, 0, 0), new Vector3D(0, 1, 0), Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(-90.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1887,7 +1887,7 @@ namespace Tests
         {
             // Place object at Up side of camera. result must be same as 180 degrees rotate along z-axis after 90 degrees rotate along x-axis.
             CreateBillboardFact(new Vector3D(0, 1, 0), new Vector3D(0, 0, 1),
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(180.0)));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(180.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1897,7 +1897,7 @@ namespace Tests
         {
             // Place object at Down side of camera. result must be same as 0 degrees rotate along z-axis after 90 degrees rotate along x-axis.
             CreateBillboardFact(new Vector3D(0, -1, 0), new Vector3D(0, 0, 1),
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(0.0)));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(0.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1907,7 +1907,7 @@ namespace Tests
         {
             // Place object at Right side of camera. result must be same as 90 degrees rotate along z-axis after 90 degrees rotate along x-axis.
             CreateBillboardFact(new Vector3D(1, 0, 0), new Vector3D(0, 0, 1),
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(90.0)));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(90.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1917,7 +1917,7 @@ namespace Tests
         {
             // Place object at Left side of camera. result must be same as -90 degrees rotate along z-axis after 90 degrees rotate along x-axis.
             CreateBillboardFact(new Vector3D(-1, 0, 0), new Vector3D(0, 0, 1),
-                Matrix4x4D.CreateRotationX(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(-90.0)));
+                Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(-90.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1927,7 +1927,7 @@ namespace Tests
         {
             // Place object at Up side of camera. result must be same as -90 degrees rotate along x-axis after 90 degrees rotate along z-axis.
             CreateBillboardFact(new Vector3D(0, 1, 0), new Vector3D(-1, 0, 0),
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadians(-90.0)));
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(-90.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1937,7 +1937,7 @@ namespace Tests
         {
             // Place object at Down side of camera. result must be same as 90 degrees rotate along x-axis after 90 degrees rotate along z-axis.
             CreateBillboardFact(new Vector3D(0, -1, 0), new Vector3D(-1, 0, 0),
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadians(90.0)));
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(90.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1947,7 +1947,7 @@ namespace Tests
         {
             // Place object at Forward side of camera. result must be same as 180 degrees rotate along x-axis after 90 degrees rotate along z-axis.
             CreateBillboardFact(new Vector3D(0, 0, -1), new Vector3D(-1, 0, 0),
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadians(180.0)));
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(180.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1957,7 +1957,7 @@ namespace Tests
         {
             // Place object at Backward side of camera. result must be same as 0 degrees rotate along x-axis after 90 degrees rotate along z-axis.
             CreateBillboardFact(new Vector3D(0, 0, 1), new Vector3D(-1, 0, 0),
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadians(0.0)));
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadiansD(90.0)) * Matrix4x4D.CreateRotationX(MathHelper.ToRadiansD(0.0)));
         }
 
         // A test for CreateBillboard (Vector3D, Vector3D, Vector3D, Vector3D?)
@@ -1970,7 +1970,7 @@ namespace Tests
             Vector3D cameraUpVector = new Vector3D(0, 1, 0);
 
             // Doesn't pass camera face direction. CreateBillboard uses new Vector3D(0, 0, -1) direction. Result must be same as 180 degrees rotate along y-axis.
-            Matrix4x4D expected = Matrix4x4D.CreateRotationY(MathHelper.ToRadians(180.0)) * Matrix4x4D.CreateTranslation(objectPosition);
+            Matrix4x4D expected = Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(180.0)) * Matrix4x4D.CreateTranslation(objectPosition);
             Matrix4x4D actual = Matrix4x4D.CreateBillboard(objectPosition, cameraPosition, cameraUpVector, new Vector3D(0, 0, 1));
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4D.CreateBillboard did not return the expected value.");
         }
@@ -1985,7 +1985,7 @@ namespace Tests
             Vector3D cameraUpVector = new Vector3D(0, 1, 0);
 
             // Passes Vector3D.Right as camera face direction. Result must be same as -90 degrees rotate along y-axis.
-            Matrix4x4D expected = Matrix4x4D.CreateRotationY(MathHelper.ToRadians(-90.0)) * Matrix4x4D.CreateTranslation(objectPosition);
+            Matrix4x4D expected = Matrix4x4D.CreateRotationY(MathHelper.ToRadiansD(-90.0)) * Matrix4x4D.CreateTranslation(objectPosition);
             Matrix4x4D actual = Matrix4x4D.CreateBillboard(objectPosition, cameraPosition, cameraUpVector, new Vector3D(1, 0, 0));
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4D.CreateBillboard did not return the expected value.");
         }

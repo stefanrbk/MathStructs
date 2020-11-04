@@ -65,7 +65,10 @@ namespace Tests
 
 
         // Angle conversion helper.
-        public static double ToRadians(double degrees)
+        public static double ToRadiansD(float _) =>
+            throw new Exception();
+
+        public static double ToRadiansD(double degrees)
         {
             return degrees * Math.PI / 180;
         }
