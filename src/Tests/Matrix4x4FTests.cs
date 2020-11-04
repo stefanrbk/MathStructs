@@ -15,27 +15,6 @@ namespace Tests
 {
     public class Matrix4x4FTests
     {
-        [Test]
-        public void CreateScaleCenterTest()
-        {
-            var scale = new Vector3F(3, 4, 5);
-            var center = new Vector3F(23, 42, 666);
-
-            var scaleAroundZero = Matrix4x4F.CreateScale(scale.X, scale.Y, scale.Z, Vector3F.Zero);
-            var scaleAroundZeroExpected = Matrix4x4F.CreateScale(scale.X, scale.Y, scale.Z);
-
-            Assert.That(scaleAroundZero, Is.EqualTo(scaleAroundZeroExpected), "scale");
-
-            var scaleAroundCenter = Matrix4x4F.CreateScale(scale.X, scale.Y, scale.Z, center);
-            var scaleAroundCenterExpected = Matrix4x4F.CreateTranslation(-center) * Matrix4x4F.CreateScale(scale.X, scale.Y, scale.Z) * Matrix4x4F.CreateTranslation(center);
-
-            Assert.That(scaleAroundCenter, Is.EqualTo(scaleAroundCenterExpected), "center");
-        }
-    }
-    public class Matrix4x4Tests
-    {
-        private static readonly Matrix4x4F NaN = new Matrix4x4F(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN);
-
         static Matrix4x4F GenerateIncrementalMatrixNumber(float value = 0.0f)
         {
             Matrix4x4F a = new Matrix4x4F();
@@ -116,7 +95,7 @@ namespace Tests
             a.M43 = 4.0f;
             a.M44 = 1.0f;
             Matrix4x4F i = a.Invert();
-            Assert.True(i != NaN);
+            Assert.True(i != Matrix4x4F.NaN);
 
             float detA = a.GetDeterminant();
             float detI = i.GetDeterminant();
@@ -158,7 +137,7 @@ namespace Tests
 
             Matrix4x4F actual = mtx.Invert();
 
-            Assert.True(actual != NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
             Assert.True(MathHelper.Equal(expected, actual), "Matrix4x4F.Invert did not return the expected value.");
 
             // Make sure M*M is identity matrix
@@ -173,7 +152,7 @@ namespace Tests
             Matrix4x4F mtx = Matrix4x4F.Identity;
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual!=NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Assert.True(MathHelper.Equal(actual, Matrix4x4F.Identity));
         }
@@ -185,7 +164,7 @@ namespace Tests
             Matrix4x4F mtx = Matrix4x4F.CreateTranslation(23, 42, 666);
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual!=NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Matrix4x4F i = mtx * actual;
             Assert.True(MathHelper.Equal(i, Matrix4x4F.Identity));
@@ -198,7 +177,7 @@ namespace Tests
             Matrix4x4F mtx = Matrix4x4F.CreateFromYawPitchRoll(3, 4, 5);
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual != NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Matrix4x4F i = mtx * actual;
             Assert.True(MathHelper.Equal(i, Matrix4x4F.Identity));
@@ -211,7 +190,7 @@ namespace Tests
             Matrix4x4F mtx = Matrix4x4F.CreateScale(23, 42, -666);
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual != NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Matrix4x4F i = mtx * actual;
             Assert.True(MathHelper.Equal(i, Matrix4x4F.Identity));
@@ -224,7 +203,7 @@ namespace Tests
             Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(1, 1.333f, 0.1f, 666);
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual != NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Matrix4x4F i = mtx * actual;
             Assert.True(MathHelper.Equal(i, Matrix4x4F.Identity));
@@ -239,7 +218,7 @@ namespace Tests
                             Matrix4x4F.CreateTranslation(17, 53, 89);
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual != NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Matrix4x4F i = mtx * actual;
             Assert.True(MathHelper.Equal(i, Matrix4x4F.Identity));
@@ -256,7 +235,7 @@ namespace Tests
                                           4.0f, 7.0f, 3.0f, 0.0f);
 
             Matrix4x4F actual = mtx.Invert();
-            Assert.True(actual != NaN);
+            Assert.True(actual != Matrix4x4F.NaN);
 
             Matrix4x4F i = mtx * actual;
             Assert.False(MathHelper.Equal(i, Matrix4x4F.Identity));

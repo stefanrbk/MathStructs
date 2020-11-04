@@ -568,107 +568,107 @@ namespace MathStructs
             {
                 unsafe
                 {
-                    var left = Sse.LoadVector128(&matrix.M11);
-                    var right = Sse.LoadVector128(&matrix.M21);
-                    var left2 = Sse.LoadVector128(&matrix.M31);
-                    var right2 = Sse.LoadVector128(&matrix.M41);
-                    var left3 = Sse.Shuffle(left, right, 68);
-                    var left4 = Sse.Shuffle(left, right, 238);
-                    var right3 = Sse.Shuffle(left2, right2, 68);
-                    var right4 = Sse.Shuffle(left2, right2, 238);
-                    left = Sse.Shuffle(left3, right3, 136);
-                    right = Sse.Shuffle(left3, right3, 221);
-                    left2 = Sse.Shuffle(left4, right4, 136);
-                    right2 = Sse.Shuffle(left4, right4, 221);
-                    var left5 = Permute(left2, 80);
-                    var right5 = Permute(right2, 238);
-                    var left6 = Permute(left, 80);
-                    var right6 = Permute(right, 238);
-                    var left7 = Sse.Shuffle(left2, left, 136);
-                    var right7 = Sse.Shuffle(right2, right, 221);
-                    var left8 = Sse.Multiply(left5, right5);
-                    var left9 = Sse.Multiply(left6, right6);
-                    var left10 = Sse.Multiply(left7, right7);
-                    left5 = Permute(left2, 238);
-                    right5 = Permute(right2, 80);
-                    left6 = Permute(left, 238);
-                    right6 = Permute(right, 80);
-                    left7 = Sse.Shuffle(left2, left, 221);
-                    right7 = Sse.Shuffle(right2, right, 136);
-                    left8 = Sse.Subtract(left8, Sse.Multiply(left5, right5));
-                    left9 = Sse.Subtract(left9, Sse.Multiply(left6, right6));
-                    left10 = Sse.Subtract(left10, Sse.Multiply(left7, right7));
-                    right6 = Sse.Shuffle(left8, left10, 93);
-                    left5 = Permute(right, 73);
-                    right5 = Sse.Shuffle(right6, left8, 50);
-                    left6 = Permute(left, 18);
-                    right6 = Sse.Shuffle(right6, left8, 153);
-                    var left11 = Sse.Shuffle(left9, left10, 253);
-                    left7 = Permute(right2, 73);
-                    right7 = Sse.Shuffle(left11, left9, 50);
-                    var left12 = Permute(left2, 18);
-                    left11 = Sse.Shuffle(left11, left9, 153);
-                    var left13 = Sse.Multiply(left5, right5);
-                    var left14 = Sse.Multiply(left6, right6);
-                    var left15 = Sse.Multiply(left7, right7);
-                    var left16 = Sse.Multiply(left12, left11);
-                    right6 = Sse.Shuffle(left8, left10, 4);
-                    left5 = Permute(right, 158);
-                    right5 = Sse.Shuffle(left8, right6, 147);
-                    left6 = Permute(left, 123);
-                    right6 = Sse.Shuffle(left8, right6, 38);
-                    left11 = Sse.Shuffle(left9, left10, 164);
-                    left7 = Permute(right2, 158);
-                    right7 = Sse.Shuffle(left9, left11, 147);
-                    left12 = Permute(left2, 123);
-                    left11 = Sse.Shuffle(left9, left11, 38);
-                    left13 = Sse.Subtract(left13, Sse.Multiply(left5, right5));
-                    left14 = Sse.Subtract(left14, Sse.Multiply(left6, right6));
-                    left15 = Sse.Subtract(left15, Sse.Multiply(left7, right7));
-                    left16 = Sse.Subtract(left16, Sse.Multiply(left12, left11));
-                    left5 = Permute(right, 51);
-                    right5 = Sse.Shuffle(left8, left10, 74);
-                    right5 = Permute(right5, 44);
-                    left6 = Permute(left, 141);
-                    right6 = Sse.Shuffle(left8, left10, 76);
-                    right6 = Permute(right6, 147);
-                    left7 = Permute(right2, 51);
-                    right7 = Sse.Shuffle(left9, left10, 234);
-                    right7 = Permute(right7, 44);
-                    left12 = Permute(left2, 141);
-                    left11 = Sse.Shuffle(left9, left10, 236);
-                    left11 = Permute(left11, 147);
-                    left5 = Sse.Multiply(left5, right5);
-                    left6 = Sse.Multiply(left6, right6);
-                    left7 = Sse.Multiply(left7, right7);
-                    left12 = Sse.Multiply(left12, left11);
-                    var right8 = Sse.Subtract(left13, left5);
-                    left13 = Sse.Add(left13, left5);
-                    var right9 = Sse.Add(left14, left6);
-                    left14 = Sse.Subtract(left14, left6);
-                    var right10 = Sse.Subtract(left15, left7);
-                    left15 = Sse.Add(left15, left7);
-                    var right11 = Sse.Add(left16, left12);
-                    left16 = Sse.Subtract(left16, left12);
-                    left13 = Sse.Shuffle(left13, right8, 216);
-                    left14 = Sse.Shuffle(left14, right9, 216);
-                    left15 = Sse.Shuffle(left15, right10, 216);
-                    left16 = Sse.Shuffle(left16, right11, 216);
-                    left13 = Permute(left13, 216);
-                    left14 = Permute(left14, 216);
-                    left15 = Permute(left15, 216);
-                    left16 = Permute(left16, 216);
-                    right3 = left;
-                    float num25 = Vector4F.Dot(left13.AsVector4F(), right3.AsVector4F());
-                    if (MathF.Abs(num25) < float.Epsilon)
-                        return _nan;
-                    var left17 = Vector128.Create(1f);
-                    var right12 = Vector128.Create(num25);
-                    right12 = Sse.Divide(left17, right12);
-                    left = Sse.Multiply(left13, right12);
-                    right = Sse.Multiply(left14, right12);
-                    left2 = Sse.Multiply(left15, right12);
-                    right2 = Sse.Multiply(left16, right12);
+                    var left = Sse.LoadVector128(&matrix.M11);                                      //                          < M11 M12 M13 M14 >
+                    var right = Sse.LoadVector128(&matrix.M21);                                     //                          < M21 M22 M23 M24 >
+                    var left2 = Sse.LoadVector128(&matrix.M31);                                     //                          < M31 M32 M33 M34 >
+                    var right2 = Sse.LoadVector128(&matrix.M41);                                    //                          < M41 M42 M43 M44 >
+                    var left3 = Sse.Shuffle(left, right, 68);                                       //  68 = < A1 A2 B1 B2 >    < M11 M12 M21 M22 >
+                    var left4 = Sse.Shuffle(left, right, 238);                                      // 238 = < A3 A4 B3 B4 >    < M13 M14 M23 M24 >
+                    var right3 = Sse.Shuffle(left2, right2, 68);                                    //  68 = < A1 A2 B1 B2 >    < M31 M32 M41 M42 >
+                    var right4 = Sse.Shuffle(left2, right2, 238);                                   // 238 = < A3 A4 B3 B4 >    < M33 M34 M43 M44 >
+                    left = Sse.Shuffle(left3, right3, 136);                                         // 136 = < A1 A3 B1 B3 >    < M11 M21 M31 M41 >
+                    right = Sse.Shuffle(left3, right3, 221);                                        // 221 = < A2 A4 B2 B4 >    < M12 M22 M32 M42 >
+                    left2 = Sse.Shuffle(left4, right4, 136);                                        // 136 = < A1 A3 B1 B3 >    < M13 M23 M33 M43 >
+                    right2 = Sse.Shuffle(left4, right4, 221);                                       // 221 = < A2 A4 B2 B4 >    < M14 M24 M34 M44 >
+                    var left5 = Permute(left2, 80);                                                 //  80 = < A1 A1 A2 A2 >    < M13 M13 M23 M23 >
+                    var right5 = Permute(right2, 238);                                              // 238 = < A3 A4 A3 A4 >    < M34 M44 M34 M44 >
+                    var left6 = Permute(left, 80);                                                  //  80 = < A1 A1 A2 A2 >    < M11 M11 M21 M21 >
+                    var right6 = Permute(right, 238);                                               // 238 = < A3 A4 A3 A4 >    < M32 M42 M34 M42 >
+                    var left7 = Sse.Shuffle(left2, left, 136);                                      // 136 = < A1 A3 B1 B3 >    < M13 M33 M11 M31 >
+                    var right7 = Sse.Shuffle(right2, right, 221);                                   // 221 = < A2 A4 B2 B4 >    < M24 M44 M22 M42 >
+                    var left8 = Sse.Multiply(left5, right5);                                        //                          < M13*M34 M13*M44 M23*M34 M23*M44 >
+                    var left9 = Sse.Multiply(left6, right6);                                        //                          < M11*M32 M11*M42 M21*M34 M21*M42 >
+                    var left10 = Sse.Multiply(left7, right7);                                       //                          < M13*M24 M33*M44 M11*M22 M31*M42 >
+                    left5 = Permute(left2, 238);                                                    // 238 = < A3 A4 A3 A4 >    < M33 M43 M33 M43 >
+                    right5 = Permute(right2, 80);                                                   //  80 = < A1 A1 A2 A2 >    < M14 M14 M24 M24 >
+                    left6 = Permute(left, 238);                                                     // 238 = < A3 A4 A3 A4 >    < M31 M41 M34 M41 >
+                    right6 = Permute(right, 80);                                                    //  80 = < A1 A1 A2 A2 >    < M12 M12 M22 M22 >
+                    left7 = Sse.Shuffle(left2, left, 221);                                          // 221 = < A2 A4 B2 B4 >    < M23 M43 M21 M41 >
+                    right7 = Sse.Shuffle(right2, right, 136);                                       // 136 = < A1 A3 B1 B3 >    < M14 M34 M12 M34 >
+                    left8 = Sse.Subtract(left8, Sse.Multiply(left5, right5));                       //                          < M13*M34-M33*M14 M13*M44-M43*M14 M23*M34-M33*M24 M23*M44-M43*M24 >
+                    left9 = Sse.Subtract(left9, Sse.Multiply(left6, right6));                       //                          < M11*M32-M31*M12 M11*M42-M41*M12 M21*M34-M34*M22 M21*M42-M41*M22 >
+                    left10 = Sse.Subtract(left10, Sse.Multiply(left7, right7));                     //                          < M13*M24-M23*M14 M33*M44-M43*M34 M11*M22-M21*M12 M31*M42-M41*M34 >
+                    right6 = Sse.Shuffle(left8, left10, 93);                                        //  93 = < A2 A4 B2 B2 >    < M13*M44-M43*M14 M23*M44-M43*M24 M33*M44-M43*M34 M33*M44-M43*M34 >
+                    left5 = Permute(right, 73);                                                     //  73 = < A2 A3 A1 A2 >    < M22 M32 M12 M22 >
+                    right5 = Sse.Shuffle(right6, left8, 50);                                        //  50 = < A3 A1 B4 B1 >    < M33*M44-M43*M34 M13*M44-M43*M14 M23*M44-M43*M24 M13*M34-M33*M14 >
+                    left6 = Permute(left, 18);                                                      //  18 = < A3 A1 A2 A1 >    < M31 M11 M21 M11 >
+                    right6 = Sse.Shuffle(right6, left8, 153);                                       // 153 = < A2 A3 B2 B3 >    < M23*M44-M43*M24 M33*M44-M43*M34 M13*M44-M43*M14 M23*M34-M33*M24 >
+                    var left11 = Sse.Shuffle(left9, left10, 253);                                   // 253 = < A2 A4 B4 B4 >    < M11*M42-M41*M12 M21*M42-M41*M22 M31*M42-M41*M34 M31*M42-M41*M34 >
+                    left7 = Permute(right2, 73);                                                    //  73 = < A2 A3 A1 A2 >    < M24 M34 M14 M24 >
+                    right7 = Sse.Shuffle(left11, left9, 50);                                        //  50 = < A3 A1 B4 B1 >    < M31*M42-M41*M34 M11*M42-M41*M12 M21*M42-M41*M22 M21*M42-M41*M22 >
+                    var left12 = Permute(left2, 18);                                                //  18 = < A3 A1 A2 A1 >    < M33 M13 M23 M13 >
+                    left11 = Sse.Shuffle(left11, left9, 153);                                       // 153 = < A2 A3 B2 B3 >    < M21*M42-M41*M22 M31*M42-M41*M34 M11*M42-M41*M12 M21*M34-M34*M22 >
+                    var left13 = Sse.Multiply(left5, right5);                                       //                          < M22*(M33*M44-M43*M34) M32*(M13*M44-M43*M14) M12*(M23*M44-M43*M24) M22*(M13*M34-M33*M14) >
+                    var left14 = Sse.Multiply(left6, right6);                                       //                          < M31*(M23*M44-M43*M24) M11*(M33*M44-M43*M34) M21*(M13*M44-M43*M14) M11*(M23*M34-M33*M24) >
+                    var left15 = Sse.Multiply(left7, right7);                                       //                          < M24*(M31*M42-M41*M34) M34*(M11*M42-M41*M12) M14*(M21*M42-M41*M22) M24*(M21*M42-M41*M22) >
+                    var left16 = Sse.Multiply(left12, left11);                                      //                          < M33*(M21*M42-M41*M22) M13*(M31*M42-M41*M34) M23*(M11*M42-M41*M12) M13*(M21*M34-M34*M22) >
+                    right6 = Sse.Shuffle(left8, left10, 4);                                         //   4 = < A1 A2 B1 B1 >    < M13*M34-M33*M14 M13*M44-M43*M14 M13*M24-M23*M14 M13*M24-M23*M14 >
+                    left5 = Permute(right, 158);                                                    // 158 = < A3 A4 A2 A3 >    < M32 M42 M22 M32 >
+                    right5 = Sse.Shuffle(left8, right6, 147);                                       // 147 = < A4 A1 B2 B3 >    < M23*M44-M43*M24 M13*M34-M33*M14 M13*M44-M43*M14 M13*M24-M23*M14 >
+                    left6 = Permute(left, 123);                                                     // 123 = < A4 A3 A4 A2 >    < M41 M31 M41 M21 >
+                    right6 = Sse.Shuffle(left8, right6, 38);                                        //  38 = < A3 A2 B3 B1 >    < M23*M34-M33*M24 M13*M44-M43*M14 M13*M24-M23*M14 M13*M34-M33*M14 >
+                    left11 = Sse.Shuffle(left9, left10, 164);                                       // 164 = < A1 A2 B3 B3 >    < M11*M32-M31*M12 M11*M42-M41*M12 M11*M22-M21*M12 M11*M22-M21*M12 >
+                    left7 = Permute(right2, 158);                                                   // 158 = < A3 A4 A2 A3 >    < M34 M44 M24 M34 >
+                    right7 = Sse.Shuffle(left9, left11, 147);                                       // 147 = < A4 A1 B2 B3 >    < M21*M42-M41*M22 M11*M32-M31*M12 M11*M42-M41*M12 M11*M22-M21*M12 >
+                    left12 = Permute(left2, 123);                                                   // 123 = < A4 A3 A4 A2 >    < M43 M33 M43 M23 >
+                    left11 = Sse.Shuffle(left9, left11, 38);                                        //  38 = < A3 A2 B3 B1 >    < M21*M34-M34*M22 M11*M42-M41*M12 M11*M22-M21*M12 M11*M32-M31*M12 >
+                    left13 = Sse.Subtract(left13, Sse.Multiply(left5, right5));                     //                          < M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24) M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14) M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14) M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14) >
+                    left14 = Sse.Subtract(left14, Sse.Multiply(left6, right6));                     //                          < M31*(M23*M44-M43*M24)-M41*(M23*M34-M33*M24) M11*(M33*M44-M43*M34)-M31*(M13*M44-M43*M14) M21*(M13*M44-M43*M14)-M41*(M13*M24-M23*M14) M11*(M23*M34-M33*M24)-M21*(M13*M34-M33*M14) >
+                    left15 = Sse.Subtract(left15, Sse.Multiply(left7, right7));                     //                          < M24*(M31*M42-M41*M34)-M34*(M21*M42-M41*M22) M34*(M11*M42-M41*M12)-M44*(M11*M32-M31*M12) M14*(M21*M42-M41*M22)-M24*(M11*M42-M41*M12) M24*(M21*M42-M41*M22)-M34*(M11*M22-M21*M12) >
+                    left16 = Sse.Subtract(left16, Sse.Multiply(left12, left11));                    //                          < M33*(M21*M42-M41*M22)-M43*(M21*M34-M34*M22) M13*(M31*M42-M41*M34)-M33*(M11*M42-M41*M12) M23*(M11*M42-M41*M12)-M43*(M11*M22-M21*M12) M13*(M21*M34-M34*M22)-M23*(M11*M32-M31*M12) >
+                    left5 = Permute(right, 51);                                                     //  51 = < A4 A1 A4 A1 >    < M42 M12 M42 M12 >
+                    right5 = Sse.Shuffle(left8, left10, 74);                                        //  74 = < A3 A3 B1 B2 >    < M23*M34-M33*M24 M23*M34-M33*M24 M13*M24-M23*M14 M33*M44-M43*M34 >
+                    right5 = Permute(right5, 44);                                                   //  44 = < A1 A4 A3 A1 >    < M23*M34-M33*M24 M33*M44-M43*M34 M13*M24-M23*M14 M23*M34-M33*M24 >
+                    left6 = Permute(left, 141);                                                     // 141 = < A2 A4 A1 A3 >    < M21 M41 M11 M31 >
+                    right6 = Sse.Shuffle(left8, left10, 76);                                        //  76 = < A1 A4 B1 B2 >    < M13*M34-M33*M14 M23*M44-M43*M24 M13*M24-M23*M14 M33*M44-M43*M34 >
+                    right6 = Permute(right6, 147);                                                  // 147 = < A4 A1 A2 A3 >    < M33*M44-M43*M34 M13*M34-M33*M14 M23*M44-M43*M24 M13*M24-M23*M14 >
+                    left7 = Permute(right2, 51);                                                    //  51 = < A4 A1 A4 A1 >    < M44 M14 M44 M14 >
+                    right7 = Sse.Shuffle(left9, left10, 234);                                       // 234 = < A3 A3 B3 B4 >    < M21*M34-M34*M22 M21*M34-M34*M22 M11*M22-M21*M12 M31*M42-M41*M34 >
+                    right7 = Permute(right7, 44);                                                   //  44 = < A1 A4 A3 A1 >    < M21*M34-M34*M22 M31*M42-M41*M34 M11*M22-M21*M12 M21*M34-M34*M22 >
+                    left12 = Permute(left2, 141);                                                   // 141 = < A2 A4 A1 A3 >    < M23 M43 M13 M33 >
+                    left11 = Sse.Shuffle(left9, left10, 236);                                       // 236 = < A1 A4 B3 B4 >    < M11*M32-M31*M12 M21*M42-M41*M22 M11*M22-M21*M12 M31*M42-M41*M34 >
+                    left11 = Permute(left11, 147);                                                  // 147 = < A4 A1 A2 A3 >    < M31*M42-M41*M34 M11*M32-M31*M12 M21*M42-M41*M22 M11*M22-M21*M12 >
+                    left5 = Sse.Multiply(left5, right5);                                            //                          < M42*(M23*M34-M33*M24) M12*(M33*M44-M43*M34) M42*(M13*M24-M23*M14) M12*(M23*M34-M33*M24) >
+                    left6 = Sse.Multiply(left6, right6);                                            //                          < M21*(M33*M44-M43*M34) M41*(M13*M34-M33*M14) M11*(M23*M44-M43*M24) M31*(M13*M24-M23*M14) >
+                    left7 = Sse.Multiply(left7, right7);                                            //                          < M44*(M21*M34-M34*M22) M14*(M31*M42-M41*M34) M44*(M11*M22-M21*M12) M14*(M21*M34-M34*M22) >
+                    left12 = Sse.Multiply(left12, left11);                                          //                          < M23*(M31*M42-M41*M34) M43*(M11*M32-M31*M12) M13*(M21*M42-M41*M22) M33*(M11*M22-M21*M12) >
+                    var right8 = Sse.Subtract(left13, left5);                                       //                          < M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24)-M42*(M23*M34-M33*M24) M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14)-M12*(M33*M44-M43*M34) M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14)-M42*(M13*M24-M23*M14) M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14)-M12*(M23*M34-M33*M24) >
+                    left13 = Sse.Add(left13, left5);                                                //                          < M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24)+M42*(M23*M34-M33*M24) M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14)+M12*(M33*M44-M43*M34) M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14)+M42*(M13*M24-M23*M14) M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14)+M12*(M23*M34-M33*M24) >
+                    var right9 = Sse.Add(left14, left6);                                            //                          < M31*(M23*M44-M43*M24)-M41*(M23*M34-M33*M24)-M21*(M33*M44-M43*M34) M11*(M33*M44-M43*M34)-M31*(M13*M44-M43*M14)-M41*(M13*M34-M33*M14) M21*(M13*M44-M43*M14)-M41*(M13*M24-M23*M14)-M11*(M23*M44-M43*M24) M11*(M23*M34-M33*M24)-M21*(M13*M34-M33*M14)-M31*(M13*M24-M23*M14) >
+                    left14 = Sse.Subtract(left14, left6);                                           //                          < M31*(M23*M44-M43*M24)-M41*(M23*M34-M33*M24)+M21*(M33*M44-M43*M34) M11*(M33*M44-M43*M34)-M31*(M13*M44-M43*M14)+M41*(M13*M34-M33*M14) M21*(M13*M44-M43*M14)-M41*(M13*M24-M23*M14)+M11*(M23*M44-M43*M24) M11*(M23*M34-M33*M24)-M21*(M13*M34-M33*M14)+M31*(M13*M24-M23*M14) >
+                    var right10 = Sse.Subtract(left15, left7);                                      //                          < M24*(M31*M42-M41*M34)-M34*(M21*M42-M41*M22)-M44*(M21*M34-M34*M22) M34*(M11*M42-M41*M12)-M44*(M11*M32-M31*M12)-M14*(M31*M42-M41*M34) M14*(M21*M42-M41*M22)-M24*(M11*M42-M41*M12)-M44*(M11*M22-M21*M12) M24*(M21*M42-M41*M22)-M34*(M11*M22-M21*M12)-M14*(M21*M34-M34*M22) >
+                    left15 = Sse.Add(left15, left7);                                                //                          < M24*(M31*M42-M41*M34)-M34*(M21*M42-M41*M22)+M44*(M21*M34-M34*M22) M34*(M11*M42-M41*M12)-M44*(M11*M32-M31*M12)+M14*(M31*M42-M41*M34) M14*(M21*M42-M41*M22)-M24*(M11*M42-M41*M12)+M44*(M11*M22-M21*M12) M24*(M21*M42-M41*M22)-M34*(M11*M22-M21*M12)+M14*(M21*M34-M34*M22) >
+                    var right11 = Sse.Add(left16, left12);                                          //                          < M33*(M21*M42-M41*M22)-M43*(M21*M34-M34*M22)+M23*(M31*M42-M41*M34) M13*(M31*M42-M41*M34)-M33*(M11*M42-M41*M12)+M43*(M11*M32-M31*M12) M23*(M11*M42-M41*M12)-M43*(M11*M22-M21*M12)+M13*(M21*M42-M41*M22) M13*(M21*M34-M34*M22)-M23*(M11*M32-M31*M12)+M33*(M11*M22-M21*M12) >
+                    left16 = Sse.Subtract(left16, left12);                                          //                          < M33*(M21*M42-M41*M22)-M43*(M21*M34-M34*M22)-M23*(M31*M42-M41*M34) M13*(M31*M42-M41*M34)-M33*(M11*M42-M41*M12)-M43*(M11*M32-M31*M12) M23*(M11*M42-M41*M12)-M43*(M11*M22-M21*M12)-M13*(M21*M42-M41*M22) M13*(M21*M34-M34*M22)-M23*(M11*M32-M31*M12)-M33*(M11*M22-M21*M12) >
+                    left13 = Sse.Shuffle(left13, right8, 216);                                      // 216 = < A1 A3 B2 B4 >    < M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24)+M42*(M23*M34-M33*M24) M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14)+M42*(M13*M24-M23*M14) M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14)-M12*(M33*M44-M43*M34) M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14)-M12*(M23*M34-M33*M24) >
+                    left14 = Sse.Shuffle(left14, right9, 216);                                      // 216 = < A1 A3 B2 B4 >    < M31*(M23*M44-M43*M24)-M41*(M23*M34-M33*M24)+M21*(M33*M44-M43*M34) M21*(M13*M44-M43*M14)-M41*(M13*M24-M23*M14)+M11*(M23*M44-M43*M24) M11*(M33*M44-M43*M34)-M31*(M13*M44-M43*M14)-M41*(M13*M34-M33*M14) M11*(M23*M34-M33*M24)-M21*(M13*M34-M33*M14)-M31*(M13*M24-M23*M14) >
+                    left15 = Sse.Shuffle(left15, right10, 216);                                     // 216 = < A1 A3 B2 B4 >    < M24*(M31*M42-M41*M34)-M34*(M21*M42-M41*M22)+M44*(M21*M34-M34*M22) M14*(M21*M42-M41*M22)-M24*(M11*M42-M41*M12)+M44*(M11*M22-M21*M12) M34*(M11*M42-M41*M12)-M44*(M11*M32-M31*M12)-M14*(M31*M42-M41*M34) M24*(M21*M42-M41*M22)-M34*(M11*M22-M21*M12)-M14*(M21*M34-M34*M22) >
+                    left16 = Sse.Shuffle(left16, right11, 216);                                     // 216 = < A1 A3 B2 B4 >    < M33*(M21*M42-M41*M22)-M43*(M21*M34-M34*M22)-M23*(M31*M42-M41*M34) M23*(M11*M42-M41*M12)-M43*(M11*M22-M21*M12)-M13*(M21*M42-M41*M22) M13*(M31*M42-M41*M34)-M33*(M11*M42-M41*M12)+M43*(M11*M32-M31*M12) M13*(M21*M34-M34*M22)-M23*(M11*M32-M31*M12)+M33*(M11*M22-M21*M12) >
+                    left13 = Permute(left13, 216);                                                  // 216 = < A1 A3 A2 A4 >    < M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24)+M42*(M23*M34-M33*M24) M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14)-M12*(M33*M44-M43*M34) M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14)+M42*(M13*M24-M23*M14) M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14)-M12*(M23*M34-M33*M24) >
+                    left14 = Permute(left14, 216);                                                  // 216 = < A1 A3 A2 A4 >    < M31*(M23*M44-M43*M24)-M41*(M23*M34-M33*M24)+M21*(M33*M44-M43*M34) M11*(M33*M44-M43*M34)-M31*(M13*M44-M43*M14)-M41*(M13*M34-M33*M14) M21*(M13*M44-M43*M14)-M41*(M13*M24-M23*M14)+M11*(M23*M44-M43*M24) M11*(M23*M34-M33*M24)-M21*(M13*M34-M33*M14)-M31*(M13*M24-M23*M14) >
+                    left15 = Permute(left15, 216);                                                  // 216 = < A1 A3 A2 A4 >    < M24*(M31*M42-M41*M34)-M34*(M21*M42-M41*M22)+M44*(M21*M34-M34*M22) M34*(M11*M42-M41*M12)-M44*(M11*M32-M31*M12)-M14*(M31*M42-M41*M34) M14*(M21*M42-M41*M22)-M24*(M11*M42-M41*M12)+M44*(M11*M22-M21*M12) M24*(M21*M42-M41*M22)-M34*(M11*M22-M21*M12)-M14*(M21*M34-M34*M22) >
+                    left16 = Permute(left16, 216);                                                  // 216 = < A1 A3 A2 A4 >    < M33*(M21*M42-M41*M22)-M43*(M21*M34-M34*M22)-M23*(M31*M42-M41*M34) M13*(M31*M42-M41*M34)-M33*(M11*M42-M41*M12)+M43*(M11*M32-M31*M12) M23*(M11*M42-M41*M12)-M43*(M11*M22-M21*M12)-M13*(M21*M42-M41*M22) M13*(M21*M34-M34*M22)-M23*(M11*M32-M31*M12)+M33*(M11*M22-M21*M12) >
+                    right3 = left;                                                                  //                          < M11 M21 M31 M41 >
+                    float num25 = Vector4F.Dot(left13.AsVector4F(), right3.AsVector4F());           //                          M11*(M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24)+M42*(M23*M34-M33*M24))+M21*(M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14)-M12*(M33*M44-M43*M34))+M31*(M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14)+M42*(M13*M24-M23*M14))+M41*(M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14)-M12*(M23*M34-M33*M24))
+                    if (MathF.Abs(num25) < float.Epsilon)                                           // 
+                        return _nan;                                                                // 
+                    var left17 = Vector128.Create(1f);                                              //                          <   1   1   1   1 >
+                    var right12 = Vector128.Create(num25);                                          //                          < N25 N25 N25 N25 >
+                    right12 = Sse.Divide(left17, right12);                                          //                          < 1/N25 1/N25 1/N25 1/N25 >
+                    left = Sse.Multiply(left13, right12);                                           //                          < M22*(M33*M44-M43*M34)-M32*(M23*M44-M43*M24)+M42*(M23*M34-M33*M24)*(1/N25) M32*(M13*M44-M43*M14)-M42*(M13*M34-M33*M14)-M12*(M33*M44-M43*M34)*(1/N25) M12*(M23*M44-M43*M24)-M22*(M13*M44-M43*M14)+M42*(M13*M24-M23*M14)*(1/N25) M22*(M13*M34-M33*M14)-M32*(M13*M24-M23*M14)-M12*(M23*M34-M33*M24)*(1/N25) >
+                    right = Sse.Multiply(left14, right12);                                          //                          < M31*(M23*M44-M43*M24)-M41*(M23*M34-M33*M24)+M21*(M33*M44-M43*M34)*(1/N25) M11*(M33*M44-M43*M34)-M31*(M13*M44-M43*M14)-M41*(M13*M34-M33*M14)*(1/N25) M21*(M13*M44-M43*M14)-M41*(M13*M24-M23*M14)+M11*(M23*M44-M43*M24)*(1/N25) M11*(M23*M34-M33*M24)-M21*(M13*M34-M33*M14)-M31*(M13*M24-M23*M14)*(1/N25) >
+                    left2 = Sse.Multiply(left15, right12);                                          //                          < M24*(M31*M42-M41*M34)-M34*(M21*M42-M41*M22)+M44*(M21*M34-M34*M22)*(1/N25) M34*(M11*M42-M41*M12)-M44*(M11*M32-M31*M12)-M14*(M31*M42-M41*M34)*(1/N25) M14*(M21*M42-M41*M22)-M24*(M11*M42-M41*M12)+M44*(M11*M22-M21*M12)*(1/N25) M24*(M21*M42-M41*M22)-M34*(M11*M22-M21*M12)-M14*(M21*M34-M34*M22)*(1/N25) >
+                    right2 = Sse.Multiply(left16, right12);                                         //                          < M33*(M21*M42-M41*M22)-M43*(M21*M34-M34*M22)-M23*(M31*M42-M41*M34)*(1/N25) M13*(M31*M42-M41*M34)-M33*(M11*M42-M41*M12)+M43*(M11*M32-M31*M12)*(1/N25) M23*(M11*M42-M41*M12)-M43*(M11*M22-M21*M12)-M13*(M21*M42-M41*M22)*(1/N25) M13*(M21*M34-M34*M22)-M23*(M11*M32-M31*M12)+M33*(M11*M22-M21*M12)*(1/N25) >
                     Unsafe.SkipInit<Matrix4x4F>(out var result);
                     ref var reference = ref Unsafe.As<Matrix4x4F, Vector128<float>>(ref result);
                     reference = left;
