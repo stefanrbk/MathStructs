@@ -1,16 +1,15 @@
-name: .NET Core
+name: Build, Test, Pack
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CORE_SDK_VERSION: 5.0.100-rc.2.20479.15
   SOLUTION_PATH: './src/MathStructs.sln'
-  TEST_RESULTS_PATH: './src/Tests and Benchmarking/TestResults/**'
+  TEST_RESULTS_PATH: './src/Tests/TestResults/**'
 on:
   push:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
-  release:
 
 jobs:
   build-test-pack-job:
@@ -42,14 +41,14 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
       run: dotnet pack '${{ env.SOLUTION_PATH }}' --output './nuget-packages' --verbosity minimal --configuration Release --no-build
 
-    - name: Save NuGet package
+    - name: Save NuGet package to Action
       if: matrix.os == 'ubuntu-latest'
       uses: actions/upload-artifact@v2
       with:
         name: nuget-packages
         path: './nuget-packages/*/**'
     
-    - name: Save test log
+    - name: Save test log to Action
       if: matrix.os == 'ubuntu-latest'
       uses: actions/upload-artifact@v2
       with:
