@@ -137,6 +137,14 @@ namespace MathStructs
             Transform(this, matrix);
 
         [MethodImpl(Inline)]
+        public Vector4D TransformV4(Matrix4x4D matrix) =>
+            Vector4D.Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4D TransformV4(QuaternionD rotation) =>
+            Vector4D.Transform(this, rotation);
+
+        [MethodImpl(Inline)]
         public static Vector3D Add(Vector3D left, Vector3D right) =>
             left + right;
 
