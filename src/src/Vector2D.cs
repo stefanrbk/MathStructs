@@ -97,6 +97,14 @@ namespace MathStructs
             Transform(this, matrix);
 
         [MethodImpl(Inline)]
+        public Vector4D TransformV4(Matrix4x4D matrix) =>
+            Vector4D.Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4D TransformV4(QuaternionD rotation) =>
+            Vector4D.Transform(this, rotation);
+
+        [MethodImpl(Inline)]
         public static Vector2D Transform(Vector2D value, QuaternionD rotation)
         {
             var n1 = rotation.X + rotation.X;
