@@ -1,0 +1,321 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Extensions
+  commentId: T:MathStructs.Extensions
+  id: Extensions
+  parent: MathStructs
+  children:
+  - MathStructs.Extensions.AsVector4D(Vector256{System.Double})
+  - MathStructs.Extensions.AsVector4F(Vector128{System.Single})
+  langs:
+  - csharp
+  - vb
+  name: Extensions
+  nameWithType: Extensions
+  fullName: MathStructs.Extensions
+  type: Class
+  source:
+    remote:
+      path: src/Extensions.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Extensions
+    path: Extensions.cs
+    startLine: 10
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: 'public static class Extensions : object'
+    content.vb: >-
+      Public Module Extensions
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: MathStructs.Extensions.AsVector4F(Vector128{System.Single})
+  commentId: M:MathStructs.Extensions.AsVector4F(Vector128{System.Single})
+  id: AsVector4F(Vector128{System.Single})
+  isExtensionMethod: true
+  parent: MathStructs.Extensions
+  langs:
+  - csharp
+  - vb
+  name: AsVector4F(Vector128<Single>)
+  nameWithType: Extensions.AsVector4F(Vector128<Single>)
+  fullName: MathStructs.Extensions.AsVector4F(Vector128<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: AsVector4F
+    path: Extensions.cs
+    startLine: 12
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F AsVector4F(this Vector128<float> value)
+    parameters:
+    - id: value
+      type: Vector128{System.Single}
+    return:
+      type: MathStructs.Vector4F
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function AsVector4F(value As Vector128(Of Single)) As Vector4F
+  overload: MathStructs.Extensions.AsVector4F*
+  nameWithType.vb: Extensions.AsVector4F(Vector128(Of Single))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: MathStructs.Extensions.AsVector4F(Vector128(Of System.Single))
+  name.vb: AsVector4F(Vector128(Of Single))
+- uid: MathStructs.Extensions.AsVector4D(Vector256{System.Double})
+  commentId: M:MathStructs.Extensions.AsVector4D(Vector256{System.Double})
+  id: AsVector4D(Vector256{System.Double})
+  isExtensionMethod: true
+  parent: MathStructs.Extensions
+  langs:
+  - csharp
+  - vb
+  name: AsVector4D(Vector256<Double>)
+  nameWithType: Extensions.AsVector4D(Vector256<Double>)
+  fullName: MathStructs.Extensions.AsVector4D(Vector256<System.Double>)
+  type: Method
+  source:
+    remote:
+      path: src/Extensions.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: AsVector4D
+    path: Extensions.cs
+    startLine: 14
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4D AsVector4D(this Vector256<double> value)
+    parameters:
+    - id: value
+      type: Vector256{System.Double}
+    return:
+      type: MathStructs.Vector4D
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function AsVector4D(value As Vector256(Of Double)) As Vector4D
+  overload: MathStructs.Extensions.AsVector4D*
+  nameWithType.vb: Extensions.AsVector4D(Vector256(Of Double))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: MathStructs.Extensions.AsVector4D(Vector256(Of System.Double))
+  name.vb: AsVector4D(Vector256(Of Double))
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: MathStructs.Extensions.AsVector4F*
+  commentId: Overload:MathStructs.Extensions.AsVector4F
+  name: AsVector4F
+  nameWithType: Extensions.AsVector4F
+  fullName: MathStructs.Extensions.AsVector4F
+- uid: Vector128{System.Single}
+  commentId: '!:Vector128{System.Single}'
+  definition: Vector128`1
+  name: Vector128<Single>
+  nameWithType: Vector128<Single>
+  fullName: Vector128<System.Single>
+  nameWithType.vb: Vector128(Of Single)
+  fullName.vb: Vector128(Of System.Single)
+  name.vb: Vector128(Of Single)
+  spec.csharp:
+  - uid: Vector128`1
+    name: Vector128
+    nameWithType: Vector128
+    fullName: Vector128
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Vector128`1
+    name: Vector128
+    nameWithType: Vector128
+    fullName: Vector128
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4F
+  commentId: T:MathStructs.Vector4F
+  parent: MathStructs
+  name: Vector4F
+  nameWithType: Vector4F
+  fullName: MathStructs.Vector4F
+- uid: Vector128`1
+  commentId: '!:Vector128`1'
+  isExternal: true
+  name: Vector128<>
+  nameWithType: Vector128<>
+  fullName: Vector128<>
+  nameWithType.vb: Vector128(Of )
+  fullName.vb: Vector128(Of )
+  name.vb: Vector128(Of )
+  spec.csharp:
+  - uid: Vector128`1
+    name: Vector128
+    nameWithType: Vector128
+    fullName: Vector128
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Vector128`1
+    name: Vector128
+    nameWithType: Vector128
+    fullName: Vector128
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Extensions.AsVector4D*
+  commentId: Overload:MathStructs.Extensions.AsVector4D
+  name: AsVector4D
+  nameWithType: Extensions.AsVector4D
+  fullName: MathStructs.Extensions.AsVector4D
+- uid: Vector256{System.Double}
+  commentId: '!:Vector256{System.Double}'
+  definition: Vector256`1
+  name: Vector256<Double>
+  nameWithType: Vector256<Double>
+  fullName: Vector256<System.Double>
+  nameWithType.vb: Vector256(Of Double)
+  fullName.vb: Vector256(Of System.Double)
+  name.vb: Vector256(Of Double)
+  spec.csharp:
+  - uid: Vector256`1
+    name: Vector256
+    nameWithType: Vector256
+    fullName: Vector256
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Vector256`1
+    name: Vector256
+    nameWithType: Vector256
+    fullName: Vector256
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4D
+  commentId: T:MathStructs.Vector4D
+  parent: MathStructs
+  name: Vector4D
+  nameWithType: Vector4D
+  fullName: MathStructs.Vector4D
+- uid: Vector256`1
+  commentId: '!:Vector256`1'
+  isExternal: true
+  name: Vector256<>
+  nameWithType: Vector256<>
+  fullName: Vector256<>
+  nameWithType.vb: Vector256(Of )
+  fullName.vb: Vector256(Of )
+  name.vb: Vector256(Of )
+  spec.csharp:
+  - uid: Vector256`1
+    name: Vector256
+    nameWithType: Vector256
+    fullName: Vector256
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Vector256`1
+    name: Vector256
+    nameWithType: Vector256
+    fullName: Vector256
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

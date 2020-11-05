@@ -1,0 +1,3720 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Vector4D
+  commentId: T:MathStructs.Vector4D
+  id: Vector4D
+  parent: MathStructs
+  children:
+  - MathStructs.Vector4D.#ctor(MathStructs.Vector2D,System.Double,System.Double)
+  - MathStructs.Vector4D.#ctor(MathStructs.Vector3D,System.Double)
+  - MathStructs.Vector4D.#ctor(System.Double)
+  - MathStructs.Vector4D.#ctor(System.Double,System.Double,System.Double,System.Double)
+  - MathStructs.Vector4D.Abs
+  - MathStructs.Vector4D.Abs(MathStructs.Vector4D)
+  - MathStructs.Vector4D.Add(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Clamp(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Clamp(MathStructs.Vector4D,MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.CopyTo(System.Double[])
+  - MathStructs.Vector4D.CopyTo(System.Double[],System.Int32)
+  - MathStructs.Vector4D.Deconstruct(MathStructs.Vector2D@,System.Double@,System.Double@)
+  - MathStructs.Vector4D.Deconstruct(MathStructs.Vector3D@,System.Double@)
+  - MathStructs.Vector4D.Deconstruct(System.Double@,System.Double@,System.Double@,System.Double@)
+  - MathStructs.Vector4D.Distance(MathStructs.Vector4D)
+  - MathStructs.Vector4D.Distance(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D)
+  - MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Divide(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Divide(MathStructs.Vector4D,System.Double)
+  - MathStructs.Vector4D.Dot(MathStructs.Vector4D)
+  - MathStructs.Vector4D.Dot(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Equals(MathStructs.Vector4D)
+  - MathStructs.Vector4D.Equals(MathStructs.Vector4D,System.Double)
+  - MathStructs.Vector4D.Equals(System.Nullable{System.Object})
+  - MathStructs.Vector4D.GetHashCode
+  - MathStructs.Vector4D.Length
+  - MathStructs.Vector4D.LengthSquared
+  - MathStructs.Vector4D.Lerp(MathStructs.Vector4D,MathStructs.Vector4D,System.Double)
+  - MathStructs.Vector4D.Max(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Min(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Multiply(MathStructs.Vector4D,System.Double)
+  - MathStructs.Vector4D.Multiply(System.Double,MathStructs.Vector4D)
+  - MathStructs.Vector4D.Negate(MathStructs.Vector4D)
+  - MathStructs.Vector4D.Normalize
+  - MathStructs.Vector4D.Normalize(MathStructs.Vector4D)
+  - MathStructs.Vector4D.One
+  - MathStructs.Vector4D.op_Addition(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_Division(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_Division(MathStructs.Vector4D,System.Double)
+  - MathStructs.Vector4D.op_Equality(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_Inequality(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_Multiply(MathStructs.Vector4D,System.Double)
+  - MathStructs.Vector4D.op_Multiply(System.Double,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_Subtraction(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_UnaryNegation(MathStructs.Vector4D)
+  - MathStructs.Vector4D.op_UnaryPlus(MathStructs.Vector4D)
+  - MathStructs.Vector4D.SquareRoot
+  - MathStructs.Vector4D.SquareRoot(MathStructs.Vector4D)
+  - MathStructs.Vector4D.Subtract(MathStructs.Vector4D,MathStructs.Vector4D)
+  - MathStructs.Vector4D.ToString
+  - MathStructs.Vector4D.ToString(System.Nullable{System.String})
+  - MathStructs.Vector4D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  - MathStructs.Vector4D.Transform(MathStructs.Matrix4x4D)
+  - MathStructs.Vector4D.Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector4D.Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  - MathStructs.Vector4D.Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector4D.Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  - MathStructs.Vector4D.Transform(MathStructs.Vector4D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector4D.Transform(MathStructs.Vector4D,MathStructs.QuaternionD)
+  - MathStructs.Vector4D.Transfrom(MathStructs.QuaternionD)
+  - MathStructs.Vector4D.UnitW
+  - MathStructs.Vector4D.UnitX
+  - MathStructs.Vector4D.UnitY
+  - MathStructs.Vector4D.UnitZ
+  - MathStructs.Vector4D.W
+  - MathStructs.Vector4D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  - MathStructs.Vector4D.X
+  - MathStructs.Vector4D.Y
+  - MathStructs.Vector4D.Z
+  - MathStructs.Vector4D.Zero
+  langs:
+  - csharp
+  - vb
+  name: Vector4D
+  nameWithType: Vector4D
+  fullName: MathStructs.Vector4D
+  type: Struct
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Vector4D
+    path: Vector4D.cs
+    startLine: 9
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nA structure encapsulating four double precision floating point values.\n"
+  example: []
+  syntax:
+    content: 'public struct Vector4D : IEquatable<Vector4D>, IFormattable'
+    content.vb: >-
+      Public Structure Vector4D
+          Implements IEquatable(Of Vector4D), IFormattable
+  implements:
+  - IEquatable{MathStructs.Vector4D}
+  - IFormattable
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MathStructs.Vector4D.X
+  commentId: F:MathStructs.Vector4D.X
+  id: X
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Vector4D.X
+  fullName: MathStructs.Vector4D.X
+  type: Field
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: X
+    path: Vector4D.cs
+    startLine: 22
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nThe X component of the vector.\n"
+  example: []
+  syntax:
+    content: public double X
+    return:
+      type: System.Double
+    content.vb: Public X As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Y
+  commentId: F:MathStructs.Vector4D.Y
+  id: Y
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Vector4D.Y
+  fullName: MathStructs.Vector4D.Y
+  type: Field
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Y
+    path: Vector4D.cs
+    startLine: 26
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nThe Y component of the vector.\n"
+  example: []
+  syntax:
+    content: public double Y
+    return:
+      type: System.Double
+    content.vb: Public Y As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Z
+  commentId: F:MathStructs.Vector4D.Z
+  id: Z
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Z
+  nameWithType: Vector4D.Z
+  fullName: MathStructs.Vector4D.Z
+  type: Field
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Z
+    path: Vector4D.cs
+    startLine: 30
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nThe Z component of the vector.\n"
+  example: []
+  syntax:
+    content: public double Z
+    return:
+      type: System.Double
+    content.vb: Public Z As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.W
+  commentId: F:MathStructs.Vector4D.W
+  id: W
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: W
+  nameWithType: Vector4D.W
+  fullName: MathStructs.Vector4D.W
+  type: Field
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: W
+    path: Vector4D.cs
+    startLine: 34
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nThe W component of the vector.\n"
+  example: []
+  syntax:
+    content: public double W
+    return:
+      type: System.Double
+    content.vb: Public W As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Zero
+  commentId: P:MathStructs.Vector4D.Zero
+  id: Zero
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Vector4D.Zero
+  fullName: MathStructs.Vector4D.Zero
+  type: Property
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Zero
+    path: Vector4D.cs
+    startLine: 43
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the vector &lt; 0, 0, 0, 0 >.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Zero { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared ReadOnly Property Zero As Vector4D
+  overload: MathStructs.Vector4D.Zero*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4D.One
+  commentId: P:MathStructs.Vector4D.One
+  id: One
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Vector4D.One
+  fullName: MathStructs.Vector4D.One
+  type: Property
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: One
+    path: Vector4D.cs
+    startLine: 49
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the vector &lt; 1, 1, 1, 1 >.\n"
+  example: []
+  syntax:
+    content: public static Vector4D One { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared ReadOnly Property One As Vector4D
+  overload: MathStructs.Vector4D.One*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4D.UnitX
+  commentId: P:MathStructs.Vector4D.UnitX
+  id: UnitX
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: UnitX
+  nameWithType: Vector4D.UnitX
+  fullName: MathStructs.Vector4D.UnitX
+  type: Property
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitX
+    path: Vector4D.cs
+    startLine: 55
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the vector &lt; 1, 0, 0, 0 >.\n"
+  example: []
+  syntax:
+    content: public static Vector4D UnitX { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared ReadOnly Property UnitX As Vector4D
+  overload: MathStructs.Vector4D.UnitX*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4D.UnitY
+  commentId: P:MathStructs.Vector4D.UnitY
+  id: UnitY
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: UnitY
+  nameWithType: Vector4D.UnitY
+  fullName: MathStructs.Vector4D.UnitY
+  type: Property
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitY
+    path: Vector4D.cs
+    startLine: 61
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the vector &lt; 0, 1, 0, 0 >.\n"
+  example: []
+  syntax:
+    content: public static Vector4D UnitY { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared ReadOnly Property UnitY As Vector4D
+  overload: MathStructs.Vector4D.UnitY*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4D.UnitZ
+  commentId: P:MathStructs.Vector4D.UnitZ
+  id: UnitZ
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: UnitZ
+  nameWithType: Vector4D.UnitZ
+  fullName: MathStructs.Vector4D.UnitZ
+  type: Property
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitZ
+    path: Vector4D.cs
+    startLine: 67
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the vector &lt; 0, 0, 1, 0 >.\n"
+  example: []
+  syntax:
+    content: public static Vector4D UnitZ { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared ReadOnly Property UnitZ As Vector4D
+  overload: MathStructs.Vector4D.UnitZ*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4D.UnitW
+  commentId: P:MathStructs.Vector4D.UnitW
+  id: UnitW
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: UnitW
+  nameWithType: Vector4D.UnitW
+  fullName: MathStructs.Vector4D.UnitW
+  type: Property
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitW
+    path: Vector4D.cs
+    startLine: 73
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the vector &lt; 0, 0, 0, 1 >.\n"
+  example: []
+  syntax:
+    content: public static Vector4D UnitW { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared ReadOnly Property UnitW As Vector4D
+  overload: MathStructs.Vector4D.UnitW*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4D.GetHashCode
+  commentId: M:MathStructs.Vector4D.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vector4D.GetHashCode()
+  fullName: MathStructs.Vector4D.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Vector4D.cs
+    startLine: 86
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the hash code for this instance.\n"
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: "\nThe hash code.\n"
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: MathStructs.Vector4D.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector4D.Equals(System.Nullable{System.Object})
+  commentId: M:MathStructs.Vector4D.Equals(System.Nullable{System.Object})
+  id: Equals(System.Nullable{System.Object})
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Nullable<Object>)
+  nameWithType: Vector4D.Equals(Nullable<Object>)
+  fullName: MathStructs.Vector4D.Equals(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector4D.cs
+    startLine: 99
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given Object is equal to this <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+      description: "\nThe Object to compare against.\n"
+    return:
+      type: System.Boolean
+      description: "\n<xref uid=\"langword_csharp_true\" name=\"true\" href=\"\"></xref> if the Object is equal to this <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>;\n<xref uid=\"langword_csharp_false\" name=\"false\" href=\"\"></xref> otherwise.\n"
+    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+  overload: MathStructs.Vector4D.Equals*
+  nameWithType.vb: Vector4D.Equals(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: MathStructs.Vector4D.Equals(System.Nullable(Of System.Object))
+  name.vb: Equals(Nullable(Of Object))
+- uid: MathStructs.Vector4D.ToString
+  commentId: M:MathStructs.Vector4D.ToString
+  id: ToString
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vector4D.ToString()
+  fullName: MathStructs.Vector4D.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector4D.cs
+    startLine: 107
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a String representing this Vector4D instance.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: The string representation.
+    content.vb: Public Overrides Function ToString As String
+  overload: MathStructs.Vector4D.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector4D.ToString(System.Nullable{System.String})
+  commentId: M:MathStructs.Vector4D.ToString(System.Nullable{System.String})
+  id: ToString(System.Nullable{System.String})
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>)
+  nameWithType: Vector4D.ToString(Nullable<String>)
+  fullName: MathStructs.Vector4D.ToString(System.Nullable<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector4D.cs
+    startLine: 119
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a String representing this Vector4D instance, using the specified format to format individual elements.\n"
+  example: []
+  syntax:
+    content: public string ToString(string? format)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+      description: "\nThe format of individual elements.\n"
+    return:
+      type: System.String
+      description: "\nThe string representation.\n"
+    content.vb: Public Function ToString(format As String?) As String
+  overload: MathStructs.Vector4D.ToString*
+  nameWithType.vb: Vector4D.ToString(Nullable(Of String))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.ToString(System.Nullable(Of System.String))
+  name.vb: ToString(Nullable(Of String))
+- uid: MathStructs.Vector4D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  commentId: M:MathStructs.Vector4D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  id: ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType: Vector4D.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  fullName: MathStructs.Vector4D.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector4D.cs
+    startLine: 135
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a String representing this <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> instance, using the specified format to format\nindividual elements and the given <see cref=\"!:IFormatProvider\"></see>.\n"
+  example: []
+  syntax:
+    content: public string ToString(string? format, IFormatProvider? formatProvider)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+      description: "\nThe format of individual elements.\n"
+    - id: formatProvider
+      type: System.Nullable{IFormatProvider}
+      description: "\nThe format provider to use when formatting elements.\n"
+    return:
+      type: System.String
+      description: "\nThe string representation.\n"
+    content.vb: Public Function ToString(format As String?, formatProvider As IFormatProvider?) As String
+  overload: MathStructs.Vector4D.ToString*
+  nameWithType.vb: Vector4D.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector4D.Length
+  commentId: M:MathStructs.Vector4D.Length
+  id: Length
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Length()
+  nameWithType: Vector4D.Length()
+  fullName: MathStructs.Vector4D.Length()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Length
+    path: Vector4D.cs
+    startLine: 150
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the length of the vector.\n"
+  remarks: "\n<xref href=\"MathStructs.Vector4D.LengthSquared\" data-throw-if-not-resolved=\"false\"></xref> is cheaper to use if you need to square this result.\n"
+  example: []
+  syntax:
+    content: public double Length()
+    return:
+      type: System.Double
+      description: "\nThe vector&apos;s length.\n"
+    content.vb: Public Function Length As Double
+  overload: MathStructs.Vector4D.Length*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.LengthSquared
+  commentId: M:MathStructs.Vector4D.LengthSquared
+  id: LengthSquared
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared()
+  nameWithType: Vector4D.LengthSquared()
+  fullName: MathStructs.Vector4D.LengthSquared()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: LengthSquared
+    path: Vector4D.cs
+    startLine: 163
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the length of the vector squared.\n"
+  remarks: "\nThis operation is cheaper than <xref href=\"MathStructs.Vector4D.Length\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public double LengthSquared()
+    return:
+      type: System.Double
+      description: "\nThe vector&apos;s length squared.\n"
+    content.vb: Public Function LengthSquared As Double
+  overload: MathStructs.Vector4D.LengthSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Distance(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Distance(MathStructs.Vector4D)
+  id: Distance(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector4D)
+  nameWithType: Vector4D.Distance(Vector4D)
+  fullName: MathStructs.Vector4D.Distance(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector4D.cs
+    startLine: 176
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the Euclidean distance between this point and the given point.\n"
+  example: []
+  syntax:
+    content: public double Distance(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe other point.\n"
+    return:
+      type: System.Double
+      description: "\nThe distance.\n"
+    content.vb: Public Function Distance(value As Vector4D) As Double
+  overload: MathStructs.Vector4D.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D)
+  id: DistanceSquared(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector4D)
+  nameWithType: Vector4D.DistanceSquared(Vector4D)
+  fullName: MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector4D.cs
+    startLine: 192
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the Euclidean distance squared between this point and the given point.\n"
+  remarks: "\nLess expensive than <xref href=\"MathStructs.Vector4D.Distance(MathStructs.Vector4D)\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public double DistanceSquared(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe other point.\n"
+    return:
+      type: System.Double
+      description: "\nThe distance squared.\n"
+    content.vb: Public Function DistanceSquared(value As Vector4D) As Double
+  overload: MathStructs.Vector4D.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Normalize
+  commentId: M:MathStructs.Vector4D.Normalize
+  id: Normalize
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Vector4D.Normalize()
+  fullName: MathStructs.Vector4D.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector4D.cs
+    startLine: 202
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector with the same direction as this vector, but with a length of 1.\n"
+  example: []
+  syntax:
+    content: public Vector4D Normalize()
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe normalized vector.\n"
+    content.vb: Public Function Normalize As Vector4D
+  overload: MathStructs.Vector4D.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Clamp(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Clamp(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Clamp(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector4D, Vector4D)
+  nameWithType: Vector4D.Clamp(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Clamp(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector4D.cs
+    startLine: 218
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nRestricts a copy of this vector between a min and max value.\n"
+  example: []
+  syntax:
+    content: public Vector4D Clamp(Vector4D min, Vector4D max)
+    parameters:
+    - id: min
+      type: MathStructs.Vector4D
+      description: "\nThe minimum value.\n"
+    - id: max
+      type: MathStructs.Vector4D
+      description: "\nThe maximum value.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe restricted vector.\n"
+    content.vb: Public Function Clamp(min As Vector4D, max As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Clamp*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Transform(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4D)
+  nameWithType: Vector4D.Transform(Matrix4x4D)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 234
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a copy of this vector by the given matrix.\n"
+  example: []
+  syntax:
+    content: public Vector4D Transform(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+      description: "\nThe transformation matrix.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Function Transform(matrix As Matrix4x4D) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Transfrom(MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector4D.Transfrom(MathStructs.QuaternionD)
+  id: Transfrom(MathStructs.QuaternionD)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transfrom(QuaternionD)
+  nameWithType: Vector4D.Transfrom(QuaternionD)
+  fullName: MathStructs.Vector4D.Transfrom(MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transfrom
+    path: Vector4D.cs
+    startLine: 247
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a copy of this vector by the given <xref href=\"MathStructs.QuaternionD\" data-throw-if-not-resolved=\"false\"></xref> rotation value.\n"
+  example: []
+  syntax:
+    content: public Vector4D Transfrom(QuaternionD rotation)
+    parameters:
+    - id: rotation
+      type: MathStructs.QuaternionD
+      description: "\nThe rotation to apply.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Function Transfrom(rotation As QuaternionD) As Vector4D
+  overload: MathStructs.Vector4D.Transfrom*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.CopyTo(System.Double[])
+  commentId: M:MathStructs.Vector4D.CopyTo(System.Double[])
+  id: CopyTo(System.Double[])
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Double[])
+  nameWithType: Vector4D.CopyTo(Double[])
+  fullName: MathStructs.Vector4D.CopyTo(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector4D.cs
+    startLine: 254
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCopies the contents of the vector into the given array.\n"
+  example: []
+  syntax:
+    content: public void CopyTo(double[] array)
+    parameters:
+    - id: array
+      type: System.Double[]
+    content.vb: Public Sub CopyTo(array As Double())
+  overload: MathStructs.Vector4D.CopyTo*
+  nameWithType.vb: Vector4D.CopyTo(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.CopyTo(System.Double())
+  name.vb: CopyTo(Double())
+- uid: MathStructs.Vector4D.CopyTo(System.Double[],System.Int32)
+  commentId: M:MathStructs.Vector4D.CopyTo(System.Double[],System.Int32)
+  id: CopyTo(System.Double[],System.Int32)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Double[], Int32)
+  nameWithType: Vector4D.CopyTo(Double[], Int32)
+  fullName: MathStructs.Vector4D.CopyTo(System.Double[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector4D.cs
+    startLine: 270
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCopies the contents of the vector into the given array, starting from index.\n"
+  example: []
+  syntax:
+    content: public void CopyTo(double[] array, int index)
+    parameters:
+    - id: array
+      type: System.Double[]
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Double(), index As Integer)
+  overload: MathStructs.Vector4D.CopyTo*
+  nameWithType.vb: Vector4D.CopyTo(Double(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.CopyTo(System.Double(), System.Int32)
+  name.vb: CopyTo(Double(), Int32)
+- uid: MathStructs.Vector4D.Equals(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Equals(MathStructs.Vector4D)
+  id: Equals(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector4D)
+  nameWithType: Vector4D.Equals(Vector4D)
+  fullName: MathStructs.Vector4D.Equals(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector4D.cs
+    startLine: 292
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> is equal to this <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
+  syntax:
+    content: public bool Equals(Vector4D other)
+    parameters:
+    - id: other
+      type: MathStructs.Vector4D
+      description: "\nThe <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> to compare this instance to.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the other <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> is equal to this instance; False otherwise.\n"
+    content.vb: Public Function Equals(other As Vector4D) As Boolean
+  overload: MathStructs.Vector4D.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Equals(MathStructs.Vector4D,System.Double)
+  commentId: M:MathStructs.Vector4D.Equals(MathStructs.Vector4D,System.Double)
+  id: Equals(MathStructs.Vector4D,System.Double)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector4D, Double)
+  nameWithType: Vector4D.Equals(Vector4D, Double)
+  fullName: MathStructs.Vector4D.Equals(MathStructs.Vector4D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector4D.cs
+    startLine: 308
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given Vector4D is equal to this <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> instance ± delta.\n"
+  example: []
+  syntax:
+    content: public bool Equals(Vector4D other, double delta)
+    parameters:
+    - id: other
+      type: MathStructs.Vector4D
+      description: "\nThe <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> to compare this instance to.\n"
+    - id: delta
+      type: System.Double
+      description: "\nThe allowable margin of error to determine equality for each element pair between the vectors.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the other <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> is equal to this instance ± delta; False otherwise.\n"
+    content.vb: Public Function Equals(other As Vector4D, delta As Double) As Boolean
+  overload: MathStructs.Vector4D.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Dot(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Dot(MathStructs.Vector4D)
+  id: Dot(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector4D)
+  nameWithType: Vector4D.Dot(Vector4D)
+  fullName: MathStructs.Vector4D.Dot(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector4D.cs
+    startLine: 334
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the dot product of this instance and the given vector.\n"
+  remarks: "\nThe dot product of two vectors is the sum of the products of each of the\npairs of elements from two vectors\n"
+  example: []
+  syntax:
+    content: public double Dot(Vector4D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector4D
+      description: "\nThe other vector.\n"
+    return:
+      type: System.Double
+      description: "\nThe dot product.\n"
+    content.vb: Public Function Dot(vector As Vector4D) As Double
+  overload: MathStructs.Vector4D.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Abs
+  commentId: M:MathStructs.Vector4D.Abs
+  id: Abs
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector4D.Abs()
+  fullName: MathStructs.Vector4D.Abs()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector4D.cs
+    startLine: 344
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector whose elements are the absolute values of each of this vector&apos;s elements.\n"
+  example: []
+  syntax:
+    content: public Vector4D Abs()
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe absolute value vector.\n"
+    content.vb: Public Function Abs As Vector4D
+  overload: MathStructs.Vector4D.Abs*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.SquareRoot
+  commentId: M:MathStructs.Vector4D.SquareRoot
+  id: SquareRoot
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: SquareRoot()
+  nameWithType: Vector4D.SquareRoot()
+  fullName: MathStructs.Vector4D.SquareRoot()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: SquareRoot
+    path: Vector4D.cs
+    startLine: 354
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector whose elements are the square root of each of this vector&apos;s elements.\n"
+  example: []
+  syntax:
+    content: public Vector4D SquareRoot()
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe square root vector.\n"
+    content.vb: Public Function SquareRoot As Vector4D
+  overload: MathStructs.Vector4D.SquareRoot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.Distance(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Distance(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Distance(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector4D, Vector4D)
+  nameWithType: Vector4D.Distance(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Distance(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector4D.cs
+    startLine: 374
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the Euclidean distance between the two given points.\n"
+  example: []
+  syntax:
+    content: public static double Distance(Vector4D vector1, Vector4D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector4D
+      description: "\nThe first point.\n"
+    - id: vector2
+      type: MathStructs.Vector4D
+      description: "\nThe second point.\n"
+    return:
+      type: System.Double
+      description: "\nThe distance.\n"
+    content.vb: Public Shared Function Distance(vector1 As Vector4D, vector2 As Vector4D) As Double
+  overload: MathStructs.Vector4D.Distance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: DistanceSquared(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector4D, Vector4D)
+  nameWithType: Vector4D.DistanceSquared(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.DistanceSquared(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector4D.cs
+    startLine: 390
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the Euclidean distance squared between the two given points.\n"
+  example: []
+  syntax:
+    content: public static double DistanceSquared(Vector4D vector1, Vector4D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector4D
+      description: "\nThe first point.\n"
+    - id: vector2
+      type: MathStructs.Vector4D
+      description: "\nThe second point.\n"
+    return:
+      type: System.Double
+      description: "\nThe distance squared.\n"
+    content.vb: Public Shared Function DistanceSquared(vector1 As Vector4D, vector2 As Vector4D) As Double
+  overload: MathStructs.Vector4D.DistanceSquared*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Normalize(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Normalize(MathStructs.Vector4D)
+  id: Normalize(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Normalize(Vector4D)
+  nameWithType: Vector4D.Normalize(Vector4D)
+  fullName: MathStructs.Vector4D.Normalize(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector4D.cs
+    startLine: 403
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector with the same direction as the given vector, but with a length of 1.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Normalize(Vector4D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector4D
+      description: "\nThe vector to normalize.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe normalized vector.\n"
+    content.vb: Public Shared Function Normalize(vector As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Normalize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Clamp(MathStructs.Vector4D,MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Clamp(MathStructs.Vector4D,MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Clamp(MathStructs.Vector4D,MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector4D, Vector4D, Vector4D)
+  nameWithType: Vector4D.Clamp(Vector4D, Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Clamp(MathStructs.Vector4D, MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector4D.cs
+    startLine: 422
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nRestricts a vector between a min and max value.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Clamp(Vector4D value, Vector4D min, Vector4D max)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    - id: min
+      type: MathStructs.Vector4D
+      description: "\nThe minimum value.\n"
+    - id: max
+      type: MathStructs.Vector4D
+      description: "\nThe maximum value.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe restricted vector.\n"
+    content.vb: Public Shared Function Clamp(value As Vector4D, min As Vector4D, max As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Clamp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Lerp(MathStructs.Vector4D,MathStructs.Vector4D,System.Double)
+  commentId: M:MathStructs.Vector4D.Lerp(MathStructs.Vector4D,MathStructs.Vector4D,System.Double)
+  id: Lerp(MathStructs.Vector4D,MathStructs.Vector4D,System.Double)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Vector4D, Vector4D, Double)
+  nameWithType: Vector4D.Lerp(Vector4D, Vector4D, Double)
+  fullName: MathStructs.Vector4D.Lerp(MathStructs.Vector4D, MathStructs.Vector4D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Vector4D.cs
+    startLine: 441
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nLinearly interpolates between two vectors based on the given weighting.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Lerp(Vector4D bounds1, Vector4D bounds2, double amount)
+    parameters:
+    - id: bounds1
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: bounds2
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    - id: amount
+      type: System.Double
+      description: "\nValue between 0 and 1 indicating the weight of the second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe interpolated vector.\n"
+    content.vb: Public Shared Function Lerp(bounds1 As Vector4D, bounds2 As Vector4D, amount As Double) As Vector4D
+  overload: MathStructs.Vector4D.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2D, Matrix4x4D)
+  nameWithType: Vector4D.Transform(Vector2D, Matrix4x4D)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Vector2D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 457
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a vector by the given matrix.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Transform(Vector2D position, Matrix4x4D matrix)
+    parameters:
+    - id: position
+      type: MathStructs.Vector2D
+      description: "\nThe source vector.\n"
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+      description: "\nThe transformation matrix.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Shared Function Transform(position As Vector2D, matrix As Matrix4x4D) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3D, Matrix4x4D)
+  nameWithType: Vector4D.Transform(Vector3D, Matrix4x4D)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Vector3D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 475
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a vector by the given matrix.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Transform(Vector3D vector, Matrix4x4D matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+      description: "\nThe source vector.\n"
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+      description: "\nThe transformation matrix.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Shared Function Transform(vector As Vector3D, matrix As Matrix4x4D) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Transform(MathStructs.Vector4D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Vector4D,MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Vector4D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector4D, Matrix4x4D)
+  nameWithType: Vector4D.Transform(Vector4D, Matrix4x4D)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Vector4D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 494
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a vector by the given matrix.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Transform(Vector4D vector, Matrix4x4D matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+      description: "\nThe transformation matrix.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Shared Function Transform(vector As Vector4D, matrix As Matrix4x4D) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  id: Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2D, QuaternionD)
+  nameWithType: Vector4D.Transform(Vector2D, QuaternionD)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Vector2D, MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 513
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a vector by the given <xref href=\"MathStructs.QuaternionD\" data-throw-if-not-resolved=\"false\"></xref> rotation value.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Transform(Vector2D value, QuaternionD rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+      description: "\nThe source vector to be rotated.\n"
+    - id: rotation
+      type: MathStructs.QuaternionD
+      description: "\nThe rotation to apply.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Shared Function Transform(value As Vector2D, rotation As QuaternionD) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  id: Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3D, QuaternionD)
+  nameWithType: Vector4D.Transform(Vector3D, QuaternionD)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Vector3D, MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 543
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a vector by the given <xref href=\"MathStructs.QuaternionD\" data-throw-if-not-resolved=\"false\"></xref> rotation value.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Transform(Vector3D value, QuaternionD rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+      description: "\nThe source vector to be rotated.\n"
+    - id: rotation
+      type: MathStructs.QuaternionD
+      description: "\nThe rotation to apply.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Shared Function Transform(value As Vector3D, rotation As QuaternionD) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Transform(MathStructs.Vector4D,MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector4D.Transform(MathStructs.Vector4D,MathStructs.QuaternionD)
+  id: Transform(MathStructs.Vector4D,MathStructs.QuaternionD)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector4D, QuaternionD)
+  nameWithType: Vector4D.Transform(Vector4D, QuaternionD)
+  fullName: MathStructs.Vector4D.Transform(MathStructs.Vector4D, MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4D.cs
+    startLine: 573
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a vector by the given <xref href=\"MathStructs.QuaternionD\" data-throw-if-not-resolved=\"false\"></xref> rotation value.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Transform(Vector4D value, QuaternionD rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe source vector to be rotated.\n"
+    - id: rotation
+      type: MathStructs.QuaternionD
+      description: "\nThe rotation to apply.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe transformed vector.\n"
+    content.vb: Public Shared Function Transform(value As Vector4D, rotation As QuaternionD) As Vector4D
+  overload: MathStructs.Vector4D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Dot(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Dot(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Dot(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector4D, Vector4D)
+  nameWithType: Vector4D.Dot(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Dot(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector4D.cs
+    startLine: 607
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the dot product of two vectors.\n"
+  remarks: "\nThe dot product of two vectors is the sum of the products of each of the\npairs of elements from two vectors\n"
+  example: []
+  syntax:
+    content: public static double Dot(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second vector.\n"
+    return:
+      type: System.Double
+      description: "\nThe dot product.\n"
+    content.vb: Public Shared Function Dot(left As Vector4D, right As Vector4D) As Double
+  overload: MathStructs.Vector4D.Dot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Min(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Min(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Min(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Min(Vector4D, Vector4D)
+  nameWithType: Vector4D.Min(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Min(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Min
+    path: Vector4D.cs
+    startLine: 626
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector whose elements are the minimum of each of the pairs of elements in the two source vectors.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Min(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe minimized vector.\n"
+    content.vb: Public Shared Function Min(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Min*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Max(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Max(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Max(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Max(Vector4D, Vector4D)
+  nameWithType: Vector4D.Max(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Max(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Max
+    path: Vector4D.cs
+    startLine: 645
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector whose elements are the maximum of each of the pairs of elements in the two source vectors.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Max(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe maximized vector.\n"
+    content.vb: Public Shared Function Max(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Max*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Abs(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Abs(MathStructs.Vector4D)
+  id: Abs(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector4D)
+  nameWithType: Vector4D.Abs(Vector4D)
+  fullName: MathStructs.Vector4D.Abs(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector4D.cs
+    startLine: 661
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector whose elements are the absolute values of each of the source vector&apos;s elements.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Abs(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe absolute value vector.\n"
+    content.vb: Public Shared Function Abs(value As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.SquareRoot(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.SquareRoot(MathStructs.Vector4D)
+  id: SquareRoot(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: SquareRoot(Vector4D)
+  nameWithType: Vector4D.SquareRoot(Vector4D)
+  fullName: MathStructs.Vector4D.SquareRoot(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: SquareRoot
+    path: Vector4D.cs
+    startLine: 674
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a vector whose elements are the square root of each of the source vector&apos;s elements.\n"
+  example: []
+  syntax:
+    content: public static Vector4D SquareRoot(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe square root vector.\n"
+    content.vb: Public Shared Function SquareRoot(value As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.SquareRoot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Add(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Add(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Add(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Add(Vector4D, Vector4D)
+  nameWithType: Vector4D.Add(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Add(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Add
+    path: Vector4D.cs
+    startLine: 694
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nAdds two vectors together.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Add(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe summed vector.\n"
+    content.vb: Public Shared Function Add(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Subtract(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Subtract(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Subtract(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vector4D, Vector4D)
+  nameWithType: Vector4D.Subtract(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Subtract(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Vector4D.cs
+    startLine: 710
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nSubtracts the second vector from the first.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Subtract(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe difference vector.\n"
+    content.vb: Public Shared Function Subtract(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4D, Vector4D)
+  nameWithType: Vector4D.Multiply(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Multiply(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector4D.cs
+    startLine: 724
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies two vectors together.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Multiply(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: ''
+    content.vb: Public Shared Function Multiply(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Multiply(MathStructs.Vector4D,System.Double)
+  commentId: M:MathStructs.Vector4D.Multiply(MathStructs.Vector4D,System.Double)
+  id: Multiply(MathStructs.Vector4D,System.Double)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4D, Double)
+  nameWithType: Vector4D.Multiply(Vector4D, Double)
+  fullName: MathStructs.Vector4D.Multiply(MathStructs.Vector4D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector4D.cs
+    startLine: 740
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a vector by the given scalar.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Multiply(Vector4D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    - id: right
+      type: System.Double
+      description: "\nThe scalar value.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe scaled vector.\n"
+    content.vb: Public Shared Function Multiply(left As Vector4D, right As Double) As Vector4D
+  overload: MathStructs.Vector4D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Multiply(System.Double,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Multiply(System.Double,MathStructs.Vector4D)
+  id: Multiply(System.Double,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double, Vector4D)
+  nameWithType: Vector4D.Multiply(Double, Vector4D)
+  fullName: MathStructs.Vector4D.Multiply(System.Double, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector4D.cs
+    startLine: 756
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a vector by the given scalar.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Multiply(double left, Vector4D right)
+    parameters:
+    - id: left
+      type: System.Double
+      description: "\nThe scalar value.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe scaled vector.\n"
+    content.vb: Public Shared Function Multiply(left As Double, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Divide(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Divide(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: Divide(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector4D, Vector4D)
+  nameWithType: Vector4D.Divide(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Divide(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector4D.cs
+    startLine: 772
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDivides the first vector by the second.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Divide(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe vector resulting from the division.\n"
+    content.vb: Public Shared Function Divide(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Divide(MathStructs.Vector4D,System.Double)
+  commentId: M:MathStructs.Vector4D.Divide(MathStructs.Vector4D,System.Double)
+  id: Divide(MathStructs.Vector4D,System.Double)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector4D, Double)
+  nameWithType: Vector4D.Divide(Vector4D, Double)
+  fullName: MathStructs.Vector4D.Divide(MathStructs.Vector4D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector4D.cs
+    startLine: 788
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDivides the vector by the given scalar.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Divide(Vector4D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    - id: right
+      type: System.Double
+      description: "\nThe scalar value.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe vector resulting from the division.\n"
+    content.vb: Public Shared Function Divide(left As Vector4D, right As Double) As Vector4D
+  overload: MathStructs.Vector4D.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.Negate(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Negate(MathStructs.Vector4D)
+  id: Negate(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Negate(Vector4D)
+  nameWithType: Vector4D.Negate(Vector4D)
+  fullName: MathStructs.Vector4D.Negate(MathStructs.Vector4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Vector4D.cs
+    startLine: 801
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nNegates a given vector.\n"
+  example: []
+  syntax:
+    content: public static Vector4D Negate(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe negated vector.\n"
+    content.vb: Public Shared Function Negate(value As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.#ctor(System.Double)
+  commentId: M:MathStructs.Vector4D.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Vector4D(Double)
+  nameWithType: Vector4D.Vector4D(Double)
+  fullName: MathStructs.Vector4D.Vector4D(System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4D.cs
+    startLine: 815
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a vector whose elements are all the single specified value.\n"
+  example: []
+  syntax:
+    content: public Vector4D(double value)
+    parameters:
+    - id: value
+      type: System.Double
+      description: "\nThe element to fill the vector with.\n"
+    content.vb: Public Sub New(value As Double)
+  overload: MathStructs.Vector4D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.#ctor(System.Double,System.Double,System.Double,System.Double)
+  commentId: M:MathStructs.Vector4D.#ctor(System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double,System.Double)'
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Vector4D(Double, Double, Double, Double)
+  nameWithType: Vector4D.Vector4D(Double, Double, Double, Double)
+  fullName: MathStructs.Vector4D.Vector4D(System.Double, System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4D.cs
+    startLine: 834
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a vector with the given individual elements.\n"
+  example: []
+  syntax:
+    content: public Vector4D(double x, double y, double z, double w)
+    parameters:
+    - id: x
+      type: System.Double
+      description: "\nX component.\n"
+    - id: y
+      type: System.Double
+      description: "\nY component.\n"
+    - id: z
+      type: System.Double
+      description: "\nZ component.\n"
+    - id: w
+      type: System.Double
+      description: "\nW component.\n"
+    content.vb: Public Sub New(x As Double, y As Double, z As Double, w As Double)
+  overload: MathStructs.Vector4D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.#ctor(MathStructs.Vector3D,System.Double)
+  commentId: M:MathStructs.Vector4D.#ctor(MathStructs.Vector3D,System.Double)
+  id: '#ctor(MathStructs.Vector3D,System.Double)'
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Vector4D(Vector3D, Double)
+  nameWithType: Vector4D.Vector4D(Vector3D, Double)
+  fullName: MathStructs.Vector4D.Vector4D(MathStructs.Vector3D, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4D.cs
+    startLine: 852
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> from the given <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref> and a W component.\n"
+  example: []
+  syntax:
+    content: public Vector4D(Vector3D vector, double w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+      description: "\nThe vector to use as the X, Y, and Z components.\n"
+    - id: w
+      type: System.Double
+      description: "\nThe W component.\n"
+    content.vb: Public Sub New(vector As Vector3D, w As Double)
+  overload: MathStructs.Vector4D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.#ctor(MathStructs.Vector2D,System.Double,System.Double)
+  commentId: M:MathStructs.Vector4D.#ctor(MathStructs.Vector2D,System.Double,System.Double)
+  id: '#ctor(MathStructs.Vector2D,System.Double,System.Double)'
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Vector4D(Vector2D, Double, Double)
+  nameWithType: Vector4D.Vector4D(Vector2D, Double, Double)
+  fullName: MathStructs.Vector4D.Vector4D(MathStructs.Vector2D, System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4D.cs
+    startLine: 873
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> from the given <xref href=\"MathStructs.Vector2D\" data-throw-if-not-resolved=\"false\"></xref> and a Z and W component.\n"
+  example: []
+  syntax:
+    content: public Vector4D(Vector2D vector, double z, double w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+      description: "\nThe vector to use as the X and Y component.\n"
+    - id: z
+      type: System.Double
+      description: "\nThe Z component.\n"
+    - id: w
+      type: System.Double
+      description: "\nThe W component.\n"
+    content.vb: Public Sub New(vector As Vector2D, z As Double, w As Double)
+  overload: MathStructs.Vector4D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  commentId: M:MathStructs.Vector4D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  id: With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Double>, Nullable<Double>, Nullable<Double>, Nullable<Double>)
+  nameWithType: Vector4D.With(Nullable<Double>, Nullable<Double>, Nullable<Double>, Nullable<Double>)
+  fullName: MathStructs.Vector4D.With(System.Nullable<System.Double>, System.Nullable<System.Double>, System.Nullable<System.Double>, System.Nullable<System.Double>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: Vector4D.cs
+    startLine: 900
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nRecord-like <xref uid=\"langword_csharp_with\" name=\"with\" href=\"\"></xref>-style constructor\n"
+  example: []
+  syntax:
+    content: public Vector4D With(double? x = null, double? y = null, double? z = null, double? w = null)
+    parameters:
+    - id: x
+      type: System.Nullable{System.Double}
+      description: "\nIf provided, the X value for the new <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>, otherwise <see cref=\"!:this.X\"></see>.\n"
+    - id: y
+      type: System.Nullable{System.Double}
+      description: "\nIf provided, the Y value for the new <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>, otherwise <see cref=\"!:this.Y\"></see>.\n"
+    - id: z
+      type: System.Nullable{System.Double}
+      description: "\nIf provided, the Z value for the new <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>, otherwise <see cref=\"!:this.Z\"></see>.\n"
+    - id: w
+      type: System.Nullable{System.Double}
+      description: "\nIf provided, the W value for the new <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>, otherwise <see cref=\"!:this.W\"></see>.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe constructed <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+    content.vb: Public Function With(x As Double? = Nothing, y As Double? = Nothing, z As Double? = Nothing, w As Double? = Nothing) As Vector4D
+  overload: MathStructs.Vector4D.With*
+  nameWithType.vb: Vector4D.With(Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.With(System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double))
+  name.vb: With(Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double))
+- uid: MathStructs.Vector4D.Deconstruct(System.Double@,System.Double@,System.Double@,System.Double@)
+  commentId: M:MathStructs.Vector4D.Deconstruct(System.Double@,System.Double@,System.Double@,System.Double@)
+  id: Deconstruct(System.Double@,System.Double@,System.Double@,System.Double@)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Double, out Double, out Double, out Double)
+  nameWithType: Vector4D.Deconstruct(out Double, out Double, out Double, out Double)
+  fullName: MathStructs.Vector4D.Deconstruct(out System.Double, out System.Double, out System.Double, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector4D.cs
+    startLine: 923
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDeconstructs this vector into its <see cref=\"!:System.Double\"></see> components.\n"
+  example: []
+  syntax:
+    content: public void Deconstruct(out double x, out double y, out double z, out double w)
+    parameters:
+    - id: x
+      type: System.Double
+      description: "\nThe X of this vector.\n"
+    - id: y
+      type: System.Double
+      description: "\nThe Y of this vector.\n"
+    - id: z
+      type: System.Double
+      description: "\nThe Z of this vector.\n"
+    - id: w
+      type: System.Double
+      description: "\nThe W of this vector.\n"
+    content.vb: Public Sub Deconstruct(ByRef x As Double, ByRef y As Double, ByRef z As Double, ByRef w As Double)
+  overload: MathStructs.Vector4D.Deconstruct*
+  nameWithType.vb: Vector4D.Deconstruct(ByRef Double, ByRef Double, ByRef Double, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.Deconstruct(ByRef System.Double, ByRef System.Double, ByRef System.Double, ByRef System.Double)
+  name.vb: Deconstruct(ByRef Double, ByRef Double, ByRef Double, ByRef Double)
+- uid: MathStructs.Vector4D.Deconstruct(MathStructs.Vector3D@,System.Double@)
+  commentId: M:MathStructs.Vector4D.Deconstruct(MathStructs.Vector3D@,System.Double@)
+  id: Deconstruct(MathStructs.Vector3D@,System.Double@)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector3D, out Double)
+  nameWithType: Vector4D.Deconstruct(out Vector3D, out Double)
+  fullName: MathStructs.Vector4D.Deconstruct(out MathStructs.Vector3D, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector4D.cs
+    startLine: 942
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDeconstructs this vector into its <see cref=\"!:System.Double\"></see> components and builds the\nX, Y, and Z into a new <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public void Deconstruct(out Vector3D vector, out double w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+      description: "\nThe X, Y, and Z of this vector as a <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+    - id: w
+      type: System.Double
+      description: "\nThe W of this vector.\n"
+    content.vb: Public Sub Deconstruct(ByRef vector As Vector3D, ByRef w As Double)
+  overload: MathStructs.Vector4D.Deconstruct*
+  nameWithType.vb: Vector4D.Deconstruct(ByRef Vector3D, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.Deconstruct(ByRef MathStructs.Vector3D, ByRef System.Double)
+  name.vb: Deconstruct(ByRef Vector3D, ByRef Double)
+- uid: MathStructs.Vector4D.Deconstruct(MathStructs.Vector2D@,System.Double@,System.Double@)
+  commentId: M:MathStructs.Vector4D.Deconstruct(MathStructs.Vector2D@,System.Double@,System.Double@)
+  id: Deconstruct(MathStructs.Vector2D@,System.Double@,System.Double@)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector2D, out Double, out Double)
+  nameWithType: Vector4D.Deconstruct(out Vector2D, out Double, out Double)
+  fullName: MathStructs.Vector4D.Deconstruct(out MathStructs.Vector2D, out System.Double, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector4D.cs
+    startLine: 962
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDeconstructs this vector into its <see cref=\"!:System.Double\"></see> components and builds the\nX and Y into a new <xref href=\"MathStructs.Vector2D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public void Deconstruct(out Vector2D vector, out double z, out double w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+      description: "\nThe X and Y of this vector as a <xref href=\"MathStructs.Vector2D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+    - id: z
+      type: System.Double
+      description: "\nThe Z of this vector.\n"
+    - id: w
+      type: System.Double
+      description: "\nThe W of this vector.\n"
+    content.vb: Public Sub Deconstruct(ByRef vector As Vector2D, ByRef z As Double, ByRef w As Double)
+  overload: MathStructs.Vector4D.Deconstruct*
+  nameWithType.vb: Vector4D.Deconstruct(ByRef Vector2D, ByRef Double, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4D.Deconstruct(ByRef MathStructs.Vector2D, ByRef System.Double, ByRef System.Double)
+  name.vb: Deconstruct(ByRef Vector2D, ByRef Double, ByRef Double)
+- uid: MathStructs.Vector4D.op_UnaryPlus(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_UnaryPlus(MathStructs.Vector4D)
+  id: op_UnaryPlus(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Vector4D)
+  nameWithType: Vector4D.UnaryPlus(Vector4D)
+  fullName: MathStructs.Vector4D.UnaryPlus(MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Vector4D.cs
+    startLine: 977
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the unary plus of the provided vector (nop).\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator +(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared Operator +(value As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_UnaryNegation(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_UnaryNegation(MathStructs.Vector4D)
+  id: op_UnaryNegation(MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Vector4D)
+  nameWithType: Vector4D.UnaryNegation(Vector4D)
+  fullName: MathStructs.Vector4D.UnaryNegation(MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Vector4D.cs
+    startLine: 990
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nNegates a given vector.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator -(Vector4D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe negated vector.\n"
+    content.vb: Public Shared Operator -(value As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Addition(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Addition(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: op_Addition(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector4D, Vector4D)
+  nameWithType: Vector4D.Addition(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Addition(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Vector4D.cs
+    startLine: 1006
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nAdds two vectors together.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator +(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe summed vector.\n"
+    content.vb: Public Shared Operator +(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Subtraction(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Subtraction(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: op_Subtraction(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector4D, Vector4D)
+  nameWithType: Vector4D.Subtraction(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Subtraction(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Vector4D.cs
+    startLine: 1022
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nSubtracts the second vector from the first.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator -(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe difference vector.\n"
+    content.vb: Public Shared Operator -(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: op_Multiply(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4D, Vector4D)
+  nameWithType: Vector4D.Multiply(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Multiply(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector4D.cs
+    startLine: 1038
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies two vectors together.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator *(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe product vector.\n"
+    content.vb: Public Shared Operator *(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Multiply(MathStructs.Vector4D,System.Double)
+  commentId: M:MathStructs.Vector4D.op_Multiply(MathStructs.Vector4D,System.Double)
+  id: op_Multiply(MathStructs.Vector4D,System.Double)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4D, Double)
+  nameWithType: Vector4D.Multiply(Vector4D, Double)
+  fullName: MathStructs.Vector4D.Multiply(MathStructs.Vector4D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector4D.cs
+    startLine: 1054
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a vector by the given scalar.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator *(Vector4D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    - id: right
+      type: System.Double
+      description: "\nThe scalar value.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe scaled vector.\n"
+    content.vb: Public Shared Operator *(left As Vector4D, right As Double) As Vector4D
+  overload: MathStructs.Vector4D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Multiply(System.Double,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Multiply(System.Double,MathStructs.Vector4D)
+  id: op_Multiply(System.Double,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double, Vector4D)
+  nameWithType: Vector4D.Multiply(Double, Vector4D)
+  fullName: MathStructs.Vector4D.Multiply(System.Double, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector4D.cs
+    startLine: 1070
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a vector by the given scalar.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator *(double left, Vector4D right)
+    parameters:
+    - id: left
+      type: System.Double
+      description: "\nThe scalar value.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe scaled vector.\n"
+    content.vb: Public Shared Operator *(left As Double, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Division(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Division(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: op_Division(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector4D, Vector4D)
+  nameWithType: Vector4D.Division(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Division(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector4D.cs
+    startLine: 1086
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDivides the first vector by the second.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator /(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first source vector.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe vector resulting from the division.\n"
+    content.vb: Public Shared Operator /(left As Vector4D, right As Vector4D) As Vector4D
+  overload: MathStructs.Vector4D.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Division(MathStructs.Vector4D,System.Double)
+  commentId: M:MathStructs.Vector4D.op_Division(MathStructs.Vector4D,System.Double)
+  id: op_Division(MathStructs.Vector4D,System.Double)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector4D, Double)
+  nameWithType: Vector4D.Division(Vector4D, Double)
+  fullName: MathStructs.Vector4D.Division(MathStructs.Vector4D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector4D.cs
+    startLine: 1102
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDivides the vector by the given scalar.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator /(Vector4D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    - id: right
+      type: System.Double
+      description: "\nThe scalar value.\n"
+    return:
+      type: MathStructs.Vector4D
+      description: "\nThe result of the division.\n"
+    content.vb: Public Shared Operator /(left As Vector4D, right As Double) As Vector4D
+  overload: MathStructs.Vector4D.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Equality(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Equality(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: op_Equality(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Equality(Vector4D, Vector4D)
+  nameWithType: Vector4D.Equality(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Equality(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Vector4D.cs
+    startLine: 1118
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the two given vectors are equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first vector to compare.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second vector to compare.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the vectors are equal; False otherwise.\n"
+    content.vb: Public Shared Operator =(left As Vector4D, right As Vector4D) As Boolean
+  overload: MathStructs.Vector4D.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4D.op_Inequality(MathStructs.Vector4D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.op_Inequality(MathStructs.Vector4D,MathStructs.Vector4D)
+  id: op_Inequality(MathStructs.Vector4D,MathStructs.Vector4D)
+  parent: MathStructs.Vector4D
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Vector4D, Vector4D)
+  nameWithType: Vector4D.Inequality(Vector4D, Vector4D)
+  fullName: MathStructs.Vector4D.Inequality(MathStructs.Vector4D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Vector4D.cs
+    startLine: 1134
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the two given vectors are not equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(Vector4D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe first vector to compare.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe second vector to compare.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the vectors are not equal; False if they are equal.\n"
+    content.vb: Public Shared Operator <>(left As Vector4D, right As Vector4D) As Boolean
+  overload: MathStructs.Vector4D.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: IEquatable{MathStructs.Vector4D}
+  commentId: '!:IEquatable{MathStructs.Vector4D}'
+  definition: IEquatable`1
+  name: IEquatable<Vector4D>
+  nameWithType: IEquatable<Vector4D>
+  fullName: IEquatable<MathStructs.Vector4D>
+  nameWithType.vb: IEquatable(Of Vector4D)
+  fullName.vb: IEquatable(Of MathStructs.Vector4D)
+  name.vb: IEquatable(Of Vector4D)
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MathStructs.Vector4D
+    name: Vector4D
+    nameWithType: Vector4D
+    fullName: MathStructs.Vector4D
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MathStructs.Vector4D
+    name: Vector4D
+    nameWithType: Vector4D
+    fullName: MathStructs.Vector4D
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IFormattable
+  isExternal: true
+  name: IFormattable
+  nameWithType: IFormattable
+  fullName: IFormattable
+- uid: IEquatable`1
+  isExternal: true
+  name: IEquatable<>
+  nameWithType: IEquatable<>
+  fullName: IEquatable<>
+  nameWithType.vb: IEquatable(Of )
+  fullName.vb: IEquatable(Of )
+  name.vb: IEquatable(Of )
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: MathStructs.Vector4D.Zero*
+  commentId: Overload:MathStructs.Vector4D.Zero
+  name: Zero
+  nameWithType: Vector4D.Zero
+  fullName: MathStructs.Vector4D.Zero
+- uid: MathStructs.Vector4D
+  commentId: T:MathStructs.Vector4D
+  parent: MathStructs
+  name: Vector4D
+  nameWithType: Vector4D
+  fullName: MathStructs.Vector4D
+- uid: MathStructs.Vector4D.One*
+  commentId: Overload:MathStructs.Vector4D.One
+  name: One
+  nameWithType: Vector4D.One
+  fullName: MathStructs.Vector4D.One
+- uid: MathStructs.Vector4D.UnitX*
+  commentId: Overload:MathStructs.Vector4D.UnitX
+  name: UnitX
+  nameWithType: Vector4D.UnitX
+  fullName: MathStructs.Vector4D.UnitX
+- uid: MathStructs.Vector4D.UnitY*
+  commentId: Overload:MathStructs.Vector4D.UnitY
+  name: UnitY
+  nameWithType: Vector4D.UnitY
+  fullName: MathStructs.Vector4D.UnitY
+- uid: MathStructs.Vector4D.UnitZ*
+  commentId: Overload:MathStructs.Vector4D.UnitZ
+  name: UnitZ
+  nameWithType: Vector4D.UnitZ
+  fullName: MathStructs.Vector4D.UnitZ
+- uid: MathStructs.Vector4D.UnitW*
+  commentId: Overload:MathStructs.Vector4D.UnitW
+  name: UnitW
+  nameWithType: Vector4D.UnitW
+  fullName: MathStructs.Vector4D.UnitW
+- uid: MathStructs.Vector4D.GetHashCode*
+  commentId: Overload:MathStructs.Vector4D.GetHashCode
+  name: GetHashCode
+  nameWithType: Vector4D.GetHashCode
+  fullName: MathStructs.Vector4D.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MathStructs.Vector4D.Equals*
+  commentId: Overload:MathStructs.Vector4D.Equals
+  name: Equals
+  nameWithType: Vector4D.Equals
+  fullName: MathStructs.Vector4D.Equals
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4D.ToString*
+  commentId: Overload:MathStructs.Vector4D.ToString
+  name: ToString
+  nameWithType: Vector4D.ToString
+  fullName: MathStructs.Vector4D.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.String}
+  commentId: '!:System.Nullable{System.String}'
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{IFormatProvider}
+  commentId: '!:System.Nullable{IFormatProvider}'
+  definition: System.Nullable`1
+  name: Nullable<IFormatProvider>
+  nameWithType: Nullable<IFormatProvider>
+  fullName: System.Nullable<IFormatProvider>
+  nameWithType.vb: Nullable(Of IFormatProvider)
+  fullName.vb: System.Nullable(Of IFormatProvider)
+  name.vb: Nullable(Of IFormatProvider)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4D.LengthSquared
+  commentId: M:MathStructs.Vector4D.LengthSquared
+  isExternal: true
+- uid: MathStructs.Vector4D.Length*
+  commentId: Overload:MathStructs.Vector4D.Length
+  name: Length
+  nameWithType: Vector4D.Length
+  fullName: MathStructs.Vector4D.Length
+- uid: MathStructs.Vector4D.Length
+  commentId: M:MathStructs.Vector4D.Length
+  isExternal: true
+- uid: MathStructs.Vector4D.LengthSquared*
+  commentId: Overload:MathStructs.Vector4D.LengthSquared
+  name: LengthSquared
+  nameWithType: Vector4D.LengthSquared
+  fullName: MathStructs.Vector4D.LengthSquared
+- uid: MathStructs.Vector4D.Distance*
+  commentId: Overload:MathStructs.Vector4D.Distance
+  name: Distance
+  nameWithType: Vector4D.Distance
+  fullName: MathStructs.Vector4D.Distance
+- uid: MathStructs.Vector4D.Distance(MathStructs.Vector4D)
+  commentId: M:MathStructs.Vector4D.Distance(MathStructs.Vector4D)
+  isExternal: true
+- uid: MathStructs.Vector4D.DistanceSquared*
+  commentId: Overload:MathStructs.Vector4D.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Vector4D.DistanceSquared
+  fullName: MathStructs.Vector4D.DistanceSquared
+- uid: MathStructs.Vector4D.Normalize*
+  commentId: Overload:MathStructs.Vector4D.Normalize
+  name: Normalize
+  nameWithType: Vector4D.Normalize
+  fullName: MathStructs.Vector4D.Normalize
+- uid: MathStructs.Vector4D.Clamp*
+  commentId: Overload:MathStructs.Vector4D.Clamp
+  name: Clamp
+  nameWithType: Vector4D.Clamp
+  fullName: MathStructs.Vector4D.Clamp
+- uid: MathStructs.Vector4D.Transform*
+  commentId: Overload:MathStructs.Vector4D.Transform
+  name: Transform
+  nameWithType: Vector4D.Transform
+  fullName: MathStructs.Vector4D.Transform
+- uid: MathStructs.Matrix4x4D
+  commentId: T:MathStructs.Matrix4x4D
+  parent: MathStructs
+  name: Matrix4x4D
+  nameWithType: Matrix4x4D
+  fullName: MathStructs.Matrix4x4D
+- uid: MathStructs.QuaternionD
+  commentId: T:MathStructs.QuaternionD
+  parent: MathStructs
+  name: QuaternionD
+  nameWithType: QuaternionD
+  fullName: MathStructs.QuaternionD
+- uid: MathStructs.Vector4D.Transfrom*
+  commentId: Overload:MathStructs.Vector4D.Transfrom
+  name: Transfrom
+  nameWithType: Vector4D.Transfrom
+  fullName: MathStructs.Vector4D.Transfrom
+- uid: MathStructs.Vector4D.CopyTo*
+  commentId: Overload:MathStructs.Vector4D.CopyTo
+  name: CopyTo
+  nameWithType: Vector4D.CopyTo
+  fullName: MathStructs.Vector4D.CopyTo
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: MathStructs.Vector4D.Dot*
+  commentId: Overload:MathStructs.Vector4D.Dot
+  name: Dot
+  nameWithType: Vector4D.Dot
+  fullName: MathStructs.Vector4D.Dot
+- uid: MathStructs.Vector4D.Abs*
+  commentId: Overload:MathStructs.Vector4D.Abs
+  name: Abs
+  nameWithType: Vector4D.Abs
+  fullName: MathStructs.Vector4D.Abs
+- uid: MathStructs.Vector4D.SquareRoot*
+  commentId: Overload:MathStructs.Vector4D.SquareRoot
+  name: SquareRoot
+  nameWithType: Vector4D.SquareRoot
+  fullName: MathStructs.Vector4D.SquareRoot
+- uid: MathStructs.Vector4D.Lerp*
+  commentId: Overload:MathStructs.Vector4D.Lerp
+  name: Lerp
+  nameWithType: Vector4D.Lerp
+  fullName: MathStructs.Vector4D.Lerp
+- uid: MathStructs.Vector2D
+  commentId: T:MathStructs.Vector2D
+  parent: MathStructs
+  name: Vector2D
+  nameWithType: Vector2D
+  fullName: MathStructs.Vector2D
+- uid: MathStructs.Vector3D
+  commentId: T:MathStructs.Vector3D
+  parent: MathStructs
+  name: Vector3D
+  nameWithType: Vector3D
+  fullName: MathStructs.Vector3D
+- uid: MathStructs.Vector4D.Min*
+  commentId: Overload:MathStructs.Vector4D.Min
+  name: Min
+  nameWithType: Vector4D.Min
+  fullName: MathStructs.Vector4D.Min
+- uid: MathStructs.Vector4D.Max*
+  commentId: Overload:MathStructs.Vector4D.Max
+  name: Max
+  nameWithType: Vector4D.Max
+  fullName: MathStructs.Vector4D.Max
+- uid: MathStructs.Vector4D.Add*
+  commentId: Overload:MathStructs.Vector4D.Add
+  name: Add
+  nameWithType: Vector4D.Add
+  fullName: MathStructs.Vector4D.Add
+- uid: MathStructs.Vector4D.Subtract*
+  commentId: Overload:MathStructs.Vector4D.Subtract
+  name: Subtract
+  nameWithType: Vector4D.Subtract
+  fullName: MathStructs.Vector4D.Subtract
+- uid: MathStructs.Vector4D.Multiply*
+  commentId: Overload:MathStructs.Vector4D.Multiply
+  name: Multiply
+  nameWithType: Vector4D.Multiply
+  fullName: MathStructs.Vector4D.Multiply
+- uid: MathStructs.Vector4D.Divide*
+  commentId: Overload:MathStructs.Vector4D.Divide
+  name: Divide
+  nameWithType: Vector4D.Divide
+  fullName: MathStructs.Vector4D.Divide
+- uid: MathStructs.Vector4D.Negate*
+  commentId: Overload:MathStructs.Vector4D.Negate
+  name: Negate
+  nameWithType: Vector4D.Negate
+  fullName: MathStructs.Vector4D.Negate
+- uid: MathStructs.Vector4D.#ctor*
+  commentId: Overload:MathStructs.Vector4D.#ctor
+  name: Vector4D
+  nameWithType: Vector4D.Vector4D
+  fullName: MathStructs.Vector4D.Vector4D
+- uid: MathStructs.Vector4D.With*
+  commentId: Overload:MathStructs.Vector4D.With
+  name: With
+  nameWithType: Vector4D.With
+  fullName: MathStructs.Vector4D.With
+- uid: System.Nullable{System.Double}
+  commentId: '!:System.Nullable{System.Double}'
+  definition: System.Nullable`1
+  name: Nullable<Double>
+  nameWithType: Nullable<Double>
+  fullName: System.Nullable<System.Double>
+  nameWithType.vb: Nullable(Of Double)
+  fullName.vb: System.Nullable(Of System.Double)
+  name.vb: Nullable(Of Double)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4D.Deconstruct*
+  commentId: Overload:MathStructs.Vector4D.Deconstruct
+  name: Deconstruct
+  nameWithType: Vector4D.Deconstruct
+  fullName: MathStructs.Vector4D.Deconstruct
+- uid: MathStructs.Vector4D.op_UnaryPlus*
+  commentId: Overload:MathStructs.Vector4D.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Vector4D.UnaryPlus
+  fullName: MathStructs.Vector4D.UnaryPlus
+- uid: MathStructs.Vector4D.op_UnaryNegation*
+  commentId: Overload:MathStructs.Vector4D.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Vector4D.UnaryNegation
+  fullName: MathStructs.Vector4D.UnaryNegation
+- uid: MathStructs.Vector4D.op_Addition*
+  commentId: Overload:MathStructs.Vector4D.op_Addition
+  name: Addition
+  nameWithType: Vector4D.Addition
+  fullName: MathStructs.Vector4D.Addition
+- uid: MathStructs.Vector4D.op_Subtraction*
+  commentId: Overload:MathStructs.Vector4D.op_Subtraction
+  name: Subtraction
+  nameWithType: Vector4D.Subtraction
+  fullName: MathStructs.Vector4D.Subtraction
+- uid: MathStructs.Vector4D.op_Multiply*
+  commentId: Overload:MathStructs.Vector4D.op_Multiply
+  name: Multiply
+  nameWithType: Vector4D.Multiply
+  fullName: MathStructs.Vector4D.Multiply
+- uid: MathStructs.Vector4D.op_Division*
+  commentId: Overload:MathStructs.Vector4D.op_Division
+  name: Division
+  nameWithType: Vector4D.Division
+  fullName: MathStructs.Vector4D.Division
+- uid: MathStructs.Vector4D.op_Equality*
+  commentId: Overload:MathStructs.Vector4D.op_Equality
+  name: Equality
+  nameWithType: Vector4D.Equality
+  fullName: MathStructs.Vector4D.Equality
+- uid: MathStructs.Vector4D.op_Inequality*
+  commentId: Overload:MathStructs.Vector4D.op_Inequality
+  name: Inequality
+  nameWithType: Vector4D.Inequality
+  fullName: MathStructs.Vector4D.Inequality

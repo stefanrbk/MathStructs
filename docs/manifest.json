@@ -1,0 +1,252 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/stefa/OneDrive/Programming/GitHub/stefanrbk/MathStructs/src",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Extensions.html",
+          "hash": "8E+RARp9vS6ss6zmDEOhmw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Matrix3x3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Matrix3x3D.html",
+          "hash": "WRkiAqi6pQ3U1chmYxwwBg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Matrix3x3F.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Matrix3x3F.html",
+          "hash": "4iM5hYTwcU9od2aWv36o7A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Matrix4x4D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Matrix4x4D.html",
+          "hash": "EfYfjIimvNgcLEEaQFpl7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Matrix4x4F.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Matrix4x4F.html",
+          "hash": "NGg9cRvGzw7+4MzZqj8xNg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.PlaneD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.PlaneD.html",
+          "hash": "o0ZXDMHhj6+z+QhxT4nRlQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.PlaneF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.PlaneF.html",
+          "hash": "9yTzf0z02zjiG8qWOMcKkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.QuaternionD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.QuaternionD.html",
+          "hash": "NFEbO2rsZqfPP9ralcjXww=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.QuaternionF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.QuaternionF.html",
+          "hash": "JFFMU+ldiU4+4O4LPaWyqA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Vector2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Vector2D.html",
+          "hash": "Y+prFCVEY1TF4/koUts4FA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Vector2F.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Vector2F.html",
+          "hash": "Q8hh1XOpJxU3YP4xSIkNWg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Vector3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Vector3D.html",
+          "hash": "sJDEfDQMLwOTuwLsdmUYrg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Vector3F.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Vector3F.html",
+          "hash": "XFkJ8rRVvSI1wwM2GTR2/w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Vector4D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Vector4D.html",
+          "hash": "Mr0ncQzKvuoxyOvrrRTpFw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.Vector4F.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.Vector4F.html",
+          "hash": "5XWLA0txZlkiS4vt1pik5g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MathStructs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MathStructs.html",
+          "hash": "coVxRRdp/NlsmcMSVTF3oA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "kvD3mQQNNR7VsyINR8dz3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 16,
+          "skipped_file_count": 16
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

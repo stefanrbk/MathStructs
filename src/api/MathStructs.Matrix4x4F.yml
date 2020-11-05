@@ -1,0 +1,3429 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Matrix4x4F
+  commentId: T:MathStructs.Matrix4x4F
+  id: Matrix4x4F
+  parent: MathStructs
+  children:
+  - MathStructs.Matrix4x4F.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.Add(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.CreateBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateConstrainedBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateFromAxisAngle(MathStructs.Vector3F,System.Single)
+  - MathStructs.Matrix4x4F.CreateFromQuaternion(MathStructs.QuaternionF)
+  - MathStructs.Matrix4x4F.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreateLookAt(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateOrthographic(System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreateOrthographicOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreatePerspective(System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreatePerspectiveOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreateReflection(MathStructs.PlaneF)
+  - MathStructs.Matrix4x4F.CreateRotationX(System.Single)
+  - MathStructs.Matrix4x4F.CreateRotationX(System.Single,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateRotationY(System.Single)
+  - MathStructs.Matrix4x4F.CreateRotationY(System.Single,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateRotationZ(System.Single)
+  - MathStructs.Matrix4x4F.CreateRotationZ(System.Single,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateScale(System.Single)
+  - MathStructs.Matrix4x4F.CreateScale(System.Single,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateScale(System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreateScale(System.Single,System.Single,System.Single,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateShadow(MathStructs.Vector3F,MathStructs.PlaneF)
+  - MathStructs.Matrix4x4F.CreateTranslation(MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.CreateTranslation(System.Single,System.Single,System.Single)
+  - MathStructs.Matrix4x4F.CreateWorld(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Matrix4x4F.Decompose(MathStructs.Matrix4x4F,MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  - MathStructs.Matrix4x4F.Deconstruct(MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  - MathStructs.Matrix4x4F.Equals(MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.Equals(System.Nullable{System.Object})
+  - MathStructs.Matrix4x4F.GetDeterminant
+  - MathStructs.Matrix4x4F.GetHashCode
+  - MathStructs.Matrix4x4F.Identity
+  - MathStructs.Matrix4x4F.Invert
+  - MathStructs.Matrix4x4F.Invert(MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.IsIdentity
+  - MathStructs.Matrix4x4F.Lerp(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F,System.Single)
+  - MathStructs.Matrix4x4F.M11
+  - MathStructs.Matrix4x4F.M12
+  - MathStructs.Matrix4x4F.M13
+  - MathStructs.Matrix4x4F.M14
+  - MathStructs.Matrix4x4F.M21
+  - MathStructs.Matrix4x4F.M22
+  - MathStructs.Matrix4x4F.M23
+  - MathStructs.Matrix4x4F.M24
+  - MathStructs.Matrix4x4F.M31
+  - MathStructs.Matrix4x4F.M32
+  - MathStructs.Matrix4x4F.M33
+  - MathStructs.Matrix4x4F.M34
+  - MathStructs.Matrix4x4F.M41
+  - MathStructs.Matrix4x4F.M42
+  - MathStructs.Matrix4x4F.M43
+  - MathStructs.Matrix4x4F.M44
+  - MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F,System.Single)
+  - MathStructs.Matrix4x4F.NaN
+  - MathStructs.Matrix4x4F.Negate(MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_Addition(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_Equality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_Inequality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_Multiply(MathStructs.Matrix4x4F,System.Single)
+  - MathStructs.Matrix4x4F.op_Subtraction(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_UnaryNegation(MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.op_UnaryPlus(MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.Subtract(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.ToString
+  - MathStructs.Matrix4x4F.Transform(MathStructs.Matrix4x4F,MathStructs.QuaternionF)
+  - MathStructs.Matrix4x4F.Transform(MathStructs.QuaternionF)
+  - MathStructs.Matrix4x4F.Translation
+  - MathStructs.Matrix4x4F.Transpose
+  - MathStructs.Matrix4x4F.Transpose(MathStructs.Matrix4x4F)
+  - MathStructs.Matrix4x4F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  langs:
+  - csharp
+  - vb
+  name: Matrix4x4F
+  nameWithType: Matrix4x4F
+  fullName: MathStructs.Matrix4x4F
+  type: Struct
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Matrix4x4F
+    path: Matrix4x4F.cs
+    startLine: 13
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public struct Matrix4x4F
+    content.vb: Public Structure Matrix4x4F
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MathStructs.Matrix4x4F.M11
+  commentId: F:MathStructs.Matrix4x4F.M11
+  id: M11
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M11
+  nameWithType: Matrix4x4F.M11
+  fullName: MathStructs.Matrix4x4F.M11
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M11
+    path: Matrix4x4F.cs
+    startLine: 31
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M11
+    return:
+      type: System.Single
+    content.vb: Public M11 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M12
+  commentId: F:MathStructs.Matrix4x4F.M12
+  id: M12
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M12
+  nameWithType: Matrix4x4F.M12
+  fullName: MathStructs.Matrix4x4F.M12
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M12
+    path: Matrix4x4F.cs
+    startLine: 32
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M12
+    return:
+      type: System.Single
+    content.vb: Public M12 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M13
+  commentId: F:MathStructs.Matrix4x4F.M13
+  id: M13
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M13
+  nameWithType: Matrix4x4F.M13
+  fullName: MathStructs.Matrix4x4F.M13
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M13
+    path: Matrix4x4F.cs
+    startLine: 33
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M13
+    return:
+      type: System.Single
+    content.vb: Public M13 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M14
+  commentId: F:MathStructs.Matrix4x4F.M14
+  id: M14
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M14
+  nameWithType: Matrix4x4F.M14
+  fullName: MathStructs.Matrix4x4F.M14
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M14
+    path: Matrix4x4F.cs
+    startLine: 34
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M14
+    return:
+      type: System.Single
+    content.vb: Public M14 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M21
+  commentId: F:MathStructs.Matrix4x4F.M21
+  id: M21
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M21
+  nameWithType: Matrix4x4F.M21
+  fullName: MathStructs.Matrix4x4F.M21
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M21
+    path: Matrix4x4F.cs
+    startLine: 35
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M21
+    return:
+      type: System.Single
+    content.vb: Public M21 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M22
+  commentId: F:MathStructs.Matrix4x4F.M22
+  id: M22
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M22
+  nameWithType: Matrix4x4F.M22
+  fullName: MathStructs.Matrix4x4F.M22
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M22
+    path: Matrix4x4F.cs
+    startLine: 36
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M22
+    return:
+      type: System.Single
+    content.vb: Public M22 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M23
+  commentId: F:MathStructs.Matrix4x4F.M23
+  id: M23
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M23
+  nameWithType: Matrix4x4F.M23
+  fullName: MathStructs.Matrix4x4F.M23
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M23
+    path: Matrix4x4F.cs
+    startLine: 37
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M23
+    return:
+      type: System.Single
+    content.vb: Public M23 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M24
+  commentId: F:MathStructs.Matrix4x4F.M24
+  id: M24
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M24
+  nameWithType: Matrix4x4F.M24
+  fullName: MathStructs.Matrix4x4F.M24
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M24
+    path: Matrix4x4F.cs
+    startLine: 38
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M24
+    return:
+      type: System.Single
+    content.vb: Public M24 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M31
+  commentId: F:MathStructs.Matrix4x4F.M31
+  id: M31
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M31
+  nameWithType: Matrix4x4F.M31
+  fullName: MathStructs.Matrix4x4F.M31
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M31
+    path: Matrix4x4F.cs
+    startLine: 39
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M31
+    return:
+      type: System.Single
+    content.vb: Public M31 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M32
+  commentId: F:MathStructs.Matrix4x4F.M32
+  id: M32
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M32
+  nameWithType: Matrix4x4F.M32
+  fullName: MathStructs.Matrix4x4F.M32
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M32
+    path: Matrix4x4F.cs
+    startLine: 40
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M32
+    return:
+      type: System.Single
+    content.vb: Public M32 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M33
+  commentId: F:MathStructs.Matrix4x4F.M33
+  id: M33
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M33
+  nameWithType: Matrix4x4F.M33
+  fullName: MathStructs.Matrix4x4F.M33
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M33
+    path: Matrix4x4F.cs
+    startLine: 41
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M33
+    return:
+      type: System.Single
+    content.vb: Public M33 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M34
+  commentId: F:MathStructs.Matrix4x4F.M34
+  id: M34
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M34
+  nameWithType: Matrix4x4F.M34
+  fullName: MathStructs.Matrix4x4F.M34
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M34
+    path: Matrix4x4F.cs
+    startLine: 42
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M34
+    return:
+      type: System.Single
+    content.vb: Public M34 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M41
+  commentId: F:MathStructs.Matrix4x4F.M41
+  id: M41
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M41
+  nameWithType: Matrix4x4F.M41
+  fullName: MathStructs.Matrix4x4F.M41
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M41
+    path: Matrix4x4F.cs
+    startLine: 43
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M41
+    return:
+      type: System.Single
+    content.vb: Public M41 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M42
+  commentId: F:MathStructs.Matrix4x4F.M42
+  id: M42
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M42
+  nameWithType: Matrix4x4F.M42
+  fullName: MathStructs.Matrix4x4F.M42
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M42
+    path: Matrix4x4F.cs
+    startLine: 44
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M42
+    return:
+      type: System.Single
+    content.vb: Public M42 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M43
+  commentId: F:MathStructs.Matrix4x4F.M43
+  id: M43
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M43
+  nameWithType: Matrix4x4F.M43
+  fullName: MathStructs.Matrix4x4F.M43
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M43
+    path: Matrix4x4F.cs
+    startLine: 45
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M43
+    return:
+      type: System.Single
+    content.vb: Public M43 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.M44
+  commentId: F:MathStructs.Matrix4x4F.M44
+  id: M44
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: M44
+  nameWithType: Matrix4x4F.M44
+  fullName: MathStructs.Matrix4x4F.M44
+  type: Field
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: M44
+    path: Matrix4x4F.cs
+    startLine: 46
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float M44
+    return:
+      type: System.Single
+    content.vb: Public M44 As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Identity
+  commentId: P:MathStructs.Matrix4x4F.Identity
+  id: Identity
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Identity
+  nameWithType: Matrix4x4F.Identity
+  fullName: MathStructs.Matrix4x4F.Identity
+  type: Property
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Identity
+    path: Matrix4x4F.cs
+    startLine: 51
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Identity { get; }
+    parameters: []
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared ReadOnly Property Identity As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Identity*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Matrix4x4F.NaN
+  commentId: P:MathStructs.Matrix4x4F.NaN
+  id: NaN
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: NaN
+  nameWithType: Matrix4x4F.NaN
+  fullName: MathStructs.Matrix4x4F.NaN
+  type: Property
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: NaN
+    path: Matrix4x4F.cs
+    startLine: 53
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F NaN { get; }
+    parameters: []
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared ReadOnly Property NaN As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.NaN*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Matrix4x4F.IsIdentity
+  commentId: P:MathStructs.Matrix4x4F.IsIdentity
+  id: IsIdentity
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: IsIdentity
+  nameWithType: Matrix4x4F.IsIdentity
+  fullName: MathStructs.Matrix4x4F.IsIdentity
+  type: Property
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: IsIdentity
+    path: Matrix4x4F.cs
+    startLine: 55
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool IsIdentity { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsIdentity As Boolean
+  overload: MathStructs.Matrix4x4F.IsIdentity*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: MathStructs.Matrix4x4F.Translation
+  commentId: P:MathStructs.Matrix4x4F.Translation
+  id: Translation
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Translation
+  nameWithType: Matrix4x4F.Translation
+  fullName: MathStructs.Matrix4x4F.Translation
+  type: Property
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Translation
+    path: Matrix4x4F.cs
+    startLine: 58
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Translation { get; set; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Property Translation As Vector3F
+  overload: MathStructs.Matrix4x4F.Translation*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)'
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Matrix4x4F(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
+  nameWithType: Matrix4x4F.Matrix4x4F(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.Matrix4x4F(System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Matrix4x4F.cs
+    startLine: 64
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Matrix4x4F(float m11, float m12, float m13, float m14, float m21, float m22, float m23, float m24, float m31, float m32, float m33, float m34, float m41, float m42, float m43, float m44)
+    parameters:
+    - id: m11
+      type: System.Single
+    - id: m12
+      type: System.Single
+    - id: m13
+      type: System.Single
+    - id: m14
+      type: System.Single
+    - id: m21
+      type: System.Single
+    - id: m22
+      type: System.Single
+    - id: m23
+      type: System.Single
+    - id: m24
+      type: System.Single
+    - id: m31
+      type: System.Single
+    - id: m32
+      type: System.Single
+    - id: m33
+      type: System.Single
+    - id: m34
+      type: System.Single
+    - id: m41
+      type: System.Single
+    - id: m42
+      type: System.Single
+    - id: m43
+      type: System.Single
+    - id: m44
+      type: System.Single
+    content.vb: Public Sub New(m11 As Single, m12 As Single, m13 As Single, m14 As Single, m21 As Single, m22 As Single, m23 As Single, m24 As Single, m31 As Single, m32 As Single, m33 As Single, m34 As Single, m41 As Single, m42 As Single, m43 As Single, m44 As Single)
+  overload: MathStructs.Matrix4x4F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Deconstruct(MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  commentId: M:MathStructs.Matrix4x4F.Deconstruct(MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  id: Deconstruct(MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector3F, out QuaternionF, out Vector3F)
+  nameWithType: Matrix4x4F.Deconstruct(out Vector3F, out QuaternionF, out Vector3F)
+  fullName: MathStructs.Matrix4x4F.Deconstruct(out MathStructs.Vector3F, out MathStructs.QuaternionF, out MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Matrix4x4F.cs
+    startLine: 85
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out Vector3F scale, out QuaternionF rotation, out Vector3F translation)
+    parameters:
+    - id: scale
+      type: MathStructs.Vector3F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    - id: translation
+      type: MathStructs.Vector3F
+    content.vb: Public Sub Deconstruct(ByRef scale As Vector3F, ByRef rotation As QuaternionF, ByRef translation As Vector3F)
+  overload: MathStructs.Matrix4x4F.Deconstruct*
+  nameWithType.vb: Matrix4x4F.Deconstruct(ByRef Vector3F, ByRef QuaternionF, ByRef Vector3F)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Matrix4x4F.Deconstruct(ByRef MathStructs.Vector3F, ByRef MathStructs.QuaternionF, ByRef MathStructs.Vector3F)
+  name.vb: Deconstruct(ByRef Vector3F, ByRef QuaternionF, ByRef Vector3F)
+- uid: MathStructs.Matrix4x4F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  commentId: M:MathStructs.Matrix4x4F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  id: With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  nameWithType: Matrix4x4F.With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  fullName: MathStructs.Matrix4x4F.With(System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: Matrix4x4F.cs
+    startLine: 192
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Matrix4x4F With(float? m11 = null, float? m12 = null, float? m13 = null, float? m14 = null, float? m21 = null, float? m22 = null, float? m23 = null, float? m24 = null, float? m31 = null, float? m32 = null, float? m33 = null, float? m34 = null, float? m41 = null, float? m42 = null, float? m43 = null, float? m44 = null)
+    parameters:
+    - id: m11
+      type: System.Nullable{System.Single}
+    - id: m12
+      type: System.Nullable{System.Single}
+    - id: m13
+      type: System.Nullable{System.Single}
+    - id: m14
+      type: System.Nullable{System.Single}
+    - id: m21
+      type: System.Nullable{System.Single}
+    - id: m22
+      type: System.Nullable{System.Single}
+    - id: m23
+      type: System.Nullable{System.Single}
+    - id: m24
+      type: System.Nullable{System.Single}
+    - id: m31
+      type: System.Nullable{System.Single}
+    - id: m32
+      type: System.Nullable{System.Single}
+    - id: m33
+      type: System.Nullable{System.Single}
+    - id: m34
+      type: System.Nullable{System.Single}
+    - id: m41
+      type: System.Nullable{System.Single}
+    - id: m42
+      type: System.Nullable{System.Single}
+    - id: m43
+      type: System.Nullable{System.Single}
+    - id: m44
+      type: System.Nullable{System.Single}
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Function With(m11 As Single? = Nothing, m12 As Single? = Nothing, m13 As Single? = Nothing, m14 As Single? = Nothing, m21 As Single? = Nothing, m22 As Single? = Nothing, m23 As Single? = Nothing, m24 As Single? = Nothing, m31 As Single? = Nothing, m32 As Single? = Nothing, m33 As Single? = Nothing, m34 As Single? = Nothing, m41 As Single? = Nothing, m42 As Single? = Nothing, m43 As Single? = Nothing, m44 As Single? = Nothing) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.With*
+  nameWithType.vb: Matrix4x4F.With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Matrix4x4F.With(System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single))
+  name.vb: With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+- uid: MathStructs.Matrix4x4F.CreateBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  id: CreateBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateBillboard(Vector3F, Vector3F, Vector3F, Vector3F)
+  nameWithType: Matrix4x4F.CreateBillboard(Vector3F, Vector3F, Vector3F, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateBillboard(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateBillboard
+    path: Matrix4x4F.cs
+    startLine: 212
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateBillboard(Vector3F objectPosition, Vector3F cameraPosition, Vector3F cameraUpVector, Vector3F cameraForwardVector)
+    parameters:
+    - id: objectPosition
+      type: MathStructs.Vector3F
+    - id: cameraPosition
+      type: MathStructs.Vector3F
+    - id: cameraUpVector
+      type: MathStructs.Vector3F
+    - id: cameraForwardVector
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateBillboard(objectPosition As Vector3F, cameraPosition As Vector3F, cameraUpVector As Vector3F, cameraForwardVector As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateBillboard*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateConstrainedBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateConstrainedBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  id: CreateConstrainedBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateConstrainedBillboard(Vector3F, Vector3F, Vector3F, Vector3F, Vector3F)
+  nameWithType: Matrix4x4F.CreateConstrainedBillboard(Vector3F, Vector3F, Vector3F, Vector3F, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateConstrainedBillboard(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateConstrainedBillboard
+    path: Matrix4x4F.cs
+    startLine: 222
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateConstrainedBillboard(Vector3F objectPosition, Vector3F cameraPosition, Vector3F rotateAxis, Vector3F cameraForwardVector, Vector3F objectForwardVector)
+    parameters:
+    - id: objectPosition
+      type: MathStructs.Vector3F
+    - id: cameraPosition
+      type: MathStructs.Vector3F
+    - id: rotateAxis
+      type: MathStructs.Vector3F
+    - id: cameraForwardVector
+      type: MathStructs.Vector3F
+    - id: objectForwardVector
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateConstrainedBillboard(objectPosition As Vector3F, cameraPosition As Vector3F, rotateAxis As Vector3F, cameraForwardVector As Vector3F, objectForwardVector As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateConstrainedBillboard*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateTranslation(MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateTranslation(MathStructs.Vector3F)
+  id: CreateTranslation(MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateTranslation(Vector3F)
+  nameWithType: Matrix4x4F.CreateTranslation(Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateTranslation(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateTranslation
+    path: Matrix4x4F.cs
+    startLine: 246
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateTranslation(Vector3F position)
+    parameters:
+    - id: position
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateTranslation(position As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateTranslation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateTranslation(System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateTranslation(System.Single,System.Single,System.Single)
+  id: CreateTranslation(System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateTranslation(Single, Single, Single)
+  nameWithType: Matrix4x4F.CreateTranslation(Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreateTranslation(System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateTranslation
+    path: Matrix4x4F.cs
+    startLine: 249
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateTranslation(float xPosition, float yPosition, float zPosition)
+    parameters:
+    - id: xPosition
+      type: System.Single
+    - id: yPosition
+      type: System.Single
+    - id: zPosition
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateTranslation(xPosition As Single, yPosition As Single, zPosition As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateTranslation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateScale(System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateScale(System.Single,System.Single,System.Single)
+  id: CreateScale(System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateScale(Single, Single, Single)
+  nameWithType: Matrix4x4F.CreateScale(Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreateScale(System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateScale
+    path: Matrix4x4F.cs
+    startLine: 252
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateScale(float xScale, float yScale, float zScale)
+    parameters:
+    - id: xScale
+      type: System.Single
+    - id: yScale
+      type: System.Single
+    - id: zScale
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateScale(xScale As Single, yScale As Single, zScale As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateScale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateScale(System.Single,System.Single,System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateScale(System.Single,System.Single,System.Single,MathStructs.Vector3F)
+  id: CreateScale(System.Single,System.Single,System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateScale(Single, Single, Single, Vector3F)
+  nameWithType: Matrix4x4F.CreateScale(Single, Single, Single, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateScale(System.Single, System.Single, System.Single, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateScale
+    path: Matrix4x4F.cs
+    startLine: 255
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateScale(float xScale, float yScale, float zScale, Vector3F centerPoint)
+    parameters:
+    - id: xScale
+      type: System.Single
+    - id: yScale
+      type: System.Single
+    - id: zScale
+      type: System.Single
+    - id: centerPoint
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateScale(xScale As Single, yScale As Single, zScale As Single, centerPoint As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateScale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F)
+  id: CreateScale(MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateScale(Vector3F)
+  nameWithType: Matrix4x4F.CreateScale(Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateScale
+    path: Matrix4x4F.cs
+    startLine: 263
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateScale(Vector3F scale)
+    parameters:
+    - id: scale
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateScale(scale As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateScale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: CreateScale(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateScale(Vector3F, Vector3F)
+  nameWithType: Matrix4x4F.CreateScale(Vector3F, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateScale(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateScale
+    path: Matrix4x4F.cs
+    startLine: 266
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateScale(Vector3F scale, Vector3F centerPoint)
+    parameters:
+    - id: scale
+      type: MathStructs.Vector3F
+    - id: centerPoint
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateScale(scale As Vector3F, centerPoint As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateScale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateScale(System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateScale(System.Single)
+  id: CreateScale(System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateScale(Single)
+  nameWithType: Matrix4x4F.CreateScale(Single)
+  fullName: MathStructs.Matrix4x4F.CreateScale(System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateScale
+    path: Matrix4x4F.cs
+    startLine: 269
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateScale(float scale)
+    parameters:
+    - id: scale
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateScale(scale As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateScale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateScale(System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateScale(System.Single,MathStructs.Vector3F)
+  id: CreateScale(System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateScale(Single, Vector3F)
+  nameWithType: Matrix4x4F.CreateScale(Single, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateScale(System.Single, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateScale
+    path: Matrix4x4F.cs
+    startLine: 272
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateScale(float scale, Vector3F centerPoint)
+    parameters:
+    - id: scale
+      type: System.Single
+    - id: centerPoint
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateScale(scale As Single, centerPoint As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateScale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateRotationX(System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateRotationX(System.Single)
+  id: CreateRotationX(System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateRotationX(Single)
+  nameWithType: Matrix4x4F.CreateRotationX(Single)
+  fullName: MathStructs.Matrix4x4F.CreateRotationX(System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateRotationX
+    path: Matrix4x4F.cs
+    startLine: 275
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateRotationX(float radians)
+    parameters:
+    - id: radians
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateRotationX(radians As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateRotationX*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateRotationX(System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateRotationX(System.Single,MathStructs.Vector3F)
+  id: CreateRotationX(System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateRotationX(Single, Vector3F)
+  nameWithType: Matrix4x4F.CreateRotationX(Single, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateRotationX(System.Single, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateRotationX
+    path: Matrix4x4F.cs
+    startLine: 282
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateRotationX(float radians, Vector3F centerPoint)
+    parameters:
+    - id: radians
+      type: System.Single
+    - id: centerPoint
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateRotationX(radians As Single, centerPoint As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateRotationX*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateRotationY(System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateRotationY(System.Single)
+  id: CreateRotationY(System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateRotationY(Single)
+  nameWithType: Matrix4x4F.CreateRotationY(Single)
+  fullName: MathStructs.Matrix4x4F.CreateRotationY(System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateRotationY
+    path: Matrix4x4F.cs
+    startLine: 291
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateRotationY(float radians)
+    parameters:
+    - id: radians
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateRotationY(radians As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateRotationY*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateRotationY(System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateRotationY(System.Single,MathStructs.Vector3F)
+  id: CreateRotationY(System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateRotationY(Single, Vector3F)
+  nameWithType: Matrix4x4F.CreateRotationY(Single, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateRotationY(System.Single, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateRotationY
+    path: Matrix4x4F.cs
+    startLine: 298
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateRotationY(float radians, Vector3F centerPoint)
+    parameters:
+    - id: radians
+      type: System.Single
+    - id: centerPoint
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateRotationY(radians As Single, centerPoint As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateRotationY*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateRotationZ(System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateRotationZ(System.Single)
+  id: CreateRotationZ(System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateRotationZ(Single)
+  nameWithType: Matrix4x4F.CreateRotationZ(Single)
+  fullName: MathStructs.Matrix4x4F.CreateRotationZ(System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateRotationZ
+    path: Matrix4x4F.cs
+    startLine: 307
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateRotationZ(float radians)
+    parameters:
+    - id: radians
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateRotationZ(radians As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateRotationZ*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateRotationZ(System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateRotationZ(System.Single,MathStructs.Vector3F)
+  id: CreateRotationZ(System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateRotationZ(Single, Vector3F)
+  nameWithType: Matrix4x4F.CreateRotationZ(Single, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateRotationZ(System.Single, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateRotationZ
+    path: Matrix4x4F.cs
+    startLine: 314
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateRotationZ(float radians, Vector3F centerPoint)
+    parameters:
+    - id: radians
+      type: System.Single
+    - id: centerPoint
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateRotationZ(radians As Single, centerPoint As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateRotationZ*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateFromAxisAngle(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateFromAxisAngle(MathStructs.Vector3F,System.Single)
+  id: CreateFromAxisAngle(MathStructs.Vector3F,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateFromAxisAngle(Vector3F, Single)
+  nameWithType: Matrix4x4F.CreateFromAxisAngle(Vector3F, Single)
+  fullName: MathStructs.Matrix4x4F.CreateFromAxisAngle(MathStructs.Vector3F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateFromAxisAngle
+    path: Matrix4x4F.cs
+    startLine: 323
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateFromAxisAngle(Vector3F axis, float angle)
+    parameters:
+    - id: axis
+      type: MathStructs.Vector3F
+    - id: angle
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateFromAxisAngle(axis As Vector3F, angle As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateFromAxisAngle*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)
+  id: CreatePerspectiveFieldOfView(System.Single,System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreatePerspectiveFieldOfView(Single, Single, Single, Single)
+  nameWithType: Matrix4x4F.CreatePerspectiveFieldOfView(Single, Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView(System.Single, System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreatePerspectiveFieldOfView
+    path: Matrix4x4F.cs
+    startLine: 345
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreatePerspectiveFieldOfView(float fieldOfView, float aspectRatio, float nearPlaneDistance, float farPlaneDistance)
+    parameters:
+    - id: fieldOfView
+      type: System.Single
+    - id: aspectRatio
+      type: System.Single
+    - id: nearPlaneDistance
+      type: System.Single
+    - id: farPlaneDistance
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreatePerspectiveFieldOfView(fieldOfView As Single, aspectRatio As Single, nearPlaneDistance As Single, farPlaneDistance As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreatePerspective(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreatePerspective(System.Single,System.Single,System.Single,System.Single)
+  id: CreatePerspective(System.Single,System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreatePerspective(Single, Single, Single, Single)
+  nameWithType: Matrix4x4F.CreatePerspective(Single, Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreatePerspective(System.Single, System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreatePerspective
+    path: Matrix4x4F.cs
+    startLine: 367
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreatePerspective(float width, float height, float nearPlaneDistance, float farPlaneDistance)
+    parameters:
+    - id: width
+      type: System.Single
+    - id: height
+      type: System.Single
+    - id: nearPlaneDistance
+      type: System.Single
+    - id: farPlaneDistance
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreatePerspective(width As Single, height As Single, nearPlaneDistance As Single, farPlaneDistance As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreatePerspective*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreatePerspectiveOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreatePerspectiveOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: CreatePerspectiveOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreatePerspectiveOffCenter(Single, Single, Single, Single, Single, Single)
+  nameWithType: Matrix4x4F.CreatePerspectiveOffCenter(Single, Single, Single, Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreatePerspectiveOffCenter(System.Single, System.Single, System.Single, System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreatePerspectiveOffCenter
+    path: Matrix4x4F.cs
+    startLine: 385
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreatePerspectiveOffCenter(float left, float right, float bottom, float top, float nearPlaneDistance, float farPlaneDistance)
+    parameters:
+    - id: left
+      type: System.Single
+    - id: right
+      type: System.Single
+    - id: bottom
+      type: System.Single
+    - id: top
+      type: System.Single
+    - id: nearPlaneDistance
+      type: System.Single
+    - id: farPlaneDistance
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreatePerspectiveOffCenter(left As Single, right As Single, bottom As Single, top As Single, nearPlaneDistance As Single, farPlaneDistance As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreatePerspectiveOffCenter*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateOrthographic(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateOrthographic(System.Single,System.Single,System.Single,System.Single)
+  id: CreateOrthographic(System.Single,System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateOrthographic(Single, Single, Single, Single)
+  nameWithType: Matrix4x4F.CreateOrthographic(Single, Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreateOrthographic(System.Single, System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateOrthographic
+    path: Matrix4x4F.cs
+    startLine: 405
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateOrthographic(float width, float height, float zNearPlane, float zFarPlane)
+    parameters:
+    - id: width
+      type: System.Single
+    - id: height
+      type: System.Single
+    - id: zNearPlane
+      type: System.Single
+    - id: zFarPlane
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateOrthographic(width As Single, height As Single, zNearPlane As Single, zFarPlane As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateOrthographic*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateOrthographicOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateOrthographicOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  id: CreateOrthographicOffCenter(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateOrthographicOffCenter(Single, Single, Single, Single, Single, Single)
+  nameWithType: Matrix4x4F.CreateOrthographicOffCenter(Single, Single, Single, Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreateOrthographicOffCenter(System.Single, System.Single, System.Single, System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateOrthographicOffCenter
+    path: Matrix4x4F.cs
+    startLine: 411
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateOrthographicOffCenter(float left, float right, float bottom, float top, float zNearPlane, float zFarPlane)
+    parameters:
+    - id: left
+      type: System.Single
+    - id: right
+      type: System.Single
+    - id: bottom
+      type: System.Single
+    - id: top
+      type: System.Single
+    - id: zNearPlane
+      type: System.Single
+    - id: zFarPlane
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateOrthographicOffCenter(left As Single, right As Single, bottom As Single, top As Single, zNearPlane As Single, zFarPlane As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateOrthographicOffCenter*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateLookAt(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateLookAt(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  id: CreateLookAt(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateLookAt(Vector3F, Vector3F, Vector3F)
+  nameWithType: Matrix4x4F.CreateLookAt(Vector3F, Vector3F, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateLookAt(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateLookAt
+    path: Matrix4x4F.cs
+    startLine: 419
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateLookAt(Vector3F cameraPosition, Vector3F cameraTarget, Vector3F cameraUpVector)
+    parameters:
+    - id: cameraPosition
+      type: MathStructs.Vector3F
+    - id: cameraTarget
+      type: MathStructs.Vector3F
+    - id: cameraUpVector
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateLookAt(cameraPosition As Vector3F, cameraTarget As Vector3F, cameraUpVector As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateLookAt*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateWorld(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Matrix4x4F.CreateWorld(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  id: CreateWorld(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateWorld(Vector3F, Vector3F, Vector3F)
+  nameWithType: Matrix4x4F.CreateWorld(Vector3F, Vector3F, Vector3F)
+  fullName: MathStructs.Matrix4x4F.CreateWorld(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateWorld
+    path: Matrix4x4F.cs
+    startLine: 439
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateWorld(Vector3F position, Vector3F forward, Vector3F up)
+    parameters:
+    - id: position
+      type: MathStructs.Vector3F
+    - id: forward
+      type: MathStructs.Vector3F
+    - id: up
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateWorld(position As Vector3F, forward As Vector3F, up As Vector3F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateWorld*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateFromQuaternion(MathStructs.QuaternionF)
+  commentId: M:MathStructs.Matrix4x4F.CreateFromQuaternion(MathStructs.QuaternionF)
+  id: CreateFromQuaternion(MathStructs.QuaternionF)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateFromQuaternion(QuaternionF)
+  nameWithType: Matrix4x4F.CreateFromQuaternion(QuaternionF)
+  fullName: MathStructs.Matrix4x4F.CreateFromQuaternion(MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateFromQuaternion
+    path: Matrix4x4F.cs
+    startLine: 456
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateFromQuaternion(QuaternionF q)
+    parameters:
+    - id: q
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateFromQuaternion(q As QuaternionF) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateFromQuaternion*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
+  id: CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateFromYawPitchRoll(Single, Single, Single)
+  nameWithType: Matrix4x4F.CreateFromYawPitchRoll(Single, Single, Single)
+  fullName: MathStructs.Matrix4x4F.CreateFromYawPitchRoll(System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateFromYawPitchRoll
+    path: Matrix4x4F.cs
+    startLine: 479
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateFromYawPitchRoll(float yaw, float pitch, float roll)
+    parameters:
+    - id: yaw
+      type: System.Single
+    - id: pitch
+      type: System.Single
+    - id: roll
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateFromYawPitchRoll(yaw As Single, pitch As Single, roll As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateFromYawPitchRoll*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateShadow(MathStructs.Vector3F,MathStructs.PlaneF)
+  commentId: M:MathStructs.Matrix4x4F.CreateShadow(MathStructs.Vector3F,MathStructs.PlaneF)
+  id: CreateShadow(MathStructs.Vector3F,MathStructs.PlaneF)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateShadow(Vector3F, PlaneF)
+  nameWithType: Matrix4x4F.CreateShadow(Vector3F, PlaneF)
+  fullName: MathStructs.Matrix4x4F.CreateShadow(MathStructs.Vector3F, MathStructs.PlaneF)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateShadow
+    path: Matrix4x4F.cs
+    startLine: 482
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateShadow(Vector3F lightDirection, PlaneF plane)
+    parameters:
+    - id: lightDirection
+      type: MathStructs.Vector3F
+    - id: plane
+      type: MathStructs.PlaneF
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateShadow(lightDirection As Vector3F, plane As PlaneF) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateShadow*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.CreateReflection(MathStructs.PlaneF)
+  commentId: M:MathStructs.Matrix4x4F.CreateReflection(MathStructs.PlaneF)
+  id: CreateReflection(MathStructs.PlaneF)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: CreateReflection(PlaneF)
+  nameWithType: Matrix4x4F.CreateReflection(PlaneF)
+  fullName: MathStructs.Matrix4x4F.CreateReflection(MathStructs.PlaneF)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateReflection
+    path: Matrix4x4F.cs
+    startLine: 502
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F CreateReflection(PlaneF value)
+    parameters:
+    - id: value
+      type: MathStructs.PlaneF
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function CreateReflection(value As PlaneF) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.CreateReflection*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Decompose(MathStructs.Matrix4x4F,MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  commentId: M:MathStructs.Matrix4x4F.Decompose(MathStructs.Matrix4x4F,MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  id: Decompose(MathStructs.Matrix4x4F,MathStructs.Vector3F@,MathStructs.QuaternionF@,MathStructs.Vector3F@)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Decompose(Matrix4x4F, out Vector3F, out QuaternionF, out Vector3F)
+  nameWithType: Matrix4x4F.Decompose(Matrix4x4F, out Vector3F, out QuaternionF, out Vector3F)
+  fullName: MathStructs.Matrix4x4F.Decompose(MathStructs.Matrix4x4F, out MathStructs.Vector3F, out MathStructs.QuaternionF, out MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Decompose
+    path: Matrix4x4F.cs
+    startLine: 521
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool Decompose(Matrix4x4F matrix, out Vector3F scales, out QuaternionF rotation, out Vector3F translation)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    - id: scales
+      type: MathStructs.Vector3F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    - id: translation
+      type: MathStructs.Vector3F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Decompose(matrix As Matrix4x4F, ByRef scales As Vector3F, ByRef rotation As QuaternionF, ByRef translation As Vector3F) As Boolean
+  overload: MathStructs.Matrix4x4F.Decompose*
+  nameWithType.vb: Matrix4x4F.Decompose(Matrix4x4F, ByRef Vector3F, ByRef QuaternionF, ByRef Vector3F)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: MathStructs.Matrix4x4F.Decompose(MathStructs.Matrix4x4F, ByRef MathStructs.Vector3F, ByRef MathStructs.QuaternionF, ByRef MathStructs.Vector3F)
+  name.vb: Decompose(Matrix4x4F, ByRef Vector3F, ByRef QuaternionF, ByRef Vector3F)
+- uid: MathStructs.Matrix4x4F.GetDeterminant
+  commentId: M:MathStructs.Matrix4x4F.GetDeterminant
+  id: GetDeterminant
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: GetDeterminant()
+  nameWithType: Matrix4x4F.GetDeterminant()
+  fullName: MathStructs.Matrix4x4F.GetDeterminant()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetDeterminant
+    path: Matrix4x4F.cs
+    startLine: 528
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float GetDeterminant()
+    return:
+      type: System.Single
+    content.vb: Public Function GetDeterminant As Single
+  overload: MathStructs.Matrix4x4F.GetDeterminant*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Invert
+  commentId: M:MathStructs.Matrix4x4F.Invert
+  id: Invert
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Invert()
+  nameWithType: Matrix4x4F.Invert()
+  fullName: MathStructs.Matrix4x4F.Invert()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Invert
+    path: Matrix4x4F.cs
+    startLine: 559
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Matrix4x4F Invert()
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Function Invert As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Invert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Invert(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Invert(MathStructs.Matrix4x4F)
+  id: Invert(MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Invert(Matrix4x4F)
+  nameWithType: Matrix4x4F.Invert(Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Invert(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Invert
+    path: Matrix4x4F.cs
+    startLine: 563
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Invert(Matrix4x4F matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Invert(matrix As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Invert*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Transform(MathStructs.QuaternionF)
+  commentId: M:MathStructs.Matrix4x4F.Transform(MathStructs.QuaternionF)
+  id: Transform(MathStructs.QuaternionF)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(QuaternionF)
+  nameWithType: Matrix4x4F.Transform(QuaternionF)
+  fullName: MathStructs.Matrix4x4F.Transform(MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Matrix4x4F.cs
+    startLine: 742
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Matrix4x4F Transform(QuaternionF rotation)
+    parameters:
+    - id: rotation
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Function Transform(rotation As QuaternionF) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Transform(MathStructs.Matrix4x4F,MathStructs.QuaternionF)
+  commentId: M:MathStructs.Matrix4x4F.Transform(MathStructs.Matrix4x4F,MathStructs.QuaternionF)
+  id: Transform(MathStructs.Matrix4x4F,MathStructs.QuaternionF)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4F, QuaternionF)
+  nameWithType: Matrix4x4F.Transform(Matrix4x4F, QuaternionF)
+  fullName: MathStructs.Matrix4x4F.Transform(MathStructs.Matrix4x4F, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Matrix4x4F.cs
+    startLine: 784
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Transform(Matrix4x4F value, QuaternionF rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix4x4F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Transform(value As Matrix4x4F, rotation As QuaternionF) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Transpose(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Transpose(MathStructs.Matrix4x4F)
+  id: Transpose(MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Transpose(Matrix4x4F)
+  nameWithType: Matrix4x4F.Transpose(Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Transpose(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transpose
+    path: Matrix4x4F.cs
+    startLine: 788
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Transpose(Matrix4x4F matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Transpose(matrix As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Transpose*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Transpose
+  commentId: M:MathStructs.Matrix4x4F.Transpose
+  id: Transpose
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Transpose()
+  nameWithType: Matrix4x4F.Transpose()
+  fullName: MathStructs.Matrix4x4F.Transpose()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transpose
+    path: Matrix4x4F.cs
+    startLine: 813
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Matrix4x4F Transpose()
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Function Transpose As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Transpose*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Lerp(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.Lerp(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F,System.Single)
+  id: Lerp(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Matrix4x4F, Matrix4x4F, Single)
+  nameWithType: Matrix4x4F.Lerp(Matrix4x4F, Matrix4x4F, Single)
+  fullName: MathStructs.Matrix4x4F.Lerp(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Matrix4x4F.cs
+    startLine: 817
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Lerp(Matrix4x4F matrix1, Matrix4x4F matrix2, float amount)
+    parameters:
+    - id: matrix1
+      type: MathStructs.Matrix4x4F
+    - id: matrix2
+      type: MathStructs.Matrix4x4F
+    - id: amount
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Lerp(matrix1 As Matrix4x4F, matrix2 As Matrix4x4F, amount As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Negate(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Negate(MathStructs.Matrix4x4F)
+  id: Negate(MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Negate(Matrix4x4F)
+  nameWithType: Matrix4x4F.Negate(Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Negate(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Matrix4x4F.cs
+    startLine: 848
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Negate(Matrix4x4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Negate(value As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Add(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Add(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: Add(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Add(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Add(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Add(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Add
+    path: Matrix4x4F.cs
+    startLine: 852
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Add(Matrix4x4F left, Matrix4x4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix4x4F
+    - id: right
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Add(left As Matrix4x4F, right As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Subtract(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Subtract(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: Subtract(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Subtract(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Subtract(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Matrix4x4F.cs
+    startLine: 856
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Subtract(Matrix4x4F left, Matrix4x4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix4x4F
+    - id: right
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Subtract(left As Matrix4x4F, right As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Multiply(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Matrix4x4F.cs
+    startLine: 860
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Multiply(Matrix4x4F left, Matrix4x4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix4x4F
+    - id: right
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Multiply(left As Matrix4x4F, right As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F,System.Single)
+  id: Multiply(MathStructs.Matrix4x4F,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix4x4F, Single)
+  nameWithType: Matrix4x4F.Multiply(Matrix4x4F, Single)
+  fullName: MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Matrix4x4F.cs
+    startLine: 864
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F Multiply(Matrix4x4F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix4x4F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Function Multiply(left As Matrix4x4F, right As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_UnaryNegation(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_UnaryNegation(MathStructs.Matrix4x4F)
+  id: op_UnaryNegation(MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Matrix4x4F)
+  nameWithType: Matrix4x4F.UnaryNegation(Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.UnaryNegation(MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Matrix4x4F.cs
+    startLine: 868
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F operator -(Matrix4x4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Operator -(value As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_UnaryPlus(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_UnaryPlus(MathStructs.Matrix4x4F)
+  id: op_UnaryPlus(MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Matrix4x4F)
+  nameWithType: Matrix4x4F.UnaryPlus(Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.UnaryPlus(MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Matrix4x4F.cs
+    startLine: 886
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F operator +(Matrix4x4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Operator +(value As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_Addition(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_Addition(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: op_Addition(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Addition(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Addition(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Addition(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Matrix4x4F.cs
+    startLine: 890
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F operator +(Matrix4x4F left, Matrix4x4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix4x4F
+    - id: right
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Operator +(left As Matrix4x4F, right As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_Subtraction(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_Subtraction(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: op_Subtraction(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Subtraction(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Subtraction(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Matrix4x4F.cs
+    startLine: 908
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F operator -(Matrix4x4F left, Matrix4x4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix4x4F
+    - id: right
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Operator -(left As Matrix4x4F, right As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: op_Multiply(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Multiply(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix4x4F.cs
+    startLine: 926
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F operator *(Matrix4x4F value1, Matrix4x4F value2)
+    parameters:
+    - id: value1
+      type: MathStructs.Matrix4x4F
+    - id: value2
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Operator *(value1 As Matrix4x4F, value2 As Matrix4x4F) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_Multiply(MathStructs.Matrix4x4F,System.Single)
+  commentId: M:MathStructs.Matrix4x4F.op_Multiply(MathStructs.Matrix4x4F,System.Single)
+  id: op_Multiply(MathStructs.Matrix4x4F,System.Single)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix4x4F, Single)
+  nameWithType: Matrix4x4F.Multiply(Matrix4x4F, Single)
+  fullName: MathStructs.Matrix4x4F.Multiply(MathStructs.Matrix4x4F, System.Single)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix4x4F.cs
+    startLine: 970
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Matrix4x4F operator *(Matrix4x4F value1, float value2)
+    parameters:
+    - id: value1
+      type: MathStructs.Matrix4x4F
+    - id: value2
+      type: System.Single
+    return:
+      type: MathStructs.Matrix4x4F
+    content.vb: Public Shared Operator *(value1 As Matrix4x4F, value2 As Single) As Matrix4x4F
+  overload: MathStructs.Matrix4x4F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_Equality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_Equality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: op_Equality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Equality(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Equality(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Equality(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Matrix4x4F.cs
+    startLine: 1002
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator ==(Matrix4x4F value1, Matrix4x4F value2)
+    parameters:
+    - id: value1
+      type: MathStructs.Matrix4x4F
+    - id: value2
+      type: MathStructs.Matrix4x4F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(value1 As Matrix4x4F, value2 As Matrix4x4F) As Boolean
+  overload: MathStructs.Matrix4x4F.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.op_Inequality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.op_Inequality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  id: op_Inequality(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Matrix4x4F, Matrix4x4F)
+  nameWithType: Matrix4x4F.Inequality(Matrix4x4F, Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Inequality(MathStructs.Matrix4x4F, MathStructs.Matrix4x4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Matrix4x4F.cs
+    startLine: 1016
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator !=(Matrix4x4F value1, Matrix4x4F value2)
+    parameters:
+    - id: value1
+      type: MathStructs.Matrix4x4F
+    - id: value2
+      type: MathStructs.Matrix4x4F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(value1 As Matrix4x4F, value2 As Matrix4x4F) As Boolean
+  overload: MathStructs.Matrix4x4F.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix4x4F.Equals(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Matrix4x4F.Equals(MathStructs.Matrix4x4F)
+  id: Equals(MathStructs.Matrix4x4F)
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Equals(Matrix4x4F)
+  nameWithType: Matrix4x4F.Equals(Matrix4x4F)
+  fullName: MathStructs.Matrix4x4F.Equals(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Matrix4x4F.cs
+    startLine: 1030
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool Equals(Matrix4x4F other)
+    parameters:
+    - id: other
+      type: MathStructs.Matrix4x4F
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Matrix4x4F) As Boolean
+  overload: MathStructs.Matrix4x4F.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix4x4F.Equals(System.Nullable{System.Object})
+  commentId: M:MathStructs.Matrix4x4F.Equals(System.Nullable{System.Object})
+  id: Equals(System.Nullable{System.Object})
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: Equals(Nullable<Object>)
+  nameWithType: Matrix4x4F.Equals(Nullable<Object>)
+  fullName: MathStructs.Matrix4x4F.Equals(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Matrix4x4F.cs
+    startLine: 1036
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+  overload: MathStructs.Matrix4x4F.Equals*
+  nameWithType.vb: Matrix4x4F.Equals(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: MathStructs.Matrix4x4F.Equals(System.Nullable(Of System.Object))
+  name.vb: Equals(Nullable(Of Object))
+- uid: MathStructs.Matrix4x4F.ToString
+  commentId: M:MathStructs.Matrix4x4F.ToString
+  id: ToString
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Matrix4x4F.ToString()
+  fullName: MathStructs.Matrix4x4F.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Matrix4x4F.cs
+    startLine: 1046
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: MathStructs.Matrix4x4F.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Matrix4x4F.GetHashCode
+  commentId: M:MathStructs.Matrix4x4F.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Matrix4x4F
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Matrix4x4F.GetHashCode()
+  fullName: MathStructs.Matrix4x4F.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix4x4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Matrix4x4F.cs
+    startLine: 1049
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: MathStructs.Matrix4x4F.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: System.Single
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MathStructs.Matrix4x4F.Identity*
+  commentId: Overload:MathStructs.Matrix4x4F.Identity
+  name: Identity
+  nameWithType: Matrix4x4F.Identity
+  fullName: MathStructs.Matrix4x4F.Identity
+- uid: MathStructs.Matrix4x4F
+  commentId: T:MathStructs.Matrix4x4F
+  parent: MathStructs
+  name: Matrix4x4F
+  nameWithType: Matrix4x4F
+  fullName: MathStructs.Matrix4x4F
+- uid: MathStructs.Matrix4x4F.NaN*
+  commentId: Overload:MathStructs.Matrix4x4F.NaN
+  name: NaN
+  nameWithType: Matrix4x4F.NaN
+  fullName: MathStructs.Matrix4x4F.NaN
+- uid: MathStructs.Matrix4x4F.IsIdentity*
+  commentId: Overload:MathStructs.Matrix4x4F.IsIdentity
+  name: IsIdentity
+  nameWithType: Matrix4x4F.IsIdentity
+  fullName: MathStructs.Matrix4x4F.IsIdentity
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MathStructs.Matrix4x4F.Translation*
+  commentId: Overload:MathStructs.Matrix4x4F.Translation
+  name: Translation
+  nameWithType: Matrix4x4F.Translation
+  fullName: MathStructs.Matrix4x4F.Translation
+- uid: MathStructs.Vector3F
+  commentId: T:MathStructs.Vector3F
+  parent: MathStructs
+  name: Vector3F
+  nameWithType: Vector3F
+  fullName: MathStructs.Vector3F
+- uid: MathStructs.Matrix4x4F.#ctor*
+  commentId: Overload:MathStructs.Matrix4x4F.#ctor
+  name: Matrix4x4F
+  nameWithType: Matrix4x4F.Matrix4x4F
+  fullName: MathStructs.Matrix4x4F.Matrix4x4F
+- uid: MathStructs.Matrix4x4F.Deconstruct*
+  commentId: Overload:MathStructs.Matrix4x4F.Deconstruct
+  name: Deconstruct
+  nameWithType: Matrix4x4F.Deconstruct
+  fullName: MathStructs.Matrix4x4F.Deconstruct
+- uid: MathStructs.QuaternionF
+  commentId: T:MathStructs.QuaternionF
+  parent: MathStructs
+  name: QuaternionF
+  nameWithType: QuaternionF
+  fullName: MathStructs.QuaternionF
+- uid: MathStructs.Matrix4x4F.With*
+  commentId: Overload:MathStructs.Matrix4x4F.With
+  name: With
+  nameWithType: Matrix4x4F.With
+  fullName: MathStructs.Matrix4x4F.With
+- uid: System.Nullable{System.Single}
+  commentId: '!:System.Nullable{System.Single}'
+  definition: System.Nullable`1
+  name: Nullable<Single>
+  nameWithType: Nullable<Single>
+  fullName: System.Nullable<System.Single>
+  nameWithType.vb: Nullable(Of Single)
+  fullName.vb: System.Nullable(Of System.Single)
+  name.vb: Nullable(Of Single)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Matrix4x4F.CreateBillboard*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateBillboard
+  name: CreateBillboard
+  nameWithType: Matrix4x4F.CreateBillboard
+  fullName: MathStructs.Matrix4x4F.CreateBillboard
+- uid: MathStructs.Matrix4x4F.CreateConstrainedBillboard*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateConstrainedBillboard
+  name: CreateConstrainedBillboard
+  nameWithType: Matrix4x4F.CreateConstrainedBillboard
+  fullName: MathStructs.Matrix4x4F.CreateConstrainedBillboard
+- uid: MathStructs.Matrix4x4F.CreateTranslation*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateTranslation
+  name: CreateTranslation
+  nameWithType: Matrix4x4F.CreateTranslation
+  fullName: MathStructs.Matrix4x4F.CreateTranslation
+- uid: MathStructs.Matrix4x4F.CreateScale*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateScale
+  name: CreateScale
+  nameWithType: Matrix4x4F.CreateScale
+  fullName: MathStructs.Matrix4x4F.CreateScale
+- uid: MathStructs.Matrix4x4F.CreateRotationX*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateRotationX
+  name: CreateRotationX
+  nameWithType: Matrix4x4F.CreateRotationX
+  fullName: MathStructs.Matrix4x4F.CreateRotationX
+- uid: MathStructs.Matrix4x4F.CreateRotationY*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateRotationY
+  name: CreateRotationY
+  nameWithType: Matrix4x4F.CreateRotationY
+  fullName: MathStructs.Matrix4x4F.CreateRotationY
+- uid: MathStructs.Matrix4x4F.CreateRotationZ*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateRotationZ
+  name: CreateRotationZ
+  nameWithType: Matrix4x4F.CreateRotationZ
+  fullName: MathStructs.Matrix4x4F.CreateRotationZ
+- uid: MathStructs.Matrix4x4F.CreateFromAxisAngle*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateFromAxisAngle
+  name: CreateFromAxisAngle
+  nameWithType: Matrix4x4F.CreateFromAxisAngle
+  fullName: MathStructs.Matrix4x4F.CreateFromAxisAngle
+- uid: MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView*
+  commentId: Overload:MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView
+  name: CreatePerspectiveFieldOfView
+  nameWithType: Matrix4x4F.CreatePerspectiveFieldOfView
+  fullName: MathStructs.Matrix4x4F.CreatePerspectiveFieldOfView
+- uid: MathStructs.Matrix4x4F.CreatePerspective*
+  commentId: Overload:MathStructs.Matrix4x4F.CreatePerspective
+  name: CreatePerspective
+  nameWithType: Matrix4x4F.CreatePerspective
+  fullName: MathStructs.Matrix4x4F.CreatePerspective
+- uid: MathStructs.Matrix4x4F.CreatePerspectiveOffCenter*
+  commentId: Overload:MathStructs.Matrix4x4F.CreatePerspectiveOffCenter
+  name: CreatePerspectiveOffCenter
+  nameWithType: Matrix4x4F.CreatePerspectiveOffCenter
+  fullName: MathStructs.Matrix4x4F.CreatePerspectiveOffCenter
+- uid: MathStructs.Matrix4x4F.CreateOrthographic*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateOrthographic
+  name: CreateOrthographic
+  nameWithType: Matrix4x4F.CreateOrthographic
+  fullName: MathStructs.Matrix4x4F.CreateOrthographic
+- uid: MathStructs.Matrix4x4F.CreateOrthographicOffCenter*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateOrthographicOffCenter
+  name: CreateOrthographicOffCenter
+  nameWithType: Matrix4x4F.CreateOrthographicOffCenter
+  fullName: MathStructs.Matrix4x4F.CreateOrthographicOffCenter
+- uid: MathStructs.Matrix4x4F.CreateLookAt*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateLookAt
+  name: CreateLookAt
+  nameWithType: Matrix4x4F.CreateLookAt
+  fullName: MathStructs.Matrix4x4F.CreateLookAt
+- uid: MathStructs.Matrix4x4F.CreateWorld*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateWorld
+  name: CreateWorld
+  nameWithType: Matrix4x4F.CreateWorld
+  fullName: MathStructs.Matrix4x4F.CreateWorld
+- uid: MathStructs.Matrix4x4F.CreateFromQuaternion*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateFromQuaternion
+  name: CreateFromQuaternion
+  nameWithType: Matrix4x4F.CreateFromQuaternion
+  fullName: MathStructs.Matrix4x4F.CreateFromQuaternion
+- uid: MathStructs.Matrix4x4F.CreateFromYawPitchRoll*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateFromYawPitchRoll
+  name: CreateFromYawPitchRoll
+  nameWithType: Matrix4x4F.CreateFromYawPitchRoll
+  fullName: MathStructs.Matrix4x4F.CreateFromYawPitchRoll
+- uid: MathStructs.Matrix4x4F.CreateShadow*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateShadow
+  name: CreateShadow
+  nameWithType: Matrix4x4F.CreateShadow
+  fullName: MathStructs.Matrix4x4F.CreateShadow
+- uid: MathStructs.PlaneF
+  commentId: T:MathStructs.PlaneF
+  parent: MathStructs
+  name: PlaneF
+  nameWithType: PlaneF
+  fullName: MathStructs.PlaneF
+- uid: MathStructs.Matrix4x4F.CreateReflection*
+  commentId: Overload:MathStructs.Matrix4x4F.CreateReflection
+  name: CreateReflection
+  nameWithType: Matrix4x4F.CreateReflection
+  fullName: MathStructs.Matrix4x4F.CreateReflection
+- uid: MathStructs.Matrix4x4F.Decompose*
+  commentId: Overload:MathStructs.Matrix4x4F.Decompose
+  name: Decompose
+  nameWithType: Matrix4x4F.Decompose
+  fullName: MathStructs.Matrix4x4F.Decompose
+- uid: MathStructs.Matrix4x4F.GetDeterminant*
+  commentId: Overload:MathStructs.Matrix4x4F.GetDeterminant
+  name: GetDeterminant
+  nameWithType: Matrix4x4F.GetDeterminant
+  fullName: MathStructs.Matrix4x4F.GetDeterminant
+- uid: MathStructs.Matrix4x4F.Invert*
+  commentId: Overload:MathStructs.Matrix4x4F.Invert
+  name: Invert
+  nameWithType: Matrix4x4F.Invert
+  fullName: MathStructs.Matrix4x4F.Invert
+- uid: MathStructs.Matrix4x4F.Transform*
+  commentId: Overload:MathStructs.Matrix4x4F.Transform
+  name: Transform
+  nameWithType: Matrix4x4F.Transform
+  fullName: MathStructs.Matrix4x4F.Transform
+- uid: MathStructs.Matrix4x4F.Transpose*
+  commentId: Overload:MathStructs.Matrix4x4F.Transpose
+  name: Transpose
+  nameWithType: Matrix4x4F.Transpose
+  fullName: MathStructs.Matrix4x4F.Transpose
+- uid: MathStructs.Matrix4x4F.Lerp*
+  commentId: Overload:MathStructs.Matrix4x4F.Lerp
+  name: Lerp
+  nameWithType: Matrix4x4F.Lerp
+  fullName: MathStructs.Matrix4x4F.Lerp
+- uid: MathStructs.Matrix4x4F.Negate*
+  commentId: Overload:MathStructs.Matrix4x4F.Negate
+  name: Negate
+  nameWithType: Matrix4x4F.Negate
+  fullName: MathStructs.Matrix4x4F.Negate
+- uid: MathStructs.Matrix4x4F.Add*
+  commentId: Overload:MathStructs.Matrix4x4F.Add
+  name: Add
+  nameWithType: Matrix4x4F.Add
+  fullName: MathStructs.Matrix4x4F.Add
+- uid: MathStructs.Matrix4x4F.Subtract*
+  commentId: Overload:MathStructs.Matrix4x4F.Subtract
+  name: Subtract
+  nameWithType: Matrix4x4F.Subtract
+  fullName: MathStructs.Matrix4x4F.Subtract
+- uid: MathStructs.Matrix4x4F.Multiply*
+  commentId: Overload:MathStructs.Matrix4x4F.Multiply
+  name: Multiply
+  nameWithType: Matrix4x4F.Multiply
+  fullName: MathStructs.Matrix4x4F.Multiply
+- uid: MathStructs.Matrix4x4F.op_UnaryNegation*
+  commentId: Overload:MathStructs.Matrix4x4F.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Matrix4x4F.UnaryNegation
+  fullName: MathStructs.Matrix4x4F.UnaryNegation
+- uid: MathStructs.Matrix4x4F.op_UnaryPlus*
+  commentId: Overload:MathStructs.Matrix4x4F.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Matrix4x4F.UnaryPlus
+  fullName: MathStructs.Matrix4x4F.UnaryPlus
+- uid: MathStructs.Matrix4x4F.op_Addition*
+  commentId: Overload:MathStructs.Matrix4x4F.op_Addition
+  name: Addition
+  nameWithType: Matrix4x4F.Addition
+  fullName: MathStructs.Matrix4x4F.Addition
+- uid: MathStructs.Matrix4x4F.op_Subtraction*
+  commentId: Overload:MathStructs.Matrix4x4F.op_Subtraction
+  name: Subtraction
+  nameWithType: Matrix4x4F.Subtraction
+  fullName: MathStructs.Matrix4x4F.Subtraction
+- uid: MathStructs.Matrix4x4F.op_Multiply*
+  commentId: Overload:MathStructs.Matrix4x4F.op_Multiply
+  name: Multiply
+  nameWithType: Matrix4x4F.Multiply
+  fullName: MathStructs.Matrix4x4F.Multiply
+- uid: MathStructs.Matrix4x4F.op_Equality*
+  commentId: Overload:MathStructs.Matrix4x4F.op_Equality
+  name: Equality
+  nameWithType: Matrix4x4F.Equality
+  fullName: MathStructs.Matrix4x4F.Equality
+- uid: MathStructs.Matrix4x4F.op_Inequality*
+  commentId: Overload:MathStructs.Matrix4x4F.op_Inequality
+  name: Inequality
+  nameWithType: Matrix4x4F.Inequality
+  fullName: MathStructs.Matrix4x4F.Inequality
+- uid: MathStructs.Matrix4x4F.Equals*
+  commentId: Overload:MathStructs.Matrix4x4F.Equals
+  name: Equals
+  nameWithType: Matrix4x4F.Equals
+  fullName: MathStructs.Matrix4x4F.Equals
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Matrix4x4F.ToString*
+  commentId: Overload:MathStructs.Matrix4x4F.ToString
+  name: ToString
+  nameWithType: Matrix4x4F.ToString
+  fullName: MathStructs.Matrix4x4F.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: MathStructs.Matrix4x4F.GetHashCode*
+  commentId: Overload:MathStructs.Matrix4x4F.GetHashCode
+  name: GetHashCode
+  nameWithType: Matrix4x4F.GetHashCode
+  fullName: MathStructs.Matrix4x4F.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

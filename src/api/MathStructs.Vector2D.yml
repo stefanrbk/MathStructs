@@ -1,0 +1,3122 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Vector2D
+  commentId: T:MathStructs.Vector2D
+  id: Vector2D
+  parent: MathStructs
+  children:
+  - MathStructs.Vector2D.#ctor(System.Double)
+  - MathStructs.Vector2D.#ctor(System.Double,System.Double)
+  - MathStructs.Vector2D.Abs
+  - MathStructs.Vector2D.Abs(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Add(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Clamp(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Clamp(MathStructs.Vector2D,MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.CopyTo(System.Double[])
+  - MathStructs.Vector2D.CopyTo(System.Double[],System.Int32)
+  - MathStructs.Vector2D.Deconstruct(System.Double@,System.Double@)
+  - MathStructs.Vector2D.Distance(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Distance(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D)
+  - MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Divide(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Divide(MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector2D.Dot(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Dot(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Equals(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Equals(MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector2D.Equals(System.Nullable{System.Object})
+  - MathStructs.Vector2D.GetHashCode
+  - MathStructs.Vector2D.Length
+  - MathStructs.Vector2D.LengthSquared
+  - MathStructs.Vector2D.Lerp(MathStructs.Vector2D,MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector2D.Max(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Min(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Multiply(MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector2D.Multiply(System.Double,MathStructs.Vector2D)
+  - MathStructs.Vector2D.Negate(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Normalize
+  - MathStructs.Vector2D.Normalize(MathStructs.Vector2D)
+  - MathStructs.Vector2D.One
+  - MathStructs.Vector2D.op_Addition(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_Division(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_Division(MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector2D.op_Equality(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_Inequality(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_Multiply(MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector2D.op_Multiply(System.Double,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_Subtraction(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_UnaryNegation(MathStructs.Vector2D)
+  - MathStructs.Vector2D.op_UnaryPlus(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Reflect(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Reflect(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.SquareRoot(MathStructs.Vector2D)
+  - MathStructs.Vector2D.Subtract(MathStructs.Vector2D,MathStructs.Vector2D)
+  - MathStructs.Vector2D.ToString
+  - MathStructs.Vector2D.ToString(System.Nullable{System.String})
+  - MathStructs.Vector2D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  - MathStructs.Vector2D.Transform(MathStructs.Matrix4x4D)
+  - MathStructs.Vector2D.Transform(MathStructs.QuaternionD)
+  - MathStructs.Vector2D.Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector2D.Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  - MathStructs.Vector2D.TransformNormal(MathStructs.Matrix4x4D)
+  - MathStructs.Vector2D.TransformNormal(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector2D.TransformV4(MathStructs.Matrix4x4D)
+  - MathStructs.Vector2D.TransformV4(MathStructs.QuaternionD)
+  - MathStructs.Vector2D.UnitX
+  - MathStructs.Vector2D.UnitY
+  - MathStructs.Vector2D.With(System.Nullable{System.Double},System.Nullable{System.Double})
+  - MathStructs.Vector2D.X
+  - MathStructs.Vector2D.Y
+  - MathStructs.Vector2D.Zero
+  langs:
+  - csharp
+  - vb
+  name: Vector2D
+  nameWithType: Vector2D
+  fullName: MathStructs.Vector2D
+  type: Struct
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Vector2D
+    path: Vector2D.cs
+    startLine: 6
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: 'public struct Vector2D : IEquatable<Vector2D>, IFormattable'
+    content.vb: >-
+      Public Structure Vector2D
+          Implements IEquatable(Of Vector2D), IFormattable
+  implements:
+  - IEquatable{MathStructs.Vector2D}
+  - IFormattable
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MathStructs.Vector2D.X
+  commentId: F:MathStructs.Vector2D.X
+  id: X
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Vector2D.X
+  fullName: MathStructs.Vector2D.X
+  type: Field
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: X
+    path: Vector2D.cs
+    startLine: 10
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double X
+    return:
+      type: System.Double
+    content.vb: Public X As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Y
+  commentId: F:MathStructs.Vector2D.Y
+  id: Y
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Vector2D.Y
+  fullName: MathStructs.Vector2D.Y
+  type: Field
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Y
+    path: Vector2D.cs
+    startLine: 11
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Y
+    return:
+      type: System.Double
+    content.vb: Public Y As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Zero
+  commentId: P:MathStructs.Vector2D.Zero
+  id: Zero
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Vector2D.Zero
+  fullName: MathStructs.Vector2D.Zero
+  type: Property
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Zero
+    path: Vector2D.cs
+    startLine: 13
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Zero { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared ReadOnly Property Zero As Vector2D
+  overload: MathStructs.Vector2D.Zero*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector2D.One
+  commentId: P:MathStructs.Vector2D.One
+  id: One
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Vector2D.One
+  fullName: MathStructs.Vector2D.One
+  type: Property
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: One
+    path: Vector2D.cs
+    startLine: 15
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D One { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared ReadOnly Property One As Vector2D
+  overload: MathStructs.Vector2D.One*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector2D.UnitX
+  commentId: P:MathStructs.Vector2D.UnitX
+  id: UnitX
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: UnitX
+  nameWithType: Vector2D.UnitX
+  fullName: MathStructs.Vector2D.UnitX
+  type: Property
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitX
+    path: Vector2D.cs
+    startLine: 17
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D UnitX { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared ReadOnly Property UnitX As Vector2D
+  overload: MathStructs.Vector2D.UnitX*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector2D.UnitY
+  commentId: P:MathStructs.Vector2D.UnitY
+  id: UnitY
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: UnitY
+  nameWithType: Vector2D.UnitY
+  fullName: MathStructs.Vector2D.UnitY
+  type: Property
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitY
+    path: Vector2D.cs
+    startLine: 19
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D UnitY { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared ReadOnly Property UnitY As Vector2D
+  overload: MathStructs.Vector2D.UnitY*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector2D.GetHashCode
+  commentId: M:MathStructs.Vector2D.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vector2D.GetHashCode()
+  fullName: MathStructs.Vector2D.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Vector2D.cs
+    startLine: 21
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: MathStructs.Vector2D.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector2D.Equals(System.Nullable{System.Object})
+  commentId: M:MathStructs.Vector2D.Equals(System.Nullable{System.Object})
+  id: Equals(System.Nullable{System.Object})
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Nullable<Object>)
+  nameWithType: Vector2D.Equals(Nullable<Object>)
+  fullName: MathStructs.Vector2D.Equals(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector2D.cs
+    startLine: 24
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+  overload: MathStructs.Vector2D.Equals*
+  nameWithType.vb: Vector2D.Equals(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: MathStructs.Vector2D.Equals(System.Nullable(Of System.Object))
+  name.vb: Equals(Nullable(Of Object))
+- uid: MathStructs.Vector2D.ToString
+  commentId: M:MathStructs.Vector2D.ToString
+  id: ToString
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vector2D.ToString()
+  fullName: MathStructs.Vector2D.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector2D.cs
+    startLine: 28
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: MathStructs.Vector2D.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector2D.ToString(System.Nullable{System.String})
+  commentId: M:MathStructs.Vector2D.ToString(System.Nullable{System.String})
+  id: ToString(System.Nullable{System.String})
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>)
+  nameWithType: Vector2D.ToString(Nullable<String>)
+  fullName: MathStructs.Vector2D.ToString(System.Nullable<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector2D.cs
+    startLine: 31
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?) As String
+  overload: MathStructs.Vector2D.ToString*
+  nameWithType.vb: Vector2D.ToString(Nullable(Of String))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector2D.ToString(System.Nullable(Of System.String))
+  name.vb: ToString(Nullable(Of String))
+- uid: MathStructs.Vector2D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  commentId: M:MathStructs.Vector2D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  id: ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType: Vector2D.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  fullName: MathStructs.Vector2D.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector2D.cs
+    startLine: 34
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format, IFormatProvider? formatProvider)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    - id: formatProvider
+      type: System.Nullable{IFormatProvider}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?, formatProvider As IFormatProvider?) As String
+  overload: MathStructs.Vector2D.ToString*
+  nameWithType.vb: Vector2D.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector2D.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector2D.Length
+  commentId: M:MathStructs.Vector2D.Length
+  id: Length
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Length()
+  nameWithType: Vector2D.Length()
+  fullName: MathStructs.Vector2D.Length()
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Length
+    path: Vector2D.cs
+    startLine: 37
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Length()
+    return:
+      type: System.Double
+    content.vb: Public Function Length As Double
+  overload: MathStructs.Vector2D.Length*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.LengthSquared
+  commentId: M:MathStructs.Vector2D.LengthSquared
+  id: LengthSquared
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared()
+  nameWithType: Vector2D.LengthSquared()
+  fullName: MathStructs.Vector2D.LengthSquared()
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: LengthSquared
+    path: Vector2D.cs
+    startLine: 41
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double LengthSquared()
+    return:
+      type: System.Double
+    content.vb: Public Function LengthSquared As Double
+  overload: MathStructs.Vector2D.LengthSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Distance(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Distance(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Distance(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector2D, Vector2D)
+  nameWithType: Vector2D.Distance(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Distance(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector2D.cs
+    startLine: 45
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static double Distance(Vector2D vector1, Vector2D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector2D
+    - id: vector2
+      type: MathStructs.Vector2D
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Distance(vector1 As Vector2D, vector2 As Vector2D) As Double
+  overload: MathStructs.Vector2D.Distance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Distance(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Distance(MathStructs.Vector2D)
+  id: Distance(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector2D)
+  nameWithType: Vector2D.Distance(Vector2D)
+  fullName: MathStructs.Vector2D.Distance(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector2D.cs
+    startLine: 49
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Distance(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: System.Double
+    content.vb: Public Function Distance(value As Vector2D) As Double
+  overload: MathStructs.Vector2D.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: DistanceSquared(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2D, Vector2D)
+  nameWithType: Vector2D.DistanceSquared(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector2D.cs
+    startLine: 53
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static double DistanceSquared(Vector2D vector1, Vector2D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector2D
+    - id: vector2
+      type: MathStructs.Vector2D
+    return:
+      type: System.Double
+    content.vb: Public Shared Function DistanceSquared(vector1 As Vector2D, vector2 As Vector2D) As Double
+  overload: MathStructs.Vector2D.DistanceSquared*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D)
+  id: DistanceSquared(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2D)
+  nameWithType: Vector2D.DistanceSquared(Vector2D)
+  fullName: MathStructs.Vector2D.DistanceSquared(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector2D.cs
+    startLine: 57
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double DistanceSquared(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(value As Vector2D) As Double
+  overload: MathStructs.Vector2D.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Normalize(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Normalize(MathStructs.Vector2D)
+  id: Normalize(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Normalize(Vector2D)
+  nameWithType: Vector2D.Normalize(Vector2D)
+  fullName: MathStructs.Vector2D.Normalize(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector2D.cs
+    startLine: 61
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Normalize(Vector2D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Normalize(vector As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Normalize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Normalize
+  commentId: M:MathStructs.Vector2D.Normalize
+  id: Normalize
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Vector2D.Normalize()
+  fullName: MathStructs.Vector2D.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector2D.cs
+    startLine: 65
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D Normalize()
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function Normalize As Vector2D
+  overload: MathStructs.Vector2D.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Reflect(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Reflect(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Reflect(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Reflect(Vector2D, Vector2D)
+  nameWithType: Vector2D.Reflect(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Reflect(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Reflect
+    path: Vector2D.cs
+    startLine: 69
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Reflect(Vector2D vector, Vector2D normal)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+    - id: normal
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Reflect(vector As Vector2D, normal As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Reflect*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Reflect(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Reflect(MathStructs.Vector2D)
+  id: Reflect(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Reflect(Vector2D)
+  nameWithType: Vector2D.Reflect(Vector2D)
+  fullName: MathStructs.Vector2D.Reflect(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Reflect
+    path: Vector2D.cs
+    startLine: 73
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D Reflect(Vector2D normal)
+    parameters:
+    - id: normal
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function Reflect(normal As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Reflect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Clamp(MathStructs.Vector2D,MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Clamp(MathStructs.Vector2D,MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Clamp(MathStructs.Vector2D,MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector2D, Vector2D, Vector2D)
+  nameWithType: Vector2D.Clamp(Vector2D, Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Clamp(MathStructs.Vector2D, MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector2D.cs
+    startLine: 77
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Clamp(Vector2D value, Vector2D min, Vector2D max)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    - id: min
+      type: MathStructs.Vector2D
+    - id: max
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Clamp(value As Vector2D, min As Vector2D, max As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Clamp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Clamp(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Clamp(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Clamp(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector2D, Vector2D)
+  nameWithType: Vector2D.Clamp(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Clamp(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector2D.cs
+    startLine: 81
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D Clamp(Vector2D min, Vector2D max)
+    parameters:
+    - id: min
+      type: MathStructs.Vector2D
+    - id: max
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function Clamp(min As Vector2D, max As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Clamp*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Lerp(MathStructs.Vector2D,MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector2D.Lerp(MathStructs.Vector2D,MathStructs.Vector2D,System.Double)
+  id: Lerp(MathStructs.Vector2D,MathStructs.Vector2D,System.Double)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Vector2D, Vector2D, Double)
+  nameWithType: Vector2D.Lerp(Vector2D, Vector2D, Double)
+  fullName: MathStructs.Vector2D.Lerp(MathStructs.Vector2D, MathStructs.Vector2D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Vector2D.cs
+    startLine: 85
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Lerp(Vector2D bounds1, Vector2D bounds2, double amount)
+    parameters:
+    - id: bounds1
+      type: MathStructs.Vector2D
+    - id: bounds2
+      type: MathStructs.Vector2D
+    - id: amount
+      type: System.Double
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Lerp(bounds1 As Vector2D, bounds2 As Vector2D, amount As Double) As Vector2D
+  overload: MathStructs.Vector2D.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector2D.Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2D, Matrix4x4D)
+  nameWithType: Vector2D.Transform(Vector2D, Matrix4x4D)
+  fullName: MathStructs.Vector2D.Transform(MathStructs.Vector2D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector2D.cs
+    startLine: 89
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Transform(Vector2D vector, Matrix4x4D matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Transform(vector As Vector2D, matrix As Matrix4x4D) As Vector2D
+  overload: MathStructs.Vector2D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Transform(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector2D.Transform(MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4D)
+  nameWithType: Vector2D.Transform(Matrix4x4D)
+  fullName: MathStructs.Vector2D.Transform(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector2D.cs
+    startLine: 94
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D Transform(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function Transform(matrix As Matrix4x4D) As Vector2D
+  overload: MathStructs.Vector2D.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.TransformV4(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector2D.TransformV4(MathStructs.Matrix4x4D)
+  id: TransformV4(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: TransformV4(Matrix4x4D)
+  nameWithType: Vector2D.TransformV4(Matrix4x4D)
+  fullName: MathStructs.Vector2D.TransformV4(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformV4
+    path: Vector2D.cs
+    startLine: 98
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4D TransformV4(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Function TransformV4(matrix As Matrix4x4D) As Vector4D
+  overload: MathStructs.Vector2D.TransformV4*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.TransformV4(MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector2D.TransformV4(MathStructs.QuaternionD)
+  id: TransformV4(MathStructs.QuaternionD)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: TransformV4(QuaternionD)
+  nameWithType: Vector2D.TransformV4(QuaternionD)
+  fullName: MathStructs.Vector2D.TransformV4(MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformV4
+    path: Vector2D.cs
+    startLine: 102
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4D TransformV4(QuaternionD rotation)
+    parameters:
+    - id: rotation
+      type: MathStructs.QuaternionD
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Function TransformV4(rotation As QuaternionD) As Vector4D
+  overload: MathStructs.Vector2D.TransformV4*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector2D.Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  id: Transform(MathStructs.Vector2D,MathStructs.QuaternionD)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2D, QuaternionD)
+  nameWithType: Vector2D.Transform(Vector2D, QuaternionD)
+  fullName: MathStructs.Vector2D.Transform(MathStructs.Vector2D, MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector2D.cs
+    startLine: 106
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Transform(Vector2D value, QuaternionD rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    - id: rotation
+      type: MathStructs.QuaternionD
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Transform(value As Vector2D, rotation As QuaternionD) As Vector2D
+  overload: MathStructs.Vector2D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Transform(MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector2D.Transform(MathStructs.QuaternionD)
+  id: Transform(MathStructs.QuaternionD)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Transform(QuaternionD)
+  nameWithType: Vector2D.Transform(QuaternionD)
+  fullName: MathStructs.Vector2D.Transform(MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector2D.cs
+    startLine: 120
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D Transform(QuaternionD rotation)
+    parameters:
+    - id: rotation
+      type: MathStructs.QuaternionD
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function Transform(rotation As QuaternionD) As Vector2D
+  overload: MathStructs.Vector2D.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.TransformNormal(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector2D.TransformNormal(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  id: TransformNormal(MathStructs.Vector2D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: TransformNormal(Vector2D, Matrix4x4D)
+  nameWithType: Vector2D.TransformNormal(Vector2D, Matrix4x4D)
+  fullName: MathStructs.Vector2D.TransformNormal(MathStructs.Vector2D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformNormal
+    path: Vector2D.cs
+    startLine: 124
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D TransformNormal(Vector2D normal, Matrix4x4D matrix)
+    parameters:
+    - id: normal
+      type: MathStructs.Vector2D
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function TransformNormal(normal As Vector2D, matrix As Matrix4x4D) As Vector2D
+  overload: MathStructs.Vector2D.TransformNormal*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.TransformNormal(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector2D.TransformNormal(MathStructs.Matrix4x4D)
+  id: TransformNormal(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: TransformNormal(Matrix4x4D)
+  nameWithType: Vector2D.TransformNormal(Matrix4x4D)
+  fullName: MathStructs.Vector2D.TransformNormal(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformNormal
+    path: Vector2D.cs
+    startLine: 129
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D TransformNormal(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function TransformNormal(matrix As Matrix4x4D) As Vector2D
+  overload: MathStructs.Vector2D.TransformNormal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Add(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Add(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Add(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Add(Vector2D, Vector2D)
+  nameWithType: Vector2D.Add(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Add(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Add
+    path: Vector2D.cs
+    startLine: 133
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Add(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Add(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Subtract(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Subtract(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Subtract(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vector2D, Vector2D)
+  nameWithType: Vector2D.Subtract(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Subtract(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Vector2D.cs
+    startLine: 137
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Subtract(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Subtract(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector2D, Vector2D)
+  nameWithType: Vector2D.Multiply(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Multiply(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector2D.cs
+    startLine: 141
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Multiply(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Multiply(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Multiply(MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector2D.Multiply(MathStructs.Vector2D,System.Double)
+  id: Multiply(MathStructs.Vector2D,System.Double)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector2D, Double)
+  nameWithType: Vector2D.Multiply(Vector2D, Double)
+  fullName: MathStructs.Vector2D.Multiply(MathStructs.Vector2D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector2D.cs
+    startLine: 145
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Multiply(Vector2D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Multiply(left As Vector2D, right As Double) As Vector2D
+  overload: MathStructs.Vector2D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Multiply(System.Double,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Multiply(System.Double,MathStructs.Vector2D)
+  id: Multiply(System.Double,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double, Vector2D)
+  nameWithType: Vector2D.Multiply(Double, Vector2D)
+  fullName: MathStructs.Vector2D.Multiply(System.Double, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector2D.cs
+    startLine: 149
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Multiply(double left, Vector2D right)
+    parameters:
+    - id: left
+      type: System.Double
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Multiply(left As Double, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Divide(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Divide(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Divide(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector2D, Vector2D)
+  nameWithType: Vector2D.Divide(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Divide(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector2D.cs
+    startLine: 153
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Divide(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Divide(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Divide(MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector2D.Divide(MathStructs.Vector2D,System.Double)
+  id: Divide(MathStructs.Vector2D,System.Double)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector2D, Double)
+  nameWithType: Vector2D.Divide(Vector2D, Double)
+  fullName: MathStructs.Vector2D.Divide(MathStructs.Vector2D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector2D.cs
+    startLine: 157
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Divide(Vector2D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Divide(left As Vector2D, right As Double) As Vector2D
+  overload: MathStructs.Vector2D.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Negate(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Negate(MathStructs.Vector2D)
+  id: Negate(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Negate(Vector2D)
+  nameWithType: Vector2D.Negate(Vector2D)
+  fullName: MathStructs.Vector2D.Negate(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Vector2D.cs
+    startLine: 161
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Negate(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Negate(value As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.#ctor(System.Double)
+  commentId: M:MathStructs.Vector2D.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Vector2D(Double)
+  nameWithType: Vector2D.Vector2D(Double)
+  fullName: MathStructs.Vector2D.Vector2D(System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector2D.cs
+    startLine: 165
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub New(value As Double)
+  overload: MathStructs.Vector2D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.#ctor(System.Double,System.Double)
+  commentId: M:MathStructs.Vector2D.#ctor(System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double)'
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Vector2D(Double, Double)
+  nameWithType: Vector2D.Vector2D(Double, Double)
+  fullName: MathStructs.Vector2D.Vector2D(System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector2D.cs
+    startLine: 168
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D(double x, double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    content.vb: Public Sub New(x As Double, y As Double)
+  overload: MathStructs.Vector2D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Deconstruct(System.Double@,System.Double@)
+  commentId: M:MathStructs.Vector2D.Deconstruct(System.Double@,System.Double@)
+  id: Deconstruct(System.Double@,System.Double@)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Double, out Double)
+  nameWithType: Vector2D.Deconstruct(out Double, out Double)
+  fullName: MathStructs.Vector2D.Deconstruct(out System.Double, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector2D.cs
+    startLine: 174
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out double x, out double y)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    content.vb: Public Sub Deconstruct(ByRef x As Double, ByRef y As Double)
+  overload: MathStructs.Vector2D.Deconstruct*
+  nameWithType.vb: Vector2D.Deconstruct(ByRef Double, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector2D.Deconstruct(ByRef System.Double, ByRef System.Double)
+  name.vb: Deconstruct(ByRef Double, ByRef Double)
+- uid: MathStructs.Vector2D.With(System.Nullable{System.Double},System.Nullable{System.Double})
+  commentId: M:MathStructs.Vector2D.With(System.Nullable{System.Double},System.Nullable{System.Double})
+  id: With(System.Nullable{System.Double},System.Nullable{System.Double})
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Double>, Nullable<Double>)
+  nameWithType: Vector2D.With(Nullable<Double>, Nullable<Double>)
+  fullName: MathStructs.Vector2D.With(System.Nullable<System.Double>, System.Nullable<System.Double>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: Vector2D.cs
+    startLine: 181
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D With(double? x = null, double? y = null)
+    parameters:
+    - id: x
+      type: System.Nullable{System.Double}
+    - id: y
+      type: System.Nullable{System.Double}
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function With(x As Double? = Nothing, y As Double? = Nothing) As Vector2D
+  overload: MathStructs.Vector2D.With*
+  nameWithType.vb: Vector2D.With(Nullable(Of Double), Nullable(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector2D.With(System.Nullable(Of System.Double), System.Nullable(Of System.Double))
+  name.vb: With(Nullable(Of Double), Nullable(Of Double))
+- uid: MathStructs.Vector2D.CopyTo(System.Double[])
+  commentId: M:MathStructs.Vector2D.CopyTo(System.Double[])
+  id: CopyTo(System.Double[])
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Double[])
+  nameWithType: Vector2D.CopyTo(Double[])
+  fullName: MathStructs.Vector2D.CopyTo(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector2D.cs
+    startLine: 185
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(double[] array)
+    parameters:
+    - id: array
+      type: System.Double[]
+    content.vb: Public Sub CopyTo(array As Double())
+  overload: MathStructs.Vector2D.CopyTo*
+  nameWithType.vb: Vector2D.CopyTo(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector2D.CopyTo(System.Double())
+  name.vb: CopyTo(Double())
+- uid: MathStructs.Vector2D.CopyTo(System.Double[],System.Int32)
+  commentId: M:MathStructs.Vector2D.CopyTo(System.Double[],System.Int32)
+  id: CopyTo(System.Double[],System.Int32)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Double[], Int32)
+  nameWithType: Vector2D.CopyTo(Double[], Int32)
+  fullName: MathStructs.Vector2D.CopyTo(System.Double[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector2D.cs
+    startLine: 189
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(double[] array, int index)
+    parameters:
+    - id: array
+      type: System.Double[]
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Double(), index As Integer)
+  overload: MathStructs.Vector2D.CopyTo*
+  nameWithType.vb: Vector2D.CopyTo(Double(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector2D.CopyTo(System.Double(), System.Int32)
+  name.vb: CopyTo(Double(), Int32)
+- uid: MathStructs.Vector2D.Equals(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Equals(MathStructs.Vector2D)
+  id: Equals(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector2D)
+  nameWithType: Vector2D.Equals(Vector2D)
+  fullName: MathStructs.Vector2D.Equals(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector2D.cs
+    startLine: 200
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool Equals(Vector2D other)
+    parameters:
+    - id: other
+      type: MathStructs.Vector2D
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Vector2D) As Boolean
+  overload: MathStructs.Vector2D.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Equals(MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector2D.Equals(MathStructs.Vector2D,System.Double)
+  id: Equals(MathStructs.Vector2D,System.Double)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector2D, Double)
+  nameWithType: Vector2D.Equals(Vector2D, Double)
+  fullName: MathStructs.Vector2D.Equals(MathStructs.Vector2D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector2D.cs
+    startLine: 203
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool Equals(Vector2D other, double delta)
+    parameters:
+    - id: other
+      type: MathStructs.Vector2D
+    - id: delta
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Vector2D, delta As Double) As Boolean
+  overload: MathStructs.Vector2D.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Dot(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Dot(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Dot(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector2D, Vector2D)
+  nameWithType: Vector2D.Dot(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Dot(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector2D.cs
+    startLine: 209
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static double Dot(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Dot(left As Vector2D, right As Vector2D) As Double
+  overload: MathStructs.Vector2D.Dot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Dot(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Dot(MathStructs.Vector2D)
+  id: Dot(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector2D)
+  nameWithType: Vector2D.Dot(Vector2D)
+  fullName: MathStructs.Vector2D.Dot(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector2D.cs
+    startLine: 214
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Dot(Vector2D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+    return:
+      type: System.Double
+    content.vb: Public Function Dot(vector As Vector2D) As Double
+  overload: MathStructs.Vector2D.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.Min(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Min(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Min(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Min(Vector2D, Vector2D)
+  nameWithType: Vector2D.Min(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Min(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Min
+    path: Vector2D.cs
+    startLine: 218
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Min(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Min(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Min*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Max(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Max(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: Max(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Max(Vector2D, Vector2D)
+  nameWithType: Vector2D.Max(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Max(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Max
+    path: Vector2D.cs
+    startLine: 223
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Max(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Max(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Max*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Abs(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.Abs(MathStructs.Vector2D)
+  id: Abs(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector2D)
+  nameWithType: Vector2D.Abs(Vector2D)
+  fullName: MathStructs.Vector2D.Abs(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector2D.cs
+    startLine: 228
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D Abs(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function Abs(value As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.Abs
+  commentId: M:MathStructs.Vector2D.Abs
+  id: Abs
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector2D.Abs()
+  fullName: MathStructs.Vector2D.Abs()
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector2D.cs
+    startLine: 232
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector2D Abs()
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Function Abs As Vector2D
+  overload: MathStructs.Vector2D.Abs*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector2D.SquareRoot(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.SquareRoot(MathStructs.Vector2D)
+  id: SquareRoot(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: SquareRoot(Vector2D)
+  nameWithType: Vector2D.SquareRoot(Vector2D)
+  fullName: MathStructs.Vector2D.SquareRoot(MathStructs.Vector2D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: SquareRoot
+    path: Vector2D.cs
+    startLine: 236
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D SquareRoot(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Function SquareRoot(value As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.SquareRoot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_UnaryPlus(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_UnaryPlus(MathStructs.Vector2D)
+  id: op_UnaryPlus(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Vector2D)
+  nameWithType: Vector2D.UnaryPlus(Vector2D)
+  fullName: MathStructs.Vector2D.UnaryPlus(MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Vector2D.cs
+    startLine: 240
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator +(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator +(value As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_UnaryNegation(MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_UnaryNegation(MathStructs.Vector2D)
+  id: op_UnaryNegation(MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Vector2D)
+  nameWithType: Vector2D.UnaryNegation(Vector2D)
+  fullName: MathStructs.Vector2D.UnaryNegation(MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Vector2D.cs
+    startLine: 244
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator -(Vector2D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator -(value As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Addition(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Addition(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: op_Addition(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector2D, Vector2D)
+  nameWithType: Vector2D.Addition(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Addition(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Vector2D.cs
+    startLine: 248
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator +(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator +(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Subtraction(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Subtraction(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: op_Subtraction(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector2D, Vector2D)
+  nameWithType: Vector2D.Subtraction(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Subtraction(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Vector2D.cs
+    startLine: 252
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator -(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator -(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: op_Multiply(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector2D, Vector2D)
+  nameWithType: Vector2D.Multiply(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Multiply(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector2D.cs
+    startLine: 256
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator *(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator *(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Multiply(MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector2D.op_Multiply(MathStructs.Vector2D,System.Double)
+  id: op_Multiply(MathStructs.Vector2D,System.Double)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector2D, Double)
+  nameWithType: Vector2D.Multiply(Vector2D, Double)
+  fullName: MathStructs.Vector2D.Multiply(MathStructs.Vector2D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector2D.cs
+    startLine: 260
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator *(Vector2D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator *(left As Vector2D, right As Double) As Vector2D
+  overload: MathStructs.Vector2D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Multiply(System.Double,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Multiply(System.Double,MathStructs.Vector2D)
+  id: op_Multiply(System.Double,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double, Vector2D)
+  nameWithType: Vector2D.Multiply(Double, Vector2D)
+  fullName: MathStructs.Vector2D.Multiply(System.Double, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector2D.cs
+    startLine: 264
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator *(double left, Vector2D right)
+    parameters:
+    - id: left
+      type: System.Double
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator *(left As Double, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Division(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Division(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: op_Division(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector2D, Vector2D)
+  nameWithType: Vector2D.Division(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Division(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector2D.cs
+    startLine: 268
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator /(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator /(left As Vector2D, right As Vector2D) As Vector2D
+  overload: MathStructs.Vector2D.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Division(MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector2D.op_Division(MathStructs.Vector2D,System.Double)
+  id: op_Division(MathStructs.Vector2D,System.Double)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector2D, Double)
+  nameWithType: Vector2D.Division(Vector2D, Double)
+  fullName: MathStructs.Vector2D.Division(MathStructs.Vector2D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector2D.cs
+    startLine: 272
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector2D operator /(Vector2D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector2D
+    content.vb: Public Shared Operator /(left As Vector2D, right As Double) As Vector2D
+  overload: MathStructs.Vector2D.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Equality(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Equality(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: op_Equality(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Equality(Vector2D, Vector2D)
+  nameWithType: Vector2D.Equality(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Equality(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Vector2D.cs
+    startLine: 276
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator ==(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Vector2D, right As Vector2D) As Boolean
+  overload: MathStructs.Vector2D.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector2D.op_Inequality(MathStructs.Vector2D,MathStructs.Vector2D)
+  commentId: M:MathStructs.Vector2D.op_Inequality(MathStructs.Vector2D,MathStructs.Vector2D)
+  id: op_Inequality(MathStructs.Vector2D,MathStructs.Vector2D)
+  parent: MathStructs.Vector2D
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Vector2D, Vector2D)
+  nameWithType: Vector2D.Inequality(Vector2D, Vector2D)
+  fullName: MathStructs.Vector2D.Inequality(MathStructs.Vector2D, MathStructs.Vector2D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector2D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Vector2D.cs
+    startLine: 280
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator !=(Vector2D left, Vector2D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector2D
+    - id: right
+      type: MathStructs.Vector2D
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Vector2D, right As Vector2D) As Boolean
+  overload: MathStructs.Vector2D.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: IEquatable{MathStructs.Vector2D}
+  commentId: '!:IEquatable{MathStructs.Vector2D}'
+  definition: IEquatable`1
+  name: IEquatable<Vector2D>
+  nameWithType: IEquatable<Vector2D>
+  fullName: IEquatable<MathStructs.Vector2D>
+  nameWithType.vb: IEquatable(Of Vector2D)
+  fullName.vb: IEquatable(Of MathStructs.Vector2D)
+  name.vb: IEquatable(Of Vector2D)
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MathStructs.Vector2D
+    name: Vector2D
+    nameWithType: Vector2D
+    fullName: MathStructs.Vector2D
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MathStructs.Vector2D
+    name: Vector2D
+    nameWithType: Vector2D
+    fullName: MathStructs.Vector2D
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IFormattable
+  isExternal: true
+  name: IFormattable
+  nameWithType: IFormattable
+  fullName: IFormattable
+- uid: IEquatable`1
+  isExternal: true
+  name: IEquatable<>
+  nameWithType: IEquatable<>
+  fullName: IEquatable<>
+  nameWithType.vb: IEquatable(Of )
+  fullName.vb: IEquatable(Of )
+  name.vb: IEquatable(Of )
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: MathStructs.Vector2D.Zero*
+  commentId: Overload:MathStructs.Vector2D.Zero
+  name: Zero
+  nameWithType: Vector2D.Zero
+  fullName: MathStructs.Vector2D.Zero
+- uid: MathStructs.Vector2D
+  commentId: T:MathStructs.Vector2D
+  parent: MathStructs
+  name: Vector2D
+  nameWithType: Vector2D
+  fullName: MathStructs.Vector2D
+- uid: MathStructs.Vector2D.One*
+  commentId: Overload:MathStructs.Vector2D.One
+  name: One
+  nameWithType: Vector2D.One
+  fullName: MathStructs.Vector2D.One
+- uid: MathStructs.Vector2D.UnitX*
+  commentId: Overload:MathStructs.Vector2D.UnitX
+  name: UnitX
+  nameWithType: Vector2D.UnitX
+  fullName: MathStructs.Vector2D.UnitX
+- uid: MathStructs.Vector2D.UnitY*
+  commentId: Overload:MathStructs.Vector2D.UnitY
+  name: UnitY
+  nameWithType: Vector2D.UnitY
+  fullName: MathStructs.Vector2D.UnitY
+- uid: MathStructs.Vector2D.GetHashCode*
+  commentId: Overload:MathStructs.Vector2D.GetHashCode
+  name: GetHashCode
+  nameWithType: Vector2D.GetHashCode
+  fullName: MathStructs.Vector2D.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MathStructs.Vector2D.Equals*
+  commentId: Overload:MathStructs.Vector2D.Equals
+  name: Equals
+  nameWithType: Vector2D.Equals
+  fullName: MathStructs.Vector2D.Equals
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector2D.ToString*
+  commentId: Overload:MathStructs.Vector2D.ToString
+  name: ToString
+  nameWithType: Vector2D.ToString
+  fullName: MathStructs.Vector2D.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.String}
+  commentId: '!:System.Nullable{System.String}'
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{IFormatProvider}
+  commentId: '!:System.Nullable{IFormatProvider}'
+  definition: System.Nullable`1
+  name: Nullable<IFormatProvider>
+  nameWithType: Nullable<IFormatProvider>
+  fullName: System.Nullable<IFormatProvider>
+  nameWithType.vb: Nullable(Of IFormatProvider)
+  fullName.vb: System.Nullable(Of IFormatProvider)
+  name.vb: Nullable(Of IFormatProvider)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector2D.Length*
+  commentId: Overload:MathStructs.Vector2D.Length
+  name: Length
+  nameWithType: Vector2D.Length
+  fullName: MathStructs.Vector2D.Length
+- uid: MathStructs.Vector2D.LengthSquared*
+  commentId: Overload:MathStructs.Vector2D.LengthSquared
+  name: LengthSquared
+  nameWithType: Vector2D.LengthSquared
+  fullName: MathStructs.Vector2D.LengthSquared
+- uid: MathStructs.Vector2D.Distance*
+  commentId: Overload:MathStructs.Vector2D.Distance
+  name: Distance
+  nameWithType: Vector2D.Distance
+  fullName: MathStructs.Vector2D.Distance
+- uid: MathStructs.Vector2D.DistanceSquared*
+  commentId: Overload:MathStructs.Vector2D.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Vector2D.DistanceSquared
+  fullName: MathStructs.Vector2D.DistanceSquared
+- uid: MathStructs.Vector2D.Normalize*
+  commentId: Overload:MathStructs.Vector2D.Normalize
+  name: Normalize
+  nameWithType: Vector2D.Normalize
+  fullName: MathStructs.Vector2D.Normalize
+- uid: MathStructs.Vector2D.Reflect*
+  commentId: Overload:MathStructs.Vector2D.Reflect
+  name: Reflect
+  nameWithType: Vector2D.Reflect
+  fullName: MathStructs.Vector2D.Reflect
+- uid: MathStructs.Vector2D.Clamp*
+  commentId: Overload:MathStructs.Vector2D.Clamp
+  name: Clamp
+  nameWithType: Vector2D.Clamp
+  fullName: MathStructs.Vector2D.Clamp
+- uid: MathStructs.Vector2D.Lerp*
+  commentId: Overload:MathStructs.Vector2D.Lerp
+  name: Lerp
+  nameWithType: Vector2D.Lerp
+  fullName: MathStructs.Vector2D.Lerp
+- uid: MathStructs.Vector2D.Transform*
+  commentId: Overload:MathStructs.Vector2D.Transform
+  name: Transform
+  nameWithType: Vector2D.Transform
+  fullName: MathStructs.Vector2D.Transform
+- uid: MathStructs.Matrix4x4D
+  commentId: T:MathStructs.Matrix4x4D
+  parent: MathStructs
+  name: Matrix4x4D
+  nameWithType: Matrix4x4D
+  fullName: MathStructs.Matrix4x4D
+- uid: MathStructs.Vector2D.TransformV4*
+  commentId: Overload:MathStructs.Vector2D.TransformV4
+  name: TransformV4
+  nameWithType: Vector2D.TransformV4
+  fullName: MathStructs.Vector2D.TransformV4
+- uid: MathStructs.Vector4D
+  commentId: T:MathStructs.Vector4D
+  parent: MathStructs
+  name: Vector4D
+  nameWithType: Vector4D
+  fullName: MathStructs.Vector4D
+- uid: MathStructs.QuaternionD
+  commentId: T:MathStructs.QuaternionD
+  parent: MathStructs
+  name: QuaternionD
+  nameWithType: QuaternionD
+  fullName: MathStructs.QuaternionD
+- uid: MathStructs.Vector2D.TransformNormal*
+  commentId: Overload:MathStructs.Vector2D.TransformNormal
+  name: TransformNormal
+  nameWithType: Vector2D.TransformNormal
+  fullName: MathStructs.Vector2D.TransformNormal
+- uid: MathStructs.Vector2D.Add*
+  commentId: Overload:MathStructs.Vector2D.Add
+  name: Add
+  nameWithType: Vector2D.Add
+  fullName: MathStructs.Vector2D.Add
+- uid: MathStructs.Vector2D.Subtract*
+  commentId: Overload:MathStructs.Vector2D.Subtract
+  name: Subtract
+  nameWithType: Vector2D.Subtract
+  fullName: MathStructs.Vector2D.Subtract
+- uid: MathStructs.Vector2D.Multiply*
+  commentId: Overload:MathStructs.Vector2D.Multiply
+  name: Multiply
+  nameWithType: Vector2D.Multiply
+  fullName: MathStructs.Vector2D.Multiply
+- uid: MathStructs.Vector2D.Divide*
+  commentId: Overload:MathStructs.Vector2D.Divide
+  name: Divide
+  nameWithType: Vector2D.Divide
+  fullName: MathStructs.Vector2D.Divide
+- uid: MathStructs.Vector2D.Negate*
+  commentId: Overload:MathStructs.Vector2D.Negate
+  name: Negate
+  nameWithType: Vector2D.Negate
+  fullName: MathStructs.Vector2D.Negate
+- uid: MathStructs.Vector2D.#ctor*
+  commentId: Overload:MathStructs.Vector2D.#ctor
+  name: Vector2D
+  nameWithType: Vector2D.Vector2D
+  fullName: MathStructs.Vector2D.Vector2D
+- uid: MathStructs.Vector2D.Deconstruct*
+  commentId: Overload:MathStructs.Vector2D.Deconstruct
+  name: Deconstruct
+  nameWithType: Vector2D.Deconstruct
+  fullName: MathStructs.Vector2D.Deconstruct
+- uid: MathStructs.Vector2D.With*
+  commentId: Overload:MathStructs.Vector2D.With
+  name: With
+  nameWithType: Vector2D.With
+  fullName: MathStructs.Vector2D.With
+- uid: System.Nullable{System.Double}
+  commentId: '!:System.Nullable{System.Double}'
+  definition: System.Nullable`1
+  name: Nullable<Double>
+  nameWithType: Nullable<Double>
+  fullName: System.Nullable<System.Double>
+  nameWithType.vb: Nullable(Of Double)
+  fullName.vb: System.Nullable(Of System.Double)
+  name.vb: Nullable(Of Double)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector2D.CopyTo*
+  commentId: Overload:MathStructs.Vector2D.CopyTo
+  name: CopyTo
+  nameWithType: Vector2D.CopyTo
+  fullName: MathStructs.Vector2D.CopyTo
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: MathStructs.Vector2D.Dot*
+  commentId: Overload:MathStructs.Vector2D.Dot
+  name: Dot
+  nameWithType: Vector2D.Dot
+  fullName: MathStructs.Vector2D.Dot
+- uid: MathStructs.Vector2D.Min*
+  commentId: Overload:MathStructs.Vector2D.Min
+  name: Min
+  nameWithType: Vector2D.Min
+  fullName: MathStructs.Vector2D.Min
+- uid: MathStructs.Vector2D.Max*
+  commentId: Overload:MathStructs.Vector2D.Max
+  name: Max
+  nameWithType: Vector2D.Max
+  fullName: MathStructs.Vector2D.Max
+- uid: MathStructs.Vector2D.Abs*
+  commentId: Overload:MathStructs.Vector2D.Abs
+  name: Abs
+  nameWithType: Vector2D.Abs
+  fullName: MathStructs.Vector2D.Abs
+- uid: MathStructs.Vector2D.SquareRoot*
+  commentId: Overload:MathStructs.Vector2D.SquareRoot
+  name: SquareRoot
+  nameWithType: Vector2D.SquareRoot
+  fullName: MathStructs.Vector2D.SquareRoot
+- uid: MathStructs.Vector2D.op_UnaryPlus*
+  commentId: Overload:MathStructs.Vector2D.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Vector2D.UnaryPlus
+  fullName: MathStructs.Vector2D.UnaryPlus
+- uid: MathStructs.Vector2D.op_UnaryNegation*
+  commentId: Overload:MathStructs.Vector2D.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Vector2D.UnaryNegation
+  fullName: MathStructs.Vector2D.UnaryNegation
+- uid: MathStructs.Vector2D.op_Addition*
+  commentId: Overload:MathStructs.Vector2D.op_Addition
+  name: Addition
+  nameWithType: Vector2D.Addition
+  fullName: MathStructs.Vector2D.Addition
+- uid: MathStructs.Vector2D.op_Subtraction*
+  commentId: Overload:MathStructs.Vector2D.op_Subtraction
+  name: Subtraction
+  nameWithType: Vector2D.Subtraction
+  fullName: MathStructs.Vector2D.Subtraction
+- uid: MathStructs.Vector2D.op_Multiply*
+  commentId: Overload:MathStructs.Vector2D.op_Multiply
+  name: Multiply
+  nameWithType: Vector2D.Multiply
+  fullName: MathStructs.Vector2D.Multiply
+- uid: MathStructs.Vector2D.op_Division*
+  commentId: Overload:MathStructs.Vector2D.op_Division
+  name: Division
+  nameWithType: Vector2D.Division
+  fullName: MathStructs.Vector2D.Division
+- uid: MathStructs.Vector2D.op_Equality*
+  commentId: Overload:MathStructs.Vector2D.op_Equality
+  name: Equality
+  nameWithType: Vector2D.Equality
+  fullName: MathStructs.Vector2D.Equality
+- uid: MathStructs.Vector2D.op_Inequality*
+  commentId: Overload:MathStructs.Vector2D.op_Inequality
+  name: Inequality
+  nameWithType: Vector2D.Inequality
+  fullName: MathStructs.Vector2D.Inequality

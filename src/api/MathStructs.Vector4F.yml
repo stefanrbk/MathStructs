@@ -1,0 +1,3291 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Vector4F
+  commentId: T:MathStructs.Vector4F
+  id: Vector4F
+  parent: MathStructs
+  children:
+  - MathStructs.Vector4F.#ctor(MathStructs.Vector2F,System.Single,System.Single)
+  - MathStructs.Vector4F.#ctor(MathStructs.Vector3F,System.Single)
+  - MathStructs.Vector4F.#ctor(System.Single)
+  - MathStructs.Vector4F.#ctor(System.Single,System.Single,System.Single,System.Single)
+  - MathStructs.Vector4F.Abs
+  - MathStructs.Vector4F.Abs(MathStructs.Vector4F)
+  - MathStructs.Vector4F.Add(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Clamp(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Clamp(MathStructs.Vector4F,MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.CopyTo(System.Single[])
+  - MathStructs.Vector4F.CopyTo(System.Single[],System.Int32)
+  - MathStructs.Vector4F.Deconstruct(MathStructs.Vector2F@,System.Single@,System.Single@)
+  - MathStructs.Vector4F.Deconstruct(MathStructs.Vector3F@,System.Single@)
+  - MathStructs.Vector4F.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  - MathStructs.Vector4F.Distance(MathStructs.Vector4F)
+  - MathStructs.Vector4F.Distance(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F)
+  - MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Divide(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Divide(MathStructs.Vector4F,System.Single)
+  - MathStructs.Vector4F.Dot(MathStructs.Vector4F)
+  - MathStructs.Vector4F.Dot(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Equals(MathStructs.Vector4F)
+  - MathStructs.Vector4F.Equals(System.Nullable{System.Object})
+  - MathStructs.Vector4F.GetHashCode
+  - MathStructs.Vector4F.Length
+  - MathStructs.Vector4F.LengthSquared
+  - MathStructs.Vector4F.Lerp(MathStructs.Vector4F,MathStructs.Vector4F,System.Single)
+  - MathStructs.Vector4F.Max(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Min(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Multiply(MathStructs.Vector4F,System.Single)
+  - MathStructs.Vector4F.Multiply(System.Single,MathStructs.Vector4F)
+  - MathStructs.Vector4F.Negate(MathStructs.Vector4F)
+  - MathStructs.Vector4F.Normalize
+  - MathStructs.Vector4F.Normalize(MathStructs.Vector4F)
+  - MathStructs.Vector4F.One
+  - MathStructs.Vector4F.op_Addition(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_Division(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_Division(MathStructs.Vector4F,System.Single)
+  - MathStructs.Vector4F.op_Equality(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_Inequality(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_Multiply(MathStructs.Vector4F,System.Single)
+  - MathStructs.Vector4F.op_Multiply(System.Single,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_Subtraction(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_UnaryNegation(MathStructs.Vector4F)
+  - MathStructs.Vector4F.op_UnaryPlus(MathStructs.Vector4F)
+  - MathStructs.Vector4F.SquareRoot(MathStructs.Vector4F)
+  - MathStructs.Vector4F.Subtract(MathStructs.Vector4F,MathStructs.Vector4F)
+  - MathStructs.Vector4F.ToString
+  - MathStructs.Vector4F.ToString(System.Nullable{System.String})
+  - MathStructs.Vector4F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  - MathStructs.Vector4F.Transform(MathStructs.Matrix4x4F)
+  - MathStructs.Vector4F.Transform(MathStructs.Vector2F,MathStructs.Matrix4x4F)
+  - MathStructs.Vector4F.Transform(MathStructs.Vector2F,MathStructs.QuaternionF)
+  - MathStructs.Vector4F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  - MathStructs.Vector4F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  - MathStructs.Vector4F.Transform(MathStructs.Vector4F,MathStructs.Matrix4x4F)
+  - MathStructs.Vector4F.Transform(MathStructs.Vector4F,MathStructs.QuaternionF)
+  - MathStructs.Vector4F.UnitW
+  - MathStructs.Vector4F.UnitX
+  - MathStructs.Vector4F.UnitY
+  - MathStructs.Vector4F.UnitZ
+  - MathStructs.Vector4F.W
+  - MathStructs.Vector4F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  - MathStructs.Vector4F.X
+  - MathStructs.Vector4F.Y
+  - MathStructs.Vector4F.Z
+  - MathStructs.Vector4F.Zero
+  langs:
+  - csharp
+  - vb
+  name: Vector4F
+  nameWithType: Vector4F
+  fullName: MathStructs.Vector4F
+  type: Struct
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Vector4F
+    path: Vector4F.cs
+    startLine: 6
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: 'public struct Vector4F : IEquatable<Vector4F>, IFormattable'
+    content.vb: >-
+      Public Structure Vector4F
+          Implements IEquatable(Of Vector4F), IFormattable
+  implements:
+  - IEquatable{MathStructs.Vector4F}
+  - IFormattable
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MathStructs.Vector4F.X
+  commentId: F:MathStructs.Vector4F.X
+  id: X
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Vector4F.X
+  fullName: MathStructs.Vector4F.X
+  type: Field
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: X
+    path: Vector4F.cs
+    startLine: 10
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float X
+    return:
+      type: System.Single
+    content.vb: Public X As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Y
+  commentId: F:MathStructs.Vector4F.Y
+  id: Y
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Vector4F.Y
+  fullName: MathStructs.Vector4F.Y
+  type: Field
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Y
+    path: Vector4F.cs
+    startLine: 11
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Y
+    return:
+      type: System.Single
+    content.vb: Public Y As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Z
+  commentId: F:MathStructs.Vector4F.Z
+  id: Z
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Z
+  nameWithType: Vector4F.Z
+  fullName: MathStructs.Vector4F.Z
+  type: Field
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Z
+    path: Vector4F.cs
+    startLine: 12
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Z
+    return:
+      type: System.Single
+    content.vb: Public Z As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.W
+  commentId: F:MathStructs.Vector4F.W
+  id: W
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: W
+  nameWithType: Vector4F.W
+  fullName: MathStructs.Vector4F.W
+  type: Field
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: W
+    path: Vector4F.cs
+    startLine: 13
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float W
+    return:
+      type: System.Single
+    content.vb: Public W As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Zero
+  commentId: P:MathStructs.Vector4F.Zero
+  id: Zero
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Vector4F.Zero
+  fullName: MathStructs.Vector4F.Zero
+  type: Property
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Zero
+    path: Vector4F.cs
+    startLine: 15
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Zero { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared ReadOnly Property Zero As Vector4F
+  overload: MathStructs.Vector4F.Zero*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4F.One
+  commentId: P:MathStructs.Vector4F.One
+  id: One
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Vector4F.One
+  fullName: MathStructs.Vector4F.One
+  type: Property
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: One
+    path: Vector4F.cs
+    startLine: 17
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F One { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared ReadOnly Property One As Vector4F
+  overload: MathStructs.Vector4F.One*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4F.UnitX
+  commentId: P:MathStructs.Vector4F.UnitX
+  id: UnitX
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: UnitX
+  nameWithType: Vector4F.UnitX
+  fullName: MathStructs.Vector4F.UnitX
+  type: Property
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitX
+    path: Vector4F.cs
+    startLine: 19
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F UnitX { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared ReadOnly Property UnitX As Vector4F
+  overload: MathStructs.Vector4F.UnitX*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4F.UnitY
+  commentId: P:MathStructs.Vector4F.UnitY
+  id: UnitY
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: UnitY
+  nameWithType: Vector4F.UnitY
+  fullName: MathStructs.Vector4F.UnitY
+  type: Property
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitY
+    path: Vector4F.cs
+    startLine: 21
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F UnitY { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared ReadOnly Property UnitY As Vector4F
+  overload: MathStructs.Vector4F.UnitY*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4F.UnitZ
+  commentId: P:MathStructs.Vector4F.UnitZ
+  id: UnitZ
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: UnitZ
+  nameWithType: Vector4F.UnitZ
+  fullName: MathStructs.Vector4F.UnitZ
+  type: Property
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitZ
+    path: Vector4F.cs
+    startLine: 23
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F UnitZ { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared ReadOnly Property UnitZ As Vector4F
+  overload: MathStructs.Vector4F.UnitZ*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4F.UnitW
+  commentId: P:MathStructs.Vector4F.UnitW
+  id: UnitW
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: UnitW
+  nameWithType: Vector4F.UnitW
+  fullName: MathStructs.Vector4F.UnitW
+  type: Property
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitW
+    path: Vector4F.cs
+    startLine: 25
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F UnitW { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared ReadOnly Property UnitW As Vector4F
+  overload: MathStructs.Vector4F.UnitW*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector4F.GetHashCode
+  commentId: M:MathStructs.Vector4F.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vector4F.GetHashCode()
+  fullName: MathStructs.Vector4F.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Vector4F.cs
+    startLine: 27
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: MathStructs.Vector4F.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector4F.Equals(System.Nullable{System.Object})
+  commentId: M:MathStructs.Vector4F.Equals(System.Nullable{System.Object})
+  id: Equals(System.Nullable{System.Object})
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Equals(Nullable<Object>)
+  nameWithType: Vector4F.Equals(Nullable<Object>)
+  fullName: MathStructs.Vector4F.Equals(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector4F.cs
+    startLine: 30
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+  overload: MathStructs.Vector4F.Equals*
+  nameWithType.vb: Vector4F.Equals(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: MathStructs.Vector4F.Equals(System.Nullable(Of System.Object))
+  name.vb: Equals(Nullable(Of Object))
+- uid: MathStructs.Vector4F.ToString
+  commentId: M:MathStructs.Vector4F.ToString
+  id: ToString
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vector4F.ToString()
+  fullName: MathStructs.Vector4F.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector4F.cs
+    startLine: 33
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: MathStructs.Vector4F.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector4F.ToString(System.Nullable{System.String})
+  commentId: M:MathStructs.Vector4F.ToString(System.Nullable{System.String})
+  id: ToString(System.Nullable{System.String})
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>)
+  nameWithType: Vector4F.ToString(Nullable<String>)
+  fullName: MathStructs.Vector4F.ToString(System.Nullable<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector4F.cs
+    startLine: 35
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?) As String
+  overload: MathStructs.Vector4F.ToString*
+  nameWithType.vb: Vector4F.ToString(Nullable(Of String))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.ToString(System.Nullable(Of System.String))
+  name.vb: ToString(Nullable(Of String))
+- uid: MathStructs.Vector4F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  commentId: M:MathStructs.Vector4F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  id: ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType: Vector4F.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  fullName: MathStructs.Vector4F.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector4F.cs
+    startLine: 37
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format, IFormatProvider? formatProvider)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    - id: formatProvider
+      type: System.Nullable{IFormatProvider}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?, formatProvider As IFormatProvider?) As String
+  overload: MathStructs.Vector4F.ToString*
+  nameWithType.vb: Vector4F.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector4F.Length
+  commentId: M:MathStructs.Vector4F.Length
+  id: Length
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Length()
+  nameWithType: Vector4F.Length()
+  fullName: MathStructs.Vector4F.Length()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Length
+    path: Vector4F.cs
+    startLine: 40
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Length()
+    return:
+      type: System.Single
+    content.vb: Public Function Length As Single
+  overload: MathStructs.Vector4F.Length*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.LengthSquared
+  commentId: M:MathStructs.Vector4F.LengthSquared
+  id: LengthSquared
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared()
+  nameWithType: Vector4F.LengthSquared()
+  fullName: MathStructs.Vector4F.LengthSquared()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: LengthSquared
+    path: Vector4F.cs
+    startLine: 44
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float LengthSquared()
+    return:
+      type: System.Single
+    content.vb: Public Function LengthSquared As Single
+  overload: MathStructs.Vector4F.LengthSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Distance(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Distance(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Distance(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector4F, Vector4F)
+  nameWithType: Vector4F.Distance(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Distance(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector4F.cs
+    startLine: 48
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static float Distance(Vector4F vector1, Vector4F vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector4F
+    - id: vector2
+      type: MathStructs.Vector4F
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Distance(vector1 As Vector4F, vector2 As Vector4F) As Single
+  overload: MathStructs.Vector4F.Distance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Distance(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Distance(MathStructs.Vector4F)
+  id: Distance(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector4F)
+  nameWithType: Vector4F.Distance(Vector4F)
+  fullName: MathStructs.Vector4F.Distance(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector4F.cs
+    startLine: 52
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Distance(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: System.Single
+    content.vb: Public Function Distance(value As Vector4F) As Single
+  overload: MathStructs.Vector4F.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: DistanceSquared(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector4F, Vector4F)
+  nameWithType: Vector4F.DistanceSquared(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector4F.cs
+    startLine: 56
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static float DistanceSquared(Vector4F vector1, Vector4F vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector4F
+    - id: vector2
+      type: MathStructs.Vector4F
+    return:
+      type: System.Single
+    content.vb: Public Shared Function DistanceSquared(vector1 As Vector4F, vector2 As Vector4F) As Single
+  overload: MathStructs.Vector4F.DistanceSquared*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F)
+  id: DistanceSquared(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector4F)
+  nameWithType: Vector4F.DistanceSquared(Vector4F)
+  fullName: MathStructs.Vector4F.DistanceSquared(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector4F.cs
+    startLine: 60
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float DistanceSquared(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: System.Single
+    content.vb: Public Function DistanceSquared(value As Vector4F) As Single
+  overload: MathStructs.Vector4F.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Normalize(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Normalize(MathStructs.Vector4F)
+  id: Normalize(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Normalize(Vector4F)
+  nameWithType: Vector4F.Normalize(Vector4F)
+  fullName: MathStructs.Vector4F.Normalize(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector4F.cs
+    startLine: 64
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Normalize(Vector4F vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Normalize(vector As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Normalize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Normalize
+  commentId: M:MathStructs.Vector4F.Normalize
+  id: Normalize
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Vector4F.Normalize()
+  fullName: MathStructs.Vector4F.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector4F.cs
+    startLine: 68
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F Normalize()
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Function Normalize As Vector4F
+  overload: MathStructs.Vector4F.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Clamp(MathStructs.Vector4F,MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Clamp(MathStructs.Vector4F,MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Clamp(MathStructs.Vector4F,MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector4F, Vector4F, Vector4F)
+  nameWithType: Vector4F.Clamp(Vector4F, Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Clamp(MathStructs.Vector4F, MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector4F.cs
+    startLine: 72
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Clamp(Vector4F value, Vector4F min, Vector4F max)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    - id: min
+      type: MathStructs.Vector4F
+    - id: max
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Clamp(value As Vector4F, min As Vector4F, max As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Clamp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Clamp(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Clamp(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Clamp(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector4F, Vector4F)
+  nameWithType: Vector4F.Clamp(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Clamp(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector4F.cs
+    startLine: 76
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F Clamp(Vector4F min, Vector4F max)
+    parameters:
+    - id: min
+      type: MathStructs.Vector4F
+    - id: max
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Function Clamp(min As Vector4F, max As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Clamp*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Lerp(MathStructs.Vector4F,MathStructs.Vector4F,System.Single)
+  commentId: M:MathStructs.Vector4F.Lerp(MathStructs.Vector4F,MathStructs.Vector4F,System.Single)
+  id: Lerp(MathStructs.Vector4F,MathStructs.Vector4F,System.Single)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Vector4F, Vector4F, Single)
+  nameWithType: Vector4F.Lerp(Vector4F, Vector4F, Single)
+  fullName: MathStructs.Vector4F.Lerp(MathStructs.Vector4F, MathStructs.Vector4F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Vector4F.cs
+    startLine: 80
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Lerp(Vector4F bounds1, Vector4F bounds2, float amount)
+    parameters:
+    - id: bounds1
+      type: MathStructs.Vector4F
+    - id: bounds2
+      type: MathStructs.Vector4F
+    - id: amount
+      type: System.Single
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Lerp(bounds1 As Vector4F, bounds2 As Vector4F, amount As Single) As Vector4F
+  overload: MathStructs.Vector4F.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Vector2F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Vector2F,MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Vector2F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2F, Matrix4x4F)
+  nameWithType: Vector4F.Transform(Vector2F, Matrix4x4F)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Vector2F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 84
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Transform(Vector2F position, Matrix4x4F matrix)
+    parameters:
+    - id: position
+      type: MathStructs.Vector2F
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Transform(position As Vector2F, matrix As Matrix4x4F) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3F, Matrix4x4F)
+  nameWithType: Vector4F.Transform(Vector3F, Matrix4x4F)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Vector3F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 90
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Transform(Vector3F vector, Matrix4x4F matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Transform(vector As Vector3F, matrix As Matrix4x4F) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Vector4F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Vector4F,MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Vector4F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector4F, Matrix4x4F)
+  nameWithType: Vector4F.Transform(Vector4F, Matrix4x4F)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Vector4F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 97
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Transform(Vector4F vector, Matrix4x4F matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector4F
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Transform(vector As Vector4F, matrix As Matrix4x4F) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Vector2F,MathStructs.QuaternionF)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Vector2F,MathStructs.QuaternionF)
+  id: Transform(MathStructs.Vector2F,MathStructs.QuaternionF)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2F, QuaternionF)
+  nameWithType: Vector4F.Transform(Vector2F, QuaternionF)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Vector2F, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 104
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Transform(Vector2F value, QuaternionF rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Transform(value As Vector2F, rotation As QuaternionF) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  id: Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3F, QuaternionF)
+  nameWithType: Vector4F.Transform(Vector3F, QuaternionF)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Vector3F, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 122
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Transform(Vector3F value, QuaternionF rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Transform(value As Vector3F, rotation As QuaternionF) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Vector4F,MathStructs.QuaternionF)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Vector4F,MathStructs.QuaternionF)
+  id: Transform(MathStructs.Vector4F,MathStructs.QuaternionF)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector4F, QuaternionF)
+  nameWithType: Vector4F.Transform(Vector4F, QuaternionF)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Vector4F, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 140
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Transform(Vector4F value, QuaternionF rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Transform(value As Vector4F, rotation As QuaternionF) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Transform(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector4F.Transform(MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4F)
+  nameWithType: Vector4F.Transform(Matrix4x4F)
+  fullName: MathStructs.Vector4F.Transform(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector4F.cs
+    startLine: 158
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F Transform(Matrix4x4F matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Function Transform(matrix As Matrix4x4F) As Vector4F
+  overload: MathStructs.Vector4F.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Add(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Add(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Add(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Add(Vector4F, Vector4F)
+  nameWithType: Vector4F.Add(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Add(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Add
+    path: Vector4F.cs
+    startLine: 162
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Add(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Add(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Subtract(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Subtract(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Subtract(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vector4F, Vector4F)
+  nameWithType: Vector4F.Subtract(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Subtract(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Vector4F.cs
+    startLine: 166
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Subtract(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Subtract(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4F, Vector4F)
+  nameWithType: Vector4F.Multiply(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Multiply(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector4F.cs
+    startLine: 170
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Multiply(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Multiply(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Multiply(MathStructs.Vector4F,System.Single)
+  commentId: M:MathStructs.Vector4F.Multiply(MathStructs.Vector4F,System.Single)
+  id: Multiply(MathStructs.Vector4F,System.Single)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4F, Single)
+  nameWithType: Vector4F.Multiply(Vector4F, Single)
+  fullName: MathStructs.Vector4F.Multiply(MathStructs.Vector4F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector4F.cs
+    startLine: 174
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Multiply(Vector4F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Multiply(left As Vector4F, right As Single) As Vector4F
+  overload: MathStructs.Vector4F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Multiply(System.Single,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Multiply(System.Single,MathStructs.Vector4F)
+  id: Multiply(System.Single,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Single, Vector4F)
+  nameWithType: Vector4F.Multiply(Single, Vector4F)
+  fullName: MathStructs.Vector4F.Multiply(System.Single, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector4F.cs
+    startLine: 178
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Multiply(float left, Vector4F right)
+    parameters:
+    - id: left
+      type: System.Single
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Multiply(left As Single, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Divide(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Divide(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Divide(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector4F, Vector4F)
+  nameWithType: Vector4F.Divide(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Divide(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector4F.cs
+    startLine: 182
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Divide(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Divide(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Divide(MathStructs.Vector4F,System.Single)
+  commentId: M:MathStructs.Vector4F.Divide(MathStructs.Vector4F,System.Single)
+  id: Divide(MathStructs.Vector4F,System.Single)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector4F, Single)
+  nameWithType: Vector4F.Divide(Vector4F, Single)
+  fullName: MathStructs.Vector4F.Divide(MathStructs.Vector4F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector4F.cs
+    startLine: 186
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Divide(Vector4F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Divide(left As Vector4F, right As Single) As Vector4F
+  overload: MathStructs.Vector4F.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Negate(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Negate(MathStructs.Vector4F)
+  id: Negate(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Negate(Vector4F)
+  nameWithType: Vector4F.Negate(Vector4F)
+  fullName: MathStructs.Vector4F.Negate(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Vector4F.cs
+    startLine: 190
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Negate(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Negate(value As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.#ctor(System.Single)
+  commentId: M:MathStructs.Vector4F.#ctor(System.Single)
+  id: '#ctor(System.Single)'
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Vector4F(Single)
+  nameWithType: Vector4F.Vector4F(Single)
+  fullName: MathStructs.Vector4F.Vector4F(System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4F.cs
+    startLine: 194
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F(float value)
+    parameters:
+    - id: value
+      type: System.Single
+    content.vb: Public Sub New(value As Single)
+  overload: MathStructs.Vector4F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.#ctor(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Vector4F.#ctor(System.Single,System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single,System.Single)'
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Vector4F(Single, Single, Single, Single)
+  nameWithType: Vector4F.Vector4F(Single, Single, Single, Single)
+  fullName: MathStructs.Vector4F.Vector4F(System.Single, System.Single, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4F.cs
+    startLine: 197
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F(float x, float y, float z, float w)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    - id: w
+      type: System.Single
+    content.vb: Public Sub New(x As Single, y As Single, z As Single, w As Single)
+  overload: MathStructs.Vector4F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.#ctor(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Vector4F.#ctor(MathStructs.Vector3F,System.Single)
+  id: '#ctor(MathStructs.Vector3F,System.Single)'
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Vector4F(Vector3F, Single)
+  nameWithType: Vector4F.Vector4F(Vector3F, Single)
+  fullName: MathStructs.Vector4F.Vector4F(MathStructs.Vector3F, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4F.cs
+    startLine: 205
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F(Vector3F vector, float w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    - id: w
+      type: System.Single
+    content.vb: Public Sub New(vector As Vector3F, w As Single)
+  overload: MathStructs.Vector4F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.#ctor(MathStructs.Vector2F,System.Single,System.Single)
+  commentId: M:MathStructs.Vector4F.#ctor(MathStructs.Vector2F,System.Single,System.Single)
+  id: '#ctor(MathStructs.Vector2F,System.Single,System.Single)'
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Vector4F(Vector2F, Single, Single)
+  nameWithType: Vector4F.Vector4F(Vector2F, Single, Single)
+  fullName: MathStructs.Vector4F.Vector4F(MathStructs.Vector2F, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector4F.cs
+    startLine: 213
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F(Vector2F vector, float z, float w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2F
+    - id: z
+      type: System.Single
+    - id: w
+      type: System.Single
+    content.vb: Public Sub New(vector As Vector2F, z As Single, w As Single)
+  overload: MathStructs.Vector4F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  commentId: M:MathStructs.Vector4F.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  id: Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Single, out Single, out Single, out Single)
+  nameWithType: Vector4F.Deconstruct(out Single, out Single, out Single, out Single)
+  fullName: MathStructs.Vector4F.Deconstruct(out System.Single, out System.Single, out System.Single, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector4F.cs
+    startLine: 221
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out float x, out float y, out float z, out float w)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    - id: w
+      type: System.Single
+    content.vb: Public Sub Deconstruct(ByRef x As Single, ByRef y As Single, ByRef z As Single, ByRef w As Single)
+  overload: MathStructs.Vector4F.Deconstruct*
+  nameWithType.vb: Vector4F.Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.Deconstruct(ByRef System.Single, ByRef System.Single, ByRef System.Single, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
+- uid: MathStructs.Vector4F.Deconstruct(MathStructs.Vector3F@,System.Single@)
+  commentId: M:MathStructs.Vector4F.Deconstruct(MathStructs.Vector3F@,System.Single@)
+  id: Deconstruct(MathStructs.Vector3F@,System.Single@)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector3F, out Single)
+  nameWithType: Vector4F.Deconstruct(out Vector3F, out Single)
+  fullName: MathStructs.Vector4F.Deconstruct(out MathStructs.Vector3F, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector4F.cs
+    startLine: 230
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out Vector3F vector, out float w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    - id: w
+      type: System.Single
+    content.vb: Public Sub Deconstruct(ByRef vector As Vector3F, ByRef w As Single)
+  overload: MathStructs.Vector4F.Deconstruct*
+  nameWithType.vb: Vector4F.Deconstruct(ByRef Vector3F, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.Deconstruct(ByRef MathStructs.Vector3F, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Vector3F, ByRef Single)
+- uid: MathStructs.Vector4F.Deconstruct(MathStructs.Vector2F@,System.Single@,System.Single@)
+  commentId: M:MathStructs.Vector4F.Deconstruct(MathStructs.Vector2F@,System.Single@,System.Single@)
+  id: Deconstruct(MathStructs.Vector2F@,System.Single@,System.Single@)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector2F, out Single, out Single)
+  nameWithType: Vector4F.Deconstruct(out Vector2F, out Single, out Single)
+  fullName: MathStructs.Vector4F.Deconstruct(out MathStructs.Vector2F, out System.Single, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector4F.cs
+    startLine: 237
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out Vector2F vector, out float z, out float w)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2F
+    - id: z
+      type: System.Single
+    - id: w
+      type: System.Single
+    content.vb: Public Sub Deconstruct(ByRef vector As Vector2F, ByRef z As Single, ByRef w As Single)
+  overload: MathStructs.Vector4F.Deconstruct*
+  nameWithType.vb: Vector4F.Deconstruct(ByRef Vector2F, ByRef Single, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.Deconstruct(ByRef MathStructs.Vector2F, ByRef System.Single, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Vector2F, ByRef Single, ByRef Single)
+- uid: MathStructs.Vector4F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  commentId: M:MathStructs.Vector4F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  id: With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  nameWithType: Vector4F.With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  fullName: MathStructs.Vector4F.With(System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: Vector4F.cs
+    startLine: 245
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F With(float? x = null, float? y = null, float? z = null, float? w = null)
+    parameters:
+    - id: x
+      type: System.Nullable{System.Single}
+    - id: y
+      type: System.Nullable{System.Single}
+    - id: z
+      type: System.Nullable{System.Single}
+    - id: w
+      type: System.Nullable{System.Single}
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Function With(x As Single? = Nothing, y As Single? = Nothing, z As Single? = Nothing, w As Single? = Nothing) As Vector4F
+  overload: MathStructs.Vector4F.With*
+  nameWithType.vb: Vector4F.With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.With(System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single))
+  name.vb: With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+- uid: MathStructs.Vector4F.CopyTo(System.Single[])
+  commentId: M:MathStructs.Vector4F.CopyTo(System.Single[])
+  id: CopyTo(System.Single[])
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Single[])
+  nameWithType: Vector4F.CopyTo(Single[])
+  fullName: MathStructs.Vector4F.CopyTo(System.Single[])
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector4F.cs
+    startLine: 249
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(float[] array)
+    parameters:
+    - id: array
+      type: System.Single[]
+    content.vb: Public Sub CopyTo(array As Single())
+  overload: MathStructs.Vector4F.CopyTo*
+  nameWithType.vb: Vector4F.CopyTo(Single())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.CopyTo(System.Single())
+  name.vb: CopyTo(Single())
+- uid: MathStructs.Vector4F.CopyTo(System.Single[],System.Int32)
+  commentId: M:MathStructs.Vector4F.CopyTo(System.Single[],System.Int32)
+  id: CopyTo(System.Single[],System.Int32)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Single[], Int32)
+  nameWithType: Vector4F.CopyTo(Single[], Int32)
+  fullName: MathStructs.Vector4F.CopyTo(System.Single[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector4F.cs
+    startLine: 253
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(float[] array, int index)
+    parameters:
+    - id: array
+      type: System.Single[]
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Single(), index As Integer)
+  overload: MathStructs.Vector4F.CopyTo*
+  nameWithType.vb: Vector4F.CopyTo(Single(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector4F.CopyTo(System.Single(), System.Int32)
+  name.vb: CopyTo(Single(), Int32)
+- uid: MathStructs.Vector4F.Equals(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Equals(MathStructs.Vector4F)
+  id: Equals(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector4F)
+  nameWithType: Vector4F.Equals(Vector4F)
+  fullName: MathStructs.Vector4F.Equals(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector4F.cs
+    startLine: 266
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool Equals(Vector4F other)
+    parameters:
+    - id: other
+      type: MathStructs.Vector4F
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Vector4F) As Boolean
+  overload: MathStructs.Vector4F.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Dot(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Dot(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Dot(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector4F, Vector4F)
+  nameWithType: Vector4F.Dot(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Dot(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector4F.cs
+    startLine: 270
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static float Dot(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Dot(left As Vector4F, right As Vector4F) As Single
+  overload: MathStructs.Vector4F.Dot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Dot(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Dot(MathStructs.Vector4F)
+  id: Dot(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector4F)
+  nameWithType: Vector4F.Dot(Vector4F)
+  fullName: MathStructs.Vector4F.Dot(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector4F.cs
+    startLine: 277
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Dot(Vector4F vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector4F
+    return:
+      type: System.Single
+    content.vb: Public Function Dot(vector As Vector4F) As Single
+  overload: MathStructs.Vector4F.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.Min(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Min(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Min(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Min(Vector4F, Vector4F)
+  nameWithType: Vector4F.Min(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Min(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Min
+    path: Vector4F.cs
+    startLine: 281
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Min(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Min(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Min*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Max(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Max(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: Max(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Max(Vector4F, Vector4F)
+  nameWithType: Vector4F.Max(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Max(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Max
+    path: Vector4F.cs
+    startLine: 288
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Max(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Max(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Max*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Abs(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.Abs(MathStructs.Vector4F)
+  id: Abs(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector4F)
+  nameWithType: Vector4F.Abs(Vector4F)
+  fullName: MathStructs.Vector4F.Abs(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector4F.cs
+    startLine: 295
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F Abs(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function Abs(value As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.Abs
+  commentId: M:MathStructs.Vector4F.Abs
+  id: Abs
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector4F.Abs()
+  fullName: MathStructs.Vector4F.Abs()
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector4F.cs
+    startLine: 299
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4F Abs()
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Function Abs As Vector4F
+  overload: MathStructs.Vector4F.Abs*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector4F.SquareRoot(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.SquareRoot(MathStructs.Vector4F)
+  id: SquareRoot(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: SquareRoot(Vector4F)
+  nameWithType: Vector4F.SquareRoot(Vector4F)
+  fullName: MathStructs.Vector4F.SquareRoot(MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: SquareRoot
+    path: Vector4F.cs
+    startLine: 303
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F SquareRoot(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Function SquareRoot(value As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.SquareRoot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_UnaryPlus(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_UnaryPlus(MathStructs.Vector4F)
+  id: op_UnaryPlus(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Vector4F)
+  nameWithType: Vector4F.UnaryPlus(Vector4F)
+  fullName: MathStructs.Vector4F.UnaryPlus(MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Vector4F.cs
+    startLine: 307
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator +(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator +(value As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_UnaryNegation(MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_UnaryNegation(MathStructs.Vector4F)
+  id: op_UnaryNegation(MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Vector4F)
+  nameWithType: Vector4F.UnaryNegation(Vector4F)
+  fullName: MathStructs.Vector4F.UnaryNegation(MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Vector4F.cs
+    startLine: 311
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator -(Vector4F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator -(value As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Addition(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Addition(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: op_Addition(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector4F, Vector4F)
+  nameWithType: Vector4F.Addition(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Addition(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Vector4F.cs
+    startLine: 315
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator +(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator +(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Subtraction(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Subtraction(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: op_Subtraction(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector4F, Vector4F)
+  nameWithType: Vector4F.Subtraction(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Subtraction(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Vector4F.cs
+    startLine: 319
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator -(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator -(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: op_Multiply(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4F, Vector4F)
+  nameWithType: Vector4F.Multiply(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Multiply(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector4F.cs
+    startLine: 323
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator *(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator *(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Multiply(MathStructs.Vector4F,System.Single)
+  commentId: M:MathStructs.Vector4F.op_Multiply(MathStructs.Vector4F,System.Single)
+  id: op_Multiply(MathStructs.Vector4F,System.Single)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4F, Single)
+  nameWithType: Vector4F.Multiply(Vector4F, Single)
+  fullName: MathStructs.Vector4F.Multiply(MathStructs.Vector4F, System.Single)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector4F.cs
+    startLine: 327
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator *(Vector4F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator *(left As Vector4F, right As Single) As Vector4F
+  overload: MathStructs.Vector4F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Multiply(System.Single,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Multiply(System.Single,MathStructs.Vector4F)
+  id: op_Multiply(System.Single,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Single, Vector4F)
+  nameWithType: Vector4F.Multiply(Single, Vector4F)
+  fullName: MathStructs.Vector4F.Multiply(System.Single, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector4F.cs
+    startLine: 331
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator *(float left, Vector4F right)
+    parameters:
+    - id: left
+      type: System.Single
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator *(left As Single, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Division(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Division(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: op_Division(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector4F, Vector4F)
+  nameWithType: Vector4F.Division(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Division(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector4F.cs
+    startLine: 335
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator /(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator /(left As Vector4F, right As Vector4F) As Vector4F
+  overload: MathStructs.Vector4F.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Division(MathStructs.Vector4F,System.Single)
+  commentId: M:MathStructs.Vector4F.op_Division(MathStructs.Vector4F,System.Single)
+  id: op_Division(MathStructs.Vector4F,System.Single)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector4F, Single)
+  nameWithType: Vector4F.Division(Vector4F, Single)
+  fullName: MathStructs.Vector4F.Division(MathStructs.Vector4F, System.Single)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector4F.cs
+    startLine: 339
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector4F operator /(Vector4F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector4F
+    content.vb: Public Shared Operator /(left As Vector4F, right As Single) As Vector4F
+  overload: MathStructs.Vector4F.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Equality(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Equality(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: op_Equality(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Equality(Vector4F, Vector4F)
+  nameWithType: Vector4F.Equality(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Equality(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Vector4F.cs
+    startLine: 343
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator ==(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Vector4F, right As Vector4F) As Boolean
+  overload: MathStructs.Vector4F.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector4F.op_Inequality(MathStructs.Vector4F,MathStructs.Vector4F)
+  commentId: M:MathStructs.Vector4F.op_Inequality(MathStructs.Vector4F,MathStructs.Vector4F)
+  id: op_Inequality(MathStructs.Vector4F,MathStructs.Vector4F)
+  parent: MathStructs.Vector4F
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Vector4F, Vector4F)
+  nameWithType: Vector4F.Inequality(Vector4F, Vector4F)
+  fullName: MathStructs.Vector4F.Inequality(MathStructs.Vector4F, MathStructs.Vector4F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector4F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Vector4F.cs
+    startLine: 347
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator !=(Vector4F left, Vector4F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4F
+    - id: right
+      type: MathStructs.Vector4F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Vector4F, right As Vector4F) As Boolean
+  overload: MathStructs.Vector4F.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: IEquatable{MathStructs.Vector4F}
+  commentId: '!:IEquatable{MathStructs.Vector4F}'
+  definition: IEquatable`1
+  name: IEquatable<Vector4F>
+  nameWithType: IEquatable<Vector4F>
+  fullName: IEquatable<MathStructs.Vector4F>
+  nameWithType.vb: IEquatable(Of Vector4F)
+  fullName.vb: IEquatable(Of MathStructs.Vector4F)
+  name.vb: IEquatable(Of Vector4F)
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MathStructs.Vector4F
+    name: Vector4F
+    nameWithType: Vector4F
+    fullName: MathStructs.Vector4F
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MathStructs.Vector4F
+    name: Vector4F
+    nameWithType: Vector4F
+    fullName: MathStructs.Vector4F
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IFormattable
+  isExternal: true
+  name: IFormattable
+  nameWithType: IFormattable
+  fullName: IFormattable
+- uid: IEquatable`1
+  isExternal: true
+  name: IEquatable<>
+  nameWithType: IEquatable<>
+  fullName: IEquatable<>
+  nameWithType.vb: IEquatable(Of )
+  fullName.vb: IEquatable(Of )
+  name.vb: IEquatable(Of )
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Single
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MathStructs.Vector4F.Zero*
+  commentId: Overload:MathStructs.Vector4F.Zero
+  name: Zero
+  nameWithType: Vector4F.Zero
+  fullName: MathStructs.Vector4F.Zero
+- uid: MathStructs.Vector4F
+  commentId: T:MathStructs.Vector4F
+  parent: MathStructs
+  name: Vector4F
+  nameWithType: Vector4F
+  fullName: MathStructs.Vector4F
+- uid: MathStructs.Vector4F.One*
+  commentId: Overload:MathStructs.Vector4F.One
+  name: One
+  nameWithType: Vector4F.One
+  fullName: MathStructs.Vector4F.One
+- uid: MathStructs.Vector4F.UnitX*
+  commentId: Overload:MathStructs.Vector4F.UnitX
+  name: UnitX
+  nameWithType: Vector4F.UnitX
+  fullName: MathStructs.Vector4F.UnitX
+- uid: MathStructs.Vector4F.UnitY*
+  commentId: Overload:MathStructs.Vector4F.UnitY
+  name: UnitY
+  nameWithType: Vector4F.UnitY
+  fullName: MathStructs.Vector4F.UnitY
+- uid: MathStructs.Vector4F.UnitZ*
+  commentId: Overload:MathStructs.Vector4F.UnitZ
+  name: UnitZ
+  nameWithType: Vector4F.UnitZ
+  fullName: MathStructs.Vector4F.UnitZ
+- uid: MathStructs.Vector4F.UnitW*
+  commentId: Overload:MathStructs.Vector4F.UnitW
+  name: UnitW
+  nameWithType: Vector4F.UnitW
+  fullName: MathStructs.Vector4F.UnitW
+- uid: MathStructs.Vector4F.GetHashCode*
+  commentId: Overload:MathStructs.Vector4F.GetHashCode
+  name: GetHashCode
+  nameWithType: Vector4F.GetHashCode
+  fullName: MathStructs.Vector4F.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MathStructs.Vector4F.Equals*
+  commentId: Overload:MathStructs.Vector4F.Equals
+  name: Equals
+  nameWithType: Vector4F.Equals
+  fullName: MathStructs.Vector4F.Equals
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4F.ToString*
+  commentId: Overload:MathStructs.Vector4F.ToString
+  name: ToString
+  nameWithType: Vector4F.ToString
+  fullName: MathStructs.Vector4F.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.String}
+  commentId: '!:System.Nullable{System.String}'
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{IFormatProvider}
+  commentId: '!:System.Nullable{IFormatProvider}'
+  definition: System.Nullable`1
+  name: Nullable<IFormatProvider>
+  nameWithType: Nullable<IFormatProvider>
+  fullName: System.Nullable<IFormatProvider>
+  nameWithType.vb: Nullable(Of IFormatProvider)
+  fullName.vb: System.Nullable(Of IFormatProvider)
+  name.vb: Nullable(Of IFormatProvider)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4F.Length*
+  commentId: Overload:MathStructs.Vector4F.Length
+  name: Length
+  nameWithType: Vector4F.Length
+  fullName: MathStructs.Vector4F.Length
+- uid: MathStructs.Vector4F.LengthSquared*
+  commentId: Overload:MathStructs.Vector4F.LengthSquared
+  name: LengthSquared
+  nameWithType: Vector4F.LengthSquared
+  fullName: MathStructs.Vector4F.LengthSquared
+- uid: MathStructs.Vector4F.Distance*
+  commentId: Overload:MathStructs.Vector4F.Distance
+  name: Distance
+  nameWithType: Vector4F.Distance
+  fullName: MathStructs.Vector4F.Distance
+- uid: MathStructs.Vector4F.DistanceSquared*
+  commentId: Overload:MathStructs.Vector4F.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Vector4F.DistanceSquared
+  fullName: MathStructs.Vector4F.DistanceSquared
+- uid: MathStructs.Vector4F.Normalize*
+  commentId: Overload:MathStructs.Vector4F.Normalize
+  name: Normalize
+  nameWithType: Vector4F.Normalize
+  fullName: MathStructs.Vector4F.Normalize
+- uid: MathStructs.Vector4F.Clamp*
+  commentId: Overload:MathStructs.Vector4F.Clamp
+  name: Clamp
+  nameWithType: Vector4F.Clamp
+  fullName: MathStructs.Vector4F.Clamp
+- uid: MathStructs.Vector4F.Lerp*
+  commentId: Overload:MathStructs.Vector4F.Lerp
+  name: Lerp
+  nameWithType: Vector4F.Lerp
+  fullName: MathStructs.Vector4F.Lerp
+- uid: MathStructs.Vector4F.Transform*
+  commentId: Overload:MathStructs.Vector4F.Transform
+  name: Transform
+  nameWithType: Vector4F.Transform
+  fullName: MathStructs.Vector4F.Transform
+- uid: MathStructs.Vector2F
+  commentId: T:MathStructs.Vector2F
+  parent: MathStructs
+  name: Vector2F
+  nameWithType: Vector2F
+  fullName: MathStructs.Vector2F
+- uid: MathStructs.Matrix4x4F
+  commentId: T:MathStructs.Matrix4x4F
+  parent: MathStructs
+  name: Matrix4x4F
+  nameWithType: Matrix4x4F
+  fullName: MathStructs.Matrix4x4F
+- uid: MathStructs.Vector3F
+  commentId: T:MathStructs.Vector3F
+  parent: MathStructs
+  name: Vector3F
+  nameWithType: Vector3F
+  fullName: MathStructs.Vector3F
+- uid: MathStructs.QuaternionF
+  commentId: T:MathStructs.QuaternionF
+  parent: MathStructs
+  name: QuaternionF
+  nameWithType: QuaternionF
+  fullName: MathStructs.QuaternionF
+- uid: MathStructs.Vector4F.Add*
+  commentId: Overload:MathStructs.Vector4F.Add
+  name: Add
+  nameWithType: Vector4F.Add
+  fullName: MathStructs.Vector4F.Add
+- uid: MathStructs.Vector4F.Subtract*
+  commentId: Overload:MathStructs.Vector4F.Subtract
+  name: Subtract
+  nameWithType: Vector4F.Subtract
+  fullName: MathStructs.Vector4F.Subtract
+- uid: MathStructs.Vector4F.Multiply*
+  commentId: Overload:MathStructs.Vector4F.Multiply
+  name: Multiply
+  nameWithType: Vector4F.Multiply
+  fullName: MathStructs.Vector4F.Multiply
+- uid: MathStructs.Vector4F.Divide*
+  commentId: Overload:MathStructs.Vector4F.Divide
+  name: Divide
+  nameWithType: Vector4F.Divide
+  fullName: MathStructs.Vector4F.Divide
+- uid: MathStructs.Vector4F.Negate*
+  commentId: Overload:MathStructs.Vector4F.Negate
+  name: Negate
+  nameWithType: Vector4F.Negate
+  fullName: MathStructs.Vector4F.Negate
+- uid: MathStructs.Vector4F.#ctor*
+  commentId: Overload:MathStructs.Vector4F.#ctor
+  name: Vector4F
+  nameWithType: Vector4F.Vector4F
+  fullName: MathStructs.Vector4F.Vector4F
+- uid: MathStructs.Vector4F.Deconstruct*
+  commentId: Overload:MathStructs.Vector4F.Deconstruct
+  name: Deconstruct
+  nameWithType: Vector4F.Deconstruct
+  fullName: MathStructs.Vector4F.Deconstruct
+- uid: MathStructs.Vector4F.With*
+  commentId: Overload:MathStructs.Vector4F.With
+  name: With
+  nameWithType: Vector4F.With
+  fullName: MathStructs.Vector4F.With
+- uid: System.Nullable{System.Single}
+  commentId: '!:System.Nullable{System.Single}'
+  definition: System.Nullable`1
+  name: Nullable<Single>
+  nameWithType: Nullable<Single>
+  fullName: System.Nullable<System.Single>
+  nameWithType.vb: Nullable(Of Single)
+  fullName.vb: System.Nullable(Of System.Single)
+  name.vb: Nullable(Of Single)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector4F.CopyTo*
+  commentId: Overload:MathStructs.Vector4F.CopyTo
+  name: CopyTo
+  nameWithType: Vector4F.CopyTo
+  fullName: MathStructs.Vector4F.CopyTo
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: MathStructs.Vector4F.Dot*
+  commentId: Overload:MathStructs.Vector4F.Dot
+  name: Dot
+  nameWithType: Vector4F.Dot
+  fullName: MathStructs.Vector4F.Dot
+- uid: MathStructs.Vector4F.Min*
+  commentId: Overload:MathStructs.Vector4F.Min
+  name: Min
+  nameWithType: Vector4F.Min
+  fullName: MathStructs.Vector4F.Min
+- uid: MathStructs.Vector4F.Max*
+  commentId: Overload:MathStructs.Vector4F.Max
+  name: Max
+  nameWithType: Vector4F.Max
+  fullName: MathStructs.Vector4F.Max
+- uid: MathStructs.Vector4F.Abs*
+  commentId: Overload:MathStructs.Vector4F.Abs
+  name: Abs
+  nameWithType: Vector4F.Abs
+  fullName: MathStructs.Vector4F.Abs
+- uid: MathStructs.Vector4F.SquareRoot*
+  commentId: Overload:MathStructs.Vector4F.SquareRoot
+  name: SquareRoot
+  nameWithType: Vector4F.SquareRoot
+  fullName: MathStructs.Vector4F.SquareRoot
+- uid: MathStructs.Vector4F.op_UnaryPlus*
+  commentId: Overload:MathStructs.Vector4F.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Vector4F.UnaryPlus
+  fullName: MathStructs.Vector4F.UnaryPlus
+- uid: MathStructs.Vector4F.op_UnaryNegation*
+  commentId: Overload:MathStructs.Vector4F.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Vector4F.UnaryNegation
+  fullName: MathStructs.Vector4F.UnaryNegation
+- uid: MathStructs.Vector4F.op_Addition*
+  commentId: Overload:MathStructs.Vector4F.op_Addition
+  name: Addition
+  nameWithType: Vector4F.Addition
+  fullName: MathStructs.Vector4F.Addition
+- uid: MathStructs.Vector4F.op_Subtraction*
+  commentId: Overload:MathStructs.Vector4F.op_Subtraction
+  name: Subtraction
+  nameWithType: Vector4F.Subtraction
+  fullName: MathStructs.Vector4F.Subtraction
+- uid: MathStructs.Vector4F.op_Multiply*
+  commentId: Overload:MathStructs.Vector4F.op_Multiply
+  name: Multiply
+  nameWithType: Vector4F.Multiply
+  fullName: MathStructs.Vector4F.Multiply
+- uid: MathStructs.Vector4F.op_Division*
+  commentId: Overload:MathStructs.Vector4F.op_Division
+  name: Division
+  nameWithType: Vector4F.Division
+  fullName: MathStructs.Vector4F.Division
+- uid: MathStructs.Vector4F.op_Equality*
+  commentId: Overload:MathStructs.Vector4F.op_Equality
+  name: Equality
+  nameWithType: Vector4F.Equality
+  fullName: MathStructs.Vector4F.Equality
+- uid: MathStructs.Vector4F.op_Inequality*
+  commentId: Overload:MathStructs.Vector4F.op_Inequality
+  name: Inequality
+  nameWithType: Vector4F.Inequality
+  fullName: MathStructs.Vector4F.Inequality
