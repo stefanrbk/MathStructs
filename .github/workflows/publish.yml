@@ -32,5 +32,5 @@ jobs:
         with:
           name: nuget-packages
           path: './nuget-packages/*/**'
-      - name: Upload packages
+      - name: Upload NuGet packages
         run: dotnet nuget push './**/*.nupkg' -s https://api.nuget.org/v3/index.json --skip-duplicate -k ${{ env.NUGET_ACCESS_TOKEN }}

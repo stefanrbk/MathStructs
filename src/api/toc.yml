@@ -1,0 +1,34 @@
+### YamlMime:TableOfContent
+- uid: MathStructs
+  name: MathStructs
+  items:
+  - uid: MathStructs.Extensions
+    name: Extensions
+  - uid: MathStructs.Matrix3x3D
+    name: Matrix3x3D
+  - uid: MathStructs.Matrix3x3F
+    name: Matrix3x3F
+  - uid: MathStructs.Matrix4x4D
+    name: Matrix4x4D
+  - uid: MathStructs.Matrix4x4F
+    name: Matrix4x4F
+  - uid: MathStructs.PlaneD
+    name: PlaneD
+  - uid: MathStructs.PlaneF
+    name: PlaneF
+  - uid: MathStructs.QuaternionD
+    name: QuaternionD
+  - uid: MathStructs.QuaternionF
+    name: QuaternionF
+  - uid: MathStructs.Vector2D
+    name: Vector2D
+  - uid: MathStructs.Vector2F
+    name: Vector2F
+  - uid: MathStructs.Vector3D
+    name: Vector3D
+  - uid: MathStructs.Vector3F
+    name: Vector3F
+  - uid: MathStructs.Vector4D
+    name: Vector4D
+  - uid: MathStructs.Vector4F
+    name: Vector4F

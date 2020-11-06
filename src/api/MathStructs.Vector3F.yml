@@ -1,0 +1,3209 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Vector3F
+  commentId: T:MathStructs.Vector3F
+  id: Vector3F
+  parent: MathStructs
+  children:
+  - MathStructs.Vector3F.#ctor(MathStructs.Vector2F,System.Single)
+  - MathStructs.Vector3F.#ctor(System.Single)
+  - MathStructs.Vector3F.#ctor(System.Single,System.Single,System.Single)
+  - MathStructs.Vector3F.Abs
+  - MathStructs.Vector3F.Abs(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Add(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.CopyTo(System.Single[])
+  - MathStructs.Vector3F.CopyTo(System.Single[],System.Int32)
+  - MathStructs.Vector3F.Cross(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Cross(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Deconstruct(MathStructs.Vector2F@,System.Single@)
+  - MathStructs.Vector3F.Deconstruct(System.Single@,System.Single@,System.Single@)
+  - MathStructs.Vector3F.Distance(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Distance(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)
+  - MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Divide(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Divide(MathStructs.Vector3F,System.Single)
+  - MathStructs.Vector3F.Dot(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Dot(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Equals(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Equals(System.Nullable{System.Object})
+  - MathStructs.Vector3F.GetHashCode
+  - MathStructs.Vector3F.Length
+  - MathStructs.Vector3F.LengthSquared
+  - MathStructs.Vector3F.Lerp(MathStructs.Vector3F,MathStructs.Vector3F,System.Single)
+  - MathStructs.Vector3F.Max(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Min(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Multiply(MathStructs.Vector3F,System.Single)
+  - MathStructs.Vector3F.Multiply(System.Single,MathStructs.Vector3F)
+  - MathStructs.Vector3F.Negate(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Normalize
+  - MathStructs.Vector3F.Normalize(MathStructs.Vector3F)
+  - MathStructs.Vector3F.One
+  - MathStructs.Vector3F.op_Addition(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_Division(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_Division(MathStructs.Vector3F,System.Single)
+  - MathStructs.Vector3F.op_Equality(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_Inequality(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,System.Single)
+  - MathStructs.Vector3F.op_Multiply(System.Single,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_Subtraction(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_UnaryNegation(MathStructs.Vector3F)
+  - MathStructs.Vector3F.op_UnaryPlus(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Reflect(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Reflect(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)
+  - MathStructs.Vector3F.Subtract(MathStructs.Vector3F,MathStructs.Vector3F)
+  - MathStructs.Vector3F.ToString
+  - MathStructs.Vector3F.ToString(System.Nullable{System.String})
+  - MathStructs.Vector3F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  - MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)
+  - MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  - MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  - MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)
+  - MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  - MathStructs.Vector3F.UnitX
+  - MathStructs.Vector3F.UnitY
+  - MathStructs.Vector3F.UnitZ
+  - MathStructs.Vector3F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  - MathStructs.Vector3F.X
+  - MathStructs.Vector3F.Y
+  - MathStructs.Vector3F.Z
+  - MathStructs.Vector3F.Zero
+  langs:
+  - csharp
+  - vb
+  name: Vector3F
+  nameWithType: Vector3F
+  fullName: MathStructs.Vector3F
+  type: Struct
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Vector3F
+    path: Vector3F.cs
+    startLine: 6
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: 'public struct Vector3F : IEquatable<Vector3F>, IFormattable'
+    content.vb: >-
+      Public Structure Vector3F
+
+          Implements IEquatable(Of Vector3F), IFormattable
+  implements:
+  - IEquatable{MathStructs.Vector3F}
+  - IFormattable
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MathStructs.Vector3F.X
+  commentId: F:MathStructs.Vector3F.X
+  id: X
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Vector3F.X
+  fullName: MathStructs.Vector3F.X
+  type: Field
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: X
+    path: Vector3F.cs
+    startLine: 10
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float X
+    return:
+      type: System.Single
+    content.vb: Public X As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Y
+  commentId: F:MathStructs.Vector3F.Y
+  id: Y
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Vector3F.Y
+  fullName: MathStructs.Vector3F.Y
+  type: Field
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Y
+    path: Vector3F.cs
+    startLine: 11
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Y
+    return:
+      type: System.Single
+    content.vb: Public Y As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Z
+  commentId: F:MathStructs.Vector3F.Z
+  id: Z
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Z
+  nameWithType: Vector3F.Z
+  fullName: MathStructs.Vector3F.Z
+  type: Field
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Z
+    path: Vector3F.cs
+    startLine: 12
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Z
+    return:
+      type: System.Single
+    content.vb: Public Z As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Zero
+  commentId: P:MathStructs.Vector3F.Zero
+  id: Zero
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Vector3F.Zero
+  fullName: MathStructs.Vector3F.Zero
+  type: Property
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Zero
+    path: Vector3F.cs
+    startLine: 14
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Zero { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared ReadOnly Property Zero As Vector3F
+  overload: MathStructs.Vector3F.Zero*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3F.One
+  commentId: P:MathStructs.Vector3F.One
+  id: One
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Vector3F.One
+  fullName: MathStructs.Vector3F.One
+  type: Property
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: One
+    path: Vector3F.cs
+    startLine: 16
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F One { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared ReadOnly Property One As Vector3F
+  overload: MathStructs.Vector3F.One*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3F.UnitX
+  commentId: P:MathStructs.Vector3F.UnitX
+  id: UnitX
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: UnitX
+  nameWithType: Vector3F.UnitX
+  fullName: MathStructs.Vector3F.UnitX
+  type: Property
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitX
+    path: Vector3F.cs
+    startLine: 18
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F UnitX { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared ReadOnly Property UnitX As Vector3F
+  overload: MathStructs.Vector3F.UnitX*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3F.UnitY
+  commentId: P:MathStructs.Vector3F.UnitY
+  id: UnitY
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: UnitY
+  nameWithType: Vector3F.UnitY
+  fullName: MathStructs.Vector3F.UnitY
+  type: Property
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitY
+    path: Vector3F.cs
+    startLine: 20
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F UnitY { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared ReadOnly Property UnitY As Vector3F
+  overload: MathStructs.Vector3F.UnitY*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3F.UnitZ
+  commentId: P:MathStructs.Vector3F.UnitZ
+  id: UnitZ
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: UnitZ
+  nameWithType: Vector3F.UnitZ
+  fullName: MathStructs.Vector3F.UnitZ
+  type: Property
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitZ
+    path: Vector3F.cs
+    startLine: 22
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F UnitZ { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared ReadOnly Property UnitZ As Vector3F
+  overload: MathStructs.Vector3F.UnitZ*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3F.GetHashCode
+  commentId: M:MathStructs.Vector3F.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vector3F.GetHashCode()
+  fullName: MathStructs.Vector3F.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Vector3F.cs
+    startLine: 24
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: MathStructs.Vector3F.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector3F.Equals(System.Nullable{System.Object})
+  commentId: M:MathStructs.Vector3F.Equals(System.Nullable{System.Object})
+  id: Equals(System.Nullable{System.Object})
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Equals(Nullable<Object>)
+  nameWithType: Vector3F.Equals(Nullable<Object>)
+  fullName: MathStructs.Vector3F.Equals(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector3F.cs
+    startLine: 27
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+  overload: MathStructs.Vector3F.Equals*
+  nameWithType.vb: Vector3F.Equals(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: MathStructs.Vector3F.Equals(System.Nullable(Of System.Object))
+  name.vb: Equals(Nullable(Of Object))
+- uid: MathStructs.Vector3F.ToString
+  commentId: M:MathStructs.Vector3F.ToString
+  id: ToString
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vector3F.ToString()
+  fullName: MathStructs.Vector3F.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector3F.cs
+    startLine: 31
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: MathStructs.Vector3F.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector3F.ToString(System.Nullable{System.String})
+  commentId: M:MathStructs.Vector3F.ToString(System.Nullable{System.String})
+  id: ToString(System.Nullable{System.String})
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>)
+  nameWithType: Vector3F.ToString(Nullable<String>)
+  fullName: MathStructs.Vector3F.ToString(System.Nullable<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector3F.cs
+    startLine: 34
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?) As String
+  overload: MathStructs.Vector3F.ToString*
+  nameWithType.vb: Vector3F.ToString(Nullable(Of String))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.ToString(System.Nullable(Of System.String))
+  name.vb: ToString(Nullable(Of String))
+- uid: MathStructs.Vector3F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  commentId: M:MathStructs.Vector3F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  id: ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType: Vector3F.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  fullName: MathStructs.Vector3F.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector3F.cs
+    startLine: 37
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format, IFormatProvider? formatProvider)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    - id: formatProvider
+      type: System.Nullable{IFormatProvider}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?, formatProvider As IFormatProvider?) As String
+  overload: MathStructs.Vector3F.ToString*
+  nameWithType.vb: Vector3F.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector3F.Length
+  commentId: M:MathStructs.Vector3F.Length
+  id: Length
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Length()
+  nameWithType: Vector3F.Length()
+  fullName: MathStructs.Vector3F.Length()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Length
+    path: Vector3F.cs
+    startLine: 40
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Length()
+    return:
+      type: System.Single
+    content.vb: Public Function Length As Single
+  overload: MathStructs.Vector3F.Length*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.LengthSquared
+  commentId: M:MathStructs.Vector3F.LengthSquared
+  id: LengthSquared
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared()
+  nameWithType: Vector3F.LengthSquared()
+  fullName: MathStructs.Vector3F.LengthSquared()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: LengthSquared
+    path: Vector3F.cs
+    startLine: 44
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float LengthSquared()
+    return:
+      type: System.Single
+    content.vb: Public Function LengthSquared As Single
+  overload: MathStructs.Vector3F.LengthSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Distance(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Distance(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Distance(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector3F, Vector3F)
+  nameWithType: Vector3F.Distance(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Distance(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector3F.cs
+    startLine: 48
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static float Distance(Vector3F vector1, Vector3F vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector3F
+    - id: vector2
+      type: MathStructs.Vector3F
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Distance(vector1 As Vector3F, vector2 As Vector3F) As Single
+  overload: MathStructs.Vector3F.Distance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Distance(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Distance(MathStructs.Vector3F)
+  id: Distance(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector3F)
+  nameWithType: Vector3F.Distance(Vector3F)
+  fullName: MathStructs.Vector3F.Distance(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector3F.cs
+    startLine: 52
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Distance(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: System.Single
+    content.vb: Public Function Distance(value As Vector3F) As Single
+  overload: MathStructs.Vector3F.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: DistanceSquared(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3F, Vector3F)
+  nameWithType: Vector3F.DistanceSquared(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector3F.cs
+    startLine: 56
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static float DistanceSquared(Vector3F vector1, Vector3F vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector3F
+    - id: vector2
+      type: MathStructs.Vector3F
+    return:
+      type: System.Single
+    content.vb: Public Shared Function DistanceSquared(vector1 As Vector3F, vector2 As Vector3F) As Single
+  overload: MathStructs.Vector3F.DistanceSquared*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)
+  id: DistanceSquared(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3F)
+  nameWithType: Vector3F.DistanceSquared(Vector3F)
+  fullName: MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector3F.cs
+    startLine: 60
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float DistanceSquared(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: System.Single
+    content.vb: Public Function DistanceSquared(value As Vector3F) As Single
+  overload: MathStructs.Vector3F.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Normalize(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Normalize(MathStructs.Vector3F)
+  id: Normalize(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Normalize(Vector3F)
+  nameWithType: Vector3F.Normalize(Vector3F)
+  fullName: MathStructs.Vector3F.Normalize(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector3F.cs
+    startLine: 64
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Normalize(Vector3F vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Normalize(vector As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Normalize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Normalize
+  commentId: M:MathStructs.Vector3F.Normalize
+  id: Normalize
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Vector3F.Normalize()
+  fullName: MathStructs.Vector3F.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector3F.cs
+    startLine: 68
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Normalize()
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function Normalize As Vector3F
+  overload: MathStructs.Vector3F.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Cross(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Cross(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Cross(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Cross(Vector3F, Vector3F)
+  nameWithType: Vector3F.Cross(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Cross(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Cross
+    path: Vector3F.cs
+    startLine: 72
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Cross(Vector3F vector1, Vector3F vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector3F
+    - id: vector2
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Cross(vector1 As Vector3F, vector2 As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Cross*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Cross(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Cross(MathStructs.Vector3F)
+  id: Cross(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Cross(Vector3F)
+  nameWithType: Vector3F.Cross(Vector3F)
+  fullName: MathStructs.Vector3F.Cross(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Cross
+    path: Vector3F.cs
+    startLine: 76
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Cross(Vector3F vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function Cross(vector As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Cross*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Reflect(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Reflect(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Reflect(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Reflect(Vector3F, Vector3F)
+  nameWithType: Vector3F.Reflect(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Reflect(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Reflect
+    path: Vector3F.cs
+    startLine: 80
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Reflect(Vector3F vector, Vector3F normal)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    - id: normal
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Reflect(vector As Vector3F, normal As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Reflect*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Reflect(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Reflect(MathStructs.Vector3F)
+  id: Reflect(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Reflect(Vector3F)
+  nameWithType: Vector3F.Reflect(Vector3F)
+  fullName: MathStructs.Vector3F.Reflect(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Reflect
+    path: Vector3F.cs
+    startLine: 84
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Reflect(Vector3F normal)
+    parameters:
+    - id: normal
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function Reflect(normal As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Reflect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Clamp(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector3F, Vector3F, Vector3F)
+  nameWithType: Vector3F.Clamp(Vector3F, Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Clamp(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector3F.cs
+    startLine: 88
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Clamp(Vector3F value, Vector3F min, Vector3F max)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    - id: min
+      type: MathStructs.Vector3F
+    - id: max
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Clamp(value As Vector3F, min As Vector3F, max As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Clamp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Clamp(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector3F, Vector3F)
+  nameWithType: Vector3F.Clamp(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Clamp(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector3F.cs
+    startLine: 92
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Clamp(Vector3F min, Vector3F max)
+    parameters:
+    - id: min
+      type: MathStructs.Vector3F
+    - id: max
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function Clamp(min As Vector3F, max As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Clamp*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Lerp(MathStructs.Vector3F,MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Vector3F.Lerp(MathStructs.Vector3F,MathStructs.Vector3F,System.Single)
+  id: Lerp(MathStructs.Vector3F,MathStructs.Vector3F,System.Single)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Vector3F, Vector3F, Single)
+  nameWithType: Vector3F.Lerp(Vector3F, Vector3F, Single)
+  fullName: MathStructs.Vector3F.Lerp(MathStructs.Vector3F, MathStructs.Vector3F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Vector3F.cs
+    startLine: 96
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Lerp(Vector3F bounds1, Vector3F bounds2, float amount)
+    parameters:
+    - id: bounds1
+      type: MathStructs.Vector3F
+    - id: bounds2
+      type: MathStructs.Vector3F
+    - id: amount
+      type: System.Single
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Lerp(bounds1 As Vector3F, bounds2 As Vector3F, amount As Single) As Vector3F
+  overload: MathStructs.Vector3F.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3F, Matrix4x4F)
+  nameWithType: Vector3F.Transform(Vector3F, Matrix4x4F)
+  fullName: MathStructs.Vector3F.Transform(MathStructs.Vector3F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector3F.cs
+    startLine: 100
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Transform(Vector3F vector, Matrix4x4F matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Transform(vector As Vector3F, matrix As Matrix4x4F) As Vector3F
+  overload: MathStructs.Vector3F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4F)
+  nameWithType: Vector3F.Transform(Matrix4x4F)
+  fullName: MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector3F.cs
+    startLine: 106
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Transform(Matrix4x4F matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function Transform(matrix As Matrix4x4F) As Vector3F
+  overload: MathStructs.Vector3F.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  commentId: M:MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  id: Transform(MathStructs.Vector3F,MathStructs.QuaternionF)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3F, QuaternionF)
+  nameWithType: Vector3F.Transform(Vector3F, QuaternionF)
+  fullName: MathStructs.Vector3F.Transform(MathStructs.Vector3F, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector3F.cs
+    startLine: 110
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Transform(Vector3F value, QuaternionF rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    - id: rotation
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Transform(value As Vector3F, rotation As QuaternionF) As Vector3F
+  overload: MathStructs.Vector3F.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  id: TransformNormal(MathStructs.Vector3F,MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: TransformNormal(Vector3F, Matrix4x4F)
+  nameWithType: Vector3F.TransformNormal(Vector3F, Matrix4x4F)
+  fullName: MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformNormal
+    path: Vector3F.cs
+    startLine: 128
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F TransformNormal(Vector3F normal, Matrix4x4F matrix)
+    parameters:
+    - id: normal
+      type: MathStructs.Vector3F
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function TransformNormal(normal As Vector3F, matrix As Matrix4x4F) As Vector3F
+  overload: MathStructs.Vector3F.TransformNormal*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)
+  id: TransformNormal(MathStructs.Matrix4x4F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: TransformNormal(Matrix4x4F)
+  nameWithType: Vector3F.TransformNormal(Matrix4x4F)
+  fullName: MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformNormal
+    path: Vector3F.cs
+    startLine: 134
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F TransformNormal(Matrix4x4F matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function TransformNormal(matrix As Matrix4x4F) As Vector3F
+  overload: MathStructs.Vector3F.TransformNormal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Add(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Add(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Add(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Add(Vector3F, Vector3F)
+  nameWithType: Vector3F.Add(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Add(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Add
+    path: Vector3F.cs
+    startLine: 138
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Add(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Add(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Subtract(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Subtract(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Subtract(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vector3F, Vector3F)
+  nameWithType: Vector3F.Subtract(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Subtract(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Vector3F.cs
+    startLine: 142
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Subtract(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Subtract(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3F, Vector3F)
+  nameWithType: Vector3F.Multiply(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Multiply(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector3F.cs
+    startLine: 146
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Multiply(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Multiply(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Multiply(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Vector3F.Multiply(MathStructs.Vector3F,System.Single)
+  id: Multiply(MathStructs.Vector3F,System.Single)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3F, Single)
+  nameWithType: Vector3F.Multiply(Vector3F, Single)
+  fullName: MathStructs.Vector3F.Multiply(MathStructs.Vector3F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector3F.cs
+    startLine: 150
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Multiply(Vector3F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Multiply(left As Vector3F, right As Single) As Vector3F
+  overload: MathStructs.Vector3F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Multiply(System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Multiply(System.Single,MathStructs.Vector3F)
+  id: Multiply(System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Single, Vector3F)
+  nameWithType: Vector3F.Multiply(Single, Vector3F)
+  fullName: MathStructs.Vector3F.Multiply(System.Single, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector3F.cs
+    startLine: 154
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Multiply(float left, Vector3F right)
+    parameters:
+    - id: left
+      type: System.Single
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Multiply(left As Single, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Divide(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Divide(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Divide(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector3F, Vector3F)
+  nameWithType: Vector3F.Divide(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Divide(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector3F.cs
+    startLine: 158
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Divide(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Divide(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Divide(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Vector3F.Divide(MathStructs.Vector3F,System.Single)
+  id: Divide(MathStructs.Vector3F,System.Single)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector3F, Single)
+  nameWithType: Vector3F.Divide(Vector3F, Single)
+  fullName: MathStructs.Vector3F.Divide(MathStructs.Vector3F, System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector3F.cs
+    startLine: 162
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Divide(Vector3F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Divide(left As Vector3F, right As Single) As Vector3F
+  overload: MathStructs.Vector3F.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Negate(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Negate(MathStructs.Vector3F)
+  id: Negate(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Negate(Vector3F)
+  nameWithType: Vector3F.Negate(Vector3F)
+  fullName: MathStructs.Vector3F.Negate(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Vector3F.cs
+    startLine: 166
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Negate(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Negate(value As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.#ctor(System.Single)
+  commentId: M:MathStructs.Vector3F.#ctor(System.Single)
+  id: '#ctor(System.Single)'
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Vector3F(Single)
+  nameWithType: Vector3F.Vector3F(Single)
+  fullName: MathStructs.Vector3F.Vector3F(System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector3F.cs
+    startLine: 170
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F(float value)
+    parameters:
+    - id: value
+      type: System.Single
+    content.vb: Public Sub New(value As Single)
+  overload: MathStructs.Vector3F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.#ctor(MathStructs.Vector2F,System.Single)
+  commentId: M:MathStructs.Vector3F.#ctor(MathStructs.Vector2F,System.Single)
+  id: '#ctor(MathStructs.Vector2F,System.Single)'
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Vector3F(Vector2F, Single)
+  nameWithType: Vector3F.Vector3F(Vector2F, Single)
+  fullName: MathStructs.Vector3F.Vector3F(MathStructs.Vector2F, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector3F.cs
+    startLine: 173
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F(Vector2F value, float z)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2F
+    - id: z
+      type: System.Single
+    content.vb: Public Sub New(value As Vector2F, z As Single)
+  overload: MathStructs.Vector3F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.#ctor(System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.Vector3F.#ctor(System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single)'
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Vector3F(Single, Single, Single)
+  nameWithType: Vector3F.Vector3F(Single, Single, Single)
+  fullName: MathStructs.Vector3F.Vector3F(System.Single, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector3F.cs
+    startLine: 176
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F(float x, float y, float z)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    content.vb: Public Sub New(x As Single, y As Single, z As Single)
+  overload: MathStructs.Vector3F.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Deconstruct(MathStructs.Vector2F@,System.Single@)
+  commentId: M:MathStructs.Vector3F.Deconstruct(MathStructs.Vector2F@,System.Single@)
+  id: Deconstruct(MathStructs.Vector2F@,System.Single@)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector2F, out Single)
+  nameWithType: Vector3F.Deconstruct(out Vector2F, out Single)
+  fullName: MathStructs.Vector3F.Deconstruct(out MathStructs.Vector2F, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector3F.cs
+    startLine: 183
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out Vector2F vector, out float z)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2F
+    - id: z
+      type: System.Single
+    content.vb: Public Sub Deconstruct(ByRef vector As Vector2F, ByRef z As Single)
+  overload: MathStructs.Vector3F.Deconstruct*
+  nameWithType.vb: Vector3F.Deconstruct(ByRef Vector2F, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.Deconstruct(ByRef MathStructs.Vector2F, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Vector2F, ByRef Single)
+- uid: MathStructs.Vector3F.Deconstruct(System.Single@,System.Single@,System.Single@)
+  commentId: M:MathStructs.Vector3F.Deconstruct(System.Single@,System.Single@,System.Single@)
+  id: Deconstruct(System.Single@,System.Single@,System.Single@)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Single, out Single, out Single)
+  nameWithType: Vector3F.Deconstruct(out Single, out Single, out Single)
+  fullName: MathStructs.Vector3F.Deconstruct(out System.Single, out System.Single, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector3F.cs
+    startLine: 190
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out float x, out float y, out float z)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    content.vb: Public Sub Deconstruct(ByRef x As Single, ByRef y As Single, ByRef z As Single)
+  overload: MathStructs.Vector3F.Deconstruct*
+  nameWithType.vb: Vector3F.Deconstruct(ByRef Single, ByRef Single, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.Deconstruct(ByRef System.Single, ByRef System.Single, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Single, ByRef Single, ByRef Single)
+- uid: MathStructs.Vector3F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  commentId: M:MathStructs.Vector3F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  id: With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  nameWithType: Vector3F.With(Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  fullName: MathStructs.Vector3F.With(System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: Vector3F.cs
+    startLine: 198
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F With(float? x = null, float? y = null, float? z = null)
+    parameters:
+    - id: x
+      type: System.Nullable{System.Single}
+    - id: y
+      type: System.Nullable{System.Single}
+    - id: z
+      type: System.Nullable{System.Single}
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function With(x As Single? = Nothing, y As Single? = Nothing, z As Single? = Nothing) As Vector3F
+  overload: MathStructs.Vector3F.With*
+  nameWithType.vb: Vector3F.With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.With(System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single))
+  name.vb: With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+- uid: MathStructs.Vector3F.CopyTo(System.Single[])
+  commentId: M:MathStructs.Vector3F.CopyTo(System.Single[])
+  id: CopyTo(System.Single[])
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Single[])
+  nameWithType: Vector3F.CopyTo(Single[])
+  fullName: MathStructs.Vector3F.CopyTo(System.Single[])
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector3F.cs
+    startLine: 202
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(float[] array)
+    parameters:
+    - id: array
+      type: System.Single[]
+    content.vb: Public Sub CopyTo(array As Single())
+  overload: MathStructs.Vector3F.CopyTo*
+  nameWithType.vb: Vector3F.CopyTo(Single())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.CopyTo(System.Single())
+  name.vb: CopyTo(Single())
+- uid: MathStructs.Vector3F.CopyTo(System.Single[],System.Int32)
+  commentId: M:MathStructs.Vector3F.CopyTo(System.Single[],System.Int32)
+  id: CopyTo(System.Single[],System.Int32)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Single[], Int32)
+  nameWithType: Vector3F.CopyTo(Single[], Int32)
+  fullName: MathStructs.Vector3F.CopyTo(System.Single[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector3F.cs
+    startLine: 206
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(float[] array, int index)
+    parameters:
+    - id: array
+      type: System.Single[]
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Single(), index As Integer)
+  overload: MathStructs.Vector3F.CopyTo*
+  nameWithType.vb: Vector3F.CopyTo(Single(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3F.CopyTo(System.Single(), System.Int32)
+  name.vb: CopyTo(Single(), Int32)
+- uid: MathStructs.Vector3F.Equals(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Equals(MathStructs.Vector3F)
+  id: Equals(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector3F)
+  nameWithType: Vector3F.Equals(Vector3F)
+  fullName: MathStructs.Vector3F.Equals(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector3F.cs
+    startLine: 218
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool Equals(Vector3F other)
+    parameters:
+    - id: other
+      type: MathStructs.Vector3F
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Vector3F) As Boolean
+  overload: MathStructs.Vector3F.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Dot(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Dot(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Dot(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector3F, Vector3F)
+  nameWithType: Vector3F.Dot(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Dot(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector3F.cs
+    startLine: 222
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static float Dot(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Dot(left As Vector3F, right As Vector3F) As Single
+  overload: MathStructs.Vector3F.Dot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Dot(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Dot(MathStructs.Vector3F)
+  id: Dot(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector3F)
+  nameWithType: Vector3F.Dot(Vector3F)
+  fullName: MathStructs.Vector3F.Dot(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector3F.cs
+    startLine: 228
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public float Dot(Vector3F vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3F
+    return:
+      type: System.Single
+    content.vb: Public Function Dot(vector As Vector3F) As Single
+  overload: MathStructs.Vector3F.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.Min(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Min(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Min(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Min(Vector3F, Vector3F)
+  nameWithType: Vector3F.Min(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Min(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Min
+    path: Vector3F.cs
+    startLine: 232
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Min(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Min(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Min*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Max(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Max(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: Max(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Max(Vector3F, Vector3F)
+  nameWithType: Vector3F.Max(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Max(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Max
+    path: Vector3F.cs
+    startLine: 238
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Max(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Max(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Max*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Abs(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.Abs(MathStructs.Vector3F)
+  id: Abs(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector3F)
+  nameWithType: Vector3F.Abs(Vector3F)
+  fullName: MathStructs.Vector3F.Abs(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector3F.cs
+    startLine: 244
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F Abs(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function Abs(value As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.Abs
+  commentId: M:MathStructs.Vector3F.Abs
+  id: Abs
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector3F.Abs()
+  fullName: MathStructs.Vector3F.Abs()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector3F.cs
+    startLine: 248
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3F Abs()
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Function Abs As Vector3F
+  overload: MathStructs.Vector3F.Abs*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)
+  id: SquareRoot(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: SquareRoot(Vector3F)
+  nameWithType: Vector3F.SquareRoot(Vector3F)
+  fullName: MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: SquareRoot
+    path: Vector3F.cs
+    startLine: 252
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F SquareRoot(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Function SquareRoot(value As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.SquareRoot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_UnaryPlus(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_UnaryPlus(MathStructs.Vector3F)
+  id: op_UnaryPlus(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Vector3F)
+  nameWithType: Vector3F.UnaryPlus(Vector3F)
+  fullName: MathStructs.Vector3F.UnaryPlus(MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Vector3F.cs
+    startLine: 256
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator +(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator +(value As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_UnaryNegation(MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_UnaryNegation(MathStructs.Vector3F)
+  id: op_UnaryNegation(MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Vector3F)
+  nameWithType: Vector3F.UnaryNegation(Vector3F)
+  fullName: MathStructs.Vector3F.UnaryNegation(MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Vector3F.cs
+    startLine: 260
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator -(Vector3F value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator -(value As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Addition(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Addition(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: op_Addition(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector3F, Vector3F)
+  nameWithType: Vector3F.Addition(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Addition(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Vector3F.cs
+    startLine: 264
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator +(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator +(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Subtraction(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Subtraction(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: op_Subtraction(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector3F, Vector3F)
+  nameWithType: Vector3F.Subtraction(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Subtraction(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Vector3F.cs
+    startLine: 268
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator -(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator -(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: op_Multiply(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3F, Vector3F)
+  nameWithType: Vector3F.Multiply(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Multiply(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector3F.cs
+    startLine: 272
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator *(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator *(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,System.Single)
+  id: op_Multiply(MathStructs.Vector3F,System.Single)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3F, Single)
+  nameWithType: Vector3F.Multiply(Vector3F, Single)
+  fullName: MathStructs.Vector3F.Multiply(MathStructs.Vector3F, System.Single)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector3F.cs
+    startLine: 276
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator *(Vector3F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator *(left As Vector3F, right As Single) As Vector3F
+  overload: MathStructs.Vector3F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Multiply(System.Single,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Multiply(System.Single,MathStructs.Vector3F)
+  id: op_Multiply(System.Single,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Single, Vector3F)
+  nameWithType: Vector3F.Multiply(Single, Vector3F)
+  fullName: MathStructs.Vector3F.Multiply(System.Single, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector3F.cs
+    startLine: 280
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator *(float left, Vector3F right)
+    parameters:
+    - id: left
+      type: System.Single
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator *(left As Single, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Division(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Division(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: op_Division(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector3F, Vector3F)
+  nameWithType: Vector3F.Division(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Division(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector3F.cs
+    startLine: 284
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator /(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator /(left As Vector3F, right As Vector3F) As Vector3F
+  overload: MathStructs.Vector3F.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Division(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.Vector3F.op_Division(MathStructs.Vector3F,System.Single)
+  id: op_Division(MathStructs.Vector3F,System.Single)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector3F, Single)
+  nameWithType: Vector3F.Division(Vector3F, Single)
+  fullName: MathStructs.Vector3F.Division(MathStructs.Vector3F, System.Single)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector3F.cs
+    startLine: 288
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3F operator /(Vector3F left, float right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: System.Single
+    return:
+      type: MathStructs.Vector3F
+    content.vb: Public Shared Operator /(left As Vector3F, right As Single) As Vector3F
+  overload: MathStructs.Vector3F.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Equality(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Equality(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: op_Equality(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Equality(Vector3F, Vector3F)
+  nameWithType: Vector3F.Equality(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Equality(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Vector3F.cs
+    startLine: 292
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator ==(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Vector3F, right As Vector3F) As Boolean
+  overload: MathStructs.Vector3F.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3F.op_Inequality(MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.Vector3F.op_Inequality(MathStructs.Vector3F,MathStructs.Vector3F)
+  id: op_Inequality(MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.Vector3F
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Vector3F, Vector3F)
+  nameWithType: Vector3F.Inequality(Vector3F, Vector3F)
+  fullName: MathStructs.Vector3F.Inequality(MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3F.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Vector3F.cs
+    startLine: 296
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator !=(Vector3F left, Vector3F right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3F
+    - id: right
+      type: MathStructs.Vector3F
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Vector3F, right As Vector3F) As Boolean
+  overload: MathStructs.Vector3F.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: IEquatable{MathStructs.Vector3F}
+  commentId: '!:IEquatable{MathStructs.Vector3F}'
+  definition: IEquatable`1
+  name: IEquatable<Vector3F>
+  nameWithType: IEquatable<Vector3F>
+  fullName: IEquatable<MathStructs.Vector3F>
+  nameWithType.vb: IEquatable(Of Vector3F)
+  fullName.vb: IEquatable(Of MathStructs.Vector3F)
+  name.vb: IEquatable(Of Vector3F)
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MathStructs.Vector3F
+    name: Vector3F
+    nameWithType: Vector3F
+    fullName: MathStructs.Vector3F
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MathStructs.Vector3F
+    name: Vector3F
+    nameWithType: Vector3F
+    fullName: MathStructs.Vector3F
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IFormattable
+  isExternal: true
+  name: IFormattable
+  nameWithType: IFormattable
+  fullName: IFormattable
+- uid: IEquatable`1
+  isExternal: true
+  name: IEquatable<>
+  nameWithType: IEquatable<>
+  fullName: IEquatable<>
+  nameWithType.vb: IEquatable(Of )
+  fullName.vb: IEquatable(Of )
+  name.vb: IEquatable(Of )
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Single
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: MathStructs.Vector3F.Zero*
+  commentId: Overload:MathStructs.Vector3F.Zero
+  name: Zero
+  nameWithType: Vector3F.Zero
+  fullName: MathStructs.Vector3F.Zero
+- uid: MathStructs.Vector3F
+  commentId: T:MathStructs.Vector3F
+  parent: MathStructs
+  name: Vector3F
+  nameWithType: Vector3F
+  fullName: MathStructs.Vector3F
+- uid: MathStructs.Vector3F.One*
+  commentId: Overload:MathStructs.Vector3F.One
+  name: One
+  nameWithType: Vector3F.One
+  fullName: MathStructs.Vector3F.One
+- uid: MathStructs.Vector3F.UnitX*
+  commentId: Overload:MathStructs.Vector3F.UnitX
+  name: UnitX
+  nameWithType: Vector3F.UnitX
+  fullName: MathStructs.Vector3F.UnitX
+- uid: MathStructs.Vector3F.UnitY*
+  commentId: Overload:MathStructs.Vector3F.UnitY
+  name: UnitY
+  nameWithType: Vector3F.UnitY
+  fullName: MathStructs.Vector3F.UnitY
+- uid: MathStructs.Vector3F.UnitZ*
+  commentId: Overload:MathStructs.Vector3F.UnitZ
+  name: UnitZ
+  nameWithType: Vector3F.UnitZ
+  fullName: MathStructs.Vector3F.UnitZ
+- uid: MathStructs.Vector3F.GetHashCode*
+  commentId: Overload:MathStructs.Vector3F.GetHashCode
+  name: GetHashCode
+  nameWithType: Vector3F.GetHashCode
+  fullName: MathStructs.Vector3F.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MathStructs.Vector3F.Equals*
+  commentId: Overload:MathStructs.Vector3F.Equals
+  name: Equals
+  nameWithType: Vector3F.Equals
+  fullName: MathStructs.Vector3F.Equals
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector3F.ToString*
+  commentId: Overload:MathStructs.Vector3F.ToString
+  name: ToString
+  nameWithType: Vector3F.ToString
+  fullName: MathStructs.Vector3F.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.String}
+  commentId: '!:System.Nullable{System.String}'
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{IFormatProvider}
+  commentId: '!:System.Nullable{IFormatProvider}'
+  definition: System.Nullable`1
+  name: Nullable<IFormatProvider>
+  nameWithType: Nullable<IFormatProvider>
+  fullName: System.Nullable<IFormatProvider>
+  nameWithType.vb: Nullable(Of IFormatProvider)
+  fullName.vb: System.Nullable(Of IFormatProvider)
+  name.vb: Nullable(Of IFormatProvider)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector3F.Length*
+  commentId: Overload:MathStructs.Vector3F.Length
+  name: Length
+  nameWithType: Vector3F.Length
+  fullName: MathStructs.Vector3F.Length
+- uid: MathStructs.Vector3F.LengthSquared*
+  commentId: Overload:MathStructs.Vector3F.LengthSquared
+  name: LengthSquared
+  nameWithType: Vector3F.LengthSquared
+  fullName: MathStructs.Vector3F.LengthSquared
+- uid: MathStructs.Vector3F.Distance*
+  commentId: Overload:MathStructs.Vector3F.Distance
+  name: Distance
+  nameWithType: Vector3F.Distance
+  fullName: MathStructs.Vector3F.Distance
+- uid: MathStructs.Vector3F.DistanceSquared*
+  commentId: Overload:MathStructs.Vector3F.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Vector3F.DistanceSquared
+  fullName: MathStructs.Vector3F.DistanceSquared
+- uid: MathStructs.Vector3F.Normalize*
+  commentId: Overload:MathStructs.Vector3F.Normalize
+  name: Normalize
+  nameWithType: Vector3F.Normalize
+  fullName: MathStructs.Vector3F.Normalize
+- uid: MathStructs.Vector3F.Cross*
+  commentId: Overload:MathStructs.Vector3F.Cross
+  name: Cross
+  nameWithType: Vector3F.Cross
+  fullName: MathStructs.Vector3F.Cross
+- uid: MathStructs.Vector3F.Reflect*
+  commentId: Overload:MathStructs.Vector3F.Reflect
+  name: Reflect
+  nameWithType: Vector3F.Reflect
+  fullName: MathStructs.Vector3F.Reflect
+- uid: MathStructs.Vector3F.Clamp*
+  commentId: Overload:MathStructs.Vector3F.Clamp
+  name: Clamp
+  nameWithType: Vector3F.Clamp
+  fullName: MathStructs.Vector3F.Clamp
+- uid: MathStructs.Vector3F.Lerp*
+  commentId: Overload:MathStructs.Vector3F.Lerp
+  name: Lerp
+  nameWithType: Vector3F.Lerp
+  fullName: MathStructs.Vector3F.Lerp
+- uid: MathStructs.Vector3F.Transform*
+  commentId: Overload:MathStructs.Vector3F.Transform
+  name: Transform
+  nameWithType: Vector3F.Transform
+  fullName: MathStructs.Vector3F.Transform
+- uid: MathStructs.Matrix4x4F
+  commentId: T:MathStructs.Matrix4x4F
+  parent: MathStructs
+  name: Matrix4x4F
+  nameWithType: Matrix4x4F
+  fullName: MathStructs.Matrix4x4F
+- uid: MathStructs.QuaternionF
+  commentId: T:MathStructs.QuaternionF
+  parent: MathStructs
+  name: QuaternionF
+  nameWithType: QuaternionF
+  fullName: MathStructs.QuaternionF
+- uid: MathStructs.Vector3F.TransformNormal*
+  commentId: Overload:MathStructs.Vector3F.TransformNormal
+  name: TransformNormal
+  nameWithType: Vector3F.TransformNormal
+  fullName: MathStructs.Vector3F.TransformNormal
+- uid: MathStructs.Vector3F.Add*
+  commentId: Overload:MathStructs.Vector3F.Add
+  name: Add
+  nameWithType: Vector3F.Add
+  fullName: MathStructs.Vector3F.Add
+- uid: MathStructs.Vector3F.Subtract*
+  commentId: Overload:MathStructs.Vector3F.Subtract
+  name: Subtract
+  nameWithType: Vector3F.Subtract
+  fullName: MathStructs.Vector3F.Subtract
+- uid: MathStructs.Vector3F.Multiply*
+  commentId: Overload:MathStructs.Vector3F.Multiply
+  name: Multiply
+  nameWithType: Vector3F.Multiply
+  fullName: MathStructs.Vector3F.Multiply
+- uid: MathStructs.Vector3F.Divide*
+  commentId: Overload:MathStructs.Vector3F.Divide
+  name: Divide
+  nameWithType: Vector3F.Divide
+  fullName: MathStructs.Vector3F.Divide
+- uid: MathStructs.Vector3F.Negate*
+  commentId: Overload:MathStructs.Vector3F.Negate
+  name: Negate
+  nameWithType: Vector3F.Negate
+  fullName: MathStructs.Vector3F.Negate
+- uid: MathStructs.Vector3F.#ctor*
+  commentId: Overload:MathStructs.Vector3F.#ctor
+  name: Vector3F
+  nameWithType: Vector3F.Vector3F
+  fullName: MathStructs.Vector3F.Vector3F
+- uid: MathStructs.Vector2F
+  commentId: T:MathStructs.Vector2F
+  parent: MathStructs
+  name: Vector2F
+  nameWithType: Vector2F
+  fullName: MathStructs.Vector2F
+- uid: MathStructs.Vector3F.Deconstruct*
+  commentId: Overload:MathStructs.Vector3F.Deconstruct
+  name: Deconstruct
+  nameWithType: Vector3F.Deconstruct
+  fullName: MathStructs.Vector3F.Deconstruct
+- uid: MathStructs.Vector3F.With*
+  commentId: Overload:MathStructs.Vector3F.With
+  name: With
+  nameWithType: Vector3F.With
+  fullName: MathStructs.Vector3F.With
+- uid: System.Nullable{System.Single}
+  commentId: '!:System.Nullable{System.Single}'
+  definition: System.Nullable`1
+  name: Nullable<Single>
+  nameWithType: Nullable<Single>
+  fullName: System.Nullable<System.Single>
+  nameWithType.vb: Nullable(Of Single)
+  fullName.vb: System.Nullable(Of System.Single)
+  name.vb: Nullable(Of Single)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector3F.CopyTo*
+  commentId: Overload:MathStructs.Vector3F.CopyTo
+  name: CopyTo
+  nameWithType: Vector3F.CopyTo
+  fullName: MathStructs.Vector3F.CopyTo
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: MathStructs.Vector3F.Dot*
+  commentId: Overload:MathStructs.Vector3F.Dot
+  name: Dot
+  nameWithType: Vector3F.Dot
+  fullName: MathStructs.Vector3F.Dot
+- uid: MathStructs.Vector3F.Min*
+  commentId: Overload:MathStructs.Vector3F.Min
+  name: Min
+  nameWithType: Vector3F.Min
+  fullName: MathStructs.Vector3F.Min
+- uid: MathStructs.Vector3F.Max*
+  commentId: Overload:MathStructs.Vector3F.Max
+  name: Max
+  nameWithType: Vector3F.Max
+  fullName: MathStructs.Vector3F.Max
+- uid: MathStructs.Vector3F.Abs*
+  commentId: Overload:MathStructs.Vector3F.Abs
+  name: Abs
+  nameWithType: Vector3F.Abs
+  fullName: MathStructs.Vector3F.Abs
+- uid: MathStructs.Vector3F.SquareRoot*
+  commentId: Overload:MathStructs.Vector3F.SquareRoot
+  name: SquareRoot
+  nameWithType: Vector3F.SquareRoot
+  fullName: MathStructs.Vector3F.SquareRoot
+- uid: MathStructs.Vector3F.op_UnaryPlus*
+  commentId: Overload:MathStructs.Vector3F.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Vector3F.UnaryPlus
+  fullName: MathStructs.Vector3F.UnaryPlus
+- uid: MathStructs.Vector3F.op_UnaryNegation*
+  commentId: Overload:MathStructs.Vector3F.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Vector3F.UnaryNegation
+  fullName: MathStructs.Vector3F.UnaryNegation
+- uid: MathStructs.Vector3F.op_Addition*
+  commentId: Overload:MathStructs.Vector3F.op_Addition
+  name: Addition
+  nameWithType: Vector3F.Addition
+  fullName: MathStructs.Vector3F.Addition
+- uid: MathStructs.Vector3F.op_Subtraction*
+  commentId: Overload:MathStructs.Vector3F.op_Subtraction
+  name: Subtraction
+  nameWithType: Vector3F.Subtraction
+  fullName: MathStructs.Vector3F.Subtraction
+- uid: MathStructs.Vector3F.op_Multiply*
+  commentId: Overload:MathStructs.Vector3F.op_Multiply
+  name: Multiply
+  nameWithType: Vector3F.Multiply
+  fullName: MathStructs.Vector3F.Multiply
+- uid: MathStructs.Vector3F.op_Division*
+  commentId: Overload:MathStructs.Vector3F.op_Division
+  name: Division
+  nameWithType: Vector3F.Division
+  fullName: MathStructs.Vector3F.Division
+- uid: MathStructs.Vector3F.op_Equality*
+  commentId: Overload:MathStructs.Vector3F.op_Equality
+  name: Equality
+  nameWithType: Vector3F.Equality
+  fullName: MathStructs.Vector3F.Equality
+- uid: MathStructs.Vector3F.op_Inequality*
+  commentId: Overload:MathStructs.Vector3F.op_Inequality
+  name: Inequality
+  nameWithType: Vector3F.Inequality
+  fullName: MathStructs.Vector3F.Inequality

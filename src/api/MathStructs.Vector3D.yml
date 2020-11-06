@@ -1,0 +1,3292 @@
+### YamlMime:ManagedReference
+items:
+- uid: MathStructs.Vector3D
+  commentId: T:MathStructs.Vector3D
+  id: Vector3D
+  parent: MathStructs
+  children:
+  - MathStructs.Vector3D.#ctor(MathStructs.Vector2D,System.Double)
+  - MathStructs.Vector3D.#ctor(System.Double)
+  - MathStructs.Vector3D.#ctor(System.Double,System.Double,System.Double)
+  - MathStructs.Vector3D.Abs
+  - MathStructs.Vector3D.Abs(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Add(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Clamp(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Clamp(MathStructs.Vector3D,MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.CopyTo(System.Double[])
+  - MathStructs.Vector3D.CopyTo(System.Double[],System.Int32)
+  - MathStructs.Vector3D.Cross(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Cross(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Deconstruct(MathStructs.Vector2D@,System.Double@)
+  - MathStructs.Vector3D.Deconstruct(System.Double@,System.Double@,System.Double@)
+  - MathStructs.Vector3D.Distance(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Distance(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D)
+  - MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Divide(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Divide(MathStructs.Vector3D,System.Double)
+  - MathStructs.Vector3D.Dot(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Dot(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Equals(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Equals(System.Nullable{System.Object})
+  - MathStructs.Vector3D.GetHashCode
+  - MathStructs.Vector3D.Length
+  - MathStructs.Vector3D.LengthSquared
+  - MathStructs.Vector3D.Lerp(MathStructs.Vector3D,MathStructs.Vector3D,System.Double)
+  - MathStructs.Vector3D.Max(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Min(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Multiply(MathStructs.Vector3D,System.Double)
+  - MathStructs.Vector3D.Multiply(System.Double,MathStructs.Vector3D)
+  - MathStructs.Vector3D.Negate(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Normalize
+  - MathStructs.Vector3D.Normalize(MathStructs.Vector3D)
+  - MathStructs.Vector3D.One
+  - MathStructs.Vector3D.op_Addition(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_Division(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_Division(MathStructs.Vector3D,System.Double)
+  - MathStructs.Vector3D.op_Equality(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_Inequality(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_Multiply(MathStructs.Vector3D,System.Double)
+  - MathStructs.Vector3D.op_Multiply(System.Double,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_Subtraction(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_UnaryNegation(MathStructs.Vector3D)
+  - MathStructs.Vector3D.op_UnaryPlus(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Reflect(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Reflect(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.SquareRoot(MathStructs.Vector3D)
+  - MathStructs.Vector3D.Subtract(MathStructs.Vector3D,MathStructs.Vector3D)
+  - MathStructs.Vector3D.ToString
+  - MathStructs.Vector3D.ToString(System.Nullable{System.String})
+  - MathStructs.Vector3D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  - MathStructs.Vector3D.Transform(MathStructs.Matrix4x4D)
+  - MathStructs.Vector3D.Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector3D.Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  - MathStructs.Vector3D.TransformNormal(MathStructs.Matrix4x4D)
+  - MathStructs.Vector3D.TransformNormal(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  - MathStructs.Vector3D.TransformV4(MathStructs.Matrix4x4D)
+  - MathStructs.Vector3D.TransformV4(MathStructs.QuaternionD)
+  - MathStructs.Vector3D.UnitX
+  - MathStructs.Vector3D.UnitY
+  - MathStructs.Vector3D.UnitZ
+  - MathStructs.Vector3D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  - MathStructs.Vector3D.X
+  - MathStructs.Vector3D.Y
+  - MathStructs.Vector3D.Z
+  - MathStructs.Vector3D.Zero
+  langs:
+  - csharp
+  - vb
+  name: Vector3D
+  nameWithType: Vector3D
+  fullName: MathStructs.Vector3D
+  type: Struct
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Vector3D
+    path: Vector3D.cs
+    startLine: 6
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: 'public struct Vector3D : IEquatable<Vector3D>, IFormattable'
+    content.vb: >-
+      Public Structure Vector3D
+
+          Implements IEquatable(Of Vector3D), IFormattable
+  implements:
+  - IEquatable{MathStructs.Vector3D}
+  - IFormattable
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: MathStructs.Vector3D.X
+  commentId: F:MathStructs.Vector3D.X
+  id: X
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: X
+  nameWithType: Vector3D.X
+  fullName: MathStructs.Vector3D.X
+  type: Field
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: X
+    path: Vector3D.cs
+    startLine: 10
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double X
+    return:
+      type: System.Double
+    content.vb: Public X As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Y
+  commentId: F:MathStructs.Vector3D.Y
+  id: Y
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Y
+  nameWithType: Vector3D.Y
+  fullName: MathStructs.Vector3D.Y
+  type: Field
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Y
+    path: Vector3D.cs
+    startLine: 11
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Y
+    return:
+      type: System.Double
+    content.vb: Public Y As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Z
+  commentId: F:MathStructs.Vector3D.Z
+  id: Z
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Z
+  nameWithType: Vector3D.Z
+  fullName: MathStructs.Vector3D.Z
+  type: Field
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Z
+    path: Vector3D.cs
+    startLine: 12
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Z
+    return:
+      type: System.Double
+    content.vb: Public Z As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Zero
+  commentId: P:MathStructs.Vector3D.Zero
+  id: Zero
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Vector3D.Zero
+  fullName: MathStructs.Vector3D.Zero
+  type: Property
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Zero
+    path: Vector3D.cs
+    startLine: 14
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Zero { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared ReadOnly Property Zero As Vector3D
+  overload: MathStructs.Vector3D.Zero*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3D.One
+  commentId: P:MathStructs.Vector3D.One
+  id: One
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Vector3D.One
+  fullName: MathStructs.Vector3D.One
+  type: Property
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: One
+    path: Vector3D.cs
+    startLine: 16
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D One { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared ReadOnly Property One As Vector3D
+  overload: MathStructs.Vector3D.One*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3D.UnitX
+  commentId: P:MathStructs.Vector3D.UnitX
+  id: UnitX
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: UnitX
+  nameWithType: Vector3D.UnitX
+  fullName: MathStructs.Vector3D.UnitX
+  type: Property
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitX
+    path: Vector3D.cs
+    startLine: 18
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D UnitX { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared ReadOnly Property UnitX As Vector3D
+  overload: MathStructs.Vector3D.UnitX*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3D.UnitY
+  commentId: P:MathStructs.Vector3D.UnitY
+  id: UnitY
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: UnitY
+  nameWithType: Vector3D.UnitY
+  fullName: MathStructs.Vector3D.UnitY
+  type: Property
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitY
+    path: Vector3D.cs
+    startLine: 20
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D UnitY { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared ReadOnly Property UnitY As Vector3D
+  overload: MathStructs.Vector3D.UnitY*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3D.UnitZ
+  commentId: P:MathStructs.Vector3D.UnitZ
+  id: UnitZ
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: UnitZ
+  nameWithType: Vector3D.UnitZ
+  fullName: MathStructs.Vector3D.UnitZ
+  type: Property
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: UnitZ
+    path: Vector3D.cs
+    startLine: 22
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D UnitZ { get; }
+    parameters: []
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared ReadOnly Property UnitZ As Vector3D
+  overload: MathStructs.Vector3D.UnitZ*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: MathStructs.Vector3D.GetHashCode
+  commentId: M:MathStructs.Vector3D.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vector3D.GetHashCode()
+  fullName: MathStructs.Vector3D.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Vector3D.cs
+    startLine: 24
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overload: MathStructs.Vector3D.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector3D.Equals(System.Nullable{System.Object})
+  commentId: M:MathStructs.Vector3D.Equals(System.Nullable{System.Object})
+  id: Equals(System.Nullable{System.Object})
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Nullable<Object>)
+  nameWithType: Vector3D.Equals(Nullable<Object>)
+  fullName: MathStructs.Vector3D.Equals(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector3D.cs
+    startLine: 27
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+  overload: MathStructs.Vector3D.Equals*
+  nameWithType.vb: Vector3D.Equals(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: MathStructs.Vector3D.Equals(System.Nullable(Of System.Object))
+  name.vb: Equals(Nullable(Of Object))
+- uid: MathStructs.Vector3D.ToString
+  commentId: M:MathStructs.Vector3D.ToString
+  id: ToString
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vector3D.ToString()
+  fullName: MathStructs.Vector3D.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector3D.cs
+    startLine: 31
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overload: MathStructs.Vector3D.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Vector3D.ToString(System.Nullable{System.String})
+  commentId: M:MathStructs.Vector3D.ToString(System.Nullable{System.String})
+  id: ToString(System.Nullable{System.String})
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>)
+  nameWithType: Vector3D.ToString(Nullable<String>)
+  fullName: MathStructs.Vector3D.ToString(System.Nullable<System.String>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector3D.cs
+    startLine: 34
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?) As String
+  overload: MathStructs.Vector3D.ToString*
+  nameWithType.vb: Vector3D.ToString(Nullable(Of String))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.ToString(System.Nullable(Of System.String))
+  name.vb: ToString(Nullable(Of String))
+- uid: MathStructs.Vector3D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  commentId: M:MathStructs.Vector3D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  id: ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType: Vector3D.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  fullName: MathStructs.Vector3D.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Vector3D.cs
+    startLine: 37
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public string ToString(string? format, IFormatProvider? formatProvider)
+    parameters:
+    - id: format
+      type: System.Nullable{System.String}
+    - id: formatProvider
+      type: System.Nullable{IFormatProvider}
+    return:
+      type: System.String
+    content.vb: Public Function ToString(format As String?, formatProvider As IFormatProvider?) As String
+  overload: MathStructs.Vector3D.ToString*
+  nameWithType.vb: Vector3D.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector3D.Length
+  commentId: M:MathStructs.Vector3D.Length
+  id: Length
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Length()
+  nameWithType: Vector3D.Length()
+  fullName: MathStructs.Vector3D.Length()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Length
+    path: Vector3D.cs
+    startLine: 40
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Length()
+    return:
+      type: System.Double
+    content.vb: Public Function Length As Double
+  overload: MathStructs.Vector3D.Length*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.LengthSquared
+  commentId: M:MathStructs.Vector3D.LengthSquared
+  id: LengthSquared
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared()
+  nameWithType: Vector3D.LengthSquared()
+  fullName: MathStructs.Vector3D.LengthSquared()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: LengthSquared
+    path: Vector3D.cs
+    startLine: 44
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double LengthSquared()
+    return:
+      type: System.Double
+    content.vb: Public Function LengthSquared As Double
+  overload: MathStructs.Vector3D.LengthSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Distance(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Distance(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Distance(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector3D, Vector3D)
+  nameWithType: Vector3D.Distance(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Distance(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector3D.cs
+    startLine: 48
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static double Distance(Vector3D vector1, Vector3D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector3D
+    - id: vector2
+      type: MathStructs.Vector3D
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Distance(vector1 As Vector3D, vector2 As Vector3D) As Double
+  overload: MathStructs.Vector3D.Distance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Distance(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Distance(MathStructs.Vector3D)
+  id: Distance(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector3D)
+  nameWithType: Vector3D.Distance(Vector3D)
+  fullName: MathStructs.Vector3D.Distance(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Distance
+    path: Vector3D.cs
+    startLine: 52
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Distance(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: System.Double
+    content.vb: Public Function Distance(value As Vector3D) As Double
+  overload: MathStructs.Vector3D.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: DistanceSquared(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3D, Vector3D)
+  nameWithType: Vector3D.DistanceSquared(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector3D.cs
+    startLine: 56
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static double DistanceSquared(Vector3D vector1, Vector3D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector3D
+    - id: vector2
+      type: MathStructs.Vector3D
+    return:
+      type: System.Double
+    content.vb: Public Shared Function DistanceSquared(vector1 As Vector3D, vector2 As Vector3D) As Double
+  overload: MathStructs.Vector3D.DistanceSquared*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D)
+  id: DistanceSquared(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3D)
+  nameWithType: Vector3D.DistanceSquared(Vector3D)
+  fullName: MathStructs.Vector3D.DistanceSquared(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DistanceSquared
+    path: Vector3D.cs
+    startLine: 60
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double DistanceSquared(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(value As Vector3D) As Double
+  overload: MathStructs.Vector3D.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Normalize(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Normalize(MathStructs.Vector3D)
+  id: Normalize(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Normalize(Vector3D)
+  nameWithType: Vector3D.Normalize(Vector3D)
+  fullName: MathStructs.Vector3D.Normalize(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector3D.cs
+    startLine: 64
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Normalize(Vector3D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Normalize(vector As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Normalize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Normalize
+  commentId: M:MathStructs.Vector3D.Normalize
+  id: Normalize
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: Vector3D.Normalize()
+  fullName: MathStructs.Vector3D.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: Vector3D.cs
+    startLine: 68
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D Normalize()
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function Normalize As Vector3D
+  overload: MathStructs.Vector3D.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Cross(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Cross(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Cross(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Cross(Vector3D, Vector3D)
+  nameWithType: Vector3D.Cross(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Cross(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Cross
+    path: Vector3D.cs
+    startLine: 72
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Cross(Vector3D vector1, Vector3D vector2)
+    parameters:
+    - id: vector1
+      type: MathStructs.Vector3D
+    - id: vector2
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Cross(vector1 As Vector3D, vector2 As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Cross*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Cross(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Cross(MathStructs.Vector3D)
+  id: Cross(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Cross(Vector3D)
+  nameWithType: Vector3D.Cross(Vector3D)
+  fullName: MathStructs.Vector3D.Cross(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Cross
+    path: Vector3D.cs
+    startLine: 76
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D Cross(Vector3D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function Cross(vector As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Cross*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Reflect(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Reflect(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Reflect(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Reflect(Vector3D, Vector3D)
+  nameWithType: Vector3D.Reflect(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Reflect(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Reflect
+    path: Vector3D.cs
+    startLine: 80
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Reflect(Vector3D vector, Vector3D normal)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+    - id: normal
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Reflect(vector As Vector3D, normal As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Reflect*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Reflect(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Reflect(MathStructs.Vector3D)
+  id: Reflect(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Reflect(Vector3D)
+  nameWithType: Vector3D.Reflect(Vector3D)
+  fullName: MathStructs.Vector3D.Reflect(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Reflect
+    path: Vector3D.cs
+    startLine: 84
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D Reflect(Vector3D normal)
+    parameters:
+    - id: normal
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function Reflect(normal As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Reflect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Clamp(MathStructs.Vector3D,MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Clamp(MathStructs.Vector3D,MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Clamp(MathStructs.Vector3D,MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector3D, Vector3D, Vector3D)
+  nameWithType: Vector3D.Clamp(Vector3D, Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Clamp(MathStructs.Vector3D, MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector3D.cs
+    startLine: 88
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Clamp(Vector3D value, Vector3D min, Vector3D max)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    - id: min
+      type: MathStructs.Vector3D
+    - id: max
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Clamp(value As Vector3D, min As Vector3D, max As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Clamp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Clamp(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Clamp(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Clamp(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Vector3D, Vector3D)
+  nameWithType: Vector3D.Clamp(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Clamp(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Clamp
+    path: Vector3D.cs
+    startLine: 92
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D Clamp(Vector3D min, Vector3D max)
+    parameters:
+    - id: min
+      type: MathStructs.Vector3D
+    - id: max
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function Clamp(min As Vector3D, max As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Clamp*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Lerp(MathStructs.Vector3D,MathStructs.Vector3D,System.Double)
+  commentId: M:MathStructs.Vector3D.Lerp(MathStructs.Vector3D,MathStructs.Vector3D,System.Double)
+  id: Lerp(MathStructs.Vector3D,MathStructs.Vector3D,System.Double)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Vector3D, Vector3D, Double)
+  nameWithType: Vector3D.Lerp(Vector3D, Vector3D, Double)
+  fullName: MathStructs.Vector3D.Lerp(MathStructs.Vector3D, MathStructs.Vector3D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Vector3D.cs
+    startLine: 96
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Lerp(Vector3D bounds1, Vector3D bounds2, double amount)
+    parameters:
+    - id: bounds1
+      type: MathStructs.Vector3D
+    - id: bounds2
+      type: MathStructs.Vector3D
+    - id: amount
+      type: System.Double
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Lerp(bounds1 As Vector3D, bounds2 As Vector3D, amount As Double) As Vector3D
+  overload: MathStructs.Vector3D.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector3D.Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3D, Matrix4x4D)
+  nameWithType: Vector3D.Transform(Vector3D, Matrix4x4D)
+  fullName: MathStructs.Vector3D.Transform(MathStructs.Vector3D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector3D.cs
+    startLine: 100
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Transform(Vector3D vector, Matrix4x4D matrix)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Transform(vector As Vector3D, matrix As Matrix4x4D) As Vector3D
+  overload: MathStructs.Vector3D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Transform(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector3D.Transform(MathStructs.Matrix4x4D)
+  id: Transform(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4D)
+  nameWithType: Vector3D.Transform(Matrix4x4D)
+  fullName: MathStructs.Vector3D.Transform(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector3D.cs
+    startLine: 106
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D Transform(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function Transform(matrix As Matrix4x4D) As Vector3D
+  overload: MathStructs.Vector3D.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector3D.Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  id: Transform(MathStructs.Vector3D,MathStructs.QuaternionD)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3D, QuaternionD)
+  nameWithType: Vector3D.Transform(Vector3D, QuaternionD)
+  fullName: MathStructs.Vector3D.Transform(MathStructs.Vector3D, MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: Vector3D.cs
+    startLine: 110
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Transform(Vector3D value, QuaternionD rotation)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    - id: rotation
+      type: MathStructs.QuaternionD
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Transform(value As Vector3D, rotation As QuaternionD) As Vector3D
+  overload: MathStructs.Vector3D.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.TransformNormal(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector3D.TransformNormal(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  id: TransformNormal(MathStructs.Vector3D,MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: TransformNormal(Vector3D, Matrix4x4D)
+  nameWithType: Vector3D.TransformNormal(Vector3D, Matrix4x4D)
+  fullName: MathStructs.Vector3D.TransformNormal(MathStructs.Vector3D, MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformNormal
+    path: Vector3D.cs
+    startLine: 128
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D TransformNormal(Vector3D normal, Matrix4x4D matrix)
+    parameters:
+    - id: normal
+      type: MathStructs.Vector3D
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function TransformNormal(normal As Vector3D, matrix As Matrix4x4D) As Vector3D
+  overload: MathStructs.Vector3D.TransformNormal*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.TransformNormal(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector3D.TransformNormal(MathStructs.Matrix4x4D)
+  id: TransformNormal(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: TransformNormal(Matrix4x4D)
+  nameWithType: Vector3D.TransformNormal(Matrix4x4D)
+  fullName: MathStructs.Vector3D.TransformNormal(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformNormal
+    path: Vector3D.cs
+    startLine: 134
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D TransformNormal(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function TransformNormal(matrix As Matrix4x4D) As Vector3D
+  overload: MathStructs.Vector3D.TransformNormal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.TransformV4(MathStructs.Matrix4x4D)
+  commentId: M:MathStructs.Vector3D.TransformV4(MathStructs.Matrix4x4D)
+  id: TransformV4(MathStructs.Matrix4x4D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: TransformV4(Matrix4x4D)
+  nameWithType: Vector3D.TransformV4(Matrix4x4D)
+  fullName: MathStructs.Vector3D.TransformV4(MathStructs.Matrix4x4D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformV4
+    path: Vector3D.cs
+    startLine: 138
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4D TransformV4(Matrix4x4D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4D
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Function TransformV4(matrix As Matrix4x4D) As Vector4D
+  overload: MathStructs.Vector3D.TransformV4*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.TransformV4(MathStructs.QuaternionD)
+  commentId: M:MathStructs.Vector3D.TransformV4(MathStructs.QuaternionD)
+  id: TransformV4(MathStructs.QuaternionD)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: TransformV4(QuaternionD)
+  nameWithType: Vector3D.TransformV4(QuaternionD)
+  fullName: MathStructs.Vector3D.TransformV4(MathStructs.QuaternionD)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: TransformV4
+    path: Vector3D.cs
+    startLine: 142
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector4D TransformV4(QuaternionD rotation)
+    parameters:
+    - id: rotation
+      type: MathStructs.QuaternionD
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Function TransformV4(rotation As QuaternionD) As Vector4D
+  overload: MathStructs.Vector3D.TransformV4*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Add(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Add(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Add(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Add(Vector3D, Vector3D)
+  nameWithType: Vector3D.Add(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Add(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Add
+    path: Vector3D.cs
+    startLine: 146
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Add(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Add(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Subtract(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Subtract(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Subtract(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vector3D, Vector3D)
+  nameWithType: Vector3D.Subtract(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Subtract(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Vector3D.cs
+    startLine: 150
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Subtract(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Subtract(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3D, Vector3D)
+  nameWithType: Vector3D.Multiply(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Multiply(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector3D.cs
+    startLine: 154
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Multiply(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Multiply(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Multiply(MathStructs.Vector3D,System.Double)
+  commentId: M:MathStructs.Vector3D.Multiply(MathStructs.Vector3D,System.Double)
+  id: Multiply(MathStructs.Vector3D,System.Double)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3D, Double)
+  nameWithType: Vector3D.Multiply(Vector3D, Double)
+  fullName: MathStructs.Vector3D.Multiply(MathStructs.Vector3D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector3D.cs
+    startLine: 158
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Multiply(Vector3D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Multiply(left As Vector3D, right As Double) As Vector3D
+  overload: MathStructs.Vector3D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Multiply(System.Double,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Multiply(System.Double,MathStructs.Vector3D)
+  id: Multiply(System.Double,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double, Vector3D)
+  nameWithType: Vector3D.Multiply(Double, Vector3D)
+  fullName: MathStructs.Vector3D.Multiply(System.Double, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Vector3D.cs
+    startLine: 162
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Multiply(double left, Vector3D right)
+    parameters:
+    - id: left
+      type: System.Double
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Multiply(left As Double, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Divide(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Divide(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Divide(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector3D, Vector3D)
+  nameWithType: Vector3D.Divide(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Divide(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector3D.cs
+    startLine: 166
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Divide(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Divide(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Divide(MathStructs.Vector3D,System.Double)
+  commentId: M:MathStructs.Vector3D.Divide(MathStructs.Vector3D,System.Double)
+  id: Divide(MathStructs.Vector3D,System.Double)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Divide(Vector3D, Double)
+  nameWithType: Vector3D.Divide(Vector3D, Double)
+  fullName: MathStructs.Vector3D.Divide(MathStructs.Vector3D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: Vector3D.cs
+    startLine: 170
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Divide(Vector3D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Divide(left As Vector3D, right As Double) As Vector3D
+  overload: MathStructs.Vector3D.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Negate(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Negate(MathStructs.Vector3D)
+  id: Negate(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Negate(Vector3D)
+  nameWithType: Vector3D.Negate(Vector3D)
+  fullName: MathStructs.Vector3D.Negate(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Vector3D.cs
+    startLine: 174
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Negate(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Negate(value As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.#ctor(System.Double)
+  commentId: M:MathStructs.Vector3D.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Vector3D(Double)
+  nameWithType: Vector3D.Vector3D(Double)
+  fullName: MathStructs.Vector3D.Vector3D(System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector3D.cs
+    startLine: 178
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D(double value)
+    parameters:
+    - id: value
+      type: System.Double
+    content.vb: Public Sub New(value As Double)
+  overload: MathStructs.Vector3D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.#ctor(MathStructs.Vector2D,System.Double)
+  commentId: M:MathStructs.Vector3D.#ctor(MathStructs.Vector2D,System.Double)
+  id: '#ctor(MathStructs.Vector2D,System.Double)'
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Vector3D(Vector2D, Double)
+  nameWithType: Vector3D.Vector3D(Vector2D, Double)
+  fullName: MathStructs.Vector3D.Vector3D(MathStructs.Vector2D, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector3D.cs
+    startLine: 181
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D(Vector2D value, double z)
+    parameters:
+    - id: value
+      type: MathStructs.Vector2D
+    - id: z
+      type: System.Double
+    content.vb: Public Sub New(value As Vector2D, z As Double)
+  overload: MathStructs.Vector3D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.#ctor(System.Double,System.Double,System.Double)
+  commentId: M:MathStructs.Vector3D.#ctor(System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double)'
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Vector3D(Double, Double, Double)
+  nameWithType: Vector3D.Vector3D(Double, Double, Double)
+  fullName: MathStructs.Vector3D.Vector3D(System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Vector3D.cs
+    startLine: 184
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D(double x, double y, double z)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    - id: z
+      type: System.Double
+    content.vb: Public Sub New(x As Double, y As Double, z As Double)
+  overload: MathStructs.Vector3D.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Deconstruct(MathStructs.Vector2D@,System.Double@)
+  commentId: M:MathStructs.Vector3D.Deconstruct(MathStructs.Vector2D@,System.Double@)
+  id: Deconstruct(MathStructs.Vector2D@,System.Double@)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector2D, out Double)
+  nameWithType: Vector3D.Deconstruct(out Vector2D, out Double)
+  fullName: MathStructs.Vector3D.Deconstruct(out MathStructs.Vector2D, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector3D.cs
+    startLine: 191
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out Vector2D vector, out double z)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector2D
+    - id: z
+      type: System.Double
+    content.vb: Public Sub Deconstruct(ByRef vector As Vector2D, ByRef z As Double)
+  overload: MathStructs.Vector3D.Deconstruct*
+  nameWithType.vb: Vector3D.Deconstruct(ByRef Vector2D, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.Deconstruct(ByRef MathStructs.Vector2D, ByRef System.Double)
+  name.vb: Deconstruct(ByRef Vector2D, ByRef Double)
+- uid: MathStructs.Vector3D.Deconstruct(System.Double@,System.Double@,System.Double@)
+  commentId: M:MathStructs.Vector3D.Deconstruct(System.Double@,System.Double@,System.Double@)
+  id: Deconstruct(System.Double@,System.Double@,System.Double@)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Double, out Double, out Double)
+  nameWithType: Vector3D.Deconstruct(out Double, out Double, out Double)
+  fullName: MathStructs.Vector3D.Deconstruct(out System.Double, out System.Double, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: Vector3D.cs
+    startLine: 198
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void Deconstruct(out double x, out double y, out double z)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    - id: z
+      type: System.Double
+    content.vb: Public Sub Deconstruct(ByRef x As Double, ByRef y As Double, ByRef z As Double)
+  overload: MathStructs.Vector3D.Deconstruct*
+  nameWithType.vb: Vector3D.Deconstruct(ByRef Double, ByRef Double, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.Deconstruct(ByRef System.Double, ByRef System.Double, ByRef System.Double)
+  name.vb: Deconstruct(ByRef Double, ByRef Double, ByRef Double)
+- uid: MathStructs.Vector3D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  commentId: M:MathStructs.Vector3D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  id: With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Double>, Nullable<Double>, Nullable<Double>)
+  nameWithType: Vector3D.With(Nullable<Double>, Nullable<Double>, Nullable<Double>)
+  fullName: MathStructs.Vector3D.With(System.Nullable<System.Double>, System.Nullable<System.Double>, System.Nullable<System.Double>)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: Vector3D.cs
+    startLine: 206
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D With(double? x = null, double? y = null, double? z = null)
+    parameters:
+    - id: x
+      type: System.Nullable{System.Double}
+    - id: y
+      type: System.Nullable{System.Double}
+    - id: z
+      type: System.Nullable{System.Double}
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function With(x As Double? = Nothing, y As Double? = Nothing, z As Double? = Nothing) As Vector3D
+  overload: MathStructs.Vector3D.With*
+  nameWithType.vb: Vector3D.With(Nullable(Of Double), Nullable(Of Double), Nullable(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.With(System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double))
+  name.vb: With(Nullable(Of Double), Nullable(Of Double), Nullable(Of Double))
+- uid: MathStructs.Vector3D.CopyTo(System.Double[])
+  commentId: M:MathStructs.Vector3D.CopyTo(System.Double[])
+  id: CopyTo(System.Double[])
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Double[])
+  nameWithType: Vector3D.CopyTo(Double[])
+  fullName: MathStructs.Vector3D.CopyTo(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector3D.cs
+    startLine: 210
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(double[] array)
+    parameters:
+    - id: array
+      type: System.Double[]
+    content.vb: Public Sub CopyTo(array As Double())
+  overload: MathStructs.Vector3D.CopyTo*
+  nameWithType.vb: Vector3D.CopyTo(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.CopyTo(System.Double())
+  name.vb: CopyTo(Double())
+- uid: MathStructs.Vector3D.CopyTo(System.Double[],System.Int32)
+  commentId: M:MathStructs.Vector3D.CopyTo(System.Double[],System.Int32)
+  id: CopyTo(System.Double[],System.Int32)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Double[], Int32)
+  nameWithType: Vector3D.CopyTo(Double[], Int32)
+  fullName: MathStructs.Vector3D.CopyTo(System.Double[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CopyTo
+    path: Vector3D.cs
+    startLine: 214
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public void CopyTo(double[] array, int index)
+    parameters:
+    - id: array
+      type: System.Double[]
+    - id: index
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Double(), index As Integer)
+  overload: MathStructs.Vector3D.CopyTo*
+  nameWithType.vb: Vector3D.CopyTo(Double(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.Vector3D.CopyTo(System.Double(), System.Int32)
+  name.vb: CopyTo(Double(), Int32)
+- uid: MathStructs.Vector3D.Equals(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Equals(MathStructs.Vector3D)
+  id: Equals(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector3D)
+  nameWithType: Vector3D.Equals(Vector3D)
+  fullName: MathStructs.Vector3D.Equals(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Vector3D.cs
+    startLine: 226
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public bool Equals(Vector3D other)
+    parameters:
+    - id: other
+      type: MathStructs.Vector3D
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Vector3D) As Boolean
+  overload: MathStructs.Vector3D.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Dot(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Dot(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Dot(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector3D, Vector3D)
+  nameWithType: Vector3D.Dot(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Dot(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector3D.cs
+    startLine: 230
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static double Dot(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Dot(left As Vector3D, right As Vector3D) As Double
+  overload: MathStructs.Vector3D.Dot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Dot(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Dot(MathStructs.Vector3D)
+  id: Dot(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Dot(Vector3D)
+  nameWithType: Vector3D.Dot(Vector3D)
+  fullName: MathStructs.Vector3D.Dot(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: Vector3D.cs
+    startLine: 236
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public double Dot(Vector3D vector)
+    parameters:
+    - id: vector
+      type: MathStructs.Vector3D
+    return:
+      type: System.Double
+    content.vb: Public Function Dot(vector As Vector3D) As Double
+  overload: MathStructs.Vector3D.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.Min(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Min(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Min(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Min(Vector3D, Vector3D)
+  nameWithType: Vector3D.Min(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Min(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Min
+    path: Vector3D.cs
+    startLine: 240
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Min(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Min(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Min*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Max(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Max(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: Max(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Max(Vector3D, Vector3D)
+  nameWithType: Vector3D.Max(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Max(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Max
+    path: Vector3D.cs
+    startLine: 246
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Max(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Max(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Max*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Abs(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.Abs(MathStructs.Vector3D)
+  id: Abs(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Abs(Vector3D)
+  nameWithType: Vector3D.Abs(Vector3D)
+  fullName: MathStructs.Vector3D.Abs(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector3D.cs
+    startLine: 252
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D Abs(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function Abs(value As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.Abs
+  commentId: M:MathStructs.Vector3D.Abs
+  id: Abs
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Vector3D.Abs()
+  fullName: MathStructs.Vector3D.Abs()
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Abs
+    path: Vector3D.cs
+    startLine: 256
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public Vector3D Abs()
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Function Abs As Vector3D
+  overload: MathStructs.Vector3D.Abs*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Vector3D.SquareRoot(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.SquareRoot(MathStructs.Vector3D)
+  id: SquareRoot(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: SquareRoot(Vector3D)
+  nameWithType: Vector3D.SquareRoot(Vector3D)
+  fullName: MathStructs.Vector3D.SquareRoot(MathStructs.Vector3D)
+  type: Method
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: SquareRoot
+    path: Vector3D.cs
+    startLine: 260
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D SquareRoot(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Function SquareRoot(value As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.SquareRoot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_UnaryPlus(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_UnaryPlus(MathStructs.Vector3D)
+  id: op_UnaryPlus(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Vector3D)
+  nameWithType: Vector3D.UnaryPlus(Vector3D)
+  fullName: MathStructs.Vector3D.UnaryPlus(MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Vector3D.cs
+    startLine: 264
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator +(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator +(value As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_UnaryNegation(MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_UnaryNegation(MathStructs.Vector3D)
+  id: op_UnaryNegation(MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Vector3D)
+  nameWithType: Vector3D.UnaryNegation(Vector3D)
+  fullName: MathStructs.Vector3D.UnaryNegation(MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Vector3D.cs
+    startLine: 268
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator -(Vector3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator -(value As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Addition(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Addition(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: op_Addition(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector3D, Vector3D)
+  nameWithType: Vector3D.Addition(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Addition(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Vector3D.cs
+    startLine: 272
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator +(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator +(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Subtraction(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Subtraction(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: op_Subtraction(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector3D, Vector3D)
+  nameWithType: Vector3D.Subtraction(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Subtraction(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Vector3D.cs
+    startLine: 276
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator -(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator -(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: op_Multiply(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3D, Vector3D)
+  nameWithType: Vector3D.Multiply(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Multiply(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector3D.cs
+    startLine: 280
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator *(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator *(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Multiply(MathStructs.Vector3D,System.Double)
+  commentId: M:MathStructs.Vector3D.op_Multiply(MathStructs.Vector3D,System.Double)
+  id: op_Multiply(MathStructs.Vector3D,System.Double)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3D, Double)
+  nameWithType: Vector3D.Multiply(Vector3D, Double)
+  fullName: MathStructs.Vector3D.Multiply(MathStructs.Vector3D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector3D.cs
+    startLine: 284
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator *(Vector3D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator *(left As Vector3D, right As Double) As Vector3D
+  overload: MathStructs.Vector3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Multiply(System.Double,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Multiply(System.Double,MathStructs.Vector3D)
+  id: op_Multiply(System.Double,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double, Vector3D)
+  nameWithType: Vector3D.Multiply(Double, Vector3D)
+  fullName: MathStructs.Vector3D.Multiply(System.Double, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Vector3D.cs
+    startLine: 288
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator *(double left, Vector3D right)
+    parameters:
+    - id: left
+      type: System.Double
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator *(left As Double, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Division(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Division(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: op_Division(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector3D, Vector3D)
+  nameWithType: Vector3D.Division(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Division(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector3D.cs
+    startLine: 292
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator /(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator /(left As Vector3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Vector3D.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Division(MathStructs.Vector3D,System.Double)
+  commentId: M:MathStructs.Vector3D.op_Division(MathStructs.Vector3D,System.Double)
+  id: op_Division(MathStructs.Vector3D,System.Double)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector3D, Double)
+  nameWithType: Vector3D.Division(Vector3D, Double)
+  fullName: MathStructs.Vector3D.Division(MathStructs.Vector3D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Division
+    path: Vector3D.cs
+    startLine: 296
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static Vector3D operator /(Vector3D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: System.Double
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator /(left As Vector3D, right As Double) As Vector3D
+  overload: MathStructs.Vector3D.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Equality(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Equality(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: op_Equality(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Equality(Vector3D, Vector3D)
+  nameWithType: Vector3D.Equality(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Equality(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Vector3D.cs
+    startLine: 300
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator ==(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Vector3D, right As Vector3D) As Boolean
+  overload: MathStructs.Vector3D.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Vector3D.op_Inequality(MathStructs.Vector3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Vector3D.op_Inequality(MathStructs.Vector3D,MathStructs.Vector3D)
+  id: op_Inequality(MathStructs.Vector3D,MathStructs.Vector3D)
+  parent: MathStructs.Vector3D
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Vector3D, Vector3D)
+  nameWithType: Vector3D.Inequality(Vector3D, Vector3D)
+  fullName: MathStructs.Vector3D.Inequality(MathStructs.Vector3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Vector3D.cs
+      branch: docs
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Vector3D.cs
+    startLine: 304
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  syntax:
+    content: public static bool operator !=(Vector3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+    - id: right
+      type: MathStructs.Vector3D
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Vector3D, right As Vector3D) As Boolean
+  overload: MathStructs.Vector3D.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: MathStructs
+  commentId: N:MathStructs
+  name: MathStructs
+  nameWithType: MathStructs
+  fullName: MathStructs
+- uid: IEquatable{MathStructs.Vector3D}
+  commentId: '!:IEquatable{MathStructs.Vector3D}'
+  definition: IEquatable`1
+  name: IEquatable<Vector3D>
+  nameWithType: IEquatable<Vector3D>
+  fullName: IEquatable<MathStructs.Vector3D>
+  nameWithType.vb: IEquatable(Of Vector3D)
+  fullName.vb: IEquatable(Of MathStructs.Vector3D)
+  name.vb: IEquatable(Of Vector3D)
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: MathStructs.Vector3D
+    name: Vector3D
+    nameWithType: Vector3D
+    fullName: MathStructs.Vector3D
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: MathStructs.Vector3D
+    name: Vector3D
+    nameWithType: Vector3D
+    fullName: MathStructs.Vector3D
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IFormattable
+  isExternal: true
+  name: IFormattable
+  nameWithType: IFormattable
+  fullName: IFormattable
+- uid: IEquatable`1
+  isExternal: true
+  name: IEquatable<>
+  nameWithType: IEquatable<>
+  fullName: IEquatable<>
+  nameWithType.vb: IEquatable(Of )
+  fullName.vb: IEquatable(Of )
+  name.vb: IEquatable(Of )
+  spec.csharp:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEquatable`1
+    name: IEquatable
+    nameWithType: IEquatable
+    fullName: IEquatable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: MathStructs.Vector3D.Zero*
+  commentId: Overload:MathStructs.Vector3D.Zero
+  name: Zero
+  nameWithType: Vector3D.Zero
+  fullName: MathStructs.Vector3D.Zero
+- uid: MathStructs.Vector3D
+  commentId: T:MathStructs.Vector3D
+  parent: MathStructs
+  name: Vector3D
+  nameWithType: Vector3D
+  fullName: MathStructs.Vector3D
+- uid: MathStructs.Vector3D.One*
+  commentId: Overload:MathStructs.Vector3D.One
+  name: One
+  nameWithType: Vector3D.One
+  fullName: MathStructs.Vector3D.One
+- uid: MathStructs.Vector3D.UnitX*
+  commentId: Overload:MathStructs.Vector3D.UnitX
+  name: UnitX
+  nameWithType: Vector3D.UnitX
+  fullName: MathStructs.Vector3D.UnitX
+- uid: MathStructs.Vector3D.UnitY*
+  commentId: Overload:MathStructs.Vector3D.UnitY
+  name: UnitY
+  nameWithType: Vector3D.UnitY
+  fullName: MathStructs.Vector3D.UnitY
+- uid: MathStructs.Vector3D.UnitZ*
+  commentId: Overload:MathStructs.Vector3D.UnitZ
+  name: UnitZ
+  nameWithType: Vector3D.UnitZ
+  fullName: MathStructs.Vector3D.UnitZ
+- uid: MathStructs.Vector3D.GetHashCode*
+  commentId: Overload:MathStructs.Vector3D.GetHashCode
+  name: GetHashCode
+  nameWithType: Vector3D.GetHashCode
+  fullName: MathStructs.Vector3D.GetHashCode
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MathStructs.Vector3D.Equals*
+  commentId: Overload:MathStructs.Vector3D.Equals
+  name: Equals
+  nameWithType: Vector3D.Equals
+  fullName: MathStructs.Vector3D.Equals
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector3D.ToString*
+  commentId: Overload:MathStructs.Vector3D.ToString
+  name: ToString
+  nameWithType: Vector3D.ToString
+  fullName: MathStructs.Vector3D.ToString
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.String}
+  commentId: '!:System.Nullable{System.String}'
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{IFormatProvider}
+  commentId: '!:System.Nullable{IFormatProvider}'
+  definition: System.Nullable`1
+  name: Nullable<IFormatProvider>
+  nameWithType: Nullable<IFormatProvider>
+  fullName: System.Nullable<IFormatProvider>
+  nameWithType.vb: Nullable(Of IFormatProvider)
+  fullName.vb: System.Nullable(Of IFormatProvider)
+  name.vb: Nullable(Of IFormatProvider)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: IFormatProvider
+    name: IFormatProvider
+    nameWithType: IFormatProvider
+    fullName: IFormatProvider
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector3D.Length*
+  commentId: Overload:MathStructs.Vector3D.Length
+  name: Length
+  nameWithType: Vector3D.Length
+  fullName: MathStructs.Vector3D.Length
+- uid: MathStructs.Vector3D.LengthSquared*
+  commentId: Overload:MathStructs.Vector3D.LengthSquared
+  name: LengthSquared
+  nameWithType: Vector3D.LengthSquared
+  fullName: MathStructs.Vector3D.LengthSquared
+- uid: MathStructs.Vector3D.Distance*
+  commentId: Overload:MathStructs.Vector3D.Distance
+  name: Distance
+  nameWithType: Vector3D.Distance
+  fullName: MathStructs.Vector3D.Distance
+- uid: MathStructs.Vector3D.DistanceSquared*
+  commentId: Overload:MathStructs.Vector3D.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Vector3D.DistanceSquared
+  fullName: MathStructs.Vector3D.DistanceSquared
+- uid: MathStructs.Vector3D.Normalize*
+  commentId: Overload:MathStructs.Vector3D.Normalize
+  name: Normalize
+  nameWithType: Vector3D.Normalize
+  fullName: MathStructs.Vector3D.Normalize
+- uid: MathStructs.Vector3D.Cross*
+  commentId: Overload:MathStructs.Vector3D.Cross
+  name: Cross
+  nameWithType: Vector3D.Cross
+  fullName: MathStructs.Vector3D.Cross
+- uid: MathStructs.Vector3D.Reflect*
+  commentId: Overload:MathStructs.Vector3D.Reflect
+  name: Reflect
+  nameWithType: Vector3D.Reflect
+  fullName: MathStructs.Vector3D.Reflect
+- uid: MathStructs.Vector3D.Clamp*
+  commentId: Overload:MathStructs.Vector3D.Clamp
+  name: Clamp
+  nameWithType: Vector3D.Clamp
+  fullName: MathStructs.Vector3D.Clamp
+- uid: MathStructs.Vector3D.Lerp*
+  commentId: Overload:MathStructs.Vector3D.Lerp
+  name: Lerp
+  nameWithType: Vector3D.Lerp
+  fullName: MathStructs.Vector3D.Lerp
+- uid: MathStructs.Vector3D.Transform*
+  commentId: Overload:MathStructs.Vector3D.Transform
+  name: Transform
+  nameWithType: Vector3D.Transform
+  fullName: MathStructs.Vector3D.Transform
+- uid: MathStructs.Matrix4x4D
+  commentId: T:MathStructs.Matrix4x4D
+  parent: MathStructs
+  name: Matrix4x4D
+  nameWithType: Matrix4x4D
+  fullName: MathStructs.Matrix4x4D
+- uid: MathStructs.QuaternionD
+  commentId: T:MathStructs.QuaternionD
+  parent: MathStructs
+  name: QuaternionD
+  nameWithType: QuaternionD
+  fullName: MathStructs.QuaternionD
+- uid: MathStructs.Vector3D.TransformNormal*
+  commentId: Overload:MathStructs.Vector3D.TransformNormal
+  name: TransformNormal
+  nameWithType: Vector3D.TransformNormal
+  fullName: MathStructs.Vector3D.TransformNormal
+- uid: MathStructs.Vector3D.TransformV4*
+  commentId: Overload:MathStructs.Vector3D.TransformV4
+  name: TransformV4
+  nameWithType: Vector3D.TransformV4
+  fullName: MathStructs.Vector3D.TransformV4
+- uid: MathStructs.Vector4D
+  commentId: T:MathStructs.Vector4D
+  parent: MathStructs
+  name: Vector4D
+  nameWithType: Vector4D
+  fullName: MathStructs.Vector4D
+- uid: MathStructs.Vector3D.Add*
+  commentId: Overload:MathStructs.Vector3D.Add
+  name: Add
+  nameWithType: Vector3D.Add
+  fullName: MathStructs.Vector3D.Add
+- uid: MathStructs.Vector3D.Subtract*
+  commentId: Overload:MathStructs.Vector3D.Subtract
+  name: Subtract
+  nameWithType: Vector3D.Subtract
+  fullName: MathStructs.Vector3D.Subtract
+- uid: MathStructs.Vector3D.Multiply*
+  commentId: Overload:MathStructs.Vector3D.Multiply
+  name: Multiply
+  nameWithType: Vector3D.Multiply
+  fullName: MathStructs.Vector3D.Multiply
+- uid: MathStructs.Vector3D.Divide*
+  commentId: Overload:MathStructs.Vector3D.Divide
+  name: Divide
+  nameWithType: Vector3D.Divide
+  fullName: MathStructs.Vector3D.Divide
+- uid: MathStructs.Vector3D.Negate*
+  commentId: Overload:MathStructs.Vector3D.Negate
+  name: Negate
+  nameWithType: Vector3D.Negate
+  fullName: MathStructs.Vector3D.Negate
+- uid: MathStructs.Vector3D.#ctor*
+  commentId: Overload:MathStructs.Vector3D.#ctor
+  name: Vector3D
+  nameWithType: Vector3D.Vector3D
+  fullName: MathStructs.Vector3D.Vector3D
+- uid: MathStructs.Vector2D
+  commentId: T:MathStructs.Vector2D
+  parent: MathStructs
+  name: Vector2D
+  nameWithType: Vector2D
+  fullName: MathStructs.Vector2D
+- uid: MathStructs.Vector3D.Deconstruct*
+  commentId: Overload:MathStructs.Vector3D.Deconstruct
+  name: Deconstruct
+  nameWithType: Vector3D.Deconstruct
+  fullName: MathStructs.Vector3D.Deconstruct
+- uid: MathStructs.Vector3D.With*
+  commentId: Overload:MathStructs.Vector3D.With
+  name: With
+  nameWithType: Vector3D.With
+  fullName: MathStructs.Vector3D.With
+- uid: System.Nullable{System.Double}
+  commentId: '!:System.Nullable{System.Double}'
+  definition: System.Nullable`1
+  name: Nullable<Double>
+  nameWithType: Nullable<Double>
+  fullName: System.Nullable<System.Double>
+  nameWithType.vb: Nullable(Of Double)
+  fullName.vb: System.Nullable(Of System.Double)
+  name.vb: Nullable(Of Double)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Vector3D.CopyTo*
+  commentId: Overload:MathStructs.Vector3D.CopyTo
+  name: CopyTo
+  nameWithType: Vector3D.CopyTo
+  fullName: MathStructs.Vector3D.CopyTo
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: MathStructs.Vector3D.Dot*
+  commentId: Overload:MathStructs.Vector3D.Dot
+  name: Dot
+  nameWithType: Vector3D.Dot
+  fullName: MathStructs.Vector3D.Dot
+- uid: MathStructs.Vector3D.Min*
+  commentId: Overload:MathStructs.Vector3D.Min
+  name: Min
+  nameWithType: Vector3D.Min
+  fullName: MathStructs.Vector3D.Min
+- uid: MathStructs.Vector3D.Max*
+  commentId: Overload:MathStructs.Vector3D.Max
+  name: Max
+  nameWithType: Vector3D.Max
+  fullName: MathStructs.Vector3D.Max
+- uid: MathStructs.Vector3D.Abs*
+  commentId: Overload:MathStructs.Vector3D.Abs
+  name: Abs
+  nameWithType: Vector3D.Abs
+  fullName: MathStructs.Vector3D.Abs
+- uid: MathStructs.Vector3D.SquareRoot*
+  commentId: Overload:MathStructs.Vector3D.SquareRoot
+  name: SquareRoot
+  nameWithType: Vector3D.SquareRoot
+  fullName: MathStructs.Vector3D.SquareRoot
+- uid: MathStructs.Vector3D.op_UnaryPlus*
+  commentId: Overload:MathStructs.Vector3D.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Vector3D.UnaryPlus
+  fullName: MathStructs.Vector3D.UnaryPlus
+- uid: MathStructs.Vector3D.op_UnaryNegation*
+  commentId: Overload:MathStructs.Vector3D.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Vector3D.UnaryNegation
+  fullName: MathStructs.Vector3D.UnaryNegation
+- uid: MathStructs.Vector3D.op_Addition*
+  commentId: Overload:MathStructs.Vector3D.op_Addition
+  name: Addition
+  nameWithType: Vector3D.Addition
+  fullName: MathStructs.Vector3D.Addition
+- uid: MathStructs.Vector3D.op_Subtraction*
+  commentId: Overload:MathStructs.Vector3D.op_Subtraction
+  name: Subtraction
+  nameWithType: Vector3D.Subtraction
+  fullName: MathStructs.Vector3D.Subtraction
+- uid: MathStructs.Vector3D.op_Multiply*
+  commentId: Overload:MathStructs.Vector3D.op_Multiply
+  name: Multiply
+  nameWithType: Vector3D.Multiply
+  fullName: MathStructs.Vector3D.Multiply
+- uid: MathStructs.Vector3D.op_Division*
+  commentId: Overload:MathStructs.Vector3D.op_Division
+  name: Division
+  nameWithType: Vector3D.Division
+  fullName: MathStructs.Vector3D.Division
+- uid: MathStructs.Vector3D.op_Equality*
+  commentId: Overload:MathStructs.Vector3D.op_Equality
+  name: Equality
+  nameWithType: Vector3D.Equality
+  fullName: MathStructs.Vector3D.Equality
+- uid: MathStructs.Vector3D.op_Inequality*
+  commentId: Overload:MathStructs.Vector3D.op_Inequality
+  name: Inequality
+  nameWithType: Vector3D.Inequality
+  fullName: MathStructs.Vector3D.Inequality
