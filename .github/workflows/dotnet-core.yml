@@ -32,7 +32,7 @@ jobs:
       run: dotnet restore '${{ env.SOLUTION_PATH }}' --verbosity quiet
 
     - name: Build
-      run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
+      run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release
 
     - name: Test
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
