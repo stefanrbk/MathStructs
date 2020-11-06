@@ -97,6 +97,7 @@ items:
     content: 'public struct Vector4F : IEquatable<Vector4F>, IFormattable'
     content.vb: >-
       Public Structure Vector4F
+
           Implements IEquatable(Of Vector4F), IFormattable
   implements:
   - IEquatable{MathStructs.Vector4F}

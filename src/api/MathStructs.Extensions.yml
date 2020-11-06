@@ -29,6 +29,7 @@ items:
     content: 'public static class Extensions : object'
     content.vb: >-
       Public Module Extensions
+
           Inherits Object
   inheritance:
   - System.Object

@@ -74,6 +74,7 @@ items:
     content: 'public struct QuaternionF : IEquatable<QuaternionF>'
     content.vb: >-
       Public Structure QuaternionF
+
           Implements IEquatable(Of QuaternionF)
   implements:
   - IEquatable{MathStructs.QuaternionF}

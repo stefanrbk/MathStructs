@@ -67,6 +67,7 @@ items:
     content: 'public struct Matrix3x3D : IEquatable<Matrix3x3D>'
     content.vb: >-
       Public Structure Matrix3x3D
+
           Implements IEquatable(Of Matrix3x3D)
   implements:
   - IEquatable{MathStructs.Matrix3x3D}
