@@ -4,19 +4,17 @@ using System;
 
 namespace Tests
 {
-    static class MathHelper
+    internal static class MathHelper
     {
+        #region Public Fields
+
         public const float Pi = (float)Math.PI;
         public const float PiOver2 = Pi / 2f;
         public const float PiOver4 = Pi / 4f;
 
+        #endregion Public Fields
 
-        // Angle conversion helper.
-        public static float ToRadians(float degrees)
-        {
-            return degrees * Pi / 180f;
-        }
-
+        #region Public Methods
 
         // Comparison helpers with small tolerance to allow for floating point rounding during computations.
         public static bool Equal(float a, float b)
@@ -58,22 +56,6 @@ namespace Tests
             return Equal(a.X, b.X) && Equal(a.Y, b.Y) && Equal(a.Z, b.Z) && Equal(a.W, b.W);
         }
 
-        public static bool EqualRotation(QuaternionF a, QuaternionF b)
-        {
-            return Equal(a, b) || Equal(a, -b);
-        }
-
-
-        // Angle conversion helper.
-        public static double ToRadiansD(float _) =>
-            throw new Exception();
-
-        public static double ToRadiansD(double degrees)
-        {
-            return degrees * Math.PI / 180;
-        }
-
-
         // Comparison helpers with small tolerance to allow for doubleing point rounding during computations.
         public static bool Equal(double a, double b)
         {
@@ -114,9 +96,31 @@ namespace Tests
             return Equal(a.X, b.X) && Equal(a.Y, b.Y) && Equal(a.Z, b.Z) && Equal(a.W, b.W);
         }
 
+        public static bool EqualRotation(QuaternionF a, QuaternionF b)
+        {
+            return Equal(a, b) || Equal(a, -b);
+        }
+
         public static bool EqualRotation(QuaternionD a, QuaternionD b)
         {
             return Equal(a, b) || Equal(a, -b);
         }
+
+        // Angle conversion helper.
+        public static float ToRadians(float degrees)
+        {
+            return degrees * Pi / 180f;
+        }
+
+        // Angle conversion helper.
+        public static double ToRadiansD(float _) =>
+            throw new Exception();
+
+        public static double ToRadiansD(double degrees)
+        {
+            return degrees * Math.PI / 180;
+        }
+
+        #endregion Public Methods
     }
 }

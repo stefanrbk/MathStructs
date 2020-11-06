@@ -1,19 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MathStructs
 {
     public struct PlaneF
     {
+        #region Public Fields
+
+        public float D;
+        public Vector3F Normal;
+
+        #endregion Public Fields
+
+        #region Private Fields
+
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
 
-        public Vector3F Normal;
+        #endregion Private Fields
 
-        public float D;
+        #region Public Constructors
 
         public PlaneF(float x, float y, float z, float d)
         {
@@ -27,11 +33,9 @@ namespace MathStructs
         public PlaneF(Vector4F value) =>
             (Normal, D) = value;
 
-        public void Deconstruct(out Vector3F normal, out float d) =>
-            (normal, d) = (Normal, D);
+        #endregion Public Constructors
 
-        public void Deconstruct(out float x, out float y, out float z, out float d) =>
-            (x, y, z, d) = (Normal.X, Normal.Y, Normal.Z, D);
+        #region Public Methods
 
         [MethodImpl(Optimize)]
         public static PlaneF CreateFromVertices(Vector3F point1, Vector3F point2, Vector3F point3)
@@ -45,18 +49,28 @@ namespace MathStructs
         }
 
         [MethodImpl(Optimize)]
-        public PlaneF Normalize()
-        {
-            var n = Normal.LengthSquared();
-            if (MathF.Abs(n - 1) < 1.1920929e-7f)
-                return this;
-            var n2 = MathF.Sqrt(n);
-            return new PlaneF(Normal / n2, D / n2);
-        }
+        public static float Dot(PlaneF plane, Vector4F value) =>
+            plane.Dot(value);
+
+        [MethodImpl(Optimize)]
+        public static float DotCoordinate(PlaneF plane, Vector3F value) =>
+            plane.DotCoordinate(value);
+
+        [MethodImpl(Optimize)]
+        public static float DotNormal(PlaneF plane, Vector3F value) =>
+            plane.DotNormal(value);
 
         [MethodImpl(Optimize)]
         public static PlaneF Normalize(PlaneF value) =>
             value.Normalize();
+
+        [MethodImpl(Optimize)]
+        public static bool operator !=(PlaneF left, PlaneF right) =>
+            left.Normal != right.Normal || left.D != right.D;
+
+        [MethodImpl(Optimize)]
+        public static bool operator ==(PlaneF left, PlaneF right) =>
+            left.Normal == right.Normal && left.D == right.D;
 
         [MethodImpl(Optimize)]
         public static PlaneF Transform(PlaneF plane, Matrix4x4F matrix)
@@ -68,10 +82,6 @@ namespace MathStructs
                               x * result.M31 + y * result.M32 + z * result.M33 + d * result.M34,
                               x * result.M41 + y * result.M42 + z * result.M43 + d * result.M44);
         }
-
-        [MethodImpl(Optimize)]
-        public PlaneF Transform(Matrix4x4F matrix) =>
-            Transform(this, matrix);
 
         [MethodImpl(Optimize)]
         public static PlaneF Transform(PlaneF plane, QuaternionF rotation)
@@ -103,41 +113,23 @@ namespace MathStructs
             return new PlaneF(x * n13 + y * n14 + z * n15, x * n16 + y * n17 + z * n18, x * n19 + y * n20 + z * n21, plane.D);
         }
 
-        [MethodImpl(Optimize)]
-        public PlaneF Transform(QuaternionF rotation) =>
-            Transform(this, rotation);
+        public void Deconstruct(out Vector3F normal, out float d) =>
+                                                                                    (normal, d) = (Normal, D);
+
+        public void Deconstruct(out float x, out float y, out float z, out float d) =>
+            (x, y, z, d) = (Normal.X, Normal.Y, Normal.Z, D);
 
         [MethodImpl(Optimize)]
         public float Dot(Vector4F value) =>
             Normal.X * value.X + Normal.Y * value.Y + Normal.Z * value.Z + D * value.W;
 
         [MethodImpl(Optimize)]
-        public static float Dot(PlaneF plane, Vector4F value) =>
-            plane.Dot(value);
-
-        [MethodImpl(Optimize)]
         public float DotCoordinate(Vector3F value) =>
             DotNormal(value) + D;
 
         [MethodImpl(Optimize)]
-        public static float DotCoordinate(PlaneF plane, Vector3F value) =>
-            plane.DotCoordinate(value);
-
-        [MethodImpl(Optimize)]
         public float DotNormal(Vector3F value) =>
             Normal.Dot(value);
-
-        [MethodImpl(Optimize)]
-        public static float DotNormal(PlaneF plane, Vector3F value) =>
-            plane.DotNormal(value);
-
-        [MethodImpl(Optimize)]
-        public static bool operator ==(PlaneF left, PlaneF right) =>
-            left.Normal == right.Normal && left.D == right.D;
-
-        [MethodImpl(Optimize)]
-        public static bool operator !=(PlaneF left, PlaneF right) =>
-            left.Normal != right.Normal || left.D != right.D;
 
         [MethodImpl(Optimize)]
         public bool Equals(PlaneF other) =>
@@ -147,10 +139,30 @@ namespace MathStructs
         public override bool Equals(object? obj) =>
             obj is PlaneF p && this == p;
 
+        public override int GetHashCode() =>
+            Normal.GetHashCode() + D.GetHashCode();
+
+        [MethodImpl(Optimize)]
+        public PlaneF Normalize()
+        {
+            var n = Normal.LengthSquared();
+            if (MathF.Abs(n - 1) < 1.1920929e-7f)
+                return this;
+            var n2 = MathF.Sqrt(n);
+            return new PlaneF(Normal / n2, D / n2);
+        }
+
         public override string ToString() =>
             $"{{Normal:{Normal} D:{D}}}";
 
-        public override int GetHashCode() =>
-            Normal.GetHashCode() + D.GetHashCode();
+        [MethodImpl(Optimize)]
+        public PlaneF Transform(Matrix4x4F matrix) =>
+            Transform(this, matrix);
+
+        [MethodImpl(Optimize)]
+        public PlaneF Transform(QuaternionF rotation) =>
+            Transform(this, rotation);
+
+        #endregion Public Methods
     }
 }

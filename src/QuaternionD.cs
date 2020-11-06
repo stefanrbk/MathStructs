@@ -1,26 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MathStructs
 {
     public struct QuaternionD : IEquatable<QuaternionD>
     {
-        private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
+        #region Public Fields
 
+        public double W;
         public double X;
         public double Y;
         public double Z;
-        public double W;
-        private readonly static QuaternionD _identity = new QuaternionD(0, 0, 0, 1);
-        public static QuaternionD Identity => _identity;
 
-        public bool IsIdentity =>
-            this == _identity;
+        #endregion Public Fields
+
+        #region Private Fields
+
+        private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
+        private readonly static QuaternionD _identity = new QuaternionD(0, 0, 0, 1);
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public QuaternionD(double x, double y, double z, double w)
         {
@@ -38,92 +39,55 @@ namespace MathStructs
             W = scalarPart;
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        public static QuaternionD Identity => _identity;
+
+        public bool IsIdentity =>
+            this == _identity;
+
+        #endregion Public Properties
+
+        #region Public Methods
+
         [MethodImpl(Inline)]
-        public void Deconstruct(out double x, out double y, out double z, out double w)
+        public static QuaternionD Add(QuaternionD left, QuaternionD right) =>
+            left + right;
+
+        [MethodImpl(Inline)]
+        public static QuaternionD Concatenate(QuaternionD value1, QuaternionD value2)
         {
-            x = X;
-            y = Y;
-            z = Z;
-            w = W;
+            double x = value2.X;
+            double y = value2.Y;
+            double z = value2.Z;
+            double w = value2.W;
+            double x2 = value1.X;
+            double y2 = value1.Y;
+            double z2 = value1.Z;
+            double w2 = value1.W;
+            double num = y * z2 - z * y2;
+            double num2 = z * x2 - x * z2;
+            double num3 = x * y2 - y * x2;
+            double num4 = x * x2 + y * y2 + z * z2;
+            QuaternionD result;
+            result.X = x * w2 + x2 * w + num;
+            result.Y = y * w2 + y2 * w + num2;
+            result.Z = z * w2 + z2 * w + num3;
+            result.W = w * w2 - num4;
+            return result;
         }
-
-        [MethodImpl(Inline)]
-        public void Deconstruct(out Vector3D vectorPart, out double scalarPart)
-        {
-            vectorPart = new Vector3D(X, Y, Z);
-            scalarPart = W;
-        }
-
-        [MethodImpl(Inline)]
-        public QuaternionD With(double? x = null, double? y = null, double? z = null, double? w = null) =>
-            new QuaternionD(x ?? X, y ?? Y, z ?? Z, w ?? W);
-
-        [MethodImpl(Inline)]
-        public double Length() =>
-            Math.Sqrt(LengthSquared());
-
-        [MethodImpl(Inline)]
-        public double LengthSquared() =>
-            X * X + Y * Y + Z * Z + W * W;
-
-        [MethodImpl(Inline)]
-        public QuaternionD Normalize() =>
-            this * (1 / Length());
-
-        [MethodImpl(Inline)]
-        public static QuaternionD Normalize(QuaternionD value) =>
-            value.Normalize();
-
-        [MethodImpl(Inline)]
-        public QuaternionD Conjugate() =>
-            (-this).With(w: W);
 
         [MethodImpl(Inline)]
         public static QuaternionD Conjugate(QuaternionD value) =>
             value.Conjugate();
 
         [MethodImpl(Inline)]
-        public QuaternionD Inverse()
-        {
-            double num = X * X + Y * Y + Z * Z + W * W;
-            double num2 = 1f / num;
-            QuaternionD result;
-            result.X = (0f - X) * num2;
-            result.Y = (0f - Y) * num2;
-            result.Z = (0f - Z) * num2;
-            result.W = W * num2;
-            return result;
-        }
-
-        [MethodImpl(Inline)]
-        public static QuaternionD Inverse(QuaternionD value) =>
-            value.Inverse();
-
-        [MethodImpl(Inline)]
         public static QuaternionD CreateFromAxisAngle(Vector3D axis, double angle)
         {
             var x = angle * 0.5;
             return new QuaternionD(axis * Math.Sin(x), Math.Cos(x));
-        }
-
-        [MethodImpl(Inline)]
-        public static QuaternionD CreateFromYawPitchRoll(double yaw, double pitch, double roll)
-        {
-            yaw *= 0.5;
-            pitch *= 0.5;
-            roll *= 0.5;
-
-            var n1 = Math.Sin(roll);
-            var n2 = Math.Cos(roll);
-            var n3 = Math.Sin(pitch);
-            var n4 = Math.Cos(pitch);
-            var n5 = Math.Sin(yaw);
-            var n6 = Math.Cos(yaw);
-
-            return new QuaternionD(n6 * n3 * n2 + n5 * n4 * n1,
-                                   n5 * n4 * n2 - n6 * n3 * n1,
-                                   n6 * n4 * n1 - n5 * n3 * n2,
-                                   n6 * n4 * n2 + n5 * n3 * n1);
         }
 
         [MethodImpl(Inline)]
@@ -169,39 +133,36 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
-        public double Dot(QuaternionD value) =>
-            X * value.X + Y * value.Y + Z * value.Z + W * value.W;
+        public static QuaternionD CreateFromYawPitchRoll(double yaw, double pitch, double roll)
+        {
+            yaw *= 0.5;
+            pitch *= 0.5;
+            roll *= 0.5;
+
+            var n1 = Math.Sin(roll);
+            var n2 = Math.Cos(roll);
+            var n3 = Math.Sin(pitch);
+            var n4 = Math.Cos(pitch);
+            var n5 = Math.Sin(yaw);
+            var n6 = Math.Cos(yaw);
+
+            return new QuaternionD(n6 * n3 * n2 + n5 * n4 * n1,
+                                   n5 * n4 * n2 - n6 * n3 * n1,
+                                   n6 * n4 * n1 - n5 * n3 * n2,
+                                   n6 * n4 * n2 + n5 * n3 * n1);
+        }
+
+        [MethodImpl(Inline)]
+        public static QuaternionD Divide(QuaternionD left, QuaternionD right) =>
+            left / right;
 
         [MethodImpl(Inline)]
         public static double Dot(QuaternionD left, QuaternionD right) =>
             left.Dot(right);
 
         [MethodImpl(Inline)]
-        public static QuaternionD Slerp(QuaternionD q1, QuaternionD q2, double amount)
-        {
-            var n = q1.Dot(q2);
-            var f = false;
-            if (n < 0)
-            {
-                f = true;
-                n = -n;
-            }
-            double n2, n3;
-
-            if (n > 0.999999)
-            {
-                n2 = 1 - amount;
-                n3 = f ? -amount : amount;
-            }
-            else
-            {
-                var n4 = Math.Acos(n);
-                var n5 = 1 / Math.Sin(n4);
-                n2 = Math.Sin((1 - amount) * n4) * n5;
-                n3 = f ? ((-Math.Sin(amount * n4)) * n5) : (Math.Sin(amount * n4) * n5);
-            }
-            return q1 * n2 + q2 * n3;
-        }
+        public static QuaternionD Inverse(QuaternionD value) =>
+            value.Inverse();
 
         [MethodImpl(Inline)]
         public static QuaternionD Lerp(QuaternionD q1, QuaternionD q2, double amount)
@@ -213,45 +174,6 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
-        public QuaternionD Concatenate(QuaternionD value) =>
-            Concatenate(this, value);
-
-        [MethodImpl(Inline)]
-        public static QuaternionD Concatenate(QuaternionD value1, QuaternionD value2)
-        {
-            double x = value2.X;
-            double y = value2.Y;
-            double z = value2.Z;
-            double w = value2.W;
-            double x2 = value1.X;
-            double y2 = value1.Y;
-            double z2 = value1.Z;
-            double w2 = value1.W;
-            double num = y * z2 - z * y2;
-            double num2 = z * x2 - x * z2;
-            double num3 = x * y2 - y * x2;
-            double num4 = x * x2 + y * y2 + z * z2;
-            QuaternionD result;
-            result.X = x * w2 + x2 * w + num;
-            result.Y = y * w2 + y2 * w + num2;
-            result.Z = z * w2 + z2 * w + num3;
-            result.W = w * w2 - num4;
-            return result;
-        }
-
-        [MethodImpl(Inline)]
-        public static QuaternionD Negate(QuaternionD value) =>
-            -value;
-
-        [MethodImpl(Inline)]
-        public static QuaternionD Add(QuaternionD left, QuaternionD right) =>
-            left + right;
-
-        [MethodImpl(Inline)]
-        public static QuaternionD Subtract(QuaternionD left, QuaternionD right) =>
-            left - right;
-
-        [MethodImpl(Inline)]
         public static QuaternionD Multiply(QuaternionD left, QuaternionD right) =>
             left * right;
 
@@ -260,24 +182,24 @@ namespace MathStructs
             left * right;
 
         [MethodImpl(Inline)]
-        public static QuaternionD Divide(QuaternionD left, QuaternionD right) =>
-            left / right;
+        public static QuaternionD Negate(QuaternionD value) =>
+            -value;
 
         [MethodImpl(Inline)]
-        public static QuaternionD operator +(QuaternionD value) =>
-            value;
+        public static QuaternionD Normalize(QuaternionD value) =>
+            value.Normalize();
 
         [MethodImpl(Inline)]
         public static QuaternionD operator -(QuaternionD value) =>
             new QuaternionD(-value.X, -value.Y, -value.Z, -value.W);
 
         [MethodImpl(Inline)]
-        public static QuaternionD operator +(QuaternionD left, QuaternionD right) =>
-            new QuaternionD(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
-
-        [MethodImpl(Inline)]
         public static QuaternionD operator -(QuaternionD left, QuaternionD right) =>
             new QuaternionD(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
+
+        [MethodImpl(Inline)]
+        public static bool operator !=(QuaternionD left, QuaternionD right) =>
+            !(left == right);
 
         [MethodImpl(Inline)]
         public static QuaternionD operator *(QuaternionD left, double right) =>
@@ -323,12 +245,75 @@ namespace MathStructs
         }
 
         [MethodImpl(Inline)]
+        public static QuaternionD operator +(QuaternionD value) =>
+            value;
+
+        [MethodImpl(Inline)]
+        public static QuaternionD operator +(QuaternionD left, QuaternionD right) =>
+            new QuaternionD(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
+
+        [MethodImpl(Inline)]
         public static bool operator ==(QuaternionD left, QuaternionD right) =>
             left.X == right.X && left.Y == right.Y && left.Z == right.Z && left.W == right.W;
 
         [MethodImpl(Inline)]
-        public static bool operator !=(QuaternionD left, QuaternionD right) =>
-            !(left == right);
+        public static QuaternionD Slerp(QuaternionD q1, QuaternionD q2, double amount)
+        {
+            var n = q1.Dot(q2);
+            var f = false;
+            if (n < 0)
+            {
+                f = true;
+                n = -n;
+            }
+            double n2, n3;
+
+            if (n > 0.999999)
+            {
+                n2 = 1 - amount;
+                n3 = f ? -amount : amount;
+            }
+            else
+            {
+                var n4 = Math.Acos(n);
+                var n5 = 1 / Math.Sin(n4);
+                n2 = Math.Sin((1 - amount) * n4) * n5;
+                n3 = f ? ((-Math.Sin(amount * n4)) * n5) : (Math.Sin(amount * n4) * n5);
+            }
+            return q1 * n2 + q2 * n3;
+        }
+
+        [MethodImpl(Inline)]
+        public static QuaternionD Subtract(QuaternionD left, QuaternionD right) =>
+            left - right;
+
+        [MethodImpl(Inline)]
+        public QuaternionD Concatenate(QuaternionD value) =>
+            Concatenate(this, value);
+
+        [MethodImpl(Inline)]
+        public QuaternionD Conjugate() =>
+            (-this).With(w: W);
+
+        [MethodImpl(Inline)]
+        public void Deconstruct(out double x, out double y, out double z, out double w)
+        {
+            x = X;
+            y = Y;
+            z = Z;
+            w = W;
+        }
+
+        [MethodImpl(Inline)]
+        public void Deconstruct(out Vector3D vectorPart, out double scalarPart)
+        {
+            vectorPart = new Vector3D(X, Y, Z);
+            scalarPart = W;
+        }
+
+        [MethodImpl(Inline)]
+        public double Dot(QuaternionD value) =>
+            X * value.X + Y * value.Y + Z * value.Z + W * value.W;
 
         [MethodImpl(Inline)]
         public bool Equals(QuaternionD other, double delta) =>
@@ -347,11 +332,42 @@ namespace MathStructs
             obj is QuaternionD q && this == q;
 
         [MethodImpl(Inline)]
+        public override int GetHashCode() =>
+            X.GetHashCode() + Y.GetHashCode() + Z.GetHashCode() + W.GetHashCode();
+
+        [MethodImpl(Inline)]
+        public QuaternionD Inverse()
+        {
+            double num = X * X + Y * Y + Z * Z + W * W;
+            double num2 = 1f / num;
+            QuaternionD result;
+            result.X = (0f - X) * num2;
+            result.Y = (0f - Y) * num2;
+            result.Z = (0f - Z) * num2;
+            result.W = W * num2;
+            return result;
+        }
+
+        [MethodImpl(Inline)]
+        public double Length() =>
+            Math.Sqrt(LengthSquared());
+
+        [MethodImpl(Inline)]
+        public double LengthSquared() =>
+            X * X + Y * Y + Z * Z + W * W;
+
+        [MethodImpl(Inline)]
+        public QuaternionD Normalize() =>
+            this * (1 / Length());
+
+        [MethodImpl(Inline)]
         public override string ToString() =>
             $"{{X:{X} Y:{Y} Z:{Z} W:{W}}}";
 
         [MethodImpl(Inline)]
-        public override int GetHashCode() =>
-            X.GetHashCode() + Y.GetHashCode() + Z.GetHashCode() + W.GetHashCode();
+        public QuaternionD With(double? x = null, double? y = null, double? z = null, double? w = null) =>
+            new QuaternionD(x ?? X, y ?? Y, z ?? Z, w ?? W);
+
+        #endregion Public Methods
     }
 }
