@@ -2,7 +2,7 @@ name: 'Publish NuGet Package'
 
 env:
   DOTNET_CORE_SDK_VERSION: 5.0.100-rc.2.20479.15
-  SOLUTION_PATH: './src/MathStructs.sln'
+  SOLUTION_PATH: 'MathStructs.sln'
   NUGET_ACCESS_TOKEN: ${{ secrets.NUGET_KEY }}
   
 on:
