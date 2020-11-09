@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.1</Version>
+    <Version>1.0.0-Pre1</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Stefan Kewatt</Authors>
     <Description>A collection of math related structures which are not included with dotnet.</Description>
@@ -14,10 +14,14 @@
     <RepositoryType>GitHub</RepositoryType>
     <Configurations>Debug;Release;Test</Configurations>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>11.0.0.0</FileVersion>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DocumentationFile>C:\Users\stefa\OneDrive\Programming\GitHub\stefanrbk\MathStructs.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">

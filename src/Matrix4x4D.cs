@@ -7,56 +7,107 @@ using System.Runtime.Intrinsics.X86;
 
 namespace MathStructs
 {
+    /// <summary>
+    /// A structure encapsulating a 4x4 matrix of <see cref="double"/> values.
+    /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Matrix4x4D
     {
         #region Public Fields
 
+        /// <summary>
+        /// Value at row 1, column 1 of the matrix.
+        /// </summary>
         [FieldOffset(0)]
         public double M11;
 
+        /// <summary>
+        /// Value at row 1, column 2 of the matrix.
+        /// </summary>
         [FieldOffset(8)]
         public double M12;
 
+        /// <summary>
+        /// Value at row 1, column 3 of the matrix.
+        /// </summary>
         [FieldOffset(16)]
         public double M13;
 
+        /// <summary>
+        /// Value at row 1, column 4 of the matrix.
+        /// </summary>
         [FieldOffset(24)]
         public double M14;
 
+        /// <summary>
+        /// Value at row 2, column 1 of the matrix.
+        /// </summary>
         [FieldOffset(32)]
         public double M21;
 
+        /// <summary>
+        /// Value at row 2, column 2 of the matrix.
+        /// </summary>
         [FieldOffset(40)]
         public double M22;
 
+        /// <summary>
+        /// Value at row 2, column 3 of the matrix.
+        /// </summary>
         [FieldOffset(48)]
         public double M23;
 
+        /// <summary>
+        /// Value at row 2, column 4 of the matrix.
+        /// </summary>
         [FieldOffset(56)]
         public double M24;
 
+        /// <summary>
+        /// Value at row 3, column 1 of the matrix.
+        /// </summary>
         [FieldOffset(64)]
         public double M31;
 
+        /// <summary>
+        /// Value at row 3, column 2 of the matrix.
+        /// </summary>
         [FieldOffset(72)]
         public double M32;
 
+        /// <summary>
+        /// Value at row 3, column 3 of the matrix.
+        /// </summary>
         [FieldOffset(80)]
         public double M33;
 
+        /// <summary>
+        /// Value at row 3, column 4 of the matrix.
+        /// </summary>
         [FieldOffset(88)]
         public double M34;
 
+        /// <summary>
+        /// Value at row 4, column 1 of the matrix.
+        /// </summary>
         [FieldOffset(96)]
         public double M41;
 
+        /// <summary>
+        /// Value at row 4, column 2 of the matrix.
+        /// </summary>
         [FieldOffset(104)]
         public double M42;
 
+        /// <summary>
+        /// Value at row 4, column 3 of the matrix.
+        /// </summary>
         [FieldOffset(112)]
         public double M43;
 
+        /// <summary>
+        /// Value at row 4, column 4 of the matrix.
+        /// </summary>
         [FieldOffset(120)]
         public double M44;
 
@@ -75,6 +126,9 @@ namespace MathStructs
 
         #region Public Constructors
 
+        /// <summary>
+        /// Constructs a <see cref="Matrix4x4D"/> from the given components.
+        /// </summary>
         [MethodImpl(Optimize)]
         public Matrix4x4D(double m11, double m12, double m13, double m14,
                           double m21, double m22, double m23, double m24,
@@ -99,6 +153,12 @@ namespace MathStructs
             M44 = m44;
         }
 
+        /// <summary>
+        /// Constructs a Matrix4x4D from the given <see cref="Matrix3x3D"/>.
+        /// </summary>
+        /// <param name="value">
+        /// The source <see cref="Matrix3x3D"/>.
+        /// </param>
         [MethodImpl(Optimize)]
         public Matrix4x4D(Matrix3x3D value)
         {
@@ -124,13 +184,25 @@ namespace MathStructs
 
         #region Public Properties
 
+        /// <summary>
+        /// Returns the multiplicative identity matrix.
+        /// </summary>
         public static Matrix4x4D Identity => _identity;
 
+        /// <summary>
+        /// Returns a matrix with all values set to NaN.
+        /// </summary>
         public static Matrix4x4D NaN => _nan;
 
+        /// <summary>
+        /// Returns whether the matrix is the identity matrix.
+        /// </summary>
         public bool IsIdentity =>
             this == Identity;
 
+        /// <summary>
+        /// Gets or sets the translation component of this matrix.
+        /// </summary>
         public Vector3D Translation
         {
             get => new Vector3D(M41, M42, M43);
@@ -141,10 +213,34 @@ namespace MathStructs
 
         #region Public Methods
 
+        /// <summary>
+        /// Adds two matrices together.
+        /// </summary>
+        /// <param name="left">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="right">
+        /// The second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Add(Matrix4x4D left, Matrix4x4D right) =>
             left + right;
 
+        /// <summary>
+        /// Creates a spherical billboard that rotates around a specified object position.
+        /// </summary>
+        /// <param name="objectPosition">
+        /// Position of the object the billboard will rotate around.
+        /// </param>
+        /// <param name="cameraPosition">
+        /// Position of the camera.
+        /// </param>
+        /// <param name="cameraUpVector">
+        /// The up vector of the camera.
+        /// </param>
+        /// <param name="cameraForwardVector">
+        /// The forward vector of the camera.
+        /// </param>
         public static Matrix4x4D CreateBillboard(Vector3D objectPosition, Vector3D cameraPosition, Vector3D cameraUpVector, Vector3D cameraForwardVector)
         {
             var left = objectPosition - cameraPosition;
@@ -166,6 +262,24 @@ namespace MathStructs
                                   m43: objectPosition.Z);
         }
 
+        /// <summary>
+        /// Creates a cylindrical billboard that rotates around a specified axis.
+        /// </summary>
+        /// <param name="objectPosition">
+        /// Position of the object the billboard will rotate around.
+        /// </param>
+        /// <param name="cameraPosition">
+        /// Position of the camera.
+        /// </param>
+        /// <param name="rotateAxis">
+        /// Axis to rotate the billboard around.
+        /// </param>
+        /// <param name="cameraForwardVector">
+        /// Forward vector of the camera.
+        /// </param>
+        /// <param name="objectForwardVector">
+        /// Forward vector of the object.
+        /// </param>
         public static Matrix4x4D CreateConstrainedBillboard(Vector3D objectPosition, Vector3D cameraPosition, Vector3D rotateAxis, Vector3D cameraForwardVector, Vector3D objectForwardVector)
         {
             var left = objectPosition - cameraPosition;
@@ -201,6 +315,15 @@ namespace MathStructs
                                   m43: objectPosition.Z);
         }
 
+        /// <summary>
+        /// Creates a matrix that rotates around an arbitrary vector.
+        /// </summary>
+        /// <param name="axis">
+        /// The axis to rotate around.
+        /// </param>
+        /// <param name="angle">
+        /// The angle to rotate around the given axis, in radians.
+        /// </param>
         public static Matrix4x4D CreateFromAxisAngle(Vector3D axis, double angle)
         {
             /*
@@ -247,6 +370,12 @@ namespace MathStructs
                                   m33: zz + ca * (1 - zz));
         }
 
+        /// <summary>
+        /// Creates a rotation matrix from the given <see cref="QuaternionD"/> rotation value.
+        /// </summary>
+        /// <param name="q">
+        /// The source <see cref="QuaternionD"/>.
+        /// </param>
         public static Matrix4x4D CreateFromQuaternion(QuaternionD q)
         {
             var n1 = q.X * q.X;
@@ -270,9 +399,31 @@ namespace MathStructs
                                   m33: 1 - 2 * (n2 + n1));
         }
 
+        /// <summary>
+        /// Creates a rotation matrix from the specified yaw, pitch, and roll.
+        /// </summary>
+        /// <param name="yaw">
+        /// Angle of rotation, in radians, around the Y-axis.
+        /// </param>
+        /// <param name="pitch">
+        /// Angle of rotation, in radians, around the X-axis.
+        /// </param>
+        /// <param name="roll">
+        /// Angle of rotation, in radians, around the Z-axis.
+        /// </param>
         public static Matrix4x4D CreateFromYawPitchRoll(double yaw, double pitch, double roll) =>
             CreateFromQuaternion(QuaternionD.CreateFromYawPitchRoll(yaw, pitch, roll));
 
+        /// <summary>
+        /// Creates a view matrix.
+        /// </summary>
+        /// <param name="cameraPosition">
+        /// The position of the camera.
+        /// </param>
+        /// <param name="cameraTarget">
+        /// The target towards which the camera is pointing.
+        /// </param>
+        /// <param name="cameraUpVector"></param>
         public static Matrix4x4D CreateLookAt(Vector3D cameraPosition, Vector3D cameraTarget, Vector3D cameraUpVector)
         {
             var v1 = (cameraPosition - cameraTarget).Normalize();
@@ -293,12 +444,48 @@ namespace MathStructs
                                   m43: -v1.Dot(cameraPosition));
         }
 
+        /// <summary>
+        /// Creates an orthographic perspective matrix from the given view volume dimensions.
+        /// </summary>
+        /// <param name="width">
+        /// Width of the view volume.
+        /// </param>
+        /// <param name="height">
+        /// Height of the view volume.
+        /// </param>
+        /// <param name="zNearPlane">
+        /// Minimum Z-value of the view volume.
+        /// </param>
+        /// <param name="zFarPlane">
+        /// Maximum Z-value of the view volume.
+        /// </param>
         public static Matrix4x4D CreateOrthographic(double width, double height, double zNearPlane, double zFarPlane) =>
             _identity.With(m11: 2.0 / width,
                            m22: 2.0 / height,
                            m33: 1.0 / (zNearPlane - zFarPlane),
                            m43: zNearPlane / (zNearPlane - zFarPlane));
 
+        /// <summary>
+        /// Builds a customized, orthographic projection matrix.
+        /// </summary>
+        /// <param name="left">
+        /// Minimum X-value of the view volume.
+        /// </param>
+        /// <param name="right">
+        /// Maximum X-value of the view volume.
+        /// </param>
+        /// <param name="bottom">
+        /// Minimum Y-value of the view volume.
+        /// </param>
+        /// <param name="top">
+        /// Maximum Y-value of the view volume.
+        /// </param>
+        /// <param name="zNearPlane">
+        /// Minimum Z-value of the view volume.
+        /// </param>
+        /// <param name="zFarPlane">
+        /// Maximum Z-value of the view volume.
+        /// </param>
         public static Matrix4x4D CreateOrthographicOffCenter(double left, double right, double bottom, double top, double zNearPlane, double zFarPlane) =>
             _identity.With(m11: 2.0 / (right - left),
                            m22: 2.0 / (top - bottom),
@@ -307,6 +494,21 @@ namespace MathStructs
                            m42: (top + bottom) / (bottom - top),
                            m43: zNearPlane / (zNearPlane - zFarPlane));
 
+        /// <summary>
+        /// Create a perspective projection matrix from the given view volume dimension.
+        /// </summary>
+        /// <param name="width">
+        /// Width of the view volume at the near view plane.
+        /// </param>
+        /// <param name="height">
+        /// Height of the view volume at the near view plane.
+        /// </param>
+        /// <param name="nearPlaneDistance">
+        /// Distance to the near view plane.
+        /// </param>
+        /// <param name="farPlaneDistance">
+        /// Distance to the far view plane.
+        /// </param>
         public static Matrix4x4D CreatePerspective(double width, double height, double nearPlaneDistance, double farPlaneDistance)
         {
             if (nearPlaneDistance is <= 0)
@@ -324,6 +526,21 @@ namespace MathStructs
                                             m43: nearPlaneDistance * negFarRange);
         }
 
+        /// <summary>
+        /// Creates a perspective projection matrix based on a field of view, aspect ratio, and near and far view plane distances.
+        /// </summary>
+        /// <param name="fieldOfView">
+        /// Field of view in the y direction, in radians.
+        /// </param>
+        /// <param name="aspectRatio">
+        /// Aspect ratio, defined as view space width divided by height.
+        /// </param>
+        /// <param name="nearPlaneDistance">
+        /// Distance to the near view plane.
+        /// </param>
+        /// <param name="farPlaneDistance">
+        /// Distance to the far view plane.
+        /// </param>
         public static Matrix4x4D CreatePerspectiveFieldOfView(double fieldOfView, double aspectRatio, double nearPlaneDistance, double farPlaneDistance)
         {
             if (fieldOfView is <= 0 or >= Math.PI)
@@ -346,6 +563,27 @@ namespace MathStructs
                                             m43: nearPlaneDistance * negFarRange);
         }
 
+        /// <summary>
+        /// Creates a customized, perspective projection matrix.
+        /// </summary>
+        /// <param name="left">
+        /// Minimum x-value of the view volume at the near view plane.
+        /// </param>
+        /// <param name="right">
+        /// Maximum x-value of the view volume at the near view plane.
+        /// </param>
+        /// <param name="bottom">
+        /// Minimum y-value of the view volume at the near view plane.
+        /// </param>
+        /// <param name="top">
+        /// Maximum y-value of the view volume at the near view plane.
+        /// </param>
+        /// <param name="nearPlaneDistance">
+        /// Distance to the near view plane.
+        /// </param>
+        /// <param name="farPlaneDistance">
+        /// Distance to the far view plane.
+        /// </param>
         public static Matrix4x4D CreatePerspectiveOffCenter(double left, double right, double bottom, double top, double nearPlaneDistance, double farPlaneDistance)
         {
             if (nearPlaneDistance is <= 0)
@@ -366,6 +604,12 @@ namespace MathStructs
                                   m44: 0);
         }
 
+        /// <summary>
+        /// Creates a Matrix that reflects the coordinate system about a specified Plane.
+        /// </summary>
+        /// <param name="value">
+        /// The Plane about which to create a reflection.
+        /// </param>
         public static Matrix4x4D CreateReflection(PlaneD value)
         {
             value = value.Normalize();
@@ -385,6 +629,12 @@ namespace MathStructs
                                   m43: v2.Z * value.D);
         }
 
+        /// <summary>
+        /// Creates a matrix for rotating points around the X-axis.
+        /// </summary>
+        /// <param name="radians">
+        /// The amount, in radians, by which to rotate around the X-axis.
+        /// </param>
         public static Matrix4x4D CreateRotationX(double radians)
         {
             var c = Math.Cos(radians);
@@ -398,6 +648,15 @@ namespace MathStructs
             return _identity.With(m22: c, m23: s, m32: -s, m33: c);
         }
 
+        /// <summary>
+        /// Creates a matrix for rotating points around the X-axis, from a center point.
+        /// </summary>
+        /// <param name="radians">
+        /// The amount, in radians, by which to rotate around the X-axis.
+        /// </param>
+        /// <param name="centerPoint">
+        /// The center point.
+        /// </param>
         public static Matrix4x4D CreateRotationX(double radians, Vector3D centerPoint)
         {
             var c = Math.Cos(radians);
@@ -413,6 +672,12 @@ namespace MathStructs
             return CreateRotationX(radians).With(m42: y, m43: z);
         }
 
+        /// <summary>
+        /// Creates a matrix for rotating points around the Y-axis.
+        /// </summary>
+        /// <param name="radians">
+        /// The amount, in radians, by which to rotate around the Y-axis.
+        /// </param>
         public static Matrix4x4D CreateRotationY(double radians)
         {
             var c = Math.Cos(radians);
@@ -426,6 +691,15 @@ namespace MathStructs
             return _identity.With(m11: c, m13: -s, m31: s, m33: c);
         }
 
+        /// <summary>
+        /// Creates a matrix for rotating points around the Y-axis, from a center point.
+        /// </summary>
+        /// <param name="radians">
+        /// The amount, in radians, by which to rotate around the Y-axis.
+        /// </param>
+        /// <param name="centerPoint">
+        /// The center point.
+        /// </param>
         public static Matrix4x4D CreateRotationY(double radians, Vector3D centerPoint)
         {
             var c = Math.Cos(radians);
@@ -441,6 +715,12 @@ namespace MathStructs
             return CreateRotationY(radians).With(m41: x, m43: z);
         }
 
+        /// <summary>
+        /// Creates a matrix for rotating points around the Z-axis.
+        /// </summary>
+        /// <param name="radians">
+        /// The amount, in radians, by which to rotate around the Z-axis.
+        /// </param>
         public static Matrix4x4D CreateRotationZ(double radians)
         {
             var c = Math.Cos(radians);
@@ -454,6 +734,15 @@ namespace MathStructs
             return _identity.With(m11: c, m12: s, m21: -s, m22: c);
         }
 
+        /// <summary>
+        /// Creates a matrix for rotating points around the Z-axis, from a center point.
+        /// </summary>
+        /// <param name="radians">
+        /// The amount, in radians, by which to rotate around the Z-axis.
+        /// </param>
+        /// <param name="centerPoint">
+        /// The center point.
+        /// </param>
         public static Matrix4x4D CreateRotationZ(double radians, Vector3D centerPoint)
         {
             var c = Math.Cos(radians);
@@ -469,9 +758,36 @@ namespace MathStructs
             return CreateRotationZ(radians).With(m41: x, m42: y);
         }
 
+        /// <summary>
+        /// Creates a scaling matrix.
+        /// </summary>
+        /// <param name="xScale">
+        /// Value to scale by on the X-axis.
+        /// </param>
+        /// <param name="yScale">
+        /// Value to scale by on the Y-axis.
+        /// </param>
+        /// <param name="zScale">
+        /// Value to scale by on the Z-axis.
+        /// </param>
         public static Matrix4x4D CreateScale(double xScale, double yScale, double zScale) =>
             _identity.With(m11: xScale, m22: yScale, m33: zScale);
 
+        /// <summary>
+        /// Creates a scaling matrix with a center point.
+        /// </summary>
+        /// <param name="xScale">
+        /// Value to scale by on the X-axis.
+        /// </param>
+        /// <param name="yScale">
+        /// Value to scale by on the Y-axis.
+        /// </param>
+        /// <param name="zScale">
+        /// Value to scale by on the Z-axis.
+        /// </param>
+        /// <param name="centerPoint">
+        /// The center point.
+        /// </param>
         public static Matrix4x4D CreateScale(double xScale, double yScale, double zScale, Vector3D centerPoint)
         {
             var m1 = centerPoint.X * (1 - xScale);
@@ -480,18 +796,55 @@ namespace MathStructs
             return CreateScale(xScale, yScale, zScale).With(m41: m1, m42: m2, m43: m3);
         }
 
+        /// <summary>
+        /// Creates a scaling matrix.
+        /// </summary>
+        /// <param name="scale">
+        /// The vector containing the amount to scale by on each axis.
+        /// </param>
         public static Matrix4x4D CreateScale(Vector3D scale) =>
             CreateScale(scale.X, scale.Y, scale.Z);
 
+        /// <summary>
+        /// Creates a scaling matrix with a center point.
+        /// </summary>
+        /// <param name="scale">The vector containing the amount to scale by on each axis.</param>
+        /// <param name="centerPoint">
+        /// The center point.
+        /// </param>
         public static Matrix4x4D CreateScale(Vector3D scale, Vector3D centerPoint) =>
             CreateScale(scale.X, scale.Y, scale.Z, centerPoint);
 
+        /// <summary>
+        /// Creates a uniform scaling matrix that scales equally on each axis.
+        /// </summary>
+        /// <param name="scale">
+        /// The uniform scaling factor.
+        /// </param>
         public static Matrix4x4D CreateScale(double scale) =>
             CreateScale(scale, scale, scale);
 
+        /// <summary>
+        /// Creates a uniform scaling matrix that scales equally on each axis with a center point.
+        /// </summary>
+        /// <param name="scale">
+        /// The uniform scaling factor.
+        /// </param>
+        /// <param name="centerPoint">
+        /// The center point.
+        /// </param>
         public static Matrix4x4D CreateScale(double scale, Vector3D centerPoint) =>
             CreateScale(scale, scale, scale, centerPoint);
 
+        /// <summary>
+        /// Creates a Matrix that flattens geometry into a specified Plan as if casting a shadow from a specified light source.
+        /// </summary>
+        /// <param name="lightDirection">
+        /// The direction from which the light that will cast the shadow is coming.
+        /// </param>
+        /// <param name="plane">
+        /// The Plane onto which the new matrix should flatten geometry so as to cast a shadow.
+        /// </param>
         public static Matrix4x4D CreateShadow(Vector3D lightDirection, PlaneD plane)
         {
             plane = plane.Normalize();
@@ -512,12 +865,42 @@ namespace MathStructs
                                   m44: n);
         }
 
+        /// <summary>
+        /// Creates a translation matrix.
+        /// </summary>
+        /// <param name="position">
+        /// The amount to translate in each axis.
+        /// </param>
         public static Matrix4x4D CreateTranslation(Vector3D position) =>
             CreateTranslation(position.X, position.Y, position.Z);
 
+        /// <summary>
+        /// Creates a translation matrix.
+        /// </summary>
+        /// <param name="xPosition">
+        /// The amount to translate on the X-axis.
+        /// </param>
+        /// <param name="yPosition">
+        /// The amount to translate on the Y-axis.
+        /// </param>
+        /// <param name="zPosition">
+        /// The amount to translate on the Z-axis.
+        /// </param>
         public static Matrix4x4D CreateTranslation(double xPosition, double yPosition, double zPosition) =>
             _identity.With(m41: xPosition, m42: yPosition, m43: zPosition);
 
+        /// <summary>
+        /// Creates a world matrix with the specified parameters.
+        /// </summary>
+        /// <param name="position">
+        /// The position of the object; used in translation operations.
+        /// </param>
+        /// <param name="forward">
+        /// Forward direction of the object.
+        /// </param>
+        /// <param name="up">
+        /// Upward direction of the object; usually &lt; 0 1 0 &gt;
+        /// </param>
         public static Matrix4x4D CreateWorld(Vector3D position, Vector3D forward, Vector3D up)
         {
             var v1 = (-forward).Normalize();
@@ -535,6 +918,24 @@ namespace MathStructs
                                                     m33: v1.Z);
         }
 
+        /// <summary>
+        /// Attempts to extract the scale, translation, and rotation components from the given scale/rotation/translation matrix.
+        /// </summary>
+        /// <param name="matrix">
+        /// The source matrix.
+        /// </param>
+        /// <param name="scale">
+        /// The scaling component of the transformation matrix.
+        /// </param>
+        /// <param name="rotation">
+        /// The rotation component of the transformation matrix.
+        /// </param>
+        /// <param name="translation">
+        /// The translation component of the transformation matrix.
+        /// </param>
+        /// <returns>
+        /// True if the source matrix was successfully decomposed; False otherwise.
+        /// </returns>
         [MethodImpl(Optimize)]
         public static bool Decompose(Matrix4x4D matrix, out Vector3D scale, out QuaternionD rotation, out Vector3D translation)
         {
@@ -542,6 +943,15 @@ namespace MathStructs
             return scale != Vector3D.Zero || translation != Vector3D.Zero || rotation != QuaternionD.Identity;
         }
 
+        /// <summary>
+        /// Attempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.
+        /// </summary>
+        /// <param name="matrix">
+        /// The source matrix to invert.
+        /// </param>
+        /// <returns>
+        /// If successful, the inverted matrix; NaN matrix otherwise.
+        /// </returns>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Invert(Matrix4x4D matrix)
         {
@@ -650,9 +1060,9 @@ namespace MathStructs
             var io_km = i * o - k * m;
             var in_jm = i * n - j * m;
 
-            var a11 = f * kp_lo - g * jp_ln + h * jo_kn;
+            var a11 =   f * kp_lo - g * jp_ln + h * jo_kn;
             var a12 = -(e * kp_lo - g * ip_lm + h * io_km);
-            var a13 = e * jp_ln - f * ip_lm + h * in_jm;
+            var a13 =   e * jp_ln - f * ip_lm + h * in_jm;
             var a14 = -(e * jo_kn - f * io_km + g * in_jm);
 
             var det = a * a11 + b * a12 + c * a13 + d * a14;
@@ -680,19 +1090,31 @@ namespace MathStructs
                                   m31: a13 * invDet,
                                   m41: a14 * invDet,
                                   m12: -(b * kp_lo - c * jp_ln + d * jo_kn) * invDet,
-                                  m22: (a * kp_lo - c * ip_lm + d * io_km) * invDet,
+                                  m22:  (a * kp_lo - c * ip_lm + d * io_km) * invDet,
                                   m32: -(a * jp_ln - b * ip_lm + d * in_jm) * invDet,
-                                  m42: (a * jo_kn - b * io_km + c * in_jm) * invDet,
-                                  m13: (b * gp_ho - c * fp_hn + d * fo_gn) * invDet,
+                                  m42:  (a * jo_kn - b * io_km + c * in_jm) * invDet,
+                                  m13:  (b * gp_ho - c * fp_hn + d * fo_gn) * invDet,
                                   m23: -(a * gp_ho - c * ep_hm + d * eo_gm) * invDet,
-                                  m33: (a * fp_hn - b * ep_hm + d * en_fm) * invDet,
+                                  m33:  (a * fp_hn - b * ep_hm + d * en_fm) * invDet,
                                   m43: -(a * fo_gn - b * eo_gm + c * en_fm) * invDet,
                                   m14: -(b * gl_hk - c * fl_hj + d * fk_gj) * invDet,
-                                  m24: (a * gl_hk - c * el_hi + d * ek_gi) * invDet,
+                                  m24:  (a * gl_hk - c * el_hi + d * ek_gi) * invDet,
                                   m34: -(a * fl_hj - b * el_hi + d * ej_fi) * invDet,
-                                  m44: (a * fk_gj - b * ek_gi + c * ej_fi) * invDet);
+                                  m44:  (a * fk_gj - b * ek_gi + c * ej_fi) * invDet);
         }
 
+        /// <summary>
+        /// Linearly interpolates between the corresponding values of two matrices.
+        /// </summary>
+        /// <param name="matrix1">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="matrix2">
+        /// The second source matrix.
+        /// </param>
+        /// <param name="amount">
+        /// The relative weight of the second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D Lerp(Matrix4x4D matrix1, Matrix4x4D matrix2, double amount)
         {
@@ -727,18 +1149,48 @@ namespace MathStructs
                                   m1.M44 + (m2.M44 - m1.M44) * amount);
         }
 
+        /// <summary>
+        /// Multiplies a matrix by another matrix.
+        /// </summary>
+        /// <param name="left">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="right">
+        /// The second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Multiply(Matrix4x4D left, Matrix4x4D right) =>
             left * right;
 
+        /// <summary>
+        /// Multiplies a matrix by a scalar value.
+        /// </summary>
+        /// <param name="left">
+        /// The source matrix.
+        /// </param>
+        /// <param name="right">
+        /// The scaling factor.
+        /// </param>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Multiply(Matrix4x4D left, double right) =>
             left * right;
 
+        /// <summary>
+        /// Returns a new matrix with the negated elements of the given matrix.
+        /// </summary>
+        /// <param name="value">
+        /// The source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Negate(Matrix4x4D value) =>
             -value;
 
+        /// <summary>
+        /// Returns a new matrix with the negated elements of the given matrix.
+        /// </summary>
+        /// <param name="value">
+        /// The source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator -(Matrix4x4D value)
         {
@@ -773,6 +1225,15 @@ namespace MathStructs
             return result;
         }
 
+        /// <summary>
+        /// Subtracts the second matrix from the first.
+        /// </summary>
+        /// <param name="left">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="right">
+        /// The second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator -(Matrix4x4D left, Matrix4x4D right)
         {
@@ -819,6 +1280,18 @@ namespace MathStructs
                                   left.M41 - right.M41, left.M42 - right.M42, left.M43 - right.M43, left.M44 - right.M44);
         }
 
+        /// <summary>
+        /// Returns a boolean indicating whether the given two matrices are not equal.
+        /// </summary>
+        /// <param name="value1">
+        /// The first matrix to compare.
+        /// </param>
+        /// <param name="value2">
+        /// The second matrix to compare.
+        /// </param>
+        /// <returns>
+        /// True if the given matrices are not equal; False if they are equal.
+        /// </returns>
         [MethodImpl(Optimize)]
         public unsafe static bool operator !=(Matrix4x4D value1, Matrix4x4D value2)
         {
@@ -859,6 +1332,15 @@ namespace MathStructs
                        value1.M42 == value2.M42 || value1.M43 == value2.M43;
         }
 
+        /// <summary>
+        /// Multiplies a matrix by another matrix.
+        /// </summary>
+        /// <param name="value1">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="value2">
+        /// The second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator *(Matrix4x4D value1, Matrix4x4D value2)
         {
@@ -960,6 +1442,15 @@ namespace MathStructs
             return result;
         }
 
+        /// <summary>
+        /// Multiplies a matrix by a scalar value.
+        /// </summary>
+        /// <param name="value1">
+        /// The source matrix.
+        /// </param>
+        /// <param name="value2">
+        /// The scaling factor.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator *(Matrix4x4D value1, double value2)
         {
@@ -1023,10 +1514,22 @@ namespace MathStructs
             return result;
         }
 
+        /// <summary>
+        /// Returns itself.
+        /// </summary>
         [MethodImpl(Optimize)]
         public static Matrix4x4D operator +(Matrix4x4D value) =>
             value;
 
+        /// <summary>
+        /// Adds two matrices together.
+        /// </summary>
+        /// <param name="left">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="right">
+        /// The second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator +(Matrix4x4D left, Matrix4x4D right)
         {
@@ -1045,6 +1548,18 @@ namespace MathStructs
                                   left.M41 + right.M41, left.M42 + right.M42, left.M43 + right.M43, left.M44 + right.M44);
         }
 
+        /// <summary>
+        /// Returns a boolean indicating whether the given two matrices are equal.
+        /// </summary>
+        /// <param name="value1">
+        /// The first matrix to compare.
+        /// </param>
+        /// <param name="value2">
+        /// The second matrix to compare.
+        /// </param>
+        /// <returns>
+        /// True if the given matrices are equal; False otherwise.
+        /// </returns>
         [MethodImpl(Optimize)]
         public unsafe static bool operator ==(Matrix4x4D value1, Matrix4x4D value2)
         {
@@ -1085,39 +1600,59 @@ namespace MathStructs
                        value1.M42 == value2.M42 && value1.M43 == value2.M43;
         }
 
+        /// <summary>
+        /// Subtracts the second matrix from the first.
+        /// </summary>
+        /// <param name="left">
+        /// The first source matrix.
+        /// </param>
+        /// <param name="right">
+        /// The second source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Subtract(Matrix4x4D left, Matrix4x4D right) =>
             left - right;
 
+        /// <summary>
+        /// Transforms the given matrix by applying the given Quaternion rotation
+        /// </summary>
+        /// <param name="value">
+        /// The source matrix to transform.
+        /// </param>
+        /// <param name="rotation">
+        /// The rotation to apply.
+        /// </param>
         [MethodImpl(Optimize)]
         public static Matrix4x4D Transform(Matrix4x4D value, QuaternionD rotation) =>
             value.Transform(rotation);
 
+        /// <summary>
+        /// Transposes the rows and columns of a matrix.
+        /// </summary>
+        /// <param name="matrix">
+        /// The source matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D Transpose(Matrix4x4D matrix)
         {
-            //if (Avx.IsSupported)
-            //{
-            //    var left = Avx.LoadVector256(&matrix.M11);
-            //    var right = Avx.LoadVector256(&matrix.M21);
-            //    var left2 = Avx.LoadVector256(&matrix.M31);
-            //    var right2 = Avx.LoadVector256(&matrix.M41);
-            //    var left3 = Avx.Shuffle(left, right, 68);
-            //    var left4 = Avx.Shuffle(left, right, 238);
-            //    var right3 = Avx.Shuffle(left2, right2, 68);
-            //    var right4 = Avx.Shuffle(left2, right2, 238);
-            //    Avx.Store(&matrix.M11, Avx.Shuffle(left3, right3, 136));
-            //    Avx.Store(&matrix.M21, Avx.Shuffle(left3, right3, 221));
-            //    Avx.Store(&matrix.M31, Avx.Shuffle(left4, right4, 136));
-            //    Avx.Store(&matrix.M41, Avx.Shuffle(left4, right4, 221));
-            //    return matrix;
-            //}
             return new Matrix4x4D(matrix.M11, matrix.M21, matrix.M31, matrix.M41,
                                   matrix.M12, matrix.M22, matrix.M32, matrix.M42,
                                   matrix.M13, matrix.M23, matrix.M33, matrix.M43,
                                   matrix.M14, matrix.M24, matrix.M34, matrix.M44);
         }
 
+        /// <summary>
+        /// Extracts the scale, translation, and rotation components from this scale/rotation/translation matrix.
+        /// </summary>
+        /// <param name="scale">
+        /// The scaling component of this transformation matrix.
+        /// </param>
+        /// <param name="rotation">
+        /// The rotation component of this transformation matrix.
+        /// </param>
+        /// <param name="translation">
+        /// The translation component of the transformation matrix.
+        /// </param>
         [MethodImpl(Optimize)]
         public unsafe void Deconstruct(out Vector3D scale, out QuaternionD rotation, out Vector3D translation)
         {
@@ -1227,10 +1762,28 @@ namespace MathStructs
             }
         }
 
+        /// <summary>
+        /// Returns a boolean indicating whether this matrix instance is equal to the other given matrix.
+        /// </summary>
+        /// <param name="other">
+        /// The matrix to compare this instance to.
+        /// </param>
+        /// <returns>
+        /// True if the matrices are equal; False otherwise.
+        /// </returns>
         [MethodImpl(Optimize)]
         public readonly bool Equals(Matrix4x4D other) =>
             this == other;
 
+        /// <summary>
+        /// Returns a boolean indicating whether the given Object is equal to this matrix instance.
+        /// </summary>
+        /// <param name="obj">
+        /// The Object to compare against.
+        /// </param>
+        /// <returns>
+        /// True if the Object is equal to this matrix; False otherwise.
+        /// </returns>
         [MethodImpl(Optimize)]
         public override readonly bool Equals(object? obj)
         {
@@ -1241,6 +1794,9 @@ namespace MathStructs
             return false;
         }
 
+        /// <summary>
+        /// Calculates the determinant of the matrix.
+        /// </summary>
         public double GetDeterminant()
         {
             /*
@@ -1301,6 +1857,9 @@ namespace MathStructs
                    d * (e * jo_kn - f * io_km + g * in_jm);
         }
 
+        /// <summary>
+        /// Returns the hash code for this instance.
+        /// </summary>
         public override int GetHashCode()
         {
             var hash = new HashCode();
@@ -1323,13 +1882,28 @@ namespace MathStructs
             return hash.ToHashCode();
         }
 
+        /// <summary>
+        /// Attempts to calculate the inverse of this matrix. If successful, the inverted matrix will be returned.
+        /// </summary>
+        /// <returns>
+        /// The inverted matrix or a NaN matrix if the inverse could not be calculated.
+        /// </returns>
         [MethodImpl(Optimize)]
         public Matrix4x4D Invert() =>
             Invert(this);
 
+        /// <summary>
+        /// Returns a String representing this matrix instance.
+        /// </summary>
         public override readonly string ToString() =>
             $"{{ {{M11:{M11} M12:{M12} M13:{M13} M14:{M14}}} {{M21:{M21} M22:{M22} M23:{M23} M24:{M24}}} {{M31:{M31} M32:{M32} M33:{M33} M34:{M34}}} {{M41:{M41} M42:{M42} M43:{M43} M44:{M44}}} }}";
 
+        /// <summary>
+        /// Transforms this matrix by applying the given Quaternion rotation
+        /// </summary>
+        /// <param name="rotation">
+        /// The rotation to apply.
+        /// </param>
         [MethodImpl(Optimize)]
         public Matrix4x4D Transform(QuaternionD rotation)
         {
@@ -1377,10 +1951,16 @@ namespace MathStructs
                                   M44);
         }
 
+        /// <summary>
+        /// Transposes the rows and columns of this matrix.
+        /// </summary>
         [MethodImpl(Optimize)]
         public Matrix4x4D Transpose() =>
             Transpose(this);
 
+        /// <summary>
+        /// Provides a record-style <see langword="with"/>-like constructor.
+        /// </summary>
         [MethodImpl(Optimize)]
         public Matrix4x4D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m14 = null, double? m21 = null, double? m22 = null, double? m23 = null, double? m24 = null, double? m31 = null, double? m32 = null, double? m33 = null, double? m34 = null, double? m41 = null, double? m42 = null, double? m43 = null, double? m44 = null) =>
             new Matrix4x4D(
@@ -1413,6 +1993,32 @@ namespace MathStructs
         #endregion Internal Methods
 
         #region Private Methods
+
+        [MethodImpl(Optimize)]
+        private static unsafe Vector128<double> MultiplyRowXY(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2)
+        {
+            return Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
+                                                   Sse2.LoadVector128(&value2.M11)),
+                                     Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
+                                                   Sse2.LoadVector128(&value2.M21))),
+                            Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
+                                                   Sse2.LoadVector128(&value2.M11)),
+                                     Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
+                                                   Sse2.LoadVector128(&value2.M21))));
+        }
+
+        [MethodImpl(Optimize)]
+        private static unsafe Vector128<double> MultiplyRowZW(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2)
+        {
+            return Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
+                                                   Sse2.LoadVector128(&value2.M31)),
+                                     Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
+                                                   Sse2.LoadVector128(&value2.M41))),
+                            Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
+                                                   Sse2.LoadVector128(&value2.M31)),
+                                     Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
+                                                   Sse2.LoadVector128(&value2.M41))));
+        }
 
         [MethodImpl(Optimize)]
         private static unsafe Vector256<double> MultiplyRow(Matrix4x4D value2, Vector256<double> vector)

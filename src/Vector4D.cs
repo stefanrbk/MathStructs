@@ -8,6 +8,9 @@ namespace MathStructs
     /// <summary>
     /// A structure encapsulating four double precision floating point values.
     /// </summary>
+    /// <remarks>
+    /// Slower than <see cref="Vector4F"/> but more precise.
+    /// </remarks>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Vector4D : IEquatable<Vector4D>, IFormattable
     {
@@ -170,9 +173,6 @@ namespace MathStructs
         /// <param name="value">
         ///     The source vector.
         /// </param>
-        /// <returns>
-        ///     The absolute value vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Abs(Vector4D value) =>
             new Vector4D(Math.Abs(value.X), Math.Abs(value.Y), Math.Abs(value.Z), Math.Abs(value.W));
@@ -186,9 +186,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The summed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Add(Vector4D left, Vector4D right) =>
             left + right;
@@ -205,9 +202,6 @@ namespace MathStructs
         /// <param name="max">
         ///     The maximum value.
         /// </param>
-        /// <returns>
-        ///     The restricted vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Clamp(Vector4D value, Vector4D min, Vector4D max) =>
             Min(Max(value, min), max);
@@ -221,9 +215,9 @@ namespace MathStructs
         /// <param name="vector2">
         ///     The second point.
         /// </param>
-        /// <returns>
-        ///     The distance.
-        /// </returns>
+        /// <remarks>
+        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        /// </remarks>
         [MethodImpl(Inline)]
         public static double Distance(Vector4D vector1, Vector4D vector2) =>
             (vector1 - vector2).Length();
@@ -237,9 +231,9 @@ namespace MathStructs
         /// <param name="vector2">
         ///     The second point.
         /// </param>
-        /// <returns>
-        ///     The distance squared.
-        /// </returns>
+        /// <remarks>
+        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        /// </remarks>
         [MethodImpl(Inline)]
         public static double DistanceSquared(Vector4D vector1, Vector4D vector2) =>
             (vector1 - vector2).LengthSquared();
@@ -253,9 +247,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The vector resulting from the division.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Divide(Vector4D left, Vector4D right) =>
             left / right;
@@ -269,9 +260,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The scalar value.
         /// </param>
-        /// <returns>
-        ///     The vector resulting from the division.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Divide(Vector4D left, double right) =>
             left / right;
@@ -289,9 +277,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second vector.
         /// </param>
-        /// <returns>
-        ///     The dot product.
-        /// </returns>
         [MethodImpl(Inline)]
         public static double Dot(Vector4D left, Vector4D right) =>
             left.X * right.X +
@@ -311,9 +296,6 @@ namespace MathStructs
         /// <param name="amount">
         ///     Value between 0 and 1 indicating the weight of the second source vector.
         /// </param>
-        /// <returns>
-        ///     The interpolated vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Lerp(Vector4D bounds1, Vector4D bounds2, double amount) =>
             bounds1 * (1f - amount) + bounds2 * amount;
@@ -327,9 +309,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The maximized vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Max(Vector4D left, Vector4D right) =>
             new Vector4D(left.X > right.X ? left.X : right.X,
@@ -346,9 +325,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The minimized vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Min(Vector4D left, Vector4D right) =>
             new Vector4D(left.X < right.X ? left.X : right.X,
@@ -365,7 +341,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns></returns>
         [MethodImpl(Inline)]
         public static Vector4D Multiply(Vector4D left, Vector4D right) =>
             left * right;
@@ -379,9 +354,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The scalar value.
         /// </param>
-        /// <returns>
-        ///     The scaled vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Multiply(Vector4D left, double right) =>
             left * right;
@@ -395,9 +367,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The source vector.
         /// </param>
-        /// <returns>
-        ///     The scaled vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Multiply(double left, Vector4D right) =>
             left * right;
@@ -408,9 +377,6 @@ namespace MathStructs
         /// <param name="value">
         ///     The source vector.
         /// </param>
-        /// <returns>
-        ///     The negated vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Negate(Vector4D value) =>
             -value;
@@ -421,9 +387,6 @@ namespace MathStructs
         /// <param name="vector">
         ///     The vector to normalize.
         /// </param>
-        /// <returns>
-        ///     The normalized vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Normalize(Vector4D vector) =>
             vector / vector.Length();
@@ -434,9 +397,6 @@ namespace MathStructs
         /// <param name="value">
         ///     The source vector.
         /// </param>
-        /// <returns>
-        ///     The negated vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator -(Vector4D value) =>
             new Vector4D(-value.X, -value.Y, -value.Z, -value.W);
@@ -450,9 +410,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The difference vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator -(Vector4D left, Vector4D right) =>
             new Vector4D(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
@@ -482,9 +439,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The product vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator *(Vector4D left, Vector4D right) =>
             new Vector4D(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
@@ -498,9 +452,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The scalar value.
         /// </param>
-        /// <returns>
-        ///     The scaled vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator *(Vector4D left, double right) =>
             new Vector4D(left.X * right, left.Y * right, left.Z * right, left.W * right);
@@ -514,9 +465,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The source vector.
         /// </param>
-        /// <returns>
-        ///     The scaled vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator *(double left, Vector4D right) =>
             right * left;
@@ -530,9 +478,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The vector resulting from the division.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator /(Vector4D left, Vector4D right) =>
             new Vector4D(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
@@ -546,9 +491,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The scalar value.
         /// </param>
-        /// <returns>
-        ///     The result of the division.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator /(Vector4D left, double right) =>
             new Vector4D(left.X / right, left.Y / right, left.Z / right, left.W / right);
@@ -569,9 +511,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The summed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D operator +(Vector4D left, Vector4D right) =>
             new Vector4D(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
@@ -598,9 +537,6 @@ namespace MathStructs
         /// <param name="value">
         ///     The source vector.
         /// </param>
-        /// <returns>
-        ///     The square root vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D SquareRoot(Vector4D value) =>
             new Vector4D(Math.Sqrt(value.X), Math.Sqrt(value.Y), Math.Sqrt(value.Z), Math.Sqrt(value.W));
@@ -614,9 +550,6 @@ namespace MathStructs
         /// <param name="right">
         ///     The second source vector.
         /// </param>
-        /// <returns>
-        ///     The difference vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Subtract(Vector4D left, Vector4D right) =>
             left - right;
@@ -630,9 +563,6 @@ namespace MathStructs
         /// <param name="matrix">
         ///     The transformation matrix.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Transform(Vector2D position, Matrix4x4D matrix)
         {
@@ -648,9 +578,6 @@ namespace MathStructs
         /// <param name="matrix">
         ///     The transformation matrix.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Transform(Vector3D vector, Matrix4x4D matrix) =>
             new Vector4D(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
@@ -667,9 +594,6 @@ namespace MathStructs
         /// <param name="matrix">
         ///     The transformation matrix.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Transform(Vector4D vector, Matrix4x4D matrix) =>
             new Vector4D(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41,
@@ -686,9 +610,6 @@ namespace MathStructs
         /// <param name="rotation">
         ///     The rotation to apply.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Transform(Vector2D value, QuaternionD rotation)
         {
@@ -716,9 +637,6 @@ namespace MathStructs
         /// <param name="rotation">
         ///     The rotation to apply.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Transform(Vector3D value, QuaternionD rotation)
         {
@@ -746,9 +664,6 @@ namespace MathStructs
         /// <param name="rotation">
         ///     The rotation to apply.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public static Vector4D Transform(Vector4D value, QuaternionD rotation)
         {
@@ -770,9 +685,6 @@ namespace MathStructs
         /// <summary>
         ///     Returns a vector whose elements are the absolute values of each of this vector's elements.
         /// </summary>
-        /// <returns>
-        ///     The absolute value vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D Abs() =>
             Abs(this);
@@ -786,9 +698,6 @@ namespace MathStructs
         /// <param name="max">
         ///     The maximum value.
         /// </param>
-        /// <returns>
-        ///     The restricted vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D Clamp(Vector4D min, Vector4D max) =>
             Clamp(this, min, max);
@@ -893,9 +802,9 @@ namespace MathStructs
         /// <param name="value">
         ///     The other point.
         /// </param>
-        /// <returns>
-        ///     The distance.
-        /// </returns>
+        /// <remarks>
+        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        /// </remarks>
         [MethodImpl(Inline)]
         public double Distance(Vector4D value) =>
             Distance(this, value);
@@ -907,11 +816,8 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/>.
+        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
         /// </remarks>
-        /// <returns>
-        ///     The distance squared.
-        /// </returns>
         [MethodImpl(Inline)]
         public double DistanceSquared(Vector4D value) =>
             DistanceSquared(this, value);
@@ -926,9 +832,6 @@ namespace MathStructs
         /// <param name="vector">
         ///     The other vector.
         /// </param>
-        /// <returns>
-        ///     The dot product.
-        /// </returns>
         [MethodImpl(Inline)]
         public double Dot(Vector4D vector) =>
             Dot(this, vector);
@@ -940,8 +843,8 @@ namespace MathStructs
         ///     The Object to compare against.
         /// </param>
         /// <returns>
-        ///     <see langword="true"/> if the Object is equal to this <see cref="Vector4D"/>;
-        ///     <see langword="false"/> otherwise.
+        ///     True if the Object is equal to this <see cref="Vector4D"/>;
+        ///     False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
         public override bool Equals(object? obj) =>
@@ -988,9 +891,6 @@ namespace MathStructs
         /// <summary>
         ///     Returns the hash code for this instance.
         /// </summary>
-        /// <returns>
-        ///     The hash code.
-        /// </returns>
         public override int GetHashCode() =>
             HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
 
@@ -998,11 +898,8 @@ namespace MathStructs
         ///     Returns the length of the vector.
         /// </summary>
         /// <remarks>
-        ///     <see cref="LengthSquared"/> is cheaper to use if you need to square this result.
+        ///     <see cref="LengthSquared"/> is cheaper to use if you need the squared length.
         /// </remarks>
-        /// <returns>
-        ///     The vector's length.
-        /// </returns>
         [MethodImpl(Inline)]
         public double Length() =>
             Math.Sqrt(Dot(this, this));
@@ -1011,11 +908,8 @@ namespace MathStructs
         ///     Returns the length of the vector squared.
         /// </summary>
         /// <remarks>
-        ///     This operation is cheaper than <see cref="Length"/>.
+        ///     This operation is cheaper than <see cref="Length"/> if you need the squared length.
         /// </remarks>
-        /// <returns>
-        ///     The vector's length squared.
-        /// </returns>
         [MethodImpl(Inline)]
         public double LengthSquared() =>
             Dot(this, this);
@@ -1023,9 +917,6 @@ namespace MathStructs
         /// <summary>
         ///     Returns a vector with the same direction as this vector, but with a length of 1.
         /// </summary>
-        /// <returns>
-        ///     The normalized vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D Normalize() =>
             Normalize(this);
@@ -1033,17 +924,13 @@ namespace MathStructs
         /// <summary>
         ///     Returns a vector whose elements are the square root of each of this vector's elements.
         /// </summary>
-        /// <returns>
-        ///     The square root vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D SquareRoot() =>
             SquareRoot(this);
 
         /// <summary>
-        /// Returns a String representing this Vector4D instance.
+        /// Returns a String representing this <see cref="Vector4D"/> instance.
         /// </summary>
-        /// <returns>The string representation.</returns>
         public override string ToString() =>
             ToString("G", CultureInfo.CurrentCulture);
 
@@ -1053,9 +940,6 @@ namespace MathStructs
         /// <param name="format">
         ///     The format of individual elements.
         /// </param>
-        /// <returns>
-        ///     The string representation.
-        /// </returns>
         public string ToString(string? format) =>
             ToString(format, CultureInfo.CurrentCulture);
 
@@ -1069,9 +953,6 @@ namespace MathStructs
         /// <param name="formatProvider">
         ///     The format provider to use when formatting elements.
         /// </param>
-        /// <returns>
-        ///     The string representation.
-        /// </returns>
         public string ToString(string? format, IFormatProvider? formatProvider)
         {
             var sep = NumberFormatInfo.GetInstance(formatProvider).NumberGroupSeparator;
@@ -1087,9 +968,6 @@ namespace MathStructs
         /// <param name="matrix">
         ///     The transformation matrix.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D Transform(Matrix4x4D matrix) =>
             Transform(this, matrix);
@@ -1100,9 +978,6 @@ namespace MathStructs
         /// <param name="rotation">
         ///     The rotation to apply.
         /// </param>
-        /// <returns>
-        ///     The transformed vector.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D Transfrom(QuaternionD rotation) =>
             Transform(this, rotation);
@@ -1122,9 +997,6 @@ namespace MathStructs
         /// <param name="w">
         ///     If provided, the W value for the new <see cref="Vector4D"/>, otherwise <see cref="this.W"/>.
         /// </param>
-        /// <returns>
-        ///     The constructed <see cref="Vector4D"/>.
-        /// </returns>
         [MethodImpl(Inline)]
         public Vector4D With(double? x = null, double? y = null, double? z = null, double? w = null) =>
             new Vector4D(x ?? X, y ?? Y, z ?? Z, w ?? W);

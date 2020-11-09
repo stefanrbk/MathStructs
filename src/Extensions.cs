@@ -3,7 +3,7 @@ using System.Runtime.Intrinsics;
 
 namespace MathStructs
 {
-    public static class Extensions
+    internal static class Extensions
     {
         #region Public Methods
 
