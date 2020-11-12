@@ -22,12 +22,15 @@ namespace MathStructs
 
         #region Public Constructors
 
+        [MethodImpl(Inline)]
         public Vector3D(double value)
             : this(value, value, value) { }
 
+        [MethodImpl(Inline)]
         public Vector3D(Vector2D value, double z)
             : this(value.X, value.Y, z) { }
 
+        [MethodImpl(Inline)]
         public Vector3D(double x, double y, double z)
         {
             X = x;
@@ -281,8 +284,20 @@ namespace MathStructs
         public bool Equals(Vector3D other) =>
             this == other;
 
+        [MethodImpl(Inline)]
+        public bool Equals(Vector3D other, double delta)
+        {
+            if (delta is 0.0)
+                return this == other;
+
+            var vector = Subtract(this, other).Abs();
+            return vector.X < delta &&
+                   vector.Y < delta &&
+                   vector.Z < delta;
+        }
+
         public override int GetHashCode() =>
-                                                                                                                                                                                                                                                                                                                                                                                            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode());
+            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode());
 
         [MethodImpl(Inline)]
         public double Length() =>
@@ -300,8 +315,12 @@ namespace MathStructs
         public Vector3D Reflect(Vector3D normal) =>
             Reflect(this, normal);
 
+        [MethodImpl(Inline)]
+        public Vector3D SquareRoot() =>
+            SquareRoot(this);
+
         public override string ToString() =>
-                                            ToString("G", CultureInfo.CurrentCulture);
+            ToString("G", CultureInfo.CurrentCulture);
 
         public string ToString(string? format) =>
             ToString(format, CultureInfo.CurrentCulture);

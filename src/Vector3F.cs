@@ -22,12 +22,15 @@ namespace MathStructs
 
         #region Public Constructors
 
+        [MethodImpl(Inline)]
         public Vector3F(float value)
             : this(value, value, value) { }
 
+        [MethodImpl(Inline)]
         public Vector3F(Vector2F value, float z)
             : this(value.X, value.Y, z) { }
 
+        [MethodImpl(Inline)]
         public Vector3F(float x, float y, float z)
         {
             X = x;
@@ -281,8 +284,20 @@ namespace MathStructs
         public bool Equals(Vector3F other) =>
             this == other;
 
+        [MethodImpl(Inline)]
+        public bool Equals(Vector3F other, double delta)
+        {
+            if (delta is 0.0f)
+                return this == other;
+
+            var vector = Subtract(this, other).Abs();
+            return vector.X < delta &&
+                   vector.Y < delta &&
+                   vector.Z < delta;
+        }
+
         public override int GetHashCode() =>
-                                                                                                                                                                                                                                                                                                                                                                                            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode());
+            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode());
 
         [MethodImpl(Inline)]
         public float Length() =>
@@ -300,6 +315,10 @@ namespace MathStructs
         public Vector3F Reflect(Vector3F normal) =>
             Reflect(this, normal);
 
+        [MethodImpl(Inline)]
+        public Vector3F SquareRoot() =>
+            SquareRoot(this);
+
         public override string ToString() =>
                                             ToString("G", CultureInfo.CurrentCulture);
 
@@ -316,6 +335,14 @@ namespace MathStructs
         [MethodImpl(Inline)]
         public Vector3F TransformNormal(Matrix4x4F matrix) =>
             Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4F TransformV4(Matrix4x4F matrix) =>
+            Vector4F.Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4F TransformV4(QuaternionF rotation) =>
+            Vector4F.Transform(this, rotation);
 
         [MethodImpl(Inline)]
         public Vector3F With(float? x = null, float? y = null, float? z = null) =>

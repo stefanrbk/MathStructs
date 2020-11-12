@@ -23,9 +23,11 @@ namespace MathStructs
 
         #region Public Constructors
 
+        [MethodImpl(Inline)]
         public Vector4F(float value)
             : this(value, value, value, value) { }
 
+        [MethodImpl(Inline)]
         public Vector4F(float x, float y, float z, float w)
         {
             X = x;
@@ -34,6 +36,7 @@ namespace MathStructs
             W = w;
         }
 
+        [MethodImpl(Inline)]
         public Vector4F(Vector3F vector, float w)
         {
             X = vector.X;
@@ -42,6 +45,7 @@ namespace MathStructs
             W = w;
         }
 
+        [MethodImpl(Inline)]
         public Vector4F(Vector2F vector, float z, float w)
         {
             X = vector.X;
@@ -344,8 +348,21 @@ namespace MathStructs
         public bool Equals(Vector4F other) =>
             this == other;
 
+        [MethodImpl(Inline)]
+        public bool Equals(Vector4F other, float delta)
+        {
+            if (delta is 0.0f)
+                return this == other;
+
+            var vector = Subtract(this, other).Abs();
+            return vector.X < delta &&
+                   vector.Y < delta &&
+                   vector.Z < delta &&
+                   vector.W < delta;
+        }
+
         public override int GetHashCode() =>
-                                                                                                                                                                                                                                                                                                                                                                                                    HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
+            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
 
         [MethodImpl(Inline)]
         public float Length() =>
@@ -359,6 +376,10 @@ namespace MathStructs
         public Vector4F Normalize() =>
             Normalize(this);
 
+        [MethodImpl(Inline)]
+        public Vector4F SquareRoot() =>
+            SquareRoot(this);
+
         public override string ToString() =>
                                     ToString("G", CultureInfo.CurrentCulture);
 
@@ -371,6 +392,10 @@ namespace MathStructs
         [MethodImpl(Inline)]
         public Vector4F Transform(Matrix4x4F matrix) =>
             Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4F Transform(QuaternionF rotation) =>
+            Transform(this, rotation);
 
         [MethodImpl(Inline)]
         public Vector4F With(float? x = null, float? y = null, float? z = null, float? w = null) =>
