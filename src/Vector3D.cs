@@ -57,7 +57,7 @@ namespace MathStructs
         /// <summary>
         /// Constructs a <see cref="Vector3D"/> from the given <see cref="Vector2D"/> and a Z component.
         /// </summary>
-        /// <param name="vector">
+        /// <param name="value">
         ///     The vector to use as the X and Y component.
         /// </param>
         /// <param name="z">
@@ -191,7 +191,7 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector3D,Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public static double Distance(Vector3D vector1, Vector3D vector2) =>
@@ -207,7 +207,7 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector3D,Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public static double DistanceSquared(Vector3D vector1, Vector3D vector2) =>
@@ -705,7 +705,7 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public double Distance(Vector3D value) =>
@@ -718,7 +718,7 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public double DistanceSquared(Vector3D value) =>
@@ -911,13 +911,13 @@ namespace MathStructs
         ///     Record-like <see langword="with"/>-style constructor
         /// </summary>
         /// <param name="x">
-        ///     If provided, the X value for the new <see cref="Vector3D"/>, otherwise <see cref="this.X"/>.
+        ///     If provided, the X value for the new <see cref="Vector3D"/>, otherwise <see cref="X"/>.
         /// </param>
         /// <param name="y">
-        ///     If provided, the Y value for the new <see cref="Vector3D"/>, otherwise <see cref="this.Y"/>.
+        ///     If provided, the Y value for the new <see cref="Vector3D"/>, otherwise <see cref="Y"/>.
         /// </param>
         /// <param name="z">
-        ///     If provided, the Z value for the new <see cref="Vector3D"/>, otherwise <see cref="this.Z"/>.
+        ///     If provided, the Z value for the new <see cref="Vector3D"/>, otherwise <see cref="Z"/>.
         /// </param>
         [MethodImpl(Inline)]
         public Vector3D With(double? x = null, double? y = null, double? z = null) =>

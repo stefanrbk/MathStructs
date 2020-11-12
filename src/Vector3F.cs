@@ -57,7 +57,7 @@ namespace MathStructs
         /// <summary>
         /// Constructs a <see cref="Vector3F"/> from the given <see cref="Vector2F"/> and a Z component.
         /// </summary>
-        /// <param name="vector">
+        /// <param name="value">
         ///     The vector to use as the X and Y component.
         /// </param>
         /// <param name="z">
@@ -191,7 +191,7 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector3F,Vector3F)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public static float Distance(Vector3F vector1, Vector3F vector2) =>
@@ -207,7 +207,7 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector3F,Vector3F)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public static float DistanceSquared(Vector3F vector1, Vector3F vector2) =>
@@ -705,7 +705,7 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector3F)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public float Distance(Vector3F value) =>
@@ -718,7 +718,7 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector3F)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public float DistanceSquared(Vector3F value) =>
@@ -870,9 +870,6 @@ namespace MathStructs
         /// <summary>
         ///     Transforms a copy of this vector by the given matrix.
         /// </summary>
-        /// <param name="vector">
-        ///     The source vector.
-        /// </param>
         /// <param name="matrix">
         ///     The transformation matrix.
         /// </param>
@@ -914,13 +911,13 @@ namespace MathStructs
         ///     Record-like <see langword="with"/>-style constructor
         /// </summary>
         /// <param name="x">
-        ///     If provided, the X value for the new <see cref="Vector3F"/>, otherwise <see cref="this.X"/>.
+        ///     If provided, the X value for the new <see cref="Vector3F"/>, otherwise <see cref="X"/>.
         /// </param>
         /// <param name="y">
-        ///     If provided, the Y value for the new <see cref="Vector3F"/>, otherwise <see cref="this.Y"/>.
+        ///     If provided, the Y value for the new <see cref="Vector3F"/>, otherwise <see cref="Y"/>.
         /// </param>
         /// <param name="z">
-        ///     If provided, the Z value for the new <see cref="Vector3F"/>, otherwise <see cref="this.Z"/>.
+        ///     If provided, the Z value for the new <see cref="Vector3F"/>, otherwise <see cref="Z"/>.
         /// </param>
         [MethodImpl(Inline)]
         public Vector3F With(float? x = null, float? y = null, float? z = null) =>

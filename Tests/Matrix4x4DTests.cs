@@ -2521,7 +2521,7 @@ namespace Tests
         private static void CreateReflectionTest(PlaneD PlaneD, Matrix4x4D expected)
         {
             Matrix4x4D actual = Matrix4x4D.CreateReflection(PlaneD);
-            Assert.True(MathHelper.Equal(actual, expected), "Matrix4x4D.CreateReflection did not return expected value.");
+            Assert.That(actual, Is.EqualTo(expected), "Matrix4x4D.CreateReflection did not return expected value.");
         }
 
         private static void DecomposeScaleTest(double sx, double sy, double sz)

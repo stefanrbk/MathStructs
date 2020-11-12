@@ -145,7 +145,7 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector2D,Vector2D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public static double Distance(Vector2D vector1, Vector2D vector2) =>
@@ -161,7 +161,7 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector2D,Vector2D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public static double DistanceSquared(Vector2D vector1, Vector2D vector2) =>
@@ -614,7 +614,7 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector2D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public double Distance(Vector2D value) =>
@@ -627,7 +627,7 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector2D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
         public double DistanceSquared(Vector2D value) =>
@@ -824,10 +824,10 @@ namespace MathStructs
         ///     Record-like <see langword="with"/>-style constructor
         /// </summary>
         /// <param name="x">
-        ///     If provided, the X value for the new <see cref="Vector2D"/>, otherwise <see cref="this.X"/>.
+        ///     If provided, the X value for the new <see cref="Vector2D"/>, otherwise <see cref="X"/>.
         /// </param>
         /// <param name="y">
-        ///     If provided, the Y value for the new <see cref="Vector2D"/>, otherwise <see cref="this.Y"/>.
+        ///     If provided, the Y value for the new <see cref="Vector2D"/>, otherwise <see cref="Y"/>.
         /// </param>
         [MethodImpl(Inline)]
         public Vector2D With(double? x = null, double? y = null) =>
