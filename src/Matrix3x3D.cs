@@ -1,22 +1,41 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Matrix3x3D : IEquatable<Matrix3x3D>
     {
         #region Public Fields
 
+        [FieldOffset(0)]
         public double M11;
+
+        [FieldOffset(8)]
         public double M12;
+
+        [FieldOffset(16)]
         public double M13;
+
+        [FieldOffset(24)]
         public double M21;
+
+        [FieldOffset(32)]
         public double M22;
+
+        [FieldOffset(40)]
         public double M23;
+
+        [FieldOffset(48)]
         public double M31;
+
+        [FieldOffset(56)]
         public double M32;
+
+        [FieldOffset(64)]
         public double M33;
 
         #endregion Public Fields
