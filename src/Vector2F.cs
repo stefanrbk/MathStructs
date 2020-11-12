@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public struct Vector2F : IEquatable<Vector2F>, IFormattable
     {
         #region Public Fields
 
+        [FieldOffset(0)]
         public float X;
+
+        [FieldOffset(4)]
         public float Y;
 
         #endregion Public Fields
@@ -21,9 +26,11 @@ namespace MathStructs
 
         #region Public Constructors
 
+        [MethodImpl(Inline)]
         public Vector2F(float value)
             : this(value, value) { }
 
+        [MethodImpl(Inline)]
         public Vector2F(float x, float y)
         {
             X = x;
@@ -247,8 +254,14 @@ namespace MathStructs
         public bool Equals(Vector2F other) =>
             this == other;
 
+        [MethodImpl(Inline)]
+        public bool Equals(Vector2F other, float delta) =>
+            delta == 0.0 ? this == other
+                         : MathF.Abs(X - other.X) < delta &&
+                           MathF.Abs(Y - other.Y) < delta;
+
         public override int GetHashCode() =>
-                                                                                                                                                                                                                                                                                                                                                                    HashCode.Combine(X.GetHashCode(), Y.GetHashCode());
+            HashCode.Combine(X.GetHashCode(), Y.GetHashCode());
 
         [MethodImpl(Inline)]
         public float Length() =>
@@ -266,8 +279,12 @@ namespace MathStructs
         public Vector2F Reflect(Vector2F normal) =>
             Reflect(this, normal);
 
+        [MethodImpl(Inline)]
+        public Vector2F SquareRoot() =>
+            SquareRoot(this);
+
         public override string ToString() =>
-                                            ToString("G", CultureInfo.CurrentCulture);
+            ToString("G", CultureInfo.CurrentCulture);
 
         public string ToString(string? format) =>
             ToString(format, CultureInfo.CurrentCulture);
@@ -286,6 +303,14 @@ namespace MathStructs
         [MethodImpl(Inline)]
         public Vector2F TransformNormal(Matrix4x4F matrix) =>
             Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4F TransformV4(Matrix4x4F matrix) =>
+            Vector4F.Transform(this, matrix);
+
+        [MethodImpl(Inline)]
+        public Vector4F TransformV4(QuaternionF rotation) =>
+            Vector4F.Transform(this, rotation);
 
         [MethodImpl(Inline)]
         public Vector2F With(float? x = null, float? y = null) =>

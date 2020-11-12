@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Vector2D : IEquatable<Vector2D>, IFormattable
     {
         #region Public Fields
 
+        [FieldOffset(0)]
         public double X;
+
+        [FieldOffset(8)]
         public double Y;
 
         #endregion Public Fields
@@ -21,9 +26,11 @@ namespace MathStructs
 
         #region Public Constructors
 
+        [MethodImpl(Inline)]
         public Vector2D(double value)
             : this(value, value) { }
 
+        [MethodImpl(Inline)]
         public Vector2D(double x, double y)
         {
             X = x;
@@ -272,8 +279,12 @@ namespace MathStructs
         public Vector2D Reflect(Vector2D normal) =>
             Reflect(this, normal);
 
+        [MethodImpl(Inline)]
+        public Vector2D SquareRoot() =>
+            SquareRoot(this);
+
         public override string ToString() =>
-                                            ToString("G", CultureInfo.CurrentCulture);
+            ToString("G", CultureInfo.CurrentCulture);
 
         public string ToString(string? format) =>
             ToString(format, CultureInfo.CurrentCulture);
