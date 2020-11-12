@@ -8,7 +8,7 @@ items:
   - MathStructs.Matrix3x3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
   - MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
-  - MathStructs.Matrix3x3D.Equals(System.Nullable{System.Object})
+  - MathStructs.Matrix3x3D.Equals(System.Object)
   - MathStructs.Matrix3x3D.GetDeterminant
   - MathStructs.Matrix3x3D.GetHashCode
   - MathStructs.Matrix3x3D.Identity
@@ -55,22 +55,27 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Matrix3x3D
     path: Matrix3x3D.cs
-    startLine: 8
+    startLine: 11
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nA structure encapsulating a 3x3 matrix of <xref href=\"System.Double\" data-throw-if-not-resolved=\"false\"></xref> values.\n"
+  example: []
   syntax:
     content: 'public struct Matrix3x3D : IEquatable<Matrix3x3D>'
     content.vb: >-
       Public Structure Matrix3x3D
-
           Implements IEquatable(Of Matrix3x3D)
   implements:
-  - IEquatable{MathStructs.Matrix3x3D}
+  - System.IEquatable{MathStructs.Matrix3x3D}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -91,14 +96,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M11
     path: Matrix3x3D.cs
-    startLine: 13
+    startLine: 20
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 1, column 1 of the matrix.\n"
+  example: []
   syntax:
     content: public double M11
     return:
@@ -122,14 +129,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M12
     path: Matrix3x3D.cs
-    startLine: 14
+    startLine: 26
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 1, column 2 of the matrix.\n"
+  example: []
   syntax:
     content: public double M12
     return:
@@ -153,14 +162,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M13
     path: Matrix3x3D.cs
-    startLine: 15
+    startLine: 32
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 1, column 3 of the matrix.\n"
+  example: []
   syntax:
     content: public double M13
     return:
@@ -184,14 +195,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M21
     path: Matrix3x3D.cs
-    startLine: 16
+    startLine: 38
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 2, column 1 of the matrix.\n"
+  example: []
   syntax:
     content: public double M21
     return:
@@ -215,14 +228,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M22
     path: Matrix3x3D.cs
-    startLine: 17
+    startLine: 44
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 2, column 2 of the matrix.\n"
+  example: []
   syntax:
     content: public double M22
     return:
@@ -246,14 +261,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M23
     path: Matrix3x3D.cs
-    startLine: 18
+    startLine: 50
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 2, column 3 of the matrix.\n"
+  example: []
   syntax:
     content: public double M23
     return:
@@ -277,14 +294,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M31
     path: Matrix3x3D.cs
-    startLine: 19
+    startLine: 56
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 3, column 1 of the matrix.\n"
+  example: []
   syntax:
     content: public double M31
     return:
@@ -308,14 +327,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M32
     path: Matrix3x3D.cs
-    startLine: 20
+    startLine: 62
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 3, column 2 of the matrix.\n"
+  example: []
   syntax:
     content: public double M32
     return:
@@ -339,19 +360,72 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: M33
     path: Matrix3x3D.cs
-    startLine: 21
+    startLine: 68
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nValue at row 3, column 3 of the matrix.\n"
+  example: []
   syntax:
     content: public double M33
     return:
       type: System.Double
     content.vb: Public M33 As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix3x3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:MathStructs.Matrix3x3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Matrix3x3D(Double, Double, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: Matrix3x3D.Matrix3x3D(Double, Double, Double, Double, Double, Double, Double, Double, Double)
+  fullName: MathStructs.Matrix3x3D.Matrix3x3D(System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: Matrix3x3D.cs
+    startLine: 86
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a <xref href=\"MathStructs.Matrix3x3D\" data-throw-if-not-resolved=\"false\"></xref> from the given components.\n"
+  example: []
+  syntax:
+    content: public Matrix3x3D(double m11, double m12, double m13, double m21, double m22, double m23, double m31, double m32, double m33)
+    parameters:
+    - id: m11
+      type: System.Double
+    - id: m12
+      type: System.Double
+    - id: m13
+      type: System.Double
+    - id: m21
+      type: System.Double
+    - id: m22
+      type: System.Double
+    - id: m23
+      type: System.Double
+    - id: m31
+      type: System.Double
+    - id: m32
+      type: System.Double
+    - id: m33
+      type: System.Double
+    content.vb: Public Sub New(m11 As Double, m12 As Double, m13 As Double, m21 As Double, m22 As Double, m23 As Double, m31 As Double, m32 As Double, m33 As Double)
+  overload: MathStructs.Matrix3x3D.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -370,14 +444,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Identity
     path: Matrix3x3D.cs
-    startLine: 25
+    startLine: 107
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns the multiplicative identity matrix.\n"
+  example: []
   syntax:
     content: public static Matrix3x3D Identity { get; }
     parameters: []
@@ -407,14 +483,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: NaN
     path: Matrix3x3D.cs
-    startLine: 26
+    startLine: 112
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a matrix with all values set to NaN.\n"
+  example: []
   syntax:
     content: public static Matrix3x3D NaN { get; }
     parameters: []
@@ -444,14 +522,16 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: IsIdentity
     path: Matrix3x3D.cs
-    startLine: 27
+    startLine: 117
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns whether the matrix is the identity matrix.\n"
+  example: []
   syntax:
     content: public bool IsIdentity { get; }
     parameters: []
@@ -465,55 +545,1085 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: MathStructs.Matrix3x3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  commentId: M:MathStructs.Matrix3x3D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  id: '#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+- uid: MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
   parent: MathStructs.Matrix3x3D
   langs:
   - csharp
   - vb
-  name: Matrix3x3D(Double, Double, Double, Double, Double, Double, Double, Double, Double)
-  nameWithType: Matrix3x3D.Matrix3x3D(Double, Double, Double, Double, Double, Double, Double, Double, Double)
-  fullName: MathStructs.Matrix3x3D.Matrix3x3D(System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
-  type: Constructor
+  name: Add(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Add(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Method
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: .ctor
+    id: Add
     path: Matrix3x3D.cs
-    startLine: 30
+    startLine: 133
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nAdds two matrices together.\n"
+  example: []
   syntax:
-    content: public Matrix3x3D(double m11, double m12, double m13, double m21, double m22, double m23, double m31, double m32, double m33)
+    content: public static Matrix3x3D Add(Matrix3x3D left, Matrix3x3D right)
     parameters:
-    - id: m11
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Add(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Add*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Invert(MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Invert(MathStructs.Matrix3x3D)
+  id: Invert(MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Invert(Matrix3x3D)
+  nameWithType: Matrix3x3D.Invert(Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Invert(MathStructs.Matrix3x3D)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Invert
+    path: Matrix3x3D.cs
+    startLine: 146
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nAttempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Invert(Matrix3x3D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix to invert.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+      description: "\nIf successful, the inverted matrix; NaN matrix otherwise.\n"
+    content.vb: Public Shared Function Invert(matrix As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Invert*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Lerp(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D,System.Double)
+  commentId: M:MathStructs.Matrix3x3D.Lerp(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D,System.Double)
+  id: Lerp(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D,System.Double)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Matrix3x3D, Matrix3x3D, Double)
+  nameWithType: Matrix3x3D.Lerp(Matrix3x3D, Matrix3x3D, Double)
+  fullName: MathStructs.Matrix3x3D.Lerp(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Lerp
+    path: Matrix3x3D.cs
+    startLine: 178
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nLinearly interpolates between the corresponding values of two matrices.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Lerp(Matrix3x3D matrix1, Matrix3x3D matrix2, double amount)
+    parameters:
+    - id: matrix1
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: matrix2
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    - id: amount
       type: System.Double
-    - id: m12
+      description: "\nThe relative weight of the second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Lerp(matrix1 As Matrix3x3D, matrix2 As Matrix3x3D, amount As Double) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Lerp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Matrix3x3D.cs
+    startLine: 204
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by another matrix.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Multiply(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Multiply(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,System.Double)
+  commentId: M:MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,System.Double)
+  id: Multiply(MathStructs.Matrix3x3D,System.Double)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix3x3D, Double)
+  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Double)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, System.Double)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Multiply
+    path: Matrix3x3D.cs
+    startLine: 217
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by a scalar value.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Multiply(Matrix3x3D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    - id: right
       type: System.Double
-    - id: m13
+      description: "\nThe scaling factor.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Multiply(left As Matrix3x3D, right As Double) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Negate(MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Negate(MathStructs.Matrix3x3D)
+  id: Negate(MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Negate(Matrix3x3D)
+  nameWithType: Matrix3x3D.Negate(Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Negate(MathStructs.Matrix3x3D)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Negate
+    path: Matrix3x3D.cs
+    startLine: 227
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a new matrix with the negated elements of the given matrix.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Negate(Matrix3x3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Negate(value As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Negate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_UnaryNegation(MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_UnaryNegation(MathStructs.Matrix3x3D)
+  id: op_UnaryNegation(MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Matrix3x3D)
+  nameWithType: Matrix3x3D.UnaryNegation(Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.UnaryNegation(MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryNegation
+    path: Matrix3x3D.cs
+    startLine: 237
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a new matrix with the negated elements of the given matrix.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D operator -(Matrix3x3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Operator -(value As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Subtraction(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Subtraction(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: op_Subtraction(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Subtraction(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Subtraction(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Subtraction
+    path: Matrix3x3D.cs
+    startLine: 257
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nSubtracts the second matrix from the first.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Operator -(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Inequality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Inequality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: op_Inequality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Inequality(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Inequality(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: Matrix3x3D.cs
+    startLine: 280
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given two matrices are not equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first matrix to compare.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second matrix to compare.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the given matrices are not equal; False if they are equal.\n"
+    content.vb: Public Shared Operator <>(left As Matrix3x3D, right As Matrix3x3D) As Boolean
+  overload: MathStructs.Matrix3x3D.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: op_Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix3x3D.cs
+    startLine: 300
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by another matrix.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector3D)
+  id: op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix3x3D, Vector3D)
+  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Vector3D)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Vector3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix3x3D.cs
+    startLine: 336
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by a <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nMultiplying a 3x3 matrix by a 3x1 vector is supposed to result in a 1x3 vector. <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref> has no\nconcept of being vertical or horizontal, so the result is &quot;translated&quot; as a 3x1 vector.\n"
+  example: []
+  syntax:
+    content: public static Vector3D operator *(Matrix3x3D left, Vector3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    - id: right
+      type: MathStructs.Vector3D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Vector3D) As Vector3D
+  overload: MathStructs.Matrix3x3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector3D,MathStructs.Matrix3x3D)
+  id: op_Multiply(MathStructs.Vector3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Multiply(Vector3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Vector3D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix3x3D.cs
+    startLine: 357
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by a <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nMultiplying a 3x3 matrix by a 3x1 vector is supposed to result in a 1x3 vector. <xref href=\"MathStructs.Vector3D\" data-throw-if-not-resolved=\"false\"></xref> has no\nconcept of being vertical or horizontal, so the result is &quot;translated&quot; as a 3x1 vector.\n"
+  example: []
+  syntax:
+    content: public static Vector3D operator *(Vector3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector3D
+      description: "\nThe source vector.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    return:
+      type: MathStructs.Vector3D
+    content.vb: Public Shared Operator *(left As Vector3D, right As Matrix3x3D) As Vector3D
+  overload: MathStructs.Matrix3x3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector4D)
+  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector4D)
+  id: op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector4D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix3x3D, Vector4D)
+  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Vector4D)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Vector4D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix3x3D.cs
+    startLine: 377
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by a <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nIn a strictly mathematical sense, this method pretends the Matrix3x3D is actually a Matrix4x4D with the extra\ncells populated like the identity matrix. Effectively, this multiplies the 3x3 matrix with the XYZ of the 4x1\nvector and pulls the W through as the new W.\nMultiplying a 4x4 matrix by a 4x1 vector is supposed to result in a 1x4 vector. <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> has no\nconcept of being vertical or horizontal, so the result is &quot;translated&quot; as a 4x1 vector.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator *(Matrix3x3D left, Vector4D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    - id: right
+      type: MathStructs.Vector4D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Vector4D) As Vector4D
+  overload: MathStructs.Matrix3x3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector4D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector4D,MathStructs.Matrix3x3D)
+  id: op_Multiply(MathStructs.Vector4D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector4D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Multiply(Vector4D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Vector4D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix3x3D.cs
+    startLine: 400
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by a <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: "\nIn a strictly mathematical sense, this method pretends the Matrix3x3D is actually a Matrix4x4D with the extra\ncells populated like the identity matrix. Effectively, this multiplies the 3x3 matrix with the XYZ of the 4x1\nvector and pulls the W through as the new W.\nMultiplying a 4x4 matrix by a 4x1 vector is supposed to result in a 1x4 vector. <xref href=\"MathStructs.Vector4D\" data-throw-if-not-resolved=\"false\"></xref> has no\nconcept of being vertical or horizontal, so the result is &quot;translated&quot; as a 4x1 vector.\n"
+  example: []
+  syntax:
+    content: public static Vector4D operator *(Vector4D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Vector4D
+      description: "\nThe source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source vector.\n"
+    return:
+      type: MathStructs.Vector4D
+    content.vb: Public Shared Operator *(left As Vector4D, right As Matrix3x3D) As Vector4D
+  overload: MathStructs.Matrix3x3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,System.Double)
+  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,System.Double)
+  id: op_Multiply(MathStructs.Matrix3x3D,System.Double)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Matrix3x3D, Double)
+  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Double)
+  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, System.Double)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Multiply
+    path: Matrix3x3D.cs
+    startLine: 413
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nMultiplies a matrix by a scalar value.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D operator *(Matrix3x3D left, double right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    - id: right
       type: System.Double
-    - id: m21
-      type: System.Double
-    - id: m22
-      type: System.Double
-    - id: m23
-      type: System.Double
-    - id: m31
-      type: System.Double
-    - id: m32
-      type: System.Double
-    - id: m33
-      type: System.Double
-    content.vb: Public Sub New(m11 As Double, m12 As Double, m13 As Double, m21 As Double, m22 As Double, m23 As Double, m31 As Double, m32 As Double, m33 As Double)
-  overload: MathStructs.Matrix3x3D.#ctor*
+      description: "\nThe scaling factor.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Double) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_UnaryPlus(MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_UnaryPlus(MathStructs.Matrix3x3D)
+  id: op_UnaryPlus(MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(Matrix3x3D)
+  nameWithType: Matrix3x3D.UnaryPlus(Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.UnaryPlus(MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: Matrix3x3D.cs
+    startLine: 427
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns itself. (nop)\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D operator +(Matrix3x3D value)
+    parameters:
+    - id: value
+      type: MathStructs.Matrix3x3D
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Operator +(value As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Addition(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Addition(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: op_Addition(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Addition(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Addition(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Addition(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: Matrix3x3D.cs
+    startLine: 440
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nAdds two matrices together.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Operator +(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.op_Equality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.op_Equality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: op_Equality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Equality(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Equality(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Equality(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Operator
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: Matrix3x3D.cs
+    startLine: 463
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given two matrices are equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first matrix to compare.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second matrix to compare.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the given matrices are equal; False otherwise.\n"
+    content.vb: Public Shared Operator =(left As Matrix3x3D, right As Matrix3x3D) As Boolean
+  overload: MathStructs.Matrix3x3D.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Subtract(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Subtract(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  id: Subtract(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Matrix3x3D, Matrix3x3D)
+  nameWithType: Matrix3x3D.Subtract(Matrix3x3D, Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Subtract(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: Matrix3x3D.cs
+    startLine: 483
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nSubtracts the second matrix from the first.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Subtract(Matrix3x3D left, Matrix3x3D right)
+    parameters:
+    - id: left
+      type: MathStructs.Matrix3x3D
+      description: "\nThe first source matrix.\n"
+    - id: right
+      type: MathStructs.Matrix3x3D
+      description: "\nThe second source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Subtract(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Transpose(MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Transpose(MathStructs.Matrix3x3D)
+  id: Transpose(MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Transpose(Matrix3x3D)
+  nameWithType: Matrix3x3D.Transpose(Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Transpose(MathStructs.Matrix3x3D)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transpose
+    path: Matrix3x3D.cs
+    startLine: 493
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransposes the rows and columns of a matrix.\n"
+  example: []
+  syntax:
+    content: public static Matrix3x3D Transpose(Matrix3x3D matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix3x3D
+      description: "\nThe source matrix.\n"
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Shared Function Transpose(matrix As Matrix3x3D) As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Transpose*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
+  commentId: M:MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
+  id: Equals(MathStructs.Matrix3x3D)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Matrix3x3D)
+  nameWithType: Matrix3x3D.Equals(Matrix3x3D)
+  fullName: MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Matrix3x3D.cs
+    startLine: 512
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether this matrix instance is equal to the other given matrix.\n"
+  example: []
+  syntax:
+    content: public bool Equals(Matrix3x3D other)
+    parameters:
+    - id: other
+      type: MathStructs.Matrix3x3D
+      description: "\nThe matrix to compare this instance to.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the matrices are equal; False otherwise.\n"
+    content.vb: Public Function Equals(other As Matrix3x3D) As Boolean
+  overload: MathStructs.Matrix3x3D.Equals*
+  implements:
+  - System.IEquatable{MathStructs.Matrix3x3D}.Equals(MathStructs.Matrix3x3D)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
+- uid: MathStructs.Matrix3x3D.Equals(System.Object)
+  commentId: M:MathStructs.Matrix3x3D.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: Matrix3x3D.Equals(Object)
+  fullName: MathStructs.Matrix3x3D.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Equals
+    path: Matrix3x3D.cs
+    startLine: 525
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given Object is equal to this matrix instance.\n"
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: "\nThe Object to compare against.\n"
+    return:
+      type: System.Boolean
+      description: "\nTrue if the Object is equal to this matrix; False otherwise.\n"
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: MathStructs.Matrix3x3D.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Matrix3x3D.GetDeterminant
+  commentId: M:MathStructs.Matrix3x3D.GetDeterminant
+  id: GetDeterminant
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: GetDeterminant()
+  nameWithType: Matrix3x3D.GetDeterminant()
+  fullName: MathStructs.Matrix3x3D.GetDeterminant()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetDeterminant
+    path: Matrix3x3D.cs
+    startLine: 532
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCalculates the determinant of the matrix.\n"
+  example: []
+  syntax:
+    content: public double GetDeterminant()
+    return:
+      type: System.Double
+    content.vb: Public Function GetDeterminant As Double
+  overload: MathStructs.Matrix3x3D.GetDeterminant*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix3x3D.GetHashCode
+  commentId: M:MathStructs.Matrix3x3D.GetHashCode
+  id: GetHashCode
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Matrix3x3D.GetHashCode()
+  fullName: MathStructs.Matrix3x3D.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: GetHashCode
+    path: Matrix3x3D.cs
+    startLine: 541
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the hash code for this instance.\n"
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: MathStructs.Matrix3x3D.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.Matrix3x3D.Invert
+  commentId: M:MathStructs.Matrix3x3D.Invert
+  id: Invert
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: Invert()
+  nameWithType: Matrix3x3D.Invert()
+  fullName: MathStructs.Matrix3x3D.Invert()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Invert
+    path: Matrix3x3D.cs
+    startLine: 559
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nAttempts to calculate the inverse of this matrix. If successful, the inverted matrix will be returned.\n"
+  example: []
+  syntax:
+    content: public Matrix3x3D Invert()
+    return:
+      type: MathStructs.Matrix3x3D
+    content.vb: Public Function Invert As Matrix3x3D
+  overload: MathStructs.Matrix3x3D.Invert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.Matrix3x3D.ToString
+  commentId: M:MathStructs.Matrix3x3D.ToString
+  id: ToString
+  parent: MathStructs.Matrix3x3D
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Matrix3x3D.ToString()
+  fullName: MathStructs.Matrix3x3D.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Matrix3x3D.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: Matrix3x3D.cs
+    startLine: 566
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a String representing this matrix instance.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: MathStructs.Matrix3x3D.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
 - uid: MathStructs.Matrix3x3D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
   commentId: M:MathStructs.Matrix3x3D.With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
   id: With(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})
@@ -528,16 +1638,18 @@ items:
   source:
     remote:
       path: src/Matrix3x3D.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: With
     path: Matrix3x3D.cs
-    startLine: 44
+    startLine: 572
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nProvides a record-style <xref uid=\"langword_csharp_with\" name=\"with\" href=\"\"></xref>-like constructor.\n"
+  example: []
   syntax:
-    content: public Matrix3x3D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m21 = null, double? m22 = null, double? m23 = null, double? m31 = null, double? m32 = null, double? m33 = null)
+    content: public Matrix3x3D With(double? m11 = default(double? ), double? m12 = default(double? ), double? m13 = default(double? ), double? m21 = default(double? ), double? m22 = default(double? ), double? m23 = default(double? ), double? m31 = default(double? ), double? m32 = default(double? ), double? m33 = default(double? ))
     parameters:
     - id: m11
       type: System.Nullable{System.Double}
@@ -568,1005 +1680,34 @@ items:
   - Public
   fullName.vb: MathStructs.Matrix3x3D.With(System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Nullable(Of System.Double))
   name.vb: With(Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double), Nullable(Of Double))
-- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: op_Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Multiply
-    path: Matrix3x3D.cs
-    startLine: 48
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.op_Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Invert
-  commentId: M:MathStructs.Matrix3x3D.Invert
-  id: Invert
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Invert()
-  nameWithType: Matrix3x3D.Invert()
-  fullName: MathStructs.Matrix3x3D.Invert()
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Invert
-    path: Matrix3x3D.cs
-    startLine: 71
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public Matrix3x3D Invert()
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Function Invert As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Invert*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.Matrix3x3D.Invert(MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Invert(MathStructs.Matrix3x3D)
-  id: Invert(MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Invert(Matrix3x3D)
-  nameWithType: Matrix3x3D.Invert(Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Invert(MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Invert
-    path: Matrix3x3D.cs
-    startLine: 75
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Invert(Matrix3x3D matrix)
-    parameters:
-    - id: matrix
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Invert(matrix As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Invert*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Lerp(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D,System.Double)
-  commentId: M:MathStructs.Matrix3x3D.Lerp(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D,System.Double)
-  id: Lerp(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D,System.Double)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Lerp(Matrix3x3D, Matrix3x3D, Double)
-  nameWithType: Matrix3x3D.Lerp(Matrix3x3D, Matrix3x3D, Double)
-  fullName: MathStructs.Matrix3x3D.Lerp(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D, System.Double)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Lerp
-    path: Matrix3x3D.cs
-    startLine: 95
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Lerp(Matrix3x3D matrix1, Matrix3x3D matrix2, double amount)
-    parameters:
-    - id: matrix1
-      type: MathStructs.Matrix3x3D
-    - id: matrix2
-      type: MathStructs.Matrix3x3D
-    - id: amount
-      type: System.Double
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Lerp(matrix1 As Matrix3x3D, matrix2 As Matrix3x3D, amount As Double) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Lerp*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Transpose(MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Transpose(MathStructs.Matrix3x3D)
-  id: Transpose(MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Transpose(Matrix3x3D)
-  nameWithType: Matrix3x3D.Transpose(Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Transpose(MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Transpose
-    path: Matrix3x3D.cs
-    startLine: 112
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Transpose(Matrix3x3D matrix)
-    parameters:
-    - id: matrix
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Transpose(matrix As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Transpose*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.GetDeterminant
-  commentId: M:MathStructs.Matrix3x3D.GetDeterminant
-  id: GetDeterminant
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: GetDeterminant()
-  nameWithType: Matrix3x3D.GetDeterminant()
-  fullName: MathStructs.Matrix3x3D.GetDeterminant()
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: GetDeterminant
-    path: Matrix3x3D.cs
-    startLine: 122
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public double GetDeterminant()
-    return:
-      type: System.Double
-    content.vb: Public Function GetDeterminant As Double
-  overload: MathStructs.Matrix3x3D.GetDeterminant*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: Add(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Add(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Add(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Add(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Add
-    path: Matrix3x3D.cs
-    startLine: 128
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Add(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Add(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Add*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Subtract(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Subtract(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: Subtract(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Subtract(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Subtract(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Subtract(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Subtract
-    path: Matrix3x3D.cs
-    startLine: 132
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Subtract(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Subtract(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Subtract*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: Multiply(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Multiply
-    path: Matrix3x3D.cs
-    startLine: 136
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Multiply(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Multiply(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,System.Double)
-  commentId: M:MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D,System.Double)
-  id: Multiply(MathStructs.Matrix3x3D,System.Double)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Matrix3x3D, Double)
-  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Double)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, System.Double)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Multiply
-    path: Matrix3x3D.cs
-    startLine: 140
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Multiply(Matrix3x3D left, double right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: System.Double
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Multiply(left As Matrix3x3D, right As Double) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Negate(MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Negate(MathStructs.Matrix3x3D)
-  id: Negate(MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Negate(Matrix3x3D)
-  nameWithType: Matrix3x3D.Negate(Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Negate(MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Negate
-    path: Matrix3x3D.cs
-    startLine: 144
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D Negate(Matrix3x3D value)
-    parameters:
-    - id: value
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Function Negate(value As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.Negate*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector3D)
-  id: op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Matrix3x3D, Vector3D)
-  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Vector3D)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Vector3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Multiply
-    path: Matrix3x3D.cs
-    startLine: 148
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Vector3D operator *(Matrix3x3D left, Vector3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Vector3D
-    return:
-      type: MathStructs.Vector3D
-    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Vector3D) As Vector3D
-  overload: MathStructs.Matrix3x3D.op_Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector3D,MathStructs.Matrix3x3D)
-  id: op_Multiply(MathStructs.Vector3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Vector3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Multiply(Vector3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Vector3D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Multiply
-    path: Matrix3x3D.cs
-    startLine: 156
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Vector3D operator *(Vector3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Vector3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Vector3D
-    content.vb: Public Shared Operator *(left As Vector3D, right As Matrix3x3D) As Vector3D
-  overload: MathStructs.Matrix3x3D.op_Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector4D)
-  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector4D)
-  id: op_Multiply(MathStructs.Matrix3x3D,MathStructs.Vector4D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Matrix3x3D, Vector4D)
-  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Vector4D)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, MathStructs.Vector4D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Multiply
-    path: Matrix3x3D.cs
-    startLine: 160
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Vector4D operator *(Matrix3x3D left, Vector4D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Vector4D
-    return:
-      type: MathStructs.Vector4D
-    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Vector4D) As Vector4D
-  overload: MathStructs.Matrix3x3D.op_Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector4D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Vector4D,MathStructs.Matrix3x3D)
-  id: op_Multiply(MathStructs.Vector4D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Vector4D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Multiply(Vector4D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Vector4D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Multiply
-    path: Matrix3x3D.cs
-    startLine: 167
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Vector4D operator *(Vector4D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Vector4D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Vector4D
-    content.vb: Public Shared Operator *(left As Vector4D, right As Matrix3x3D) As Vector4D
-  overload: MathStructs.Matrix3x3D.op_Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_UnaryNegation(MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_UnaryNegation(MathStructs.Matrix3x3D)
-  id: op_UnaryNegation(MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: UnaryNegation(Matrix3x3D)
-  nameWithType: Matrix3x3D.UnaryNegation(Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.UnaryNegation(MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_UnaryNegation
-    path: Matrix3x3D.cs
-    startLine: 171
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D operator -(Matrix3x3D value)
-    parameters:
-    - id: value
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Operator -(value As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.op_UnaryNegation*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_UnaryPlus(MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_UnaryPlus(MathStructs.Matrix3x3D)
-  id: op_UnaryPlus(MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: UnaryPlus(Matrix3x3D)
-  nameWithType: Matrix3x3D.UnaryPlus(Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.UnaryPlus(MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_UnaryPlus
-    path: Matrix3x3D.cs
-    startLine: 182
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D operator +(Matrix3x3D value)
-    parameters:
-    - id: value
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Operator +(value As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.op_UnaryPlus*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Addition(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Addition(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: op_Addition(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Addition(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Addition(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Addition(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Addition
-    path: Matrix3x3D.cs
-    startLine: 186
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Operator +(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.op_Addition*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Subtraction(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Subtraction(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: op_Subtraction(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Subtraction(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Subtraction(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Subtraction(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Subtraction
-    path: Matrix3x3D.cs
-    startLine: 197
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Operator -(left As Matrix3x3D, right As Matrix3x3D) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.op_Subtraction*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,System.Double)
-  commentId: M:MathStructs.Matrix3x3D.op_Multiply(MathStructs.Matrix3x3D,System.Double)
-  id: op_Multiply(MathStructs.Matrix3x3D,System.Double)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Multiply(Matrix3x3D, Double)
-  nameWithType: Matrix3x3D.Multiply(Matrix3x3D, Double)
-  fullName: MathStructs.Matrix3x3D.Multiply(MathStructs.Matrix3x3D, System.Double)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Multiply
-    path: Matrix3x3D.cs
-    startLine: 208
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static Matrix3x3D operator *(Matrix3x3D left, double right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: System.Double
-    return:
-      type: MathStructs.Matrix3x3D
-    content.vb: Public Shared Operator *(left As Matrix3x3D, right As Double) As Matrix3x3D
-  overload: MathStructs.Matrix3x3D.op_Multiply*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Equality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Equality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: op_Equality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Equality(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Equality(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Equality(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Equality
-    path: Matrix3x3D.cs
-    startLine: 219
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static bool operator ==(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Operator =(left As Matrix3x3D, right As Matrix3x3D) As Boolean
-  overload: MathStructs.Matrix3x3D.op_Equality*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.op_Inequality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.op_Inequality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  id: op_Inequality(MathStructs.Matrix3x3D,MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Inequality(Matrix3x3D, Matrix3x3D)
-  nameWithType: Matrix3x3D.Inequality(Matrix3x3D, Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Inequality(MathStructs.Matrix3x3D, MathStructs.Matrix3x3D)
-  type: Operator
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Inequality
-    path: Matrix3x3D.cs
-    startLine: 230
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static bool operator !=(Matrix3x3D left, Matrix3x3D right)
-    parameters:
-    - id: left
-      type: MathStructs.Matrix3x3D
-    - id: right
-      type: MathStructs.Matrix3x3D
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Operator <>(left As Matrix3x3D, right As Matrix3x3D) As Boolean
-  overload: MathStructs.Matrix3x3D.op_Inequality*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
-  commentId: M:MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
-  id: Equals(MathStructs.Matrix3x3D)
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Equals(Matrix3x3D)
-  nameWithType: Matrix3x3D.Equals(Matrix3x3D)
-  fullName: MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Equals
-    path: Matrix3x3D.cs
-    startLine: 241
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public bool Equals(Matrix3x3D other)
-    parameters:
-    - id: other
-      type: MathStructs.Matrix3x3D
-    return:
-      type: System.Boolean
-    content.vb: Public Function Equals(other As Matrix3x3D) As Boolean
-  overload: MathStructs.Matrix3x3D.Equals*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.Matrix3x3D.Equals(System.Nullable{System.Object})
-  commentId: M:MathStructs.Matrix3x3D.Equals(System.Nullable{System.Object})
-  id: Equals(System.Nullable{System.Object})
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: Equals(Nullable<Object>)
-  nameWithType: Matrix3x3D.Equals(Nullable<Object>)
-  fullName: MathStructs.Matrix3x3D.Equals(System.Nullable<System.Object>)
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Equals
-    path: Matrix3x3D.cs
-    startLine: 245
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public override bool Equals(object? obj)
-    parameters:
-    - id: obj
-      type: System.Nullable{System.Object}
-    return:
-      type: System.Boolean
-    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
-  overload: MathStructs.Matrix3x3D.Equals*
-  nameWithType.vb: Matrix3x3D.Equals(Nullable(Of Object))
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-  fullName.vb: MathStructs.Matrix3x3D.Equals(System.Nullable(Of System.Object))
-  name.vb: Equals(Nullable(Of Object))
-- uid: MathStructs.Matrix3x3D.ToString
-  commentId: M:MathStructs.Matrix3x3D.ToString
-  id: ToString
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: ToString()
-  nameWithType: Matrix3x3D.ToString()
-  fullName: MathStructs.Matrix3x3D.ToString()
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: ToString
-    path: Matrix3x3D.cs
-    startLine: 249
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public override string ToString()
-    return:
-      type: System.String
-    content.vb: Public Overrides Function ToString As String
-  overload: MathStructs.Matrix3x3D.ToString*
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-- uid: MathStructs.Matrix3x3D.GetHashCode
-  commentId: M:MathStructs.Matrix3x3D.GetHashCode
-  id: GetHashCode
-  parent: MathStructs.Matrix3x3D
-  langs:
-  - csharp
-  - vb
-  name: GetHashCode()
-  nameWithType: Matrix3x3D.GetHashCode()
-  fullName: MathStructs.Matrix3x3D.GetHashCode()
-  type: Method
-  source:
-    remote:
-      path: src/Matrix3x3D.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: GetHashCode
-    path: Matrix3x3D.cs
-    startLine: 252
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public override int GetHashCode()
-    return:
-      type: System.Int32
-    content.vb: Public Overrides Function GetHashCode As Integer
-  overload: MathStructs.Matrix3x3D.GetHashCode*
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
 references:
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
 - uid: MathStructs
   commentId: N:MathStructs
   name: MathStructs
   nameWithType: MathStructs
   fullName: MathStructs
-- uid: IEquatable{MathStructs.Matrix3x3D}
-  commentId: '!:IEquatable{MathStructs.Matrix3x3D}'
-  definition: IEquatable`1
+- uid: System.IEquatable{MathStructs.Matrix3x3D}
+  commentId: T:System.IEquatable{MathStructs.Matrix3x3D}
+  parent: System
+  definition: System.IEquatable`1
   name: IEquatable<Matrix3x3D>
   nameWithType: IEquatable<Matrix3x3D>
-  fullName: IEquatable<MathStructs.Matrix3x3D>
+  fullName: System.IEquatable<MathStructs.Matrix3x3D>
   nameWithType.vb: IEquatable(Of Matrix3x3D)
-  fullName.vb: IEquatable(Of MathStructs.Matrix3x3D)
+  fullName.vb: System.IEquatable(Of MathStructs.Matrix3x3D)
   name.vb: IEquatable(Of Matrix3x3D)
   spec.csharp:
-  - uid: IEquatable`1
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1579,10 +1720,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEquatable`1
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1594,60 +1735,219 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEquatable`1
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  name: IEquatable<>
-  nameWithType: IEquatable<>
-  fullName: IEquatable<>
-  nameWithType.vb: IEquatable(Of )
-  fullName.vb: IEquatable(Of )
-  name.vb: IEquatable(Of )
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
   spec.csharp:
-  - uid: IEquatable`1
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEquatable`1
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Double
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
   isExternal: true
-  name: Double
-  nameWithType: Double
-  fullName: System.Double
-- uid: MathStructs.Matrix3x3D.Identity*
-  commentId: Overload:MathStructs.Matrix3x3D.Identity
-  name: Identity
-  nameWithType: Matrix3x3D.Identity
-  fullName: MathStructs.Matrix3x3D.Identity
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
 - uid: MathStructs.Matrix3x3D
   commentId: T:MathStructs.Matrix3x3D
   parent: MathStructs
   name: Matrix3x3D
   nameWithType: Matrix3x3D
   fullName: MathStructs.Matrix3x3D
+- uid: MathStructs.Matrix3x3D.#ctor*
+  commentId: Overload:MathStructs.Matrix3x3D.#ctor
+  name: Matrix3x3D
+  nameWithType: Matrix3x3D.Matrix3x3D
+  fullName: MathStructs.Matrix3x3D.Matrix3x3D
+- uid: MathStructs.Matrix3x3D.Identity*
+  commentId: Overload:MathStructs.Matrix3x3D.Identity
+  name: Identity
+  nameWithType: Matrix3x3D.Identity
+  fullName: MathStructs.Matrix3x3D.Identity
 - uid: MathStructs.Matrix3x3D.NaN*
   commentId: Overload:MathStructs.Matrix3x3D.NaN
   name: NaN
@@ -1659,22 +1959,325 @@ references:
   nameWithType: Matrix3x3D.IsIdentity
   fullName: MathStructs.Matrix3x3D.IsIdentity
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: MathStructs.Matrix3x3D.#ctor*
-  commentId: Overload:MathStructs.Matrix3x3D.#ctor
-  name: Matrix3x3D
-  nameWithType: Matrix3x3D.Matrix3x3D
-  fullName: MathStructs.Matrix3x3D.Matrix3x3D
+- uid: MathStructs.Matrix3x3D.Add*
+  commentId: Overload:MathStructs.Matrix3x3D.Add
+  name: Add
+  nameWithType: Matrix3x3D.Add
+  fullName: MathStructs.Matrix3x3D.Add
+- uid: MathStructs.Matrix3x3D.Invert*
+  commentId: Overload:MathStructs.Matrix3x3D.Invert
+  name: Invert
+  nameWithType: Matrix3x3D.Invert
+  fullName: MathStructs.Matrix3x3D.Invert
+- uid: MathStructs.Matrix3x3D.Lerp*
+  commentId: Overload:MathStructs.Matrix3x3D.Lerp
+  name: Lerp
+  nameWithType: Matrix3x3D.Lerp
+  fullName: MathStructs.Matrix3x3D.Lerp
+- uid: MathStructs.Matrix3x3D.Multiply*
+  commentId: Overload:MathStructs.Matrix3x3D.Multiply
+  name: Multiply
+  nameWithType: Matrix3x3D.Multiply
+  fullName: MathStructs.Matrix3x3D.Multiply
+- uid: MathStructs.Matrix3x3D.Negate*
+  commentId: Overload:MathStructs.Matrix3x3D.Negate
+  name: Negate
+  nameWithType: Matrix3x3D.Negate
+  fullName: MathStructs.Matrix3x3D.Negate
+- uid: MathStructs.Matrix3x3D.op_UnaryNegation*
+  commentId: Overload:MathStructs.Matrix3x3D.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Matrix3x3D.UnaryNegation
+  fullName: MathStructs.Matrix3x3D.UnaryNegation
+- uid: MathStructs.Matrix3x3D.op_Subtraction*
+  commentId: Overload:MathStructs.Matrix3x3D.op_Subtraction
+  name: Subtraction
+  nameWithType: Matrix3x3D.Subtraction
+  fullName: MathStructs.Matrix3x3D.Subtraction
+- uid: MathStructs.Matrix3x3D.op_Inequality*
+  commentId: Overload:MathStructs.Matrix3x3D.op_Inequality
+  name: Inequality
+  nameWithType: Matrix3x3D.Inequality
+  fullName: MathStructs.Matrix3x3D.Inequality
+- uid: MathStructs.Matrix3x3D.op_Multiply*
+  commentId: Overload:MathStructs.Matrix3x3D.op_Multiply
+  name: Multiply
+  nameWithType: Matrix3x3D.Multiply
+  fullName: MathStructs.Matrix3x3D.Multiply
+- uid: MathStructs.Vector3D
+  commentId: T:MathStructs.Vector3D
+  parent: MathStructs
+  name: Vector3D
+  nameWithType: Vector3D
+  fullName: MathStructs.Vector3D
+- uid: MathStructs.Vector4D
+  commentId: T:MathStructs.Vector4D
+  parent: MathStructs
+  name: Vector4D
+  nameWithType: Vector4D
+  fullName: MathStructs.Vector4D
+- uid: MathStructs.Matrix3x3D.op_UnaryPlus*
+  commentId: Overload:MathStructs.Matrix3x3D.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: Matrix3x3D.UnaryPlus
+  fullName: MathStructs.Matrix3x3D.UnaryPlus
+- uid: MathStructs.Matrix3x3D.op_Addition*
+  commentId: Overload:MathStructs.Matrix3x3D.op_Addition
+  name: Addition
+  nameWithType: Matrix3x3D.Addition
+  fullName: MathStructs.Matrix3x3D.Addition
+- uid: MathStructs.Matrix3x3D.op_Equality*
+  commentId: Overload:MathStructs.Matrix3x3D.op_Equality
+  name: Equality
+  nameWithType: Matrix3x3D.Equality
+  fullName: MathStructs.Matrix3x3D.Equality
+- uid: MathStructs.Matrix3x3D.Subtract*
+  commentId: Overload:MathStructs.Matrix3x3D.Subtract
+  name: Subtract
+  nameWithType: Matrix3x3D.Subtract
+  fullName: MathStructs.Matrix3x3D.Subtract
+- uid: MathStructs.Matrix3x3D.Transpose*
+  commentId: Overload:MathStructs.Matrix3x3D.Transpose
+  name: Transpose
+  nameWithType: Matrix3x3D.Transpose
+  fullName: MathStructs.Matrix3x3D.Transpose
+- uid: MathStructs.Matrix3x3D.Equals*
+  commentId: Overload:MathStructs.Matrix3x3D.Equals
+  name: Equals
+  nameWithType: Matrix3x3D.Equals
+  fullName: MathStructs.Matrix3x3D.Equals
+- uid: System.IEquatable{MathStructs.Matrix3x3D}.Equals(MathStructs.Matrix3x3D)
+  commentId: M:System.IEquatable{MathStructs.Matrix3x3D}.Equals(MathStructs.Matrix3x3D)
+  parent: System.IEquatable{MathStructs.Matrix3x3D}
+  definition: System.IEquatable`1.Equals(`0)
+  name: Equals(Matrix3x3D)
+  nameWithType: IEquatable<Matrix3x3D>.Equals(Matrix3x3D)
+  fullName: System.IEquatable<MathStructs.Matrix3x3D>.Equals(MathStructs.Matrix3x3D)
+  nameWithType.vb: IEquatable(Of Matrix3x3D).Equals(Matrix3x3D)
+  fullName.vb: System.IEquatable(Of MathStructs.Matrix3x3D).Equals(MathStructs.Matrix3x3D)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable<Matrix3x3D>.Equals
+    fullName: System.IEquatable<MathStructs.Matrix3x3D>.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MathStructs.Matrix3x3D
+    name: Matrix3x3D
+    nameWithType: Matrix3x3D
+    fullName: MathStructs.Matrix3x3D
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable(Of Matrix3x3D).Equals
+    fullName: System.IEquatable(Of MathStructs.Matrix3x3D).Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MathStructs.Matrix3x3D
+    name: Matrix3x3D
+    nameWithType: Matrix3x3D
+    fullName: MathStructs.Matrix3x3D
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable<T>.Equals
+    fullName: System.IEquatable<T>.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable(Of T).Equals
+    fullName: System.IEquatable(Of T).Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: MathStructs.Matrix3x3D.GetDeterminant*
+  commentId: Overload:MathStructs.Matrix3x3D.GetDeterminant
+  name: GetDeterminant
+  nameWithType: Matrix3x3D.GetDeterminant
+  fullName: MathStructs.Matrix3x3D.GetDeterminant
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Matrix3x3D.GetHashCode*
+  commentId: Overload:MathStructs.Matrix3x3D.GetHashCode
+  name: GetHashCode
+  nameWithType: Matrix3x3D.GetHashCode
+  fullName: MathStructs.Matrix3x3D.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.Matrix3x3D.ToString*
+  commentId: Overload:MathStructs.Matrix3x3D.ToString
+  name: ToString
+  nameWithType: Matrix3x3D.ToString
+  fullName: MathStructs.Matrix3x3D.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
 - uid: MathStructs.Matrix3x3D.With*
   commentId: Overload:MathStructs.Matrix3x3D.With
   name: With
   nameWithType: Matrix3x3D.With
   fullName: MathStructs.Matrix3x3D.With
 - uid: System.Nullable{System.Double}
-  commentId: '!:System.Nullable{System.Double}'
+  commentId: T:System.Nullable{System.Double}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Double>
   nameWithType: Nullable<Double>
@@ -1717,13 +2320,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -1733,9 +2337,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -1748,164 +2352,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
-- uid: MathStructs.Matrix3x3D.op_Multiply*
-  commentId: Overload:MathStructs.Matrix3x3D.op_Multiply
-  name: Multiply
-  nameWithType: Matrix3x3D.Multiply
-  fullName: MathStructs.Matrix3x3D.Multiply
-- uid: MathStructs.Matrix3x3D.Invert*
-  commentId: Overload:MathStructs.Matrix3x3D.Invert
-  name: Invert
-  nameWithType: Matrix3x3D.Invert
-  fullName: MathStructs.Matrix3x3D.Invert
-- uid: MathStructs.Matrix3x3D.Lerp*
-  commentId: Overload:MathStructs.Matrix3x3D.Lerp
-  name: Lerp
-  nameWithType: Matrix3x3D.Lerp
-  fullName: MathStructs.Matrix3x3D.Lerp
-- uid: MathStructs.Matrix3x3D.Transpose*
-  commentId: Overload:MathStructs.Matrix3x3D.Transpose
-  name: Transpose
-  nameWithType: Matrix3x3D.Transpose
-  fullName: MathStructs.Matrix3x3D.Transpose
-- uid: MathStructs.Matrix3x3D.GetDeterminant*
-  commentId: Overload:MathStructs.Matrix3x3D.GetDeterminant
-  name: GetDeterminant
-  nameWithType: Matrix3x3D.GetDeterminant
-  fullName: MathStructs.Matrix3x3D.GetDeterminant
-- uid: MathStructs.Matrix3x3D.Add*
-  commentId: Overload:MathStructs.Matrix3x3D.Add
-  name: Add
-  nameWithType: Matrix3x3D.Add
-  fullName: MathStructs.Matrix3x3D.Add
-- uid: MathStructs.Matrix3x3D.Subtract*
-  commentId: Overload:MathStructs.Matrix3x3D.Subtract
-  name: Subtract
-  nameWithType: Matrix3x3D.Subtract
-  fullName: MathStructs.Matrix3x3D.Subtract
-- uid: MathStructs.Matrix3x3D.Multiply*
-  commentId: Overload:MathStructs.Matrix3x3D.Multiply
-  name: Multiply
-  nameWithType: Matrix3x3D.Multiply
-  fullName: MathStructs.Matrix3x3D.Multiply
-- uid: MathStructs.Matrix3x3D.Negate*
-  commentId: Overload:MathStructs.Matrix3x3D.Negate
-  name: Negate
-  nameWithType: Matrix3x3D.Negate
-  fullName: MathStructs.Matrix3x3D.Negate
-- uid: MathStructs.Vector3D
-  commentId: T:MathStructs.Vector3D
-  parent: MathStructs
-  name: Vector3D
-  nameWithType: Vector3D
-  fullName: MathStructs.Vector3D
-- uid: MathStructs.Vector4D
-  commentId: T:MathStructs.Vector4D
-  parent: MathStructs
-  name: Vector4D
-  nameWithType: Vector4D
-  fullName: MathStructs.Vector4D
-- uid: MathStructs.Matrix3x3D.op_UnaryNegation*
-  commentId: Overload:MathStructs.Matrix3x3D.op_UnaryNegation
-  name: UnaryNegation
-  nameWithType: Matrix3x3D.UnaryNegation
-  fullName: MathStructs.Matrix3x3D.UnaryNegation
-- uid: MathStructs.Matrix3x3D.op_UnaryPlus*
-  commentId: Overload:MathStructs.Matrix3x3D.op_UnaryPlus
-  name: UnaryPlus
-  nameWithType: Matrix3x3D.UnaryPlus
-  fullName: MathStructs.Matrix3x3D.UnaryPlus
-- uid: MathStructs.Matrix3x3D.op_Addition*
-  commentId: Overload:MathStructs.Matrix3x3D.op_Addition
-  name: Addition
-  nameWithType: Matrix3x3D.Addition
-  fullName: MathStructs.Matrix3x3D.Addition
-- uid: MathStructs.Matrix3x3D.op_Subtraction*
-  commentId: Overload:MathStructs.Matrix3x3D.op_Subtraction
-  name: Subtraction
-  nameWithType: Matrix3x3D.Subtraction
-  fullName: MathStructs.Matrix3x3D.Subtraction
-- uid: MathStructs.Matrix3x3D.op_Equality*
-  commentId: Overload:MathStructs.Matrix3x3D.op_Equality
-  name: Equality
-  nameWithType: Matrix3x3D.Equality
-  fullName: MathStructs.Matrix3x3D.Equality
-- uid: MathStructs.Matrix3x3D.op_Inequality*
-  commentId: Overload:MathStructs.Matrix3x3D.op_Inequality
-  name: Inequality
-  nameWithType: Matrix3x3D.Inequality
-  fullName: MathStructs.Matrix3x3D.Inequality
-- uid: MathStructs.Matrix3x3D.Equals*
-  commentId: Overload:MathStructs.Matrix3x3D.Equals
-  name: Equals
-  nameWithType: Matrix3x3D.Equals
-  fullName: MathStructs.Matrix3x3D.Equals
-- uid: System.Nullable{System.Object}
-  commentId: '!:System.Nullable{System.Object}'
-  definition: System.Nullable`1
-  name: Nullable<Object>
-  nameWithType: Nullable<Object>
-  fullName: System.Nullable<System.Object>
-  nameWithType.vb: Nullable(Of Object)
-  fullName.vb: System.Nullable(Of System.Object)
-  name.vb: Nullable(Of Object)
-  spec.csharp:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: MathStructs.Matrix3x3D.ToString*
-  commentId: Overload:MathStructs.Matrix3x3D.ToString
-  name: ToString
-  nameWithType: Matrix3x3D.ToString
-  fullName: MathStructs.Matrix3x3D.ToString
-- uid: System.String
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
-- uid: MathStructs.Matrix3x3D.GetHashCode*
-  commentId: Overload:MathStructs.Matrix3x3D.GetHashCode
-  name: GetHashCode
-  nameWithType: Matrix3x3D.GetHashCode
-  fullName: MathStructs.Matrix3x3D.GetHashCode
-- uid: System.Int32
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32

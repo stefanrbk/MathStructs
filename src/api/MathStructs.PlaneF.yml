@@ -19,7 +19,7 @@ items:
   - MathStructs.PlaneF.DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
   - MathStructs.PlaneF.DotNormal(MathStructs.Vector3F)
   - MathStructs.PlaneF.Equals(MathStructs.PlaneF)
-  - MathStructs.PlaneF.Equals(System.Nullable{System.Object})
+  - MathStructs.PlaneF.Equals(System.Object)
   - MathStructs.PlaneF.GetHashCode
   - MathStructs.PlaneF.Normal
   - MathStructs.PlaneF.Normalize
@@ -41,17 +41,23 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: PlaneF
     path: PlaneF.cs
-    startLine: 8
+    startLine: 9
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nA structure encapsulating a 3D Plane\n"
+  example: []
   syntax:
     content: public struct PlaneF
     content.vb: Public Structure PlaneF
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -72,14 +78,16 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Normal
     path: PlaneF.cs
-    startLine: 13
+    startLine: 18
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nThe normal vector of the Plane.\n"
+  example: []
   syntax:
     content: public Vector3F Normal
     return:
@@ -103,14 +111,16 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: D
     path: PlaneF.cs
-    startLine: 15
+    startLine: 24
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nThe distance of the Plane along its normal from the origin.\n"
+  example: []
   syntax:
     content: public float D
     return:
@@ -134,25 +144,31 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: .ctor
     path: PlaneF.cs
-    startLine: 17
+    startLine: 44
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nConstructs a Plane from the X, Y, and Z components of its normal, and its distance from the origin on that normal\n"
+  example: []
   syntax:
     content: public PlaneF(float x, float y, float z, float d)
     parameters:
     - id: x
       type: System.Single
+      description: The X-component of the normal.
     - id: y
       type: System.Single
+      description: The Y-component of the normal.
     - id: z
       type: System.Single
+      description: The Z-component of the normal.
     - id: d
       type: System.Single
+      description: The distance of the Plane along its normal from the origin.
     content.vb: Public Sub New(x As Single, y As Single, z As Single, d As Single)
   overload: MathStructs.PlaneF.#ctor*
   modifiers.csharp:
@@ -173,21 +189,25 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: .ctor
     path: PlaneF.cs
-    startLine: 23
+    startLine: 55
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nConstructs a Plane from the given normal and distance along the normal from the origin.\n"
+  example: []
   syntax:
     content: public PlaneF(Vector3F normal, float d)
     parameters:
     - id: normal
       type: MathStructs.Vector3F
+      description: The Plane&apos;s normal vector.
     - id: d
       type: System.Single
+      description: The Plane&apos;s distance from the origin along its normal vector.
     content.vb: Public Sub New(normal As Vector3F, d As Single)
   overload: MathStructs.PlaneF.#ctor*
   modifiers.csharp:
@@ -208,25 +228,426 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: .ctor
     path: PlaneF.cs
-    startLine: 26
+    startLine: 63
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nConstructs a Plane from the given <xref href=\"MathStructs.Vector4F\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
   syntax:
     content: public PlaneF(Vector4F value)
     parameters:
     - id: value
       type: MathStructs.Vector4F
+      description: >-
+        A vector whose first 3 elements describe the normal vector,
+
+        and whose W component defines the distance along that normal from the origin.
     content.vb: Public Sub New(value As Vector4F)
   overload: MathStructs.PlaneF.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
+- uid: MathStructs.PlaneF.CreateFromVertices(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  commentId: M:MathStructs.PlaneF.CreateFromVertices(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  id: CreateFromVertices(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: CreateFromVertices(Vector3F, Vector3F, Vector3F)
+  nameWithType: PlaneF.CreateFromVertices(Vector3F, Vector3F, Vector3F)
+  fullName: MathStructs.PlaneF.CreateFromVertices(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: CreateFromVertices
+    path: PlaneF.cs
+    startLine: 76
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCreates a Plane that contains the three given points.\n"
+  example: []
+  syntax:
+    content: public static PlaneF CreateFromVertices(Vector3F point1, Vector3F point2, Vector3F point3)
+    parameters:
+    - id: point1
+      type: MathStructs.Vector3F
+      description: The first point defining the Plane.
+    - id: point2
+      type: MathStructs.Vector3F
+      description: The second point defining the Plane.
+    - id: point3
+      type: MathStructs.Vector3F
+      description: The third point defining the Plane.
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Shared Function CreateFromVertices(point1 As Vector3F, point2 As Vector3F, point3 As Vector3F) As PlaneF
+  overload: MathStructs.PlaneF.CreateFromVertices*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.Dot(MathStructs.PlaneF,MathStructs.Vector4F)
+  commentId: M:MathStructs.PlaneF.Dot(MathStructs.PlaneF,MathStructs.Vector4F)
+  id: Dot(MathStructs.PlaneF,MathStructs.Vector4F)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Dot(PlaneF, Vector4F)
+  nameWithType: PlaneF.Dot(PlaneF, Vector4F)
+  fullName: MathStructs.PlaneF.Dot(MathStructs.PlaneF, MathStructs.Vector4F)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: PlaneF.cs
+    startLine: 92
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCalculates the dot product of a Plane and <xref href=\"MathStructs.Vector4F\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public static float Dot(PlaneF plane, Vector4F value)
+    parameters:
+    - id: plane
+      type: MathStructs.PlaneF
+      description: The Plane.
+    - id: value
+      type: MathStructs.Vector4F
+      description: The <xref href="MathStructs.Vector4F" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Single
+    content.vb: Public Shared Function Dot(plane As PlaneF, value As Vector4F) As Single
+  overload: MathStructs.PlaneF.Dot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.DotCoordinate(MathStructs.PlaneF,MathStructs.Vector3F)
+  commentId: M:MathStructs.PlaneF.DotCoordinate(MathStructs.PlaneF,MathStructs.Vector3F)
+  id: DotCoordinate(MathStructs.PlaneF,MathStructs.Vector3F)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: DotCoordinate(PlaneF, Vector3F)
+  nameWithType: PlaneF.DotCoordinate(PlaneF, Vector3F)
+  fullName: MathStructs.PlaneF.DotCoordinate(MathStructs.PlaneF, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DotCoordinate
+    path: PlaneF.cs
+    startLine: 102
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the dot product of a specified <xref href=\"MathStructs.Vector3F\" data-throw-if-not-resolved=\"false\"></xref> and the normal vector of a <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref>\nplus the distance value of that <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> (<xref href=\"MathStructs.PlaneF.D\" data-throw-if-not-resolved=\"false\"></xref>).\n"
+  example: []
+  syntax:
+    content: public static float DotCoordinate(PlaneF plane, Vector3F value)
+    parameters:
+    - id: plane
+      type: MathStructs.PlaneF
+      description: The plane.
+    - id: value
+      type: MathStructs.Vector3F
+      description: The <xref href="MathStructs.Vector3F" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Single
+    content.vb: Public Shared Function DotCoordinate(plane As PlaneF, value As Vector3F) As Single
+  overload: MathStructs.PlaneF.DotCoordinate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
+  commentId: M:MathStructs.PlaneF.DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
+  id: DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: DotNormal(PlaneF, Vector3F)
+  nameWithType: PlaneF.DotNormal(PlaneF, Vector3F)
+  fullName: MathStructs.PlaneF.DotNormal(MathStructs.PlaneF, MathStructs.Vector3F)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: DotNormal
+    path: PlaneF.cs
+    startLine: 112
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the dot product of a specified <xref href=\"MathStructs.Vector3F\" data-throw-if-not-resolved=\"false\"></xref> and the <xref href=\"MathStructs.PlaneF.Normal\" data-throw-if-not-resolved=\"false\"></xref>\nvector of the specified <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public static float DotNormal(PlaneF plane, Vector3F value)
+    parameters:
+    - id: plane
+      type: MathStructs.PlaneF
+      description: The plane.
+    - id: value
+      type: MathStructs.Vector3F
+      description: The <xref href="MathStructs.Vector3F" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Single
+    content.vb: Public Shared Function DotNormal(plane As PlaneF, value As Vector3F) As Single
+  overload: MathStructs.PlaneF.DotNormal*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.Normalize(MathStructs.PlaneF)
+  commentId: M:MathStructs.PlaneF.Normalize(MathStructs.PlaneF)
+  id: Normalize(MathStructs.PlaneF)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Normalize(PlaneF)
+  nameWithType: PlaneF.Normalize(PlaneF)
+  fullName: MathStructs.PlaneF.Normalize(MathStructs.PlaneF)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: PlaneF.cs
+    startLine: 120
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCreate a new Plane whose normal vector is the source Plane&apos;s normal vector normalized.\n"
+  example: []
+  syntax:
+    content: public static PlaneF Normalize(PlaneF value)
+    parameters:
+    - id: value
+      type: MathStructs.PlaneF
+      description: The source Plane.
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Shared Function Normalize(value As PlaneF) As PlaneF
+  overload: MathStructs.PlaneF.Normalize*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.op_Inequality(MathStructs.PlaneF,MathStructs.PlaneF)
+  commentId: M:MathStructs.PlaneF.op_Inequality(MathStructs.PlaneF,MathStructs.PlaneF)
+  id: op_Inequality(MathStructs.PlaneF,MathStructs.PlaneF)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Inequality(PlaneF, PlaneF)
+  nameWithType: PlaneF.Inequality(PlaneF, PlaneF)
+  fullName: MathStructs.PlaneF.Inequality(MathStructs.PlaneF, MathStructs.PlaneF)
+  type: Operator
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: PlaneF.cs
+    startLine: 130
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the two given Planes are not equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(PlaneF left, PlaneF right)
+    parameters:
+    - id: left
+      type: MathStructs.PlaneF
+      description: The first <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> to compare.
+    - id: right
+      type: MathStructs.PlaneF
+      description: The second <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> to compare.
+    return:
+      type: System.Boolean
+      description: True if the Planes are not equal; False otherwise.
+    content.vb: Public Shared Operator <>(left As PlaneF, right As PlaneF) As Boolean
+  overload: MathStructs.PlaneF.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.op_Equality(MathStructs.PlaneF,MathStructs.PlaneF)
+  commentId: M:MathStructs.PlaneF.op_Equality(MathStructs.PlaneF,MathStructs.PlaneF)
+  id: op_Equality(MathStructs.PlaneF,MathStructs.PlaneF)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Equality(PlaneF, PlaneF)
+  nameWithType: PlaneF.Equality(PlaneF, PlaneF)
+  fullName: MathStructs.PlaneF.Equality(MathStructs.PlaneF, MathStructs.PlaneF)
+  type: Operator
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Equality
+    path: PlaneF.cs
+    startLine: 140
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the two given Planes are equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(PlaneF left, PlaneF right)
+    parameters:
+    - id: left
+      type: MathStructs.PlaneF
+      description: The first <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> to compare.
+    - id: right
+      type: MathStructs.PlaneF
+      description: The second <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> to compare.
+    return:
+      type: System.Boolean
+      description: True if the Planes are equal; False otherwise.
+    content.vb: Public Shared Operator =(left As PlaneF, right As PlaneF) As Boolean
+  overload: MathStructs.PlaneF.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.PlaneF,MathStructs.Matrix4x4F)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Transform(PlaneF, Matrix4x4F)
+  nameWithType: PlaneF.Transform(PlaneF, Matrix4x4F)
+  fullName: MathStructs.PlaneF.Transform(MathStructs.PlaneF, MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: PlaneF.cs
+    startLine: 150
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a normalized Plane by a Matrix.\n"
+  example: []
+  syntax:
+    content: public static PlaneF Transform(PlaneF plane, Matrix4x4F matrix)
+    parameters:
+    - id: plane
+      type: MathStructs.PlaneF
+      description: >-
+        The normalized Plane to transform.
+
+        This Plane must already be normalized, so that its Normal vector is of unit length, before this method is called.
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+      description: The transformation matrix to apply to the Plane.
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Shared Function Transform(plane As PlaneF, matrix As Matrix4x4F) As PlaneF
+  overload: MathStructs.PlaneF.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.QuaternionF)
+  id: Transform(MathStructs.PlaneF,MathStructs.QuaternionF)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Transform(PlaneF, QuaternionF)
+  nameWithType: PlaneF.Transform(PlaneF, QuaternionF)
+  fullName: MathStructs.PlaneF.Transform(MathStructs.PlaneF, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: PlaneF.cs
+    startLine: 167
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms a normalized Plane by a Quaternion rotation.\n"
+  example: []
+  syntax:
+    content: public static PlaneF Transform(PlaneF plane, QuaternionF rotation)
+    parameters:
+    - id: plane
+      type: MathStructs.PlaneF
+      description: >-
+        The normalized Plane to transform.
+
+        This Plane must already be normalized, so that its Normal vector is of unit length, before this method is called.
+    - id: rotation
+      type: MathStructs.QuaternionF
+      description: The Quaternion rotation to apply to the Plane.
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Shared Function Transform(plane As PlaneF, rotation As QuaternionF) As PlaneF
+  overload: MathStructs.PlaneF.Transform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
 - uid: MathStructs.PlaneF.Deconstruct(MathStructs.Vector3F@,System.Single@)
   commentId: M:MathStructs.PlaneF.Deconstruct(MathStructs.Vector3F@,System.Single@)
   id: Deconstruct(MathStructs.Vector3F@,System.Single@)
@@ -241,21 +662,25 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Deconstruct
     path: PlaneF.cs
-    startLine: 29
+    startLine: 202
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nExtracts the <xref href=\"MathStructs.PlaneF.Normal\" data-throw-if-not-resolved=\"false\"></xref> vector and distance (<xref href=\"MathStructs.PlaneF.D\" data-throw-if-not-resolved=\"false\"></xref>) components from this <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
   syntax:
     content: public void Deconstruct(out Vector3F normal, out float d)
     parameters:
     - id: normal
       type: MathStructs.Vector3F
+      description: The <xref href="MathStructs.PlaneF.Normal" data-throw-if-not-resolved="false"></xref> component.
     - id: d
       type: System.Single
+      description: The distance (<xref href="MathStructs.PlaneF.D" data-throw-if-not-resolved="false"></xref>) component.
     content.vb: Public Sub Deconstruct(ByRef normal As Vector3F, ByRef d As Single)
   overload: MathStructs.PlaneF.Deconstruct*
   nameWithType.vb: PlaneF.Deconstruct(ByRef Vector3F, ByRef Single)
@@ -279,25 +704,31 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Deconstruct
     path: PlaneF.cs
-    startLine: 32
+    startLine: 214
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nExtracts the <xref href=\"MathStructs.Vector3F.X\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"MathStructs.Vector3F.Y\" data-throw-if-not-resolved=\"false\"></xref>, and <xref href=\"MathStructs.Vector3F.Z\" data-throw-if-not-resolved=\"false\"></xref> components from the\n<xref href=\"MathStructs.PlaneF.Normal\" data-throw-if-not-resolved=\"false\"></xref> vector and distance (<xref href=\"MathStructs.PlaneF.D\" data-throw-if-not-resolved=\"false\"></xref>) components from this <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
   syntax:
     content: public void Deconstruct(out float x, out float y, out float z, out float d)
     parameters:
     - id: x
       type: System.Single
+      description: The <xref href="MathStructs.Vector3F.X" data-throw-if-not-resolved="false"></xref> of the <xref href="MathStructs.PlaneF.Normal" data-throw-if-not-resolved="false"></xref> component.
     - id: y
       type: System.Single
+      description: The <xref href="MathStructs.Vector3F.Y" data-throw-if-not-resolved="false"></xref> of the <xref href="MathStructs.PlaneF.Normal" data-throw-if-not-resolved="false"></xref> component.
     - id: z
       type: System.Single
+      description: The <xref href="MathStructs.Vector3F.Z" data-throw-if-not-resolved="false"></xref> of the <xref href="MathStructs.PlaneF.Normal" data-throw-if-not-resolved="false"></xref> component.
     - id: d
       type: System.Single
+      description: The distance (<xref href="MathStructs.PlaneF.D" data-throw-if-not-resolved="false"></xref>) component.
     content.vb: Public Sub Deconstruct(ByRef x As Single, ByRef y As Single, ByRef z As Single, ByRef d As Single)
   overload: MathStructs.PlaneF.Deconstruct*
   nameWithType.vb: PlaneF.Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
@@ -307,264 +738,6 @@ items:
   - Public
   fullName.vb: MathStructs.PlaneF.Deconstruct(ByRef System.Single, ByRef System.Single, ByRef System.Single, ByRef System.Single)
   name.vb: Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
-- uid: MathStructs.PlaneF.CreateFromVertices(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
-  commentId: M:MathStructs.PlaneF.CreateFromVertices(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
-  id: CreateFromVertices(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: CreateFromVertices(Vector3F, Vector3F, Vector3F)
-  nameWithType: PlaneF.CreateFromVertices(Vector3F, Vector3F, Vector3F)
-  fullName: MathStructs.PlaneF.CreateFromVertices(MathStructs.Vector3F, MathStructs.Vector3F, MathStructs.Vector3F)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: CreateFromVertices
-    path: PlaneF.cs
-    startLine: 35
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static PlaneF CreateFromVertices(Vector3F point1, Vector3F point2, Vector3F point3)
-    parameters:
-    - id: point1
-      type: MathStructs.Vector3F
-    - id: point2
-      type: MathStructs.Vector3F
-    - id: point3
-      type: MathStructs.Vector3F
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Shared Function CreateFromVertices(point1 As Vector3F, point2 As Vector3F, point3 As Vector3F) As PlaneF
-  overload: MathStructs.PlaneF.CreateFromVertices*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.PlaneF.Normalize
-  commentId: M:MathStructs.PlaneF.Normalize
-  id: Normalize
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Normalize()
-  nameWithType: PlaneF.Normalize()
-  fullName: MathStructs.PlaneF.Normalize()
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Normalize
-    path: PlaneF.cs
-    startLine: 46
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public PlaneF Normalize()
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Function Normalize As PlaneF
-  overload: MathStructs.PlaneF.Normalize*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.PlaneF.Normalize(MathStructs.PlaneF)
-  commentId: M:MathStructs.PlaneF.Normalize(MathStructs.PlaneF)
-  id: Normalize(MathStructs.PlaneF)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Normalize(PlaneF)
-  nameWithType: PlaneF.Normalize(PlaneF)
-  fullName: MathStructs.PlaneF.Normalize(MathStructs.PlaneF)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Normalize
-    path: PlaneF.cs
-    startLine: 56
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static PlaneF Normalize(PlaneF value)
-    parameters:
-    - id: value
-      type: MathStructs.PlaneF
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Shared Function Normalize(value As PlaneF) As PlaneF
-  overload: MathStructs.PlaneF.Normalize*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.Matrix4x4F)
-  commentId: M:MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.Matrix4x4F)
-  id: Transform(MathStructs.PlaneF,MathStructs.Matrix4x4F)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Transform(PlaneF, Matrix4x4F)
-  nameWithType: PlaneF.Transform(PlaneF, Matrix4x4F)
-  fullName: MathStructs.PlaneF.Transform(MathStructs.PlaneF, MathStructs.Matrix4x4F)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Transform
-    path: PlaneF.cs
-    startLine: 60
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static PlaneF Transform(PlaneF plane, Matrix4x4F matrix)
-    parameters:
-    - id: plane
-      type: MathStructs.PlaneF
-    - id: matrix
-      type: MathStructs.Matrix4x4F
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Shared Function Transform(plane As PlaneF, matrix As Matrix4x4F) As PlaneF
-  overload: MathStructs.PlaneF.Transform*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.PlaneF.Transform(MathStructs.Matrix4x4F)
-  commentId: M:MathStructs.PlaneF.Transform(MathStructs.Matrix4x4F)
-  id: Transform(MathStructs.Matrix4x4F)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Transform(Matrix4x4F)
-  nameWithType: PlaneF.Transform(Matrix4x4F)
-  fullName: MathStructs.PlaneF.Transform(MathStructs.Matrix4x4F)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Transform
-    path: PlaneF.cs
-    startLine: 71
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public PlaneF Transform(Matrix4x4F matrix)
-    parameters:
-    - id: matrix
-      type: MathStructs.Matrix4x4F
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Function Transform(matrix As Matrix4x4F) As PlaneF
-  overload: MathStructs.PlaneF.Transform*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.PlaneF.Transform(MathStructs.PlaneF,MathStructs.QuaternionF)
-  id: Transform(MathStructs.PlaneF,MathStructs.QuaternionF)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Transform(PlaneF, QuaternionF)
-  nameWithType: PlaneF.Transform(PlaneF, QuaternionF)
-  fullName: MathStructs.PlaneF.Transform(MathStructs.PlaneF, MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Transform
-    path: PlaneF.cs
-    startLine: 75
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static PlaneF Transform(PlaneF plane, QuaternionF rotation)
-    parameters:
-    - id: plane
-      type: MathStructs.PlaneF
-    - id: rotation
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Shared Function Transform(plane As PlaneF, rotation As QuaternionF) As PlaneF
-  overload: MathStructs.PlaneF.Transform*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.PlaneF.Transform(MathStructs.QuaternionF)
-  commentId: M:MathStructs.PlaneF.Transform(MathStructs.QuaternionF)
-  id: Transform(MathStructs.QuaternionF)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Transform(QuaternionF)
-  nameWithType: PlaneF.Transform(QuaternionF)
-  fullName: MathStructs.PlaneF.Transform(MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Transform
-    path: PlaneF.cs
-    startLine: 105
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public PlaneF Transform(QuaternionF rotation)
-    parameters:
-    - id: rotation
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.PlaneF
-    content.vb: Public Function Transform(rotation As QuaternionF) As PlaneF
-  overload: MathStructs.PlaneF.Transform*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
 - uid: MathStructs.PlaneF.Dot(MathStructs.Vector4F)
   commentId: M:MathStructs.PlaneF.Dot(MathStructs.Vector4F)
   id: Dot(MathStructs.Vector4F)
@@ -579,19 +752,22 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Dot
     path: PlaneF.cs
-    startLine: 109
+    startLine: 222
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nCalculates the dot product of this Plane and <xref href=\"MathStructs.Vector4F\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
   syntax:
     content: public float Dot(Vector4F value)
     parameters:
     - id: value
       type: MathStructs.Vector4F
+      description: The <xref href="MathStructs.Vector4F" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Single
     content.vb: Public Function Dot(value As Vector4F) As Single
@@ -600,45 +776,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: MathStructs.PlaneF.Dot(MathStructs.PlaneF,MathStructs.Vector4F)
-  commentId: M:MathStructs.PlaneF.Dot(MathStructs.PlaneF,MathStructs.Vector4F)
-  id: Dot(MathStructs.PlaneF,MathStructs.Vector4F)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Dot(PlaneF, Vector4F)
-  nameWithType: PlaneF.Dot(PlaneF, Vector4F)
-  fullName: MathStructs.PlaneF.Dot(MathStructs.PlaneF, MathStructs.Vector4F)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Dot
-    path: PlaneF.cs
-    startLine: 113
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static float Dot(PlaneF plane, Vector4F value)
-    parameters:
-    - id: plane
-      type: MathStructs.PlaneF
-    - id: value
-      type: MathStructs.Vector4F
-    return:
-      type: System.Single
-    content.vb: Public Shared Function Dot(plane As PlaneF, value As Vector4F) As Single
-  overload: MathStructs.PlaneF.Dot*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: MathStructs.PlaneF.DotCoordinate(MathStructs.Vector3F)
   commentId: M:MathStructs.PlaneF.DotCoordinate(MathStructs.Vector3F)
   id: DotCoordinate(MathStructs.Vector3F)
@@ -653,19 +790,22 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: DotCoordinate
     path: PlaneF.cs
-    startLine: 117
+    startLine: 231
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns the dot product of a specified <xref href=\"MathStructs.Vector3F\" data-throw-if-not-resolved=\"false\"></xref> and the <xref href=\"MathStructs.PlaneF.Normal\" data-throw-if-not-resolved=\"false\"></xref>\nvector of this <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> plus the distance of this <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> (<xref href=\"MathStructs.PlaneF.D\" data-throw-if-not-resolved=\"false\"></xref>).\n"
+  example: []
   syntax:
     content: public float DotCoordinate(Vector3F value)
     parameters:
     - id: value
       type: MathStructs.Vector3F
+      description: The <xref href="MathStructs.Vector3F" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Single
     content.vb: Public Function DotCoordinate(value As Vector3F) As Single
@@ -674,45 +814,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: MathStructs.PlaneF.DotCoordinate(MathStructs.PlaneF,MathStructs.Vector3F)
-  commentId: M:MathStructs.PlaneF.DotCoordinate(MathStructs.PlaneF,MathStructs.Vector3F)
-  id: DotCoordinate(MathStructs.PlaneF,MathStructs.Vector3F)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: DotCoordinate(PlaneF, Vector3F)
-  nameWithType: PlaneF.DotCoordinate(PlaneF, Vector3F)
-  fullName: MathStructs.PlaneF.DotCoordinate(MathStructs.PlaneF, MathStructs.Vector3F)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: DotCoordinate
-    path: PlaneF.cs
-    startLine: 121
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static float DotCoordinate(PlaneF plane, Vector3F value)
-    parameters:
-    - id: plane
-      type: MathStructs.PlaneF
-    - id: value
-      type: MathStructs.Vector3F
-    return:
-      type: System.Single
-    content.vb: Public Shared Function DotCoordinate(plane As PlaneF, value As Vector3F) As Single
-  overload: MathStructs.PlaneF.DotCoordinate*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: MathStructs.PlaneF.DotNormal(MathStructs.Vector3F)
   commentId: M:MathStructs.PlaneF.DotNormal(MathStructs.Vector3F)
   id: DotNormal(MathStructs.Vector3F)
@@ -727,19 +828,22 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: DotNormal
     path: PlaneF.cs
-    startLine: 125
+    startLine: 240
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns the dot product of a specified <xref href=\"MathStructs.Vector3F\" data-throw-if-not-resolved=\"false\"></xref> and the <xref href=\"MathStructs.PlaneF.Normal\" data-throw-if-not-resolved=\"false\"></xref>\nvector of this <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
   syntax:
     content: public float DotNormal(Vector3F value)
     parameters:
     - id: value
       type: MathStructs.Vector3F
+      description: The <xref href="MathStructs.Vector3F" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.Single
     content.vb: Public Function DotNormal(value As Vector3F) As Single
@@ -748,123 +852,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: MathStructs.PlaneF.DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
-  commentId: M:MathStructs.PlaneF.DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
-  id: DotNormal(MathStructs.PlaneF,MathStructs.Vector3F)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: DotNormal(PlaneF, Vector3F)
-  nameWithType: PlaneF.DotNormal(PlaneF, Vector3F)
-  fullName: MathStructs.PlaneF.DotNormal(MathStructs.PlaneF, MathStructs.Vector3F)
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: DotNormal
-    path: PlaneF.cs
-    startLine: 129
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static float DotNormal(PlaneF plane, Vector3F value)
-    parameters:
-    - id: plane
-      type: MathStructs.PlaneF
-    - id: value
-      type: MathStructs.Vector3F
-    return:
-      type: System.Single
-    content.vb: Public Shared Function DotNormal(plane As PlaneF, value As Vector3F) As Single
-  overload: MathStructs.PlaneF.DotNormal*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.PlaneF.op_Equality(MathStructs.PlaneF,MathStructs.PlaneF)
-  commentId: M:MathStructs.PlaneF.op_Equality(MathStructs.PlaneF,MathStructs.PlaneF)
-  id: op_Equality(MathStructs.PlaneF,MathStructs.PlaneF)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Equality(PlaneF, PlaneF)
-  nameWithType: PlaneF.Equality(PlaneF, PlaneF)
-  fullName: MathStructs.PlaneF.Equality(MathStructs.PlaneF, MathStructs.PlaneF)
-  type: Operator
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Equality
-    path: PlaneF.cs
-    startLine: 133
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static bool operator ==(PlaneF left, PlaneF right)
-    parameters:
-    - id: left
-      type: MathStructs.PlaneF
-    - id: right
-      type: MathStructs.PlaneF
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Operator =(left As PlaneF, right As PlaneF) As Boolean
-  overload: MathStructs.PlaneF.op_Equality*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.PlaneF.op_Inequality(MathStructs.PlaneF,MathStructs.PlaneF)
-  commentId: M:MathStructs.PlaneF.op_Inequality(MathStructs.PlaneF,MathStructs.PlaneF)
-  id: op_Inequality(MathStructs.PlaneF,MathStructs.PlaneF)
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: Inequality(PlaneF, PlaneF)
-  nameWithType: PlaneF.Inequality(PlaneF, PlaneF)
-  fullName: MathStructs.PlaneF.Inequality(MathStructs.PlaneF, MathStructs.PlaneF)
-  type: Operator
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Inequality
-    path: PlaneF.cs
-    startLine: 137
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static bool operator !=(PlaneF left, PlaneF right)
-    parameters:
-    - id: left
-      type: MathStructs.PlaneF
-    - id: right
-      type: MathStructs.PlaneF
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Operator <>(left As PlaneF, right As PlaneF) As Boolean
-  overload: MathStructs.PlaneF.op_Inequality*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
 - uid: MathStructs.PlaneF.Equals(MathStructs.PlaneF)
   commentId: M:MathStructs.PlaneF.Equals(MathStructs.PlaneF)
   id: Equals(MathStructs.PlaneF)
@@ -879,95 +866,67 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Equals
     path: PlaneF.cs
-    startLine: 141
+    startLine: 250
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> is equal to this\n<xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
   syntax:
     content: public bool Equals(PlaneF other)
     parameters:
     - id: other
       type: MathStructs.PlaneF
+      description: The <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> to compare this instance to.
     return:
       type: System.Boolean
+      description: True if the other <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> is equal to this instance; False otherwise.
     content.vb: Public Function Equals(other As PlaneF) As Boolean
   overload: MathStructs.PlaneF.Equals*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: MathStructs.PlaneF.Equals(System.Nullable{System.Object})
-  commentId: M:MathStructs.PlaneF.Equals(System.Nullable{System.Object})
-  id: Equals(System.Nullable{System.Object})
+- uid: MathStructs.PlaneF.Equals(System.Object)
+  commentId: M:MathStructs.PlaneF.Equals(System.Object)
+  id: Equals(System.Object)
   parent: MathStructs.PlaneF
   langs:
   - csharp
   - vb
-  name: Equals(Nullable<Object>)
-  nameWithType: PlaneF.Equals(Nullable<Object>)
-  fullName: MathStructs.PlaneF.Equals(System.Nullable<System.Object>)
+  name: Equals(Object)
+  nameWithType: PlaneF.Equals(Object)
+  fullName: MathStructs.PlaneF.Equals(System.Object)
   type: Method
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Equals
     path: PlaneF.cs
-    startLine: 145
+    startLine: 260
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given Object is equal to this\n<xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
   syntax:
-    content: public override bool Equals(object? obj)
+    content: public override bool Equals(object obj)
     parameters:
     - id: obj
-      type: System.Nullable{System.Object}
+      type: System.Object
+      description: The Object to compare against.
     return:
       type: System.Boolean
-    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+      description: True if the Object is equal to this <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref>; False otherwise.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
   overload: MathStructs.PlaneF.Equals*
-  nameWithType.vb: PlaneF.Equals(Nullable(Of Object))
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-  fullName.vb: MathStructs.PlaneF.Equals(System.Nullable(Of System.Object))
-  name.vb: Equals(Nullable(Of Object))
-- uid: MathStructs.PlaneF.ToString
-  commentId: M:MathStructs.PlaneF.ToString
-  id: ToString
-  parent: MathStructs.PlaneF
-  langs:
-  - csharp
-  - vb
-  name: ToString()
-  nameWithType: PlaneF.ToString()
-  fullName: MathStructs.PlaneF.ToString()
-  type: Method
-  source:
-    remote:
-      path: src/PlaneF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: ToString
-    path: PlaneF.cs
-    startLine: 149
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public override string ToString()
-    return:
-      type: System.String
-    content.vb: Public Overrides Function ToString As String
-  overload: MathStructs.PlaneF.ToString*
   modifiers.csharp:
   - public
   - override
@@ -988,19 +947,22 @@ items:
   source:
     remote:
       path: src/PlaneF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: GetHashCode
     path: PlaneF.cs
-    startLine: 152
+    startLine: 267
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns the hash code for this instance.\n"
+  example: []
   syntax:
     content: public override int GetHashCode()
     return:
       type: System.Int32
     content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.ValueType.GetHashCode
   overload: MathStructs.PlaneF.GetHashCode*
   modifiers.csharp:
   - public
@@ -1008,12 +970,325 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: MathStructs.PlaneF.Normalize
+  commentId: M:MathStructs.PlaneF.Normalize
+  id: Normalize
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: PlaneF.Normalize()
+  fullName: MathStructs.PlaneF.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: PlaneF.cs
+    startLine: 273
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCreate a new Plane whose normal vector is this Plane&apos;s normal vector normalized.\n"
+  example: []
+  syntax:
+    content: public PlaneF Normalize()
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Function Normalize As PlaneF
+  overload: MathStructs.PlaneF.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.PlaneF.ToString
+  commentId: M:MathStructs.PlaneF.ToString
+  id: ToString
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PlaneF.ToString()
+  fullName: MathStructs.PlaneF.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: PlaneF.cs
+    startLine: 286
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a String representing this <xref href=\"MathStructs.PlaneF\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: MathStructs.PlaneF.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.PlaneF.Transform(MathStructs.Matrix4x4F)
+  commentId: M:MathStructs.PlaneF.Transform(MathStructs.Matrix4x4F)
+  id: Transform(MathStructs.Matrix4x4F)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4x4F)
+  nameWithType: PlaneF.Transform(Matrix4x4F)
+  fullName: MathStructs.PlaneF.Transform(MathStructs.Matrix4x4F)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: PlaneF.cs
+    startLine: 295
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms this normalized Plane by a Matrix.\n"
+  remarks: >-
+    This <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> must already be normalized, so that its <xref href="MathStructs.PlaneF.Normal" data-throw-if-not-resolved="false"></xref>
+
+    vector is of unit length, before this method is called.
+  example: []
+  syntax:
+    content: public PlaneF Transform(Matrix4x4F matrix)
+    parameters:
+    - id: matrix
+      type: MathStructs.Matrix4x4F
+      description: The transformation matrix to apply to this Plane.
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Function Transform(matrix As Matrix4x4F) As PlaneF
+  overload: MathStructs.PlaneF.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.PlaneF.Transform(MathStructs.QuaternionF)
+  commentId: M:MathStructs.PlaneF.Transform(MathStructs.QuaternionF)
+  id: Transform(MathStructs.QuaternionF)
+  parent: MathStructs.PlaneF
+  langs:
+  - csharp
+  - vb
+  name: Transform(QuaternionF)
+  nameWithType: PlaneF.Transform(QuaternionF)
+  fullName: MathStructs.PlaneF.Transform(MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/PlaneF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Transform
+    path: PlaneF.cs
+    startLine: 305
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nTransforms this normalized Plane by a Quaternion rotation.\n"
+  remarks: >-
+    This <xref href="MathStructs.PlaneF" data-throw-if-not-resolved="false"></xref> must already be normalized, so that its <xref href="MathStructs.PlaneF.Normal" data-throw-if-not-resolved="false"></xref>
+
+    vector is of unit length, before this method is called.
+  example: []
+  syntax:
+    content: public PlaneF Transform(QuaternionF rotation)
+    parameters:
+    - id: rotation
+      type: MathStructs.QuaternionF
+      description: The Quaternion rotation to apply to this Plane.
+    return:
+      type: MathStructs.PlaneF
+    content.vb: Public Function Transform(rotation As QuaternionF) As PlaneF
+  overload: MathStructs.PlaneF.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 references:
 - uid: MathStructs
   commentId: N:MathStructs
   name: MathStructs
   nameWithType: MathStructs
   fullName: MathStructs
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: MathStructs.Vector3F
   commentId: T:MathStructs.Vector3F
   parent: MathStructs
@@ -1021,6 +1296,8 @@ references:
   nameWithType: Vector3F
   fullName: MathStructs.Vector3F
 - uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
   name: Single
   nameWithType: Single
@@ -1036,11 +1313,6 @@ references:
   name: Vector4F
   nameWithType: Vector4F
   fullName: MathStructs.Vector4F
-- uid: MathStructs.PlaneF.Deconstruct*
-  commentId: Overload:MathStructs.PlaneF.Deconstruct
-  name: Deconstruct
-  nameWithType: PlaneF.Deconstruct
-  fullName: MathStructs.PlaneF.Deconstruct
 - uid: MathStructs.PlaneF.CreateFromVertices*
   commentId: Overload:MathStructs.PlaneF.CreateFromVertices
   name: CreateFromVertices
@@ -1052,11 +1324,49 @@ references:
   name: PlaneF
   nameWithType: PlaneF
   fullName: MathStructs.PlaneF
+- uid: MathStructs.PlaneF.Dot*
+  commentId: Overload:MathStructs.PlaneF.Dot
+  name: Dot
+  nameWithType: PlaneF.Dot
+  fullName: MathStructs.PlaneF.Dot
+- uid: MathStructs.PlaneF.D
+  commentId: F:MathStructs.PlaneF.D
+  isExternal: true
+- uid: MathStructs.PlaneF.DotCoordinate*
+  commentId: Overload:MathStructs.PlaneF.DotCoordinate
+  name: DotCoordinate
+  nameWithType: PlaneF.DotCoordinate
+  fullName: MathStructs.PlaneF.DotCoordinate
+- uid: MathStructs.PlaneF.Normal
+  commentId: F:MathStructs.PlaneF.Normal
+  isExternal: true
+- uid: MathStructs.PlaneF.DotNormal*
+  commentId: Overload:MathStructs.PlaneF.DotNormal
+  name: DotNormal
+  nameWithType: PlaneF.DotNormal
+  fullName: MathStructs.PlaneF.DotNormal
 - uid: MathStructs.PlaneF.Normalize*
   commentId: Overload:MathStructs.PlaneF.Normalize
   name: Normalize
   nameWithType: PlaneF.Normalize
   fullName: MathStructs.PlaneF.Normalize
+- uid: MathStructs.PlaneF.op_Inequality*
+  commentId: Overload:MathStructs.PlaneF.op_Inequality
+  name: Inequality
+  nameWithType: PlaneF.Inequality
+  fullName: MathStructs.PlaneF.Inequality
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: MathStructs.PlaneF.op_Equality*
+  commentId: Overload:MathStructs.PlaneF.op_Equality
+  name: Equality
+  nameWithType: PlaneF.Equality
+  fullName: MathStructs.PlaneF.Equality
 - uid: MathStructs.PlaneF.Transform*
   commentId: Overload:MathStructs.PlaneF.Transform
   name: Transform
@@ -1074,76 +1384,41 @@ references:
   name: QuaternionF
   nameWithType: QuaternionF
   fullName: MathStructs.QuaternionF
-- uid: MathStructs.PlaneF.Dot*
-  commentId: Overload:MathStructs.PlaneF.Dot
-  name: Dot
-  nameWithType: PlaneF.Dot
-  fullName: MathStructs.PlaneF.Dot
-- uid: MathStructs.PlaneF.DotCoordinate*
-  commentId: Overload:MathStructs.PlaneF.DotCoordinate
-  name: DotCoordinate
-  nameWithType: PlaneF.DotCoordinate
-  fullName: MathStructs.PlaneF.DotCoordinate
-- uid: MathStructs.PlaneF.DotNormal*
-  commentId: Overload:MathStructs.PlaneF.DotNormal
-  name: DotNormal
-  nameWithType: PlaneF.DotNormal
-  fullName: MathStructs.PlaneF.DotNormal
-- uid: MathStructs.PlaneF.op_Equality*
-  commentId: Overload:MathStructs.PlaneF.op_Equality
-  name: Equality
-  nameWithType: PlaneF.Equality
-  fullName: MathStructs.PlaneF.Equality
-- uid: System.Boolean
+- uid: MathStructs.PlaneF.Deconstruct*
+  commentId: Overload:MathStructs.PlaneF.Deconstruct
+  name: Deconstruct
+  nameWithType: PlaneF.Deconstruct
+  fullName: MathStructs.PlaneF.Deconstruct
+- uid: MathStructs.Vector3F.X
+  commentId: F:MathStructs.Vector3F.X
   isExternal: true
-  name: Boolean
-  nameWithType: Boolean
-  fullName: System.Boolean
-- uid: MathStructs.PlaneF.op_Inequality*
-  commentId: Overload:MathStructs.PlaneF.op_Inequality
-  name: Inequality
-  nameWithType: PlaneF.Inequality
-  fullName: MathStructs.PlaneF.Inequality
+- uid: MathStructs.Vector3F.Y
+  commentId: F:MathStructs.Vector3F.Y
+  isExternal: true
+- uid: MathStructs.Vector3F.Z
+  commentId: F:MathStructs.Vector3F.Z
+  isExternal: true
 - uid: MathStructs.PlaneF.Equals*
   commentId: Overload:MathStructs.PlaneF.Equals
   name: Equals
   nameWithType: PlaneF.Equals
   fullName: MathStructs.PlaneF.Equals
-- uid: System.Nullable{System.Object}
-  commentId: '!:System.Nullable{System.Object}'
-  definition: System.Nullable`1
-  name: Nullable<Object>
-  nameWithType: Nullable<Object>
-  fullName: System.Nullable<System.Object>
-  nameWithType.vb: Nullable(Of Object)
-  fullName.vb: System.Nullable(Of System.Object)
-  name.vb: Nullable(Of Object)
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
   spec.csharp:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
     isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
+  - name: (
+    nameWithType: (
+    fullName: (
   - uid: System.Object
     name: Object
     nameWithType: Object
@@ -1152,41 +1427,101 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Nullable`1
-  isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
-  spec.csharp:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
   spec.vb:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
     isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.PlaneF.GetHashCode*
+  commentId: Overload:MathStructs.PlaneF.GetHashCode
+  name: GetHashCode
+  nameWithType: PlaneF.GetHashCode
+  fullName: MathStructs.PlaneF.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
   - name: )
     nameWithType: )
     fullName: )
@@ -1196,17 +1531,9 @@ references:
   nameWithType: PlaneF.ToString
   fullName: MathStructs.PlaneF.ToString
 - uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
   name: String
   nameWithType: String
   fullName: System.String
-- uid: MathStructs.PlaneF.GetHashCode*
-  commentId: Overload:MathStructs.PlaneF.GetHashCode
-  name: GetHashCode
-  nameWithType: PlaneF.GetHashCode
-  fullName: MathStructs.PlaneF.GetHashCode
-- uid: System.Int32
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32

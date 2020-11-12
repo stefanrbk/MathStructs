@@ -73,11 +73,26 @@
   
   <h1 id="MathStructs_QuaternionF" data-uid="MathStructs.QuaternionF" class="text-break">Struct QuaternionF
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A structure encapsulating a four-dimensional vector (x,y,z,w),
+which is used to efficiently rotate an object about the (x,y,z)
+vector by the angle theta, where w = cos(theta/2).</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a>&gt;</div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MathStructs.html">MathStructs</a></h6>
   <h6><strong>Assembly</strong>: MathStructs.dll</h6>
@@ -89,14 +104,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF__ctor_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.%23ctor(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF__ctor_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.%23ctor(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L33">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L72">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF__ctor_" data-uid="MathStructs.QuaternionF.#ctor*"></a>
   <h4 id="MathStructs_QuaternionF__ctor_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.QuaternionF.#ctor(MathStructs.Vector3F,System.Single)">QuaternionF(Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a Quaternion from the given vector and rotation parts.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -115,25 +131,28 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vectorPart</span></td>
-        <td></td>
+        <td><p>The vector part of the Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">scalarPart</span></td>
-        <td></td>
+        <td><p>The rotation part of the Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF__ctor_System_Single_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.%23ctor(System.Single%2CSystem.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF__ctor_System_Single_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.%23ctor(System.Single%2CSystem.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L25">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L59">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF__ctor_" data-uid="MathStructs.QuaternionF.#ctor*"></a>
   <h4 id="MathStructs_QuaternionF__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="MathStructs.QuaternionF.#ctor(System.Single,System.Single,System.Single,System.Single)">QuaternionF(Single, Single, Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a Quaternion from the given components.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -152,22 +171,26 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>The X component of the Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>The Y component of the Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>The Z component of the Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>The W component of the Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -175,13 +198,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_W.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.W%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_W.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.W%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L18">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L39">View Source</a>
   </span>
   <h4 id="MathStructs_QuaternionF_W" data-uid="MathStructs.QuaternionF.W">W</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specifies the W-value of the vector component of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -204,13 +228,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_X.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.X%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_X.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.X%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L15">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L21">View Source</a>
   </span>
   <h4 id="MathStructs_QuaternionF_X" data-uid="MathStructs.QuaternionF.X">X</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specifies the X-value of the vector component of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -233,13 +258,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Y.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Y%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Y.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Y%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L16">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L27">View Source</a>
   </span>
   <h4 id="MathStructs_QuaternionF_Y" data-uid="MathStructs.QuaternionF.Y">Y</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specifies the Y-value of the vector component of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -262,13 +288,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Z.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Z%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Z.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Z%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L17">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L33">View Source</a>
   </span>
   <h4 id="MathStructs_QuaternionF_Z" data-uid="MathStructs.QuaternionF.Z">Z</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specifies the Z-value of the vector component of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -293,14 +320,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Identity.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Identity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Identity.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Identity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L20">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L87">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Identity_" data-uid="MathStructs.QuaternionF.Identity*"></a>
   <h4 id="MathStructs_QuaternionF_Identity" data-uid="MathStructs.QuaternionF.Identity">Identity</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a Quaternion representing no rotation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -323,14 +351,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_IsIdentity.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.IsIdentity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_IsIdentity.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.IsIdentity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L22">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L92">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_IsIdentity_" data-uid="MathStructs.QuaternionF.IsIdentity*"></a>
   <h4 id="MathStructs_QuaternionF_IsIdentity" data-uid="MathStructs.QuaternionF.IsIdentity">IsIdentity</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns whether the Quaternion is the identity Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -355,14 +384,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Add_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Add(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Add_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Add(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L246">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L104">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Add_" data-uid="MathStructs.QuaternionF.Add*"></a>
   <h4 id="MathStructs_QuaternionF_Add_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Add(MathStructs.QuaternionF,MathStructs.QuaternionF)">Add(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds two Quaternions element-by-element.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -381,12 +411,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -407,14 +439,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Concatenate_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Concatenate_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L215">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L459">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Concatenate_" data-uid="MathStructs.QuaternionF.Concatenate*"></a>
   <h4 id="MathStructs_QuaternionF_Concatenate_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)">Concatenate(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Concatenates two Quaternions; the result represents this rotation followed by the value rotation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -433,7 +466,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The other Quaternion rotation.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -454,14 +488,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Concatenate_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Concatenate_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L219">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L113">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Concatenate_" data-uid="MathStructs.QuaternionF.Concatenate*"></a>
   <h4 id="MathStructs_QuaternionF_Concatenate_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)">Concatenate(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Concatenates two Quaternions; the result represents the value1 rotation followed by the value2 rotation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -480,12 +515,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value1</span></td>
-        <td></td>
+        <td><p>The first Quaternion rotation in the series.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value2</span></td>
-        <td></td>
+        <td><p>The second Quaternion rotation in the series.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -506,14 +543,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Conjugate.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Conjugate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Conjugate.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Conjugate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L77">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L466">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Conjugate_" data-uid="MathStructs.QuaternionF.Conjugate*"></a>
   <h4 id="MathStructs_QuaternionF_Conjugate" data-uid="MathStructs.QuaternionF.Conjugate">Conjugate()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates the conjugate of this Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -536,14 +574,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Conjugate_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Conjugate(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Conjugate_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Conjugate(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L81">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L145">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Conjugate_" data-uid="MathStructs.QuaternionF.Conjugate*"></a>
   <h4 id="MathStructs_QuaternionF_Conjugate_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Conjugate(MathStructs.QuaternionF)">Conjugate(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates the conjugate of a specified Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -562,7 +601,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The Quaternion of which to return the conjugate.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -583,14 +623,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_CreateFromAxisAngle_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.CreateFromAxisAngle(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_CreateFromAxisAngle_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.CreateFromAxisAngle(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L102">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L155">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_CreateFromAxisAngle_" data-uid="MathStructs.QuaternionF.CreateFromAxisAngle*"></a>
   <h4 id="MathStructs_QuaternionF_CreateFromAxisAngle_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.QuaternionF.CreateFromAxisAngle(MathStructs.Vector3F,System.Single)">CreateFromAxisAngle(Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a Quaternion from a normalized vector axis and an angle to rotate about the vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -609,12 +650,15 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">axis</span></td>
-        <td></td>
+        <td><p>The unit vector to rotate around. This vector must be normalized before
+calling this function or the resulting Quaternion will be incorrect.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">angle</span></td>
-        <td></td>
+        <td><p>The angle, in radians, to rotate around the vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -635,14 +679,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_CreateFromRotationMatrix_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.CreateFromRotationMatrix(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_CreateFromRotationMatrix_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.CreateFromRotationMatrix(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L129">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L166">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_CreateFromRotationMatrix_" data-uid="MathStructs.QuaternionF.CreateFromRotationMatrix*"></a>
   <h4 id="MathStructs_QuaternionF_CreateFromRotationMatrix_MathStructs_Matrix4x4F_" data-uid="MathStructs.QuaternionF.CreateFromRotationMatrix(MathStructs.Matrix4x4F)">CreateFromRotationMatrix(Matrix4x4F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a Quaternion from the given rotation matrix.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -661,7 +706,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Matrix4x4F.html">Matrix4x4F</a></td>
         <td><span class="parametername">matrix</span></td>
-        <td></td>
+        <td><p>The rotation matrix.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -682,14 +728,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_CreateFromYawPitchRoll_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_CreateFromYawPitchRoll_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L109">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L202">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_CreateFromYawPitchRoll_" data-uid="MathStructs.QuaternionF.CreateFromYawPitchRoll*"></a>
   <h4 id="MathStructs_QuaternionF_CreateFromYawPitchRoll_System_Single_System_Single_System_Single_" data-uid="MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)">CreateFromYawPitchRoll(Single, Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new Quaternion from the given yaw, pitch, and roll, in radians.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -708,17 +755,20 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">yaw</span></td>
-        <td></td>
+        <td><p>The yaw angle, in radians, around the Y-axis.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">pitch</span></td>
-        <td></td>
+        <td><p>The pitch angle, in radians, around the X-axis.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">roll</span></td>
-        <td></td>
+        <td><p>The roll angle, in radians, around the z-axis.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -739,14 +789,16 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Deconstruct_MathStructs_Vector3F__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Deconstruct_MathStructs_Vector3F__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L50">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L492">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Deconstruct_" data-uid="MathStructs.QuaternionF.Deconstruct*"></a>
   <h4 id="MathStructs_QuaternionF_Deconstruct_MathStructs_Vector3F__System_Single__" data-uid="MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F@,System.Single@)">Deconstruct(out Vector3F, out Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deconstructs this Quaternion into it's separate components with the X, Y, and Z
+components packed into a vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -765,25 +817,28 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vectorPart</span></td>
-        <td></td>
+        <td><p>The vector component of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">scalarPart</span></td>
-        <td></td>
+        <td><p>The scalar component of this Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Deconstruct_System_Single__System_Single__System_Single__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Deconstruct(System.Single%40%2CSystem.Single%40%2CSystem.Single%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Deconstruct_System_Single__System_Single__System_Single__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Deconstruct(System.Single%40%2CSystem.Single%40%2CSystem.Single%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L41">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L477">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Deconstruct_" data-uid="MathStructs.QuaternionF.Deconstruct*"></a>
   <h4 id="MathStructs_QuaternionF_Deconstruct_System_Single__System_Single__System_Single__System_Single__" data-uid="MathStructs.QuaternionF.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)">Deconstruct(out Single, out Single, out Single, out Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deconstructs this Quaternion into it's separate components.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -802,35 +857,40 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>The X-value of the vector component of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>The Y-value of the vector component of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>The Z-value of the vector component of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>The W-value of the vector component of this Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Divide_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Divide(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Divide_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Divide(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L262">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L224">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Divide_" data-uid="MathStructs.QuaternionF.Divide*"></a>
   <h4 id="MathStructs_QuaternionF_Divide_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)">Divide(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides a Quaternion by another Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -849,12 +909,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The divisor.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -875,14 +937,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Dot_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Dot_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L171">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L503">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Dot_" data-uid="MathStructs.QuaternionF.Dot*"></a>
   <h4 id="MathStructs_QuaternionF_Dot_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)">Dot(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Calculates the dot product with another Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -901,7 +964,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The other source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -922,14 +986,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Dot_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Dot(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Dot_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Dot(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L175">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L233">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Dot_" data-uid="MathStructs.QuaternionF.Dot*"></a>
   <h4 id="MathStructs_QuaternionF_Dot_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Dot(MathStructs.QuaternionF,MathStructs.QuaternionF)">Dot(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Calculates the dot product of two Quaternions.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -948,12 +1013,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -974,14 +1041,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Equals_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Equals_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L333">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L512">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Equals_" data-uid="MathStructs.QuaternionF.Equals*"></a>
   <h4 id="MathStructs_QuaternionF_Equals_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)">Equals(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the given Quaternion is equal to this Quaternion instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1000,7 +1068,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">other</span></td>
-        <td></td>
+        <td><p>The Quaternion to compare this instance to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1015,24 +1084,26 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the other Quaternion is equal to this instance; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Equals_System_Object_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L337">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L521">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Equals_" data-uid="MathStructs.QuaternionF.Equals*"></a>
-  <h4 id="MathStructs_QuaternionF_Equals_System_Nullable_System_Object__" data-uid="MathStructs.QuaternionF.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="MathStructs_QuaternionF_Equals_System_Object_" data-uid="MathStructs.QuaternionF.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the given Object is equal to this Quaternion instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1045,9 +1116,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">obj</span></td>
-        <td></td>
+        <td><p>The Object to compare this instance to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1062,20 +1134,24 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the Object is equal to this Quaternion; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_GetHashCode.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_GetHashCode.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L345">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L528">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_GetHashCode_" data-uid="MathStructs.QuaternionF.GetHashCode*"></a>
   <h4 id="MathStructs_QuaternionF_GetHashCode" data-uid="MathStructs.QuaternionF.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1096,16 +1172,19 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Inverse.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Inverse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Inverse.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Inverse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L85">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L535">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Inverse_" data-uid="MathStructs.QuaternionF.Inverse*"></a>
   <h4 id="MathStructs_QuaternionF_Inverse" data-uid="MathStructs.QuaternionF.Inverse">Inverse()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the inverse of this Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1128,14 +1207,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Inverse_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Inverse_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L98">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L241">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Inverse_" data-uid="MathStructs.QuaternionF.Inverse*"></a>
   <h4 id="MathStructs_QuaternionF_Inverse_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)">Inverse(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the inverse of a Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1154,7 +1234,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1175,14 +1256,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Length.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Length.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L61">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L552">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Length_" data-uid="MathStructs.QuaternionF.Length*"></a>
   <h4 id="MathStructs_QuaternionF_Length" data-uid="MathStructs.QuaternionF.Length">Length()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Calculates the length of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1203,16 +1285,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_QuaternionF_Length_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>More expensive than <a class="xref" href="MathStructs.QuaternionF.html#MathStructs_QuaternionF_LengthSquared">LengthSquared()</a> if you need the squared length.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_LengthSquared.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.LengthSquared%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_LengthSquared.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.LengthSquared%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L65">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L560">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_LengthSquared_" data-uid="MathStructs.QuaternionF.LengthSquared*"></a>
   <h4 id="MathStructs_QuaternionF_LengthSquared" data-uid="MathStructs.QuaternionF.LengthSquared">LengthSquared()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Calculates the length of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1233,16 +1319,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_QuaternionF_LengthSquared_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Less expensive than <a class="xref" href="MathStructs.QuaternionF.html#MathStructs_QuaternionF_Length">Length()</a> if you need the squared length.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Lerp_MathStructs_QuaternionF_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Lerp(MathStructs.QuaternionF%2CMathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Lerp_MathStructs_QuaternionF_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Lerp(MathStructs.QuaternionF%2CMathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L206">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L251">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Lerp_" data-uid="MathStructs.QuaternionF.Lerp*"></a>
   <h4 id="MathStructs_QuaternionF_Lerp_MathStructs_QuaternionF_MathStructs_QuaternionF_System_Single_" data-uid="MathStructs.QuaternionF.Lerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)">Lerp(QuaternionF, QuaternionF, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Linearly interpolates between two quaternions.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1261,17 +1351,20 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">q1</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">q2</span></td>
-        <td></td>
+        <td><p>The second source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">amount</span></td>
-        <td></td>
+        <td><p>The relative weight of the second source Quaternion in the interpolation.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1292,14 +1385,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Multiply_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Multiply(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Multiply_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Multiply(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L254">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L265">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Multiply_" data-uid="MathStructs.QuaternionF.Multiply*"></a>
   <h4 id="MathStructs_QuaternionF_Multiply_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Multiply(MathStructs.QuaternionF,MathStructs.QuaternionF)">Multiply(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies two Quaternions together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1318,12 +1412,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The Quaternion on the left side of the multiplication.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The Quaternion on the right side of the multiplication.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1344,14 +1440,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Multiply_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Multiply(MathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Multiply_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Multiply(MathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L258">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L274">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Multiply_" data-uid="MathStructs.QuaternionF.Multiply*"></a>
   <h4 id="MathStructs_QuaternionF_Multiply_MathStructs_QuaternionF_System_Single_" data-uid="MathStructs.QuaternionF.Multiply(MathStructs.QuaternionF,System.Single)">Multiply(QuaternionF, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies a Quaternion by a scalar value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1370,12 +1467,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1396,14 +1495,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Negate_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Negate_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L242">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L282">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Negate_" data-uid="MathStructs.QuaternionF.Negate*"></a>
   <h4 id="MathStructs_QuaternionF_Negate_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)">Negate(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Flips the sign of each component of the quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1422,7 +1522,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1443,14 +1544,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Normalize.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Normalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Normalize.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Normalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L69">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L567">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Normalize_" data-uid="MathStructs.QuaternionF.Normalize*"></a>
   <h4 id="MathStructs_QuaternionF_Normalize" data-uid="MathStructs.QuaternionF.Normalize">Normalize()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides each component of the Quaternion by the length of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1473,14 +1575,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Normalize_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Normalize_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L73">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L290">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Normalize_" data-uid="MathStructs.QuaternionF.Normalize*"></a>
   <h4 id="MathStructs_QuaternionF_Normalize_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)">Normalize(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides each component of the Quaternion by the length of the Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1499,7 +1602,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1520,14 +1624,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Slerp_MathStructs_QuaternionF_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF%2CMathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Slerp_MathStructs_QuaternionF_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF%2CMathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L179">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L419">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Slerp_" data-uid="MathStructs.QuaternionF.Slerp*"></a>
   <h4 id="MathStructs_QuaternionF_Slerp_MathStructs_QuaternionF_MathStructs_QuaternionF_System_Single_" data-uid="MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)">Slerp(QuaternionF, QuaternionF, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Interpolates between two quaternions, using spherical linear interpolation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1546,17 +1651,20 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">q1</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">q2</span></td>
-        <td></td>
+        <td><p>The second source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">amount</span></td>
-        <td></td>
+        <td><p>The relative weight of the second source Quaternion in the interpolation.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1577,14 +1685,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_Subtract_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_Subtract_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L250">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L451">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_Subtract_" data-uid="MathStructs.QuaternionF.Subtract*"></a>
   <h4 id="MathStructs_QuaternionF_Subtract_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)">Subtract(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Subtracts one Quaternion from another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1603,12 +1712,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second Quaternion, to be subtracted from the first.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1629,14 +1740,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_ToString.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_ToString.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L341">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L574">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_ToString_" data-uid="MathStructs.QuaternionF.ToString*"></a>
   <h4 id="MathStructs_QuaternionF_ToString" data-uid="MathStructs.QuaternionF.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a String representing this Quaternion instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1657,20 +1769,23 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.With(System.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.With(System.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L57">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L593">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_With_" data-uid="MathStructs.QuaternionF.With*"></a>
   <h4 id="MathStructs_QuaternionF_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__" data-uid="MathStructs.QuaternionF.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})">With(Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Record-like <span class="xref">langword_csharp_with</span>-style constructor</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QuaternionF With(float? x = null, float? y = null, float? z = null, float? w = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public QuaternionF With(float? x = default(float? ), float? y = default(float? ), float? z = default(float? ), float? w = default(float? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1685,22 +1800,26 @@
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>If provided, the X value for the new Quaternion, otherwise the <a class="xref" href="MathStructs.QuaternionF.html#MathStructs_QuaternionF_X">X</a> of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>If provided, the Y value for the new Quaternion, otherwise the <a class="xref" href="MathStructs.QuaternionF.html#MathStructs_QuaternionF_Y">Y</a> of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>If provided, the Z value for the new Quaternion, otherwise the <a class="xref" href="MathStructs.QuaternionF.html#MathStructs_QuaternionF_Z">Z</a> of this Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>If provided, the W value for the new Quaternion, otherwise the <a class="xref" href="MathStructs.QuaternionF.html#MathStructs_QuaternionF_W">W</a> of this Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1723,14 +1842,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Addition_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Addition_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L274">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L399">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Addition_" data-uid="MathStructs.QuaternionF.op_Addition*"></a>
   <h4 id="MathStructs_QuaternionF_op_Addition_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)">Addition(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds two Quaternions element-by-element.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1749,12 +1869,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1775,14 +1897,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Division_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Division(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Division_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Division(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L300">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L355">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Division_" data-uid="MathStructs.QuaternionF.op_Division*"></a>
   <h4 id="MathStructs_QuaternionF_op_Division_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_Division(MathStructs.QuaternionF,MathStructs.QuaternionF)">Division(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides a Quaternion by another Quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1801,12 +1924,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The divisor.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1827,14 +1952,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Equality_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Equality(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Equality_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Equality(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L325">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L409">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Equality_" data-uid="MathStructs.QuaternionF.op_Equality*"></a>
   <h4 id="MathStructs_QuaternionF_op_Equality_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_Equality(MathStructs.QuaternionF,MathStructs.QuaternionF)">Equality(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the two given Quaternions are equal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1853,12 +1979,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first Quaternion to compare.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second Quaternion to compare.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1873,20 +2001,22 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the Quaternions are equal; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Inequality_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Inequality_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L329">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L317">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Inequality_" data-uid="MathStructs.QuaternionF.op_Inequality*"></a>
   <h4 id="MathStructs_QuaternionF_op_Inequality_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)">Inequality(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the two given Quaternions are not equal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1905,12 +2035,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first Quaternion to compare.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second Quaternion to compare.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1925,20 +2057,22 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the Quaternions are not equal; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Multiply_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Multiply(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Multiply_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Multiply(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L286">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L335">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Multiply_" data-uid="MathStructs.QuaternionF.op_Multiply*"></a>
   <h4 id="MathStructs_QuaternionF_op_Multiply_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_Multiply(MathStructs.QuaternionF,MathStructs.QuaternionF)">Multiply(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies two Quaternions together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1957,12 +2091,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The Quaternion on the left side of the multiplication.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The Quaternion on the right side of the multiplication.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1983,14 +2119,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Multiply_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Multiply(MathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Multiply_MathStructs_QuaternionF_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Multiply(MathStructs.QuaternionF%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L282">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L326">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Multiply_" data-uid="MathStructs.QuaternionF.op_Multiply*"></a>
   <h4 id="MathStructs_QuaternionF_op_Multiply_MathStructs_QuaternionF_System_Single_" data-uid="MathStructs.QuaternionF.op_Multiply(MathStructs.QuaternionF,System.Single)">Multiply(QuaternionF, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies a Quaternion by a scalar value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2009,12 +2146,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2035,14 +2174,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_Subtraction_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Subtraction(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_Subtraction_MathStructs_QuaternionF_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_Subtraction(MathStructs.QuaternionF%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L278">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L307">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_Subtraction_" data-uid="MathStructs.QuaternionF.op_Subtraction*"></a>
   <h4 id="MathStructs_QuaternionF_op_Subtraction_MathStructs_QuaternionF_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_Subtraction(MathStructs.QuaternionF,MathStructs.QuaternionF)">Subtraction(QuaternionF, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Subtracts one Quaternion from another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2061,12 +2201,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source Quaternion.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second Quaternion, to be subtracted from the first.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2087,14 +2229,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_UnaryNegation_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_UnaryNegation(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_UnaryNegation_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_UnaryNegation(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L270">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L298">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_UnaryNegation_" data-uid="MathStructs.QuaternionF.op_UnaryNegation*"></a>
   <h4 id="MathStructs_QuaternionF_op_UnaryNegation_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_UnaryNegation(MathStructs.QuaternionF)">UnaryNegation(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Flips the sign of each component of the quaternion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2113,7 +2256,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source Quaternion.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2134,14 +2278,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF_op_UnaryPlus_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF_op_UnaryPlus_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L266">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L390">View Source</a>
   </span>
   <a id="MathStructs_QuaternionF_op_UnaryPlus_" data-uid="MathStructs.QuaternionF.op_UnaryPlus*"></a>
   <h4 id="MathStructs_QuaternionF_op_UnaryPlus_MathStructs_QuaternionF_" data-uid="MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)">UnaryPlus(QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Quaternion. (nop)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2181,7 +2326,7 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">IEquatable&lt;&gt;</span>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
   </div>
 </article>
           </div>
@@ -2191,10 +2336,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_QuaternionF.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_QuaternionF.md&amp;value=---%0Auid%3A%20MathStructs.QuaternionF%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/QuaternionF.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/QuaternionF.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
