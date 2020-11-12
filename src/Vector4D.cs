@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
     /// <summary>
     /// A structure encapsulating four double precision floating point values.
     /// </summary>
+    [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Vector4D : IEquatable<Vector4D>, IFormattable
     {
         #region Public Fields
@@ -14,21 +16,25 @@ namespace MathStructs
         /// <summary>
         ///     The X component of the vector.
         /// </summary>
+        [FieldOffset(0)]
         public double X;
 
         /// <summary>
         ///     The Y component of the vector.
         /// </summary>
+        [FieldOffset(8)]
         public double Y;
 
         /// <summary>
         ///     The Z component of the vector.
         /// </summary>
+        [FieldOffset(16)]
         public double Z;
 
         /// <summary>
         ///     The W component of the vector.
         /// </summary>
+        [FieldOffset(24)]
         public double W;
 
         #endregion Public Fields

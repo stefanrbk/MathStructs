@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public struct Vector3F : IEquatable<Vector3F>, IFormattable
     {
         #region Public Fields
 
+        [FieldOffset(0)]
         public float X;
+
+        [FieldOffset(4)]
         public float Y;
+
+        [FieldOffset(8)]
         public float Z;
 
         #endregion Public Fields

@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public struct Vector4F : IEquatable<Vector4F>, IFormattable
     {
         #region Public Fields
 
+        [FieldOffset(0)]
         public float X;
+
+        [FieldOffset(4)]
         public float Y;
+
+        [FieldOffset(8)]
         public float Z;
+
+        [FieldOffset(12)]
         public float W;
 
         #endregion Public Fields
