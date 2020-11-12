@@ -22,7 +22,7 @@ namespace MathStructs
         /// <summary>
         /// The distance of the Plane along its normal from the origin.
         /// </summary>
-        [FieldOffset(12)]
+        [FieldOffset(24)]
         public double D;
 
         #endregion Public Fields
