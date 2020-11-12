@@ -134,37 +134,37 @@ namespace MathStructs
         /// Returns the vector &lt; 1, 1, 1, 1 &gt;.
         /// </summary>
         public static Vector4F One =>
-            new Vector4F(1f);
+            new(1f);
 
         /// <summary>
         /// Returns the vector &lt; 0, 0, 0, 1 &gt;.
         /// </summary>
         public static Vector4F UnitW =>
-            new Vector4F(0f, 0f, 0f, 1f);
+            new(0f, 0f, 0f, 1f);
 
         /// <summary>
         /// Returns the vector &lt; 1, 0, 0, 0 &gt;.
         /// </summary>
         public static Vector4F UnitX =>
-            new Vector4F(1f, 0f, 0f, 0f);
+            new(1f, 0f, 0f, 0f);
 
         /// <summary>
         /// Returns the vector &lt; 0, 1, 0, 0 &gt;.
         /// </summary>
         public static Vector4F UnitY =>
-            new Vector4F(0f, 1f, 0f, 0f);
+            new(0f, 1f, 0f, 0f);
 
         /// <summary>
         /// Returns the vector &lt; 0, 0, 1, 0 &gt;.
         /// </summary>
         public static Vector4F UnitZ =>
-            new Vector4F(0f, 0f, 1f, 0f);
+            new(0f, 0f, 1f, 0f);
 
         /// <summary>
         /// Returns the vector &lt; 0, 0, 0, 0 &gt;.
         /// </summary>
         public static Vector4F Zero =>
-            new Vector4F(0f);
+            new(0f);
 
         #endregion Public Properties
 
@@ -178,7 +178,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F Abs(Vector4F value) =>
-            new Vector4F(MathF.Abs(value.X), MathF.Abs(value.Y), MathF.Abs(value.Z), MathF.Abs(value.W));
+            new(MathF.Abs(value.X), MathF.Abs(value.Y), MathF.Abs(value.Z), MathF.Abs(value.W));
 
         /// <summary>
         ///     Adds two vectors together.
@@ -314,10 +314,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F Max(Vector4F left, Vector4F right) =>
-            new Vector4F(left.X > right.X ? left.X : right.X,
-                         left.Y > right.Y ? left.Y : right.Y,
-                         left.Z > right.Z ? left.Z : right.Z,
-                         left.W > right.W ? left.W : right.W);
+            new(left.X > right.X ? left.X : right.X, left.Y > right.Y ? left.Y : right.Y, left.Z > right.Z ? left.Z : right.Z, left.W > right.W ? left.W : right.W);
 
         /// <summary>
         ///     Returns a vector whose elements are the minimum of each of the pairs of elements in the two source vectors.
@@ -330,10 +327,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F Min(Vector4F left, Vector4F right) =>
-            new Vector4F(left.X < right.X ? left.X : right.X,
-                         left.Y < right.Y ? left.Y : right.Y,
-                         left.Z < right.Z ? left.Z : right.Z,
-                         left.W < right.W ? left.W : right.W);
+            new(left.X < right.X ? left.X : right.X, left.Y < right.Y ? left.Y : right.Y, left.Z < right.Z ? left.Z : right.Z, left.W < right.W ? left.W : right.W);
 
         /// <summary>
         ///     Multiplies two vectors together.
@@ -402,7 +396,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator -(Vector4F value) =>
-            new Vector4F(-value.X, -value.Y, -value.Z, -value.W);
+            new(-value.X, -value.Y, -value.Z, -value.W);
 
         /// <summary>
         ///     Subtracts the second vector from the first.
@@ -415,7 +409,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator -(Vector4F left, Vector4F right) =>
-            new Vector4F(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
+            new(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
 
         /// <summary>
         ///     Returns a boolean indicating whether the two given vectors are not equal.
@@ -444,7 +438,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator *(Vector4F left, Vector4F right) =>
-            new Vector4F(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
+            new(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
 
         /// <summary>
         ///     Multiplies a vector by the given scalar.
@@ -457,7 +451,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator *(Vector4F left, float right) =>
-            new Vector4F(left.X * right, left.Y * right, left.Z * right, left.W * right);
+            new(left.X * right, left.Y * right, left.Z * right, left.W * right);
 
         /// <summary>
         ///     Multiplies a vector by the given scalar.
@@ -483,7 +477,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator /(Vector4F left, Vector4F right) =>
-            new Vector4F(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
+            new(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
 
         /// <summary>
         ///     Divides the vector by the given scalar.
@@ -496,7 +490,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator /(Vector4F left, float right) =>
-            new Vector4F(left.X / right, left.Y / right, left.Z / right, left.W / right);
+            new(left.X / right, left.Y / right, left.Z / right, left.W / right);
 
         /// <summary>
         ///     Returns the unary plus of the provided vector (nop).
@@ -516,7 +510,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F operator +(Vector4F left, Vector4F right) =>
-            new Vector4F(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
+            new(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
 
         /// <summary>
         ///     Returns a boolean indicating whether the two given vectors are equal.
@@ -542,7 +536,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F SquareRoot(Vector4F value) =>
-            new Vector4F(MathF.Sqrt(value.X), MathF.Sqrt(value.Y), MathF.Sqrt(value.Z), MathF.Sqrt(value.W));
+            new(MathF.Sqrt(value.X), MathF.Sqrt(value.Y), MathF.Sqrt(value.Z), MathF.Sqrt(value.W));
 
         /// <summary>
         ///     Subtracts the second vector from the first.
@@ -583,10 +577,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F Transform(Vector3F vector, Matrix4x4F matrix) =>
-            new Vector4F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
-                         vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42,
-                         vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43,
-                         vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + matrix.M44);
+            new(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41, vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42, vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43, vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + matrix.M44);
 
         /// <summary>
         ///     Transforms a vector by the given matrix.
@@ -599,10 +590,7 @@ namespace MathStructs
         /// </param>
         [MethodImpl(Inline)]
         public static Vector4F Transform(Vector4F vector, Matrix4x4F matrix) =>
-            new Vector4F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41,
-                         vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42,
-                         vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43,
-                         vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
+            new(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41, vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42, vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43, vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
 
         /// <summary>
         ///     Transforms a vector by the given <see cref="QuaternionF"/> rotation value.
@@ -995,12 +983,8 @@ namespace MathStructs
         ///     If provided, the W value for the new <see cref="Vector4F"/>, otherwise <see cref="W"/>.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector4F Transform(QuaternionF rotation) =>
-            Transform(this, rotation);
-
-        [MethodImpl(Inline)]
         public Vector4F With(float? x = null, float? y = null, float? z = null, float? w = null) =>
-            new Vector4F(x ?? X, y ?? Y, z ?? Z, w ?? W);
+            new(x ?? X, y ?? Y, z ?? Z, w ?? W);
 
         #endregion Public Methods
     }
