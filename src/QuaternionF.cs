@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public struct QuaternionF : IEquatable<QuaternionF>
     {
         #region Public Fields
 
+        [FieldOffset(12)]
         public float W;
+        [FieldOffset(0)]
         public float X;
+        [FieldOffset(4)]
         public float Y;
+        [FieldOffset(8)]
         public float Z;
 
         #endregion Public Fields

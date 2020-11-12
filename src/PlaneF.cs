@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace MathStructs
 {
+    [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public struct PlaneF
     {
         #region Public Fields
 
+        [FieldOffset(12)]
         public float D;
+        [FieldOffset(0)]
         public Vector3F Normal;
 
         #endregion Public Fields
