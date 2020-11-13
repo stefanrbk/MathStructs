@@ -20,6 +20,26 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
+    - name: Setup ARM Container
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static:register --reset
+        
+    - if: matrix.os == 'ubuntu-latest'
+      uses: docker://multiarch/ubuntu-core:arm64-bionic
+      with:
+        args: 'uname -a'
+        
+    - if: matrix.os == 'ubuntu-latest'
+      uses: docker://multiarch/ubuntu-core:arm64-bionic
+      with:
+        args: >
+          bash -c
+          "apt-get update &&
+          apt-get install -y python3.6 &&
+          python3.6 --version &&
+          python3.6 -c\"import platform; print(platform.machine())\""
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -31,10 +51,10 @@ jobs:
     - name: Install dependencies
       run: dotnet restore '${{ env.SOLUTION_PATH }}' --verbosity quiet
 
-    - name: Build
+    - name: Build x86
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release
 
-    - name: Test
+    - name: Test x86
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
 
     - name: Pack
