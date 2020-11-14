@@ -17,32 +17,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest]
+        os: [ windows-latest, macos-latest ]
 
     steps:
-    - name: Setup ARM Container
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        docker run --rm --privileged multiarch/qemu-user-static:register --reset
-        
-    - if: matrix.os == 'ubuntu-latest'
-      uses: docker://multiarch/ubuntu-core:arm64-bionic
-      with:
-        args: 'uname -a'
-        
-    - if: matrix.os == 'ubuntu-latest'
-      uses: docker://multiarch/ubuntu-core:arm64-bionic
-      with:
-        args: >
-          bash -c
-          "apt-get update &&
-          apt-get install -y wget libc6 libgcc1 libgssapi-krb5-2 libicu60 libssl1.1 libstdc++6 zlib1g &&
-          wget -nv https://dot.net/v1/dotnet-install.sh &&
-          chmod +x dotnet-install.sh &&
-          ./dotnet-install.sh -c Current &&
-          PATH=/github/home/.dotnet:$PATH &&
-          dotnet --info"
-
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -66,46 +43,47 @@ jobs:
         name: test-logs
         path: ${{ env.TEST_RESULTS_PATH }}
         
-  test-arm-job:
-    name: 'Test ARM solution (ubuntu-latest)'
-    runs-on: 'ubuntu-latest'
-    
-    steps:
-    - name: Setup ARM Container
-      run: docker run --rm --privileged multiarch/qemu-user-static:register --reset
-      
-    - name: Test ARM Environment
-      uses: docker://stefanrbk/arm64:0.0.2
-      with:
-        args: 'uname -a'
-        
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      
-    - name: Install dependencies
-      uses:  docker://stefanrbk/arm64:0.0.2
-      with:
-        args: bash -c "dotnet restore '${{env.SOLUTION_PATH }}' --verbosity quiet"
-
-    - name: Build
-      uses: docker://stefanrbk/arm64:0.0.2
-      with:
-        args: bash -c "dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore"
-
-    - name: Test
-      uses: docker://stefanrbk/arm64:0.0.2
-      with:
-        args: bash -c "dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release"
-    
-    - name: Save test log to Action
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-logs
-        path: ${{ env.TEST_RESULTS_PATH }}
+  #test-arm-job:
+  #  name: 'Test ARM solution (ubuntu-latest)'
+  #  runs-on: 'ubuntu-latest'
+  #  
+  #  steps:
+  #  - name: Setup ARM Container
+  #    run: docker run --rm --privileged multiarch/qemu-user-static:register --reset
+  #    
+  #  - name: Test ARM Environment
+  #    uses: docker://stefanrbk/arm64:0.0.2
+  #    with:
+  #      args: 'uname -a'
+  #      
+  #  - name: Checkout repository
+  #    uses: actions/checkout@v2
+  #    
+  #  - name: Install dependencies
+  #    uses:  docker://stefanrbk/arm64:0.0.2
+  #    with:
+  #      args: bash -c "dotnet restore '${{env.SOLUTION_PATH }}' --verbosity quiet"
+#
+  #  - name: Build
+  #    uses: docker://stefanrbk/arm64:0.0.2
+  #    with:
+  #      args: bash -c "dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore"
+#
+  #  - name: Test
+  #    uses: docker://stefanrbk/arm64:0.0.2
+  #    with:
+  #      args: bash -c "dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release"
+  #  
+  #  - name: Save test log to Action
+  #    uses: actions/upload-artifact@v2
+  #    with:
+  #      name: test-logs
+  #      path: ${{ env.TEST_RESULTS_PATH }}
         
   final-build-test-pack-job:
     name: 'Build, Test, and Pack with Ubuntu x86'
-    needs: [test-x86-job,test-arm-job]
+    #needs: [test-x86-job,test-arm-job]
+    needs: [ test-x86-job ]
     runs-on: 'ubuntu-latest'
 
     steps:
