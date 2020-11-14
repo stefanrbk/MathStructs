@@ -20,6 +20,29 @@ jobs:
         os: [windows-latest, macos-latest]
 
     steps:
+    - name: Setup ARM Container
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static:register --reset
+        
+    - if: matrix.os == 'ubuntu-latest'
+      uses: docker://multiarch/ubuntu-core:arm64-bionic
+      with:
+        args: 'uname -a'
+        
+    - if: matrix.os == 'ubuntu-latest'
+      uses: docker://multiarch/ubuntu-core:arm64-bionic
+      with:
+        args: >
+          bash -c
+          "apt-get update &&
+          apt-get install -y wget libc6 libgcc1 libgssapi-krb5-2 libicu60 libssl1.1 libstdc++6 zlib1g &&
+          wget -nv https://dot.net/v1/dotnet-install.sh &&
+          chmod +x dotnet-install.sh &&
+          ./dotnet-install.sh -c Current &&
+          PATH=/github/home/.dotnet:$PATH &&
+          dotnet --info"
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
