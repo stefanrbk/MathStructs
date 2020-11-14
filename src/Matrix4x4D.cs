@@ -8,7 +8,7 @@ using System.Runtime.Intrinsics.X86;
 namespace MathStructs
 {
     /// <summary>
-    /// A structure encapsulating a 4x4 matrix of <see cref="double"/> values.
+    /// A structure encapsulating a 4x4 matrix of <see cref="Double"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Matrix4x4D
@@ -118,10 +118,6 @@ namespace MathStructs
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
 
-        private static readonly Matrix4x4D _identity = new Matrix4x4D(1f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 0f, 1f);
-
-        private static readonly Matrix4x4D _nan = new Matrix4x4D(double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN);
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -187,12 +183,12 @@ namespace MathStructs
         /// <summary>
         /// Returns the multiplicative identity matrix.
         /// </summary>
-        public static Matrix4x4D Identity => _identity;
+        public static Matrix4x4D Identity => new(1f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f, 0f, 1f);
 
         /// <summary>
         /// Returns a matrix with all values set to NaN.
         /// </summary>
-        public static Matrix4x4D NaN => _nan;
+        public static Matrix4x4D NaN => new(Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN);
 
         /// <summary>
         /// Returns whether the matrix is the identity matrix.
@@ -205,7 +201,7 @@ namespace MathStructs
         /// </summary>
         public Vector3D Translation
         {
-            get => new Vector3D(M41, M42, M43);
+            get => new(M41, M42, M43);
             set => (M41, M42, M43) = value;
         }
 
@@ -245,10 +241,10 @@ namespace MathStructs
         {
             var left = objectPosition - cameraPosition;
             var num = left.LengthSquared();
-            left = (!(num < 0.0001f)) ? left * (1f / Math.Sqrt(num)) : -cameraForwardVector;
+            left = ( !( num < 0.0001f ) ) ? left * ( 1f / Math.Sqrt(num) ) : -cameraForwardVector;
             var v1 = cameraUpVector.Cross(left).Normalize();
             var v2 = left.Cross(v1);
-            return _identity.With(m11: v1.X,
+            return Identity.With(m11: v1.X,
                                   m12: v1.Y,
                                   m13: v1.Z,
                                   m21: v2.X,
@@ -284,7 +280,7 @@ namespace MathStructs
         {
             var left = objectPosition - cameraPosition;
             var num = left.LengthSquared();
-            left = (!(num < 0.0001f)) ? left * (1f / Math.Sqrt(num)) : -cameraForwardVector;
+            left = ( !( num < 0.0001f ) ) ? left * ( 1f / Math.Sqrt(num) ) : -cameraForwardVector;
             Vector3D v1 = rotateAxis, v2, v3;
             var x = rotateAxis.Dot(left);
             if (Math.Abs(x) > 0.998254657f)
@@ -292,7 +288,7 @@ namespace MathStructs
                 v2 = objectForwardVector;
                 x = rotateAxis.Dot(v2);
                 if (Math.Abs(x) > 0.998254657f)
-                    v2 = (Math.Abs(rotateAxis.Z) > 0.998254657f) ? Vector3D.UnitX : -Vector3D.UnitZ;
+                    v2 = ( Math.Abs(rotateAxis.Z) > 0.998254657f ) ? Vector3D.UnitX : -Vector3D.UnitZ;
                 v3 = rotateAxis.Cross(v2).Normalize();
                 v2 = v3.Cross(rotateAxis).Normalize();
             }
@@ -301,7 +297,7 @@ namespace MathStructs
                 v3 = rotateAxis.Cross(left).Normalize();
                 v2 = v3.Cross(v1).Normalize();
             }
-            return _identity.With(m11: v3.X,
+            return Identity.With(m11: v3.X,
                                   m12: v3.Y,
                                   m13: v3.Z,
                                   m21: v1.X,
@@ -357,17 +353,18 @@ namespace MathStructs
             (var xx, var yy, var zz) = (x * x, y * y, z * z);
             (var xy, var xz, var yz) = (x * y, x * z, y * z);
 
-            return _identity.With(m11: xx + ca * (1 - xx),
-                                  m12: xy - ca * xy + sa * z,
-                                  m13: xz - ca * xz - sa * y,
+            return Identity.With(m11: xx + ( ca * ( 1 - xx ) ),
+                                 m22: yy + ( ca * ( 1 - yy ) ),
+                                 m33: zz + ( ca * ( 1 - zz ) ),
 
-                                  m21: xy - ca * xy - sa * z,
-                                  m22: yy + ca * (1 - yy),
-                                  m23: yz - ca * yz + sa * x,
+                                 m12: xy - ( ca * xy ) + ( sa * z ),
+                                 m13: xz - ( ca * xz ) - ( sa * y ),
 
-                                  m31: xz - ca * xz + sa * y,
-                                  m32: yz - ca * yz - sa * x,
-                                  m33: zz + ca * (1 - zz));
+                                 m21: xy - ( ca * xy ) - ( sa * z ),
+                                 m23: yz - ( ca * yz ) + ( sa * x ),
+
+                                 m31: xz - ( ca * xz ) + ( sa * y ),
+                                 m32: yz - ( ca * yz ) - ( sa * x ));
         }
 
         /// <summary>
@@ -388,15 +385,16 @@ namespace MathStructs
             var n8 = q.Y * q.Z;
             var n9 = q.X * q.W;
 
-            return _identity.With(m11: 1 - 2 * (n2 + n3),
-                                  m12: 2 * (n4 + n5),
-                                  m13: 2 * (n6 - n7),
-                                  m21: 2 * (n4 - n5),
-                                  m22: 1 - 2 * (n3 + n1),
-                                  m23: 2 * (n8 + n9),
-                                  m31: 2 * (n6 + n7),
-                                  m32: 2 * (n8 - n9),
-                                  m33: 1 - 2 * (n2 + n1));
+            return Identity.With(m11: 1 - ( 2 * ( n2 + n3 ) ),
+                                 m22: 1 - ( 2 * ( n3 + n1 ) ),
+                                 m33: 1 - ( 2 * ( n2 + n1 ) ),
+
+                                 m12: 2 * ( n4 + n5 ),
+                                 m13: 2 * ( n6 - n7 ),
+                                 m21: 2 * ( n4 - n5 ),
+                                 m23: 2 * ( n8 + n9 ),
+                                 m31: 2 * ( n6 + n7 ),
+                                 m32: 2 * ( n8 - n9 ));
         }
 
         /// <summary>
@@ -430,18 +428,18 @@ namespace MathStructs
             var v2 = cameraUpVector.Cross(v1).Normalize();
             var v3 = v1.Cross(v2);
 
-            return _identity.With(m11: v2.X,
-                                  m12: v3.X,
-                                  m13: v1.X,
-                                  m21: v2.Y,
-                                  m22: v3.Y,
-                                  m23: v1.Y,
-                                  m31: v2.Z,
-                                  m32: v3.Z,
-                                  m33: v1.Z,
-                                  m41: -v2.Dot(cameraPosition),
-                                  m42: -v3.Dot(cameraPosition),
-                                  m43: -v1.Dot(cameraPosition));
+            return Identity.With(m11:  v2.X,
+                                 m12:  v3.X,
+                                 m13:  v1.X,
+                                 m21:  v2.Y,
+                                 m22:  v3.Y,
+                                 m23:  v1.Y,
+                                 m31:  v2.Z,
+                                 m32:  v3.Z,
+                                 m33:  v1.Z,
+                                 m41: -v2.Dot(cameraPosition),
+                                 m42: -v3.Dot(cameraPosition),
+                                 m43: -v1.Dot(cameraPosition));
         }
 
         /// <summary>
@@ -460,10 +458,10 @@ namespace MathStructs
         /// Maximum Z-value of the view volume.
         /// </param>
         public static Matrix4x4D CreateOrthographic(double width, double height, double zNearPlane, double zFarPlane) =>
-            _identity.With(m11: 2.0 / width,
-                           m22: 2.0 / height,
-                           m33: 1.0 / (zNearPlane - zFarPlane),
-                           m43: zNearPlane / (zNearPlane - zFarPlane));
+            Identity.With(m11: 2.0        / width,
+                          m22: 2.0        / height,
+                          m33: 1.0        / ( zNearPlane - zFarPlane ),
+                          m43: zNearPlane / ( zNearPlane - zFarPlane ));
 
         /// <summary>
         /// Builds a customized, orthographic projection matrix.
@@ -487,12 +485,12 @@ namespace MathStructs
         /// Maximum Z-value of the view volume.
         /// </param>
         public static Matrix4x4D CreateOrthographicOffCenter(double left, double right, double bottom, double top, double zNearPlane, double zFarPlane) =>
-            _identity.With(m11: 2.0 / (right - left),
-                           m22: 2.0 / (top - bottom),
-                           m33: 1.0 / (zNearPlane - zFarPlane),
-                           m41: (left + right) / (left - right),
-                           m42: (top + bottom) / (bottom - top),
-                           m43: zNearPlane / (zNearPlane - zFarPlane));
+            Identity.With(m11: 2.0              / ( right      - left ),
+                          m22: 2.0              / ( top        - bottom ),
+                          m33: 1.0              / ( zNearPlane - zFarPlane ),
+                          m41: ( left + right ) / ( left       - right ),
+                          m42: ( top + bottom ) / ( bottom     - top ),
+                          m43: zNearPlane       / ( zNearPlane - zFarPlane ));
 
         /// <summary>
         /// Create a perspective projection matrix from the given view volume dimension.
@@ -518,7 +516,7 @@ namespace MathStructs
             if (nearPlaneDistance >= farPlaneDistance)
                 throw new ArgumentOutOfRangeException(nameof(nearPlaneDistance));
 
-            var negFarRange = double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
+            var negFarRange = Double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
             return default(Matrix4x4D).With(m11: 2.0 * nearPlaneDistance / width,
                                             m22: 2.0 * nearPlaneDistance / height,
                                             m33: negFarRange,
@@ -555,7 +553,7 @@ namespace MathStructs
             var yScale = 1 / Math.Tan(fieldOfView * 0.5);
             var xScale = yScale / aspectRatio;
 
-            var negFarRange = double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
+            var negFarRange = Double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
             return default(Matrix4x4D).With(m11: xScale,
                                             m22: yScale,
                                             m33: negFarRange,
@@ -593,15 +591,15 @@ namespace MathStructs
             if (nearPlaneDistance >= farPlaneDistance)
                 throw new ArgumentOutOfRangeException(nameof(nearPlaneDistance));
 
-            var negFarRange = double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
-            return _identity.With(m11: 2.0 * nearPlaneDistance / (right - left),
-                                  m22: 2.0 * nearPlaneDistance / (top - bottom),
-                                  m31: (left + right) / (right - left),
-                                  m32: (top + bottom) / (top - bottom),
-                                  m33: negFarRange,
-                                  m34: -1.0,
-                                  m43: nearPlaneDistance * negFarRange,
-                                  m44: 0);
+            var negFarRange = Double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
+            return Identity.With(m11: 2.0 * nearPlaneDistance / ( right - left ),
+                                 m22: 2.0 * nearPlaneDistance / ( top - bottom ),
+                                 m31: ( left + right ) / ( right - left ),
+                                 m32: ( top + bottom ) / ( top - bottom ),
+                                 m33: negFarRange,
+                                 m34: -1.0,
+                                 m43: nearPlaneDistance * negFarRange,
+                                 m44: 0);
         }
 
         /// <summary>
@@ -615,18 +613,18 @@ namespace MathStructs
             value = value.Normalize();
             var v1 = value.Normal;
             var v2 = -2 * v1;
-            return _identity.With(m11: v2.X * v1.X + 1,
-                                  m12: v2.Y * v1.X,
-                                  m13: v2.Z * v1.X,
-                                  m21: v2.X * v1.Y,
-                                  m22: v2.Y * v1.Y + 1,
-                                  m23: v2.Z * v1.Y,
-                                  m31: v2.X * v1.Z,
-                                  m32: v2.Y * v1.Z,
-                                  m33: v2.Z * v1.Z + 1,
-                                  m41: v2.X * value.D,
-                                  m42: v2.Y * value.D,
-                                  m43: v2.Z * value.D);
+            return Identity.With(m11: ( v2.X * v1.X ) + 1,
+                                 m22: ( v2.Y * v1.Y ) + 1,
+                                 m33: ( v2.Z * v1.Z ) + 1,
+                                 m12:   v2.Y * v1.X,
+                                 m13:   v2.Z * v1.X,
+                                 m21:   v2.X * v1.Y,
+                                 m23:   v2.Z * v1.Y,
+                                 m31:   v2.X * v1.Z,
+                                 m32:   v2.Y * v1.Z,
+                                 m41:   v2.X * value.D,
+                                 m42:   v2.Y * value.D,
+                                 m43:   v2.Z * value.D);
         }
 
         /// <summary>
@@ -645,7 +643,7 @@ namespace MathStructs
                 [   0  -s   c   0   ]
                 [   0   0   0   1   ] */
 
-            return _identity.With(m22: c, m23: s, m32: -s, m33: c);
+            return Identity.With(m22: c, m23: s, m32: -s, m33: c);
         }
 
         /// <summary>
@@ -661,8 +659,8 @@ namespace MathStructs
         {
             var c = Math.Cos(radians);
             var s = Math.Sin(radians);
-            var y = centerPoint.Y * (1 - c) + centerPoint.Z * s;
-            var z = centerPoint.Z * (1 - c) - centerPoint.Y * s;
+            var y = (centerPoint.Y * (1 - c)) + (centerPoint.Z * s);
+            var z = (centerPoint.Z * (1 - c)) - (centerPoint.Y * s);
 
             /*  [   1   0   0   0   ]
                 [   0   c   s   0   ]
@@ -688,7 +686,7 @@ namespace MathStructs
                 [   s   0   c   0   ]
                 [   0   0   0   1   ] */
 
-            return _identity.With(m11: c, m13: -s, m31: s, m33: c);
+            return Identity.With(m11: c, m13: -s, m31: s, m33: c);
         }
 
         /// <summary>
@@ -704,8 +702,8 @@ namespace MathStructs
         {
             var c = Math.Cos(radians);
             var s = Math.Sin(radians);
-            var x = centerPoint.X * (1 - c) - centerPoint.Z * s;
-            var z = centerPoint.Z * (1 - c) + centerPoint.X * s;
+            var x = (centerPoint.X * (1 - c)) - (centerPoint.Z * s);
+            var z = (centerPoint.Z * (1 - c)) + (centerPoint.X * s);
 
             /*  [   c   0  -s   0   ]
                 [   0   1   0   0   ]
@@ -731,7 +729,7 @@ namespace MathStructs
                 [   0   0   1   0   ]
                 [   0   0   0   1   ] */
 
-            return _identity.With(m11: c, m12: s, m21: -s, m22: c);
+            return Identity.With(m11: c, m12: s, m21: -s, m22: c);
         }
 
         /// <summary>
@@ -747,8 +745,8 @@ namespace MathStructs
         {
             var c = Math.Cos(radians);
             var s = Math.Sin(radians);
-            var x = centerPoint.X * (1 - c) + centerPoint.Y * s;
-            var y = centerPoint.Y * (1 - c) - centerPoint.X * s;
+            var x = (centerPoint.X *(1 - c)) + (centerPoint.Y * s);
+            var y = (centerPoint.Y *(1 - c)) - (centerPoint.X * s);
 
             /*  [   c   s   0   0   ]
                 [  -s   c   0   0   ]
@@ -771,7 +769,7 @@ namespace MathStructs
         /// Value to scale by on the Z-axis.
         /// </param>
         public static Matrix4x4D CreateScale(double xScale, double yScale, double zScale) =>
-            _identity.With(m11: xScale, m22: yScale, m33: zScale);
+            Identity.With(m11: xScale, m22: yScale, m33: zScale);
 
         /// <summary>
         /// Creates a scaling matrix with a center point.
@@ -850,19 +848,19 @@ namespace MathStructs
             plane = plane.Normalize();
             var n = plane.Normal.Dot(lightDirection);
             var v = -new Vector4D(plane.Normal, plane.D);
-            return _identity.With(m11: v.X * lightDirection.X + n,
-                                  m12: v.X * lightDirection.Y,
-                                  m13: v.X * lightDirection.Z,
-                                  m21: v.Y * lightDirection.X,
-                                  m22: v.Y * lightDirection.Y + n,
-                                  m23: v.Y * lightDirection.Z,
-                                  m31: v.Z * lightDirection.X,
-                                  m32: v.Z * lightDirection.Y,
-                                  m33: v.Z * lightDirection.Z + n,
-                                  m41: v.W * lightDirection.X,
-                                  m42: v.W * lightDirection.Y,
-                                  m43: v.W * lightDirection.Z,
-                                  m44: n);
+            return Identity.With(m11: ( v.X * lightDirection.X ) + n,
+                                 m12:   v.X * lightDirection.Y,
+                                 m13:   v.X * lightDirection.Z,
+                                 m21:   v.Y * lightDirection.X,
+                                 m22: ( v.Y * lightDirection.Y ) + n,
+                                 m23:   v.Y * lightDirection.Z,
+                                 m31:   v.Z * lightDirection.X,
+                                 m32:   v.Z * lightDirection.Y,
+                                 m33: ( v.Z * lightDirection.Z ) + n,
+                                 m41:   v.W * lightDirection.X,
+                                 m42:   v.W * lightDirection.Y,
+                                 m43:   v.W * lightDirection.Z,
+                                 m44: n);
         }
 
         /// <summary>
@@ -887,7 +885,7 @@ namespace MathStructs
         /// The amount to translate on the Z-axis.
         /// </param>
         public static Matrix4x4D CreateTranslation(double xPosition, double yPosition, double zPosition) =>
-            _identity.With(m41: xPosition, m42: yPosition, m43: zPosition);
+            Identity.With(m41: xPosition, m42: yPosition, m43: zPosition);
 
         /// <summary>
         /// Creates a world matrix with the specified parameters.
@@ -1053,54 +1051,54 @@ namespace MathStructs
             (var i, var j, var k, var l) = (matrix.M31, matrix.M32, matrix.M33, matrix.M34);
             (var m, var n, var o, var p) = (matrix.M41, matrix.M42, matrix.M43, matrix.M44);
 
-            var kp_lo = k * p - l * o;
-            var jp_ln = j * p - l * n;
-            var jo_kn = j * o - k * n;
-            var ip_lm = i * p - l * m;
-            var io_km = i * o - k * m;
-            var in_jm = i * n - j * m;
+            var kp_lo = ( k * p ) - ( l * o );
+            var jp_ln = ( j * p ) - ( l * n );
+            var jo_kn = ( j * o ) - ( k * n );
+            var ip_lm = ( i * p ) - ( l * m );
+            var io_km = ( i * o ) - ( k * m );
+            var in_jm = ( i * n ) - ( j * m );
 
-            var a11 =   f * kp_lo - g * jp_ln + h * jo_kn;
-            var a12 = -(e * kp_lo - g * ip_lm + h * io_km);
-            var a13 =   e * jp_ln - f * ip_lm + h * in_jm;
-            var a14 = -(e * jo_kn - f * io_km + g * in_jm);
+            var a11 =   (f * kp_lo) - (g * jp_ln) + (h * jo_kn);
+            var a12 = -((e * kp_lo) - (g * ip_lm) + (h * io_km));
+            var a13 =   (e * jp_ln) - (f * ip_lm) + (h * in_jm);
+            var a14 = -((e * jo_kn) - (f * io_km) + (g * in_jm));
 
-            var det = a * a11 + b * a12 + c * a13 + d * a14;
+            var det = (a * a11) + (b * a12) + (c * a13) + (d * a14);
 
-            if (Math.Abs(det) < double.Epsilon)
-                return _nan;
+            if (Math.Abs(det) < Double.Epsilon)
+                return NaN;
 
             var invDet = 1 / det;
 
-            var gp_ho = g * p - h * o;
-            var fp_hn = f * p - h * n;
-            var fo_gn = f * o - g * n;
-            var ep_hm = e * p - h * m;
-            var eo_gm = e * o - g * m;
-            var en_fm = e * n - f * m;
+            var gp_ho = (g * p) -(h * o);
+            var fp_hn = (f * p) -(h * n);
+            var fo_gn = (f * o) -(g * n);
+            var ep_hm = (e * p) -(h * m);
+            var eo_gm = (e * o) -(g * m);
+            var en_fm = (e * n) -(f * m);
 
-            var gl_hk = g * l - h * k;
-            var fl_hj = f * l - h * j;
-            var fk_gj = f * k - g * j;
-            var el_hi = e * l - h * i;
-            var ek_gi = e * k - g * i;
-            var ej_fi = e * j - f * i;
-            return new Matrix4x4D(m11: a11 * invDet,
-                                  m21: a12 * invDet,
-                                  m31: a13 * invDet,
-                                  m41: a14 * invDet,
-                                  m12: -(b * kp_lo - c * jp_ln + d * jo_kn) * invDet,
-                                  m22:  (a * kp_lo - c * ip_lm + d * io_km) * invDet,
-                                  m32: -(a * jp_ln - b * ip_lm + d * in_jm) * invDet,
-                                  m42:  (a * jo_kn - b * io_km + c * in_jm) * invDet,
-                                  m13:  (b * gp_ho - c * fp_hn + d * fo_gn) * invDet,
-                                  m23: -(a * gp_ho - c * ep_hm + d * eo_gm) * invDet,
-                                  m33:  (a * fp_hn - b * ep_hm + d * en_fm) * invDet,
-                                  m43: -(a * fo_gn - b * eo_gm + c * en_fm) * invDet,
-                                  m14: -(b * gl_hk - c * fl_hj + d * fk_gj) * invDet,
-                                  m24:  (a * gl_hk - c * el_hi + d * ek_gi) * invDet,
-                                  m34: -(a * fl_hj - b * el_hi + d * ej_fi) * invDet,
-                                  m44:  (a * fk_gj - b * ek_gi + c * ej_fi) * invDet);
+            var gl_hk = (g * l) -(h * k);
+            var fl_hj = (f * l) -(h * j);
+            var fk_gj = (f * k) -(g * j);
+            var el_hi = (e * l) -(h * i);
+            var ek_gi = (e * k) -(g * i);
+            var ej_fi = (e * j) -(f * i);
+            return new(m11: a11 * invDet,
+                       m21: a12 * invDet,
+                       m31: a13 * invDet,
+                       m41: a14 * invDet,
+                       m12: -( ( b * kp_lo ) - ( c * jp_ln ) + ( d * jo_kn ) ) * invDet,
+                       m22:  ( ( a * kp_lo ) - ( c * ip_lm ) + ( d * io_km ) ) * invDet,
+                       m32: -( ( a * jp_ln ) - ( b * ip_lm ) + ( d * in_jm ) ) * invDet,
+                       m42:  ( ( a * jo_kn ) - ( b * io_km ) + ( c * in_jm ) ) * invDet,
+                       m13:  ( ( b * gp_ho ) - ( c * fp_hn ) + ( d * fo_gn ) ) * invDet,
+                       m23: -( ( a * gp_ho ) - ( c * ep_hm ) + ( d * eo_gm ) ) * invDet,
+                       m33:  ( ( a * fp_hn ) - ( b * ep_hm ) + ( d * en_fm ) ) * invDet,
+                       m43: -( ( a * fo_gn ) - ( b * eo_gm ) + ( c * en_fm ) ) * invDet,
+                       m14: -( ( b * gl_hk ) - ( c * fl_hj ) + ( d * fk_gj ) ) * invDet,
+                       m24:  ( ( a * gl_hk ) - ( c * el_hi ) + ( d * ek_gi ) ) * invDet,
+                       m34: -( ( a * fl_hj ) - ( b * el_hi ) + ( d * ej_fi ) ) * invDet,
+                       m44:  ( ( a * fk_gj ) - ( b * ek_gi ) + ( c * ej_fi ) ) * invDet);
         }
 
         /// <summary>
@@ -1131,22 +1129,22 @@ namespace MathStructs
 
                 return result;
             }
-            return new Matrix4x4D(m1.M11 + (m2.M11 - m1.M11) * amount,
-                                  m1.M12 + (m2.M12 - m1.M12) * amount,
-                                  m1.M13 + (m2.M13 - m1.M13) * amount,
-                                  m1.M14 + (m2.M14 - m1.M14) * amount,
-                                  m1.M21 + (m2.M21 - m1.M21) * amount,
-                                  m1.M22 + (m2.M22 - m1.M22) * amount,
-                                  m1.M23 + (m2.M23 - m1.M23) * amount,
-                                  m1.M24 + (m2.M24 - m1.M24) * amount,
-                                  m1.M31 + (m2.M31 - m1.M31) * amount,
-                                  m1.M32 + (m2.M32 - m1.M32) * amount,
-                                  m1.M33 + (m2.M33 - m1.M33) * amount,
-                                  m1.M34 + (m2.M34 - m1.M34) * amount,
-                                  m1.M41 + (m2.M41 - m1.M41) * amount,
-                                  m1.M42 + (m2.M42 - m1.M42) * amount,
-                                  m1.M43 + (m2.M43 - m1.M43) * amount,
-                                  m1.M44 + (m2.M44 - m1.M44) * amount);
+            return new(m1.M11 + ( ( m2.M11 - m1.M11 ) * amount ),
+                       m1.M12 + ( ( m2.M12 - m1.M12 ) * amount ),
+                       m1.M13 + ( ( m2.M13 - m1.M13 ) * amount ),
+                       m1.M14 + ( ( m2.M14 - m1.M14 ) * amount ),
+                       m1.M21 + ( ( m2.M21 - m1.M21 ) * amount ),
+                       m1.M22 + ( ( m2.M22 - m1.M22 ) * amount ),
+                       m1.M23 + ( ( m2.M23 - m1.M23 ) * amount ),
+                       m1.M24 + ( ( m2.M24 - m1.M24 ) * amount ),
+                       m1.M31 + ( ( m2.M31 - m1.M31 ) * amount ),
+                       m1.M32 + ( ( m2.M32 - m1.M32 ) * amount ),
+                       m1.M33 + ( ( m2.M33 - m1.M33 ) * amount ),
+                       m1.M34 + ( ( m2.M34 - m1.M34 ) * amount ),
+                       m1.M41 + ( ( m2.M41 - m1.M41 ) * amount ),
+                       m1.M42 + ( ( m2.M42 - m1.M42 ) * amount ),
+                       m1.M43 + ( ( m2.M43 - m1.M43 ) * amount ),
+                       m1.M44 + ( ( m2.M44 - m1.M44 ) * amount ));
         }
 
         /// <summary>
@@ -1217,10 +1215,10 @@ namespace MathStructs
                 AdvSimd.Store(&result.M43, AdvSimd.Arm64.Negate(AdvSimd.LoadVector128(&value.M43)));
             }*/
             else
-                return new Matrix4x4D(-value.M11, -value.M12, -value.M13, -value.M14,
-                                      -value.M21, -value.M22, -value.M23, -value.M24,
-                                      -value.M31, -value.M32, -value.M33, -value.M34,
-                                      -value.M41, -value.M42, -value.M43, -value.M44);
+                return new(-value.M11, -value.M12, -value.M13, -value.M14,
+                           -value.M21, -value.M22, -value.M23, -value.M24,
+                           -value.M31, -value.M32, -value.M33, -value.M34,
+                           -value.M41, -value.M42, -value.M43, -value.M44);
 
             return result;
         }
@@ -1274,10 +1272,10 @@ namespace MathStructs
 
                 return result;
             }*/
-            return new Matrix4x4D(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13, left.M14 - right.M14,
-                                  left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23, left.M24 - right.M24,
-                                  left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33, left.M34 - right.M34,
-                                  left.M41 - right.M41, left.M42 - right.M42, left.M43 - right.M43, left.M44 - right.M44);
+            return new(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13, left.M14 - right.M14,
+                       left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23, left.M24 - right.M24,
+                       left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33, left.M34 - right.M34,
+                       left.M41 - right.M41, left.M42 - right.M42, left.M43 - right.M43, left.M44 - right.M44);
         }
 
         /// <summary>
@@ -1305,7 +1303,8 @@ namespace MathStructs
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M43), AdvSimd.LoadVector128(&value2.M43));
 
-            else */if (Avx.IsSupported)
+            else */
+            if (Avx.IsSupported)
                 return VectorMath.NotEqual(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) ||
                        VectorMath.NotEqual(Avx.LoadVector256(&value1.M21), Avx.LoadVector256(&value2.M21)) ||
                        VectorMath.NotEqual(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31)) ||
@@ -1423,22 +1422,22 @@ namespace MathStructs
             //    return result;
             //}
 
-            result.M11 = value1.M11 * value2.M11 + value1.M12 * value2.M21 + value1.M13 * value2.M31 + value1.M14 * value2.M41;
-            result.M12 = value1.M11 * value2.M12 + value1.M12 * value2.M22 + value1.M13 * value2.M32 + value1.M14 * value2.M42;
-            result.M13 = value1.M11 * value2.M13 + value1.M12 * value2.M23 + value1.M13 * value2.M33 + value1.M14 * value2.M43;
-            result.M14 = value1.M11 * value2.M14 + value1.M12 * value2.M24 + value1.M13 * value2.M34 + value1.M14 * value2.M44;
-            result.M21 = value1.M21 * value2.M11 + value1.M22 * value2.M21 + value1.M23 * value2.M31 + value1.M24 * value2.M41;
-            result.M22 = value1.M21 * value2.M12 + value1.M22 * value2.M22 + value1.M23 * value2.M32 + value1.M24 * value2.M42;
-            result.M23 = value1.M21 * value2.M13 + value1.M22 * value2.M23 + value1.M23 * value2.M33 + value1.M24 * value2.M43;
-            result.M24 = value1.M21 * value2.M14 + value1.M22 * value2.M24 + value1.M23 * value2.M34 + value1.M24 * value2.M44;
-            result.M31 = value1.M31 * value2.M11 + value1.M32 * value2.M21 + value1.M33 * value2.M31 + value1.M34 * value2.M41;
-            result.M32 = value1.M31 * value2.M12 + value1.M32 * value2.M22 + value1.M33 * value2.M32 + value1.M34 * value2.M42;
-            result.M33 = value1.M31 * value2.M13 + value1.M32 * value2.M23 + value1.M33 * value2.M33 + value1.M34 * value2.M43;
-            result.M34 = value1.M31 * value2.M14 + value1.M32 * value2.M24 + value1.M33 * value2.M34 + value1.M34 * value2.M44;
-            result.M41 = value1.M41 * value2.M11 + value1.M42 * value2.M21 + value1.M43 * value2.M31 + value1.M44 * value2.M41;
-            result.M42 = value1.M41 * value2.M12 + value1.M42 * value2.M22 + value1.M43 * value2.M32 + value1.M44 * value2.M42;
-            result.M43 = value1.M41 * value2.M13 + value1.M42 * value2.M23 + value1.M43 * value2.M33 + value1.M44 * value2.M43;
-            result.M44 = value1.M41 * value2.M14 + value1.M42 * value2.M24 + value1.M43 * value2.M34 + value1.M44 * value2.M44;
+            result.M11 = ( value1.M11 * value2.M11 ) + ( value1.M12 * value2.M21 ) + ( value1.M13 * value2.M31 ) + ( value1.M14 * value2.M41 );
+            result.M12 = ( value1.M11 * value2.M12 ) + ( value1.M12 * value2.M22 ) + ( value1.M13 * value2.M32 ) + ( value1.M14 * value2.M42 );
+            result.M13 = ( value1.M11 * value2.M13 ) + ( value1.M12 * value2.M23 ) + ( value1.M13 * value2.M33 ) + ( value1.M14 * value2.M43 );
+            result.M14 = ( value1.M11 * value2.M14 ) + ( value1.M12 * value2.M24 ) + ( value1.M13 * value2.M34 ) + ( value1.M14 * value2.M44 );
+            result.M21 = ( value1.M21 * value2.M11 ) + ( value1.M22 * value2.M21 ) + ( value1.M23 * value2.M31 ) + ( value1.M24 * value2.M41 );
+            result.M22 = ( value1.M21 * value2.M12 ) + ( value1.M22 * value2.M22 ) + ( value1.M23 * value2.M32 ) + ( value1.M24 * value2.M42 );
+            result.M23 = ( value1.M21 * value2.M13 ) + ( value1.M22 * value2.M23 ) + ( value1.M23 * value2.M33 ) + ( value1.M24 * value2.M43 );
+            result.M24 = ( value1.M21 * value2.M14 ) + ( value1.M22 * value2.M24 ) + ( value1.M23 * value2.M34 ) + ( value1.M24 * value2.M44 );
+            result.M31 = ( value1.M31 * value2.M11 ) + ( value1.M32 * value2.M21 ) + ( value1.M33 * value2.M31 ) + ( value1.M34 * value2.M41 );
+            result.M32 = ( value1.M31 * value2.M12 ) + ( value1.M32 * value2.M22 ) + ( value1.M33 * value2.M32 ) + ( value1.M34 * value2.M42 );
+            result.M33 = ( value1.M31 * value2.M13 ) + ( value1.M32 * value2.M23 ) + ( value1.M33 * value2.M33 ) + ( value1.M34 * value2.M43 );
+            result.M34 = ( value1.M31 * value2.M14 ) + ( value1.M32 * value2.M24 ) + ( value1.M33 * value2.M34 ) + ( value1.M34 * value2.M44 );
+            result.M41 = ( value1.M41 * value2.M11 ) + ( value1.M42 * value2.M21 ) + ( value1.M43 * value2.M31 ) + ( value1.M44 * value2.M41 );
+            result.M42 = ( value1.M41 * value2.M12 ) + ( value1.M42 * value2.M22 ) + ( value1.M43 * value2.M32 ) + ( value1.M44 * value2.M42 );
+            result.M43 = ( value1.M41 * value2.M13 ) + ( value1.M42 * value2.M23 ) + ( value1.M43 * value2.M33 ) + ( value1.M44 * value2.M43 );
+            result.M44 = ( value1.M41 * value2.M14 ) + ( value1.M42 * value2.M24 ) + ( value1.M43 * value2.M34 ) + ( value1.M44 * value2.M44 );
             return result;
         }
 
@@ -1542,10 +1541,10 @@ namespace MathStructs
 
                 return left;
             }
-            return new Matrix4x4D(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13, left.M14 + right.M14,
-                                  left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23, left.M24 + right.M24,
-                                  left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33, left.M34 + right.M34,
-                                  left.M41 + right.M41, left.M42 + right.M42, left.M43 + right.M43, left.M44 + right.M44);
+            return new(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13, left.M14 + right.M14,
+                       left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23, left.M24 + right.M24,
+                       left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33, left.M34 + right.M34,
+                       left.M41 + right.M41, left.M42 + right.M42, left.M43 + right.M43, left.M44 + right.M44);
         }
 
         /// <summary>
@@ -1573,7 +1572,8 @@ namespace MathStructs
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M43), AdvSimd.LoadVector128(&value2.M43));
 
-            else */if (Avx.IsSupported)
+            else */
+            if (Avx.IsSupported)
                 return VectorMath.Equal(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) &&
                        VectorMath.Equal(Avx.LoadVector256(&value1.M21), Avx.LoadVector256(&value2.M21)) &&
                        VectorMath.Equal(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31)) &&
@@ -1633,13 +1633,11 @@ namespace MathStructs
         /// The source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public unsafe static Matrix4x4D Transpose(Matrix4x4D matrix)
-        {
-            return new Matrix4x4D(matrix.M11, matrix.M21, matrix.M31, matrix.M41,
-                                  matrix.M12, matrix.M22, matrix.M32, matrix.M42,
-                                  matrix.M13, matrix.M23, matrix.M33, matrix.M43,
-                                  matrix.M14, matrix.M24, matrix.M34, matrix.M44);
-        }
+        public unsafe static Matrix4x4D Transpose(Matrix4x4D matrix) =>
+            new(matrix.M11, matrix.M21, matrix.M31, matrix.M41,
+                matrix.M12, matrix.M22, matrix.M32, matrix.M42,
+                matrix.M13, matrix.M23, matrix.M33, matrix.M43,
+                matrix.M14, matrix.M24, matrix.M34, matrix.M44);
 
         /// <summary>
         /// Extracts the scale, translation, and rotation components from this scale/rotation/translation matrix.
@@ -1663,7 +1661,7 @@ namespace MathStructs
                 VectorBasis vectorBasis;
                 var pVectorBasis = (Vector3D**)&vectorBasis;
 
-                var matTemp = _identity;
+                var matTemp = Identity;
                 var canonicalBasis = default(CanonicalBasis);
                 var pCanonicalBasis = &canonicalBasis.Row0;
 
@@ -1686,16 +1684,16 @@ namespace MathStructs
                 scale.Z = pVectorBasis[2]->Length();
 
                 (var x, var y, var z) = (pfScales[0], pfScales[1], pfScales[2]);
-                (uint a, uint b, uint c) =
-                    (x < y) ?
-                        (y < z) ?
+                (var a, var b, var c) =
+                    ( x < y ) ?
+                        ( y < z ) ?
                             (2u, 1u, 0u) :
-                            (x < z) ?
+                            ( x < z ) ?
                                 (1u, 2u, 0u) :
                                 (1u, 0u, 2u) :
-                        (x < z) ?
+                        ( x < z ) ?
                             (2u, 0u, 1u) :
-                            (y < z) ?
+                            ( y < z ) ?
                                 (0u, 2u, 1u) :
                                 (0u, 1u, 2u);
 
@@ -1844,17 +1842,17 @@ namespace MathStructs
             var o = M43;
             var p = M44;
 
-            var kp_lo = k * p - l * o;
-            var jp_ln = j * p - l * n;
-            var jo_kn = j * o - k * n;
-            var ip_lm = i * p - l * m;
-            var io_km = i * o - k * m;
-            var in_jm = i * n - j * m;
+            var kp_lo = (k * p) -(l * o);
+            var jp_ln = (j * p) -(l * n);
+            var jo_kn = (j * o) -(k * n);
+            var ip_lm = (i * p) -(l * m);
+            var io_km = (i * o) -(k * m);
+            var in_jm = (i * n) -(j * m);
 
-            return a * (f * kp_lo - g * jp_ln + h * jo_kn) -
-                   b * (e * kp_lo - g * ip_lm + h * io_km) +
-                   c * (e * jp_ln - f * ip_lm + h * in_jm) -
-                   d * (e * jo_kn - f * io_km + g * in_jm);
+            return ( a * ( ( f * kp_lo ) - ( g * jp_ln ) + ( h * jo_kn ) ) ) -
+                   ( b * ( ( e * kp_lo ) - ( g * ip_lm ) + ( h * io_km ) ) ) +
+                   ( c * ( ( e * jp_ln ) - ( f * ip_lm ) + ( h * in_jm ) ) ) -
+                   ( d * ( ( e * jo_kn ) - ( f * io_km ) + ( g * in_jm ) ) );
         }
 
         /// <summary>
@@ -1933,22 +1931,22 @@ namespace MathStructs
             var q23 = yz2 + wx2;
             var q33 = 1 - xx2 - yy2;
 
-            return new Matrix4x4D(M11 * q11 + M12 * q21 + M13 * q31,
-                                  M11 * q12 + M12 * q22 + M13 * q32,
-                                  M11 * q13 + M12 * q23 + M13 * q33,
-                                  M14,
-                                  M21 * q11 + M22 * q21 + M23 * q31,
-                                  M21 * q12 + M22 * q22 + M23 * q32,
-                                  M21 * q13 + M22 * q23 + M23 * q33,
-                                  M24,
-                                  M31 * q11 + M32 * q21 + M33 * q31,
-                                  M31 * q12 + M32 * q22 + M33 * q32,
-                                  M31 * q13 + M32 * q23 + M33 * q33,
-                                  M34,
-                                  M41 * q11 + M42 * q21 + M43 * q31,
-                                  M41 * q12 + M42 * q22 + M43 * q32,
-                                  M41 * q13 + M42 * q23 + M43 * q33,
-                                  M44);
+            return new(( M11 * q11 ) + ( M12 * q21 ) + ( M13 * q31 ),
+                       ( M11 * q12 ) + ( M12 * q22 ) + ( M13 * q32 ),
+                       ( M11 * q13 ) + ( M12 * q23 ) + ( M13 * q33 ),
+                         M14,
+                       ( M21 * q11 ) + ( M22 * q21 ) + ( M23 * q31 ),
+                       ( M21 * q12 ) + ( M22 * q22 ) + ( M23 * q32 ),
+                       ( M21 * q13 ) + ( M22 * q23 ) + ( M23 * q33 ),
+                         M24,
+                       ( M31 * q11 ) + ( M32 * q21 ) + ( M33 * q31 ),
+                       ( M31 * q12 ) + ( M32 * q22 ) + ( M33 * q32 ),
+                       ( M31 * q13 ) + ( M32 * q23 ) + ( M33 * q33 ),
+                         M34,
+                       ( M41 * q11 ) + ( M42 * q21 ) + ( M43 * q31 ),
+                       ( M41 * q12 ) + ( M42 * q22 ) + ( M43 * q32 ),
+                       ( M41 * q13 ) + ( M42 * q23 ) + ( M43 * q33 ),
+                         M44);
         }
 
         /// <summary>
@@ -1962,63 +1960,61 @@ namespace MathStructs
         /// Provides a record-style <see langword="with"/>-like constructor.
         /// </summary>
         [MethodImpl(Optimize)]
-        public Matrix4x4D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m14 = null, double? m21 = null, double? m22 = null, double? m23 = null, double? m24 = null, double? m31 = null, double? m32 = null, double? m33 = null, double? m34 = null, double? m41 = null, double? m42 = null, double? m43 = null, double? m44 = null) =>
-            new Matrix4x4D(
-            m11 ?? M11,
-            m12 ?? M12,
-            m13 ?? M13,
-            m14 ?? M14,
-            m21 ?? M21,
-            m22 ?? M22,
-            m23 ?? M23,
-            m24 ?? M24,
-            m31 ?? M31,
-            m32 ?? M32,
-            m33 ?? M33,
-            m34 ?? M34,
-            m41 ?? M41,
-            m42 ?? M42,
-            m43 ?? M43,
-            m44 ?? M44);
+        public Matrix4x4D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m14 = null,
+                               double? m21 = null, double? m22 = null, double? m23 = null, double? m24 = null,
+                               double? m31 = null, double? m32 = null, double? m33 = null, double? m34 = null,
+                               double? m41 = null, double? m42 = null, double? m43 = null, double? m44 = null) =>
+            new(m11 ?? M11,
+                m12 ?? M12,
+                m13 ?? M13,
+                m14 ?? M14,
+                m21 ?? M21,
+                m22 ?? M22,
+                m23 ?? M23,
+                m24 ?? M24,
+                m31 ?? M31,
+                m32 ?? M32,
+                m33 ?? M33,
+                m34 ?? M34,
+                m41 ?? M41,
+                m42 ?? M42,
+                m43 ?? M43,
+                m44 ?? M44);
 
         #endregion Public Methods
 
         #region Internal Methods
 
         internal Matrix3x3D As3x3() =>
-            new Matrix3x3D(M11, M12, M13,
-                           M21, M22, M23,
-                           M31, M32, M33);
+            new(M11, M12, M13,
+                M21, M22, M23,
+                M31, M32, M33);
 
         #endregion Internal Methods
 
         #region Private Methods
 
         [MethodImpl(Optimize)]
-        private static unsafe Vector128<double> MultiplyRowXY(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2)
-        {
-            return Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
-                                                   Sse2.LoadVector128(&value2.M11)),
-                                     Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
-                                                   Sse2.LoadVector128(&value2.M21))),
-                            Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
-                                                   Sse2.LoadVector128(&value2.M11)),
-                                     Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
-                                                   Sse2.LoadVector128(&value2.M21))));
-        }
+        private static unsafe Vector128<double> MultiplyRowXY(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2) =>
+            Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
+                                            Sse2.LoadVector128(&value2.M11)),
+                              Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
+                                            Sse2.LoadVector128(&value2.M21))),
+                     Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
+                                            Sse2.LoadVector128(&value2.M11)),
+                              Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
+                                            Sse2.LoadVector128(&value2.M21))));
 
         [MethodImpl(Optimize)]
-        private static unsafe Vector128<double> MultiplyRowZW(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2)
-        {
-            return Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
-                                                   Sse2.LoadVector128(&value2.M31)),
-                                     Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
-                                                   Sse2.LoadVector128(&value2.M41))),
-                            Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
-                                                   Sse2.LoadVector128(&value2.M31)),
-                                     Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
-                                                   Sse2.LoadVector128(&value2.M41))));
-        }
+        private static unsafe Vector128<double> MultiplyRowZW(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2) =>
+            Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
+                                            Sse2.LoadVector128(&value2.M31)),
+                              Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
+                                            Sse2.LoadVector128(&value2.M41))),
+                     Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
+                                            Sse2.LoadVector128(&value2.M31)),
+                              Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
+                                            Sse2.LoadVector128(&value2.M41))));
 
         [MethodImpl(Optimize)]
         private static unsafe Vector256<double> MultiplyRow(Matrix4x4D value2, Vector256<double> vector)
@@ -2030,7 +2026,7 @@ namespace MathStructs
                                                     Avx.LoadVector256(&value2.M21))),
                                Avx.Add(Avx.Multiply(Avx2.Permute4x64(vector, 170),
                                                     Avx.LoadVector256(&value2.M31)),
-                                       Avx.Multiply(Avx2.Permute4x64(vector, byte.MaxValue),
+                                       Avx.Multiply(Avx2.Permute4x64(vector, Byte.MaxValue),
                                                     Avx.LoadVector256(&value2.M41))));
             else
                 return Avx.Add(Avx.Add(Avx.Multiply(Select(vector, 0, 0),
@@ -2096,10 +2092,8 @@ namespace MathStructs
             }
 
             [MethodImpl(Optimize)]
-            public static bool Equal(Vector256<double> a, Vector256<double> b)
-            {
-                return Avx.MoveMask(Avx.CompareNotEqual(a, b)) == 0;
-            }
+            public static bool Equal(Vector256<double> a, Vector256<double> b) =>
+                Avx.MoveMask(Avx.CompareNotEqual(a, b)) == 0;
 
             [MethodImpl(Optimize)]
             public static Vector256<double> Lerp(Vector256<double> a, Vector256<double> b, Vector256<double> t)
