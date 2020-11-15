@@ -471,16 +471,16 @@ namespace Tests
             const int rotCount = 16;
             for (int i = 0; i < rotCount; ++i)
             {
-                float latitude = (2.0f * MathHelper.Pi) * ((float)i / (float)rotCount);
+                float latitude = (2.0f * MathHelper.PiF) * ((float)i / (float)rotCount);
                 for (int j = 0; j < rotCount; ++j)
                 {
-                    float longitude = -MathHelper.PiOver2 + MathHelper.Pi * ((float)j / (float)rotCount);
+                    float longitude = -MathHelper.PiOver2F + MathHelper.PiF * ((float)j / (float)rotCount);
 
                     Matrix4x4F m = Matrix4x4F.CreateRotationZ(longitude) * Matrix4x4F.CreateRotationY(latitude);
                     Vector3F axis = new Vector3F(m.M11, m.M12, m.M13);
                     for (int k = 0; k < rotCount; ++k)
                     {
-                        float rot = (2.0f * MathHelper.Pi) * ((float)k / (float)rotCount);
+                        float rot = (2.0f * MathHelper.PiF) * ((float)k / (float)rotCount);
                         expected = Matrix4x4F.CreateFromQuaternion(QuaternionF.CreateFromAxisAngle(axis, rot));
                         actual = Matrix4x4F.CreateFromAxisAngle(axis, rot);
                         Assert.True(MathHelper.Equal(expected, actual));
@@ -655,7 +655,7 @@ namespace Tests
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.Pi + 0.01f, 1, 1, 10);
+                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiF + 0.01f, 1, 1, 10);
             });
         }
 
@@ -666,7 +666,7 @@ namespace Tests
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 1, -1, 10);
+                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiOver4F, 1, -1, 10);
             });
         }
 
@@ -677,7 +677,7 @@ namespace Tests
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 1, 1, -10);
+                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiOver4F, 1, 1, -10);
             });
         }
 
@@ -688,7 +688,7 @@ namespace Tests
         {
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
-                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiOver4, 1, 10, 1);
+                Matrix4x4F mtx = Matrix4x4F.CreatePerspectiveFieldOfView(MathHelper.PiOver4F, 1, 10, 1);
             });
         }
 

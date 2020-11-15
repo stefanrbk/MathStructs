@@ -1117,7 +1117,7 @@ namespace MathStructs
         public unsafe static Matrix4x4D Lerp(Matrix4x4D matrix1, Matrix4x4D matrix2, double amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
-            Unsafe.SkipInit<Matrix4x4D>(out var result);
+            Unsafe.SkipInit(out Matrix4x4D result);
             if (Avx.IsSupported)
             {
                 var amountVec = Vector256.Create(amount);
@@ -1192,7 +1192,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator -(Matrix4x4D value)
         {
-            Unsafe.SkipInit<Matrix4x4D>(out var result);
+            Unsafe.SkipInit(out Matrix4x4D result);
 
             if (Avx.IsSupported)
             {
@@ -1235,7 +1235,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator -(Matrix4x4D left, Matrix4x4D right)
         {
-            Unsafe.SkipInit<Matrix4x4D>(out var result);
+            Unsafe.SkipInit(out Matrix4x4D result);
 
             if (Avx.IsSupported)
             {
@@ -1343,7 +1343,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator *(Matrix4x4D value1, Matrix4x4D value2)
         {
-            Unsafe.SkipInit<Matrix4x4D>(out var result);
+            Unsafe.SkipInit(out Matrix4x4D result);
 
             /*if (AdvSimd.Arm64.IsSupported)
             {
@@ -1453,7 +1453,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4D operator *(Matrix4x4D value1, double value2)
         {
-            Unsafe.SkipInit<Matrix4x4D>(out var result);
+            Unsafe.SkipInit(out Matrix4x4D result);
 
             if (AdvSimd.IsSupported)
             {
