@@ -3,35 +3,162 @@
 using NUnit.Framework;
 
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tests
 {
     [TestOf(typeof(PlaneF))]
     public class PlaneTests
     {
-        // A test for Equals (PlaneF)
+        #region Public Methods
+
+        // A test for PlaneF (Vector4f)
         [Test]
-        public void PlaneEqualsTest1()
+        public void PlaneConstructorTest()
+        {
+            Vector4F value = new Vector4F(1.0f, 2.0f, 3.0f, 4.0f);
+            PlaneF target = new PlaneF(value);
+
+            Assert.True(
+                target.Normal.X == value.X && target.Normal.Y == value.Y && target.Normal.Z == value.Z && target.D == value.W,
+                "PlaneF.cstor did not return the expected value.");
+        }
+
+        // A test for PlaneF (float, float, float, float)
+        [Test]
+        public void PlaneConstructorTest1()
+        {
+            float a = 1.0f, b = 2.0f, c = 3.0f, d = 4.0f;
+            PlaneF target = new PlaneF(a, b, c, d);
+
+            Assert.True(
+                target.Normal.X == a && target.Normal.Y == b && target.Normal.Z == c && target.D == d,
+                "PlaneF.cstor did not return the expected value.");
+        }
+
+        // A test for PlaneF (Vector3f, float)
+        [Test]
+        public void PlaneConstructorTest3()
+        {
+            Vector3F normal = new Vector3F(1, 2, 3);
+            float d = 4;
+
+            PlaneF target = new PlaneF(normal, d);
+            Assert.True(
+                target.Normal == normal && target.D == d,
+                "PlaneF.cstor did not return the expected value.");
+        }
+
+        // A test for PlaneF.CreateFromVertices
+        [Test]
+        public void PlaneCreateFromVerticesTest()
+        {
+            Vector3F point1 = new Vector3F(0.0f, 1.0f, 1.0f);
+            Vector3F point2 = new Vector3F(0.0f, 0.0f, 1.0f);
+            Vector3F point3 = new Vector3F(1.0f, 0.0f, 1.0f);
+
+            PlaneF target = PlaneF.CreateFromVertices(point1, point2, point3);
+            PlaneF expected = new PlaneF(new Vector3F(0, 0, 1), -1.0f);
+            Assert.AreEqual(target, expected);
+        }
+
+        // A test for PlaneF.CreateFromVertices
+        [Test]
+        public void PlaneCreateFromVerticesTest2()
+        {
+            Vector3F point1 = new Vector3F(0.0f, 0.0f, 1.0f);
+            Vector3F point2 = new Vector3F(1.0f, 0.0f, 0.0f);
+            Vector3F point3 = new Vector3F(1.0f, 1.0f, 0.0f);
+
+            PlaneF target = PlaneF.CreateFromVertices(point1, point2, point3);
+            float invRoot2 = (float)(1 / Math.Sqrt(2));
+
+            PlaneF expected = new PlaneF(new Vector3F(invRoot2, 0, invRoot2), -invRoot2);
+            Assert.True(MathHelper.Equal(target, expected), "PlaneF.cstor did not return the expected value.");
+        }
+
+        [Test]
+        public void PlaneDotCoordinateTest()
+        {
+            PlaneF target = new PlaneF(2, 3, 4, 5);
+            Vector3F value = new Vector3F(5, 4, 3);
+
+            float expected = 10 + 12 + 12 + 5;
+            float actual = PlaneF.DotCoordinate(target, value);
+            Assert.True(MathHelper.Equal(expected, actual), "PlaneF.DotCoordinate returns unexpected value.");
+        }
+
+        [Test]
+        public void PlaneDotNormalTest()
+        {
+            PlaneF target = new PlaneF(2, 3, 4, 5);
+            Vector3F value = new Vector3F(5, 4, 3);
+
+            float expected = 10 + 12 + 12;
+            float actual = PlaneF.DotNormal(target, value);
+            Assert.True(MathHelper.Equal(expected, actual), "PlaneF.DotCoordinate returns unexpected value.");
+        }
+
+        [Test]
+        public void PlaneDotTest()
+        {
+            PlaneF target = new PlaneF(2, 3, 4, 5);
+            Vector4F value = new Vector4F(5, 4, 3, 2);
+
+            float expected = 10 + 12 + 12 + 10;
+            float actual = PlaneF.Dot(target, value);
+            Assert.True(MathHelper.Equal(expected, actual), "PlaneF.Dot returns unexpected value.");
+        }
+
+        // A test for operator == (PlaneF, PlaneF)
+        [Test]
+        public void PlaneEqualityTest()
         {
             PlaneF a = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
             PlaneF b = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
 
             // case 1: compare between same values
             bool expected = true;
-            bool actual = a.Equals(b);
+            bool actual = a == b;
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
             b.Normal = new Vector3F(10.0f, b.Normal.Y, b.Normal.Z);
             expected = false;
-            actual = a.Equals(b);
+            actual = a == b;
             Assert.AreEqual(expected, actual);
+        }
+
+        // A test for PlaneF comparison involving NaN values
+        [Test]
+        public void PlaneEqualsNanTest()
+        {
+            PlaneF a = new PlaneF(float.NaN, 0, 0, 0);
+            PlaneF b = new PlaneF(0, float.NaN, 0, 0);
+            PlaneF c = new PlaneF(0, 0, float.NaN, 0);
+            PlaneF d = new PlaneF(0, 0, 0, float.NaN);
+
+            Assert.False(a == new PlaneF(0, 0, 0, 0));
+            Assert.False(b == new PlaneF(0, 0, 0, 0));
+            Assert.False(c == new PlaneF(0, 0, 0, 0));
+            Assert.False(d == new PlaneF(0, 0, 0, 0));
+
+            Assert.True(a != new PlaneF(0, 0, 0, 0));
+            Assert.True(b != new PlaneF(0, 0, 0, 0));
+            Assert.True(c != new PlaneF(0, 0, 0, 0));
+            Assert.True(d != new PlaneF(0, 0, 0, 0));
+
+            Assert.False(a.Equals(new PlaneF(0, 0, 0, 0)));
+            Assert.False(b.Equals(new PlaneF(0, 0, 0, 0)));
+            Assert.False(c.Equals(new PlaneF(0, 0, 0, 0)));
+            Assert.False(d.Equals(new PlaneF(0, 0, 0, 0)));
+
+            // Counterintuitive result - IEEE rules for NaN comparison are weird!
+            Assert.False(a.Equals(a));
+            Assert.False(b.Equals(b));
+            Assert.False(c.Equals(c));
+            Assert.False(d.Equals(d));
         }
 
         // A test for Equals (object)
@@ -69,6 +196,51 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
+        // A test for Equals (PlaneF)
+        [Test]
+        public void PlaneEqualsTest1()
+        {
+            PlaneF a = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
+            PlaneF b = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            // case 1: compare between same values
+            bool expected = true;
+            bool actual = a.Equals(b);
+            Assert.AreEqual(expected, actual);
+
+            // case 2: compare between different values
+            b.Normal = new Vector3F(10.0f, b.Normal.Y, b.Normal.Z);
+            expected = false;
+            actual = a.Equals(b);
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test to make sure the fields are laid out how we expect
+        [Test]
+        public unsafe void PlaneFieldOffsetTest()
+        {
+            PlaneF PlaneF = new PlaneF();
+
+            float* basePtr = &PlaneF.Normal.X; // Take address of first element
+            PlaneF* planePtr = &PlaneF; // Take address of whole PlaneF
+
+            Assert.AreEqual(new IntPtr(basePtr), new IntPtr(planePtr));
+
+            Assert.AreEqual(new IntPtr(basePtr + 0), new IntPtr(&PlaneF.Normal));
+            Assert.AreEqual(new IntPtr(basePtr + 3), new IntPtr(&PlaneF.D));
+        }
+
+        // A test for GetHashCode ()
+        [Test]
+        public void PlaneGetHashCodeTest()
+        {
+            PlaneF target = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            int expected = target.Normal.GetHashCode() + target.D.GetHashCode();
+            int actual = target.GetHashCode();
+            Assert.AreEqual(expected, actual);
+        }
+
         // A test for operator != (PlaneF, PlaneF)
         [Test]
         public void PlaneInequalityTest()
@@ -88,134 +260,6 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for operator == (PlaneF, PlaneF)
-        [Test]
-        public void PlaneEqualityTest()
-        {
-            PlaneF a = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
-            PlaneF b = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
-
-            // case 1: compare between same values
-            bool expected = true;
-            bool actual = a == b;
-            Assert.AreEqual(expected, actual);
-
-            // case 2: compare between different values
-            b.Normal = new Vector3F(10.0f, b.Normal.Y, b.Normal.Z);
-            expected = false;
-            actual = a == b;
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for GetHashCode ()
-        [Test]
-        public void PlaneGetHashCodeTest()
-        {
-            PlaneF target = new PlaneF(1.0f, 2.0f, 3.0f, 4.0f);
-
-            int expected = target.Normal.GetHashCode() + target.D.GetHashCode();
-            int actual = target.GetHashCode();
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for PlaneF (float, float, float, float)
-        [Test]
-        public void PlaneConstructorTest1()
-        {
-            float a = 1.0f, b = 2.0f, c = 3.0f, d = 4.0f;
-            PlaneF target = new PlaneF(a, b, c, d);
-
-            Assert.True(
-                target.Normal.X == a && target.Normal.Y == b && target.Normal.Z == c && target.D == d,
-                "PlaneF.cstor did not return the expected value.");
-        }
-
-        // A test for PlaneF.CreateFromVertices
-        [Test]
-        public void PlaneCreateFromVerticesTest()
-        {
-            Vector3F point1 = new Vector3F(0.0f, 1.0f, 1.0f);
-            Vector3F point2 = new Vector3F(0.0f, 0.0f, 1.0f);
-            Vector3F point3 = new Vector3F(1.0f, 0.0f, 1.0f);
-
-            PlaneF target = PlaneF.CreateFromVertices(point1, point2, point3);
-            PlaneF expected = new PlaneF(new Vector3F(0, 0, 1), -1.0f);
-            Assert.AreEqual(target, expected);
-        }
-
-        // A test for PlaneF.CreateFromVertices
-        [Test]
-        public void PlaneCreateFromVerticesTest2()
-        {
-            Vector3F point1 = new Vector3F(0.0f, 0.0f, 1.0f);
-            Vector3F point2 = new Vector3F(1.0f, 0.0f, 0.0f);
-            Vector3F point3 = new Vector3F(1.0f, 1.0f, 0.0f);
-
-            PlaneF target = PlaneF.CreateFromVertices(point1, point2, point3);
-            float invRoot2 = (float)(1 / Math.Sqrt(2));
-
-            PlaneF expected = new PlaneF(new Vector3F(invRoot2, 0, invRoot2), -invRoot2);
-            Assert.True(MathHelper.Equal(target, expected), "PlaneF.cstor did not return the expected value.");
-        }
-
-        // A test for PlaneF (Vector3f, float)
-        [Test]
-        public void PlaneConstructorTest3()
-        {
-            Vector3F normal = new Vector3F(1, 2, 3);
-            float d = 4;
-
-            PlaneF target = new PlaneF(normal, d);
-            Assert.True(
-                target.Normal == normal && target.D == d,
-                "PlaneF.cstor did not return the expected value.");
-        }
-
-        // A test for PlaneF (Vector4f)
-        [Test]
-        public void PlaneConstructorTest()
-        {
-            Vector4F value = new Vector4F(1.0f, 2.0f, 3.0f, 4.0f);
-            PlaneF target = new PlaneF(value);
-
-            Assert.True(
-                target.Normal.X == value.X && target.Normal.Y == value.Y && target.Normal.Z == value.Z && target.D == value.W,
-                "PlaneF.cstor did not return the expected value.");
-        }
-
-        [Test]
-        public void PlaneDotTest()
-        {
-            PlaneF target = new PlaneF(2, 3, 4, 5);
-            Vector4F value = new Vector4F(5, 4, 3, 2);
-
-            float expected = 10 + 12 + 12 + 10;
-            float actual = PlaneF.Dot(target, value);
-            Assert.True(MathHelper.Equal(expected, actual), "PlaneF.Dot returns unexpected value.");
-        }
-
-        [Test]
-        public void PlaneDotCoordinateTest()
-        {
-            PlaneF target = new PlaneF(2, 3, 4, 5);
-            Vector3F value = new Vector3F(5, 4, 3);
-
-            float expected = 10 + 12 + 12 + 5;
-            float actual = PlaneF.DotCoordinate(target, value);
-            Assert.True(MathHelper.Equal(expected, actual), "PlaneF.DotCoordinate returns unexpected value.");
-        }
-
-        [Test]
-        public void PlaneDotNormalTest()
-        {
-            PlaneF target = new PlaneF(2, 3, 4, 5);
-            Vector3F value = new Vector3F(5, 4, 3);
-
-            float expected = 10 + 12 + 12;
-            float actual = PlaneF.DotNormal(target, value);
-            Assert.True(MathHelper.Equal(expected, actual), "PlaneF.DotCoordinate returns unexpected value.");
-        }
-
         [Test]
         public void PlaneNormalizeTest()
         {
@@ -231,6 +275,19 @@ namespace Tests
             // normalize, normalized normal.
             actual = PlaneF.Normalize(actual);
             Assert.True(MathHelper.Equal(expected, actual), "PlaneF.Normalize returns unexpected value.");
+        }
+
+        [Test]
+        public void PlaneToStringTest()
+        {
+            PlaneF target = new PlaneF(1, 2, 3, 4);
+            string expected = string.Format(
+                CultureInfo.CurrentCulture,
+                "{{Normal:{0:G} D:{1}}}",
+                target.Normal,
+                target.D);
+
+            Assert.AreEqual(expected, target.ToString());
         }
 
         [Test]
@@ -289,36 +346,7 @@ namespace Tests
             Assert.True(MathHelper.Equal(expected, actual), "PlaneF.Transform did not return the expected value.");
         }
 
-        // A test for PlaneF comparison involving NaN values
-        [Test]
-        public void PlaneEqualsNanTest()
-        {
-            PlaneF a = new PlaneF(float.NaN, 0, 0, 0);
-            PlaneF b = new PlaneF(0, float.NaN, 0, 0);
-            PlaneF c = new PlaneF(0, 0, float.NaN, 0);
-            PlaneF d = new PlaneF(0, 0, 0, float.NaN);
-
-            Assert.False(a == new PlaneF(0, 0, 0, 0));
-            Assert.False(b == new PlaneF(0, 0, 0, 0));
-            Assert.False(c == new PlaneF(0, 0, 0, 0));
-            Assert.False(d == new PlaneF(0, 0, 0, 0));
-
-            Assert.True(a != new PlaneF(0, 0, 0, 0));
-            Assert.True(b != new PlaneF(0, 0, 0, 0));
-            Assert.True(c != new PlaneF(0, 0, 0, 0));
-            Assert.True(d != new PlaneF(0, 0, 0, 0));
-
-            Assert.False(a.Equals(new PlaneF(0, 0, 0, 0)));
-            Assert.False(b.Equals(new PlaneF(0, 0, 0, 0)));
-            Assert.False(c.Equals(new PlaneF(0, 0, 0, 0)));
-            Assert.False(d.Equals(new PlaneF(0, 0, 0, 0)));
-
-            // Counterintuitive result - IEEE rules for NaN comparison are weird!
-            Assert.False(a.Equals(a));
-            Assert.False(b.Equals(b));
-            Assert.False(c.Equals(c));
-            Assert.False(d.Equals(d));
-        }
+        #endregion Public Methods
 
         /* Enable when size of Vector3F is correct
         // A test to make sure these types are blittable directly into GPU buffer memory layouts
@@ -332,53 +360,29 @@ namespace Tests
         }
         */
 
-        [Test]
-        public void PlaneToStringTest()
-        {
-            PlaneF target = new PlaneF(1, 2, 3, 4);
-            string expected = string.Format(
-                CultureInfo.CurrentCulture,
-                "{{Normal:{0:G} D:{1}}}",
-                target.Normal,
-                target.D);
-
-            Assert.AreEqual(expected, target.ToString());
-        }
+        #region Private Structs
 
         [StructLayout(LayoutKind.Sequential)]
-        struct Plane_2x
+        private struct Plane_2x
         {
             private PlaneF _a;
             private PlaneF _b;
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct PlanePlusFloat
+        private struct PlanePlusFloat
         {
             private PlaneF _v;
             private readonly float _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct PlanePlusFloat_2x
+        private struct PlanePlusFloat_2x
         {
             private PlanePlusFloat _a;
             private PlanePlusFloat _b;
         }
 
-        // A test to make sure the fields are laid out how we expect
-        [Test]
-        public unsafe void PlaneFieldOffsetTest()
-        {
-            PlaneF PlaneF = new PlaneF();
-
-            float* basePtr = &PlaneF.Normal.X; // Take address of first element
-            PlaneF* planePtr = &PlaneF; // Take address of whole PlaneF
-
-            Assert.AreEqual(new IntPtr(basePtr), new IntPtr(planePtr));
-
-            Assert.AreEqual(new IntPtr(basePtr + 0), new IntPtr(&PlaneF.Normal));
-            Assert.AreEqual(new IntPtr(basePtr + 3), new IntPtr(&PlaneF.D));
-        }
+        #endregion Private Structs
     }
 }

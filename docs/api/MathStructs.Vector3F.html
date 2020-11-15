@@ -73,12 +73,25 @@
   
   <h1 id="MathStructs_Vector3F" data-uid="MathStructs.Vector3F" class="text-break">Struct Vector3F
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A structure encapsulating three single precision floating point values.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="MathStructs.Vector3F.html">Vector3F</a>&gt;</div>
-    <div><span class="xref">IFormattable</span></div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="MathStructs.Vector3F.html">Vector3F</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="MathStructs.html">MathStructs</a></h6>
   <h6><strong>Assembly</strong>: MathStructs.dll</h6>
@@ -86,18 +99,22 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public struct Vector3F : IEquatable&lt;Vector3F&gt;, IFormattable</code></pre>
   </div>
+  <h5 id="MathStructs_Vector3F_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Less precise than <a class="xref" href="MathStructs.Vector3D.html">Vector3D</a> but faster.</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F__ctor_MathStructs_Vector2F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.%23ctor(MathStructs.Vector2F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F__ctor_MathStructs_Vector2F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.%23ctor(MathStructs.Vector2F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L174">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L66">View Source</a>
   </span>
   <a id="MathStructs_Vector3F__ctor_" data-uid="MathStructs.Vector3F.#ctor*"></a>
   <h4 id="MathStructs_Vector3F__ctor_MathStructs_Vector2F_System_Single_" data-uid="MathStructs.Vector3F.#ctor(MathStructs.Vector2F,System.Single)">Vector3F(Vector2F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> from the given <a class="xref" href="MathStructs.Vector2F.html">Vector2F</a> and a Z component.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -116,25 +133,28 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector2F.html">Vector2F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The vector to use as the X and Y component.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>The Z component.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F__ctor_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.%23ctor(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F__ctor_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.%23ctor(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L171">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L53">View Source</a>
   </span>
   <a id="MathStructs_Vector3F__ctor_" data-uid="MathStructs.Vector3F.#ctor*"></a>
   <h4 id="MathStructs_Vector3F__ctor_System_Single_" data-uid="MathStructs.Vector3F.#ctor(System.Single)">Vector3F(Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a vector whose elements are all the single specified value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,20 +173,22 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The element to fill the vector with.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F__ctor_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.%23ctor(System.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F__ctor_System_Single_System_Single_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.%23ctor(System.Single%2CSystem.Single%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L177">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L82">View Source</a>
   </span>
   <a id="MathStructs_Vector3F__ctor_" data-uid="MathStructs.Vector3F.#ctor*"></a>
   <h4 id="MathStructs_Vector3F__ctor_System_Single_System_Single_System_Single_" data-uid="MathStructs.Vector3F.#ctor(System.Single,System.Single,System.Single)">Vector3F(Single, Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructs a vector with the given individual elements.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -185,17 +207,20 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>X component.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>Y component.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>Z component.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -203,13 +228,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_X.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.X%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_X.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.X%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L11">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L23">View Source</a>
   </span>
   <h4 id="MathStructs_Vector3F_X" data-uid="MathStructs.Vector3F.X">X</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The X component of the vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -232,13 +258,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Y.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Y%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Y.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Y%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L12">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L29">View Source</a>
   </span>
   <h4 id="MathStructs_Vector3F_Y" data-uid="MathStructs.Vector3F.Y">Y</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The Y component of the vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -261,13 +288,14 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Z.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Z%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Z.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Z%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L13">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L35">View Source</a>
   </span>
   <h4 id="MathStructs_Vector3F_Z" data-uid="MathStructs.Vector3F.Z">Z</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The Z component of the vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -292,14 +320,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_One.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.One%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_One.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.One%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L17">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L97">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_One_" data-uid="MathStructs.Vector3F.One*"></a>
   <h4 id="MathStructs_Vector3F_One" data-uid="MathStructs.Vector3F.One">One</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the vector &lt; 1, 1, 1 &gt;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -322,14 +351,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_UnitX.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.UnitX%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_UnitX.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.UnitX%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L19">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L103">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_UnitX_" data-uid="MathStructs.Vector3F.UnitX*"></a>
   <h4 id="MathStructs_Vector3F_UnitX" data-uid="MathStructs.Vector3F.UnitX">UnitX</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the vector &lt; 1, 0, 0 &gt;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -352,14 +382,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_UnitY.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.UnitY%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_UnitY.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.UnitY%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L21">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L109">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_UnitY_" data-uid="MathStructs.Vector3F.UnitY*"></a>
   <h4 id="MathStructs_Vector3F_UnitY" data-uid="MathStructs.Vector3F.UnitY">UnitY</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the vector &lt; 0, 1, 0 &gt;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -382,14 +413,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_UnitZ.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.UnitZ%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_UnitZ.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.UnitZ%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L23">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L115">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_UnitZ_" data-uid="MathStructs.Vector3F.UnitZ*"></a>
   <h4 id="MathStructs_Vector3F_UnitZ" data-uid="MathStructs.Vector3F.UnitZ">UnitZ</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the vector &lt; 0, 0, 1 &gt;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -412,14 +444,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Zero.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Zero.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L15">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L121">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Zero_" data-uid="MathStructs.Vector3F.Zero*"></a>
   <h4 id="MathStructs_Vector3F_Zero" data-uid="MathStructs.Vector3F.Zero">Zero</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the vector &lt; 0, 0, 0 &gt;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -444,14 +477,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Abs.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Abs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Abs.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Abs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L249">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L602">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Abs_" data-uid="MathStructs.Vector3F.Abs*"></a>
   <h4 id="MathStructs_Vector3F_Abs" data-uid="MathStructs.Vector3F.Abs">Abs()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector whose elements are the absolute values of each of this vector's elements.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -474,14 +508,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Abs_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Abs(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Abs_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Abs(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L245">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L134">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Abs_" data-uid="MathStructs.Vector3F.Abs*"></a>
   <h4 id="MathStructs_Vector3F_Abs_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Abs(MathStructs.Vector3F)">Abs(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector whose elements are the absolute values of each of the source vector's elements.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -500,7 +535,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -521,14 +557,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Add_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Add(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Add_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Add(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L139">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L147">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Add_" data-uid="MathStructs.Vector3F.Add*"></a>
   <h4 id="MathStructs_Vector3F_Add_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Add(MathStructs.Vector3F,MathStructs.Vector3F)">Add(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds two vectors together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -547,12 +584,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -573,14 +612,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Clamp_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Clamp(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Clamp_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Clamp(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L93">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L615">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Clamp_" data-uid="MathStructs.Vector3F.Clamp*"></a>
   <h4 id="MathStructs_Vector3F_Clamp_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F)">Clamp(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Restricts a copy of this vector between a min and max value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -599,12 +639,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">min</span></td>
-        <td></td>
+        <td><p>The minimum value.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">max</span></td>
-        <td></td>
+        <td><p>The maximum value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -625,14 +667,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Clamp_MathStructs_Vector3F_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Clamp(MathStructs.Vector3F%2CMathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Clamp_MathStructs_Vector3F_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Clamp(MathStructs.Vector3F%2CMathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L89">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L163">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Clamp_" data-uid="MathStructs.Vector3F.Clamp*"></a>
   <h4 id="MathStructs_Vector3F_Clamp_MathStructs_Vector3F_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Clamp(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)">Clamp(Vector3F, Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Restricts a vector between a min and max value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -651,17 +694,20 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">min</span></td>
-        <td></td>
+        <td><p>The minimum value.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">max</span></td>
-        <td></td>
+        <td><p>The maximum value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -682,14 +728,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_CopyTo_System_Single___.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.CopyTo(System.Single%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_CopyTo_System_Single___.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.CopyTo(System.Single%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L203">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L622">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_CopyTo_" data-uid="MathStructs.Vector3F.CopyTo*"></a>
   <h4 id="MathStructs_Vector3F_CopyTo_System_Single___" data-uid="MathStructs.Vector3F.CopyTo(System.Single[])">CopyTo(Single[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Copies the contents of the vector into the given array.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -714,14 +761,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_CopyTo_System_Single___System_Int32_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.CopyTo(System.Single%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_CopyTo_System_Single___System_Int32_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.CopyTo(System.Single%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L207">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L638">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_CopyTo_" data-uid="MathStructs.Vector3F.CopyTo*"></a>
   <h4 id="MathStructs_Vector3F_CopyTo_System_Single___System_Int32_" data-uid="MathStructs.Vector3F.CopyTo(System.Single[],System.Int32)">CopyTo(Single[], Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Copies the contents of the vector into the given array, starting from index.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -749,16 +797,43 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.RankException</span></td>
+        <td><p>If array is multidimensional.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>If index is greater than end of the array or index is less than zero.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>If number of elements in source vector is greater than those available in destination array.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Cross_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Cross(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Cross_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Cross(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L77">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L660">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Cross_" data-uid="MathStructs.Vector3F.Cross*"></a>
   <h4 id="MathStructs_Vector3F_Cross_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Cross(MathStructs.Vector3F)">Cross(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Computes the cross product of two vectors which is a vector perpendicular to the two vectors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -777,7 +852,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector</span></td>
-        <td></td>
+        <td><p>The other vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -796,16 +872,21 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Cross_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The cross product performs the following:</p>
+&lt; v₁.Y * v₂.Z - v₁.Z * v₂.Y , v₁.Z * v₂.X - v₁.X  *v₂.Z , v₁.X * v₂.Y - v₁.Y * v₂.X >
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Cross_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Cross(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Cross_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Cross(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L73">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L180">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Cross_" data-uid="MathStructs.Vector3F.Cross*"></a>
   <h4 id="MathStructs_Vector3F_Cross_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Cross(MathStructs.Vector3F,MathStructs.Vector3F)">Cross(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Computes the cross product of two vectors which is a vector perpendicular to the two vectors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -824,12 +905,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector1</span></td>
-        <td></td>
+        <td><p>The first vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector2</span></td>
-        <td></td>
+        <td><p>The second vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -848,16 +931,22 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Cross_MathStructs_Vector3F_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The cross product performs the following:</p>
+&lt; v₁.Y * v₂.Z - v₁.Z * v₂.Y , v₁.Z * v₂.X - v₁.X  *v₂.Z , v₁.X * v₂.Y - v₁.Y * v₂.X >
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Deconstruct_MathStructs_Vector2F__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Deconstruct(MathStructs.Vector2F%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Deconstruct_MathStructs_Vector2F__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Deconstruct(MathStructs.Vector2F%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L184">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L674">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Deconstruct_" data-uid="MathStructs.Vector3F.Deconstruct*"></a>
   <h4 id="MathStructs_Vector3F_Deconstruct_MathStructs_Vector2F__System_Single__" data-uid="MathStructs.Vector3F.Deconstruct(MathStructs.Vector2F@,System.Single@)">Deconstruct(out Vector2F, out Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deconstructs this vector into its <span class="xref">System.Single</span> components and builds the
+X and Y into a new <a class="xref" href="MathStructs.Vector2F.html">Vector2F</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -876,25 +965,28 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector2F.html">Vector2F</a></td>
         <td><span class="parametername">vector</span></td>
-        <td></td>
+        <td><p>The X and Y of this vector as a <a class="xref" href="MathStructs.Vector2F.html">Vector2F</a>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>The Z of this vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Deconstruct_System_Single__System_Single__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Deconstruct(System.Single%40%2CSystem.Single%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Deconstruct_System_Single__System_Single__System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Deconstruct(System.Single%40%2CSystem.Single%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L191">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L693">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Deconstruct_" data-uid="MathStructs.Vector3F.Deconstruct*"></a>
   <h4 id="MathStructs_Vector3F_Deconstruct_System_Single__System_Single__System_Single__" data-uid="MathStructs.Vector3F.Deconstruct(System.Single@,System.Single@,System.Single@)">Deconstruct(out Single, out Single, out Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deconstructs this vector into its <span class="xref">System.Single</span> components.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -913,30 +1005,34 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>The X of this vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>The Y of this vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>The Z of this vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Distance_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Distance(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Distance_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Distance(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L53">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L710">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Distance_" data-uid="MathStructs.Vector3F.Distance*"></a>
   <h4 id="MathStructs_Vector3F_Distance_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Distance(MathStructs.Vector3F)">Distance(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Euclidean distance between this point and the given point.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -955,7 +1051,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The other point.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -974,16 +1071,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Distance_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>More expensive than <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_">DistanceSquared(Vector3F)</a> if you need the squared distance.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Distance_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Distance(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Distance_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Distance(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L49">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L196">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Distance_" data-uid="MathStructs.Vector3F.Distance*"></a>
   <h4 id="MathStructs_Vector3F_Distance_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Distance(MathStructs.Vector3F,MathStructs.Vector3F)">Distance(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Euclidean distance between the two given points.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1002,12 +1103,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector1</span></td>
-        <td></td>
+        <td><p>The first point.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector2</span></td>
-        <td></td>
+        <td><p>The second point.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1026,16 +1129,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Distance_MathStructs_Vector3F_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>More expensive than <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_MathStructs_Vector3F_">DistanceSquared(Vector3F, Vector3F)</a> if you need the squared distance.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L61">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L723">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_DistanceSquared_" data-uid="MathStructs.Vector3F.DistanceSquared*"></a>
   <h4 id="MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F)">DistanceSquared(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Euclidean distance squared between this point and the given point.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1054,7 +1161,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The other point.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1073,16 +1181,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Less expensive than <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_Distance_MathStructs_Vector3F_">Distance(Vector3F)</a> if you need the squared distance.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L57">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L212">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_DistanceSquared_" data-uid="MathStructs.Vector3F.DistanceSquared*"></a>
   <h4 id="MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.DistanceSquared(MathStructs.Vector3F,MathStructs.Vector3F)">DistanceSquared(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Euclidean distance squared between the two given points.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1101,12 +1213,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector1</span></td>
-        <td></td>
+        <td><p>The first point.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector2</span></td>
-        <td></td>
+        <td><p>The second point.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1125,16 +1239,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_DistanceSquared_MathStructs_Vector3F_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Less expensive than <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_Distance_MathStructs_Vector3F_MathStructs_Vector3F_">Distance(Vector3F, Vector3F)</a> if you need the squared distance.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Divide_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Divide(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Divide_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Divide(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L159">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L225">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Divide_" data-uid="MathStructs.Vector3F.Divide*"></a>
   <h4 id="MathStructs_Vector3F_Divide_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Divide(MathStructs.Vector3F,MathStructs.Vector3F)">Divide(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides the first vector by the second.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1153,12 +1271,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1179,14 +1299,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Divide_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Divide(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Divide_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Divide(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L163">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L238">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Divide_" data-uid="MathStructs.Vector3F.Divide*"></a>
   <h4 id="MathStructs_Vector3F_Divide_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.Vector3F.Divide(MathStructs.Vector3F,System.Single)">Divide(Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides the vector by the given scalar.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1205,12 +1326,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1231,14 +1354,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Dot_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Dot(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Dot_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Dot(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L229">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L737">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Dot_" data-uid="MathStructs.Vector3F.Dot*"></a>
   <h4 id="MathStructs_Vector3F_Dot_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Dot(MathStructs.Vector3F)">Dot(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the dot product of this instance and the given vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1257,7 +1381,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector</span></td>
-        <td></td>
+        <td><p>The other vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1276,16 +1401,21 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Dot_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The dot product of two vectors is the sum of the products of each of the
+pairs of elements from two vectors</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Dot_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Dot(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Dot_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Dot(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L223">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L255">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Dot_" data-uid="MathStructs.Vector3F.Dot*"></a>
   <h4 id="MathStructs_Vector3F_Dot_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Dot(MathStructs.Vector3F,MathStructs.Vector3F)">Dot(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the dot product of two vectors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1304,12 +1434,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1328,16 +1460,21 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Dot_MathStructs_Vector3F_MathStructs_Vector3F__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The dot product of two vectors is the sum of the products of each of the
+pairs of elements from two vectors</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Equals_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Equals(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Equals_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Equals(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L219">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L764">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Equals_" data-uid="MathStructs.Vector3F.Equals*"></a>
   <h4 id="MathStructs_Vector3F_Equals_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Equals(MathStructs.Vector3F)">Equals(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the given <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> is equal to this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1356,7 +1493,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">other</span></td>
-        <td></td>
+        <td><p>The <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> to compare this instance to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1371,24 +1509,26 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the other <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> is equal to this instance; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Equals_MathStructs_Vector3F_System_Double_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Equals(MathStructs.Vector3F%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L28">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L780">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Equals_" data-uid="MathStructs.Vector3F.Equals*"></a>
-  <h4 id="MathStructs_Vector3F_Equals_System_Nullable_System_Object__" data-uid="MathStructs.Vector3F.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="MathStructs_Vector3F_Equals_MathStructs_Vector3F_System_Double_" data-uid="MathStructs.Vector3F.Equals(MathStructs.Vector3F,System.Double)">Equals(Vector3F, Double)</h4>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the given Vector4D is equal to this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> instance ± delta.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Equals(Vector3F other, double delta)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1401,9 +1541,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
-        <td><span class="parametername">obj</span></td>
-        <td></td>
+        <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> to compare this instance to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The allowable margin of error to determine equality for each element pair between the vectors.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1418,20 +1565,75 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the other <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> is equal to this instance ± delta; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_GetHashCode.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Equals_System_Object_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L25">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L751">View Source</a>
+  </span>
+  <a id="MathStructs_Vector3F_Equals_" data-uid="MathStructs.Vector3F.Equals*"></a>
+  <h4 id="MathStructs_Vector3F_Equals_System_Object_" data-uid="MathStructs.Vector3F.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the given Object is equal to this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The Object to compare against.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the Object is equal to this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a>;
+False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_GetHashCode.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L795">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_GetHashCode_" data-uid="MathStructs.Vector3F.GetHashCode*"></a>
   <h4 id="MathStructs_Vector3F_GetHashCode" data-uid="MathStructs.Vector3F.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1452,16 +1654,19 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Length.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Length.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L41">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L804">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Length_" data-uid="MathStructs.Vector3F.Length*"></a>
   <h4 id="MathStructs_Vector3F_Length" data-uid="MathStructs.Vector3F.Length">Length()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the length of the vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1482,16 +1687,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_Length_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_LengthSquared">LengthSquared()</a> is cheaper to use if you need the squared length.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_LengthSquared.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.LengthSquared%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_LengthSquared.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.LengthSquared%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L45">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L814">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_LengthSquared_" data-uid="MathStructs.Vector3F.LengthSquared*"></a>
   <h4 id="MathStructs_Vector3F_LengthSquared" data-uid="MathStructs.Vector3F.LengthSquared">LengthSquared()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the length of the vector squared.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1512,16 +1721,20 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="MathStructs_Vector3F_LengthSquared_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This operation is cheaper than <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_Length">Length()</a> if you need the squared length.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Lerp_MathStructs_Vector3F_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Lerp(MathStructs.Vector3F%2CMathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Lerp_MathStructs_Vector3F_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Lerp(MathStructs.Vector3F%2CMathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L97">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L273">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Lerp_" data-uid="MathStructs.Vector3F.Lerp*"></a>
   <h4 id="MathStructs_Vector3F_Lerp_MathStructs_Vector3F_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.Vector3F.Lerp(MathStructs.Vector3F,MathStructs.Vector3F,System.Single)">Lerp(Vector3F, Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Linearly interpolates between two vectors based on the given weighting.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1540,17 +1753,20 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">bounds1</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">bounds2</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">amount</span></td>
-        <td></td>
+        <td><p>Value between 0 and 1 indicating the weight of the second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1571,14 +1787,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Max_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Max(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Max_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Max(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L239">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L286">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Max_" data-uid="MathStructs.Vector3F.Max*"></a>
   <h4 id="MathStructs_Vector3F_Max_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Max(MathStructs.Vector3F,MathStructs.Vector3F)">Max(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector whose elements are the maximum of each of the pairs of elements in the two source vectors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1597,12 +1814,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1623,14 +1842,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Min_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Min(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Min_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Min(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L233">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L301">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Min_" data-uid="MathStructs.Vector3F.Min*"></a>
   <h4 id="MathStructs_Vector3F_Min_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Min(MathStructs.Vector3F,MathStructs.Vector3F)">Min(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector whose elements are the minimum of each of the pairs of elements in the two source vectors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1649,12 +1869,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1675,14 +1897,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Multiply_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Multiply(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Multiply_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Multiply(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L147">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L316">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Multiply_" data-uid="MathStructs.Vector3F.Multiply*"></a>
   <h4 id="MathStructs_Vector3F_Multiply_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Multiply(MathStructs.Vector3F,MathStructs.Vector3F)">Multiply(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies two vectors together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1701,12 +1924,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1727,14 +1952,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Multiply_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Multiply(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Multiply_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Multiply(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L151">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L329">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Multiply_" data-uid="MathStructs.Vector3F.Multiply*"></a>
   <h4 id="MathStructs_Vector3F_Multiply_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.Vector3F.Multiply(MathStructs.Vector3F,System.Single)">Multiply(Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies a vector by the given scalar.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1753,12 +1979,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1779,14 +2007,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Multiply_System_Single_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Multiply(System.Single%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Multiply_System_Single_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Multiply(System.Single%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L155">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L342">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Multiply_" data-uid="MathStructs.Vector3F.Multiply*"></a>
   <h4 id="MathStructs_Vector3F_Multiply_System_Single_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Multiply(System.Single,MathStructs.Vector3F)">Multiply(Single, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies a vector by the given scalar.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1805,12 +2034,14 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1831,14 +2062,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Negate_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Negate(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Negate_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Negate(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L167">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L352">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Negate_" data-uid="MathStructs.Vector3F.Negate*"></a>
   <h4 id="MathStructs_Vector3F_Negate_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Negate(MathStructs.Vector3F)">Negate(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Negates a given vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1857,7 +2089,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1878,14 +2111,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Normalize.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Normalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Normalize.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Normalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L69">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L821">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Normalize_" data-uid="MathStructs.Vector3F.Normalize*"></a>
   <h4 id="MathStructs_Vector3F_Normalize" data-uid="MathStructs.Vector3F.Normalize">Normalize()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector with the same direction as this vector, but with a length of 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1908,14 +2142,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Normalize_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Normalize(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Normalize_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Normalize(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L65">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L362">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Normalize_" data-uid="MathStructs.Vector3F.Normalize*"></a>
   <h4 id="MathStructs_Vector3F_Normalize_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Normalize(MathStructs.Vector3F)">Normalize(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector with the same direction as the given vector, but with a length of 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1934,7 +2169,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector</span></td>
-        <td></td>
+        <td><p>The vector to normalize.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1955,14 +2191,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Reflect_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Reflect(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Reflect_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Reflect(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L85">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L831">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Reflect_" data-uid="MathStructs.Vector3F.Reflect*"></a>
   <h4 id="MathStructs_Vector3F_Reflect_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Reflect(MathStructs.Vector3F)">Reflect(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the reflection of this vector off a surface that has the specified normal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1981,7 +2218,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">normal</span></td>
-        <td></td>
+        <td><p>The normal of the surface being reflected off.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2002,14 +2240,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Reflect_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Reflect(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Reflect_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Reflect(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L81">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L515">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Reflect_" data-uid="MathStructs.Vector3F.Reflect*"></a>
   <h4 id="MathStructs_Vector3F_Reflect_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Reflect(MathStructs.Vector3F,MathStructs.Vector3F)">Reflect(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the reflection of a vector off a surface that has the specified normal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2028,12 +2267,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">normal</span></td>
-        <td></td>
+        <td><p>The normal of the surface being reflected off.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2054,14 +2295,46 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_SquareRoot_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_SquareRoot.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.SquareRoot%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L253">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L838">View Source</a>
+  </span>
+  <a id="MathStructs_Vector3F_SquareRoot_" data-uid="MathStructs.Vector3F.SquareRoot*"></a>
+  <h4 id="MathStructs_Vector3F_SquareRoot" data-uid="MathStructs.Vector3F.SquareRoot">SquareRoot()</h4>
+  <div class="markdown level1 summary"><p>Returns a vector whose elements are the square root of each of this vector's elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3F SquareRoot()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_SquareRoot_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L525">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_SquareRoot_" data-uid="MathStructs.Vector3F.SquareRoot*"></a>
   <h4 id="MathStructs_Vector3F_SquareRoot_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)">SquareRoot(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a vector whose elements are the square root of each of the source vector's elements.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2080,7 +2353,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2101,14 +2375,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Subtract_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Subtract(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Subtract_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Subtract(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L143">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L538">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Subtract_" data-uid="MathStructs.Vector3F.Subtract*"></a>
   <h4 id="MathStructs_Vector3F_Subtract_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.Subtract(MathStructs.Vector3F,MathStructs.Vector3F)">Subtract(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Subtracts the second vector from the first.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2127,12 +2402,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2153,14 +2430,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_ToString.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_ToString.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L32">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L845">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_ToString_" data-uid="MathStructs.Vector3F.ToString*"></a>
   <h4 id="MathStructs_Vector3F_ToString" data-uid="MathStructs.Vector3F.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a String representing this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2181,20 +2459,23 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_ToString_System_Nullable_System_String__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.ToString(System.Nullable%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_ToString_System_String_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.ToString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L35">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L854">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_ToString_" data-uid="MathStructs.Vector3F.ToString*"></a>
-  <h4 id="MathStructs_Vector3F_ToString_System_Nullable_System_String__" data-uid="MathStructs.Vector3F.ToString(System.Nullable{System.String})">ToString(Nullable&lt;String&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="MathStructs_Vector3F_ToString_System_String_" data-uid="MathStructs.Vector3F.ToString(System.String)">ToString(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a String representing this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> instance, using the specified format to format individual elements.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToString(string? format)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2207,9 +2488,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.String</span></td>
         <td><span class="parametername">format</span></td>
-        <td></td>
+        <td><p>The format of individual elements.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2230,18 +2512,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.ToString(System.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BIFormatProvider%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_ToString_System_String_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.ToString(System.String%2CSystem.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L38">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L867">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_ToString_" data-uid="MathStructs.Vector3F.ToString*"></a>
-  <h4 id="MathStructs_Vector3F_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__" data-uid="MathStructs.Vector3F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})">ToString(Nullable&lt;String&gt;, Nullable&lt;IFormatProvider&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="MathStructs_Vector3F_ToString_System_String_System_IFormatProvider_" data-uid="MathStructs.Vector3F.ToString(System.String,System.IFormatProvider)">ToString(String, IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a String representing this <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a> instance, using the specified format to format
+individual elements and the given <span class="xref">System.IFormatProvider</span>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2254,14 +2538,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.String</span></td>
         <td><span class="parametername">format</span></td>
-        <td></td>
+        <td><p>The format of individual elements.</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
+        <td><span class="xref">System.IFormatProvider</span></td>
         <td><span class="parametername">formatProvider</span></td>
-        <td></td>
+        <td><p>The format provider to use when formatting elements.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2282,14 +2568,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Transform_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Transform_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L107">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L876">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Transform_" data-uid="MathStructs.Vector3F.Transform*"></a>
   <h4 id="MathStructs_Vector3F_Transform_MathStructs_Matrix4x4F_" data-uid="MathStructs.Vector3F.Transform(MathStructs.Matrix4x4F)">Transform(Matrix4x4F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Transforms a copy of this vector by the given matrix.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2308,7 +2595,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Matrix4x4F.html">Matrix4x4F</a></td>
         <td><span class="parametername">matrix</span></td>
-        <td></td>
+        <td><p>The transformation matrix.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2329,14 +2617,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Transform_MathStructs_Vector3F_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Transform(MathStructs.Vector3F%2CMathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Transform_MathStructs_Vector3F_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Transform(MathStructs.Vector3F%2CMathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L101">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L551">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Transform_" data-uid="MathStructs.Vector3F.Transform*"></a>
   <h4 id="MathStructs_Vector3F_Transform_MathStructs_Vector3F_MathStructs_Matrix4x4F_" data-uid="MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.Matrix4x4F)">Transform(Vector3F, Matrix4x4F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Transforms a vector by the given matrix.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2355,12 +2644,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">vector</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Matrix4x4F.html">Matrix4x4F</a></td>
         <td><span class="parametername">matrix</span></td>
-        <td></td>
+        <td><p>The transformation matrix.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2381,14 +2672,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_Transform_MathStructs_Vector3F_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Transform(MathStructs.Vector3F%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_Transform_MathStructs_Vector3F_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.Transform(MathStructs.Vector3F%2CMathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L111">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L566">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_Transform_" data-uid="MathStructs.Vector3F.Transform*"></a>
   <h4 id="MathStructs_Vector3F_Transform_MathStructs_Vector3F_MathStructs_QuaternionF_" data-uid="MathStructs.Vector3F.Transform(MathStructs.Vector3F,MathStructs.QuaternionF)">Transform(Vector3F, QuaternionF)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Transforms a vector by the given <a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a> rotation value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2407,12 +2699,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source vector to be rotated.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
         <td><span class="parametername">rotation</span></td>
-        <td></td>
+        <td><p>The rotation to apply.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2433,14 +2727,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_TransformNormal_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_TransformNormal_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L135">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L886">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_TransformNormal_" data-uid="MathStructs.Vector3F.TransformNormal*"></a>
   <h4 id="MathStructs_Vector3F_TransformNormal_MathStructs_Matrix4x4F_" data-uid="MathStructs.Vector3F.TransformNormal(MathStructs.Matrix4x4F)">TransformNormal(Matrix4x4F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Transforms this vector normal by the given 4x4 matrix.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2459,7 +2754,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Matrix4x4F.html">Matrix4x4F</a></td>
         <td><span class="parametername">matrix</span></td>
-        <td></td>
+        <td><p>The matrix.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2480,14 +2776,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_TransformNormal_MathStructs_Vector3F_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F%2CMathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_TransformNormal_MathStructs_Vector3F_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F%2CMathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L129">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L593">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_TransformNormal_" data-uid="MathStructs.Vector3F.TransformNormal*"></a>
   <h4 id="MathStructs_Vector3F_TransformNormal_MathStructs_Vector3F_MathStructs_Matrix4x4F_" data-uid="MathStructs.Vector3F.TransformNormal(MathStructs.Vector3F,MathStructs.Matrix4x4F)">TransformNormal(Vector3F, Matrix4x4F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Transforms a vector normal by the given 4x4 matrix.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2506,12 +2803,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">normal</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Matrix4x4F.html">Matrix4x4F</a></td>
         <td><span class="parametername">matrix</span></td>
-        <td></td>
+        <td><p>The matrix.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2532,18 +2831,117 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.With(System.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_TransformV4_MathStructs_Matrix4x4F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.TransformV4(MathStructs.Matrix4x4F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L199">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L896">View Source</a>
   </span>
-  <a id="MathStructs_Vector3F_With_" data-uid="MathStructs.Vector3F.With*"></a>
-  <h4 id="MathStructs_Vector3F_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__" data-uid="MathStructs.Vector3F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})">With(Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="MathStructs_Vector3F_TransformV4_" data-uid="MathStructs.Vector3F.TransformV4*"></a>
+  <h4 id="MathStructs_Vector3F_TransformV4_MathStructs_Matrix4x4F_" data-uid="MathStructs.Vector3F.TransformV4(MathStructs.Matrix4x4F)">TransformV4(Matrix4x4F)</h4>
+  <div class="markdown level1 summary"><p>Transforms this vector by the given matrix and returns a <a class="xref" href="MathStructs.Vector4F.html">Vector4F</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3F With(float? x = null, float? y = null, float? z = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector4F TransformV4(Matrix4x4F matrix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MathStructs.Matrix4x4F.html">Matrix4x4F</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p>The transformation matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MathStructs.Vector4F.html">Vector4F</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_TransformV4_MathStructs_QuaternionF_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.TransformV4(MathStructs.QuaternionF)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L906">View Source</a>
+  </span>
+  <a id="MathStructs_Vector3F_TransformV4_" data-uid="MathStructs.Vector3F.TransformV4*"></a>
+  <h4 id="MathStructs_Vector3F_TransformV4_MathStructs_QuaternionF_" data-uid="MathStructs.Vector3F.TransformV4(MathStructs.QuaternionF)">TransformV4(QuaternionF)</h4>
+  <div class="markdown level1 summary"><p>Transforms this vector by the given <a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a> rotation value and returns a <a class="xref" href="MathStructs.Vector4F.html">Vector4F</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4F TransformV4(QuaternionF rotation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MathStructs.QuaternionF.html">QuaternionF</a></td>
+        <td><span class="parametername">rotation</span></td>
+        <td><p>The rotation to apply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="MathStructs.Vector4F.html">Vector4F</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.With(System.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L922">View Source</a>
+  </span>
+  <a id="MathStructs_Vector3F_With_" data-uid="MathStructs.Vector3F.With*"></a>
+  <h4 id="MathStructs_Vector3F_With_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__" data-uid="MathStructs.Vector3F.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})">With(Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;)</h4>
+  <div class="markdown level1 summary"><p>Record-like <span class="xref">langword_csharp_with</span>-style constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3F With(float? x = default(float? ), float? y = default(float? ), float? z = default(float? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2558,17 +2956,20 @@
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">x</span></td>
-        <td></td>
+        <td><p>If provided, the X value for the new <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a>, otherwise <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_X">X</a>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">y</span></td>
-        <td></td>
+        <td><p>If provided, the Y value for the new <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a>, otherwise <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_Y">Y</a>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Single</span>&gt;</td>
         <td><span class="parametername">z</span></td>
-        <td></td>
+        <td><p>If provided, the Z value for the new <a class="xref" href="MathStructs.Vector3F.html">Vector3F</a>, otherwise <a class="xref" href="MathStructs.Vector3F.html#MathStructs_Vector3F_Z">Z</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2591,14 +2992,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Addition_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Addition(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Addition_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Addition(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L265">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L486">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Addition_" data-uid="MathStructs.Vector3F.op_Addition*"></a>
   <h4 id="MathStructs_Vector3F_op_Addition_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Addition(MathStructs.Vector3F,MathStructs.Vector3F)">Addition(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds two vectors together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2617,12 +3019,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2643,14 +3047,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Division_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Division(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Division_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Division(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L285">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L453">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Division_" data-uid="MathStructs.Vector3F.op_Division*"></a>
   <h4 id="MathStructs_Vector3F_op_Division_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Division(MathStructs.Vector3F,MathStructs.Vector3F)">Division(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides the first vector by the second.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2669,12 +3074,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2695,14 +3102,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Division_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Division(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Division_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Division(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L289">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L466">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Division_" data-uid="MathStructs.Vector3F.op_Division*"></a>
   <h4 id="MathStructs_Vector3F_op_Division_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.Vector3F.op_Division(MathStructs.Vector3F,System.Single)">Division(Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Divides the vector by the given scalar.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2721,12 +3129,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2747,14 +3157,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Equality_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Equality(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Equality_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Equality(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L293">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L502">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Equality_" data-uid="MathStructs.Vector3F.op_Equality*"></a>
   <h4 id="MathStructs_Vector3F_op_Equality_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Equality(MathStructs.Vector3F,MathStructs.Vector3F)">Equality(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the two given vectors are equal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2773,12 +3184,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first vector to compare.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second vector to compare.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2793,20 +3206,22 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the vectors are equal; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Inequality_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Inequality(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Inequality_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Inequality(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L297">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L401">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Inequality_" data-uid="MathStructs.Vector3F.op_Inequality*"></a>
   <h4 id="MathStructs_Vector3F_op_Inequality_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Inequality(MathStructs.Vector3F,MathStructs.Vector3F)">Inequality(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a boolean indicating whether the two given vectors are not equal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2825,12 +3240,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first vector to compare.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second vector to compare.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2845,20 +3262,22 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>True if the vectors are not equal; False if they are equal.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Multiply_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Multiply_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L273">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L414">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Multiply_" data-uid="MathStructs.Vector3F.op_Multiply*"></a>
   <h4 id="MathStructs_Vector3F_op_Multiply_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,MathStructs.Vector3F)">Multiply(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies two vectors together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2877,12 +3296,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2903,14 +3324,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Multiply_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Multiply_MathStructs_Vector3F_System_Single_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L277">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L427">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Multiply_" data-uid="MathStructs.Vector3F.op_Multiply*"></a>
   <h4 id="MathStructs_Vector3F_op_Multiply_MathStructs_Vector3F_System_Single_" data-uid="MathStructs.Vector3F.op_Multiply(MathStructs.Vector3F,System.Single)">Multiply(Vector3F, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies a vector by the given scalar.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2929,12 +3351,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2955,14 +3379,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Multiply_System_Single_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Multiply(System.Single%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Multiply_System_Single_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Multiply(System.Single%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L281">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L440">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Multiply_" data-uid="MathStructs.Vector3F.op_Multiply*"></a>
   <h4 id="MathStructs_Vector3F_op_Multiply_System_Single_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Multiply(System.Single,MathStructs.Vector3F)">Multiply(Single, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Multiplies a vector by the given scalar.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2981,12 +3406,14 @@
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The scalar value.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -3007,14 +3434,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_Subtraction_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Subtraction(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_Subtraction_MathStructs_Vector3F_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_Subtraction(MathStructs.Vector3F%2CMathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L269">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L385">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_Subtraction_" data-uid="MathStructs.Vector3F.op_Subtraction*"></a>
   <h4 id="MathStructs_Vector3F_op_Subtraction_MathStructs_Vector3F_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_Subtraction(MathStructs.Vector3F,MathStructs.Vector3F)">Subtraction(Vector3F, Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Subtracts the second vector from the first.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -3033,12 +3461,14 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">left</span></td>
-        <td></td>
+        <td><p>The first source vector.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">right</span></td>
-        <td></td>
+        <td><p>The second source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -3059,14 +3489,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_UnaryNegation_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_UnaryNegation(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_UnaryNegation_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_UnaryNegation(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L261">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L372">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_UnaryNegation_" data-uid="MathStructs.Vector3F.op_UnaryNegation*"></a>
   <h4 id="MathStructs_Vector3F_op_UnaryNegation_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_UnaryNegation(MathStructs.Vector3F)">UnaryNegation(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Negates a given vector.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -3085,7 +3516,8 @@
       <tr>
         <td><a class="xref" href="MathStructs.Vector3F.html">Vector3F</a></td>
         <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><p>The source vector.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -3106,14 +3538,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F_op_UnaryPlus_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_UnaryPlus(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F_op_UnaryPlus_MathStructs_Vector3F_.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F.op_UnaryPlus(MathStructs.Vector3F)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L257">View Source</a>
+    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L473">View Source</a>
   </span>
   <a id="MathStructs_Vector3F_op_UnaryPlus_" data-uid="MathStructs.Vector3F.op_UnaryPlus*"></a>
   <h4 id="MathStructs_Vector3F_op_UnaryPlus_MathStructs_Vector3F_" data-uid="MathStructs.Vector3F.op_UnaryPlus(MathStructs.Vector3F)">UnaryPlus(Vector3F)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the unary plus of the provided vector (nop).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -3153,10 +3586,10 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">IEquatable&lt;&gt;</span>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
   </div>
   <div>
-      <span class="xref">IFormattable</span>
+      <span class="xref">System.IFormattable</span>
   </div>
 </article>
           </div>
@@ -3166,10 +3599,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/stefanrbk/MathStructs/new/docs/apiSpec/new?filename=MathStructs_Vector3F.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/stefanrbk/MathStructs/new/develop/apiSpec/new?filename=MathStructs_Vector3F.md&amp;value=---%0Auid%3A%20MathStructs.Vector3F%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/stefanrbk/MathStructs/blob/docs/src/Vector3F.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/stefanrbk/MathStructs/blob/develop/src/Vector3F.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

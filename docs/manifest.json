@@ -5,26 +5,14 @@
   "files": [
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/MathStructs.Extensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/MathStructs.Extensions.html",
-          "hash": "YRyY5ebRdT9k4mrqkTbWHg=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/MathStructs.Matrix3x3D.yml",
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Matrix3x3D.html",
-          "hash": "2wGP4T+kIzgQ2PhNO5nhoQ=="
+          "hash": "8O5yMaxsRWv3VMCYlZEFcg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -33,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Matrix3x3F.html",
-          "hash": "hCf3uSGnpgpF9fQ80ATk2w=="
+          "hash": "g0GuP64qneJK0fiPZ9trLg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -45,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Matrix4x4D.html",
-          "hash": "U84kRZEN4mlLoaI6hFYwdQ=="
+          "hash": "h74wsfAF8UKnRK/T8UF99A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -57,10 +45,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Matrix4x4F.html",
-          "hash": "JT+f1/fZ8teJ7CUmubBypg=="
+          "hash": "hvvzj3TSRLvYmZsUcwBbyA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -69,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.PlaneD.html",
-          "hash": "EcyAjsrUnms7k4UbxOn2OQ=="
+          "hash": "rOm8W43nV6k/YrkraNa/hQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +69,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.PlaneF.html",
-          "hash": "yFk7tDcGbeDyJQrHdFACWA=="
+          "hash": "lTOPVz6ac9+Yp4P25LGH7A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -93,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.QuaternionD.html",
-          "hash": "675C4nlLlrPD3YNZVNaPCQ=="
+          "hash": "mBNQny97t8F7vMEiBOdENQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -105,10 +93,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.QuaternionF.html",
-          "hash": "hwSWKHgXCjpKmNfePwuu+Q=="
+          "hash": "TjHN6ZCdA5SMuoMZakGOFw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -117,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Vector2D.html",
-          "hash": "FIQG0uM/fzs35O5X38TqoA=="
+          "hash": "dt+5zwmVFLuXeKBj8jqWgg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -129,10 +117,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Vector2F.html",
-          "hash": "NWkz2DwgLSfC2Yc+YqoGHg=="
+          "hash": "/Ma4k6i9YGIQStfDVe3dXw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -141,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Vector3D.html",
-          "hash": "Fg51wDcdH6TsYK4cmPYuZw=="
+          "hash": "sggXQwaitSJ8V9tgv0I2tA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Vector3F.html",
-          "hash": "05YI80BeGIWUV52oY7XN4Q=="
+          "hash": "5oAswMSAJ72HNGpeqreGHA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -165,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Vector4D.html",
-          "hash": "KRsMHYpzKkvyVWmEisOf2g=="
+          "hash": "/MczlGAtvyvDUtxVZRB2Lg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -177,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.Vector4F.html",
-          "hash": "e2I7ClJfbrIyGbO9JKdzwQ=="
+          "hash": "oRfLRXHZ5L4RWEXIX+YmFw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -189,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MathStructs.html",
-          "hash": "CRrnALSBXp7dVFudBkcZdA=="
+          "hash": "fq4jE4gNgUfC69ovR1nCXw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -201,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "w76TKRjWV4ksIq0PH6pEeQ=="
+          "hash": "Vzxxj/NWOTJo0Ckt7QaQhA=="
         }
       },
       "is_incremental": false,
@@ -213,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "kvD3mQQNNR7VsyINR8dz3Q=="
+          "hash": "FNDKred/eiYaUNyDMNjtnw=="
         }
       },
       "is_incremental": false,
@@ -225,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "lMYmQfHFOjHnJydw4NLWYg=="
+          "hash": "iUKJlzBy32GDmTAR4Yu/EQ=="
         }
       },
       "is_incremental": true,
@@ -262,8 +250,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 16,
-          "skipped_file_count": 16
+          "total_file_count": 15,
+          "skipped_file_count": 1
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

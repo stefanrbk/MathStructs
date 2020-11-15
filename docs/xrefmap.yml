@@ -7,44 +7,6 @@ references:
   commentId: N:MathStructs
   fullName: MathStructs
   nameWithType: MathStructs
-- uid: MathStructs.Extensions
-  name: Extensions
-  href: api/MathStructs.Extensions.html
-  commentId: T:MathStructs.Extensions
-  fullName: MathStructs.Extensions
-  nameWithType: Extensions
-- uid: MathStructs.Extensions.AsVector4D(Vector256{System.Double})
-  name: AsVector4D(Vector256<Double>)
-  href: api/MathStructs.Extensions.html#MathStructs_Extensions_AsVector4D_Vector256_System_Double__
-  commentId: M:MathStructs.Extensions.AsVector4D(Vector256{System.Double})
-  name.vb: AsVector4D(Vector256(Of Double))
-  fullName: MathStructs.Extensions.AsVector4D(Vector256<System.Double>)
-  fullName.vb: MathStructs.Extensions.AsVector4D(Vector256(Of System.Double))
-  nameWithType: Extensions.AsVector4D(Vector256<Double>)
-  nameWithType.vb: Extensions.AsVector4D(Vector256(Of Double))
-- uid: MathStructs.Extensions.AsVector4D*
-  name: AsVector4D
-  href: api/MathStructs.Extensions.html#MathStructs_Extensions_AsVector4D_
-  commentId: Overload:MathStructs.Extensions.AsVector4D
-  isSpec: "True"
-  fullName: MathStructs.Extensions.AsVector4D
-  nameWithType: Extensions.AsVector4D
-- uid: MathStructs.Extensions.AsVector4F(Vector128{System.Single})
-  name: AsVector4F(Vector128<Single>)
-  href: api/MathStructs.Extensions.html#MathStructs_Extensions_AsVector4F_Vector128_System_Single__
-  commentId: M:MathStructs.Extensions.AsVector4F(Vector128{System.Single})
-  name.vb: AsVector4F(Vector128(Of Single))
-  fullName: MathStructs.Extensions.AsVector4F(Vector128<System.Single>)
-  fullName.vb: MathStructs.Extensions.AsVector4F(Vector128(Of System.Single))
-  nameWithType: Extensions.AsVector4F(Vector128<Single>)
-  nameWithType.vb: Extensions.AsVector4F(Vector128(Of Single))
-- uid: MathStructs.Extensions.AsVector4F*
-  name: AsVector4F
-  href: api/MathStructs.Extensions.html#MathStructs_Extensions_AsVector4F_
-  commentId: Overload:MathStructs.Extensions.AsVector4F
-  isSpec: "True"
-  fullName: MathStructs.Extensions.AsVector4F
-  nameWithType: Extensions.AsVector4F
 - uid: MathStructs.Matrix3x3D
   name: Matrix3x3D
   href: api/MathStructs.Matrix3x3D.html
@@ -83,15 +45,12 @@ references:
   commentId: M:MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
   fullName: MathStructs.Matrix3x3D.Equals(MathStructs.Matrix3x3D)
   nameWithType: Matrix3x3D.Equals(Matrix3x3D)
-- uid: MathStructs.Matrix3x3D.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Matrix3x3D.html#MathStructs_Matrix3x3D_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Matrix3x3D.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Matrix3x3D.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Matrix3x3D.Equals(System.Nullable(Of System.Object))
-  nameWithType: Matrix3x3D.Equals(Nullable<Object>)
-  nameWithType.vb: Matrix3x3D.Equals(Nullable(Of Object))
+- uid: MathStructs.Matrix3x3D.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Matrix3x3D.html#MathStructs_Matrix3x3D_Equals_System_Object_
+  commentId: M:MathStructs.Matrix3x3D.Equals(System.Object)
+  fullName: MathStructs.Matrix3x3D.Equals(System.Object)
+  nameWithType: Matrix3x3D.Equals(Object)
 - uid: MathStructs.Matrix3x3D.Equals*
   name: Equals
   href: api/MathStructs.Matrix3x3D.html#MathStructs_Matrix3x3D_Equals_
@@ -496,15 +455,12 @@ references:
   commentId: M:MathStructs.Matrix3x3F.Equals(MathStructs.Matrix3x3F)
   fullName: MathStructs.Matrix3x3F.Equals(MathStructs.Matrix3x3F)
   nameWithType: Matrix3x3F.Equals(Matrix3x3F)
-- uid: MathStructs.Matrix3x3F.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Matrix3x3F.html#MathStructs_Matrix3x3F_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Matrix3x3F.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Matrix3x3F.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Matrix3x3F.Equals(System.Nullable(Of System.Object))
-  nameWithType: Matrix3x3F.Equals(Nullable<Object>)
-  nameWithType.vb: Matrix3x3F.Equals(Nullable(Of Object))
+- uid: MathStructs.Matrix3x3F.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Matrix3x3F.html#MathStructs_Matrix3x3F_Equals_System_Object_
+  commentId: M:MathStructs.Matrix3x3F.Equals(System.Object)
+  fullName: MathStructs.Matrix3x3F.Equals(System.Object)
+  nameWithType: Matrix3x3F.Equals(Object)
 - uid: MathStructs.Matrix3x3F.Equals*
   name: Equals
   href: api/MathStructs.Matrix3x3F.html#MathStructs_Matrix3x3F_Equals_
@@ -877,6 +833,12 @@ references:
   commentId: T:MathStructs.Matrix4x4D
   fullName: MathStructs.Matrix4x4D
   nameWithType: Matrix4x4D
+- uid: MathStructs.Matrix4x4D.#ctor(MathStructs.Matrix3x3D)
+  name: Matrix4x4D(Matrix3x3D)
+  href: api/MathStructs.Matrix4x4D.html#MathStructs_Matrix4x4D__ctor_MathStructs_Matrix3x3D_
+  commentId: M:MathStructs.Matrix4x4D.#ctor(MathStructs.Matrix3x3D)
+  fullName: MathStructs.Matrix4x4D.Matrix4x4D(MathStructs.Matrix3x3D)
+  nameWithType: Matrix4x4D.Matrix4x4D(Matrix3x3D)
 - uid: MathStructs.Matrix4x4D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   name: Matrix4x4D(Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double)
   href: api/MathStructs.Matrix4x4D.html#MathStructs_Matrix4x4D__ctor_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_
@@ -1242,15 +1204,12 @@ references:
   commentId: M:MathStructs.Matrix4x4D.Equals(MathStructs.Matrix4x4D)
   fullName: MathStructs.Matrix4x4D.Equals(MathStructs.Matrix4x4D)
   nameWithType: Matrix4x4D.Equals(Matrix4x4D)
-- uid: MathStructs.Matrix4x4D.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Matrix4x4D.html#MathStructs_Matrix4x4D_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Matrix4x4D.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Matrix4x4D.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Matrix4x4D.Equals(System.Nullable(Of System.Object))
-  nameWithType: Matrix4x4D.Equals(Nullable<Object>)
-  nameWithType.vb: Matrix4x4D.Equals(Nullable(Of Object))
+- uid: MathStructs.Matrix4x4D.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Matrix4x4D.html#MathStructs_Matrix4x4D_Equals_System_Object_
+  commentId: M:MathStructs.Matrix4x4D.Equals(System.Object)
+  fullName: MathStructs.Matrix4x4D.Equals(System.Object)
+  nameWithType: Matrix4x4D.Equals(Object)
 - uid: MathStructs.Matrix4x4D.Equals*
   name: Equals
   href: api/MathStructs.Matrix4x4D.html#MathStructs_Matrix4x4D_Equals_
@@ -1679,6 +1638,12 @@ references:
   commentId: T:MathStructs.Matrix4x4F
   fullName: MathStructs.Matrix4x4F
   nameWithType: Matrix4x4F
+- uid: MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3F)
+  name: Matrix4x4F(Matrix3x3F)
+  href: api/MathStructs.Matrix4x4F.html#MathStructs_Matrix4x4F__ctor_MathStructs_Matrix3x3F_
+  commentId: M:MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3F)
+  fullName: MathStructs.Matrix4x4F.Matrix4x4F(MathStructs.Matrix3x3F)
+  nameWithType: Matrix4x4F.Matrix4x4F(Matrix3x3F)
 - uid: MathStructs.Matrix4x4F.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
   name: Matrix4x4F(Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single)
   href: api/MathStructs.Matrix4x4F.html#MathStructs_Matrix4x4F__ctor_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_
@@ -2044,15 +2009,12 @@ references:
   commentId: M:MathStructs.Matrix4x4F.Equals(MathStructs.Matrix4x4F)
   fullName: MathStructs.Matrix4x4F.Equals(MathStructs.Matrix4x4F)
   nameWithType: Matrix4x4F.Equals(Matrix4x4F)
-- uid: MathStructs.Matrix4x4F.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Matrix4x4F.html#MathStructs_Matrix4x4F_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Matrix4x4F.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Matrix4x4F.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Matrix4x4F.Equals(System.Nullable(Of System.Object))
-  nameWithType: Matrix4x4F.Equals(Nullable<Object>)
-  nameWithType.vb: Matrix4x4F.Equals(Nullable(Of Object))
+- uid: MathStructs.Matrix4x4F.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Matrix4x4F.html#MathStructs_Matrix4x4F_Equals_System_Object_
+  commentId: M:MathStructs.Matrix4x4F.Equals(System.Object)
+  fullName: MathStructs.Matrix4x4F.Equals(System.Object)
+  nameWithType: Matrix4x4F.Equals(Object)
 - uid: MathStructs.Matrix4x4F.Equals*
   name: Equals
   href: api/MathStructs.Matrix4x4F.html#MathStructs_Matrix4x4F_Equals_
@@ -2613,15 +2575,12 @@ references:
   commentId: M:MathStructs.PlaneD.Equals(MathStructs.PlaneD)
   fullName: MathStructs.PlaneD.Equals(MathStructs.PlaneD)
   nameWithType: PlaneD.Equals(PlaneD)
-- uid: MathStructs.PlaneD.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.PlaneD.html#MathStructs_PlaneD_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.PlaneD.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.PlaneD.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.PlaneD.Equals(System.Nullable(Of System.Object))
-  nameWithType: PlaneD.Equals(Nullable<Object>)
-  nameWithType.vb: PlaneD.Equals(Nullable(Of Object))
+- uid: MathStructs.PlaneD.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.PlaneD.html#MathStructs_PlaneD_Equals_System_Object_
+  commentId: M:MathStructs.PlaneD.Equals(System.Object)
+  fullName: MathStructs.PlaneD.Equals(System.Object)
+  nameWithType: PlaneD.Equals(Object)
 - uid: MathStructs.PlaneD.Equals*
   name: Equals
   href: api/MathStructs.PlaneD.html#MathStructs_PlaneD_Equals_
@@ -2875,15 +2834,12 @@ references:
   commentId: M:MathStructs.PlaneF.Equals(MathStructs.PlaneF)
   fullName: MathStructs.PlaneF.Equals(MathStructs.PlaneF)
   nameWithType: PlaneF.Equals(PlaneF)
-- uid: MathStructs.PlaneF.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.PlaneF.html#MathStructs_PlaneF_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.PlaneF.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.PlaneF.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.PlaneF.Equals(System.Nullable(Of System.Object))
-  nameWithType: PlaneF.Equals(Nullable<Object>)
-  nameWithType.vb: PlaneF.Equals(Nullable(Of Object))
+- uid: MathStructs.PlaneF.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.PlaneF.html#MathStructs_PlaneF_Equals_System_Object_
+  commentId: M:MathStructs.PlaneF.Equals(System.Object)
+  fullName: MathStructs.PlaneF.Equals(System.Object)
+  nameWithType: PlaneF.Equals(Object)
 - uid: MathStructs.PlaneF.Equals*
   name: Equals
   href: api/MathStructs.PlaneF.html#MathStructs_PlaneF_Equals_
@@ -3183,15 +3139,12 @@ references:
   commentId: M:MathStructs.QuaternionD.Equals(MathStructs.QuaternionD,System.Double)
   fullName: MathStructs.QuaternionD.Equals(MathStructs.QuaternionD, System.Double)
   nameWithType: QuaternionD.Equals(QuaternionD, Double)
-- uid: MathStructs.QuaternionD.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.QuaternionD.html#MathStructs_QuaternionD_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.QuaternionD.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.QuaternionD.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.QuaternionD.Equals(System.Nullable(Of System.Object))
-  nameWithType: QuaternionD.Equals(Nullable<Object>)
-  nameWithType.vb: QuaternionD.Equals(Nullable(Of Object))
+- uid: MathStructs.QuaternionD.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.QuaternionD.html#MathStructs_QuaternionD_Equals_System_Object_
+  commentId: M:MathStructs.QuaternionD.Equals(System.Object)
+  fullName: MathStructs.QuaternionD.Equals(System.Object)
+  nameWithType: QuaternionD.Equals(Object)
 - uid: MathStructs.QuaternionD.Equals*
   name: Equals
   href: api/MathStructs.QuaternionD.html#MathStructs_QuaternionD_Equals_
@@ -3714,15 +3667,12 @@ references:
   commentId: M:MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)
   fullName: MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)
   nameWithType: QuaternionF.Equals(QuaternionF)
-- uid: MathStructs.QuaternionF.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.QuaternionF.html#MathStructs_QuaternionF_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.QuaternionF.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.QuaternionF.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.QuaternionF.Equals(System.Nullable(Of System.Object))
-  nameWithType: QuaternionF.Equals(Nullable<Object>)
-  nameWithType.vb: QuaternionF.Equals(Nullable(Of Object))
+- uid: MathStructs.QuaternionF.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.QuaternionF.html#MathStructs_QuaternionF_Equals_System_Object_
+  commentId: M:MathStructs.QuaternionF.Equals(System.Object)
+  fullName: MathStructs.QuaternionF.Equals(System.Object)
+  nameWithType: QuaternionF.Equals(Object)
 - uid: MathStructs.QuaternionF.Equals*
   name: Equals
   href: api/MathStructs.QuaternionF.html#MathStructs_QuaternionF_Equals_
@@ -4272,15 +4222,12 @@ references:
   commentId: M:MathStructs.Vector2D.Equals(MathStructs.Vector2D,System.Double)
   fullName: MathStructs.Vector2D.Equals(MathStructs.Vector2D, System.Double)
   nameWithType: Vector2D.Equals(Vector2D, Double)
-- uid: MathStructs.Vector2D.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Vector2D.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Vector2D.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Vector2D.Equals(System.Nullable(Of System.Object))
-  nameWithType: Vector2D.Equals(Nullable<Object>)
-  nameWithType.vb: Vector2D.Equals(Nullable(Of Object))
+- uid: MathStructs.Vector2D.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_Equals_System_Object_
+  commentId: M:MathStructs.Vector2D.Equals(System.Object)
+  fullName: MathStructs.Vector2D.Equals(System.Object)
+  nameWithType: Vector2D.Equals(Object)
 - uid: MathStructs.Vector2D.Equals*
   name: Equals
   href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_Equals_
@@ -4577,6 +4524,12 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector2D.Reflect
   nameWithType: Vector2D.Reflect
+- uid: MathStructs.Vector2D.SquareRoot
+  name: SquareRoot()
+  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_SquareRoot
+  commentId: M:MathStructs.Vector2D.SquareRoot
+  fullName: MathStructs.Vector2D.SquareRoot()
+  nameWithType: Vector2D.SquareRoot()
 - uid: MathStructs.Vector2D.SquareRoot(MathStructs.Vector2D)
   name: SquareRoot(Vector2D)
   href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_SquareRoot_MathStructs_Vector2D_
@@ -4609,24 +4562,18 @@ references:
   commentId: M:MathStructs.Vector2D.ToString
   fullName: MathStructs.Vector2D.ToString()
   nameWithType: Vector2D.ToString()
-- uid: MathStructs.Vector2D.ToString(System.Nullable{System.String})
-  name: ToString(Nullable<String>)
-  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_ToString_System_Nullable_System_String__
-  commentId: M:MathStructs.Vector2D.ToString(System.Nullable{System.String})
-  name.vb: ToString(Nullable(Of String))
-  fullName: MathStructs.Vector2D.ToString(System.Nullable<System.String>)
-  fullName.vb: MathStructs.Vector2D.ToString(System.Nullable(Of System.String))
-  nameWithType: Vector2D.ToString(Nullable<String>)
-  nameWithType.vb: Vector2D.ToString(Nullable(Of String))
-- uid: MathStructs.Vector2D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
-  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
-  commentId: M:MathStructs.Vector2D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
-  fullName: MathStructs.Vector2D.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
-  fullName.vb: MathStructs.Vector2D.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
-  nameWithType: Vector2D.ToString(Nullable<String>, Nullable<IFormatProvider>)
-  nameWithType.vb: Vector2D.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector2D.ToString(System.String)
+  name: ToString(String)
+  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_ToString_System_String_
+  commentId: M:MathStructs.Vector2D.ToString(System.String)
+  fullName: MathStructs.Vector2D.ToString(System.String)
+  nameWithType: Vector2D.ToString(String)
+- uid: MathStructs.Vector2D.ToString(System.String,System.IFormatProvider)
+  name: ToString(String, IFormatProvider)
+  href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_ToString_System_String_System_IFormatProvider_
+  commentId: M:MathStructs.Vector2D.ToString(System.String,System.IFormatProvider)
+  fullName: MathStructs.Vector2D.ToString(System.String, System.IFormatProvider)
+  nameWithType: Vector2D.ToString(String, IFormatProvider)
 - uid: MathStructs.Vector2D.ToString*
   name: ToString
   href: api/MathStructs.Vector2D.html#MathStructs_Vector2D_ToString_
@@ -4969,15 +4916,18 @@ references:
   commentId: M:MathStructs.Vector2F.Equals(MathStructs.Vector2F)
   fullName: MathStructs.Vector2F.Equals(MathStructs.Vector2F)
   nameWithType: Vector2F.Equals(Vector2F)
-- uid: MathStructs.Vector2F.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Vector2F.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Vector2F.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Vector2F.Equals(System.Nullable(Of System.Object))
-  nameWithType: Vector2F.Equals(Nullable<Object>)
-  nameWithType.vb: Vector2F.Equals(Nullable(Of Object))
+- uid: MathStructs.Vector2F.Equals(MathStructs.Vector2F,System.Single)
+  name: Equals(Vector2F, Single)
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_Equals_MathStructs_Vector2F_System_Single_
+  commentId: M:MathStructs.Vector2F.Equals(MathStructs.Vector2F,System.Single)
+  fullName: MathStructs.Vector2F.Equals(MathStructs.Vector2F, System.Single)
+  nameWithType: Vector2F.Equals(Vector2F, Single)
+- uid: MathStructs.Vector2F.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_Equals_System_Object_
+  commentId: M:MathStructs.Vector2F.Equals(System.Object)
+  fullName: MathStructs.Vector2F.Equals(System.Object)
+  nameWithType: Vector2F.Equals(Object)
 - uid: MathStructs.Vector2F.Equals*
   name: Equals
   href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_Equals_
@@ -5274,6 +5224,12 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector2F.Reflect
   nameWithType: Vector2F.Reflect
+- uid: MathStructs.Vector2F.SquareRoot
+  name: SquareRoot()
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_SquareRoot
+  commentId: M:MathStructs.Vector2F.SquareRoot
+  fullName: MathStructs.Vector2F.SquareRoot()
+  nameWithType: Vector2F.SquareRoot()
 - uid: MathStructs.Vector2F.SquareRoot(MathStructs.Vector2F)
   name: SquareRoot(Vector2F)
   href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_SquareRoot_MathStructs_Vector2F_
@@ -5306,24 +5262,18 @@ references:
   commentId: M:MathStructs.Vector2F.ToString
   fullName: MathStructs.Vector2F.ToString()
   nameWithType: Vector2F.ToString()
-- uid: MathStructs.Vector2F.ToString(System.Nullable{System.String})
-  name: ToString(Nullable<String>)
-  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_ToString_System_Nullable_System_String__
-  commentId: M:MathStructs.Vector2F.ToString(System.Nullable{System.String})
-  name.vb: ToString(Nullable(Of String))
-  fullName: MathStructs.Vector2F.ToString(System.Nullable<System.String>)
-  fullName.vb: MathStructs.Vector2F.ToString(System.Nullable(Of System.String))
-  nameWithType: Vector2F.ToString(Nullable<String>)
-  nameWithType.vb: Vector2F.ToString(Nullable(Of String))
-- uid: MathStructs.Vector2F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
-  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
-  commentId: M:MathStructs.Vector2F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
-  fullName: MathStructs.Vector2F.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
-  fullName.vb: MathStructs.Vector2F.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
-  nameWithType: Vector2F.ToString(Nullable<String>, Nullable<IFormatProvider>)
-  nameWithType.vb: Vector2F.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector2F.ToString(System.String)
+  name: ToString(String)
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_ToString_System_String_
+  commentId: M:MathStructs.Vector2F.ToString(System.String)
+  fullName: MathStructs.Vector2F.ToString(System.String)
+  nameWithType: Vector2F.ToString(String)
+- uid: MathStructs.Vector2F.ToString(System.String,System.IFormatProvider)
+  name: ToString(String, IFormatProvider)
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_ToString_System_String_System_IFormatProvider_
+  commentId: M:MathStructs.Vector2F.ToString(System.String,System.IFormatProvider)
+  fullName: MathStructs.Vector2F.ToString(System.String, System.IFormatProvider)
+  nameWithType: Vector2F.ToString(String, IFormatProvider)
 - uid: MathStructs.Vector2F.ToString*
   name: ToString
   href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_ToString_
@@ -5381,6 +5331,25 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector2F.TransformNormal
   nameWithType: Vector2F.TransformNormal
+- uid: MathStructs.Vector2F.TransformV4(MathStructs.Matrix4x4F)
+  name: TransformV4(Matrix4x4F)
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_TransformV4_MathStructs_Matrix4x4F_
+  commentId: M:MathStructs.Vector2F.TransformV4(MathStructs.Matrix4x4F)
+  fullName: MathStructs.Vector2F.TransformV4(MathStructs.Matrix4x4F)
+  nameWithType: Vector2F.TransformV4(Matrix4x4F)
+- uid: MathStructs.Vector2F.TransformV4(MathStructs.QuaternionF)
+  name: TransformV4(QuaternionF)
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_TransformV4_MathStructs_QuaternionF_
+  commentId: M:MathStructs.Vector2F.TransformV4(MathStructs.QuaternionF)
+  fullName: MathStructs.Vector2F.TransformV4(MathStructs.QuaternionF)
+  nameWithType: Vector2F.TransformV4(QuaternionF)
+- uid: MathStructs.Vector2F.TransformV4*
+  name: TransformV4
+  href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_TransformV4_
+  commentId: Overload:MathStructs.Vector2F.TransformV4
+  isSpec: "True"
+  fullName: MathStructs.Vector2F.TransformV4
+  nameWithType: Vector2F.TransformV4
 - uid: MathStructs.Vector2F.UnitX
   name: UnitX
   href: api/MathStructs.Vector2F.html#MathStructs_Vector2F_UnitX
@@ -5681,15 +5650,18 @@ references:
   commentId: M:MathStructs.Vector3D.Equals(MathStructs.Vector3D)
   fullName: MathStructs.Vector3D.Equals(MathStructs.Vector3D)
   nameWithType: Vector3D.Equals(Vector3D)
-- uid: MathStructs.Vector3D.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Vector3D.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Vector3D.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Vector3D.Equals(System.Nullable(Of System.Object))
-  nameWithType: Vector3D.Equals(Nullable<Object>)
-  nameWithType.vb: Vector3D.Equals(Nullable(Of Object))
+- uid: MathStructs.Vector3D.Equals(MathStructs.Vector3D,System.Double)
+  name: Equals(Vector3D, Double)
+  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_Equals_MathStructs_Vector3D_System_Double_
+  commentId: M:MathStructs.Vector3D.Equals(MathStructs.Vector3D,System.Double)
+  fullName: MathStructs.Vector3D.Equals(MathStructs.Vector3D, System.Double)
+  nameWithType: Vector3D.Equals(Vector3D, Double)
+- uid: MathStructs.Vector3D.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_Equals_System_Object_
+  commentId: M:MathStructs.Vector3D.Equals(System.Object)
+  fullName: MathStructs.Vector3D.Equals(System.Object)
+  nameWithType: Vector3D.Equals(Object)
 - uid: MathStructs.Vector3D.Equals*
   name: Equals
   href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_Equals_
@@ -5986,6 +5958,12 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector3D.Reflect
   nameWithType: Vector3D.Reflect
+- uid: MathStructs.Vector3D.SquareRoot
+  name: SquareRoot()
+  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_SquareRoot
+  commentId: M:MathStructs.Vector3D.SquareRoot
+  fullName: MathStructs.Vector3D.SquareRoot()
+  nameWithType: Vector3D.SquareRoot()
 - uid: MathStructs.Vector3D.SquareRoot(MathStructs.Vector3D)
   name: SquareRoot(Vector3D)
   href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_SquareRoot_MathStructs_Vector3D_
@@ -6018,24 +5996,18 @@ references:
   commentId: M:MathStructs.Vector3D.ToString
   fullName: MathStructs.Vector3D.ToString()
   nameWithType: Vector3D.ToString()
-- uid: MathStructs.Vector3D.ToString(System.Nullable{System.String})
-  name: ToString(Nullable<String>)
-  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_ToString_System_Nullable_System_String__
-  commentId: M:MathStructs.Vector3D.ToString(System.Nullable{System.String})
-  name.vb: ToString(Nullable(Of String))
-  fullName: MathStructs.Vector3D.ToString(System.Nullable<System.String>)
-  fullName.vb: MathStructs.Vector3D.ToString(System.Nullable(Of System.String))
-  nameWithType: Vector3D.ToString(Nullable<String>)
-  nameWithType.vb: Vector3D.ToString(Nullable(Of String))
-- uid: MathStructs.Vector3D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
-  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
-  commentId: M:MathStructs.Vector3D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
-  fullName: MathStructs.Vector3D.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
-  fullName.vb: MathStructs.Vector3D.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
-  nameWithType: Vector3D.ToString(Nullable<String>, Nullable<IFormatProvider>)
-  nameWithType.vb: Vector3D.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector3D.ToString(System.String)
+  name: ToString(String)
+  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_ToString_System_String_
+  commentId: M:MathStructs.Vector3D.ToString(System.String)
+  fullName: MathStructs.Vector3D.ToString(System.String)
+  nameWithType: Vector3D.ToString(String)
+- uid: MathStructs.Vector3D.ToString(System.String,System.IFormatProvider)
+  name: ToString(String, IFormatProvider)
+  href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_ToString_System_String_System_IFormatProvider_
+  commentId: M:MathStructs.Vector3D.ToString(System.String,System.IFormatProvider)
+  fullName: MathStructs.Vector3D.ToString(System.String, System.IFormatProvider)
+  nameWithType: Vector3D.ToString(String, IFormatProvider)
 - uid: MathStructs.Vector3D.ToString*
   name: ToString
   href: api/MathStructs.Vector3D.html#MathStructs_Vector3D_ToString_
@@ -6425,15 +6397,18 @@ references:
   commentId: M:MathStructs.Vector3F.Equals(MathStructs.Vector3F)
   fullName: MathStructs.Vector3F.Equals(MathStructs.Vector3F)
   nameWithType: Vector3F.Equals(Vector3F)
-- uid: MathStructs.Vector3F.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Vector3F.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Vector3F.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Vector3F.Equals(System.Nullable(Of System.Object))
-  nameWithType: Vector3F.Equals(Nullable<Object>)
-  nameWithType.vb: Vector3F.Equals(Nullable(Of Object))
+- uid: MathStructs.Vector3F.Equals(MathStructs.Vector3F,System.Double)
+  name: Equals(Vector3F, Double)
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_Equals_MathStructs_Vector3F_System_Double_
+  commentId: M:MathStructs.Vector3F.Equals(MathStructs.Vector3F,System.Double)
+  fullName: MathStructs.Vector3F.Equals(MathStructs.Vector3F, System.Double)
+  nameWithType: Vector3F.Equals(Vector3F, Double)
+- uid: MathStructs.Vector3F.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_Equals_System_Object_
+  commentId: M:MathStructs.Vector3F.Equals(System.Object)
+  fullName: MathStructs.Vector3F.Equals(System.Object)
+  nameWithType: Vector3F.Equals(Object)
 - uid: MathStructs.Vector3F.Equals*
   name: Equals
   href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_Equals_
@@ -6730,6 +6705,12 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector3F.Reflect
   nameWithType: Vector3F.Reflect
+- uid: MathStructs.Vector3F.SquareRoot
+  name: SquareRoot()
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_SquareRoot
+  commentId: M:MathStructs.Vector3F.SquareRoot
+  fullName: MathStructs.Vector3F.SquareRoot()
+  nameWithType: Vector3F.SquareRoot()
 - uid: MathStructs.Vector3F.SquareRoot(MathStructs.Vector3F)
   name: SquareRoot(Vector3F)
   href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_SquareRoot_MathStructs_Vector3F_
@@ -6762,24 +6743,18 @@ references:
   commentId: M:MathStructs.Vector3F.ToString
   fullName: MathStructs.Vector3F.ToString()
   nameWithType: Vector3F.ToString()
-- uid: MathStructs.Vector3F.ToString(System.Nullable{System.String})
-  name: ToString(Nullable<String>)
-  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_ToString_System_Nullable_System_String__
-  commentId: M:MathStructs.Vector3F.ToString(System.Nullable{System.String})
-  name.vb: ToString(Nullable(Of String))
-  fullName: MathStructs.Vector3F.ToString(System.Nullable<System.String>)
-  fullName.vb: MathStructs.Vector3F.ToString(System.Nullable(Of System.String))
-  nameWithType: Vector3F.ToString(Nullable<String>)
-  nameWithType.vb: Vector3F.ToString(Nullable(Of String))
-- uid: MathStructs.Vector3F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
-  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
-  commentId: M:MathStructs.Vector3F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
-  fullName: MathStructs.Vector3F.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
-  fullName.vb: MathStructs.Vector3F.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
-  nameWithType: Vector3F.ToString(Nullable<String>, Nullable<IFormatProvider>)
-  nameWithType.vb: Vector3F.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector3F.ToString(System.String)
+  name: ToString(String)
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_ToString_System_String_
+  commentId: M:MathStructs.Vector3F.ToString(System.String)
+  fullName: MathStructs.Vector3F.ToString(System.String)
+  nameWithType: Vector3F.ToString(String)
+- uid: MathStructs.Vector3F.ToString(System.String,System.IFormatProvider)
+  name: ToString(String, IFormatProvider)
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_ToString_System_String_System_IFormatProvider_
+  commentId: M:MathStructs.Vector3F.ToString(System.String,System.IFormatProvider)
+  fullName: MathStructs.Vector3F.ToString(System.String, System.IFormatProvider)
+  nameWithType: Vector3F.ToString(String, IFormatProvider)
 - uid: MathStructs.Vector3F.ToString*
   name: ToString
   href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_ToString_
@@ -6831,6 +6806,25 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector3F.TransformNormal
   nameWithType: Vector3F.TransformNormal
+- uid: MathStructs.Vector3F.TransformV4(MathStructs.Matrix4x4F)
+  name: TransformV4(Matrix4x4F)
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_TransformV4_MathStructs_Matrix4x4F_
+  commentId: M:MathStructs.Vector3F.TransformV4(MathStructs.Matrix4x4F)
+  fullName: MathStructs.Vector3F.TransformV4(MathStructs.Matrix4x4F)
+  nameWithType: Vector3F.TransformV4(Matrix4x4F)
+- uid: MathStructs.Vector3F.TransformV4(MathStructs.QuaternionF)
+  name: TransformV4(QuaternionF)
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_TransformV4_MathStructs_QuaternionF_
+  commentId: M:MathStructs.Vector3F.TransformV4(MathStructs.QuaternionF)
+  fullName: MathStructs.Vector3F.TransformV4(MathStructs.QuaternionF)
+  nameWithType: Vector3F.TransformV4(QuaternionF)
+- uid: MathStructs.Vector3F.TransformV4*
+  name: TransformV4
+  href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_TransformV4_
+  commentId: Overload:MathStructs.Vector3F.TransformV4
+  isSpec: "True"
+  fullName: MathStructs.Vector3F.TransformV4
+  nameWithType: Vector3F.TransformV4
 - uid: MathStructs.Vector3F.UnitX
   name: UnitX
   href: api/MathStructs.Vector3F.html#MathStructs_Vector3F_UnitX
@@ -7152,15 +7146,12 @@ references:
   commentId: M:MathStructs.Vector4D.Equals(MathStructs.Vector4D,System.Double)
   fullName: MathStructs.Vector4D.Equals(MathStructs.Vector4D, System.Double)
   nameWithType: Vector4D.Equals(Vector4D, Double)
-- uid: MathStructs.Vector4D.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Vector4D.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Vector4D.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Vector4D.Equals(System.Nullable(Of System.Object))
-  nameWithType: Vector4D.Equals(Nullable<Object>)
-  nameWithType.vb: Vector4D.Equals(Nullable(Of Object))
+- uid: MathStructs.Vector4D.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_Equals_System_Object_
+  commentId: M:MathStructs.Vector4D.Equals(System.Object)
+  fullName: MathStructs.Vector4D.Equals(System.Object)
+  nameWithType: Vector4D.Equals(Object)
 - uid: MathStructs.Vector4D.Equals*
   name: Equals
   href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_Equals_
@@ -7476,24 +7467,18 @@ references:
   commentId: M:MathStructs.Vector4D.ToString
   fullName: MathStructs.Vector4D.ToString()
   nameWithType: Vector4D.ToString()
-- uid: MathStructs.Vector4D.ToString(System.Nullable{System.String})
-  name: ToString(Nullable<String>)
-  href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_ToString_System_Nullable_System_String__
-  commentId: M:MathStructs.Vector4D.ToString(System.Nullable{System.String})
-  name.vb: ToString(Nullable(Of String))
-  fullName: MathStructs.Vector4D.ToString(System.Nullable<System.String>)
-  fullName.vb: MathStructs.Vector4D.ToString(System.Nullable(Of System.String))
-  nameWithType: Vector4D.ToString(Nullable<String>)
-  nameWithType.vb: Vector4D.ToString(Nullable(Of String))
-- uid: MathStructs.Vector4D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
-  href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
-  commentId: M:MathStructs.Vector4D.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
-  fullName: MathStructs.Vector4D.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
-  fullName.vb: MathStructs.Vector4D.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
-  nameWithType: Vector4D.ToString(Nullable<String>, Nullable<IFormatProvider>)
-  nameWithType.vb: Vector4D.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector4D.ToString(System.String)
+  name: ToString(String)
+  href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_ToString_System_String_
+  commentId: M:MathStructs.Vector4D.ToString(System.String)
+  fullName: MathStructs.Vector4D.ToString(System.String)
+  nameWithType: Vector4D.ToString(String)
+- uid: MathStructs.Vector4D.ToString(System.String,System.IFormatProvider)
+  name: ToString(String, IFormatProvider)
+  href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_ToString_System_String_System_IFormatProvider_
+  commentId: M:MathStructs.Vector4D.ToString(System.String,System.IFormatProvider)
+  fullName: MathStructs.Vector4D.ToString(System.String, System.IFormatProvider)
+  nameWithType: Vector4D.ToString(String, IFormatProvider)
 - uid: MathStructs.Vector4D.ToString*
   name: ToString
   href: api/MathStructs.Vector4D.html#MathStructs_Vector4D_ToString_
@@ -7897,15 +7882,18 @@ references:
   commentId: M:MathStructs.Vector4F.Equals(MathStructs.Vector4F)
   fullName: MathStructs.Vector4F.Equals(MathStructs.Vector4F)
   nameWithType: Vector4F.Equals(Vector4F)
-- uid: MathStructs.Vector4F.Equals(System.Nullable{System.Object})
-  name: Equals(Nullable<Object>)
-  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_Equals_System_Nullable_System_Object__
-  commentId: M:MathStructs.Vector4F.Equals(System.Nullable{System.Object})
-  name.vb: Equals(Nullable(Of Object))
-  fullName: MathStructs.Vector4F.Equals(System.Nullable<System.Object>)
-  fullName.vb: MathStructs.Vector4F.Equals(System.Nullable(Of System.Object))
-  nameWithType: Vector4F.Equals(Nullable<Object>)
-  nameWithType.vb: Vector4F.Equals(Nullable(Of Object))
+- uid: MathStructs.Vector4F.Equals(MathStructs.Vector4F,System.Single)
+  name: Equals(Vector4F, Single)
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_Equals_MathStructs_Vector4F_System_Single_
+  commentId: M:MathStructs.Vector4F.Equals(MathStructs.Vector4F,System.Single)
+  fullName: MathStructs.Vector4F.Equals(MathStructs.Vector4F, System.Single)
+  nameWithType: Vector4F.Equals(Vector4F, Single)
+- uid: MathStructs.Vector4F.Equals(System.Object)
+  name: Equals(Object)
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_Equals_System_Object_
+  commentId: M:MathStructs.Vector4F.Equals(System.Object)
+  fullName: MathStructs.Vector4F.Equals(System.Object)
+  nameWithType: Vector4F.Equals(Object)
 - uid: MathStructs.Vector4F.Equals*
   name: Equals
   href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_Equals_
@@ -8183,6 +8171,12 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector4F.UnaryPlus
   nameWithType: Vector4F.UnaryPlus
+- uid: MathStructs.Vector4F.SquareRoot
+  name: SquareRoot()
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_SquareRoot
+  commentId: M:MathStructs.Vector4F.SquareRoot
+  fullName: MathStructs.Vector4F.SquareRoot()
+  nameWithType: Vector4F.SquareRoot()
 - uid: MathStructs.Vector4F.SquareRoot(MathStructs.Vector4F)
   name: SquareRoot(Vector4F)
   href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_SquareRoot_MathStructs_Vector4F_
@@ -8215,24 +8209,18 @@ references:
   commentId: M:MathStructs.Vector4F.ToString
   fullName: MathStructs.Vector4F.ToString()
   nameWithType: Vector4F.ToString()
-- uid: MathStructs.Vector4F.ToString(System.Nullable{System.String})
-  name: ToString(Nullable<String>)
-  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_ToString_System_Nullable_System_String__
-  commentId: M:MathStructs.Vector4F.ToString(System.Nullable{System.String})
-  name.vb: ToString(Nullable(Of String))
-  fullName: MathStructs.Vector4F.ToString(System.Nullable<System.String>)
-  fullName.vb: MathStructs.Vector4F.ToString(System.Nullable(Of System.String))
-  nameWithType: Vector4F.ToString(Nullable<String>)
-  nameWithType.vb: Vector4F.ToString(Nullable(Of String))
-- uid: MathStructs.Vector4F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
-  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
-  commentId: M:MathStructs.Vector4F.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
-  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
-  fullName: MathStructs.Vector4F.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
-  fullName.vb: MathStructs.Vector4F.ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
-  nameWithType: Vector4F.ToString(Nullable<String>, Nullable<IFormatProvider>)
-  nameWithType.vb: Vector4F.ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: MathStructs.Vector4F.ToString(System.String)
+  name: ToString(String)
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_ToString_System_String_
+  commentId: M:MathStructs.Vector4F.ToString(System.String)
+  fullName: MathStructs.Vector4F.ToString(System.String)
+  nameWithType: Vector4F.ToString(String)
+- uid: MathStructs.Vector4F.ToString(System.String,System.IFormatProvider)
+  name: ToString(String, IFormatProvider)
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_ToString_System_String_System_IFormatProvider_
+  commentId: M:MathStructs.Vector4F.ToString(System.String,System.IFormatProvider)
+  fullName: MathStructs.Vector4F.ToString(System.String, System.IFormatProvider)
+  nameWithType: Vector4F.ToString(String, IFormatProvider)
 - uid: MathStructs.Vector4F.ToString*
   name: ToString
   href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_ToString_
@@ -8289,6 +8277,19 @@ references:
   isSpec: "True"
   fullName: MathStructs.Vector4F.Transform
   nameWithType: Vector4F.Transform
+- uid: MathStructs.Vector4F.Transfrom(MathStructs.QuaternionF)
+  name: Transfrom(QuaternionF)
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_Transfrom_MathStructs_QuaternionF_
+  commentId: M:MathStructs.Vector4F.Transfrom(MathStructs.QuaternionF)
+  fullName: MathStructs.Vector4F.Transfrom(MathStructs.QuaternionF)
+  nameWithType: Vector4F.Transfrom(QuaternionF)
+- uid: MathStructs.Vector4F.Transfrom*
+  name: Transfrom
+  href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_Transfrom_
+  commentId: Overload:MathStructs.Vector4F.Transfrom
+  isSpec: "True"
+  fullName: MathStructs.Vector4F.Transfrom
+  nameWithType: Vector4F.Transfrom
 - uid: MathStructs.Vector4F.UnitW
   name: UnitW
   href: api/MathStructs.Vector4F.html#MathStructs_Vector4F_UnitW

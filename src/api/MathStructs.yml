@@ -4,7 +4,6 @@ items:
   commentId: N:MathStructs
   id: MathStructs
   children:
-  - MathStructs.Extensions
   - MathStructs.Matrix3x3D
   - MathStructs.Matrix3x3F
   - MathStructs.Matrix4x4D
@@ -29,11 +28,6 @@ items:
   assemblies:
   - MathStructs
 references:
-- uid: MathStructs.Extensions
-  commentId: T:MathStructs.Extensions
-  name: Extensions
-  nameWithType: Extensions
-  fullName: MathStructs.Extensions
 - uid: MathStructs.Matrix3x3D
   commentId: T:MathStructs.Matrix3x3D
   parent: MathStructs

@@ -21,7 +21,7 @@ items:
   - MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
   - MathStructs.QuaternionF.Dot(MathStructs.QuaternionF,MathStructs.QuaternionF)
   - MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)
-  - MathStructs.QuaternionF.Equals(System.Nullable{System.Object})
+  - MathStructs.QuaternionF.Equals(System.Object)
   - MathStructs.QuaternionF.GetHashCode
   - MathStructs.QuaternionF.Identity
   - MathStructs.QuaternionF.Inverse
@@ -62,22 +62,27 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: QuaternionF
     path: QuaternionF.cs
-    startLine: 10
+    startLine: 11
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nA structure encapsulating a four-dimensional vector (x,y,z,w),\nwhich is used to efficiently rotate an object about the (x,y,z)\nvector by the angle theta, where w = cos(theta/2).\n"
+  example: []
   syntax:
     content: 'public struct QuaternionF : IEquatable<QuaternionF>'
     content.vb: >-
       Public Structure QuaternionF
-
           Implements IEquatable(Of QuaternionF)
   implements:
-  - IEquatable{MathStructs.QuaternionF}
+  - System.IEquatable{MathStructs.QuaternionF}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
   modifiers.csharp:
   - public
   - struct
@@ -98,14 +103,16 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: X
     path: QuaternionF.cs
-    startLine: 14
+    startLine: 20
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nSpecifies the X-value of the vector component of the Quaternion.\n"
+  example: []
   syntax:
     content: public float X
     return:
@@ -129,14 +136,16 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Y
     path: QuaternionF.cs
-    startLine: 15
+    startLine: 26
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nSpecifies the Y-value of the vector component of the Quaternion.\n"
+  example: []
   syntax:
     content: public float Y
     return:
@@ -160,14 +169,16 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Z
     path: QuaternionF.cs
-    startLine: 16
+    startLine: 32
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nSpecifies the Z-value of the vector component of the Quaternion.\n"
+  example: []
   syntax:
     content: public float Z
     return:
@@ -191,19 +202,105 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: W
     path: QuaternionF.cs
-    startLine: 17
+    startLine: 38
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nSpecifies the W-value of the vector component of the Quaternion.\n"
+  example: []
   syntax:
     content: public float W
     return:
       type: System.Single
     content.vb: Public W As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.#ctor(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.QuaternionF.#ctor(System.Single,System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single,System.Single)'
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: QuaternionF(Single, Single, Single, Single)
+  nameWithType: QuaternionF.QuaternionF(Single, Single, Single, Single)
+  fullName: MathStructs.QuaternionF.QuaternionF(System.Single, System.Single, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: QuaternionF.cs
+    startLine: 58
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a Quaternion from the given components.\n"
+  example: []
+  syntax:
+    content: public QuaternionF(float x, float y, float z, float w)
+    parameters:
+    - id: x
+      type: System.Single
+      description: The X component of the Quaternion.
+    - id: y
+      type: System.Single
+      description: The Y component of the Quaternion.
+    - id: z
+      type: System.Single
+      description: The Z component of the Quaternion.
+    - id: w
+      type: System.Single
+      description: The W component of the Quaternion.
+    content.vb: Public Sub New(x As Single, y As Single, z As Single, w As Single)
+  overload: MathStructs.QuaternionF.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.#ctor(MathStructs.Vector3F,System.Single)
+  commentId: M:MathStructs.QuaternionF.#ctor(MathStructs.Vector3F,System.Single)
+  id: '#ctor(MathStructs.Vector3F,System.Single)'
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: QuaternionF(Vector3F, Single)
+  nameWithType: QuaternionF.QuaternionF(Vector3F, Single)
+  fullName: MathStructs.QuaternionF.QuaternionF(MathStructs.Vector3F, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: .ctor
+    path: QuaternionF.cs
+    startLine: 71
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConstructs a Quaternion from the given vector and rotation parts.\n"
+  example: []
+  syntax:
+    content: public QuaternionF(Vector3F vectorPart, float scalarPart)
+    parameters:
+    - id: vectorPart
+      type: MathStructs.Vector3F
+      description: The vector part of the Quaternion.
+    - id: scalarPart
+      type: System.Single
+      description: The rotation part of the Quaternion.
+    content.vb: Public Sub New(vectorPart As Vector3F, scalarPart As Single)
+  overload: MathStructs.QuaternionF.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -222,14 +319,16 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Identity
     path: QuaternionF.cs
-    startLine: 19
+    startLine: 86
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a Quaternion representing no rotation.\n"
+  example: []
   syntax:
     content: public static QuaternionF Identity { get; }
     parameters: []
@@ -259,14 +358,16 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: IsIdentity
     path: QuaternionF.cs
-    startLine: 21
+    startLine: 91
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns whether the Quaternion is the identity Quaternion.\n"
+  example: []
   syntax:
     content: public bool IsIdentity { get; }
     parameters: []
@@ -280,369 +381,92 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: MathStructs.QuaternionF.#ctor(System.Single,System.Single,System.Single,System.Single)
-  commentId: M:MathStructs.QuaternionF.#ctor(System.Single,System.Single,System.Single,System.Single)
-  id: '#ctor(System.Single,System.Single,System.Single,System.Single)'
+- uid: MathStructs.QuaternionF.Add(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Add(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  id: Add(MathStructs.QuaternionF,MathStructs.QuaternionF)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: QuaternionF(Single, Single, Single, Single)
-  nameWithType: QuaternionF.QuaternionF(Single, Single, Single, Single)
-  fullName: MathStructs.QuaternionF.QuaternionF(System.Single, System.Single, System.Single, System.Single)
-  type: Constructor
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: .ctor
-    path: QuaternionF.cs
-    startLine: 24
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public QuaternionF(float x, float y, float z, float w)
-    parameters:
-    - id: x
-      type: System.Single
-    - id: y
-      type: System.Single
-    - id: z
-      type: System.Single
-    - id: w
-      type: System.Single
-    content.vb: Public Sub New(x As Single, y As Single, z As Single, w As Single)
-  overload: MathStructs.QuaternionF.#ctor*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.#ctor(MathStructs.Vector3F,System.Single)
-  commentId: M:MathStructs.QuaternionF.#ctor(MathStructs.Vector3F,System.Single)
-  id: '#ctor(MathStructs.Vector3F,System.Single)'
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: QuaternionF(Vector3F, Single)
-  nameWithType: QuaternionF.QuaternionF(Vector3F, Single)
-  fullName: MathStructs.QuaternionF.QuaternionF(MathStructs.Vector3F, System.Single)
-  type: Constructor
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: .ctor
-    path: QuaternionF.cs
-    startLine: 32
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public QuaternionF(Vector3F vectorPart, float scalarPart)
-    parameters:
-    - id: vectorPart
-      type: MathStructs.Vector3F
-    - id: scalarPart
-      type: System.Single
-    content.vb: Public Sub New(vectorPart As Vector3F, scalarPart As Single)
-  overload: MathStructs.QuaternionF.#ctor*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
-  commentId: M:MathStructs.QuaternionF.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
-  id: Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Deconstruct(out Single, out Single, out Single, out Single)
-  nameWithType: QuaternionF.Deconstruct(out Single, out Single, out Single, out Single)
-  fullName: MathStructs.QuaternionF.Deconstruct(out System.Single, out System.Single, out System.Single, out System.Single)
+  name: Add(QuaternionF, QuaternionF)
+  nameWithType: QuaternionF.Add(QuaternionF, QuaternionF)
+  fullName: MathStructs.QuaternionF.Add(MathStructs.QuaternionF, MathStructs.QuaternionF)
   type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: Deconstruct
+    id: Add
     path: QuaternionF.cs
-    startLine: 40
+    startLine: 103
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nAdds two Quaternions element-by-element.\n"
+  example: []
   syntax:
-    content: public void Deconstruct(out float x, out float y, out float z, out float w)
+    content: public static QuaternionF Add(QuaternionF left, QuaternionF right)
     parameters:
-    - id: x
-      type: System.Single
-    - id: y
-      type: System.Single
-    - id: z
-      type: System.Single
-    - id: w
-      type: System.Single
-    content.vb: Public Sub Deconstruct(ByRef x As Single, ByRef y As Single, ByRef z As Single, ByRef w As Single)
-  overload: MathStructs.QuaternionF.Deconstruct*
-  nameWithType.vb: QuaternionF.Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: MathStructs.QuaternionF.Deconstruct(ByRef System.Single, ByRef System.Single, ByRef System.Single, ByRef System.Single)
-  name.vb: Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
-- uid: MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F@,System.Single@)
-  commentId: M:MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F@,System.Single@)
-  id: Deconstruct(MathStructs.Vector3F@,System.Single@)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Deconstruct(out Vector3F, out Single)
-  nameWithType: QuaternionF.Deconstruct(out Vector3F, out Single)
-  fullName: MathStructs.QuaternionF.Deconstruct(out MathStructs.Vector3F, out System.Single)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Deconstruct
-    path: QuaternionF.cs
-    startLine: 49
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public void Deconstruct(out Vector3F vectorPart, out float scalarPart)
-    parameters:
-    - id: vectorPart
-      type: MathStructs.Vector3F
-    - id: scalarPart
-      type: System.Single
-    content.vb: Public Sub Deconstruct(ByRef vectorPart As Vector3F, ByRef scalarPart As Single)
-  overload: MathStructs.QuaternionF.Deconstruct*
-  nameWithType.vb: QuaternionF.Deconstruct(ByRef Vector3F, ByRef Single)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: MathStructs.QuaternionF.Deconstruct(ByRef MathStructs.Vector3F, ByRef System.Single)
-  name.vb: Deconstruct(ByRef Vector3F, ByRef Single)
-- uid: MathStructs.QuaternionF.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
-  commentId: M:MathStructs.QuaternionF.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
-  id: With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
-  nameWithType: QuaternionF.With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
-  fullName: MathStructs.QuaternionF.With(System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: With
-    path: QuaternionF.cs
-    startLine: 56
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public QuaternionF With(float? x = null, float? y = null, float? z = null, float? w = null)
-    parameters:
-    - id: x
-      type: System.Nullable{System.Single}
-    - id: y
-      type: System.Nullable{System.Single}
-    - id: z
-      type: System.Nullable{System.Single}
-    - id: w
-      type: System.Nullable{System.Single}
+    - id: left
+      type: MathStructs.QuaternionF
+      description: The first source Quaternion.
+    - id: right
+      type: MathStructs.QuaternionF
+      description: The second source Quaternion.
     return:
       type: MathStructs.QuaternionF
-    content.vb: Public Function With(x As Single? = Nothing, y As Single? = Nothing, z As Single? = Nothing, w As Single? = Nothing) As QuaternionF
-  overload: MathStructs.QuaternionF.With*
-  nameWithType.vb: QuaternionF.With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: MathStructs.QuaternionF.With(System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single))
-  name.vb: With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
-- uid: MathStructs.QuaternionF.Length
-  commentId: M:MathStructs.QuaternionF.Length
-  id: Length
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Length()
-  nameWithType: QuaternionF.Length()
-  fullName: MathStructs.QuaternionF.Length()
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Length
-    path: QuaternionF.cs
-    startLine: 60
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public float Length()
-    return:
-      type: System.Single
-    content.vb: Public Function Length As Single
-  overload: MathStructs.QuaternionF.Length*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.LengthSquared
-  commentId: M:MathStructs.QuaternionF.LengthSquared
-  id: LengthSquared
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: LengthSquared()
-  nameWithType: QuaternionF.LengthSquared()
-  fullName: MathStructs.QuaternionF.LengthSquared()
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: LengthSquared
-    path: QuaternionF.cs
-    startLine: 64
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public float LengthSquared()
-    return:
-      type: System.Single
-    content.vb: Public Function LengthSquared As Single
-  overload: MathStructs.QuaternionF.LengthSquared*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.Normalize
-  commentId: M:MathStructs.QuaternionF.Normalize
-  id: Normalize
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Normalize()
-  nameWithType: QuaternionF.Normalize()
-  fullName: MathStructs.QuaternionF.Normalize()
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Normalize
-    path: QuaternionF.cs
-    startLine: 68
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public QuaternionF Normalize()
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Function Normalize As QuaternionF
-  overload: MathStructs.QuaternionF.Normalize*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)
-  id: Normalize(MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Normalize(QuaternionF)
-  nameWithType: QuaternionF.Normalize(QuaternionF)
-  fullName: MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Normalize
-    path: QuaternionF.cs
-    startLine: 72
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF Normalize(QuaternionF value)
-    parameters:
-    - id: value
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Normalize(value As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Normalize*
+    content.vb: Public Shared Function Add(left As QuaternionF, right As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Add*
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
-- uid: MathStructs.QuaternionF.Conjugate
-  commentId: M:MathStructs.QuaternionF.Conjugate
-  id: Conjugate
+- uid: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  id: Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: Conjugate()
-  nameWithType: QuaternionF.Conjugate()
-  fullName: MathStructs.QuaternionF.Conjugate()
+  name: Concatenate(QuaternionF, QuaternionF)
+  nameWithType: QuaternionF.Concatenate(QuaternionF, QuaternionF)
+  fullName: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF, MathStructs.QuaternionF)
   type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: Conjugate
+    id: Concatenate
     path: QuaternionF.cs
-    startLine: 76
+    startLine: 112
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nConcatenates two Quaternions; the result represents the value1 rotation followed by the value2 rotation.\n"
+  example: []
   syntax:
-    content: public QuaternionF Conjugate()
+    content: public static QuaternionF Concatenate(QuaternionF value1, QuaternionF value2)
+    parameters:
+    - id: value1
+      type: MathStructs.QuaternionF
+      description: The first Quaternion rotation in the series.
+    - id: value2
+      type: MathStructs.QuaternionF
+      description: The second Quaternion rotation in the series.
     return:
       type: MathStructs.QuaternionF
-    content.vb: Public Function Conjugate As QuaternionF
-  overload: MathStructs.QuaternionF.Conjugate*
+    content.vb: Public Shared Function Concatenate(value1 As QuaternionF, value2 As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Concatenate*
   modifiers.csharp:
   - public
+  - static
   modifiers.vb:
   - Public
+  - Shared
 - uid: MathStructs.QuaternionF.Conjugate(MathStructs.QuaternionF)
   commentId: M:MathStructs.QuaternionF.Conjugate(MathStructs.QuaternionF)
   id: Conjugate(MathStructs.QuaternionF)
@@ -657,92 +481,26 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Conjugate
     path: QuaternionF.cs
-    startLine: 80
+    startLine: 144
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nCreates the conjugate of a specified Quaternion.\n"
+  example: []
   syntax:
     content: public static QuaternionF Conjugate(QuaternionF value)
     parameters:
     - id: value
       type: MathStructs.QuaternionF
+      description: The Quaternion of which to return the conjugate.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Function Conjugate(value As QuaternionF) As QuaternionF
   overload: MathStructs.QuaternionF.Conjugate*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.Inverse
-  commentId: M:MathStructs.QuaternionF.Inverse
-  id: Inverse
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Inverse()
-  nameWithType: QuaternionF.Inverse()
-  fullName: MathStructs.QuaternionF.Inverse()
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Inverse
-    path: QuaternionF.cs
-    startLine: 84
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public QuaternionF Inverse()
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Function Inverse As QuaternionF
-  overload: MathStructs.QuaternionF.Inverse*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)
-  id: Inverse(MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Inverse(QuaternionF)
-  nameWithType: QuaternionF.Inverse(QuaternionF)
-  fullName: MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Inverse
-    path: QuaternionF.cs
-    startLine: 97
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF Inverse(QuaternionF value)
-    parameters:
-    - id: value
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Inverse(value As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Inverse*
   modifiers.csharp:
   - public
   - static
@@ -763,66 +521,32 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: CreateFromAxisAngle
     path: QuaternionF.cs
-    startLine: 101
+    startLine: 154
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nCreates a Quaternion from a normalized vector axis and an angle to rotate about the vector.\n"
+  example: []
   syntax:
     content: public static QuaternionF CreateFromAxisAngle(Vector3F axis, float angle)
     parameters:
     - id: axis
       type: MathStructs.Vector3F
+      description: >-
+        The unit vector to rotate around. This vector must be normalized before
+
+        calling this function or the resulting Quaternion will be incorrect.
     - id: angle
       type: System.Single
+      description: The angle, in radians, to rotate around the vector.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Function CreateFromAxisAngle(axis As Vector3F, angle As Single) As QuaternionF
   overload: MathStructs.QuaternionF.CreateFromAxisAngle*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
-  commentId: M:MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
-  id: CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: CreateFromYawPitchRoll(Single, Single, Single)
-  nameWithType: QuaternionF.CreateFromYawPitchRoll(Single, Single, Single)
-  fullName: MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single, System.Single, System.Single)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: CreateFromYawPitchRoll
-    path: QuaternionF.cs
-    startLine: 108
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF CreateFromYawPitchRoll(float yaw, float pitch, float roll)
-    parameters:
-    - id: yaw
-      type: System.Single
-    - id: pitch
-      type: System.Single
-    - id: roll
-      type: System.Single
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function CreateFromYawPitchRoll(yaw As Single, pitch As Single, roll As Single) As QuaternionF
-  overload: MathStructs.QuaternionF.CreateFromYawPitchRoll*
   modifiers.csharp:
   - public
   - static
@@ -843,19 +567,22 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: CreateFromRotationMatrix
     path: QuaternionF.cs
-    startLine: 128
+    startLine: 165
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nCreates a Quaternion from the given rotation matrix.\n"
+  example: []
   syntax:
     content: public static QuaternionF CreateFromRotationMatrix(Matrix4x4F matrix)
     parameters:
     - id: matrix
       type: MathStructs.Matrix4x4F
+      description: The rotation matrix.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Function CreateFromRotationMatrix(matrix As Matrix4x4F) As QuaternionF
@@ -866,41 +593,95 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
-  id: Dot(MathStructs.QuaternionF)
+- uid: MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
+  commentId: M:MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
+  id: CreateFromYawPitchRoll(System.Single,System.Single,System.Single)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: Dot(QuaternionF)
-  nameWithType: QuaternionF.Dot(QuaternionF)
-  fullName: MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
+  name: CreateFromYawPitchRoll(Single, Single, Single)
+  nameWithType: QuaternionF.CreateFromYawPitchRoll(Single, Single, Single)
+  fullName: MathStructs.QuaternionF.CreateFromYawPitchRoll(System.Single, System.Single, System.Single)
   type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: Dot
+    id: CreateFromYawPitchRoll
     path: QuaternionF.cs
-    startLine: 170
+    startLine: 201
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nCreates a new Quaternion from the given yaw, pitch, and roll, in radians.\n"
+  example: []
   syntax:
-    content: public float Dot(QuaternionF value)
+    content: public static QuaternionF CreateFromYawPitchRoll(float yaw, float pitch, float roll)
     parameters:
-    - id: value
-      type: MathStructs.QuaternionF
-    return:
+    - id: yaw
       type: System.Single
-    content.vb: Public Function Dot(value As QuaternionF) As Single
-  overload: MathStructs.QuaternionF.Dot*
+      description: The yaw angle, in radians, around the Y-axis.
+    - id: pitch
+      type: System.Single
+      description: The pitch angle, in radians, around the X-axis.
+    - id: roll
+      type: System.Single
+      description: The roll angle, in radians, around the z-axis.
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Shared Function CreateFromYawPitchRoll(yaw As Single, pitch As Single, roll As Single) As QuaternionF
+  overload: MathStructs.QuaternionF.CreateFromYawPitchRoll*
   modifiers.csharp:
   - public
+  - static
   modifiers.vb:
   - Public
+  - Shared
+- uid: MathStructs.QuaternionF.Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  id: Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Divide(QuaternionF, QuaternionF)
+  nameWithType: QuaternionF.Divide(QuaternionF, QuaternionF)
+  fullName: MathStructs.QuaternionF.Divide(MathStructs.QuaternionF, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Divide
+    path: QuaternionF.cs
+    startLine: 223
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDivides a Quaternion by another Quaternion.\n"
+  example: []
+  syntax:
+    content: public static QuaternionF Divide(QuaternionF left, QuaternionF right)
+    parameters:
+    - id: left
+      type: MathStructs.QuaternionF
+      description: The source Quaternion.
+    - id: right
+      type: MathStructs.QuaternionF
+      description: The divisor.
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Shared Function Divide(left As QuaternionF, right As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Divide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
 - uid: MathStructs.QuaternionF.Dot(MathStructs.QuaternionF,MathStructs.QuaternionF)
   commentId: M:MathStructs.QuaternionF.Dot(MathStructs.QuaternionF,MathStructs.QuaternionF)
   id: Dot(MathStructs.QuaternionF,MathStructs.QuaternionF)
@@ -915,21 +696,25 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Dot
     path: QuaternionF.cs
-    startLine: 174
+    startLine: 232
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nCalculates the dot product of two Quaternions.\n"
+  example: []
   syntax:
     content: public static float Dot(QuaternionF left, QuaternionF right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The first source Quaternion.
     - id: right
       type: MathStructs.QuaternionF
+      description: The second source Quaternion.
     return:
       type: System.Single
     content.vb: Public Shared Function Dot(left As QuaternionF, right As QuaternionF) As Single
@@ -940,41 +725,40 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)
-  commentId: M:MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)
-  id: Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)
+- uid: MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)
+  id: Inverse(MathStructs.QuaternionF)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: Slerp(QuaternionF, QuaternionF, Single)
-  nameWithType: QuaternionF.Slerp(QuaternionF, QuaternionF, Single)
-  fullName: MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF, MathStructs.QuaternionF, System.Single)
+  name: Inverse(QuaternionF)
+  nameWithType: QuaternionF.Inverse(QuaternionF)
+  fullName: MathStructs.QuaternionF.Inverse(MathStructs.QuaternionF)
   type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: Slerp
+    id: Inverse
     path: QuaternionF.cs
-    startLine: 178
+    startLine: 240
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns the inverse of a Quaternion.\n"
+  example: []
   syntax:
-    content: public static QuaternionF Slerp(QuaternionF q1, QuaternionF q2, float amount)
+    content: public static QuaternionF Inverse(QuaternionF value)
     parameters:
-    - id: q1
+    - id: value
       type: MathStructs.QuaternionF
-    - id: q2
-      type: MathStructs.QuaternionF
-    - id: amount
-      type: System.Single
+      description: The source Quaternion.
     return:
       type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Slerp(q1 As QuaternionF, q2 As QuaternionF, amount As Single) As QuaternionF
-  overload: MathStructs.QuaternionF.Slerp*
+    content.vb: Public Shared Function Inverse(value As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Inverse*
   modifiers.csharp:
   - public
   - static
@@ -995,216 +779,32 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Lerp
     path: QuaternionF.cs
-    startLine: 205
+    startLine: 250
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nLinearly interpolates between two quaternions.\n"
+  example: []
   syntax:
     content: public static QuaternionF Lerp(QuaternionF q1, QuaternionF q2, float amount)
     parameters:
     - id: q1
       type: MathStructs.QuaternionF
+      description: The first source Quaternion.
     - id: q2
       type: MathStructs.QuaternionF
+      description: The second source Quaternion.
     - id: amount
       type: System.Single
+      description: The relative weight of the second source Quaternion in the interpolation.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Function Lerp(q1 As QuaternionF, q2 As QuaternionF, amount As Single) As QuaternionF
   overload: MathStructs.QuaternionF.Lerp*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)
-  id: Concatenate(MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Concatenate(QuaternionF)
-  nameWithType: QuaternionF.Concatenate(QuaternionF)
-  fullName: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Concatenate
-    path: QuaternionF.cs
-    startLine: 214
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public QuaternionF Concatenate(QuaternionF value)
-    parameters:
-    - id: value
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Function Concatenate(value As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Concatenate*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  id: Concatenate(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Concatenate(QuaternionF, QuaternionF)
-  nameWithType: QuaternionF.Concatenate(QuaternionF, QuaternionF)
-  fullName: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF, MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Concatenate
-    path: QuaternionF.cs
-    startLine: 218
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF Concatenate(QuaternionF value1, QuaternionF value2)
-    parameters:
-    - id: value1
-      type: MathStructs.QuaternionF
-    - id: value2
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Concatenate(value1 As QuaternionF, value2 As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Concatenate*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)
-  id: Negate(MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Negate(QuaternionF)
-  nameWithType: QuaternionF.Negate(QuaternionF)
-  fullName: MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Negate
-    path: QuaternionF.cs
-    startLine: 241
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF Negate(QuaternionF value)
-    parameters:
-    - id: value
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Negate(value As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Negate*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.Add(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Add(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  id: Add(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Add(QuaternionF, QuaternionF)
-  nameWithType: QuaternionF.Add(QuaternionF, QuaternionF)
-  fullName: MathStructs.QuaternionF.Add(MathStructs.QuaternionF, MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Add
-    path: QuaternionF.cs
-    startLine: 245
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF Add(QuaternionF left, QuaternionF right)
-    parameters:
-    - id: left
-      type: MathStructs.QuaternionF
-    - id: right
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Add(left As QuaternionF, right As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Add*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  id: Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Subtract(QuaternionF, QuaternionF)
-  nameWithType: QuaternionF.Subtract(QuaternionF, QuaternionF)
-  fullName: MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF, MathStructs.QuaternionF)
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: Subtract
-    path: QuaternionF.cs
-    startLine: 249
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF Subtract(QuaternionF left, QuaternionF right)
-    parameters:
-    - id: left
-      type: MathStructs.QuaternionF
-    - id: right
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Subtract(left As QuaternionF, right As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Subtract*
   modifiers.csharp:
   - public
   - static
@@ -1225,21 +825,25 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Multiply
     path: QuaternionF.cs
-    startLine: 253
+    startLine: 264
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nMultiplies two Quaternions together.\n"
+  example: []
   syntax:
     content: public static QuaternionF Multiply(QuaternionF left, QuaternionF right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The Quaternion on the left side of the multiplication.
     - id: right
       type: MathStructs.QuaternionF
+      description: The Quaternion on the right side of the multiplication.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Function Multiply(left As QuaternionF, right As QuaternionF) As QuaternionF
@@ -1264,21 +868,25 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Multiply
     path: QuaternionF.cs
-    startLine: 257
+    startLine: 273
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nMultiplies a Quaternion by a scalar value.\n"
+  example: []
   syntax:
     content: public static QuaternionF Multiply(QuaternionF left, float right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The source Quaternion.
     - id: right
       type: System.Single
+      description: The scalar value.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Function Multiply(left As QuaternionF, right As Single) As QuaternionF
@@ -1289,76 +897,80 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: MathStructs.QuaternionF.Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  id: Divide(MathStructs.QuaternionF,MathStructs.QuaternionF)
+- uid: MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)
+  id: Negate(MathStructs.QuaternionF)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: Divide(QuaternionF, QuaternionF)
-  nameWithType: QuaternionF.Divide(QuaternionF, QuaternionF)
-  fullName: MathStructs.QuaternionF.Divide(MathStructs.QuaternionF, MathStructs.QuaternionF)
+  name: Negate(QuaternionF)
+  nameWithType: QuaternionF.Negate(QuaternionF)
+  fullName: MathStructs.QuaternionF.Negate(MathStructs.QuaternionF)
   type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: Divide
+    id: Negate
     path: QuaternionF.cs
-    startLine: 261
+    startLine: 281
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nFlips the sign of each component of the quaternion.\n"
+  example: []
   syntax:
-    content: public static QuaternionF Divide(QuaternionF left, QuaternionF right)
+    content: public static QuaternionF Negate(QuaternionF value)
     parameters:
-    - id: left
+    - id: value
       type: MathStructs.QuaternionF
-    - id: right
-      type: MathStructs.QuaternionF
+      description: The source Quaternion.
     return:
       type: MathStructs.QuaternionF
-    content.vb: Public Shared Function Divide(left As QuaternionF, right As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.Divide*
+    content.vb: Public Shared Function Negate(value As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Negate*
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
-- uid: MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)
-  id: op_UnaryPlus(MathStructs.QuaternionF)
+- uid: MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)
+  id: Normalize(MathStructs.QuaternionF)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: UnaryPlus(QuaternionF)
-  nameWithType: QuaternionF.UnaryPlus(QuaternionF)
-  fullName: MathStructs.QuaternionF.UnaryPlus(MathStructs.QuaternionF)
-  type: Operator
+  name: Normalize(QuaternionF)
+  nameWithType: QuaternionF.Normalize(QuaternionF)
+  fullName: MathStructs.QuaternionF.Normalize(MathStructs.QuaternionF)
+  type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_UnaryPlus
+    id: Normalize
     path: QuaternionF.cs
-    startLine: 265
+    startLine: 289
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nDivides each component of the Quaternion by the length of the Quaternion.\n"
+  example: []
   syntax:
-    content: public static QuaternionF operator +(QuaternionF value)
+    content: public static QuaternionF Normalize(QuaternionF value)
     parameters:
     - id: value
       type: MathStructs.QuaternionF
+      description: The source Quaternion.
     return:
       type: MathStructs.QuaternionF
-    content.vb: Public Shared Operator +(value As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.op_UnaryPlus*
+    content.vb: Public Shared Function Normalize(value As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Normalize*
   modifiers.csharp:
   - public
   - static
@@ -1379,62 +991,26 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: op_UnaryNegation
     path: QuaternionF.cs
-    startLine: 269
+    startLine: 297
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nFlips the sign of each component of the quaternion.\n"
+  example: []
   syntax:
     content: public static QuaternionF operator -(QuaternionF value)
     parameters:
     - id: value
       type: MathStructs.QuaternionF
+      description: The source Quaternion.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Operator -(value As QuaternionF) As QuaternionF
   overload: MathStructs.QuaternionF.op_UnaryNegation*
-  modifiers.csharp:
-  - public
-  - static
-  modifiers.vb:
-  - Public
-  - Shared
-- uid: MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  id: op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: Addition(QuaternionF, QuaternionF)
-  nameWithType: QuaternionF.Addition(QuaternionF, QuaternionF)
-  fullName: MathStructs.QuaternionF.Addition(MathStructs.QuaternionF, MathStructs.QuaternionF)
-  type: Operator
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Addition
-    path: QuaternionF.cs
-    startLine: 273
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public static QuaternionF operator +(QuaternionF left, QuaternionF right)
-    parameters:
-    - id: left
-      type: MathStructs.QuaternionF
-    - id: right
-      type: MathStructs.QuaternionF
-    return:
-      type: MathStructs.QuaternionF
-    content.vb: Public Shared Operator +(left As QuaternionF, right As QuaternionF) As QuaternionF
-  overload: MathStructs.QuaternionF.op_Addition*
   modifiers.csharp:
   - public
   - static
@@ -1455,25 +1031,73 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: op_Subtraction
     path: QuaternionF.cs
-    startLine: 277
+    startLine: 306
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nSubtracts one Quaternion from another.\n"
+  example: []
   syntax:
     content: public static QuaternionF operator -(QuaternionF left, QuaternionF right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The first source Quaternion.
     - id: right
       type: MathStructs.QuaternionF
+      description: The second Quaternion, to be subtracted from the first.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Operator -(left As QuaternionF, right As QuaternionF) As QuaternionF
   overload: MathStructs.QuaternionF.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  id: op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Inequality(QuaternionF, QuaternionF)
+  nameWithType: QuaternionF.Inequality(QuaternionF, QuaternionF)
+  fullName: MathStructs.QuaternionF.Inequality(MathStructs.QuaternionF, MathStructs.QuaternionF)
+  type: Operator
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Inequality
+    path: QuaternionF.cs
+    startLine: 316
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the two given Quaternions are not equal.\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(QuaternionF left, QuaternionF right)
+    parameters:
+    - id: left
+      type: MathStructs.QuaternionF
+      description: The first Quaternion to compare.
+    - id: right
+      type: MathStructs.QuaternionF
+      description: The second Quaternion to compare.
+    return:
+      type: System.Boolean
+      description: True if the Quaternions are not equal; False otherwise.
+    content.vb: Public Shared Operator <>(left As QuaternionF, right As QuaternionF) As Boolean
+  overload: MathStructs.QuaternionF.op_Inequality*
   modifiers.csharp:
   - public
   - static
@@ -1494,21 +1118,25 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: op_Multiply
     path: QuaternionF.cs
-    startLine: 281
+    startLine: 325
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nMultiplies a Quaternion by a scalar value.\n"
+  example: []
   syntax:
     content: public static QuaternionF operator *(QuaternionF left, float right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The source Quaternion.
     - id: right
       type: System.Single
+      description: The scalar value.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Operator *(left As QuaternionF, right As Single) As QuaternionF
@@ -1533,21 +1161,25 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: op_Multiply
     path: QuaternionF.cs
-    startLine: 285
+    startLine: 334
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nMultiplies two Quaternions together.\n"
+  example: []
   syntax:
     content: public static QuaternionF operator *(QuaternionF left, QuaternionF right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The Quaternion on the left side of the multiplication.
     - id: right
       type: MathStructs.QuaternionF
+      description: The Quaternion on the right side of the multiplication.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Operator *(left As QuaternionF, right As QuaternionF) As QuaternionF
@@ -1572,25 +1204,111 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: op_Division
     path: QuaternionF.cs
-    startLine: 299
+    startLine: 354
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nDivides a Quaternion by another Quaternion.\n"
+  example: []
   syntax:
     content: public static QuaternionF operator /(QuaternionF left, QuaternionF right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The source Quaternion.
     - id: right
       type: MathStructs.QuaternionF
+      description: The divisor.
     return:
       type: MathStructs.QuaternionF
     content.vb: Public Shared Operator /(left As QuaternionF, right As QuaternionF) As QuaternionF
   overload: MathStructs.QuaternionF.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.op_UnaryPlus(MathStructs.QuaternionF)
+  id: op_UnaryPlus(MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: UnaryPlus(QuaternionF)
+  nameWithType: QuaternionF.UnaryPlus(QuaternionF)
+  fullName: MathStructs.QuaternionF.UnaryPlus(MathStructs.QuaternionF)
+  type: Operator
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_UnaryPlus
+    path: QuaternionF.cs
+    startLine: 389
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the Quaternion. (nop)\n"
+  example: []
+  syntax:
+    content: public static QuaternionF operator +(QuaternionF value)
+    parameters:
+    - id: value
+      type: MathStructs.QuaternionF
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Shared Operator +(value As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.op_UnaryPlus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  id: op_Addition(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Addition(QuaternionF, QuaternionF)
+  nameWithType: QuaternionF.Addition(QuaternionF, QuaternionF)
+  fullName: MathStructs.QuaternionF.Addition(MathStructs.QuaternionF, MathStructs.QuaternionF)
+  type: Operator
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: op_Addition
+    path: QuaternionF.cs
+    startLine: 398
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nAdds two Quaternions element-by-element.\n"
+  example: []
+  syntax:
+    content: public static QuaternionF operator +(QuaternionF left, QuaternionF right)
+    parameters:
+    - id: left
+      type: MathStructs.QuaternionF
+      description: The first source Quaternion.
+    - id: right
+      type: MathStructs.QuaternionF
+      description: The second source Quaternion.
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Shared Operator +(left As QuaternionF, right As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.op_Addition*
   modifiers.csharp:
   - public
   - static
@@ -1611,23 +1329,28 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: op_Equality
     path: QuaternionF.cs
-    startLine: 324
+    startLine: 408
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the two given Quaternions are equal.\n"
+  example: []
   syntax:
     content: public static bool operator ==(QuaternionF left, QuaternionF right)
     parameters:
     - id: left
       type: MathStructs.QuaternionF
+      description: The first Quaternion to compare.
     - id: right
       type: MathStructs.QuaternionF
+      description: The second Quaternion to compare.
     return:
       type: System.Boolean
+      description: True if the Quaternions are equal; False otherwise.
     content.vb: Public Shared Operator =(left As QuaternionF, right As QuaternionF) As Boolean
   overload: MathStructs.QuaternionF.op_Equality*
   modifiers.csharp:
@@ -1636,45 +1359,295 @@ items:
   modifiers.vb:
   - Public
   - Shared
-- uid: MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  commentId: M:MathStructs.QuaternionF.op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)
-  id: op_Inequality(MathStructs.QuaternionF,MathStructs.QuaternionF)
+- uid: MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)
+  commentId: M:MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)
+  id: Slerp(MathStructs.QuaternionF,MathStructs.QuaternionF,System.Single)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: Inequality(QuaternionF, QuaternionF)
-  nameWithType: QuaternionF.Inequality(QuaternionF, QuaternionF)
-  fullName: MathStructs.QuaternionF.Inequality(MathStructs.QuaternionF, MathStructs.QuaternionF)
-  type: Operator
+  name: Slerp(QuaternionF, QuaternionF, Single)
+  nameWithType: QuaternionF.Slerp(QuaternionF, QuaternionF, Single)
+  fullName: MathStructs.QuaternionF.Slerp(MathStructs.QuaternionF, MathStructs.QuaternionF, System.Single)
+  type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
-    id: op_Inequality
+    id: Slerp
     path: QuaternionF.cs
-    startLine: 328
+    startLine: 418
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nInterpolates between two quaternions, using spherical linear interpolation.\n"
+  example: []
   syntax:
-    content: public static bool operator !=(QuaternionF left, QuaternionF right)
+    content: public static QuaternionF Slerp(QuaternionF q1, QuaternionF q2, float amount)
     parameters:
-    - id: left
+    - id: q1
       type: MathStructs.QuaternionF
-    - id: right
+      description: The first source Quaternion.
+    - id: q2
       type: MathStructs.QuaternionF
+      description: The second source Quaternion.
+    - id: amount
+      type: System.Single
+      description: The relative weight of the second source Quaternion in the interpolation.
     return:
-      type: System.Boolean
-    content.vb: Public Shared Operator <>(left As QuaternionF, right As QuaternionF) As Boolean
-  overload: MathStructs.QuaternionF.op_Inequality*
+      type: MathStructs.QuaternionF
+    content.vb: Public Shared Function Slerp(q1 As QuaternionF, q2 As QuaternionF, amount As Single) As QuaternionF
+  overload: MathStructs.QuaternionF.Slerp*
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
+- uid: MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  id: Subtract(MathStructs.QuaternionF,MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Subtract(QuaternionF, QuaternionF)
+  nameWithType: QuaternionF.Subtract(QuaternionF, QuaternionF)
+  fullName: MathStructs.QuaternionF.Subtract(MathStructs.QuaternionF, MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Subtract
+    path: QuaternionF.cs
+    startLine: 450
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nSubtracts one Quaternion from another.\n"
+  example: []
+  syntax:
+    content: public static QuaternionF Subtract(QuaternionF left, QuaternionF right)
+    parameters:
+    - id: left
+      type: MathStructs.QuaternionF
+      description: The first source Quaternion.
+    - id: right
+      type: MathStructs.QuaternionF
+      description: The second Quaternion, to be subtracted from the first.
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Shared Function Subtract(left As QuaternionF, right As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)
+  id: Concatenate(MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Concatenate(QuaternionF)
+  nameWithType: QuaternionF.Concatenate(QuaternionF)
+  fullName: MathStructs.QuaternionF.Concatenate(MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Concatenate
+    path: QuaternionF.cs
+    startLine: 458
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nConcatenates two Quaternions; the result represents this rotation followed by the value rotation.\n"
+  example: []
+  syntax:
+    content: public QuaternionF Concatenate(QuaternionF value)
+    parameters:
+    - id: value
+      type: MathStructs.QuaternionF
+      description: The other Quaternion rotation.
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Function Concatenate(value As QuaternionF) As QuaternionF
+  overload: MathStructs.QuaternionF.Concatenate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.Conjugate
+  commentId: M:MathStructs.QuaternionF.Conjugate
+  id: Conjugate
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Conjugate()
+  nameWithType: QuaternionF.Conjugate()
+  fullName: MathStructs.QuaternionF.Conjugate()
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Conjugate
+    path: QuaternionF.cs
+    startLine: 465
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCreates the conjugate of this Quaternion.\n"
+  example: []
+  syntax:
+    content: public QuaternionF Conjugate()
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Function Conjugate As QuaternionF
+  overload: MathStructs.QuaternionF.Conjugate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  commentId: M:MathStructs.QuaternionF.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  id: Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Single, out Single, out Single, out Single)
+  nameWithType: QuaternionF.Deconstruct(out Single, out Single, out Single, out Single)
+  fullName: MathStructs.QuaternionF.Deconstruct(out System.Single, out System.Single, out System.Single, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: QuaternionF.cs
+    startLine: 476
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDeconstructs this Quaternion into it&apos;s separate components.\n"
+  example: []
+  syntax:
+    content: public void Deconstruct(out float x, out float y, out float z, out float w)
+    parameters:
+    - id: x
+      type: System.Single
+      description: The X-value of the vector component of this Quaternion.
+    - id: y
+      type: System.Single
+      description: The Y-value of the vector component of this Quaternion.
+    - id: z
+      type: System.Single
+      description: The Z-value of the vector component of this Quaternion.
+    - id: w
+      type: System.Single
+      description: The W-value of the vector component of this Quaternion.
+    content.vb: Public Sub Deconstruct(ByRef x As Single, ByRef y As Single, ByRef z As Single, ByRef w As Single)
+  overload: MathStructs.QuaternionF.Deconstruct*
+  nameWithType.vb: QuaternionF.Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.QuaternionF.Deconstruct(ByRef System.Single, ByRef System.Single, ByRef System.Single, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Single, ByRef Single, ByRef Single, ByRef Single)
+- uid: MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F@,System.Single@)
+  commentId: M:MathStructs.QuaternionF.Deconstruct(MathStructs.Vector3F@,System.Single@)
+  id: Deconstruct(MathStructs.Vector3F@,System.Single@)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Deconstruct(out Vector3F, out Single)
+  nameWithType: QuaternionF.Deconstruct(out Vector3F, out Single)
+  fullName: MathStructs.QuaternionF.Deconstruct(out MathStructs.Vector3F, out System.Single)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Deconstruct
+    path: QuaternionF.cs
+    startLine: 491
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDeconstructs this Quaternion into it&apos;s separate components with the X, Y, and Z\ncomponents packed into a vector.\n"
+  example: []
+  syntax:
+    content: public void Deconstruct(out Vector3F vectorPart, out float scalarPart)
+    parameters:
+    - id: vectorPart
+      type: MathStructs.Vector3F
+      description: The vector component of this Quaternion.
+    - id: scalarPart
+      type: System.Single
+      description: The scalar component of this Quaternion.
+    content.vb: Public Sub Deconstruct(ByRef vectorPart As Vector3F, ByRef scalarPart As Single)
+  overload: MathStructs.QuaternionF.Deconstruct*
+  nameWithType.vb: QuaternionF.Deconstruct(ByRef Vector3F, ByRef Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.QuaternionF.Deconstruct(ByRef MathStructs.Vector3F, ByRef System.Single)
+  name.vb: Deconstruct(ByRef Vector3F, ByRef Single)
+- uid: MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
+  commentId: M:MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
+  id: Dot(MathStructs.QuaternionF)
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Dot(QuaternionF)
+  nameWithType: QuaternionF.Dot(QuaternionF)
+  fullName: MathStructs.QuaternionF.Dot(MathStructs.QuaternionF)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Dot
+    path: QuaternionF.cs
+    startLine: 502
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCalculates the dot product with another Quaternion.\n"
+  example: []
+  syntax:
+    content: public float Dot(QuaternionF value)
+    parameters:
+    - id: value
+      type: MathStructs.QuaternionF
+      description: The other source Quaternion.
+    return:
+      type: System.Single
+    content.vb: Public Function Dot(value As QuaternionF) As Single
+  overload: MathStructs.QuaternionF.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)
   commentId: M:MathStructs.QuaternionF.Equals(MathStructs.QuaternionF)
   id: Equals(MathStructs.QuaternionF)
@@ -1689,95 +1662,69 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Equals
     path: QuaternionF.cs
-    startLine: 332
+    startLine: 511
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given Quaternion is equal to this Quaternion instance.\n"
+  example: []
   syntax:
     content: public bool Equals(QuaternionF other)
     parameters:
     - id: other
       type: MathStructs.QuaternionF
+      description: The Quaternion to compare this instance to.
     return:
       type: System.Boolean
+      description: True if the other Quaternion is equal to this instance; False otherwise.
     content.vb: Public Function Equals(other As QuaternionF) As Boolean
   overload: MathStructs.QuaternionF.Equals*
+  implements:
+  - System.IEquatable{MathStructs.QuaternionF}.Equals(MathStructs.QuaternionF)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: MathStructs.QuaternionF.Equals(System.Nullable{System.Object})
-  commentId: M:MathStructs.QuaternionF.Equals(System.Nullable{System.Object})
-  id: Equals(System.Nullable{System.Object})
+- uid: MathStructs.QuaternionF.Equals(System.Object)
+  commentId: M:MathStructs.QuaternionF.Equals(System.Object)
+  id: Equals(System.Object)
   parent: MathStructs.QuaternionF
   langs:
   - csharp
   - vb
-  name: Equals(Nullable<Object>)
-  nameWithType: QuaternionF.Equals(Nullable<Object>)
-  fullName: MathStructs.QuaternionF.Equals(System.Nullable<System.Object>)
+  name: Equals(Object)
+  nameWithType: QuaternionF.Equals(Object)
+  fullName: MathStructs.QuaternionF.Equals(System.Object)
   type: Method
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: Equals
     path: QuaternionF.cs
-    startLine: 336
+    startLine: 520
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns a boolean indicating whether the given Object is equal to this Quaternion instance.\n"
+  example: []
   syntax:
-    content: public override bool Equals(object? obj)
+    content: public override bool Equals(object obj)
     parameters:
     - id: obj
-      type: System.Nullable{System.Object}
+      type: System.Object
+      description: The Object to compare this instance to.
     return:
       type: System.Boolean
-    content.vb: Public Overrides Function Equals(obj As Object?) As Boolean
+      description: True if the Object is equal to this Quaternion; False otherwise.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
   overload: MathStructs.QuaternionF.Equals*
-  nameWithType.vb: QuaternionF.Equals(Nullable(Of Object))
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-  fullName.vb: MathStructs.QuaternionF.Equals(System.Nullable(Of System.Object))
-  name.vb: Equals(Nullable(Of Object))
-- uid: MathStructs.QuaternionF.ToString
-  commentId: M:MathStructs.QuaternionF.ToString
-  id: ToString
-  parent: MathStructs.QuaternionF
-  langs:
-  - csharp
-  - vb
-  name: ToString()
-  nameWithType: QuaternionF.ToString()
-  fullName: MathStructs.QuaternionF.ToString()
-  type: Method
-  source:
-    remote:
-      path: src/QuaternionF.cs
-      branch: docs
-      repo: https://github.com/stefanrbk/MathStructs.git
-    id: ToString
-    path: QuaternionF.cs
-    startLine: 340
-  assemblies:
-  - MathStructs
-  namespace: MathStructs
-  syntax:
-    content: public override string ToString()
-    return:
-      type: System.String
-    content.vb: Public Overrides Function ToString As String
-  overload: MathStructs.QuaternionF.ToString*
   modifiers.csharp:
   - public
   - override
@@ -1798,19 +1745,22 @@ items:
   source:
     remote:
       path: src/QuaternionF.cs
-      branch: docs
+      branch: develop
       repo: https://github.com/stefanrbk/MathStructs.git
     id: GetHashCode
     path: QuaternionF.cs
-    startLine: 344
+    startLine: 527
   assemblies:
   - MathStructs
   namespace: MathStructs
+  summary: "\nReturns the hash code for this instance.\n"
+  example: []
   syntax:
     content: public override int GetHashCode()
     return:
       type: System.Int32
     content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.ValueType.GetHashCode
   overload: MathStructs.QuaternionF.GetHashCode*
   modifiers.csharp:
   - public
@@ -1818,26 +1768,252 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: MathStructs.QuaternionF.Inverse
+  commentId: M:MathStructs.QuaternionF.Inverse
+  id: Inverse
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Inverse()
+  nameWithType: QuaternionF.Inverse()
+  fullName: MathStructs.QuaternionF.Inverse()
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Inverse
+    path: QuaternionF.cs
+    startLine: 534
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns the inverse of this Quaternion.\n"
+  example: []
+  syntax:
+    content: public QuaternionF Inverse()
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Function Inverse As QuaternionF
+  overload: MathStructs.QuaternionF.Inverse*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.Length
+  commentId: M:MathStructs.QuaternionF.Length
+  id: Length
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Length()
+  nameWithType: QuaternionF.Length()
+  fullName: MathStructs.QuaternionF.Length()
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Length
+    path: QuaternionF.cs
+    startLine: 551
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCalculates the length of the Quaternion.\n"
+  remarks: More expensive than <xref href="MathStructs.QuaternionF.LengthSquared" data-throw-if-not-resolved="false"></xref> if you need the squared length.
+  example: []
+  syntax:
+    content: public float Length()
+    return:
+      type: System.Single
+    content.vb: Public Function Length As Single
+  overload: MathStructs.QuaternionF.Length*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.LengthSquared
+  commentId: M:MathStructs.QuaternionF.LengthSquared
+  id: LengthSquared
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared()
+  nameWithType: QuaternionF.LengthSquared()
+  fullName: MathStructs.QuaternionF.LengthSquared()
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: LengthSquared
+    path: QuaternionF.cs
+    startLine: 559
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nCalculates the length of the Quaternion.\n"
+  remarks: Less expensive than <xref href="MathStructs.QuaternionF.Length" data-throw-if-not-resolved="false"></xref> if you need the squared length.
+  example: []
+  syntax:
+    content: public float LengthSquared()
+    return:
+      type: System.Single
+    content.vb: Public Function LengthSquared As Single
+  overload: MathStructs.QuaternionF.LengthSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.Normalize
+  commentId: M:MathStructs.QuaternionF.Normalize
+  id: Normalize
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: Normalize()
+  nameWithType: QuaternionF.Normalize()
+  fullName: MathStructs.QuaternionF.Normalize()
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: Normalize
+    path: QuaternionF.cs
+    startLine: 566
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nDivides each component of the Quaternion by the length of the Quaternion.\n"
+  example: []
+  syntax:
+    content: public QuaternionF Normalize()
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Function Normalize As QuaternionF
+  overload: MathStructs.QuaternionF.Normalize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: MathStructs.QuaternionF.ToString
+  commentId: M:MathStructs.QuaternionF.ToString
+  id: ToString
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: QuaternionF.ToString()
+  fullName: MathStructs.QuaternionF.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: ToString
+    path: QuaternionF.cs
+    startLine: 573
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nReturns a String representing this Quaternion instance.\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: MathStructs.QuaternionF.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: MathStructs.QuaternionF.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  commentId: M:MathStructs.QuaternionF.With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  id: With(System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})
+  parent: MathStructs.QuaternionF
+  langs:
+  - csharp
+  - vb
+  name: With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  nameWithType: QuaternionF.With(Nullable<Single>, Nullable<Single>, Nullable<Single>, Nullable<Single>)
+  fullName: MathStructs.QuaternionF.With(System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>, System.Nullable<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: src/QuaternionF.cs
+      branch: develop
+      repo: https://github.com/stefanrbk/MathStructs.git
+    id: With
+    path: QuaternionF.cs
+    startLine: 592
+  assemblies:
+  - MathStructs
+  namespace: MathStructs
+  summary: "\nRecord-like <xref uid=\"langword_csharp_with\" name=\"with\" href=\"\"></xref>-style constructor\n"
+  example: []
+  syntax:
+    content: public QuaternionF With(float? x = default(float? ), float? y = default(float? ), float? z = default(float? ), float? w = default(float? ))
+    parameters:
+    - id: x
+      type: System.Nullable{System.Single}
+      description: "\nIf provided, the X value for the new Quaternion, otherwise the <xref href=\"MathStructs.QuaternionF.X\" data-throw-if-not-resolved=\"false\"></xref> of this Quaternion.\n"
+    - id: y
+      type: System.Nullable{System.Single}
+      description: "\nIf provided, the Y value for the new Quaternion, otherwise the <xref href=\"MathStructs.QuaternionF.Y\" data-throw-if-not-resolved=\"false\"></xref> of this Quaternion.\n"
+    - id: z
+      type: System.Nullable{System.Single}
+      description: "\nIf provided, the Z value for the new Quaternion, otherwise the <xref href=\"MathStructs.QuaternionF.Z\" data-throw-if-not-resolved=\"false\"></xref> of this Quaternion.\n"
+    - id: w
+      type: System.Nullable{System.Single}
+      description: "\nIf provided, the W value for the new Quaternion, otherwise the <xref href=\"MathStructs.QuaternionF.W\" data-throw-if-not-resolved=\"false\"></xref> of this Quaternion.\n"
+    return:
+      type: MathStructs.QuaternionF
+    content.vb: Public Function With(x As Single? = Nothing, y As Single? = Nothing, z As Single? = Nothing, w As Single? = Nothing) As QuaternionF
+  overload: MathStructs.QuaternionF.With*
+  nameWithType.vb: QuaternionF.With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: MathStructs.QuaternionF.With(System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single), System.Nullable(Of System.Single))
+  name.vb: With(Nullable(Of Single), Nullable(Of Single), Nullable(Of Single), Nullable(Of Single))
 references:
 - uid: MathStructs
   commentId: N:MathStructs
   name: MathStructs
   nameWithType: MathStructs
   fullName: MathStructs
-- uid: IEquatable{MathStructs.QuaternionF}
-  commentId: '!:IEquatable{MathStructs.QuaternionF}'
-  definition: IEquatable`1
+- uid: System.IEquatable{MathStructs.QuaternionF}
+  commentId: T:System.IEquatable{MathStructs.QuaternionF}
+  parent: System
+  definition: System.IEquatable`1
   name: IEquatable<QuaternionF>
   nameWithType: IEquatable<QuaternionF>
-  fullName: IEquatable<MathStructs.QuaternionF>
+  fullName: System.IEquatable<MathStructs.QuaternionF>
   nameWithType.vb: IEquatable(Of QuaternionF)
-  fullName.vb: IEquatable(Of MathStructs.QuaternionF)
+  fullName.vb: System.IEquatable(Of MathStructs.QuaternionF)
   name.vb: IEquatable(Of QuaternionF)
   spec.csharp:
-  - uid: IEquatable`1
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: <
     nameWithType: <
@@ -1850,10 +2026,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEquatable`1
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1865,49 +2041,221 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: IEquatable`1
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
   isExternal: true
-  name: IEquatable<>
-  nameWithType: IEquatable<>
-  fullName: IEquatable<>
-  nameWithType.vb: IEquatable(Of )
-  fullName.vb: IEquatable(Of )
-  name.vb: IEquatable(Of )
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
   spec.csharp:
-  - uid: IEquatable`1
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: IEquatable`1
+  - uid: System.IEquatable`1
     name: IEquatable
     nameWithType: IEquatable
-    fullName: IEquatable
+    fullName: System.IEquatable
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
 - uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
   name: Single
   nameWithType: Single
   fullName: System.Single
+- uid: MathStructs.QuaternionF.#ctor*
+  commentId: Overload:MathStructs.QuaternionF.#ctor
+  name: QuaternionF
+  nameWithType: QuaternionF.QuaternionF
+  fullName: MathStructs.QuaternionF.QuaternionF
+- uid: MathStructs.Vector3F
+  commentId: T:MathStructs.Vector3F
+  parent: MathStructs
+  name: Vector3F
+  nameWithType: Vector3F
+  fullName: MathStructs.Vector3F
 - uid: MathStructs.QuaternionF.Identity*
   commentId: Overload:MathStructs.QuaternionF.Identity
   name: Identity
@@ -1925,33 +2273,392 @@ references:
   nameWithType: QuaternionF.IsIdentity
   fullName: MathStructs.QuaternionF.IsIdentity
 - uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
   isExternal: true
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: MathStructs.QuaternionF.#ctor*
-  commentId: Overload:MathStructs.QuaternionF.#ctor
-  name: QuaternionF
-  nameWithType: QuaternionF.QuaternionF
-  fullName: MathStructs.QuaternionF.QuaternionF
-- uid: MathStructs.Vector3F
-  commentId: T:MathStructs.Vector3F
+- uid: MathStructs.QuaternionF.Add*
+  commentId: Overload:MathStructs.QuaternionF.Add
+  name: Add
+  nameWithType: QuaternionF.Add
+  fullName: MathStructs.QuaternionF.Add
+- uid: MathStructs.QuaternionF.Concatenate*
+  commentId: Overload:MathStructs.QuaternionF.Concatenate
+  name: Concatenate
+  nameWithType: QuaternionF.Concatenate
+  fullName: MathStructs.QuaternionF.Concatenate
+- uid: MathStructs.QuaternionF.Conjugate*
+  commentId: Overload:MathStructs.QuaternionF.Conjugate
+  name: Conjugate
+  nameWithType: QuaternionF.Conjugate
+  fullName: MathStructs.QuaternionF.Conjugate
+- uid: MathStructs.QuaternionF.CreateFromAxisAngle*
+  commentId: Overload:MathStructs.QuaternionF.CreateFromAxisAngle
+  name: CreateFromAxisAngle
+  nameWithType: QuaternionF.CreateFromAxisAngle
+  fullName: MathStructs.QuaternionF.CreateFromAxisAngle
+- uid: MathStructs.QuaternionF.CreateFromRotationMatrix*
+  commentId: Overload:MathStructs.QuaternionF.CreateFromRotationMatrix
+  name: CreateFromRotationMatrix
+  nameWithType: QuaternionF.CreateFromRotationMatrix
+  fullName: MathStructs.QuaternionF.CreateFromRotationMatrix
+- uid: MathStructs.Matrix4x4F
+  commentId: T:MathStructs.Matrix4x4F
   parent: MathStructs
-  name: Vector3F
-  nameWithType: Vector3F
-  fullName: MathStructs.Vector3F
+  name: Matrix4x4F
+  nameWithType: Matrix4x4F
+  fullName: MathStructs.Matrix4x4F
+- uid: MathStructs.QuaternionF.CreateFromYawPitchRoll*
+  commentId: Overload:MathStructs.QuaternionF.CreateFromYawPitchRoll
+  name: CreateFromYawPitchRoll
+  nameWithType: QuaternionF.CreateFromYawPitchRoll
+  fullName: MathStructs.QuaternionF.CreateFromYawPitchRoll
+- uid: MathStructs.QuaternionF.Divide*
+  commentId: Overload:MathStructs.QuaternionF.Divide
+  name: Divide
+  nameWithType: QuaternionF.Divide
+  fullName: MathStructs.QuaternionF.Divide
+- uid: MathStructs.QuaternionF.Dot*
+  commentId: Overload:MathStructs.QuaternionF.Dot
+  name: Dot
+  nameWithType: QuaternionF.Dot
+  fullName: MathStructs.QuaternionF.Dot
+- uid: MathStructs.QuaternionF.Inverse*
+  commentId: Overload:MathStructs.QuaternionF.Inverse
+  name: Inverse
+  nameWithType: QuaternionF.Inverse
+  fullName: MathStructs.QuaternionF.Inverse
+- uid: MathStructs.QuaternionF.Lerp*
+  commentId: Overload:MathStructs.QuaternionF.Lerp
+  name: Lerp
+  nameWithType: QuaternionF.Lerp
+  fullName: MathStructs.QuaternionF.Lerp
+- uid: MathStructs.QuaternionF.Multiply*
+  commentId: Overload:MathStructs.QuaternionF.Multiply
+  name: Multiply
+  nameWithType: QuaternionF.Multiply
+  fullName: MathStructs.QuaternionF.Multiply
+- uid: MathStructs.QuaternionF.Negate*
+  commentId: Overload:MathStructs.QuaternionF.Negate
+  name: Negate
+  nameWithType: QuaternionF.Negate
+  fullName: MathStructs.QuaternionF.Negate
+- uid: MathStructs.QuaternionF.Normalize*
+  commentId: Overload:MathStructs.QuaternionF.Normalize
+  name: Normalize
+  nameWithType: QuaternionF.Normalize
+  fullName: MathStructs.QuaternionF.Normalize
+- uid: MathStructs.QuaternionF.op_UnaryNegation*
+  commentId: Overload:MathStructs.QuaternionF.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: QuaternionF.UnaryNegation
+  fullName: MathStructs.QuaternionF.UnaryNegation
+- uid: MathStructs.QuaternionF.op_Subtraction*
+  commentId: Overload:MathStructs.QuaternionF.op_Subtraction
+  name: Subtraction
+  nameWithType: QuaternionF.Subtraction
+  fullName: MathStructs.QuaternionF.Subtraction
+- uid: MathStructs.QuaternionF.op_Inequality*
+  commentId: Overload:MathStructs.QuaternionF.op_Inequality
+  name: Inequality
+  nameWithType: QuaternionF.Inequality
+  fullName: MathStructs.QuaternionF.Inequality
+- uid: MathStructs.QuaternionF.op_Multiply*
+  commentId: Overload:MathStructs.QuaternionF.op_Multiply
+  name: Multiply
+  nameWithType: QuaternionF.Multiply
+  fullName: MathStructs.QuaternionF.Multiply
+- uid: MathStructs.QuaternionF.op_Division*
+  commentId: Overload:MathStructs.QuaternionF.op_Division
+  name: Division
+  nameWithType: QuaternionF.Division
+  fullName: MathStructs.QuaternionF.Division
+- uid: MathStructs.QuaternionF.op_UnaryPlus*
+  commentId: Overload:MathStructs.QuaternionF.op_UnaryPlus
+  name: UnaryPlus
+  nameWithType: QuaternionF.UnaryPlus
+  fullName: MathStructs.QuaternionF.UnaryPlus
+- uid: MathStructs.QuaternionF.op_Addition*
+  commentId: Overload:MathStructs.QuaternionF.op_Addition
+  name: Addition
+  nameWithType: QuaternionF.Addition
+  fullName: MathStructs.QuaternionF.Addition
+- uid: MathStructs.QuaternionF.op_Equality*
+  commentId: Overload:MathStructs.QuaternionF.op_Equality
+  name: Equality
+  nameWithType: QuaternionF.Equality
+  fullName: MathStructs.QuaternionF.Equality
+- uid: MathStructs.QuaternionF.Slerp*
+  commentId: Overload:MathStructs.QuaternionF.Slerp
+  name: Slerp
+  nameWithType: QuaternionF.Slerp
+  fullName: MathStructs.QuaternionF.Slerp
+- uid: MathStructs.QuaternionF.Subtract*
+  commentId: Overload:MathStructs.QuaternionF.Subtract
+  name: Subtract
+  nameWithType: QuaternionF.Subtract
+  fullName: MathStructs.QuaternionF.Subtract
 - uid: MathStructs.QuaternionF.Deconstruct*
   commentId: Overload:MathStructs.QuaternionF.Deconstruct
   name: Deconstruct
   nameWithType: QuaternionF.Deconstruct
   fullName: MathStructs.QuaternionF.Deconstruct
+- uid: MathStructs.QuaternionF.Equals*
+  commentId: Overload:MathStructs.QuaternionF.Equals
+  name: Equals
+  nameWithType: QuaternionF.Equals
+  fullName: MathStructs.QuaternionF.Equals
+- uid: System.IEquatable{MathStructs.QuaternionF}.Equals(MathStructs.QuaternionF)
+  commentId: M:System.IEquatable{MathStructs.QuaternionF}.Equals(MathStructs.QuaternionF)
+  parent: System.IEquatable{MathStructs.QuaternionF}
+  definition: System.IEquatable`1.Equals(`0)
+  name: Equals(QuaternionF)
+  nameWithType: IEquatable<QuaternionF>.Equals(QuaternionF)
+  fullName: System.IEquatable<MathStructs.QuaternionF>.Equals(MathStructs.QuaternionF)
+  nameWithType.vb: IEquatable(Of QuaternionF).Equals(QuaternionF)
+  fullName.vb: System.IEquatable(Of MathStructs.QuaternionF).Equals(MathStructs.QuaternionF)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable<QuaternionF>.Equals
+    fullName: System.IEquatable<MathStructs.QuaternionF>.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MathStructs.QuaternionF
+    name: QuaternionF
+    nameWithType: QuaternionF
+    fullName: MathStructs.QuaternionF
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable(Of QuaternionF).Equals
+    fullName: System.IEquatable(Of MathStructs.QuaternionF).Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: MathStructs.QuaternionF
+    name: QuaternionF
+    nameWithType: QuaternionF
+    fullName: MathStructs.QuaternionF
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable<T>.Equals
+    fullName: System.IEquatable<T>.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    nameWithType: IEquatable(Of T).Equals
+    fullName: System.IEquatable(Of T).Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.QuaternionF.GetHashCode*
+  commentId: Overload:MathStructs.QuaternionF.GetHashCode
+  name: GetHashCode
+  nameWithType: QuaternionF.GetHashCode
+  fullName: MathStructs.QuaternionF.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: MathStructs.QuaternionF.LengthSquared
+  commentId: M:MathStructs.QuaternionF.LengthSquared
+  isExternal: true
+- uid: MathStructs.QuaternionF.Length*
+  commentId: Overload:MathStructs.QuaternionF.Length
+  name: Length
+  nameWithType: QuaternionF.Length
+  fullName: MathStructs.QuaternionF.Length
+- uid: MathStructs.QuaternionF.Length
+  commentId: M:MathStructs.QuaternionF.Length
+  isExternal: true
+- uid: MathStructs.QuaternionF.LengthSquared*
+  commentId: Overload:MathStructs.QuaternionF.LengthSquared
+  name: LengthSquared
+  nameWithType: QuaternionF.LengthSquared
+  fullName: MathStructs.QuaternionF.LengthSquared
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: MathStructs.QuaternionF.ToString*
+  commentId: Overload:MathStructs.QuaternionF.ToString
+  name: ToString
+  nameWithType: QuaternionF.ToString
+  fullName: MathStructs.QuaternionF.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: MathStructs.QuaternionF.X
+  commentId: F:MathStructs.QuaternionF.X
+  isExternal: true
+- uid: MathStructs.QuaternionF.Y
+  commentId: F:MathStructs.QuaternionF.Y
+  isExternal: true
+- uid: MathStructs.QuaternionF.Z
+  commentId: F:MathStructs.QuaternionF.Z
+  isExternal: true
+- uid: MathStructs.QuaternionF.W
+  commentId: F:MathStructs.QuaternionF.W
+  isExternal: true
 - uid: MathStructs.QuaternionF.With*
   commentId: Overload:MathStructs.QuaternionF.With
   name: With
   nameWithType: QuaternionF.With
   fullName: MathStructs.QuaternionF.With
 - uid: System.Nullable{System.Single}
-  commentId: '!:System.Nullable{System.Single}'
+  commentId: T:System.Nullable{System.Single}
+  parent: System
   definition: System.Nullable`1
   name: Nullable<Single>
   nameWithType: Nullable<Single>
@@ -1994,13 +2701,14 @@ references:
     nameWithType: )
     fullName: )
 - uid: System.Nullable`1
+  commentId: T:System.Nullable`1
   isExternal: true
-  name: Nullable<>
-  nameWithType: Nullable<>
-  fullName: System.Nullable<>
-  nameWithType.vb: Nullable(Of )
-  fullName.vb: System.Nullable(Of )
-  name.vb: Nullable(Of )
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
   spec.csharp:
   - uid: System.Nullable`1
     name: Nullable
@@ -2010,9 +2718,9 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -2025,208 +2733,9 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - name: ''
-    nameWithType: ''
-    fullName: ''
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )
-- uid: MathStructs.QuaternionF.Length*
-  commentId: Overload:MathStructs.QuaternionF.Length
-  name: Length
-  nameWithType: QuaternionF.Length
-  fullName: MathStructs.QuaternionF.Length
-- uid: MathStructs.QuaternionF.LengthSquared*
-  commentId: Overload:MathStructs.QuaternionF.LengthSquared
-  name: LengthSquared
-  nameWithType: QuaternionF.LengthSquared
-  fullName: MathStructs.QuaternionF.LengthSquared
-- uid: MathStructs.QuaternionF.Normalize*
-  commentId: Overload:MathStructs.QuaternionF.Normalize
-  name: Normalize
-  nameWithType: QuaternionF.Normalize
-  fullName: MathStructs.QuaternionF.Normalize
-- uid: MathStructs.QuaternionF.Conjugate*
-  commentId: Overload:MathStructs.QuaternionF.Conjugate
-  name: Conjugate
-  nameWithType: QuaternionF.Conjugate
-  fullName: MathStructs.QuaternionF.Conjugate
-- uid: MathStructs.QuaternionF.Inverse*
-  commentId: Overload:MathStructs.QuaternionF.Inverse
-  name: Inverse
-  nameWithType: QuaternionF.Inverse
-  fullName: MathStructs.QuaternionF.Inverse
-- uid: MathStructs.QuaternionF.CreateFromAxisAngle*
-  commentId: Overload:MathStructs.QuaternionF.CreateFromAxisAngle
-  name: CreateFromAxisAngle
-  nameWithType: QuaternionF.CreateFromAxisAngle
-  fullName: MathStructs.QuaternionF.CreateFromAxisAngle
-- uid: MathStructs.QuaternionF.CreateFromYawPitchRoll*
-  commentId: Overload:MathStructs.QuaternionF.CreateFromYawPitchRoll
-  name: CreateFromYawPitchRoll
-  nameWithType: QuaternionF.CreateFromYawPitchRoll
-  fullName: MathStructs.QuaternionF.CreateFromYawPitchRoll
-- uid: MathStructs.QuaternionF.CreateFromRotationMatrix*
-  commentId: Overload:MathStructs.QuaternionF.CreateFromRotationMatrix
-  name: CreateFromRotationMatrix
-  nameWithType: QuaternionF.CreateFromRotationMatrix
-  fullName: MathStructs.QuaternionF.CreateFromRotationMatrix
-- uid: MathStructs.Matrix4x4F
-  commentId: T:MathStructs.Matrix4x4F
-  parent: MathStructs
-  name: Matrix4x4F
-  nameWithType: Matrix4x4F
-  fullName: MathStructs.Matrix4x4F
-- uid: MathStructs.QuaternionF.Dot*
-  commentId: Overload:MathStructs.QuaternionF.Dot
-  name: Dot
-  nameWithType: QuaternionF.Dot
-  fullName: MathStructs.QuaternionF.Dot
-- uid: MathStructs.QuaternionF.Slerp*
-  commentId: Overload:MathStructs.QuaternionF.Slerp
-  name: Slerp
-  nameWithType: QuaternionF.Slerp
-  fullName: MathStructs.QuaternionF.Slerp
-- uid: MathStructs.QuaternionF.Lerp*
-  commentId: Overload:MathStructs.QuaternionF.Lerp
-  name: Lerp
-  nameWithType: QuaternionF.Lerp
-  fullName: MathStructs.QuaternionF.Lerp
-- uid: MathStructs.QuaternionF.Concatenate*
-  commentId: Overload:MathStructs.QuaternionF.Concatenate
-  name: Concatenate
-  nameWithType: QuaternionF.Concatenate
-  fullName: MathStructs.QuaternionF.Concatenate
-- uid: MathStructs.QuaternionF.Negate*
-  commentId: Overload:MathStructs.QuaternionF.Negate
-  name: Negate
-  nameWithType: QuaternionF.Negate
-  fullName: MathStructs.QuaternionF.Negate
-- uid: MathStructs.QuaternionF.Add*
-  commentId: Overload:MathStructs.QuaternionF.Add
-  name: Add
-  nameWithType: QuaternionF.Add
-  fullName: MathStructs.QuaternionF.Add
-- uid: MathStructs.QuaternionF.Subtract*
-  commentId: Overload:MathStructs.QuaternionF.Subtract
-  name: Subtract
-  nameWithType: QuaternionF.Subtract
-  fullName: MathStructs.QuaternionF.Subtract
-- uid: MathStructs.QuaternionF.Multiply*
-  commentId: Overload:MathStructs.QuaternionF.Multiply
-  name: Multiply
-  nameWithType: QuaternionF.Multiply
-  fullName: MathStructs.QuaternionF.Multiply
-- uid: MathStructs.QuaternionF.Divide*
-  commentId: Overload:MathStructs.QuaternionF.Divide
-  name: Divide
-  nameWithType: QuaternionF.Divide
-  fullName: MathStructs.QuaternionF.Divide
-- uid: MathStructs.QuaternionF.op_UnaryPlus*
-  commentId: Overload:MathStructs.QuaternionF.op_UnaryPlus
-  name: UnaryPlus
-  nameWithType: QuaternionF.UnaryPlus
-  fullName: MathStructs.QuaternionF.UnaryPlus
-- uid: MathStructs.QuaternionF.op_UnaryNegation*
-  commentId: Overload:MathStructs.QuaternionF.op_UnaryNegation
-  name: UnaryNegation
-  nameWithType: QuaternionF.UnaryNegation
-  fullName: MathStructs.QuaternionF.UnaryNegation
-- uid: MathStructs.QuaternionF.op_Addition*
-  commentId: Overload:MathStructs.QuaternionF.op_Addition
-  name: Addition
-  nameWithType: QuaternionF.Addition
-  fullName: MathStructs.QuaternionF.Addition
-- uid: MathStructs.QuaternionF.op_Subtraction*
-  commentId: Overload:MathStructs.QuaternionF.op_Subtraction
-  name: Subtraction
-  nameWithType: QuaternionF.Subtraction
-  fullName: MathStructs.QuaternionF.Subtraction
-- uid: MathStructs.QuaternionF.op_Multiply*
-  commentId: Overload:MathStructs.QuaternionF.op_Multiply
-  name: Multiply
-  nameWithType: QuaternionF.Multiply
-  fullName: MathStructs.QuaternionF.Multiply
-- uid: MathStructs.QuaternionF.op_Division*
-  commentId: Overload:MathStructs.QuaternionF.op_Division
-  name: Division
-  nameWithType: QuaternionF.Division
-  fullName: MathStructs.QuaternionF.Division
-- uid: MathStructs.QuaternionF.op_Equality*
-  commentId: Overload:MathStructs.QuaternionF.op_Equality
-  name: Equality
-  nameWithType: QuaternionF.Equality
-  fullName: MathStructs.QuaternionF.Equality
-- uid: MathStructs.QuaternionF.op_Inequality*
-  commentId: Overload:MathStructs.QuaternionF.op_Inequality
-  name: Inequality
-  nameWithType: QuaternionF.Inequality
-  fullName: MathStructs.QuaternionF.Inequality
-- uid: MathStructs.QuaternionF.Equals*
-  commentId: Overload:MathStructs.QuaternionF.Equals
-  name: Equals
-  nameWithType: QuaternionF.Equals
-  fullName: MathStructs.QuaternionF.Equals
-- uid: System.Nullable{System.Object}
-  commentId: '!:System.Nullable{System.Object}'
-  definition: System.Nullable`1
-  name: Nullable<Object>
-  nameWithType: Nullable<Object>
-  fullName: System.Nullable<System.Object>
-  nameWithType.vb: Nullable(Of Object)
-  fullName.vb: System.Nullable(Of System.Object)
-  name.vb: Nullable(Of Object)
-  spec.csharp:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Nullable`1
-    name: Nullable
-    nameWithType: Nullable
-    fullName: System.Nullable
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.Object
-    name: Object
-    nameWithType: Object
-    fullName: System.Object
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: MathStructs.QuaternionF.ToString*
-  commentId: Overload:MathStructs.QuaternionF.ToString
-  name: ToString
-  nameWithType: QuaternionF.ToString
-  fullName: MathStructs.QuaternionF.ToString
-- uid: System.String
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
-- uid: MathStructs.QuaternionF.GetHashCode*
-  commentId: Overload:MathStructs.QuaternionF.GetHashCode
-  name: GetHashCode
-  nameWithType: QuaternionF.GetHashCode
-  fullName: MathStructs.QuaternionF.GetHashCode
-- uid: System.Int32
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32

@@ -3,174 +3,42 @@
 using NUnit.Framework;
 
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tests
 {
     public class QuaternionFFTests
     {
-        // A test for Dot (QuaternionF, QuaternionF)
+        #region Public Methods
+
+        // A test for operator + (QuaternionF, QuaternionF)
         [Test]
-        public void QuaternionFDotTest()
+        public void QuaternionFAdditionTest()
         {
             QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
             QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
 
-            float expected = 70.0f;
-            float actual;
-
-            actual = QuaternionF.Dot(a, b);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Dot did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Length ()
-        [Test]
-        public void QuaternionFLengthTest()
-        {
-            Vector3F v = new Vector3F(1.0f, 2.0f, 3.0f);
-
-            float w = 4.0f;
-
-            QuaternionF target = new QuaternionF(v, w);
-
-            float expected = 5.477226f;
-            float actual;
-
-            actual = target.Length();
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Length did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for LengthSquared ()
-        [Test]
-        public void QuaternionFLengthSquaredTest()
-        {
-            Vector3F v = new Vector3F(1.0f, 2.0f, 3.0f);
-            float w = 4.0f;
-
-            QuaternionF target = new QuaternionF(v, w);
-
-            float expected = 30.0f;
-            float actual;
-
-            actual = target.LengthSquared();
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.LengthSquared did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Lerp (QuaternionF, QuaternionF, float)
-        [Test]
-        public void QuaternionFLerpTest()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 0.5f;
-
-            QuaternionF expected = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(20.0f));
+            QuaternionF expected = new QuaternionF(6.0f, 8.0f, 10.0f, 12.0f);
             QuaternionF actual;
 
-            actual = QuaternionF.Lerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
+            actual = a + b;
 
-            // Case a and b are same.
-            expected = a;
-            actual = QuaternionF.Lerp(a, a, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator + did not return the expected value: expected {expected} actual {actual}");
         }
 
-        // A test for Lerp (QuaternionF, QuaternionF, float)
-        // Lerp test when t = 0
+        // A test for Add (QuaternionF, QuaternionF)
         [Test]
-        public void QuaternionFLerpTest1()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 0.0f;
-
-            QuaternionF expected = new QuaternionF(a.X, a.Y, a.Z, a.W);
-            QuaternionF actual = QuaternionF.Lerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Lerp (QuaternionF, QuaternionF, float)
-        // Lerp test when t = 1
-        [Test]
-        public void QuaternionFLerpTest2()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 1.0f;
-
-            QuaternionF expected = new QuaternionF(b.X, b.Y, b.Z, b.W);
-            QuaternionF actual = QuaternionF.Lerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Lerp (QuaternionF, QuaternionF, float)
-        // Lerp test when the two QuaternionFs are more than 90 degree (dot product <0)
-        [Test]
-        public void QuaternionFLerpTest3()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.Negate(a);
-
-            float t = 1.0f;
-
-            QuaternionF actual = QuaternionF.Lerp(a, b, t);
-            // Note that in QuaternionF world, Q == -Q. In the case of QuaternionFs dot product is zero,
-            // one of the QuaternionF will be flipped to compute the shortest distance. When t = 1, we
-            // expect the result to be the same as QuaternionF b but flipped.
-            Assert.True(actual == a, $"QuaternionF.Lerp did not return the expected value: expected {a} actual {actual}");
-        }
-
-        // A test for Conjugate(QuaternionF)
-        [Test]
-        public void QuaternionFConjugateTest1()
-        {
-            QuaternionF a = new QuaternionF(1, 2, 3, 4);
-
-            QuaternionF expected = new QuaternionF(-1, -2, -3, 4);
-            QuaternionF actual;
-
-            actual = QuaternionF.Conjugate(a);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Conjugate did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Normalize (QuaternionF)
-        [Test]
-        public void QuaternionFNormalizeTest()
+        public void QuaternionFAddTest()
         {
             QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
 
-            QuaternionF expected = new QuaternionF(0.182574168f, 0.365148336f, 0.5477225f, 0.7302967f);
+            QuaternionF expected = new QuaternionF(6.0f, 8.0f, 10.0f, 12.0f);
             QuaternionF actual;
 
-            actual = QuaternionF.Normalize(a);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Normalize did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Normalize (QuaternionF)
-        // Normalize zero length QuaternionF
-        [Test]
-        public void QuaternionFNormalizeTest1()
-        {
-            QuaternionF a = new QuaternionF(0.0f, 0.0f, -0.0f, 0.0f);
-
-            QuaternionF actual = QuaternionF.Normalize(a);
-            Assert.True(float.IsNaN(actual.X) && float.IsNaN(actual.Y) && float.IsNaN(actual.Z) && float.IsNaN(actual.W)
-                , $"QuaternionF.Normalize did not return the expected value: expected {new QuaternionF(float.NaN, float.NaN, float.NaN, float.NaN)} actual {actual}");
+            actual = QuaternionF.Add(a, b);
+            Assert.AreEqual(expected, actual);
         }
 
         // A test for Concatenate(QuaternionF, QuaternionF)
@@ -187,79 +55,17 @@ namespace Tests
             Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Concatenate did not return the expected value: expected {expected} actual {actual}");
         }
 
-        // A test for operator - (QuaternionF, QuaternionF)
+        // A test for Conjugate(QuaternionF)
         [Test]
-        public void QuaternionFSubtractionTest()
+        public void QuaternionFConjugateTest1()
         {
-            QuaternionF a = new QuaternionF(1.0f, 6.0f, 7.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 2.0f, 3.0f, 8.0f);
+            QuaternionF a = new QuaternionF(1, 2, 3, 4);
 
-            QuaternionF expected = new QuaternionF(-4.0f, 4.0f, 4.0f, -4.0f);
+            QuaternionF expected = new QuaternionF(-1, -2, -3, 4);
             QuaternionF actual;
 
-            actual = a - b;
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator - did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for operator * (QuaternionF, float)
-        [Test]
-        public void QuaternionFMultiplyTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            float Testor = 0.5f;
-
-            QuaternionF expected = new QuaternionF(0.5f, 1.0f, 1.5f, 2.0f);
-            QuaternionF actual;
-
-            actual = a * Testor;
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator * did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for operator * (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFMultiplyTest1()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(24.0f, 48.0f, 48.0f, -6.0f);
-            QuaternionF actual;
-
-            actual = a * b;
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator * did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for operator / (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFDivisionTest1()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(-0.045977015f, -0.09195402f, -7.450581E-9f, 0.402298868f);
-            QuaternionF actual;
-
-            actual = a / b;
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator / did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for operator + (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFAdditionTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(6.0f, 8.0f, 10.0f, 12.0f);
-            QuaternionF actual;
-
-            actual = a + b;
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator + did not return the expected value: expected {expected} actual {actual}");
+            actual = QuaternionF.Conjugate(a);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Conjugate did not return the expected value: expected {expected} actual {actual}");
         }
 
         // A test for QuaternionF (float, float, float, float)
@@ -393,162 +199,6 @@ namespace Tests
             }
         }
 
-        // A test for Slerp (QuaternionF, QuaternionF, float)
-        [Test]
-        public void QuaternionFSlerpTest()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 0.5f;
-
-            QuaternionF expected = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(20.0f));
-            QuaternionF actual;
-
-            actual = QuaternionF.Slerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
-
-            // Case a and b are same.
-            expected = a;
-            actual = QuaternionF.Slerp(a, a, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Slerp (QuaternionF, QuaternionF, float)
-        // Slerp test where t = 0
-        [Test]
-        public void QuaternionFSlerpTest1()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 0.0f;
-
-            QuaternionF expected = new QuaternionF(a.X, a.Y, a.Z, a.W);
-            QuaternionF actual = QuaternionF.Slerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Slerp (QuaternionF, QuaternionF, float)
-        // Slerp test where t = 1
-        [Test]
-        public void QuaternionFSlerpTest2()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 1.0f;
-
-            QuaternionF expected = new QuaternionF(b.X, b.Y, b.Z, b.W);
-            QuaternionF actual = QuaternionF.Slerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Slerp (QuaternionF, QuaternionF, float)
-        // Slerp test where dot product is < 0
-        [Test]
-        public void QuaternionFSlerpTest3()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = -a;
-
-            float t = 1.0f;
-
-            QuaternionF expected = a;
-            QuaternionF actual = QuaternionF.Slerp(a, b, t);
-            // Note that in QuaternionF world, Q == -Q. In the case of QuaternionFs dot product is zero,
-            // one of the QuaternionF will be flipped to compute the shortest distance. When t = 1, we
-            // expect the result to be the same as QuaternionF b but flipped.
-            Assert.True(actual == expected, $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Slerp (QuaternionF, QuaternionF, float)
-        // Slerp test where the QuaternionF is flipped
-        [Test]
-        public void QuaternionFSlerpTest4()
-        {
-            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
-            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
-            QuaternionF b = -QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
-
-            float t = 0.0f;
-
-            QuaternionF expected = new QuaternionF(a.X, a.Y, a.Z, a.W);
-            QuaternionF actual = QuaternionF.Slerp(a, b, t);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for operator - (QuaternionF)
-        [Test]
-        public void QuaternionFUnaryNegationTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-
-            QuaternionF expected = new QuaternionF(-1.0f, -2.0f, -3.0f, -4.0f);
-            QuaternionF actual;
-
-            actual = -a;
-
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator - did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Inverse (QuaternionF)
-        [Test]
-        public void QuaternionFInverseTest()
-        {
-            QuaternionF a = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(-0.0287356321f, -0.03448276f, -0.0402298868f, 0.04597701f);
-            QuaternionF actual;
-
-            actual = QuaternionF.Inverse(a);
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for Inverse (QuaternionF)
-        // Invert zero length QuaternionF
-        [Test]
-        public void QuaternionFInverseTest1()
-        {
-            QuaternionF a = new QuaternionF();
-            QuaternionF actual = QuaternionF.Inverse(a);
-
-            Assert.True(float.IsNaN(actual.X) && float.IsNaN(actual.Y) && float.IsNaN(actual.Z) && float.IsNaN(actual.W)
-                , $"QuaternionF.Inverse - did not return the expected value: expected {new QuaternionF(float.NaN, float.NaN, float.NaN, float.NaN)} actual {actual}");
-        }
-
-        // A test for ToString ()
-        [Test]
-        public void QuaternionFToStringTest()
-        {
-            QuaternionF target = new QuaternionF(-1.0f, 2.2f, 3.3f, -4.4f);
-
-            string expected = string.Format(CultureInfo.CurrentCulture
-                , "{{X:{0} Y:{1} Z:{2} W:{3}}}"
-                , -1.0f, 2.2f, 3.3f, -4.4f);
-
-            string actual = target.ToString();
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for Add (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFAddTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(6.0f, 8.0f, 10.0f, 12.0f);
-            QuaternionF actual;
-
-            actual = QuaternionF.Add(a, b);
-            Assert.AreEqual(expected, actual);
-        }
-
         // A test for Divide (QuaternionF, QuaternionF)
         [Test]
         public void QuaternionFDivideTest()
@@ -561,6 +211,90 @@ namespace Tests
 
             actual = QuaternionF.Divide(a, b);
             Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Divide did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for operator / (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFDivisionTest1()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
+
+            QuaternionF expected = new QuaternionF(-0.045977015f, -0.09195402f, -7.450581E-9f, 0.402298868f);
+            QuaternionF actual;
+
+            actual = a / b;
+
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator / did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Dot (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFDotTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
+
+            float expected = 70.0f;
+            float actual;
+
+            actual = QuaternionF.Dot(a, b);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Dot did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for operator == (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFEqualityTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            // case 1: compare between same values
+            bool expected = true;
+            bool actual = a == b;
+            Assert.AreEqual(expected, actual);
+
+            // case 2: compare between different values
+            b.X = 10.0f;
+            expected = false;
+            actual = a == b;
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test for QuaternionF comparison involving NaN values
+        [Test]
+        public void QuaternionFEqualsNanTest()
+        {
+            QuaternionF a = new QuaternionF(float.NaN, 0, 0, 0);
+            QuaternionF b = new QuaternionF(0, float.NaN, 0, 0);
+            QuaternionF c = new QuaternionF(0, 0, float.NaN, 0);
+            QuaternionF d = new QuaternionF(0, 0, 0, float.NaN);
+
+            Assert.False(a == new QuaternionF(0, 0, 0, 0));
+            Assert.False(b == new QuaternionF(0, 0, 0, 0));
+            Assert.False(c == new QuaternionF(0, 0, 0, 0));
+            Assert.False(d == new QuaternionF(0, 0, 0, 0));
+
+            Assert.True(a != new QuaternionF(0, 0, 0, 0));
+            Assert.True(b != new QuaternionF(0, 0, 0, 0));
+            Assert.True(c != new QuaternionF(0, 0, 0, 0));
+            Assert.True(d != new QuaternionF(0, 0, 0, 0));
+
+            Assert.False(a.Equals(new QuaternionF(0, 0, 0, 0)));
+            Assert.False(b.Equals(new QuaternionF(0, 0, 0, 0)));
+            Assert.False(c.Equals(new QuaternionF(0, 0, 0, 0)));
+            Assert.False(d.Equals(new QuaternionF(0, 0, 0, 0)));
+
+            Assert.False(a.IsIdentity);
+            Assert.False(b.IsIdentity);
+            Assert.False(c.IsIdentity);
+            Assert.False(d.IsIdentity);
+
+            // Counterintuitive result - IEEE rules for NaN comparison are weird!
+            Assert.False(a.Equals(a));
+            Assert.False(b.Equals(b));
+            Assert.False(c.Equals(c));
+            Assert.False(d.Equals(d));
         }
 
         // A test for Equals (object)
@@ -597,108 +331,40 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for GetHashCode ()
+        // A test for Equals (QuaternionF)
         [Test]
-        public void QuaternionFGetHashCodeTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-
-            int expected = unchecked(a.X.GetHashCode() + a.Y.GetHashCode() + a.Z.GetHashCode() + a.W.GetHashCode());
-            int actual = a.GetHashCode();
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for Multiply (QuaternionF, float)
-        [Test]
-        public void QuaternionFMultiplyTest2()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            float Testor = 0.5f;
-
-            QuaternionF expected = new QuaternionF(0.5f, 1.0f, 1.5f, 2.0f);
-            QuaternionF actual;
-
-            actual = QuaternionF.Multiply(a, Testor);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Multiply did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Multiply (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFMultiplyTest3()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(24.0f, 48.0f, 48.0f, -6.0f);
-            QuaternionF actual;
-
-            actual = QuaternionF.Multiply(a, b);
-            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Multiply did not return the expected value: expected {expected} actual {actual}");
-        }
-
-        // A test for Negate (QuaternionF)
-        [Test]
-        public void QuaternionFNegateTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-
-            QuaternionF expected = new QuaternionF(-1.0f, -2.0f, -3.0f, -4.0f);
-            QuaternionF actual;
-
-            actual = QuaternionF.Negate(a);
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for Subtract (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFSubtractTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 6.0f, 7.0f, 4.0f);
-            QuaternionF b = new QuaternionF(5.0f, 2.0f, 3.0f, 8.0f);
-
-            QuaternionF expected = new QuaternionF(-4.0f, 4.0f, 4.0f, -4.0f);
-            QuaternionF actual;
-
-            actual = QuaternionF.Subtract(a, b);
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for operator != (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFInequalityTest()
-        {
-            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-
-            // case 1: compare between same values
-            bool expected = false;
-            bool actual = a != b;
-            Assert.AreEqual(expected, actual);
-
-            // case 2: compare between different values
-            b.X = 10.0f;
-            expected = true;
-            actual = a != b;
-            Assert.AreEqual(expected, actual);
-        }
-
-        // A test for operator == (QuaternionF, QuaternionF)
-        [Test]
-        public void QuaternionFEqualityTest()
+        public void QuaternionFEqualsTest1()
         {
             QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
             QuaternionF b = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
 
             // case 1: compare between same values
             bool expected = true;
-            bool actual = a == b;
+            bool actual = a.Equals(b);
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
             b.X = 10.0f;
             expected = false;
-            actual = a == b;
+            actual = a.Equals(b);
             Assert.AreEqual(expected, actual);
+        }
+
+        // A test to make sure the fields are laid out how we expect
+        [Test]
+        public unsafe void QuaternionFFieldOffsetTest()
+        {
+            QuaternionF quat = new QuaternionF();
+
+            float* basePtr = &quat.X; // Take address of first element
+            QuaternionF* quatPtr = &quat; // Take address of whole QuaternionF
+
+            Assert.AreEqual(new IntPtr(basePtr), new IntPtr(quatPtr));
+
+            Assert.AreEqual(new IntPtr(basePtr + 0), new IntPtr(&quat.X));
+            Assert.AreEqual(new IntPtr(basePtr + 1), new IntPtr(&quat.Y));
+            Assert.AreEqual(new IntPtr(basePtr + 2), new IntPtr(&quat.Z));
+            Assert.AreEqual(new IntPtr(basePtr + 3), new IntPtr(&quat.W));
         }
 
         // A test for CreateFromRotationMatrix (Matrix4x4F)
@@ -864,22 +530,14 @@ namespace Tests
                 $"QuaternionF.CreateFromQuaternionF did not return the expected value: matrix {matrix} m2 {m2}");
         }
 
-        // A test for Equals (QuaternionF)
+        // A test for GetHashCode ()
         [Test]
-        public void QuaternionFEqualsTest1()
+        public void QuaternionFGetHashCodeTest()
         {
             QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
-            QuaternionF b = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
 
-            // case 1: compare between same values
-            bool expected = true;
-            bool actual = a.Equals(b);
-            Assert.AreEqual(expected, actual);
-
-            // case 2: compare between different values
-            b.X = 10.0f;
-            expected = false;
-            actual = a.Equals(b);
+            int expected = unchecked(a.X.GetHashCode() + a.Y.GetHashCode() + a.Z.GetHashCode() + a.W.GetHashCode());
+            int actual = a.GetHashCode();
             Assert.AreEqual(expected, actual);
         }
 
@@ -889,6 +547,50 @@ namespace Tests
         {
             QuaternionF val = new QuaternionF(0, 0, 0, 1);
             Assert.AreEqual(val, QuaternionF.Identity);
+        }
+
+        // A test for operator != (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFInequalityTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            // case 1: compare between same values
+            bool expected = false;
+            bool actual = a != b;
+            Assert.AreEqual(expected, actual);
+
+            // case 2: compare between different values
+            b.X = 10.0f;
+            expected = true;
+            actual = a != b;
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test for Inverse (QuaternionF)
+        [Test]
+        public void QuaternionFInverseTest()
+        {
+            QuaternionF a = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
+
+            QuaternionF expected = new QuaternionF(-0.0287356321f, -0.03448276f, -0.0402298868f, 0.04597701f);
+            QuaternionF actual;
+
+            actual = QuaternionF.Inverse(a);
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test for Inverse (QuaternionF)
+        // Invert zero length QuaternionF
+        [Test]
+        public void QuaternionFInverseTest1()
+        {
+            QuaternionF a = new QuaternionF();
+            QuaternionF actual = QuaternionF.Inverse(a);
+
+            Assert.True(float.IsNaN(actual.X) && float.IsNaN(actual.Y) && float.IsNaN(actual.Z) && float.IsNaN(actual.W)
+                , $"QuaternionF.Inverse - did not return the expected value: expected {new QuaternionF(float.NaN, float.NaN, float.NaN, float.NaN)} actual {actual}");
         }
 
         // A test for IsIdentity
@@ -903,40 +605,207 @@ namespace Tests
             Assert.False(new QuaternionF(0, 0, 0, 0).IsIdentity);
         }
 
-        // A test for QuaternionF comparison involving NaN values
+        // A test for LengthSquared ()
         [Test]
-        public void QuaternionFEqualsNanTest()
+        public void QuaternionFLengthSquaredTest()
         {
-            QuaternionF a = new QuaternionF(float.NaN, 0, 0, 0);
-            QuaternionF b = new QuaternionF(0, float.NaN, 0, 0);
-            QuaternionF c = new QuaternionF(0, 0, float.NaN, 0);
-            QuaternionF d = new QuaternionF(0, 0, 0, float.NaN);
+            Vector3F v = new Vector3F(1.0f, 2.0f, 3.0f);
+            float w = 4.0f;
 
-            Assert.False(a == new QuaternionF(0, 0, 0, 0));
-            Assert.False(b == new QuaternionF(0, 0, 0, 0));
-            Assert.False(c == new QuaternionF(0, 0, 0, 0));
-            Assert.False(d == new QuaternionF(0, 0, 0, 0));
+            QuaternionF target = new QuaternionF(v, w);
 
-            Assert.True(a != new QuaternionF(0, 0, 0, 0));
-            Assert.True(b != new QuaternionF(0, 0, 0, 0));
-            Assert.True(c != new QuaternionF(0, 0, 0, 0));
-            Assert.True(d != new QuaternionF(0, 0, 0, 0));
+            float expected = 30.0f;
+            float actual;
 
-            Assert.False(a.Equals(new QuaternionF(0, 0, 0, 0)));
-            Assert.False(b.Equals(new QuaternionF(0, 0, 0, 0)));
-            Assert.False(c.Equals(new QuaternionF(0, 0, 0, 0)));
-            Assert.False(d.Equals(new QuaternionF(0, 0, 0, 0)));
+            actual = target.LengthSquared();
 
-            Assert.False(a.IsIdentity);
-            Assert.False(b.IsIdentity);
-            Assert.False(c.IsIdentity);
-            Assert.False(d.IsIdentity);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.LengthSquared did not return the expected value: expected {expected} actual {actual}");
+        }
 
-            // Counterintuitive result - IEEE rules for NaN comparison are weird!
-            Assert.False(a.Equals(a));
-            Assert.False(b.Equals(b));
-            Assert.False(c.Equals(c));
-            Assert.False(d.Equals(d));
+        // A test for Length ()
+        [Test]
+        public void QuaternionFLengthTest()
+        {
+            Vector3F v = new Vector3F(1.0f, 2.0f, 3.0f);
+
+            float w = 4.0f;
+
+            QuaternionF target = new QuaternionF(v, w);
+
+            float expected = 5.477226f;
+            float actual;
+
+            actual = target.Length();
+
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Length did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Lerp (QuaternionF, QuaternionF, float)
+        [Test]
+        public void QuaternionFLerpTest()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 0.5f;
+
+            QuaternionF expected = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(20.0f));
+            QuaternionF actual;
+
+            actual = QuaternionF.Lerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
+
+            // Case a and b are same.
+            expected = a;
+            actual = QuaternionF.Lerp(a, a, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Lerp (QuaternionF, QuaternionF, float)
+        // Lerp test when t = 0
+        [Test]
+        public void QuaternionFLerpTest1()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 0.0f;
+
+            QuaternionF expected = new QuaternionF(a.X, a.Y, a.Z, a.W);
+            QuaternionF actual = QuaternionF.Lerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Lerp (QuaternionF, QuaternionF, float)
+        // Lerp test when t = 1
+        [Test]
+        public void QuaternionFLerpTest2()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 1.0f;
+
+            QuaternionF expected = new QuaternionF(b.X, b.Y, b.Z, b.W);
+            QuaternionF actual = QuaternionF.Lerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Lerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Lerp (QuaternionF, QuaternionF, float)
+        // Lerp test when the two QuaternionFs are more than 90 degree (dot product <0)
+        [Test]
+        public void QuaternionFLerpTest3()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.Negate(a);
+
+            float t = 1.0f;
+
+            QuaternionF actual = QuaternionF.Lerp(a, b, t);
+            // Note that in QuaternionF world, Q == -Q. In the case of QuaternionFs dot product is zero,
+            // one of the QuaternionF will be flipped to compute the shortest distance. When t = 1, we
+            // expect the result to be the same as QuaternionF b but flipped.
+            Assert.True(actual == a, $"QuaternionF.Lerp did not return the expected value: expected {a} actual {actual}");
+        }
+
+        // A test for operator * (QuaternionF, float)
+        [Test]
+        public void QuaternionFMultiplyTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            float Testor = 0.5f;
+
+            QuaternionF expected = new QuaternionF(0.5f, 1.0f, 1.5f, 2.0f);
+            QuaternionF actual;
+
+            actual = a * Testor;
+
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator * did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for operator * (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFMultiplyTest1()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
+
+            QuaternionF expected = new QuaternionF(24.0f, 48.0f, 48.0f, -6.0f);
+            QuaternionF actual;
+
+            actual = a * b;
+
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator * did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Multiply (QuaternionF, float)
+        [Test]
+        public void QuaternionFMultiplyTest2()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            float Testor = 0.5f;
+
+            QuaternionF expected = new QuaternionF(0.5f, 1.0f, 1.5f, 2.0f);
+            QuaternionF actual;
+
+            actual = QuaternionF.Multiply(a, Testor);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Multiply did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Multiply (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFMultiplyTest3()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 6.0f, 7.0f, 8.0f);
+
+            QuaternionF expected = new QuaternionF(24.0f, 48.0f, 48.0f, -6.0f);
+            QuaternionF actual;
+
+            actual = QuaternionF.Multiply(a, b);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Multiply did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Negate (QuaternionF)
+        [Test]
+        public void QuaternionFNegateTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            QuaternionF expected = new QuaternionF(-1.0f, -2.0f, -3.0f, -4.0f);
+            QuaternionF actual;
+
+            actual = QuaternionF.Negate(a);
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test for Normalize (QuaternionF)
+        [Test]
+        public void QuaternionFNormalizeTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            QuaternionF expected = new QuaternionF(0.182574168f, 0.365148336f, 0.5477225f, 0.7302967f);
+            QuaternionF actual;
+
+            actual = QuaternionF.Normalize(a);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Normalize did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Normalize (QuaternionF)
+        // Normalize zero length QuaternionF
+        [Test]
+        public void QuaternionFNormalizeTest1()
+        {
+            QuaternionF a = new QuaternionF(0.0f, 0.0f, -0.0f, 0.0f);
+
+            QuaternionF actual = QuaternionF.Normalize(a);
+            Assert.True(float.IsNaN(actual.X) && float.IsNaN(actual.Y) && float.IsNaN(actual.Z) && float.IsNaN(actual.W)
+                , $"QuaternionF.Normalize did not return the expected value: expected {new QuaternionF(float.NaN, float.NaN, float.NaN, float.NaN)} actual {actual}");
         }
 
         // A test to make sure these types are blittable directly into GPU buffer memory layouts
@@ -949,42 +818,177 @@ namespace Tests
             Assert.AreEqual(40, sizeof(QuaternionFPlusFloat_2x));
         }
 
+        // A test for Slerp (QuaternionF, QuaternionF, float)
+        [Test]
+        public void QuaternionFSlerpTest()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 0.5f;
+
+            QuaternionF expected = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(20.0f));
+            QuaternionF actual;
+
+            actual = QuaternionF.Slerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
+
+            // Case a and b are same.
+            expected = a;
+            actual = QuaternionF.Slerp(a, a, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Slerp (QuaternionF, QuaternionF, float)
+        // Slerp test where t = 0
+        [Test]
+        public void QuaternionFSlerpTest1()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 0.0f;
+
+            QuaternionF expected = new QuaternionF(a.X, a.Y, a.Z, a.W);
+            QuaternionF actual = QuaternionF.Slerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Slerp (QuaternionF, QuaternionF, float)
+        // Slerp test where t = 1
+        [Test]
+        public void QuaternionFSlerpTest2()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 1.0f;
+
+            QuaternionF expected = new QuaternionF(b.X, b.Y, b.Z, b.W);
+            QuaternionF actual = QuaternionF.Slerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Slerp (QuaternionF, QuaternionF, float)
+        // Slerp test where dot product is < 0
+        [Test]
+        public void QuaternionFSlerpTest3()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = -a;
+
+            float t = 1.0f;
+
+            QuaternionF expected = a;
+            QuaternionF actual = QuaternionF.Slerp(a, b, t);
+            // Note that in QuaternionF world, Q == -Q. In the case of QuaternionFs dot product is zero,
+            // one of the QuaternionF will be flipped to compute the shortest distance. When t = 1, we
+            // expect the result to be the same as QuaternionF b but flipped.
+            Assert.True(actual == expected, $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Slerp (QuaternionF, QuaternionF, float)
+        // Slerp test where the QuaternionF is flipped
+        [Test]
+        public void QuaternionFSlerpTest4()
+        {
+            Vector3F axis = Vector3F.Normalize(new Vector3F(1.0f, 2.0f, 3.0f));
+            QuaternionF a = QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(10.0f));
+            QuaternionF b = -QuaternionF.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0f));
+
+            float t = 0.0f;
+
+            QuaternionF expected = new QuaternionF(a.X, a.Y, a.Z, a.W);
+            QuaternionF actual = QuaternionF.Slerp(a, b, t);
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.Slerp did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for operator - (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFSubtractionTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 6.0f, 7.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 2.0f, 3.0f, 8.0f);
+
+            QuaternionF expected = new QuaternionF(-4.0f, 4.0f, 4.0f, -4.0f);
+            QuaternionF actual;
+
+            actual = a - b;
+
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator - did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        // A test for Subtract (QuaternionF, QuaternionF)
+        [Test]
+        public void QuaternionFSubtractTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 6.0f, 7.0f, 4.0f);
+            QuaternionF b = new QuaternionF(5.0f, 2.0f, 3.0f, 8.0f);
+
+            QuaternionF expected = new QuaternionF(-4.0f, 4.0f, 4.0f, -4.0f);
+            QuaternionF actual;
+
+            actual = QuaternionF.Subtract(a, b);
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test for ToString ()
+        [Test]
+        public void QuaternionFToStringTest()
+        {
+            QuaternionF target = new QuaternionF(-1.0f, 2.2f, 3.3f, -4.4f);
+
+            string expected = string.Format(CultureInfo.CurrentCulture
+                , "{{X:{0} Y:{1} Z:{2} W:{3}}}"
+                , -1.0f, 2.2f, 3.3f, -4.4f);
+
+            string actual = target.ToString();
+            Assert.AreEqual(expected, actual);
+        }
+
+        // A test for operator - (QuaternionF)
+        [Test]
+        public void QuaternionFUnaryNegationTest()
+        {
+            QuaternionF a = new QuaternionF(1.0f, 2.0f, 3.0f, 4.0f);
+
+            QuaternionF expected = new QuaternionF(-1.0f, -2.0f, -3.0f, -4.0f);
+            QuaternionF actual;
+
+            actual = -a;
+
+            Assert.True(MathHelper.Equal(expected, actual), $"QuaternionF.operator - did not return the expected value: expected {expected} actual {actual}");
+        }
+
+        #endregion Public Methods
+
+        #region Private Structs
+
         [StructLayout(LayoutKind.Sequential)]
-        struct QuaternionF_2x
+        private struct QuaternionF_2x
         {
             private QuaternionF _a;
             private QuaternionF _b;
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct QuaternionFPlusFloat
+        private struct QuaternionFPlusFloat
         {
             private QuaternionF _v;
             private readonly float _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct QuaternionFPlusFloat_2x
+        private struct QuaternionFPlusFloat_2x
         {
             private QuaternionFPlusFloat _a;
             private QuaternionFPlusFloat _b;
         }
 
-        // A test to make sure the fields are laid out how we expect
-        [Test]
-        public unsafe void QuaternionFFieldOffsetTest()
-        {
-            QuaternionF quat = new QuaternionF();
-
-            float* basePtr = &quat.X; // Take address of first element
-            QuaternionF* quatPtr = &quat; // Take address of whole QuaternionF
-
-            Assert.AreEqual(new IntPtr(basePtr), new IntPtr(quatPtr));
-
-            Assert.AreEqual(new IntPtr(basePtr + 0), new IntPtr(&quat.X));
-            Assert.AreEqual(new IntPtr(basePtr + 1), new IntPtr(&quat.Y));
-            Assert.AreEqual(new IntPtr(basePtr + 2), new IntPtr(&quat.Z));
-            Assert.AreEqual(new IntPtr(basePtr + 3), new IntPtr(&quat.W));
-        }
+        #endregion Private Structs
     }
 }

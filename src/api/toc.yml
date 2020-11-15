@@ -2,8 +2,6 @@
 - uid: MathStructs
   name: MathStructs
   items:
-  - uid: MathStructs.Extensions
-    name: Extensions
   - uid: MathStructs.Matrix3x3D
     name: Matrix3x3D
   - uid: MathStructs.Matrix3x3F

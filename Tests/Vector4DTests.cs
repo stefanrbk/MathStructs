@@ -1425,21 +1425,21 @@ namespace Tests
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct Vector4_2x
+        private struct Vector4_2x
         {
             private Vector4D _a;
             private Vector4D _b;
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct Vector4Plusdouble
+        private struct Vector4Plusdouble
         {
             private Vector4D _v;
             private readonly double _f;
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        struct Vector4Plusdouble_2x
+        private struct Vector4Plusdouble_2x
         {
             private Vector4Plusdouble _a;
             private Vector4Plusdouble _b;
@@ -1525,27 +1525,35 @@ namespace Tests
         {
             public readonly Level0 L0 = new Level0();
             public Vector4D RootEmbeddedObject { get { return L0.L1.L2.L3.L4.L5.L6.L7.EmbeddedVector; } }
+
             public class Level0
             {
                 public readonly Level1 L1 = new Level1();
+
                 public class Level1
                 {
                     public readonly Level2 L2 = new Level2();
+
                     public class Level2
                     {
                         public readonly Level3 L3 = new Level3();
+
                         public class Level3
                         {
                             public readonly Level4 L4 = new Level4();
+
                             public class Level4
                             {
                                 public readonly Level5 L5 = new Level5();
+
                                 public class Level5
                                 {
                                     public readonly Level6 L6 = new Level6();
+
                                     public class Level6
                                     {
                                         public readonly Level7 L7 = new Level7();
+
                                         public class Level7
                                         {
                                             public Vector4D EmbeddedVector = new Vector4D(1, 5, 1, -5);
@@ -1561,6 +1569,7 @@ namespace Tests
 
         // Contrived test for strangely-sized and shaped embedded structures, with unused buffer fields.
 #pragma warning disable 0169
+
         private struct DeeplyEmbeddedStruct
         {
             public static DeeplyEmbeddedStruct Create()
@@ -1591,6 +1600,7 @@ namespace Tests
 
             public Level0 L0;
             public Vector4D RootEmbeddedObject { get { return L0.L1.L2.L3.L4.L5.L6.L7.EmbeddedVector; } }
+
             public struct Level0
             {
 #pragma warning disable IDE0051 // Remove unused private members
@@ -1598,20 +1608,24 @@ namespace Tests
                 private readonly double _buffer1;
                 public Level1 L1;
                 private readonly double _buffer2;
+
                 public struct Level1
                 {
                     private readonly double _buffer0;
                     private readonly double _buffer1;
                     public Level2 L2;
                     private readonly byte _buffer2;
+
                     public struct Level2
                     {
                         public Level3 L3;
                         private readonly double _buffer0;
                         private readonly byte _buffer1;
+
                         public struct Level3
                         {
                             public Level4 L4;
+
                             public struct Level4
                             {
                                 private readonly double _buffer0;
@@ -1619,10 +1633,12 @@ namespace Tests
                                 private readonly long _buffer1;
                                 private readonly byte _buffer2;
                                 private readonly double _buffer3;
+
                                 public struct Level5
                                 {
                                     private readonly byte _buffer0;
                                     public Level6 L6;
+
                                     public struct Level6
                                     {
                                         private readonly byte _buffer0;
@@ -1640,9 +1656,11 @@ namespace Tests
                         }
                     }
                 }
+
 #pragma warning restore IDE0051 // Remove unused private members
             }
         }
+
 #pragma warning restore 0169
     }
 }
