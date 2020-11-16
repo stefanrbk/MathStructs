@@ -12,6 +12,33 @@ namespace Tests
 {
     public class Matrix4x4DTests
     {
+        [Test, Category("op_Explicit")]
+        public void CastTest()
+        {
+            var span = (new double[] {4.0, 7.0, 2.0, 9.0,
+                                      12.0, 0.0, 3.0, 8.0,
+                                      6.0, 5.0, 10.0, 15.0,
+                                      14.0, 13.0, 11.0, 1.0}).AsSpan();
+            var vec = (Matrix4x4D)span;
+
+            Assert.That(vec.M11, Is.EqualTo(span[0]));
+            Assert.That(vec.M12, Is.EqualTo(span[1]));
+            Assert.That(vec.M13, Is.EqualTo(span[2]));
+            Assert.That(vec.M14, Is.EqualTo(span[3]));
+            Assert.That(vec.M21, Is.EqualTo(span[4]));
+            Assert.That(vec.M22, Is.EqualTo(span[5]));
+            Assert.That(vec.M23, Is.EqualTo(span[6]));
+            Assert.That(vec.M24, Is.EqualTo(span[7]));
+            Assert.That(vec.M31, Is.EqualTo(span[8]));
+            Assert.That(vec.M32, Is.EqualTo(span[9]));
+            Assert.That(vec.M33, Is.EqualTo(span[10]));
+            Assert.That(vec.M34, Is.EqualTo(span[11]));
+            Assert.That(vec.M41, Is.EqualTo(span[12]));
+            Assert.That(vec.M42, Is.EqualTo(span[13]));
+            Assert.That(vec.M43, Is.EqualTo(span[14]));
+            Assert.That(vec.M44, Is.EqualTo(span[15]));
+        }
+
         public static IEnumerable<(Vector3D, Vector3D, Matrix4x4D)> CreateBillboardTest()
         {            
             // Object placed at Forward side of camera on XZ-Plane.

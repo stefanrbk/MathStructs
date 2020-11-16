@@ -10,6 +10,18 @@ namespace Tests
 {
     public class Vector4FTests
     {
+
+        [Test, Category("op_Explicit")]
+        public void CastTest()
+        {
+            var span = (new float[] {4.0f, 7.0f, 2.0f, 9.0f}).AsSpan();
+            var vec = (Vector4F)span;
+
+            Assert.That(vec.X, Is.EqualTo(span[0]));
+            Assert.That(vec.Y, Is.EqualTo(span[1]));
+            Assert.That(vec.Z, Is.EqualTo(span[2]));
+            Assert.That(vec.W, Is.EqualTo(span[3]));
+        }
         [Test]
         public void Vector4MarshalSizeTest()
         {

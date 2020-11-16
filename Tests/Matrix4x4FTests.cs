@@ -12,6 +12,33 @@ namespace Tests
     {
         #region Public Methods
 
+        [Test, Category("op_Explicit")]
+        public void CastTest()
+        {
+            var span = (new float[] {4.0f, 7.0f, 2.0f, 9.0f,
+                                     12.0f, 0.0f, 3.0f, 8.0f,
+                                     6.0f, 5.0f, 10.0f, 15.0f,
+                                     14.0f, 13.0f, 11.0f, 1.0f}).AsSpan();
+            var vec = (Matrix4x4F)span;
+
+            Assert.That(vec.M11, Is.EqualTo(span[0]));
+            Assert.That(vec.M12, Is.EqualTo(span[1]));
+            Assert.That(vec.M13, Is.EqualTo(span[2]));
+            Assert.That(vec.M14, Is.EqualTo(span[3]));
+            Assert.That(vec.M21, Is.EqualTo(span[4]));
+            Assert.That(vec.M22, Is.EqualTo(span[5]));
+            Assert.That(vec.M23, Is.EqualTo(span[6]));
+            Assert.That(vec.M24, Is.EqualTo(span[7]));
+            Assert.That(vec.M31, Is.EqualTo(span[8]));
+            Assert.That(vec.M32, Is.EqualTo(span[9]));
+            Assert.That(vec.M33, Is.EqualTo(span[10]));
+            Assert.That(vec.M34, Is.EqualTo(span[11]));
+            Assert.That(vec.M41, Is.EqualTo(span[12]));
+            Assert.That(vec.M42, Is.EqualTo(span[13]));
+            Assert.That(vec.M43, Is.EqualTo(span[14]));
+            Assert.That(vec.M44, Is.EqualTo(span[15]));
+        }
+
         // A test for operator + (Matrix4x4F, Matrix4x4F)
         [Test]
         public void Matrix4x4AdditionTest()

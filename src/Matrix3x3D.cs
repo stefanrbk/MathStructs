@@ -136,6 +136,56 @@ namespace MathStructs
             left + right;
 
         /// <summary>
+        ///     Copies the contents of the matrix into the given span.
+        /// </summary>
+        [MethodImpl(Optimize)]
+        public void CopyTo(Span<double> span) =>
+            CopyTo(span, 0);
+
+        /// <summary>
+        ///     Copies the contents of the matrix into the given span, starting from index.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        ///     If index is greater than end of the span or index is less than zero.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        ///     If number of elements in source matrix is greater than those available in destination span.
+        /// </exception>
+        [MethodImpl(Optimize)]
+        public void CopyTo(Span<double> span, int index)
+        {
+            if (index < 0 || index >= span.Length)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            if (span.Length - index < 16)
+                throw new ArgumentException("Elements in source is greater than destination");
+            span[index +  0] = M11;
+            span[index +  1] = M12;
+            span[index +  2] = M13;
+            span[index +  3] = M21;
+            span[index +  4] = M22;
+            span[index +  5] = M23;
+            span[index +  6] = M31;
+            span[index +  7] = M32;
+            span[index +  8] = M33;
+        }
+
+        /// <summary>
+        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3D"/>.
+        /// </summary>
+        public static explicit operator Matrix3x3D(ReadOnlySpan<double> span) =>
+            new Matrix3x3D(span[0], span[1], span[2],
+                           span[3], span[4], span[5],
+                           span[6], span[7], span[8]);
+
+        /// <summary>
+        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3D"/>.
+        /// </summary>
+        public static explicit operator Matrix3x3D(Span<double> span) =>
+            new Matrix3x3D(span[0], span[1], span[2],
+                           span[3], span[4], span[5],
+                           span[6], span[7], span[8]);
+
+        /// <summary>
         /// Attempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.
         /// </summary>
         /// <param name="matrix">

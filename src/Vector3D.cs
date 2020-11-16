@@ -617,26 +617,23 @@ namespace MathStructs
             Clamp(this, min, max);
 
         /// <summary>
-        ///     Copies the contents of the vector into the given array.
+        ///     Copies the contents of the vector into the given span.
         /// </summary>
         [MethodImpl(Inline)]
-        public void CopyTo(double[] array) =>
+        public void CopyTo(Span<double> array) =>
             CopyTo(array, 0);
 
         /// <summary>
-        ///     Copies the contents of the vector into the given array, starting from index.
+        ///     Copies the contents of the vector into the given span, starting from index.
         /// </summary>
-        /// <exception cref="RankException">
-        ///     If array is multidimensional.
-        /// </exception>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///     If index is greater than end of the array or index is less than zero.
+        ///     If index is greater than end of the span or index is less than zero.
         /// </exception>
         /// <exception cref="ArgumentException">
-        ///     If number of elements in source vector is greater than those available in destination array.
+        ///     If number of elements in source vector is greater than those available in destination span.
         /// </exception>
         [MethodImpl(Inline)]
-        public void CopyTo(double[] array, int index)
+        public void CopyTo(Span<double> array, int index)
         {
             if (index < 0 || index >= array.Length)
                 throw new ArgumentOutOfRangeException(nameof(index));
@@ -788,6 +785,18 @@ namespace MathStructs
                    vector.Y < delta &&
                    vector.Z < delta;
         }
+
+        /// <summary>
+        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3D"/>.
+        /// </summary>
+        public static explicit operator Vector3D(ReadOnlySpan<double> span) =>
+            new Vector3D(span[0], span[1], span[2]);
+
+        /// <summary>
+        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3D"/>.
+        /// </summary>
+        public static explicit operator Vector3D(Span<double> span) =>
+            new Vector3D(span[0], span[1], span[2]);
 
         /// <summary>
         ///     Returns the hash code for this instance.

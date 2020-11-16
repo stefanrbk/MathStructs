@@ -563,33 +563,30 @@ namespace MathStructs
             Clamp(this, min, max);
 
         /// <summary>
-        ///     Copies the contents of the vector into the given array.
+        ///     Copies the contents of the vector into the given span.
         /// </summary>
         [MethodImpl(Inline)]
-        public void CopyTo(float[] array) =>
-            CopyTo(array, 0);
+        public void CopyTo(Span<float> span) =>
+            CopyTo(span, 0);
 
         /// <summary>
-        ///     Copies the contents of the vector into the given array, starting from index.
+        ///     Copies the contents of the vector into the given span, starting from index.
         /// </summary>
-        /// <exception cref="RankException">
-        ///     If array is multidimensional.
-        /// </exception>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///     If index is greater than end of the array or index is less than zero.
+        ///     If index is greater than end of the span or index is less than zero.
         /// </exception>
         /// <exception cref="ArgumentException">
-        ///     If number of elements in source vector is greater than those available in destination array.
+        ///     If number of elements in source vector is greater than those available in destination span.
         /// </exception>
         [MethodImpl(Inline)]
-        public void CopyTo(float[] array, int index)
+        public void CopyTo(Span<float> span, int index)
         {
-            if (index < 0 || index >= array.Length)
+            if (index < 0 || index >= span.Length)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            if (array.Length - index < 2)
+            if (span.Length - index < 2)
                 throw new ArgumentException("Elements in source is greater than destination");
-            array[index + 0] = X;
-            array[index + 1] = Y;
+            span[index + 0] = X;
+            span[index + 1] = Y;
         }
 
         /// <summary>
@@ -692,6 +689,18 @@ namespace MathStructs
             delta == 0.0 ? this == other
                          : MathF.Abs(X - other.X) < delta &&
                            MathF.Abs(Y - other.Y) < delta;
+
+        /// <summary>
+        /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2F"/>.
+        /// </summary>
+        public static explicit operator Vector2F(ReadOnlySpan<float> span) =>
+            new Vector2F(span[0], span[1]);
+
+        /// <summary>
+        /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2F"/>.
+        /// </summary>
+        public static explicit operator Vector2F(Span<float> span) =>
+            new Vector2F(span[0], span[1]);
 
         /// <summary>
         ///     Returns the hash code for this instance.
