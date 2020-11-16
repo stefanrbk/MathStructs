@@ -12,6 +12,17 @@ namespace Tests
     {
         #region Public Methods
 
+        [Test, Category("op_Explicit")]
+        public void CastTest()
+        {
+            var span = (new double[] {4.0, 7.0, 2.0}).AsSpan();
+            var vec = (Vector3D)span;
+
+            Assert.That(vec.X, Is.EqualTo(span[0]));
+            Assert.That(vec.Y, Is.EqualTo(span[1]));
+            Assert.That(vec.Z, Is.EqualTo(span[2]));
+        }
+
         // A test for Multiply (double, Vector3D)
         [Test]
         public static void Vector3MultiplyTest2()

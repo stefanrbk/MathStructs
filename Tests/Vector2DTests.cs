@@ -12,6 +12,16 @@ namespace Tests
     {
         #region Public Methods
 
+        [Test, Category("op_Explicit")]
+        public void CastTest()
+        {
+            var span = (new double[] {4.0, 7.0}).AsSpan();
+            var vec = (Vector2D)span;
+
+            Assert.That(vec.X, Is.EqualTo(span[0]));
+            Assert.That(vec.Y, Is.EqualTo(span[1]));
+        }
+
         [Test]
         public void EmbeddedVectorSetFields()
         {

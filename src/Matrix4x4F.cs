@@ -226,6 +226,65 @@ namespace MathStructs
             left + right;
 
         /// <summary>
+        ///     Copies the contents of the matrix into the given span.
+        /// </summary>
+        [MethodImpl(Optimize)]
+        public void CopyTo(Span<float> span) =>
+            CopyTo(span, 0);
+
+        /// <summary>
+        ///     Copies the contents of the matrix into the given span, starting from index.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        ///     If index is greater than end of the span or index is less than zero.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        ///     If number of elements in source matrix is greater than those available in destination span.
+        /// </exception>
+        [MethodImpl(Optimize)]
+        public void CopyTo(Span<float> span, int index)
+        {
+            if (index < 0 || index >= span.Length)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            if (span.Length - index < 16)
+                throw new ArgumentException("Elements in source is greater than destination");
+            span[index +  0] = M11;
+            span[index +  1] = M12;
+            span[index +  2] = M13;
+            span[index +  3] = M14;
+            span[index +  4] = M21;
+            span[index +  5] = M22;
+            span[index +  6] = M23;
+            span[index +  7] = M24;
+            span[index +  8] = M31;
+            span[index +  9] = M32;
+            span[index + 10] = M33;
+            span[index + 11] = M34;
+            span[index + 12] = M41;
+            span[index + 13] = M42;
+            span[index + 14] = M43;
+            span[index + 15] = M44;
+        }
+
+        /// <summary>
+        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4F"/>.
+        /// </summary>
+        public static explicit operator Matrix4x4F(ReadOnlySpan<float> span) =>
+            new Matrix4x4F(span[0], span[1], span[2], span[3],
+                           span[4], span[5], span[6], span[7],
+                           span[8], span[9], span[10], span[11],
+                           span[12], span[13], span[14], span[15]);
+
+        /// <summary>
+        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4F"/>.
+        /// </summary>
+        public static explicit operator Matrix4x4F(Span<float> span) =>
+            new Matrix4x4F(span[0], span[1], span[2], span[3],
+                           span[4], span[5], span[6], span[7],
+                           span[8], span[9], span[10], span[11],
+                           span[12], span[13], span[14], span[15]);
+
+        /// <summary>
         /// Creates a spherical billboard that rotates around a specified object position.
         /// </summary>
         /// <param name="objectPosition">

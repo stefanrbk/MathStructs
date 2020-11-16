@@ -694,36 +694,45 @@ namespace MathStructs
             Clamp(this, min, max);
 
         /// <summary>
-        ///     Copies the contents of the vector into the given array.
+        ///     Copies the contents of the vector into the given span.
         /// </summary>
         [MethodImpl(Inline)]
-        public void CopyTo(float[] array) =>
-            CopyTo(array, 0);
+        public void CopyTo(Span<float> span) =>
+            CopyTo(span, 0);
 
         /// <summary>
-        ///     Copies the contents of the vector into the given array, starting from index.
+        ///     Copies the contents of the vector into the given span, starting from index.
         /// </summary>
-        /// <exception cref="RankException">
-        ///     If array is multidimensional.
-        /// </exception>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///     If index is greater than end of the array or index is less than zero.
+        ///     If index is greater than end of the span or index is less than zero.
         /// </exception>
         /// <exception cref="ArgumentException">
-        ///     If number of elements in source vector is greater than those available in destination array.
+        ///     If number of elements in source vector is greater than those available in destination span.
         /// </exception>
         [MethodImpl(Inline)]
-        public void CopyTo(float[] array, int index)
+        public void CopyTo(Span<float> span, int index)
         {
-            if (index < 0 || index >= array.Length)
+            if (index < 0 || index >= span.Length)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            if (array.Length - index < 4)
+            if (span.Length - index < 4)
                 throw new ArgumentException("Elements in source is greater than destination");
-            array[index + 0] = X;
-            array[index + 1] = Y;
-            array[index + 2] = Z;
-            array[index + 3] = W;
+            span[index + 0] = X;
+            span[index + 1] = Y;
+            span[index + 2] = Z;
+            span[index + 3] = W;
         }
+
+        /// <summary>
+        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4F"/>.
+        /// </summary>
+        public static explicit operator Vector4F(ReadOnlySpan<float> span) =>
+            new Vector4F(span[0], span[1], span[2], span[3]);
+
+        /// <summary>
+        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4F"/>.
+        /// </summary>
+        public static explicit operator Vector4F(Span<float> span) =>
+            new Vector4F(span[0], span[1], span[2], span[3]);
 
         /// <summary>
         ///     Deconstructs this vector into its <see cref="float"/> components.
