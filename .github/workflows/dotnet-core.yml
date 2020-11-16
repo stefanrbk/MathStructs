@@ -7,7 +7,7 @@ env:
   TEST_RESULTS_PATH: './Tests/TestResults/**'
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ develop ]
   pull_request:
     branches: [ main, develop ]
 
