@@ -1380,14 +1380,14 @@ namespace MathStructs
                        VectorMath.NotEqual(Sse2.LoadVector128(&value1.M43), Sse2.LoadVector128(&value2.M43));
 
             else
-                return value1.M11 == value2.M11 || value1.M22 == value2.M22 ||
-                       value1.M33 == value2.M33 || value1.M44 == value2.M44 ||
-                       value1.M12 == value2.M12 || value1.M13 == value2.M13 ||
-                       value1.M14 == value2.M14 || value1.M21 == value2.M21 ||
-                       value1.M23 == value2.M23 || value1.M24 == value2.M24 ||
-                       value1.M31 == value2.M31 || value1.M32 == value2.M32 ||
-                       value1.M34 == value2.M34 || value1.M41 == value2.M41 ||
-                       value1.M42 == value2.M42 || value1.M43 == value2.M43;
+                return value1.M11 != value2.M11 || value1.M22 != value2.M22 ||
+                       value1.M33 != value2.M33 || value1.M44 != value2.M44 ||
+                       value1.M12 != value2.M12 || value1.M13 != value2.M13 ||
+                       value1.M14 != value2.M14 || value1.M21 != value2.M21 ||
+                       value1.M23 != value2.M23 || value1.M24 != value2.M24 ||
+                       value1.M31 != value2.M31 || value1.M32 != value2.M32 ||
+                       value1.M34 != value2.M34 || value1.M41 != value2.M41 ||
+                       value1.M42 != value2.M42 || value1.M43 != value2.M43;
         }
 
         /// <summary>
