@@ -1635,6 +1635,13 @@ namespace MathStructs
                 AdvSimd.Store(&result.M31, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M31), right));
                 AdvSimd.Store(&result.M41, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M41), right));
             }
+            else if (Avx.IsSupported)
+            {
+                var right = Vector256.Create(value2);
+
+                Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&value1.M11), right));
+                Avx.Store(&result.M31, Avx.Multiply(Avx.LoadVector256(&value1.M31), right));
+            }
             else if (Sse.IsSupported)
             {
                 Vector128<float> right = Vector128.Create(value2);
@@ -1693,6 +1700,13 @@ namespace MathStructs
                 AdvSimd.Store(&result.M21, AdvSimd.Add(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
                 AdvSimd.Store(&result.M31, AdvSimd.Add(AdvSimd.LoadVector128(&left.M31), AdvSimd.LoadVector128(&right.M31)));
                 AdvSimd.Store(&result.M41, AdvSimd.Add(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
+
+                return result;
+            }
+            else if (Avx.IsSupported)
+            {
+                Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
+                Avx.Store(&result.M31, Avx.Add(Avx.LoadVector256(&left.M31), Avx.LoadVector256(&right.M31)));
 
                 return result;
             }
