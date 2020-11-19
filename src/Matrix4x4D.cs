@@ -1262,7 +1262,20 @@ namespace MathStructs
                 Avx.Store(&result.M31, Avx.Subtract(zero, Avx.LoadVector256(&value.M31)));
                 Avx.Store(&result.M41, Avx.Subtract(zero, Avx.LoadVector256(&value.M41)));
             }
-            /*else if (AdvSimd.Arm64.IsSupported)
+            else if (Sse2.IsSupported)
+            {
+                var zero = Vector128<double>.Zero;
+
+                Sse2.Store(&result.M11, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M11)));
+                Sse2.Store(&result.M13, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M13)));
+                Sse2.Store(&result.M21, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M21)));
+                Sse2.Store(&result.M23, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M23)));
+                Sse2.Store(&result.M31, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M31)));
+                Sse2.Store(&result.M33, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M33)));
+                Sse2.Store(&result.M41, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M41)));
+                Sse2.Store(&result.M43, Sse2.Subtract(zero, Sse2.LoadVector128(&value.M43)));
+            }
+            else if (AdvSimd.Arm64.IsSupported)
             {
                 AdvSimd.Store(&result.M11, AdvSimd.Arm64.Negate(AdvSimd.LoadVector128(&value.M11)));
                 AdvSimd.Store(&result.M13, AdvSimd.Arm64.Negate(AdvSimd.LoadVector128(&value.M13)));
@@ -1272,7 +1285,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M33, AdvSimd.Arm64.Negate(AdvSimd.LoadVector128(&value.M33)));
                 AdvSimd.Store(&result.M41, AdvSimd.Arm64.Negate(AdvSimd.LoadVector128(&value.M41)));
                 AdvSimd.Store(&result.M43, AdvSimd.Arm64.Negate(AdvSimd.LoadVector128(&value.M43)));
-            }*/
+            }
             else
                 return new(-value.M11, -value.M12, -value.M13, -value.M14,
                            -value.M21, -value.M22, -value.M23, -value.M24,
@@ -1318,7 +1331,7 @@ namespace MathStructs
 
                 return result;
             }
-            /*else if (AdvSimd.Arm64.IsSupported)
+            else if (AdvSimd.Arm64.IsSupported)
             {
                 AdvSimd.Store(&result.M11, AdvSimd.Arm64.Subtract(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
                 AdvSimd.Store(&result.M13, AdvSimd.Arm64.Subtract(AdvSimd.LoadVector128(&left.M13), AdvSimd.LoadVector128(&right.M13)));
@@ -1330,7 +1343,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M43, AdvSimd.Arm64.Subtract(AdvSimd.LoadVector128(&left.M43), AdvSimd.LoadVector128(&right.M43)));
 
                 return result;
-            }*/
+            }
             return new(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13, left.M14 - right.M14,
                        left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23, left.M24 - right.M24,
                        left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33, left.M34 - right.M34,
@@ -1352,7 +1365,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator !=(Matrix4x4D value1, Matrix4x4D value2)
         {
-            /*if (AdvSimd.Arm64.IsSupported)
+            if (AdvSimd.Arm64.IsSupported)
                 return VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M13), AdvSimd.LoadVector128(&value2.M13)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) ||
@@ -1362,8 +1375,7 @@ namespace MathStructs
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M43), AdvSimd.LoadVector128(&value2.M43));
 
-            else */
-            if (Avx.IsSupported)
+            else if (Avx.IsSupported)
                 return VectorMath.NotEqual(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) ||
                        VectorMath.NotEqual(Avx.LoadVector256(&value1.M21), Avx.LoadVector256(&value2.M21)) ||
                        VectorMath.NotEqual(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31)) ||
@@ -1404,7 +1416,7 @@ namespace MathStructs
         {
             Unsafe.SkipInit(out Matrix4x4D result);
 
-            /*if (AdvSimd.Arm64.IsSupported)
+            if (AdvSimd.Arm64.IsSupported)
             {
                 var M11 = AdvSimd.LoadVector128(&value1.M11);
                 var M13 = AdvSimd.LoadVector128(&value1.M13);
@@ -1466,20 +1478,27 @@ namespace MathStructs
                 AdvSimd.Store(&result.M11, vW1);
                 AdvSimd.Store(&result.M13, vW2);
 
-            }*/
-            //else if (Sse2.IsSupported)
-            //{
-            //    Sse2.Store(&result.M11, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M11), Sse2.LoadVector128(&value1.M13)));
-            //    Sse2.Store(&result.M13, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M11), Sse2.LoadVector128(&value1.M13)));
-            //    Sse2.Store(&result.M21, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M21), Sse2.LoadVector128(&value1.M23)));
-            //    Sse2.Store(&result.M23, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M21), Sse2.LoadVector128(&value1.M23)));
-            //    Sse2.Store(&result.M31, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M31), Sse2.LoadVector128(&value1.M33)));
-            //    Sse2.Store(&result.M33, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M31), Sse2.LoadVector128(&value1.M33)));
-            //    Sse2.Store(&result.M41, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M41), Sse2.LoadVector128(&value1.M43)));
-            //    Sse2.Store(&result.M43, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M41), Sse2.LoadVector128(&value1.M43)));
+            }
+            else if (Avx.IsSupported)
+            {
+                Avx.Store(&result.M11, MultiplyRow(value2, Avx.LoadVector256(&value1.M11)));
+                Avx.Store(&result.M21, MultiplyRow(value2, Avx.LoadVector256(&value1.M21)));
+                Avx.Store(&result.M31, MultiplyRow(value2, Avx.LoadVector256(&value1.M31)));
+                Avx.Store(&result.M41, MultiplyRow(value2, Avx.LoadVector256(&value1.M41)));
+            }
+            else if (Sse2.IsSupported)
+            {
+                Sse2.Store(&result.M11, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M11), Sse2.LoadVector128(&value1.M13)));
+                Sse2.Store(&result.M13, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M11), Sse2.LoadVector128(&value1.M13)));
+                Sse2.Store(&result.M21, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M21), Sse2.LoadVector128(&value1.M23)));
+                Sse2.Store(&result.M23, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M21), Sse2.LoadVector128(&value1.M23)));
+                Sse2.Store(&result.M31, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M31), Sse2.LoadVector128(&value1.M33)));
+                Sse2.Store(&result.M33, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M31), Sse2.LoadVector128(&value1.M33)));
+                Sse2.Store(&result.M41, MultiplyRowXY(value2, Sse2.LoadVector128(&value1.M41), Sse2.LoadVector128(&value1.M43)));
+                Sse2.Store(&result.M43, MultiplyRowZW(value2, Sse2.LoadVector128(&value1.M41), Sse2.LoadVector128(&value1.M43)));
 
-            //    return result;
-            //}
+                return result;
+            }
 
             result.M11 = ( value1.M11 * value2.M11 ) + ( value1.M12 * value2.M21 ) + ( value1.M13 * value2.M31 ) + ( value1.M14 * value2.M41 );
             result.M12 = ( value1.M11 * value2.M12 ) + ( value1.M12 * value2.M22 ) + ( value1.M13 * value2.M32 ) + ( value1.M14 * value2.M42 );
@@ -1600,6 +1619,32 @@ namespace MathStructs
 
                 return left;
             }
+            else if (Sse2.IsSupported)
+            {
+                Sse2.Store(&left.M11, Sse2.Add(Sse2.LoadVector128(&left.M11), Sse2.LoadVector128(&right.M11)));
+                Sse2.Store(&left.M13, Sse2.Add(Sse2.LoadVector128(&left.M13), Sse2.LoadVector128(&right.M13)));
+                Sse2.Store(&left.M21, Sse2.Add(Sse2.LoadVector128(&left.M21), Sse2.LoadVector128(&right.M21)));
+                Sse2.Store(&left.M23, Sse2.Add(Sse2.LoadVector128(&left.M23), Sse2.LoadVector128(&right.M23)));
+                Sse2.Store(&left.M31, Sse2.Add(Sse2.LoadVector128(&left.M31), Sse2.LoadVector128(&right.M31)));
+                Sse2.Store(&left.M33, Sse2.Add(Sse2.LoadVector128(&left.M33), Sse2.LoadVector128(&right.M33)));
+                Sse2.Store(&left.M41, Sse2.Add(Sse2.LoadVector128(&left.M41), Sse2.LoadVector128(&right.M41)));
+                Sse2.Store(&left.M43, Sse2.Add(Sse2.LoadVector128(&left.M43), Sse2.LoadVector128(&right.M43)));
+
+                return left;
+            }
+            else if (AdvSimd.Arm64.IsSupported)
+            {
+                AdvSimd.Store(&left.M11, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
+                AdvSimd.Store(&left.M13, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M13), AdvSimd.LoadVector128(&right.M13)));
+                AdvSimd.Store(&left.M21, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
+                AdvSimd.Store(&left.M23, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M23), AdvSimd.LoadVector128(&right.M23)));
+                AdvSimd.Store(&left.M31, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M31), AdvSimd.LoadVector128(&right.M31)));
+                AdvSimd.Store(&left.M33, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M33), AdvSimd.LoadVector128(&right.M33)));
+                AdvSimd.Store(&left.M41, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
+                AdvSimd.Store(&left.M43, AdvSimd.Arm64.Add(AdvSimd.LoadVector128(&left.M43), AdvSimd.LoadVector128(&right.M43)));
+
+                return left;
+            }
             return new(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13, left.M14 + right.M14,
                        left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23, left.M24 + right.M24,
                        left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33, left.M34 + right.M34,
@@ -1621,7 +1666,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator ==(Matrix4x4D value1, Matrix4x4D value2)
         {
-            /*if (AdvSimd.Arm64.IsSupported)
+            if (AdvSimd.Arm64.IsSupported)
                 return VectorMath.Equal(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M13), AdvSimd.LoadVector128(&value2.M13)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) &&
@@ -1631,8 +1676,7 @@ namespace MathStructs
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M43), AdvSimd.LoadVector128(&value2.M43));
 
-            else */
-            if (Avx.IsSupported)
+            else if (Avx.IsSupported)
                 return VectorMath.Equal(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) &&
                        VectorMath.Equal(Avx.LoadVector256(&value1.M21), Avx.LoadVector256(&value2.M21)) &&
                        VectorMath.Equal(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31)) &&
@@ -2057,23 +2101,23 @@ namespace MathStructs
         private static unsafe Vector128<double> MultiplyRowXY(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2) =>
             Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
                                             Sse2.LoadVector128(&value2.M11)),
-                              Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
+                              Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x03),
                                             Sse2.LoadVector128(&value2.M21))),
                      Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
-                                            Sse2.LoadVector128(&value2.M11)),
-                              Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
-                                            Sse2.LoadVector128(&value2.M21))));
+                                            Sse2.LoadVector128(&value2.M31)),
+                              Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x03),
+                                            Sse2.LoadVector128(&value2.M41))));
 
         [MethodImpl(Optimize)]
         private static unsafe Vector128<double> MultiplyRowZW(Matrix4x4D value2, Vector128<double> vector1, Vector128<double> vector2) =>
             Sse2.Add(Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x00),
-                                            Sse2.LoadVector128(&value2.M31)),
-                              Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x55),
-                                            Sse2.LoadVector128(&value2.M41))),
+                                            Sse2.LoadVector128(&value2.M13)),
+                              Sse2.Multiply(Sse2.Shuffle(vector1, vector1, 0x03),
+                                            Sse2.LoadVector128(&value2.M23))),
                      Sse2.Add(Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x00),
-                                            Sse2.LoadVector128(&value2.M31)),
-                              Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x55),
-                                            Sse2.LoadVector128(&value2.M41))));
+                                            Sse2.LoadVector128(&value2.M33)),
+                              Sse2.Multiply(Sse2.Shuffle(vector2, vector2, 0x03),
+                                            Sse2.LoadVector128(&value2.M43))));
 
         [MethodImpl(Optimize)]
         private static unsafe Vector256<double> MultiplyRow(Matrix4x4D value2, Vector256<double> vector)
@@ -2145,6 +2189,19 @@ namespace MathStructs
 
                 if (Sse2.IsSupported)
                     return Sse2.MoveMask(Sse2.CompareNotEqual(a, b)) == 0;
+                else if (AdvSimd.Arm64.IsSupported)
+                {
+                    var vResult = AdvSimd.Arm64.CompareEqual(a, b).AsUInt64();
+
+                    var vResult0 = vResult.GetLower().AsByte();
+                    var vResult1 = vResult.GetUpper().AsByte();
+
+                    var vTemp10 = AdvSimd.Arm64.ZipLow(vResult0, vResult1);
+                    var vTemp11 = AdvSimd.Arm64.ZipHigh(vResult0, vResult1);
+
+                    var vTemp21 = AdvSimd.Arm64.ZipHigh(vTemp10.AsUInt16(), vTemp11.AsUInt16());
+                    return vTemp21.AsUInt32().GetElement(1) == 0xFFFFFFFF;
+                }
                 else
                     // Redundant test so we won't preJIT remainder of this method on platforms without Sse2.
                     throw new PlatformNotSupportedException();
@@ -2176,6 +2233,19 @@ namespace MathStructs
 
                 if (Sse2.IsSupported)
                     return Sse2.MoveMask(Sse2.CompareNotEqual(a, b)) != 0;
+                else if (AdvSimd.Arm64.IsSupported)
+                {
+                    var vResult = AdvSimd.Arm64.CompareEqual(a, b).AsUInt64();
+
+                    var vResult0 = vResult.GetLower().AsByte();
+                    var vResult1 = vResult.GetUpper().AsByte();
+
+                    var vTemp10 = AdvSimd.Arm64.ZipLow(vResult0, vResult1);
+                    var vTemp11 = AdvSimd.Arm64.ZipHigh(vResult0, vResult1);
+
+                    var vTemp21 = AdvSimd.Arm64.ZipHigh(vTemp10.AsUInt16(), vTemp11.AsUInt16());
+                    return vTemp21.AsUInt32().GetElement(1) != 0xFFFFFFFF;
+                }
                 else
                     // Redundant test so we won't preJIT remainder of this method on platforms without Sse2.
                     throw new PlatformNotSupportedException();
