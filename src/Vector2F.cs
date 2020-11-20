@@ -691,18 +691,6 @@ namespace MathStructs
                            MathF.Abs(Y - other.Y) < delta;
 
         /// <summary>
-        /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2F"/>.
-        /// </summary>
-        public static explicit operator Vector2F(ReadOnlySpan<float> span) =>
-            new Vector2F(span[0], span[1]);
-
-        /// <summary>
-        /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2F"/>.
-        /// </summary>
-        public static explicit operator Vector2F(Span<float> span) =>
-            new Vector2F(span[0], span[1]);
-
-        /// <summary>
         ///     Returns the hash code for this instance.
         /// </summary>
         public override int GetHashCode() =>

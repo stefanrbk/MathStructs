@@ -645,18 +645,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3F"/>.
-        /// </summary>
-        public static explicit operator Vector3F(ReadOnlySpan<float> span) =>
-            new Vector3F(span[0], span[1], span[2]);
-
-        /// <summary>
-        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3F"/>.
-        /// </summary>
-        public static explicit operator Vector3F(Span<float> span) =>
-            new Vector3F(span[0], span[1], span[2]);
-
-        /// <summary>
         /// Computes the cross product of two vectors which is a vector perpendicular to the two vectors.
         /// </summary>
         /// <remarks>

@@ -267,24 +267,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4F"/>.
-        /// </summary>
-        public static explicit operator Matrix4x4F(ReadOnlySpan<float> span) =>
-            new Matrix4x4F(span[0], span[1], span[2], span[3],
-                           span[4], span[5], span[6], span[7],
-                           span[8], span[9], span[10], span[11],
-                           span[12], span[13], span[14], span[15]);
-
-        /// <summary>
-        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4F"/>.
-        /// </summary>
-        public static explicit operator Matrix4x4F(Span<float> span) =>
-            new Matrix4x4F(span[0], span[1], span[2], span[3],
-                           span[4], span[5], span[6], span[7],
-                           span[8], span[9], span[10], span[11],
-                           span[12], span[13], span[14], span[15]);
-
-        /// <summary>
         /// Creates a spherical billboard that rotates around a specified object position.
         /// </summary>
         /// <param name="objectPosition">
@@ -1362,7 +1344,7 @@ namespace MathStructs
 
                 return result;
             }
-            /*else if (AdvSimd.IsSupported)
+            else if (AdvSimd.IsSupported)
             {
                 var amountVec = Vector128.Create(amount);
 
@@ -1372,7 +1354,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M41, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M41), AdvSimd.LoadVector128(&matrix2.M41), amountVec));
 
                 return result;
-            }*/
+            }
             return new Matrix4x4F(m1.M11 + (m2.M11 - m1.M11) * amount,
                                   m1.M12 + (m2.M12 - m1.M12) * amount,
                                   m1.M13 + (m2.M13 - m1.M13) * amount,
@@ -1458,7 +1440,7 @@ namespace MathStructs
 
                 return value;
             }
-            /*else if (AdvSimd.IsSupported)
+            else if (AdvSimd.IsSupported)
             {
                 AdvSimd.Store(&result.M11, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M11)));
                 AdvSimd.Store(&result.M21, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M21)));
@@ -1466,7 +1448,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M41, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M41)));
 
                 return result;
-            }*/
+            }
             return new Matrix4x4F(-value.M11, -value.M12, -value.M13, -value.M14,
                                   -value.M21, -value.M22, -value.M23, -value.M24,
                                   -value.M31, -value.M32, -value.M33, -value.M34,
@@ -1503,7 +1485,7 @@ namespace MathStructs
 
                 return result;
             }
-            /*else if (AdvSimd.IsSupported)
+            else if (AdvSimd.IsSupported)
             {
                 AdvSimd.Store(&result.M11, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
                 AdvSimd.Store(&result.M21, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
@@ -1511,7 +1493,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M41, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
 
                 return result;
-            }*/
+            }
             return new Matrix4x4F(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13, left.M14 - right.M14,
                                   left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23, left.M24 - right.M24,
                                   left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33, left.M34 - right.M34,
@@ -1533,13 +1515,13 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator !=(Matrix4x4F value1, Matrix4x4F value2)
         {
-            /*if (AdvSimd.IsSupported)
+            if (AdvSimd.IsSupported)
                 return VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
 
-            else */if (Avx.IsSupported)
+            else if (Avx.IsSupported)
                 return VectorMath.NotEqual(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) ||
                        VectorMath.NotEqual(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
 
@@ -1550,14 +1532,14 @@ namespace MathStructs
                        VectorMath.NotEqual(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
 
             else
-                return value1.M11 == value2.M11 || value1.M22 == value2.M22 ||
-                       value1.M33 == value2.M33 || value1.M44 == value2.M44 ||
-                       value1.M12 == value2.M12 || value1.M13 == value2.M13 ||
-                       value1.M14 == value2.M14 || value1.M21 == value2.M21 ||
-                       value1.M23 == value2.M23 || value1.M24 == value2.M24 ||
-                       value1.M31 == value2.M31 || value1.M32 == value2.M32 ||
-                       value1.M34 == value2.M34 || value1.M41 == value2.M41 ||
-                       value1.M42 == value2.M42 || value1.M43 == value2.M43;
+                return value1.M11 != value2.M11 || value1.M22 != value2.M22 ||
+                       value1.M33 != value2.M33 || value1.M44 != value2.M44 ||
+                       value1.M12 != value2.M12 || value1.M13 != value2.M13 ||
+                       value1.M14 != value2.M14 || value1.M21 != value2.M21 ||
+                       value1.M23 != value2.M23 || value1.M24 != value2.M24 ||
+                       value1.M31 != value2.M31 || value1.M32 != value2.M32 ||
+                       value1.M34 != value2.M34 || value1.M41 != value2.M41 ||
+                       value1.M42 != value2.M42 || value1.M43 != value2.M43;
         }
 
         /// <summary>
@@ -1582,7 +1564,7 @@ namespace MathStructs
                 Sse.Store(&result.M41, MultiplyRow(value2, Sse.LoadVector128(&value1.M41)));
                 return result;
             }
-            /*else if (AdvSimd.Arm64.IsSupported)
+            else if (AdvSimd.Arm64.IsSupported)
             {
                 var M11 = AdvSimd.LoadVector128(&value1.M11);
 
@@ -1592,7 +1574,7 @@ namespace MathStructs
                 var vW = AdvSimd.Arm64.FusedMultiplyAddBySelectedScalar(vY, AdvSimd.LoadVector128(&value2.M41), M11, 3);
 
                 AdvSimd.Store(&result.M11, AdvSimd.Add(vZ, vW));
-            }*/
+            }
 
             result.M11 = value1.M11 * value2.M11 + value1.M12 * value2.M21 + value1.M13 * value2.M31 + value1.M14 * value2.M41;
             result.M12 = value1.M11 * value2.M12 + value1.M12 * value2.M22 + value1.M13 * value2.M32 + value1.M14 * value2.M42;
@@ -1634,6 +1616,13 @@ namespace MathStructs
                 AdvSimd.Store(&result.M21, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M21), right));
                 AdvSimd.Store(&result.M31, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M31), right));
                 AdvSimd.Store(&result.M41, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M41), right));
+            }
+            else if (Avx.IsSupported)
+            {
+                var right = Vector256.Create(value2);
+
+                Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&value1.M11), right));
+                Avx.Store(&result.M31, Avx.Multiply(Avx.LoadVector256(&value1.M31), right));
             }
             else if (Sse.IsSupported)
             {
@@ -1687,7 +1676,7 @@ namespace MathStructs
         {
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            /*if (AdvSimd.IsSupported)
+            if (AdvSimd.IsSupported)
             {
                 AdvSimd.Store(&result.M11, AdvSimd.Add(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
                 AdvSimd.Store(&result.M21, AdvSimd.Add(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
@@ -1696,7 +1685,14 @@ namespace MathStructs
 
                 return result;
             }
-            else */if(Sse.IsSupported)
+            else if (Avx.IsSupported)
+            {
+                Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
+                Avx.Store(&result.M31, Avx.Add(Avx.LoadVector256(&left.M31), Avx.LoadVector256(&right.M31)));
+
+                return result;
+            }
+            else if(Sse.IsSupported)
             {
                 Sse.Store(&result.M11, Sse.Add(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
                 Sse.Store(&result.M21, Sse.Add(Sse.LoadVector128(&left.M21), Sse.LoadVector128(&right.M21)));
@@ -1727,13 +1723,13 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator ==(Matrix4x4F value1, Matrix4x4F value2)
         {
-            /*if (AdvSimd.IsSupported)
+            if (AdvSimd.IsSupported)
                 return VectorMath.Equal(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
 
-            else */if (Avx.IsSupported)
+            else if (Avx.IsSupported)
                 return VectorMath.Equal(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) &&
                        VectorMath.Equal(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
 
@@ -1791,7 +1787,7 @@ namespace MathStructs
         {
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            /*if (AdvSimd.Arm64.IsSupported)
+            if (AdvSimd.Arm64.IsSupported)
             {
                 // This implementation is based on the DirectX Math Library XMMatrixTranspose method
                 // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathMatrix.inl
@@ -1813,7 +1809,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M31, AdvSimd.Arm64.ZipLow(P01, P11));
                 AdvSimd.Store(&result.M41, AdvSimd.Arm64.ZipHigh(P01, P11));
             }
-            else */if (Sse.IsSupported)
+            else if (Sse.IsSupported)
             {
                 var row1 = Sse.LoadVector128(&matrix.M11);
                 var row2 = Sse.LoadVector128(&matrix.M21);
@@ -2258,7 +2254,7 @@ namespace MathStructs
                 // This implementation is based on the DirectX Math Library XMVector4Equal method
                 // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
 
-                /*if (AdvSimd.Arm64.IsSupported)
+                if (AdvSimd.Arm64.IsSupported)
                 {
                     var vResult = AdvSimd.CompareEqual(a, b).AsUInt32();
 
@@ -2272,7 +2268,7 @@ namespace MathStructs
                     return vTemp21.AsUInt32().GetElement(1) == 0xFFFFFFFF;
                 }
 
-                else */if (Sse.IsSupported)
+                else if (Sse.IsSupported)
                     return Sse.MoveMask(Sse.CompareNotEqual(a, b)) == 0;
 
                 else
@@ -2285,10 +2281,10 @@ namespace MathStructs
                 // This implementation is based on the DirectX Math Library XMVectorLerp method
                 // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
 
-                /*if (AdvSimd.IsSupported)
+                if (AdvSimd.IsSupported)
                     return AdvSimd.FusedMultiplyAdd(a, AdvSimd.Subtract(b, a), t);
 
-                else */if (Fma.IsSupported)
+                else if (Fma.IsSupported)
                     return Fma.MultiplyAdd(Sse.Subtract(b, a), t, a);
 
                 else if (Sse.IsSupported)
@@ -2305,7 +2301,7 @@ namespace MathStructs
                 // This implementation is based on the DirectX Math Library XMVector4Equal method
                 // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
 
-                /*if (AdvSimd.Arm64.IsSupported)
+                if (AdvSimd.Arm64.IsSupported)
                 {
                     var vResult = AdvSimd.CompareEqual(a, b).AsUInt32();
 
@@ -2319,7 +2315,7 @@ namespace MathStructs
                     return vTemp21.AsUInt32().GetElement(1) != 0xFFFFFFFF;
                 }
 
-                else */if (Sse.IsSupported)
+                else if (Sse.IsSupported)
                     return Sse.MoveMask(Sse.CompareNotEqual(a, b)) != 0;
 
                 else

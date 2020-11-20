@@ -723,18 +723,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4F"/>.
-        /// </summary>
-        public static explicit operator Vector4F(ReadOnlySpan<float> span) =>
-            new Vector4F(span[0], span[1], span[2], span[3]);
-
-        /// <summary>
-        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4F"/>.
-        /// </summary>
-        public static explicit operator Vector4F(Span<float> span) =>
-            new Vector4F(span[0], span[1], span[2], span[3]);
-
-        /// <summary>
         ///     Deconstructs this vector into its <see cref="float"/> components.
         /// </summary>
         /// <param name="x">

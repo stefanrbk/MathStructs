@@ -170,22 +170,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3F"/>.
-        /// </summary>
-        public static explicit operator Matrix3x3F(ReadOnlySpan<float> span) =>
-            new Matrix3x3F(span[0], span[1], span[2],
-                           span[3], span[4], span[5],
-                           span[6], span[7], span[8]);
-
-        /// <summary>
-        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3F"/>.
-        /// </summary>
-        public static explicit operator Matrix3x3F(Span<float> span) =>
-            new Matrix3x3F(span[0], span[1], span[2],
-                           span[3], span[4], span[5],
-                           span[6], span[7], span[8]);
-
-        /// <summary>
         /// Attempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.
         /// </summary>
         /// <param name="matrix">

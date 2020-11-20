@@ -787,18 +787,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3D"/>.
-        /// </summary>
-        public static explicit operator Vector3D(ReadOnlySpan<double> span) =>
-            new Vector3D(span[0], span[1], span[2]);
-
-        /// <summary>
-        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3D"/>.
-        /// </summary>
-        public static explicit operator Vector3D(Span<double> span) =>
-            new Vector3D(span[0], span[1], span[2]);
-
-        /// <summary>
         ///     Returns the hash code for this instance.
         /// </summary>
         public override int GetHashCode() =>

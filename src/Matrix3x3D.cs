@@ -154,6 +154,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public void CopyTo(Span<double> span, int index)
         {
+            
             if (index < 0 || index >= span.Length)
                 throw new ArgumentOutOfRangeException(nameof(index));
             if (span.Length - index < 16)
@@ -168,22 +169,6 @@ namespace MathStructs
             span[index +  7] = M32;
             span[index +  8] = M33;
         }
-
-        /// <summary>
-        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3D"/>.
-        /// </summary>
-        public static explicit operator Matrix3x3D(ReadOnlySpan<double> span) =>
-            new Matrix3x3D(span[0], span[1], span[2],
-                           span[3], span[4], span[5],
-                           span[6], span[7], span[8]);
-
-        /// <summary>
-        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3D"/>.
-        /// </summary>
-        public static explicit operator Matrix3x3D(Span<double> span) =>
-            new Matrix3x3D(span[0], span[1], span[2],
-                           span[3], span[4], span[5],
-                           span[6], span[7], span[8]);
 
         /// <summary>
         /// Attempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.
