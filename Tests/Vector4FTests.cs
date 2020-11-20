@@ -15,7 +15,7 @@ namespace Tests
         public void CastTest()
         {
             var span = (new float[] {4.0f, 7.0f, 2.0f, 9.0f}).AsSpan();
-            var vec = (Vector4F)span;
+            var vec = span.ToVector4F();
 
             Assert.That(vec.X, Is.EqualTo(span[0]));
             Assert.That(vec.Y, Is.EqualTo(span[1]));

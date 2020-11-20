@@ -874,18 +874,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4D"/>.
-        /// </summary>
-        public static explicit operator Vector4D(ReadOnlySpan<double> span) =>
-            new Vector4D(span[0], span[1], span[2], span[3]);
-
-        /// <summary>
-        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4D"/>.
-        /// </summary>
-        public static explicit operator Vector4D(Span<double> span) =>
-            new Vector4D(span[0], span[1], span[2], span[3]);
-
-        /// <summary>
         ///     Returns the hash code for this instance.
         /// </summary>
         public override int GetHashCode() =>

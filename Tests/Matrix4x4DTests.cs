@@ -19,7 +19,7 @@ namespace Tests
                                       12.0, 0.0, 3.0, 8.0,
                                       6.0, 5.0, 10.0, 15.0,
                                       14.0, 13.0, 11.0, 1.0}).AsSpan();
-            var vec = (Matrix4x4D)span;
+            var vec = span.ToMatrix4x4D();
 
             Assert.That(vec.M11, Is.EqualTo(span[0]));
             Assert.That(vec.M12, Is.EqualTo(span[1]));

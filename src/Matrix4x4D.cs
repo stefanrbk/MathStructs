@@ -264,24 +264,6 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4D"/>.
-        /// </summary>
-        public static explicit operator Matrix4x4D(ReadOnlySpan<double> span) =>
-            new Matrix4x4D(span[0], span[1], span[2], span[3],
-                           span[4], span[5], span[6], span[7],
-                           span[8], span[9], span[10], span[11],
-                           span[12], span[13], span[14], span[15]);
-
-        /// <summary>
-        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4D"/>.
-        /// </summary>
-        public static explicit operator Matrix4x4D(Span<double> span) =>
-            new Matrix4x4D(span[0], span[1], span[2], span[3],
-                           span[4], span[5], span[6], span[7],
-                           span[8], span[9], span[10], span[11],
-                           span[12], span[13], span[14], span[15]);
-
-        /// <summary>
         /// Creates a spherical billboard that rotates around a specified object position.
         /// </summary>
         /// <param name="objectPosition">

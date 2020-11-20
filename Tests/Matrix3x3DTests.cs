@@ -15,7 +15,7 @@ namespace Tests
         public void CastTest()
         {
             var span = (new double[] {4.0, 7.0, 2.0, 9.0, 12.0, 0.0, 3.0, 8.0, 6.0}).AsSpan();
-            var vec = (Matrix3x3D)span;
+            var vec = span.ToMatrix3x3D();
 
             Assert.That(vec.M11, Is.EqualTo(span[0]));
             Assert.That(vec.M12, Is.EqualTo(span[1]));
