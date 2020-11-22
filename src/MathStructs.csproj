@@ -42,9 +42,10 @@
   <ItemGroup>
     <Folder Include="Fixed32\" />
     <Folder Include="Fixed64\" />
-    <Folder Include="U8Fixed8\" />
-    <Folder Include="U16Fixed16\" />
-    <Folder Include="S15Fixed16\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BigEndianIO" Version="1.0.0-Pre1" />
   </ItemGroup>
 
 </Project>

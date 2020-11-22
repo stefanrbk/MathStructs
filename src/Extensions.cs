@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -217,5 +219,59 @@ namespace MathStructs
         /// </summary>
         public static Vector4F ToVector4F(this float[] array) =>
             new Vector4F(array[0], array[1], array[2], array[3]);
+
+        public static void Write(this BeBinaryWriter writer, S15Fixed16 value) =>
+            writer.Write(Unsafe.As<S15Fixed16, uint>(ref value));
+
+        public static S15Fixed16 ReadS15Fixed16(this BeBinaryReader reader)
+        {
+            var value = reader.ReadUInt32();
+            return Unsafe.As<uint, S15Fixed16>(ref value);
+        }
+
+        public static void Write(this BinaryWriter writer, S15Fixed16 value) =>
+            writer.Write(Unsafe.As<S15Fixed16, uint>(ref value));
+
+        public static S15Fixed16 ReadS15Fixed16(this BinaryReader reader)
+        {
+            var value = reader.ReadUInt32();
+            return Unsafe.As<uint, S15Fixed16>(ref value);
+        }
+
+        public static void Write(this BeBinaryWriter writer, U16Fixed16 value) =>
+            writer.Write(Unsafe.As<U16Fixed16, uint>(ref value));
+
+        public static U16Fixed16 ReadU16Fixed16(this BeBinaryReader reader)
+        {
+            var value = reader.ReadUInt32();
+            return Unsafe.As<uint, U16Fixed16>(ref value);
+        }
+
+        public static void Write(this BinaryWriter writer, U16Fixed16 value) =>
+            writer.Write(Unsafe.As<U16Fixed16, uint>(ref value));
+
+        public static U16Fixed16 ReadU16Fixed16(this BinaryReader reader)
+        {
+            var value = reader.ReadUInt32();
+            return Unsafe.As<uint, U16Fixed16>(ref value);
+        }
+
+        public static void Write(this BeBinaryWriter writer, U8Fixed8 value) =>
+            writer.Write(Unsafe.As<U8Fixed8, ushort>(ref value));
+
+        public static U8Fixed8 ReadU8Fixed8(this BeBinaryReader reader)
+        {
+            var value = reader.ReadUInt16();
+            return Unsafe.As<ushort, U8Fixed8>(ref value);
+        }
+
+        public static void Write(this BinaryWriter writer, U8Fixed8 value) =>
+            writer.Write(Unsafe.As<U8Fixed8, ushort>(ref value));
+
+        public static U8Fixed8 ReadU8Fixed8(this BinaryReader reader)
+        {
+            var value = reader.ReadUInt16();
+            return Unsafe.As<ushort, U8Fixed8>(ref value);
+        }
     }
 }
