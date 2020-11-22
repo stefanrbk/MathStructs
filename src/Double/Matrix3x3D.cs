@@ -10,7 +10,7 @@ namespace MathStructs
     /// A structure encapsulating a 3x3 matrix of <see cref="double"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
-    public struct Matrix3x3D : IEquatable<Matrix3x3D>
+    public readonly struct Matrix3x3D : IEquatable<Matrix3x3D>
     {
         #region Public Fields
 
@@ -18,55 +18,55 @@ namespace MathStructs
         /// Value at row 1, column 1 of the matrix.
         /// </summary>
         [FieldOffset(0)]
-        public double M11;
+        public readonly double M11;
 
         /// <summary>
         /// Value at row 1, column 2 of the matrix.
         /// </summary>
         [FieldOffset(8)]
-        public double M12;
+        public readonly double M12;
 
         /// <summary>
         /// Value at row 1, column 3 of the matrix.
         /// </summary>
         [FieldOffset(16)]
-        public double M13;
+        public readonly double M13;
 
         /// <summary>
         /// Value at row 2, column 1 of the matrix.
         /// </summary>
         [FieldOffset(24)]
-        public double M21;
+        public readonly double M21;
 
         /// <summary>
         /// Value at row 2, column 2 of the matrix.
         /// </summary>
         [FieldOffset(32)]
-        public double M22;
+        public readonly double M22;
 
         /// <summary>
         /// Value at row 2, column 3 of the matrix.
         /// </summary>
         [FieldOffset(40)]
-        public double M23;
+        public readonly double M23;
 
         /// <summary>
         /// Value at row 3, column 1 of the matrix.
         /// </summary>
         [FieldOffset(48)]
-        public double M31;
+        public readonly double M31;
 
         /// <summary>
         /// Value at row 3, column 2 of the matrix.
         /// </summary>
         [FieldOffset(56)]
-        public double M32;
+        public readonly double M32;
 
         /// <summary>
         /// Value at row 3, column 3 of the matrix.
         /// </summary>
         [FieldOffset(64)]
-        public double M33;
+        public readonly double M33;
 
         #endregion Public Fields
 
@@ -74,8 +74,6 @@ namespace MathStructs
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
-        private static readonly Matrix3x3D _identity = new Matrix3x3D(1, 0, 0, 0, 1, 0, 0, 0, 1);
-        private static readonly Matrix3x3D _nan = new Matrix3x3D(double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN);
 
         #endregion Private Fields
 
@@ -105,18 +103,18 @@ namespace MathStructs
         /// <summary>
         /// Returns the multiplicative identity matrix.
         /// </summary>
-        public static Matrix3x3D Identity => _identity;
+        public static Matrix3x3D Identity => new Matrix3x3D(1, 0, 0, 0, 1, 0, 0, 0, 1);
 
         /// <summary>
         /// Returns a matrix with all values set to NaN.
         /// </summary>
-        public static Matrix3x3D NaN => _nan;
+        public static Matrix3x3D NaN => new Matrix3x3D(Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN);
 
         /// <summary>
         /// Returns whether the matrix is the identity matrix.
         /// </summary>
         public readonly bool IsIdentity =>
-            this == _identity;
+            this == Identity;
 
         #endregion Public Properties
 
@@ -183,20 +181,20 @@ namespace MathStructs
         public static Matrix3x3D Invert(Matrix3x3D matrix)
         {
             var det = matrix.GetDeterminant();
-            if (Math.Abs(det) < double.Epsilon)
-                return _nan;
+            if (Math.Abs(det) < Double.Epsilon)
+                return NaN;
 
             var invdet = 1 / det;
 
-            return new Matrix3x3D((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
-                                  (matrix.M13 * matrix.M32 - matrix.M12 * matrix.M33) * invdet,
-                                  (matrix.M12 * matrix.M23 - matrix.M13 * matrix.M22) * invdet,
-                                  (matrix.M23 * matrix.M31 - matrix.M21 * matrix.M33) * invdet,
-                                  (matrix.M11 * matrix.M33 - matrix.M13 * matrix.M31) * invdet,
-                                  (matrix.M21 * matrix.M13 - matrix.M11 * matrix.M23) * invdet,
-                                  (matrix.M21 * matrix.M32 - matrix.M31 * matrix.M22) * invdet,
-                                  (matrix.M31 * matrix.M12 - matrix.M11 * matrix.M32) * invdet,
-                                  (matrix.M11 * matrix.M22 - matrix.M21 * matrix.M12) * invdet);
+            return new Matrix3x3D((( matrix.M22 * matrix.M33 ) - ( matrix.M32 * matrix.M23 )) * invdet,
+                                  (( matrix.M13 * matrix.M32 ) - ( matrix.M12 * matrix.M33 )) * invdet,
+                                  (( matrix.M12 * matrix.M23 ) - ( matrix.M13 * matrix.M22 )) * invdet,
+                                  (( matrix.M23 * matrix.M31 ) - ( matrix.M21 * matrix.M33 )) * invdet,
+                                  (( matrix.M11 * matrix.M33 ) - ( matrix.M13 * matrix.M31 )) * invdet,
+                                  (( matrix.M21 * matrix.M13 ) - ( matrix.M11 * matrix.M23 )) * invdet,
+                                  (( matrix.M21 * matrix.M32 ) - ( matrix.M31 * matrix.M22 )) * invdet,
+                                  (( matrix.M31 * matrix.M12 ) - ( matrix.M11 * matrix.M32 )) * invdet,
+                                  (( matrix.M11 * matrix.M22 ) - ( matrix.M21 * matrix.M12 )) * invdet);
         }
 
         /// <summary>
@@ -217,15 +215,15 @@ namespace MathStructs
             (var m1, var m2) = (matrix1, matrix2);
             if (Sse.IsSupported)
                 return Matrix4x4D.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
-            return new Matrix3x3D(m1.M11 + (m2.M11 - m1.M11) * amount,
-                                  m1.M12 + (m2.M12 - m1.M12) * amount,
-                                  m1.M13 + (m2.M13 - m1.M13) * amount,
-                                  m1.M21 + (m2.M21 - m1.M21) * amount,
-                                  m1.M22 + (m2.M22 - m1.M22) * amount,
-                                  m1.M23 + (m2.M23 - m1.M23) * amount,
-                                  m1.M31 + (m2.M31 - m1.M31) * amount,
-                                  m1.M32 + (m2.M32 - m1.M32) * amount,
-                                  m1.M33 + (m2.M33 - m1.M33) * amount);
+            return new Matrix3x3D(m1.M11 + ( (m2.M11 - m1.M11) * amount ),
+                                  m1.M12 + ( (m2.M12 - m1.M12) * amount ),
+                                  m1.M13 + ( (m2.M13 - m1.M13) * amount ),
+                                  m1.M21 + ( (m2.M21 - m1.M21) * amount ),
+                                  m1.M22 + ( (m2.M22 - m1.M22) * amount ),
+                                  m1.M23 + ( (m2.M23 - m1.M23) * amount ),
+                                  m1.M31 + ( (m2.M31 - m1.M31) * amount ),
+                                  m1.M32 + ( (m2.M32 - m1.M32) * amount ),
+                                  m1.M33 + ( (m2.M33 - m1.M33) * amount ));
         }
 
         /// <summary>
@@ -271,7 +269,7 @@ namespace MathStructs
         /// The source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3D operator -(Matrix3x3D value)
+        public static Matrix3x3D operator -(Matrix3x3D value)
         {
             if (Sse.IsSupported)
                 return (-value.As4x4()).As3x3();
@@ -291,7 +289,7 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
+        public static Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
         {
             if (Sse.IsSupported)
                 return (left.As4x4() - right.As4x4()).As3x3();
@@ -334,26 +332,23 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
+        public static Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
         {
-            var result = new Matrix3x3D();
 
             if (Sse.IsSupported)
-                result = (left.As4x4() * right.As4x4()).As3x3();
+                return (left.As4x4() * right.As4x4()).As3x3();
             else
             {
-                result.M11 = left.M11 * right.M11 + left.M12 * right.M21 + left.M13 * right.M31;
-                result.M12 = left.M11 * right.M12 + left.M12 * right.M22 + left.M13 * right.M32;
-                result.M13 = left.M11 * right.M13 + left.M12 * right.M23 + left.M13 * right.M33;
-                result.M21 = left.M21 * right.M11 + left.M22 * right.M21 + left.M23 * right.M31;
-                result.M22 = left.M21 * right.M12 + left.M22 * right.M22 + left.M23 * right.M32;
-                result.M23 = left.M21 * right.M13 + left.M22 * right.M23 + left.M23 * right.M33;
-                result.M31 = left.M31 * right.M11 + left.M32 * right.M21 + left.M33 * right.M31;
-                result.M32 = left.M31 * right.M12 + left.M32 * right.M22 + left.M33 * right.M32;
-                result.M33 = left.M31 * right.M13 + left.M32 * right.M23 + left.M33 * right.M33;
+                return new Matrix3x3D(( left.M11 * right.M11 ) + ( left.M12 * right.M21 ) + ( left.M13 * right.M31 ),
+                                      ( left.M11 * right.M12 ) + ( left.M12 * right.M22 ) + ( left.M13 * right.M32 ),
+                                      ( left.M11 * right.M13 ) + ( left.M12 * right.M23 ) + ( left.M13 * right.M33 ),
+                                      ( left.M21 * right.M11 ) + ( left.M22 * right.M21 ) + ( left.M23 * right.M31 ),
+                                      ( left.M21 * right.M12 ) + ( left.M22 * right.M22 ) + ( left.M23 * right.M32 ),
+                                      ( left.M21 * right.M13 ) + ( left.M22 * right.M23 ) + ( left.M23 * right.M33 ),
+                                      ( left.M31 * right.M11 ) + ( left.M32 * right.M21 ) + ( left.M33 * right.M31 ),
+                                      ( left.M31 * right.M12 ) + ( left.M32 * right.M22 ) + ( left.M33 * right.M32 ),
+                                      ( left.M31 * right.M13 ) + ( left.M32 * right.M23 ) + ( left.M33 * right.M33 ));
             }
-
-            return result;
         }
 
         /// <summary>
@@ -370,11 +365,11 @@ namespace MathStructs
         /// concept of being vertical or horizontal, so the result is "translated" as a 3x1 vector.
         /// </remarks>
         [MethodImpl(Optimize)]
-        public static unsafe Vector3D operator *(Matrix3x3D left, Vector3D right)
+        public static Vector3D operator *(Matrix3x3D left, Vector3D right)
         {
-            return new Vector3D(left.M11 * right.X + left.M12 * right.Y + left.M13 * right.Z,
-                                left.M21 * right.X + left.M22 * right.Y + left.M23 * right.Z,
-                                left.M31 * right.X + left.M32 * right.Y + left.M33 * right.Z);
+            return new Vector3D(( left.M11 * right.X ) + ( left.M12 * right.Y ) + ( left.M13 * right.Z ),
+                                ( left.M21 * right.X ) + ( left.M22 * right.Y ) + ( left.M23 * right.Z ),
+                                ( left.M31 * right.X ) + ( left.M32 * right.Y ) + ( left.M33 * right.Z ));
         }
 
         /// <summary>
@@ -411,7 +406,7 @@ namespace MathStructs
         /// concept of being vertical or horizontal, so the result is "translated" as a 4x1 vector.
         /// </remarks>
         [MethodImpl(Optimize)]
-        public static unsafe Vector4D operator *(Matrix3x3D left, Vector4D right)
+        public static Vector4D operator *(Matrix3x3D left, Vector4D right)
         {
             (var v, _) = right;
             return new Vector4D(left * v, right.W);
@@ -447,7 +442,7 @@ namespace MathStructs
         /// The scaling factor.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3D operator *(Matrix3x3D left, double right)
+        public static Matrix3x3D operator *(Matrix3x3D left, double right)
         {
             if (Sse.IsSupported)
                 return (left.As4x4() * right).As3x3();
@@ -474,7 +469,7 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
+        public static Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
         {
             if (Sse.IsSupported)
                 return (left.As4x4() + right.As4x4()).As3x3();
@@ -497,7 +492,7 @@ namespace MathStructs
         /// True if the given matrices are equal; False otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static unsafe bool operator ==(Matrix3x3D left, Matrix3x3D right)
+        public static bool operator ==(Matrix3x3D left, Matrix3x3D right)
         {
             if (Sse.IsSupported)
                 return left.As4x4() == right.As4x4();
@@ -567,9 +562,9 @@ namespace MathStructs
         /// </summary>
         [MethodImpl(Optimize)]
         public double GetDeterminant() =>
-            M11 * (M22 * M33 - M32 * M23) -
-            M12 * (M21 * M33 - M23 * M31) +
-            M13 * (M21 * M32 - M22 * M31);
+            ( M11 * ( ( M22 * M33 ) - ( M32 * M23 ) )) -
+            ( M12 * ( ( M21 * M33 ) - ( M23 * M31 ) )) +
+            ( M13 * ( ( M21 * M32 ) - ( M22 * M31 ) ));
 
         /// <summary>
         /// Returns the hash code for this instance.

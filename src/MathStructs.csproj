@@ -39,4 +39,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Fixed32\" />
+    <Folder Include="Fixed64\" />
+    <Folder Include="U8Fixed8\" />
+    <Folder Include="U16Fixed16\" />
+    <Folder Include="S15Fixed16\" />
+  </ItemGroup>
+
 </Project>
