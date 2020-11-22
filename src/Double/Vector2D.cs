@@ -12,7 +12,7 @@ namespace MathStructs
     /// Slower than <see cref="Vector2F"/> but more precise.
     /// </remarks>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
-    public struct Vector2D : IEquatable<Vector2D>, IFormattable
+    public readonly struct Vector2D : IEquatable<Vector2D>, IFormattable
     {
         #region Public Fields
 
@@ -20,13 +20,13 @@ namespace MathStructs
         ///     The X component of the vector.
         /// </summary>
         [FieldOffset(0)]
-        public double X;
+        public readonly double X;
 
         /// <summary>
         ///     The Y component of the vector.
         /// </summary>
         [FieldOffset(8)]
-        public double Y;
+        public readonly double Y;
 
         #endregion Public Fields
 
