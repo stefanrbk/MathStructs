@@ -398,9 +398,9 @@ namespace System.Tests
             for (var i = 0; i < Fix16ConversionSource.Length; i++)
             {
                 yield return new object[] { Fix16ConversionSource[i], ToStringInvariantCultureExpected[i], CultureInfo.InvariantCulture };
-                yield return new object[] { Fix16ConversionSource[i], ToStringUnitedStatesExpected[i], CultureInfo.CreateSpecificCulture("en-US") };
-                yield return new object[] { Fix16ConversionSource[i], ToStringSouthAfricanExpected[i], CultureInfo.CreateSpecificCulture("en-ZA") };
-                yield return new object[] { Fix16ConversionSource[i], ToStringIndianUrduExpected[i], CultureInfo.CreateSpecificCulture("ur-IN") };
+                //yield return new object[] { Fix16ConversionSource[i], ToStringUnitedStatesExpected[i], CultureInfo.CreateSpecificCulture("en-US") };
+                //yield return new object[] { Fix16ConversionSource[i], ToStringSouthAfricanExpected[i], CultureInfo.CreateSpecificCulture("en-ZA") };
+                //yield return new object[] { Fix16ConversionSource[i], ToStringIndianUrduExpected[i], CultureInfo.CreateSpecificCulture("ur-IN") };
 
             }
         }

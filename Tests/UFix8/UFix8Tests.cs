@@ -460,12 +460,12 @@ namespace System.Tests
             var urGen = SourceGenerator1(0, 4);
             foreach (var i in invarGen)
                 yield return new object[] { i[0], i[1], CultureInfo.InvariantCulture };
-            foreach (var i in usGen)
-                yield return new object[] { i[0], i[1], CultureInfo.CreateSpecificCulture("en-US") };
-            foreach (var i in saGen)
-                yield return new object[] { i[0], i[1], CultureInfo.CreateSpecificCulture("en-ZA") };
-            foreach (var i in urGen)
-                yield return new object[] { i[0], i[1], CultureInfo.CreateSpecificCulture("ur-IN") };
+            //foreach (var i in usGen)
+            //    yield return new object[] { i[0], i[1], CultureInfo.CreateSpecificCulture("en-US") };
+            //foreach (var i in saGen)
+            //    yield return new object[] { i[0], i[1], CultureInfo.CreateSpecificCulture("en-ZA") };
+            //foreach (var i in urGen)
+            //    yield return new object[] { i[0], i[1], CultureInfo.CreateSpecificCulture("ur-IN") };
         }
 
         [Test, Category("Epsilon")]
