@@ -29,6 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FixedPoint\FixedPoint.csproj" />
+    <ProjectReference Include="..\MathStructs.FixedPoint\MathStructs.FixedPoint.csproj" />
     <ProjectReference Include="..\src\MathStructs.csproj" />
   </ItemGroup>
 
