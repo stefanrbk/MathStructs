@@ -39,9 +39,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Fixed32\" />
-    <Folder Include="Fixed64\" />
-  </ItemGroup>
-
 </Project>
