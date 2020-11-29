@@ -59,6 +59,30 @@ namespace MathStructs
                            array[6], array[7], array[8]);
 
         /// <summary>
+        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3Fix16"/>.
+        /// </summary>
+        public static Matrix3x3Fix16 ToMatrix3x3Fix16(this ReadOnlySpan<int> span) =>
+            new Matrix3x3Fix16(span[0], span[1], span[2],
+                                    span[3], span[4], span[5],
+                                    span[6], span[7], span[8]);
+
+        /// <summary>
+        /// Converts the top 9 values of <paramref name="span"/> into a <see cref="Matrix3x3Fix16"/>.
+        /// </summary>
+        public static Matrix3x3Fix16 ToMatrix3x3Fix16(this Span<int> span) =>
+            new Matrix3x3Fix16(span[0], span[1], span[2],
+                                    span[3], span[4], span[5],
+                                    span[6], span[7], span[8]);
+
+        /// <summary>
+        /// Converts the top 9 values of <paramref name="array"/> into a <see cref="Matrix3x3Fix16"/>.
+        /// </summary>
+        public static Matrix3x3Fix16 ToMatrix3x3Fix16(this int[] array) =>
+            new Matrix3x3Fix16(array[0], array[1], array[2],
+                                    array[3], array[4], array[5],
+                                    array[6], array[7], array[8]);
+
+        /// <summary>
         /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4D"/>.
         /// </summary>
         public static Matrix4x4D ToMatrix4x4D(this ReadOnlySpan<double> span) =>
@@ -113,6 +137,33 @@ namespace MathStructs
                            array[12], array[13], array[14], array[15]);
 
         /// <summary>
+        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4Fix16"/>.
+        /// </summary>
+        public static Matrix4x4Fix16 ToMatrix4x4Fix16(this ReadOnlySpan<int> span) =>
+            new Matrix4x4Fix16(span[0], span[1], span[2], span[3],
+                                    span[4], span[5], span[6], span[7],
+                                    span[8], span[9], span[10], span[11],
+                                    span[12], span[13], span[14], span[15]);
+
+        /// <summary>
+        /// Converts the top 16 values of <paramref name="span"/> into a <see cref="Matrix4x4Fix16"/>.
+        /// </summary>
+        public static Matrix4x4Fix16 ToMatrix4x4Fix16(this Span<int> span) =>
+            new Matrix4x4Fix16(span[0], span[1], span[2], span[3],
+                                    span[4], span[5], span[6], span[7],
+                                    span[8], span[9], span[10], span[11],
+                                    span[12], span[13], span[14], span[15]);
+
+        /// <summary>
+        /// Converts the top 16 values of <paramref name="array"/> into a <see cref="Matrix4x4Fix16"/>.
+        /// </summary>
+        public static Matrix4x4Fix16 ToMatrix4x4Fix16(this int[] array) =>
+            new Matrix4x4Fix16(array[0], array[1], array[2], array[3],
+                                    array[4], array[5], array[6], array[7],
+                                    array[8], array[9], array[10], array[11],
+                                    array[12], array[13], array[14], array[15]);
+
+        /// <summary>
         /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2D"/>.
         /// </summary>
         public static Vector2D ToVector2D(this ReadOnlySpan<double> span) =>
@@ -147,6 +198,24 @@ namespace MathStructs
         /// </summary>
         public static Vector2F ToVector2F(this float[] array) =>
             new Vector2F(array[0], array[1]);
+
+        /// <summary>
+        /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2Fix16"/>.
+        /// </summary>
+        public static Vector2Fix16 ToVector2Fix16(this ReadOnlySpan<int> span) =>
+            new Vector2Fix16(span[0], span[1]);
+
+        /// <summary>
+        /// Converts the top 2 values of <paramref name="span"/> into a <see cref="Vector2Fix16"/>.
+        /// </summary>
+        public static Vector2Fix16 ToVector2Fix16(this Span<int> span) =>
+            new Vector2Fix16(span[0], span[1]);
+
+        /// <summary>
+        /// Converts the top 2 values of <paramref name="array"/> into a <see cref="Vector2Fix16"/>.
+        /// </summary>
+        public static Vector2Fix16 ToVector2Fix16(this int[] array) =>
+            new Vector2Fix16(array[0], array[1]);
 
         /// <summary>
         /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3D"/>.
@@ -185,6 +254,24 @@ namespace MathStructs
             new Vector3F(array[0], array[1], array[2]);
 
         /// <summary>
+        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3Fix16"/>.
+        /// </summary>
+        public static Vector3Fix16 ToVector3Fix16(this ReadOnlySpan<int> span) =>
+            new Vector3Fix16(span[0], span[1], span[2]);
+
+        /// <summary>
+        /// Converts the top 3 values of <paramref name="span"/> into a <see cref="Vector3Fix16"/>.
+        /// </summary>
+        public static Vector3Fix16 ToVector3Fix16(this Span<int> span) =>
+            new Vector3Fix16(span[0], span[1], span[2]);
+
+        /// <summary>
+        /// Converts the top 3 values of <paramref name="array"/> into a <see cref="Vector3Fix16"/>.
+        /// </summary>
+        public static Vector3Fix16 ToVector3Fix16(this int[] array) =>
+            new Vector3Fix16(array[0], array[1], array[2]);
+
+        /// <summary>
         /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4D"/>.
         /// </summary>
         public static Vector4D ToVector4D(this ReadOnlySpan<double> span) =>
@@ -220,58 +307,22 @@ namespace MathStructs
         public static Vector4F ToVector4F(this float[] array) =>
             new Vector4F(array[0], array[1], array[2], array[3]);
 
-        public static void Write(this BeBinaryWriter writer, S15Fixed16 value) =>
-            writer.Write(Unsafe.As<S15Fixed16, uint>(ref value));
+        /// <summary>
+        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4Fix16"/>.
+        /// </summary>
+        public static Vector4Fix16 ToVector4Fix16(this ReadOnlySpan<int> span) =>
+            new Vector4Fix16(span[0], span[1], span[2], span[3]);
 
-        public static S15Fixed16 ReadS15Fixed16(this BeBinaryReader reader)
-        {
-            var value = reader.ReadUInt32();
-            return Unsafe.As<uint, S15Fixed16>(ref value);
-        }
+        /// <summary>
+        /// Converts the top 4 values of <paramref name="span"/> into a <see cref="Vector4Fix16"/>.
+        /// </summary>
+        public static Vector4Fix16 ToVector4Fix16(this Span<int> span) =>
+            new Vector4Fix16(span[0], span[1], span[2], span[3]);
 
-        public static void Write(this BinaryWriter writer, S15Fixed16 value) =>
-            writer.Write(Unsafe.As<S15Fixed16, uint>(ref value));
-
-        public static S15Fixed16 ReadS15Fixed16(this BinaryReader reader)
-        {
-            var value = reader.ReadUInt32();
-            return Unsafe.As<uint, S15Fixed16>(ref value);
-        }
-
-        public static void Write(this BeBinaryWriter writer, U16Fixed16 value) =>
-            writer.Write(Unsafe.As<U16Fixed16, uint>(ref value));
-
-        public static U16Fixed16 ReadU16Fixed16(this BeBinaryReader reader)
-        {
-            var value = reader.ReadUInt32();
-            return Unsafe.As<uint, U16Fixed16>(ref value);
-        }
-
-        public static void Write(this BinaryWriter writer, U16Fixed16 value) =>
-            writer.Write(Unsafe.As<U16Fixed16, uint>(ref value));
-
-        public static U16Fixed16 ReadU16Fixed16(this BinaryReader reader)
-        {
-            var value = reader.ReadUInt32();
-            return Unsafe.As<uint, U16Fixed16>(ref value);
-        }
-
-        public static void Write(this BeBinaryWriter writer, U8Fixed8 value) =>
-            writer.Write(Unsafe.As<U8Fixed8, ushort>(ref value));
-
-        public static U8Fixed8 ReadU8Fixed8(this BeBinaryReader reader)
-        {
-            var value = reader.ReadUInt16();
-            return Unsafe.As<ushort, U8Fixed8>(ref value);
-        }
-
-        public static void Write(this BinaryWriter writer, U8Fixed8 value) =>
-            writer.Write(Unsafe.As<U8Fixed8, ushort>(ref value));
-
-        public static U8Fixed8 ReadU8Fixed8(this BinaryReader reader)
-        {
-            var value = reader.ReadUInt16();
-            return Unsafe.As<ushort, U8Fixed8>(ref value);
-        }
+        /// <summary>
+        /// Converts the top 4 values of <paramref name="array"/> into a <see cref="Vector4Fix16"/>.
+        /// </summary>
+        public static Vector4Fix16 ToVector4Fix16(this int[] array) =>
+            new Vector4Fix16(array[0], array[1], array[2], array[3]);
     }
 }

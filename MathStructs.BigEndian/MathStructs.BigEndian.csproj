@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>System.Extensions</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BigEndianIO" Version="1.0.0-Pre1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\MathStructs.csproj" />
+  </ItemGroup>
+
+</Project>

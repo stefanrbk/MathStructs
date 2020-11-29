@@ -44,8 +44,4 @@
     <Folder Include="Fixed64\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="BigEndianIO" Version="1.0.0-Pre1" />
-  </ItemGroup>
-
 </Project>

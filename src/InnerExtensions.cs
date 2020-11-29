@@ -13,6 +13,12 @@ namespace MathStructs
         public static Vector4F AsVector4F(this Vector128<float> value) =>
                     Unsafe.As<Vector128<float>, Vector4F>(ref value);
 
+        public static Vector4Fix16 AsVector4Fix16(this Vector128<int> value) =>
+            Unsafe.As<Vector128<int>, Vector4Fix16>(ref value);
+
+        public static Vector4Fix16 AsVector4Fix16(this Vector128<float> value) =>
+            Unsafe.As<Vector128<float>, Vector4Fix16>(ref value);
+
         #endregion Public Methods
     }
 }
