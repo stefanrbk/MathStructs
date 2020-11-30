@@ -297,13 +297,13 @@ namespace Tests
             PlaneD target = new PlaneD(1, 2, 3, 4);
             target = PlaneD.Normalize(target);
 
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0f)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f));
-            m.M41 = 10.0f;
-            m.M42 = 20.0f;
-            m.M43 = 30.0f;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f)))
+                .With(m41: 10.0f,
+                      m42: 20.0f,
+                      m43: 30.0f);
 
             PlaneD expected = new PlaneD();
             Matrix4x4D inv = m.Invert();
