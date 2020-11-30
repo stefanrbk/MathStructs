@@ -11,7 +11,7 @@ namespace MathStructs
     /// A structure encapsulating a 4x4 matrix of <see cref="Double"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
-    public struct Matrix4x4D
+    public readonly struct Matrix4x4D
     {
         #region Public Fields
 
@@ -19,97 +19,97 @@ namespace MathStructs
         /// Value at row 1, column 1 of the matrix.
         /// </summary>
         [FieldOffset(0)]
-        public double M11;
+        public readonly double M11;
 
         /// <summary>
         /// Value at row 1, column 2 of the matrix.
         /// </summary>
         [FieldOffset(8)]
-        public double M12;
+        public readonly double M12;
 
         /// <summary>
         /// Value at row 1, column 3 of the matrix.
         /// </summary>
         [FieldOffset(16)]
-        public double M13;
+        public readonly double M13;
 
         /// <summary>
         /// Value at row 1, column 4 of the matrix.
         /// </summary>
         [FieldOffset(24)]
-        public double M14;
+        public readonly double M14;
 
         /// <summary>
         /// Value at row 2, column 1 of the matrix.
         /// </summary>
         [FieldOffset(32)]
-        public double M21;
+        public readonly double M21;
 
         /// <summary>
         /// Value at row 2, column 2 of the matrix.
         /// </summary>
         [FieldOffset(40)]
-        public double M22;
+        public readonly double M22;
 
         /// <summary>
         /// Value at row 2, column 3 of the matrix.
         /// </summary>
         [FieldOffset(48)]
-        public double M23;
+        public readonly double M23;
 
         /// <summary>
         /// Value at row 2, column 4 of the matrix.
         /// </summary>
         [FieldOffset(56)]
-        public double M24;
+        public readonly double M24;
 
         /// <summary>
         /// Value at row 3, column 1 of the matrix.
         /// </summary>
         [FieldOffset(64)]
-        public double M31;
+        public readonly double M31;
 
         /// <summary>
         /// Value at row 3, column 2 of the matrix.
         /// </summary>
         [FieldOffset(72)]
-        public double M32;
+        public readonly double M32;
 
         /// <summary>
         /// Value at row 3, column 3 of the matrix.
         /// </summary>
         [FieldOffset(80)]
-        public double M33;
+        public readonly double M33;
 
         /// <summary>
         /// Value at row 3, column 4 of the matrix.
         /// </summary>
         [FieldOffset(88)]
-        public double M34;
+        public readonly double M34;
 
         /// <summary>
         /// Value at row 4, column 1 of the matrix.
         /// </summary>
         [FieldOffset(96)]
-        public double M41;
+        public readonly double M41;
 
         /// <summary>
         /// Value at row 4, column 2 of the matrix.
         /// </summary>
         [FieldOffset(104)]
-        public double M42;
+        public readonly double M42;
 
         /// <summary>
         /// Value at row 4, column 3 of the matrix.
         /// </summary>
         [FieldOffset(112)]
-        public double M43;
+        public readonly double M43;
 
         /// <summary>
         /// Value at row 4, column 4 of the matrix.
         /// </summary>
         [FieldOffset(120)]
-        public double M44;
+        public readonly double M44;
 
         #endregion Public Fields
 
@@ -197,13 +197,10 @@ namespace MathStructs
             this == Identity;
 
         /// <summary>
-        /// Gets or sets the translation component of this matrix.
+        /// Gets the translation component of this matrix.
         /// </summary>
-        public Vector3D Translation
-        {
-            get => new(M41, M42, M43);
-            set => (M41, M42, M43) = value;
-        }
+        public Vector3D Translation =>
+            new(M41, M42, M43);
 
         #endregion Public Properties
 
@@ -1460,6 +1457,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M11, vW1);
                 AdvSimd.Store(&result.M13, vW2);
 
+                return result;
             }
             else if (Avx.IsSupported)
             {
@@ -1467,6 +1465,8 @@ namespace MathStructs
                 Avx.Store(&result.M21, MultiplyRow(value2, Avx.LoadVector256(&value1.M21)));
                 Avx.Store(&result.M31, MultiplyRow(value2, Avx.LoadVector256(&value1.M31)));
                 Avx.Store(&result.M41, MultiplyRow(value2, Avx.LoadVector256(&value1.M41)));
+
+                return result;
             }
             else if (Sse2.IsSupported)
             {
@@ -1481,24 +1481,23 @@ namespace MathStructs
 
                 return result;
             }
-
-            result.M11 = ( value1.M11 * value2.M11 ) + ( value1.M12 * value2.M21 ) + ( value1.M13 * value2.M31 ) + ( value1.M14 * value2.M41 );
-            result.M12 = ( value1.M11 * value2.M12 ) + ( value1.M12 * value2.M22 ) + ( value1.M13 * value2.M32 ) + ( value1.M14 * value2.M42 );
-            result.M13 = ( value1.M11 * value2.M13 ) + ( value1.M12 * value2.M23 ) + ( value1.M13 * value2.M33 ) + ( value1.M14 * value2.M43 );
-            result.M14 = ( value1.M11 * value2.M14 ) + ( value1.M12 * value2.M24 ) + ( value1.M13 * value2.M34 ) + ( value1.M14 * value2.M44 );
-            result.M21 = ( value1.M21 * value2.M11 ) + ( value1.M22 * value2.M21 ) + ( value1.M23 * value2.M31 ) + ( value1.M24 * value2.M41 );
-            result.M22 = ( value1.M21 * value2.M12 ) + ( value1.M22 * value2.M22 ) + ( value1.M23 * value2.M32 ) + ( value1.M24 * value2.M42 );
-            result.M23 = ( value1.M21 * value2.M13 ) + ( value1.M22 * value2.M23 ) + ( value1.M23 * value2.M33 ) + ( value1.M24 * value2.M43 );
-            result.M24 = ( value1.M21 * value2.M14 ) + ( value1.M22 * value2.M24 ) + ( value1.M23 * value2.M34 ) + ( value1.M24 * value2.M44 );
-            result.M31 = ( value1.M31 * value2.M11 ) + ( value1.M32 * value2.M21 ) + ( value1.M33 * value2.M31 ) + ( value1.M34 * value2.M41 );
-            result.M32 = ( value1.M31 * value2.M12 ) + ( value1.M32 * value2.M22 ) + ( value1.M33 * value2.M32 ) + ( value1.M34 * value2.M42 );
-            result.M33 = ( value1.M31 * value2.M13 ) + ( value1.M32 * value2.M23 ) + ( value1.M33 * value2.M33 ) + ( value1.M34 * value2.M43 );
-            result.M34 = ( value1.M31 * value2.M14 ) + ( value1.M32 * value2.M24 ) + ( value1.M33 * value2.M34 ) + ( value1.M34 * value2.M44 );
-            result.M41 = ( value1.M41 * value2.M11 ) + ( value1.M42 * value2.M21 ) + ( value1.M43 * value2.M31 ) + ( value1.M44 * value2.M41 );
-            result.M42 = ( value1.M41 * value2.M12 ) + ( value1.M42 * value2.M22 ) + ( value1.M43 * value2.M32 ) + ( value1.M44 * value2.M42 );
-            result.M43 = ( value1.M41 * value2.M13 ) + ( value1.M42 * value2.M23 ) + ( value1.M43 * value2.M33 ) + ( value1.M44 * value2.M43 );
-            result.M44 = ( value1.M41 * value2.M14 ) + ( value1.M42 * value2.M24 ) + ( value1.M43 * value2.M34 ) + ( value1.M44 * value2.M44 );
-            return result;
+            return new Matrix4x4D(
+                ( value1.M11 * value2.M11 ) + ( value1.M12 * value2.M21 ) + ( value1.M13 * value2.M31 ) + ( value1.M14 * value2.M41 ),
+                ( value1.M11 * value2.M12 ) + ( value1.M12 * value2.M22 ) + ( value1.M13 * value2.M32 ) + ( value1.M14 * value2.M42 ),
+                ( value1.M11 * value2.M13 ) + ( value1.M12 * value2.M23 ) + ( value1.M13 * value2.M33 ) + ( value1.M14 * value2.M43 ),
+                ( value1.M11 * value2.M14 ) + ( value1.M12 * value2.M24 ) + ( value1.M13 * value2.M34 ) + ( value1.M14 * value2.M44 ),
+                ( value1.M21 * value2.M11 ) + ( value1.M22 * value2.M21 ) + ( value1.M23 * value2.M31 ) + ( value1.M24 * value2.M41 ),
+                ( value1.M21 * value2.M12 ) + ( value1.M22 * value2.M22 ) + ( value1.M23 * value2.M32 ) + ( value1.M24 * value2.M42 ),
+                ( value1.M21 * value2.M13 ) + ( value1.M22 * value2.M23 ) + ( value1.M23 * value2.M33 ) + ( value1.M24 * value2.M43 ),
+                ( value1.M21 * value2.M14 ) + ( value1.M22 * value2.M24 ) + ( value1.M23 * value2.M34 ) + ( value1.M24 * value2.M44 ),
+                ( value1.M31 * value2.M11 ) + ( value1.M32 * value2.M21 ) + ( value1.M33 * value2.M31 ) + ( value1.M34 * value2.M41 ),
+                ( value1.M31 * value2.M12 ) + ( value1.M32 * value2.M22 ) + ( value1.M33 * value2.M32 ) + ( value1.M34 * value2.M42 ),
+                ( value1.M31 * value2.M13 ) + ( value1.M32 * value2.M23 ) + ( value1.M33 * value2.M33 ) + ( value1.M34 * value2.M43 ),
+                ( value1.M31 * value2.M14 ) + ( value1.M32 * value2.M24 ) + ( value1.M33 * value2.M34 ) + ( value1.M34 * value2.M44 ),
+                ( value1.M41 * value2.M11 ) + ( value1.M42 * value2.M21 ) + ( value1.M43 * value2.M31 ) + ( value1.M44 * value2.M41 ),
+                ( value1.M41 * value2.M12 ) + ( value1.M42 * value2.M22 ) + ( value1.M43 * value2.M32 ) + ( value1.M44 * value2.M42 ),
+                ( value1.M41 * value2.M13 ) + ( value1.M42 * value2.M23 ) + ( value1.M43 * value2.M33 ) + ( value1.M44 * value2.M43 ),
+                ( value1.M41 * value2.M14 ) + ( value1.M42 * value2.M24 ) + ( value1.M43 * value2.M34 ) + ( value1.M44 * value2.M44 ));
         }
 
         /// <summary>
@@ -1552,22 +1551,22 @@ namespace MathStructs
             }
             else
             {
-                result.M11 = value1.M11 * value2;
-                result.M12 = value1.M12 * value2;
-                result.M13 = value1.M13 * value2;
-                result.M14 = value1.M14 * value2;
-                result.M21 = value1.M21 * value2;
-                result.M22 = value1.M22 * value2;
-                result.M23 = value1.M23 * value2;
-                result.M24 = value1.M24 * value2;
-                result.M31 = value1.M31 * value2;
-                result.M32 = value1.M32 * value2;
-                result.M33 = value1.M33 * value2;
-                result.M34 = value1.M34 * value2;
-                result.M41 = value1.M41 * value2;
-                result.M42 = value1.M42 * value2;
-                result.M43 = value1.M43 * value2;
-                result.M44 = value1.M44 * value2;
+                return new Matrix4x4D(value1.M11 * value2,
+                                      value1.M12 * value2,
+                                      value1.M13 * value2,
+                                      value1.M14 * value2,
+                                      value1.M21 * value2,
+                                      value1.M22 * value2,
+                                      value1.M23 * value2,
+                                      value1.M24 * value2,
+                                      value1.M31 * value2,
+                                      value1.M32 * value2,
+                                      value1.M33 * value2,
+                                      value1.M34 * value2,
+                                      value1.M41 * value2,
+                                      value1.M42 * value2,
+                                      value1.M43 * value2,
+                                      value1.M44 * value2);
             }
 
             return result;
@@ -2065,6 +2064,12 @@ namespace MathStructs
                 m42 ?? M42,
                 m43 ?? M43,
                 m44 ?? M44);
+
+        /// <summary>
+        /// Sets the translation component of this matrix.
+        /// </summary>
+        public Matrix4x4D WithTranslation(Vector3D value) =>
+            With(m41: value.X, m42: value.Y, m43: value.Z);
 
         #endregion Public Methods
 
