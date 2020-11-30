@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>MathStructs</RootNamespace>
     <Nullable>enable</Nullable>
-    <Version>2.0.0-Alpha</Version>
+    <Version>2.0.1-Alpha</Version>
     <Authors>Stefan Kewatt</Authors>
     <Description>A collection of math related structures which are not included with dotnet involving fixed point numbers.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -13,6 +13,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 

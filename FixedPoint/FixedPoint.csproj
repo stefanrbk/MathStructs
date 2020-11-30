@@ -4,9 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>System</RootNamespace>
     <Nullable>enable</Nullable>
-    <Version>2.0.0-Alpha</Version>
-    <AssemblyVersion>2.0.0.1</AssemblyVersion>
-    <FileVersion>2.0.0.1</FileVersion>
+    <Version>2.0.1-Alpha</Version>
     <Authors>Stefan Kewatt</Authors>
     <Description>A library containing methods to handle fixed point number.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -15,6 +13,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
