@@ -34,7 +34,8 @@ jobs:
     - name: Build
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
 
-    - name: Test
+    - name: Test for logging
+      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
     
     - name: Save test log to Action
@@ -42,6 +43,9 @@ jobs:
       with:
         name: test-logs
         path: ${{ env.TEST_RESULTS_PATH }}
+
+    - name: Test for build breaking
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
         
   #test-arm-job:
   #  name: 'Test ARM solution (ubuntu-latest)'
@@ -101,7 +105,8 @@ jobs:
     - name: Build
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
 
-    - name: Test
+    - name: Test for logging
+      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
     
     - name: Save test log to Action
@@ -109,6 +114,9 @@ jobs:
       with:
         name: test-logs
         path: ${{ env.TEST_RESULTS_PATH }}
+
+    - name: Test for build breaking
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
         
     - name: Pack
       run: dotnet pack '${{ env.SOLUTION_PATH }}' --output './nuget-packages' --verbosity minimal --configuration Release --no-build
