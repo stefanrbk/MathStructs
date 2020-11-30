@@ -35,40 +35,20 @@ namespace Tests
         }
 
         [Test]
-        public void EmbeddedVectorSetFields()
+        public void WithTest()
         {
-            EmbeddedVectorObject evo = new EmbeddedVectorObject();
-            evo.FieldVector.X = 5.0f;
-            evo.FieldVector.Y = 5.0f;
-            evo.FieldVector.Z = 5.0f;
-            Assert.AreEqual(5.0f, evo.FieldVector.X);
-            Assert.AreEqual(5.0f, evo.FieldVector.Y);
-            Assert.AreEqual(5.0f, evo.FieldVector.Z);
-        }
+            Vector3D v3 = new Vector3D(1.0, 2.0, 3.0);
+            Assert.AreEqual(1.0, v3.X);
+            Assert.AreEqual(2.0, v3.Y);
+            Assert.AreEqual(3.0, v3.Z);
+            Vector3D v4 = v3.With(y: 0.5, z: 2.2);
+            Assert.AreEqual(1.0, v4.X);
+            Assert.AreEqual(0.5, v4.Y);
+            Assert.AreEqual(2.2, v4.Z);
+            Assert.AreEqual(2.0, v3.Y);
 
-        [Test]
-        public void SetFieldsTest()
-        {
-            Vector3D v3 = new Vector3D(4f, 5f, 6f)
-            {
-                X = 1.0f,
-                Y = 2.0f,
-                Z = 3.0f
-            };
-            Assert.AreEqual(1.0f, v3.X);
-            Assert.AreEqual(2.0f, v3.Y);
-            Assert.AreEqual(3.0f, v3.Z);
-            Vector3D v4 = v3;
-            v4.Y = 0.5f;
-            v4.Z = 2.2f;
-            Assert.AreEqual(1.0f, v4.X);
-            Assert.AreEqual(0.5f, v4.Y);
-            Assert.AreEqual(2.2f, v4.Z);
-            Assert.AreEqual(2.0f, v3.Y);
-
-            Vector3D before = new Vector3D(1f, 2f, 3f);
-            Vector3D after = before;
-            after.X = 500.0f;
+            Vector3D before = new Vector3D(1.0, 2.0, 3.0);
+            Vector3D after = before.With(x: 500.0);
             Assert.AreNotEqual(before, after);
         }
 
@@ -319,12 +299,8 @@ namespace Tests
         [Test]
         public void Vector3DistanceTest1()
         {
-            Vector3D a = new Vector3D(1.051f, 2.05f, 3.478f);
-            Vector3D b = new Vector3D(new Vector2D(1.051f, 0.0f), 1)
-            {
-                Y = 2.05f,
-                Z = 3.478f
-            };
+            Vector3D a = new Vector3D(1.051, 2.05, 3.478);
+            Vector3D b = new Vector3D(new Vector2D(1.051, 2.05), 3.478);
 
             double actual = Vector3D.Distance(a, b);
             Assert.AreEqual(0.0f, actual);
@@ -462,7 +438,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             expected = false;
             actual = a == b;
             Assert.AreEqual(expected, actual);
@@ -509,7 +485,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             obj = b;
             expected = false;
             actual = a.Equals(obj);
@@ -541,7 +517,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             expected = false;
             actual = a.Equals(b);
             Assert.AreEqual(expected, actual);
@@ -585,7 +561,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             expected = true;
             actual = a != b;
             Assert.AreEqual(expected, actual);
@@ -1155,13 +1131,13 @@ namespace Tests
         public void Vector3TransformNormalTest()
         {
             Vector3D v = new Vector3D(1.0f, 2.0f, 3.0f);
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0f)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f));
-            m.M41 = 10.0f;
-            m.M42 = 20.0f;
-            m.M43 = 30.0f;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f)))
+                .With(m41: 10.0,
+                      m42: 20.0,
+                      m43: 30.0);
 
             Vector3D expected = new Vector3D(2.19198728f, 1.53349364f, 2.61602545f);
             Vector3D actual;
@@ -1175,13 +1151,13 @@ namespace Tests
         public void Vector3TransformTest()
         {
             Vector3D v = new Vector3D(1.0f, 2.0f, 3.0f);
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0f)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f));
-            m.M41 = 10.0f;
-            m.M42 = 20.0f;
-            m.M43 = 30.0f;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f)))
+                .With(m41: 10.0,
+                      m42: 20.0,
+                      m43: 30.0);
 
             Vector3D expected = new Vector3D(12.191987f, 21.533493f, 32.616024f);
             Vector3D actual;

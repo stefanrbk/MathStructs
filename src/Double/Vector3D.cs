@@ -12,7 +12,7 @@ namespace MathStructs
     /// Slower than <see cref="Vector3F"/> but more precise.
     /// </remarks>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
-    public struct Vector3D : IEquatable<Vector3D>, IFormattable
+    public readonly struct Vector3D : IEquatable<Vector3D>, IFormattable
     {
         #region Public Fields
 
@@ -20,19 +20,19 @@ namespace MathStructs
         ///     The X component of the vector.
         /// </summary>
         [FieldOffset(0)]
-        public double X;
+        public readonly double X;
 
         /// <summary>
         ///     The Y component of the vector.
         /// </summary>
         [FieldOffset(8)]
-        public double Y;
+        public readonly double Y;
 
         /// <summary>
         ///     The Z component of the vector.
         /// </summary>
         [FieldOffset(16)]
-        public double Z;
+        public readonly double Z;
 
         #endregion Public Fields
 

@@ -1763,9 +1763,9 @@ namespace MathStructs
                 *pVectorBasis[1] = new Vector3D(M21, M22, M23);
                 *pVectorBasis[2] = new Vector3D(M31, M32, M33);
 
-                scale.X = pVectorBasis[0]->Length();
-                scale.Y = pVectorBasis[1]->Length();
-                scale.Z = pVectorBasis[2]->Length();
+                scale = new Vector3D(pVectorBasis[0]->Length(),
+                                     pVectorBasis[1]->Length(),
+                                     pVectorBasis[2]->Length());
 
                 (var x, var y, var z) = (pfScales[0], pfScales[1], pfScales[2]);
                 (var a, var b, var c) =

@@ -23,27 +23,12 @@ namespace Tests
         }
 
         [Test]
-        public void EmbeddedVectorSetFields()
+        public void WithTest()
         {
-            EmbeddedVectorObject evo = new EmbeddedVectorObject();
-            evo.FieldVector.X = 5.0;
-            evo.FieldVector.Y = 5.0;
-            Assert.AreEqual(5.0, evo.FieldVector.X);
-            Assert.AreEqual(5.0, evo.FieldVector.Y);
-        }
-
-        [Test]
-        public void SetFieldsTest()
-        {
-            Vector2D v3 = new Vector2D(4.0, 5.0)
-            {
-                X = 1.0,
-                Y = 2.0
-            };
+            Vector2D v3 = new Vector2D(1.0, 2.0);
             Assert.AreEqual(1.0, v3.X);
             Assert.AreEqual(2.0, v3.Y);
-            Vector2D v4 = v3;
-            v4.Y = 0.5;
+            Vector2D v4 = v3.With(y: 0.5);
             Assert.AreEqual(1.0, v4.X);
             Assert.AreEqual(0.5, v4.Y);
             Assert.AreEqual(2.0, v3.Y);
@@ -389,7 +374,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             expected = false;
             actual = a == b;
             Assert.AreEqual(expected, actual);
@@ -431,7 +416,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0;
+            b = b.With(x: 10.0);
             obj = b;
             expected = false;
             actual = a.Equals(obj);
@@ -463,7 +448,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             expected = false;
             actual = a.Equals(b);
             Assert.AreEqual(expected, actual);
@@ -503,7 +488,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0);
             expected = true;
             actual = a != b;
             Assert.AreEqual(expected, actual);
@@ -1074,13 +1059,13 @@ namespace Tests
         public void Vector2TransformNormalTest()
         {
             Vector2D v = new Vector2D(1.0, 2.0);
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
-            m.M41 = 10.0;
-            m.M42 = 20.0;
-            m.M43 = 30.0;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0)))
+                .With(m41: 10.0,
+                      m42: 20.0,
+                      m43: 30.0);
 
             Vector2D expected = new Vector2D(0.31698729810778076, 2.1830127018922196);
             Vector2D actual;
@@ -1094,13 +1079,13 @@ namespace Tests
         public void Vector2TransformTest()
         {
             Vector2D v = new Vector2D(1.0, 2.0);
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
-            m.M41 = 10.0;
-            m.M42 = 20.0;
-            m.M43 = 30.0;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0)))
+                .With(m41: 10.0,
+                      m42: 20.0,
+                      m43: 30.0);
 
             Vector2D expected = new Vector2D(10.316987298107781, 22.18301270189222);
             Vector2D actual;
