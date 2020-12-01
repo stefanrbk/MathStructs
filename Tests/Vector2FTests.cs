@@ -23,27 +23,14 @@ namespace Tests
         }
 
         [Test]
-        public void EmbeddedVectorSetFields()
+        public void WithTest()
         {
-            EmbeddedVectorObject evo = new EmbeddedVectorObject();
-            evo.FieldVector.X = 5.0f;
-            evo.FieldVector.Y = 5.0f;
-            Assert.AreEqual(5.0f, evo.FieldVector.X);
-            Assert.AreEqual(5.0f, evo.FieldVector.Y);
-        }
-
-        [Test]
-        public void SetFieldsTest()
-        {
-            Vector2F v3 = new Vector2F(4f, 5f)
-            {
-                X = 1.0f,
-                Y = 2.0f
-            };
+            Vector2F v3 = new Vector2F(
+                1.0f,
+                2.0f);
             Assert.AreEqual(1.0f, v3.X);
             Assert.AreEqual(2.0f, v3.Y);
-            Vector2F v4 = v3;
-            v4.Y = 0.5f;
+            Vector2F v4 = v3.With(y: 0.5f);
             Assert.AreEqual(1.0f, v4.X);
             Assert.AreEqual(0.5f, v4.Y);
             Assert.AreEqual(2.0f, v3.Y);
@@ -389,7 +376,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0f);
             expected = false;
             actual = a == b;
             Assert.AreEqual(expected, actual);
@@ -431,7 +418,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0f);
             obj = b;
             expected = false;
             actual = a.Equals(obj);
@@ -463,7 +450,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0f);
             expected = false;
             actual = a.Equals(b);
             Assert.AreEqual(expected, actual);
@@ -503,7 +490,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b.X = 10.0f;
+            b = b.With(x: 10.0f);
             expected = true;
             actual = a != b;
             Assert.AreEqual(expected, actual);
@@ -559,11 +546,9 @@ namespace Tests
         [Test]
         public void Vector2LengthTest1()
         {
-            Vector2F target = new Vector2F
-            {
-                X = 0.0f,
-                Y = 0.0f
-            };
+            Vector2F target = new Vector2F(
+                0.0f,
+                0.0f);
 
             float expected = 0.0f;
             float actual;
