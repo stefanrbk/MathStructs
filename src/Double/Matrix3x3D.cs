@@ -2,7 +2,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+#if !NOSIMD
 using System.Runtime.Intrinsics.X86;
+#endif
 
 namespace MathStructs
 {
@@ -12,7 +14,7 @@ namespace MathStructs
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public readonly struct Matrix3x3D : IEquatable<Matrix3x3D>
     {
-        #region Public Fields
+#region Public Fields
 
         /// <summary>
         /// Value at row 1, column 1 of the matrix.
@@ -68,16 +70,16 @@ namespace MathStructs
         [FieldOffset(64)]
         public readonly double M33;
 
-        #endregion Public Fields
+#endregion Public Fields
 
-        #region Private Fields
+#region Private Fields
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
 
-        #endregion Private Fields
+#endregion Private Fields
 
-        #region Public Constructors
+#region Public Constructors
 
         /// <summary>
         /// Constructs a <see cref="Matrix3x3D"/> from the given components.
@@ -96,9 +98,9 @@ namespace MathStructs
             M33 = m33;
         }
 
-        #endregion Public Constructors
+#endregion Public Constructors
 
-        #region Public Properties
+#region Public Properties
 
         /// <summary>
         /// Returns the multiplicative identity matrix.
@@ -116,9 +118,9 @@ namespace MathStructs
         public readonly bool IsIdentity =>
             this == Identity;
 
-        #endregion Public Properties
+#endregion Public Properties
 
-        #region Public Methods
+#region Public Methods
 
         /// <summary>
         /// Adds two matrices together.
