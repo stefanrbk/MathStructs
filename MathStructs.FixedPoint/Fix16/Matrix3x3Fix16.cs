@@ -221,8 +221,10 @@ namespace MathStructs
         public unsafe static Matrix3x3Fix16 Lerp(Matrix3x3Fix16 matrix1, Matrix3x3Fix16 matrix2, int amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
+#if !NOSIMD
             if (Sse.IsSupported)
                 return Matrix4x4Fix16.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
+#endif
             return new Matrix3x3Fix16(m1.M11 + (( m2.M11 - m1.M11) * amount ),
                                            m1.M12 + (( m2.M12 - m1.M12) * amount ),
                                            m1.M13 + (( m2.M13 - m1.M13) * amount ),
@@ -279,9 +281,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3Fix16 operator -(Matrix3x3Fix16 value)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (-value.As4x4()).As3x3();
             else
+#endif
                 return new Matrix3x3Fix16(-value.M11, -value.M12, -value.M13,
                                           -value.M21, -value.M22, -value.M23,
                                           -value.M31, -value.M32, -value.M33);
@@ -299,9 +303,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3Fix16 operator -(Matrix3x3Fix16 left, Matrix3x3Fix16 right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() - right.As4x4()).As3x3();
             else
+#endif
                 return new Matrix3x3Fix16(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13,
                                           left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23,
                                           left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33);
@@ -322,9 +328,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static bool operator !=(Matrix3x3Fix16 left, Matrix3x3Fix16 right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return left.As4x4() != right.As4x4();
             else
+#endif
                 return left.M11 != right.M11 || left.M12 != right.M12 || left.M13 != right.M13 ||
                        left.M21 != right.M21 || left.M22 != right.M22 || left.M23 != right.M23 ||
                        left.M31 != right.M31 || left.M32 != right.M32 || left.M33 != right.M33;
@@ -343,10 +351,11 @@ namespace MathStructs
         public static unsafe Matrix3x3Fix16 operator *(Matrix3x3Fix16 left, Matrix3x3Fix16 right)
         {
             Matrix3x3Fix16 result;
-
+#if !NOSIMD
             if (Sse.IsSupported)
                 result = (left.As4x4() * right.As4x4()).As3x3();
             else
+#endif
             {
                 result = new Matrix3x3Fix16(( left.M11 * right.M11 ) + ( left.M12 * right.M21 ) + ( left.M13 * right.M31 ),
                                             ( left.M11 * right.M12 ) + ( left.M12 * right.M22 ) + ( left.M13 * right.M32 ),
@@ -455,9 +464,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3Fix16 operator *(Matrix3x3Fix16 left, int right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() * right).As3x3();
             else
+#endif
                 return new Matrix3x3Fix16(left.M11 * right, left.M12 * right, left.M13 * right,
                                           left.M21 * right, left.M22 * right, left.M23 * right,
                                           left.M31 * right, left.M32 * right, left.M33 * right);
@@ -482,9 +493,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3Fix16 operator +(Matrix3x3Fix16 left, Matrix3x3Fix16 right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() + right.As4x4()).As3x3();
             else
+#endif
                 return new Matrix3x3Fix16(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13,
                                           left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23,
                                           left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33);
@@ -505,9 +518,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe bool operator ==(Matrix3x3Fix16 left, Matrix3x3Fix16 right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return left.As4x4() == right.As4x4();
             else
+#endif
                 return left.M11 == right.M11 && left.M12 == right.M12 && left.M13 == right.M13 &&
                        left.M21 == right.M21 && left.M22 == right.M22 && left.M23 == right.M23 &&
                        left.M31 == right.M31 && left.M32 == right.M32 && left.M33 == right.M33;
@@ -535,8 +550,10 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3Fix16 Transpose(Matrix3x3Fix16 matrix)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return Matrix4x4Fix16.Transpose(matrix.As4x4()).As3x3();
+#endif
             return new Matrix3x3Fix16(matrix.M11, matrix.M21, matrix.M31,
                                       matrix.M12, matrix.M22, matrix.M32,
                                       matrix.M13, matrix.M23, matrix.M33);
@@ -621,14 +638,14 @@ namespace MathStructs
         public Matrix3x3Fix16 With(int? m11 = null, int? m12 = null, int? m13 = null, int? m21 = null, int? m22 = null, int? m23 = null, int? m31 = null, int? m32 = null, int? m33 = null) =>
             new Matrix3x3Fix16(m11 ?? M11, m12 ?? M12, m13 ?? M13, m21 ?? M21, m22 ?? M22, m23 ?? M23, m31 ?? M31, m32 ?? M32, m33 ?? M33);
 
-        #endregion Public Methods
+#endregion Public Methods
 
-        #region Internal Methods
+#region Internal Methods
 
         internal Matrix4x4Fix16 As4x4() =>
             Matrix4x4Fix16.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
 
-        #endregion Internal Methods
+#endregion Internal Methods
 #pragma warning restore IDE0045 // Convert to conditional expression
 #pragma warning restore IDE0024 // Use expression body for operators
     }

@@ -999,12 +999,14 @@ namespace MathStructs
         {
             // This implementation is based on the DirectX Math Library XMMatrixInverse method
             // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathMatrix.inl
-
+#if !NOSIMD
             if (Sse.IsSupported)
                 return SseImpl(matrix);
+#endif
 
             return SoftwareFallback(matrix);
 
+#if !NOSIMD
             static unsafe Matrix4x4F SseImpl(Matrix4x4F matrix)
             {
                 if (!Sse.IsSupported)
@@ -1163,6 +1165,7 @@ namespace MathStructs
 
                 return result;
             }
+#endif
 
             static Matrix4x4F SoftwareFallback(Matrix4x4F matrix)
             {
@@ -1331,6 +1334,7 @@ namespace MathStructs
         public unsafe static Matrix4x4F Lerp(Matrix4x4F matrix1, Matrix4x4F matrix2, float amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
+#if !NOSIMD
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
             if (Sse.IsSupported)
@@ -1355,6 +1359,7 @@ namespace MathStructs
 
                 return result;
             }
+#endif
             return new Matrix4x4F(m1.M11 + (m2.M11 - m1.M11) * amount,
                                   m1.M12 + (m2.M12 - m1.M12) * amount,
                                   m1.M13 + (m2.M13 - m1.M13) * amount,
@@ -1418,8 +1423,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator -(Matrix4x4F value)
         {
+#if !NOSIMD
             Unsafe.SkipInit<Matrix4x4F>(out var result);
-
+#if !NOAVX
             if (Avx.IsSupported)
             {
                 var zero = Vector256<float>.Zero;
@@ -1430,6 +1436,9 @@ namespace MathStructs
                 return result;
             }
             else if (Sse.IsSupported)
+#else
+            if (Sse.IsSupported)
+#endif
             {
                 var zero = Vector128<float>.Zero;
 
@@ -1449,6 +1458,7 @@ namespace MathStructs
 
                 return result;
             }
+#endif
             return new Matrix4x4F(-value.M11, -value.M12, -value.M13, -value.M14,
                                   -value.M21, -value.M22, -value.M23, -value.M24,
                                   -value.M31, -value.M32, -value.M33, -value.M34,
@@ -1467,6 +1477,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator -(Matrix4x4F left, Matrix4x4F right)
         {
+#if !NOSIMD
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
             if (Avx.IsSupported)
@@ -1494,6 +1505,7 @@ namespace MathStructs
 
                 return result;
             }
+#endif
             return new Matrix4x4F(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13, left.M14 - right.M14,
                                   left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23, left.M24 - right.M24,
                                   left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33, left.M34 - right.M34,
@@ -1515,16 +1527,17 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator !=(Matrix4x4F value1, Matrix4x4F value2)
         {
+#if !NOSIMD
             if (AdvSimd.IsSupported)
                 return VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) ||
                        VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
-
+#if !NOAVX
             else if (Avx.IsSupported)
                 return VectorMath.NotEqual(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) ||
                        VectorMath.NotEqual(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
-
+#endif
             else if (Sse.IsSupported)
                 return VectorMath.NotEqual(Sse.LoadVector128(&value1.M11), Sse.LoadVector128(&value2.M11)) ||
                        VectorMath.NotEqual(Sse.LoadVector128(&value1.M21), Sse.LoadVector128(&value2.M21)) ||
@@ -1532,7 +1545,8 @@ namespace MathStructs
                        VectorMath.NotEqual(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
 
             else
-                return value1.M11 != value2.M11 || value1.M22 != value2.M22 ||
+#endif
+            return value1.M11 != value2.M11 || value1.M22 != value2.M22 ||
                        value1.M33 != value2.M33 || value1.M44 != value2.M44 ||
                        value1.M12 != value2.M12 || value1.M13 != value2.M13 ||
                        value1.M14 != value2.M14 || value1.M21 != value2.M21 ||
@@ -1556,6 +1570,7 @@ namespace MathStructs
         {
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
+#if !NOSIMD
             if (Sse.IsSupported)
             {
                 Sse.Store(&result.M11, MultiplyRow(value2, Sse.LoadVector128(&value1.M11)));
@@ -1575,6 +1590,7 @@ namespace MathStructs
 
                 AdvSimd.Store(&result.M11, AdvSimd.Add(vZ, vW));
             }
+#endif
 
             result.M11 = value1.M11 * value2.M11 + value1.M12 * value2.M21 + value1.M13 * value2.M31 + value1.M14 * value2.M41;
             result.M12 = value1.M11 * value2.M12 + value1.M12 * value2.M22 + value1.M13 * value2.M32 + value1.M14 * value2.M42;
@@ -1608,7 +1624,7 @@ namespace MathStructs
         public unsafe static Matrix4x4F operator *(Matrix4x4F value1, float value2)
         {
             Unsafe.SkipInit<Matrix4x4F>(out var result);
-
+#if !NOSIMD
             if (AdvSimd.IsSupported)
             {
                 var right = Vector128.Create(value2);
@@ -1617,6 +1633,7 @@ namespace MathStructs
                 AdvSimd.Store(&result.M31, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M31), right));
                 AdvSimd.Store(&result.M41, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M41), right));
             }
+#if !NOAVX
             else if (Avx.IsSupported)
             {
                 var right = Vector256.Create(value2);
@@ -1624,6 +1641,7 @@ namespace MathStructs
                 Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&value1.M11), right));
                 Avx.Store(&result.M31, Avx.Multiply(Avx.LoadVector256(&value1.M31), right));
             }
+#endif
             else if (Sse.IsSupported)
             {
                 Vector128<float> right = Vector128.Create(value2);
@@ -1633,6 +1651,7 @@ namespace MathStructs
                 Sse.Store(&result.M41, Sse.Multiply(Sse.LoadVector128(&value1.M41), right));
             }
             else
+#endif
             {
                 result.M11 = value1.M11 * value2;
                 result.M12 = value1.M12 * value2;
@@ -1674,6 +1693,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator +(Matrix4x4F left, Matrix4x4F right)
         {
+#if !NOSIMD
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
             if (AdvSimd.IsSupported)
@@ -1685,6 +1705,7 @@ namespace MathStructs
 
                 return result;
             }
+#if !NOAVX
             else if (Avx.IsSupported)
             {
                 Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
@@ -1692,6 +1713,7 @@ namespace MathStructs
 
                 return result;
             }
+#endif
             else if(Sse.IsSupported)
             {
                 Sse.Store(&result.M11, Sse.Add(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
@@ -1702,6 +1724,7 @@ namespace MathStructs
                 return result;
             }
             else
+#endif
                 return new Matrix4x4F(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13, left.M14 + right.M14,
                                       left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23, left.M24 + right.M24,
                                       left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33, left.M34 + right.M34,
@@ -1723,16 +1746,17 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator ==(Matrix4x4F value1, Matrix4x4F value2)
         {
+#if !NOSIMD
             if (AdvSimd.IsSupported)
                 return VectorMath.Equal(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) &&
                        VectorMath.Equal(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
-
+#if !NOAVX
             else if (Avx.IsSupported)
                 return VectorMath.Equal(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) &&
                        VectorMath.Equal(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
-
+#endif
             else if (Sse.IsSupported)
                 return VectorMath.Equal(Sse.LoadVector128(&value1.M11), Sse.LoadVector128(&value2.M11)) &&
                        VectorMath.Equal(Sse.LoadVector128(&value1.M21), Sse.LoadVector128(&value2.M21)) &&
@@ -1740,6 +1764,7 @@ namespace MathStructs
                        VectorMath.Equal(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
 
             else
+#endif
                 return value1.M11 == value2.M11 && value1.M22 == value2.M22 &&
                        value1.M33 == value2.M33 && value1.M44 == value2.M44 &&
                        value1.M12 == value2.M12 && value1.M13 == value2.M13 &&
@@ -1785,6 +1810,7 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F Transpose(Matrix4x4F matrix)
         {
+#if !NOSIMD
             Unsafe.SkipInit<Matrix4x4F>(out var result);
 
             if (AdvSimd.Arm64.IsSupported)
@@ -1808,6 +1834,8 @@ namespace MathStructs
                 AdvSimd.Store(&result.M21, AdvSimd.Arm64.ZipHigh(P00, P10));
                 AdvSimd.Store(&result.M31, AdvSimd.Arm64.ZipLow(P01, P11));
                 AdvSimd.Store(&result.M41, AdvSimd.Arm64.ZipHigh(P01, P11));
+
+                return result;
             }
             else if (Sse.IsSupported)
             {
@@ -1825,14 +1853,15 @@ namespace MathStructs
                 Sse.Store(&result.M21, Sse.MoveHighToLow(l34, l12));
                 Sse.Store(&result.M31, Sse.MoveLowToHigh(h12, h34));
                 Sse.Store(&result.M41, Sse.MoveHighToLow(h34, h12));
+
+                return result;
             }
             else
+#endif
                 return new Matrix4x4F(matrix.M11, matrix.M21, matrix.M31, matrix.M41,
                                       matrix.M12, matrix.M22, matrix.M32, matrix.M42,
                                       matrix.M13, matrix.M23, matrix.M33, matrix.M43,
                                       matrix.M14, matrix.M24, matrix.M34, matrix.M44);
-
-            return result;
         }
 
         /// <summary>
@@ -2175,9 +2204,9 @@ namespace MathStructs
             m43 ?? M43,
             m44 ?? M44);
 
-        #endregion Public Methods
+#endregion Public Methods
 
-        #region Internal Methods
+#region Internal Methods
 
         internal Matrix3x3F As3x3() =>
             new Matrix3x3F(M11, M12, M13,
@@ -2186,8 +2215,8 @@ namespace MathStructs
 
         #endregion Internal Methods
 
-        #region Private Methods
-
+#region Private Methods
+#if !NOSIMD
         [MethodImpl(Optimize)]
         private static unsafe Vector128<float> MultiplyRow(Matrix4x4F value2, Vector128<float> vector)
         {
@@ -2203,42 +2232,49 @@ namespace MathStructs
 
         [MethodImpl(Optimize)]
         private static Vector128<float> Permute(Vector128<float> value, byte control) =>
-            Avx.IsSupported ? Avx.Permute(value, control) : Sse.Shuffle(value, value, control);
+#if !NOAVX
+            Avx.IsSupported ?
+                Avx.Permute(value, control) :
+#endif
+                Sse.Shuffle(value, value, control);
+#endif
 
-        #endregion Private Methods
+#endregion Private Methods
 
         #region Private Structs
 
         private struct CanonicalBasis
         {
-            #region Public Fields
+#region Public Fields
 
             public Vector3F Row0;
             public Vector3F Row1;
             public Vector3F Row2;
 
-            #endregion Public Fields
+#endregion Public Fields
         }
 
         private struct VectorBasis
         {
-            #region Public Fields
+#region Public Fields
 
             public unsafe Vector3F* Element0;
             public unsafe Vector3F* Element1;
             public unsafe Vector3F* Element2;
 
-            #endregion Public Fields
+#endregion Public Fields
         }
 
         #endregion Private Structs
 
-        #region Private Classes
+#region Private Classes
 
+#if !NOSIMD
         private static class VectorMath
         {
-            #region Public Methods
+#region Public Methods
 
+#if !NOAVX
             [MethodImpl(Optimize)]
             public static bool Equal(Vector256<float> a, Vector256<float> b)
             {
@@ -2247,6 +2283,7 @@ namespace MathStructs
                 else
                     throw new PlatformNotSupportedException();
             }
+#endif
 
             [MethodImpl(Optimize)]
             public static bool Equal(Vector128<float> a, Vector128<float> b)
@@ -2283,10 +2320,10 @@ namespace MathStructs
 
                 if (AdvSimd.IsSupported)
                     return AdvSimd.FusedMultiplyAdd(a, AdvSimd.Subtract(b, a), t);
-
+#if !NOAVX
                 else if (Fma.IsSupported)
                     return Fma.MultiplyAdd(Sse.Subtract(b, a), t, a);
-
+#endif
                 else if (Sse.IsSupported)
                     return Sse.Add(a, Sse.Multiply(Sse.Subtract(b, a), t));
 
@@ -2321,7 +2358,7 @@ namespace MathStructs
                 else
                     throw new PlatformNotSupportedException();
             }
-
+#if !NOAVX
             [MethodImpl(Optimize)]
             public static bool NotEqual(Vector256<float> a, Vector256<float> b)
             {
@@ -2330,10 +2367,12 @@ namespace MathStructs
                 else
                     throw new PlatformNotSupportedException();
             }
+#endif
 
-            #endregion Public Methods
+#endregion Public Methods
         }
+#endif
 
-        #endregion Private Classes
-    }
+#endregion Private Classes
+        }
 }
