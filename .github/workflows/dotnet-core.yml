@@ -31,10 +31,25 @@ jobs:
     - name: Install dependencies
       run: dotnet restore '${{ env.SOLUTION_PATH }}' --verbosity quiet
 
-    - name: Build
+    - name: Build NoSimd
+      run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration NoSimd --no-restore
+
+    - name: Build NoAvx
+      run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration NoAvx --no-restore
+
+    - name: Build Release
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
 
-    - name: Test
+    - name: Test NoSimd
+      continue-on-error: true
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoSimd
+
+    - name: Test NoAvx
+      continue-on-error: true
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoAvx
+
+    - name: Test Release
+      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
     
     - name: Save test log to Action
@@ -98,10 +113,25 @@ jobs:
     - name: Install dependencies
       run: dotnet restore '${{ env.SOLUTION_PATH }}' --verbosity quiet
 
-    - name: Build
+    - name: Build NoSimd
+      run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration NoSimd --no-restore
+
+    - name: Build NoAvx
+      run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration NoAvx --no-restore
+
+    - name: Build Release
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
 
-    - name: Test
+    - name: Test NoSimd
+      continue-on-error: true
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoSimd
+
+    - name: Test NoAvx
+      continue-on-error: true
+      run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoAvx
+
+    - name: Test Release
+      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
     
     - name: Save test log to Action
