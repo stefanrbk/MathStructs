@@ -10,7 +10,7 @@ namespace MathStructs
     /// A structure encapsulating a 3x3 matrix of <see cref="float"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 4)]
-    public struct Matrix3x3F : IEquatable<Matrix3x3F>
+    public readonly struct Matrix3x3F : IEquatable<Matrix3x3F>
     {
         #region Public Fields
 
@@ -18,55 +18,55 @@ namespace MathStructs
         /// Value at row 1, column 1 of the matrix.
         /// </summary>
         [FieldOffset(0)]
-        public float M11;
+        public readonly float M11;
 
         /// <summary>
         /// Value at row 1, column 2 of the matrix.
         /// </summary>
         [FieldOffset(4)]
-        public float M12;
+        public readonly float M12;
 
         /// <summary>
         /// Value at row 1, column 3 of the matrix.
         /// </summary>
         [FieldOffset(8)]
-        public float M13;
+        public readonly float M13;
 
         /// <summary>
         /// Value at row 2, column 1 of the matrix.
         /// </summary>
         [FieldOffset(12)]
-        public float M21;
+        public readonly float M21;
 
         /// <summary>
         /// Value at row 2, column 2 of the matrix.
         /// </summary>
         [FieldOffset(16)]
-        public float M22;
+        public readonly float M22;
 
         /// <summary>
         /// Value at row 2, column 3 of the matrix.
         /// </summary>
         [FieldOffset(20)]
-        public float M23;
+        public readonly float M23;
 
         /// <summary>
         /// Value at row 3, column 1 of the matrix.
         /// </summary>
         [FieldOffset(24)]
-        public float M31;
+        public readonly float M31;
 
         /// <summary>
         /// Value at row 3, column 2 of the matrix.
         /// </summary>
         [FieldOffset(28)]
-        public float M32;
+        public readonly float M32;
 
         /// <summary>
         /// Value at row 3, column 3 of the matrix.
         /// </summary>
         [FieldOffset(32)]
-        public float M33;
+        public readonly float M33;
 
         #endregion Public Fields
 
@@ -343,25 +343,21 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3F operator *(Matrix3x3F left, Matrix3x3F right)
         {
-            var result = new Matrix3x3F();
 #if !NOSIMD
             if (Sse.IsSupported)
-                result = (left.As4x4() * right.As4x4()).As3x3();
+                return (left.As4x4() * right.As4x4()).As3x3();
             else
 #endif
-            {
-                result.M11 = left.M11 * right.M11 + left.M12 * right.M21 + left.M13 * right.M31;
-                result.M12 = left.M11 * right.M12 + left.M12 * right.M22 + left.M13 * right.M32;
-                result.M13 = left.M11 * right.M13 + left.M12 * right.M23 + left.M13 * right.M33;
-                result.M21 = left.M21 * right.M11 + left.M22 * right.M21 + left.M23 * right.M31;
-                result.M22 = left.M21 * right.M12 + left.M22 * right.M22 + left.M23 * right.M32;
-                result.M23 = left.M21 * right.M13 + left.M22 * right.M23 + left.M23 * right.M33;
-                result.M31 = left.M31 * right.M11 + left.M32 * right.M21 + left.M33 * right.M31;
-                result.M32 = left.M31 * right.M12 + left.M32 * right.M22 + left.M33 * right.M32;
-                result.M33 = left.M31 * right.M13 + left.M32 * right.M23 + left.M33 * right.M33;
-            }
-
-            return result;
+            return new Matrix3x3F(
+                left.M11 * right.M11 + left.M12 * right.M21 + left.M13 * right.M31,
+                left.M11 * right.M12 + left.M12 * right.M22 + left.M13 * right.M32,
+                left.M11 * right.M13 + left.M12 * right.M23 + left.M13 * right.M33,
+                left.M21 * right.M11 + left.M22 * right.M21 + left.M23 * right.M31,
+                left.M21 * right.M12 + left.M22 * right.M22 + left.M23 * right.M32,
+                left.M21 * right.M13 + left.M22 * right.M23 + left.M23 * right.M33,
+                left.M31 * right.M11 + left.M32 * right.M21 + left.M33 * right.M31,
+                left.M31 * right.M12 + left.M32 * right.M22 + left.M33 * right.M32,
+                left.M31 * right.M13 + left.M32 * right.M23 + left.M33 * right.M33);
         }
 
         /// <summary>
