@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+#if !NOSIMD
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.Arm;
 using System.Runtime.Intrinsics.X86;
+#endif
 
 namespace MathStructs
 {
@@ -13,7 +15,7 @@ namespace MathStructs
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Matrix4x4D
     {
-        #region Public Fields
+#region Public Fields
 
         /// <summary>
         /// Value at row 1, column 1 of the matrix.
@@ -111,16 +113,16 @@ namespace MathStructs
         [FieldOffset(120)]
         public double M44;
 
-        #endregion Public Fields
+#endregion Public Fields
 
-        #region Private Fields
+#region Private Fields
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
 
-        #endregion Private Fields
+#endregion Private Fields
 
-        #region Public Constructors
+#region Public Constructors
 
         /// <summary>
         /// Constructs a <see cref="Matrix4x4D"/> from the given components.
@@ -176,9 +178,9 @@ namespace MathStructs
             M44 = 1;
         }
 
-        #endregion Public Constructors
+#endregion Public Constructors
 
-        #region Public Properties
+#region Public Properties
 
         /// <summary>
         /// Returns the multiplicative identity matrix.
@@ -205,9 +207,9 @@ namespace MathStructs
             set => (M41, M42, M43) = value;
         }
 
-        #endregion Public Properties
+#endregion Public Properties
 
-        #region Public Methods
+#region Public Methods
 
         /// <summary>
         /// Adds two matrices together.
