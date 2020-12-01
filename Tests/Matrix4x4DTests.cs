@@ -164,22 +164,25 @@ namespace Tests
             var a = GenerateIncrementalMatrixNumber();
             var b = GenerateIncrementalMatrixNumber(-8.0);
 
-            var expected = new Matrix4x4D(a.M11 + b.M11,
-                                          a.M12 + b.M12,
-                                          a.M13 + b.M13,
-                                          a.M14 + b.M14,
-                                          a.M21 + b.M21,
-                                          a.M22 + b.M22,
-                                          a.M23 + b.M23,
-                                          a.M24 + b.M24,
-                                          a.M31 + b.M31,
-                                          a.M32 + b.M32,
-                                          a.M33 + b.M33,
-                                          a.M34 + b.M34,
-                                          a.M41 + b.M41,
-                                          a.M42 + b.M42,
-                                          a.M43 + b.M43,
-                                          a.M44 + b.M44);
+            var expected = new Matrix4x4D
+            {
+                M11 = a.M11 + b.M11,
+                M12 = a.M12 + b.M12,
+                M13 = a.M13 + b.M13,
+                M14 = a.M14 + b.M14,
+                M21 = a.M21 + b.M21,
+                M22 = a.M22 + b.M22,
+                M23 = a.M23 + b.M23,
+                M24 = a.M24 + b.M24,
+                M31 = a.M31 + b.M31,
+                M32 = a.M32 + b.M32,
+                M33 = a.M33 + b.M33,
+                M34 = a.M34 + b.M34,
+                M41 = a.M41 + b.M41,
+                M42 = a.M42 + b.M42,
+                M43 = a.M43 + b.M43,
+                M44 = a.M44 + b.M44
+            };
 
             var actual = a + b;
             Assert.AreEqual(actual, expected, "Matrix4x4D.operator + did not return the expected value.");
@@ -192,22 +195,25 @@ namespace Tests
             var a = GenerateIncrementalMatrixNumber();
             var b = GenerateIncrementalMatrixNumber(-8.0);
 
-            var expected = new Matrix4x4D(a.M11 + b.M11,
-                                          a.M12 + b.M12,
-                                          a.M13 + b.M13,
-                                          a.M14 + b.M14,
-                                          a.M21 + b.M21,
-                                          a.M22 + b.M22,
-                                          a.M23 + b.M23,
-                                          a.M24 + b.M24,
-                                          a.M31 + b.M31,
-                                          a.M32 + b.M32,
-                                          a.M33 + b.M33,
-                                          a.M34 + b.M34,
-                                          a.M41 + b.M41,
-                                          a.M42 + b.M42,
-                                          a.M43 + b.M43,
-                                          a.M44 + b.M44);
+            var expected = new Matrix4x4D
+            {
+                M11 = a.M11 + b.M11,
+                M12 = a.M12 + b.M12,
+                M13 = a.M13 + b.M13,
+                M14 = a.M14 + b.M14,
+                M21 = a.M21 + b.M21,
+                M22 = a.M22 + b.M22,
+                M23 = a.M23 + b.M23,
+                M24 = a.M24 + b.M24,
+                M31 = a.M31 + b.M31,
+                M32 = a.M32 + b.M32,
+                M33 = a.M33 + b.M33,
+                M34 = a.M34 + b.M34,
+                M41 = a.M41 + b.M41,
+                M42 = a.M42 + b.M42,
+                M43 = a.M43 + b.M43,
+                M44 = a.M44 + b.M44
+            };
 
             var actual = Matrix4x4D.Add(a, b);
             Assert.AreEqual(expected, actual);
@@ -402,21 +408,25 @@ namespace Tests
             var cameraTarget = new Vector3D(3.0, 2.0, -4.0);
             var cameraUpVector = new Vector3D(0.0, 1.0, 0.0);
 
-            var expected = Matrix4x4D.Identity.With(m11: 0.979457,
-                                                    m12: -0.0928267762,
-                                                    m13: 0.179017,
-                                                    
-                                                    m21: 0.0,
-                                                    m22: 0.8877481,
-                                                    m23: 0.460329473,
-                                                    
-                                                    m31: -0.201652914,
-                                                    m32: -0.450872928,
-                                                    m33: 0.8695112,
-                                                    
-                                                    m41: -3.74498272,
-                                                    m42: -3.30050683,
-                                                    m43: -37.0820961);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.979457,
+                M12 = -0.0928267762,
+                M13 = 0.179017,
+
+                M21 = 0.0,
+                M22 = 0.8877481,
+                M23 = 0.460329473,
+
+                M31 = -0.201652914,
+                M32 = -0.450872928,
+                M33 = 0.8695112,
+
+                M41 = -3.74498272,
+                M42 = -3.30050683,
+                M43 = -37.0820961,
+                M44 = 1.0
+            };
 
             var actual = Matrix4x4D.CreateLookAt(cameraPosition, cameraTarget, cameraUpVector);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateLookAt did not return the expected value.");
@@ -433,13 +443,16 @@ namespace Tests
             var zNearPlane = 1.5;
             var zFarPlane = 1000.0;
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.025,
-                m22: 0.0125,
-                m33: -0.00100150227,
-                m41: -1.25,
-                m42: -1.25,
-                m43: -0.00150225335);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.025,
+                M22 = 0.0125,
+                M33 = -0.00100150227,
+                M41 = -1.25,
+                M42 = -1.25,
+                M43 = -0.00150225335,
+                M44 = 1.0
+            };
 
             var actual= Matrix4x4D.CreateOrthographicOffCenter(left, right, bottom, top, zNearPlane, zFarPlane);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateOrthoOffCenter did not return the expected value.");
@@ -454,11 +467,14 @@ namespace Tests
             var zNearPlane = 1.5;
             var zFarPlane = 1000.0;
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.02,
-                m22: 0.01,
-                m33: -0.00100150227,
-                m43: -0.00150225335);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.02,
+                M22 = 0.01,
+                M33 = -0.00100150227,
+                M43 = -0.00150225335,
+                M44 = 1.0
+            };
 
             var actual = Matrix4x4D.CreateOrthographic(width, height, zNearPlane, zFarPlane);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateOrtho did not return the expected value.");
@@ -473,12 +489,14 @@ namespace Tests
             var zNearPlane = 1.5;
             var zFarPlane = 1000.0;
 
-            var expected = default(Matrix4x4D).With(
-                m11: 2.09927845,
-                m22: 3.73205066,
-                m33: -1.00150228,
-                m34: -1.0,
-                m43: -1.50225341);
+            var expected = new Matrix4x4D
+            {
+                M11 = 2.09927845,
+                M22 = 3.73205066,
+                M33 = -1.00150228,
+                M34 = -1.0,
+                M43 = -1.50225341
+            };
 
             var actual = Matrix4x4D.CreatePerspectiveFieldOfView(fieldOfView, aspectRatio, zNearPlane, zFarPlane);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreatePerspectiveFieldOfView did not return the expected value.");
@@ -530,14 +548,16 @@ namespace Tests
             var zNearPlane = 1.5;
             var zFarPlane = 1000.0;
 
-            var expected = default(Matrix4x4D).With(
-                m11: 0.0375,
-                m22: 0.01875,
-                m31: 1.25,
-                m32: 1.25,
-                m33: -1.00150228,
-                m34: -1.0,
-                m43: -1.50225341);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.0375,
+                M22 = 0.01875,
+                M31 = 1.25,
+                M32 = 1.25,
+                M33 = -1.00150228,
+                M34 = -1.0,
+                M43 = -1.50225341
+            };
 
             var actual = Matrix4x4D.CreatePerspectiveOffCenter(left, right, bottom, top, zNearPlane, zFarPlane);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreatePerspectiveOffCenter did not return the expected value.");
@@ -582,12 +602,14 @@ namespace Tests
             var zNearPlane = 1.5;
             var zFarPlane = 1000.0;
 
-            var expected = default(Matrix4x4D).With(
-                m11: 0.03,
-                m22: 0.015,
-                m33: -1.00150228,
-                m34: -1.0,
-                m43: -1.50225341);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.03,
+                M22 = 0.015,
+                M33 = -1.00150228,
+                M34 = -1.0,
+                M43 = -1.50225341
+            };
 
             var actual = Matrix4x4D.CreatePerspective(width, height, zNearPlane, zFarPlane);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreatePerspective did not return the expected value.");
@@ -696,12 +718,15 @@ namespace Tests
         {
             var radians = MathHelper.ToRadians(30.0);
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 1.0,
-                m22: 0.8660254,
-                m23: 0.5,
-                m32: -0.5,
-                m33: 0.8660254);
+            var expected = new Matrix4x4D
+            {
+                M11 = 1.0,
+                M22 = 0.8660254,
+                M23 = 0.5,
+                M32 = -0.5,
+                M33 = 0.8660254,
+                M44 = 1.0
+            };
 
             Matrix4x4D actual;
 
@@ -743,11 +768,15 @@ namespace Tests
         {
             var radians = MathHelper.ToRadians(60.0);
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.49999997,
-                m13: -0.866025448,
-                m31: 0.866025448,
-                m33: 0.49999997);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.49999997,
+                M13 = -0.866025448,
+                M22 = 1.0,
+                M31 = 0.866025448,
+                M33 = 0.49999997,
+                M44 = 1.0
+            };
 
             var actual = Matrix4x4D.CreateRotationY(radians);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateRotationY did not return the expected value.");
@@ -760,11 +789,15 @@ namespace Tests
         {
             var radians = MathHelper.ToRadians(-300.0);
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.49999997,
-                m13: -0.866025448,
-                m31: 0.866025448,
-                m33: 0.49999997);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.49999997,
+                M13 = -0.866025448,
+                M22 = 1.0,
+                M31 = 0.866025448,
+                M33 = 0.49999997,
+                M44 = 1.0
+            };
 
             var actual = Matrix4x4D.CreateRotationY(radians);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateRotationY did not return the expected value.");
@@ -792,11 +825,15 @@ namespace Tests
         {
             var radians = MathHelper.ToRadians(50.0);
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.642787635,
-                m12: 0.766044438,
-                m21: -0.766044438,
-                m22: 0.642787635);
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.642787635,
+                M12 = 0.766044438,
+                M21 = -0.766044438,
+                M22 = 0.642787635,
+                M33 = 1.0,
+                M44 = 1.0
+            };
 
             var actual = Matrix4x4D.CreateRotationZ(radians);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateRotationZ did not return the expected value.");
@@ -1043,21 +1080,28 @@ namespace Tests
             var objectForwardDirection = new Vector3D(3.0, 2.0, -4.0);
             var objectUpVector = new Vector3D(0.0, 1.0, 0.0);
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.799999952,
-                m13: 0.599999964,
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.799999952,
+                M12 = 0,
+                M13 = 0.599999964,
+                M14 = 0,
 
-                m21: -0.2228344,
-                m22: 0.928476632,
-                m23: 0.297112525,
+                M21 = -0.2228344,
+                M22 = 0.928476632,
+                M23 = 0.297112525,
+                M24 = 0,
 
-                m31: -0.557086,
-                m32: -0.371390671,
-                m33: 0.742781341,
+                M31 = -0.557086,
+                M32 = -0.371390671,
+                M33 = 0.742781341,
+                M34 = 0,
 
-                m41: 10,
-                m42: 20,
-                m43: 30);
+                M41 = 10,
+                M42 = 20,
+                M43 = 30,
+                M44 = 1.0
+            };
 
             var actual = Matrix4x4D.CreateWorld(objectPosition, objectForwardDirection, objectUpVector);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.CreateWorld did not return the expected value.");
@@ -1160,21 +1204,25 @@ namespace Tests
         [Test]
         public void Matrix4x4DeterminantTest1()
         {
-            var a = Matrix4x4D.Identity.With(
-                m11: 5.0,
-                m12: 2.0,
-                m13: 8.25,
-                m14: 1.0,
-                m21: 12.0,
-                m22: 6.8,
-                m23: 2.14,
-                m24: 9.6,
-                m31: 6.5,
-                m32: 1.0,
-                m33: 3.14,
-                m34: 2.22,
-                m42: 0.86,
-                m43: 4.0);
+            var a = new Matrix4x4D
+            {
+                M11 = 5.0,
+                M12 = 2.0,
+                M13 = 8.25,
+                M14 = 1.0,
+                M21 = 12.0,
+                M22 = 6.8,
+                M23 = 2.14,
+                M24 = 9.6,
+                M31 = 6.5,
+                M32 = 1.0,
+                M33 = 3.14,
+                M34 = 2.22,
+                M41 = 0,
+                M42 = 0.86,
+                M43 = 4.0,
+                M44 = 1.0
+            };
             var i = a.Invert();
             Assert.AreNotEqual(Matrix4x4D.NaN, i);
 
@@ -1193,18 +1241,28 @@ namespace Tests
             var axis = Vector3D.Normalize(new Vector3D(1.0, 2.0, 3.0));
             var q = QuaternionD.CreateFromAxisAngle(axis, MathHelper.ToRadians(30.0));
 
-            var expected = Matrix4x4D.Identity.With(
-                m11: 0.875595033,
-                m12: 0.420031041,
-                m13: -0.2385524,
+            var expected = new Matrix4x4D
+            {
+                M11 = 0.875595033,
+                M12 = 0.420031041,
+                M13 = -0.2385524,
+                M14 = 0.0,
 
-                m21: -0.38175258,
-                m22: 0.904303849,
-                m23: 0.1910483,
+                M21 = -0.38175258,
+                M22 = 0.904303849,
+                M23 = 0.1910483,
+                M24 = 0.0,
 
-                m31: 0.295970082,
-                m32: -0.07621294,
-                m33: 0.952151954);
+                M31 = 0.295970082,
+                M32 = -0.07621294,
+                M33 = 0.952151954,
+                M34 = 0.0,
+
+                M41 = 0.0,
+                M42 = 0.0,
+                M43 = 0.0,
+                M44 = 1.0
+            };
 
             var target = Matrix4x4D.CreateFromQuaternion(q);
             Assert.That(target, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.Matrix4x4D(QuaternionD) did not return the expected value.");
@@ -1353,7 +1411,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b = b.With(m11: 11.0);
+            b.M11 = 11.0;
             expected = false;
             actual = a == b;
             Assert.AreEqual(expected, actual);
@@ -1482,7 +1540,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b = b.With(m11: 11.0);
+            b.M11 = 11.0f;
             obj = b;
             expected = false;
             actual = a.Equals(obj);
@@ -1514,7 +1572,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b = b.With(m11: 11.0);
+            b.M11 = 11.0f;
             expected = false;
             actual = a.Equals(b);
             Assert.AreEqual(expected, actual);
@@ -1558,7 +1616,8 @@ namespace Tests
         [Test]
         public void Matrix4x4IdentityTest()
         {
-            Matrix4x4D val = default(Matrix4x4D).With(m11: 1.0, m22: 1.0, m33: 1.0, m44: 1.0);
+            Matrix4x4D val = new Matrix4x4D();
+            val.M11 = val.M22 = val.M33 = val.M44 = 1.0f;
 
             Assert.True(MathHelper.Equal(val, Matrix4x4D.Identity), "Matrix4x4D.Indentity was not set correctly.");
         }
@@ -1576,7 +1635,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 2: compare between different values
-            b = b.With(m11: 11.0);
+            b.M11 = 11.0;
             expected = true;
             actual = a != b;
             Assert.AreEqual(expected, actual);
@@ -1674,20 +1733,28 @@ namespace Tests
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0)) *
                 Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0));
 
-            Matrix4x4D expected = Matrix4x4D.Identity.With(
-                m11: 0.74999994,
-                m12: -0.216506317,
-                m13: 0.62499994,
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = 0.74999994,
+                M12 = -0.216506317,
+                M13 = 0.62499994,
+                M14 = 0.0,
 
-                m21: 0.433012635,
-                m22: 0.87499994,
-                m23: -0.216506317,
+                M21 = 0.433012635,
+                M22 = 0.87499994,
+                M23 = -0.216506317,
+                M24 = 0.0,
 
-                m31: -0.49999997,
-                m32: 0.433012635,
-                m33: 0.74999994,
+                M31 = -0.49999997,
+                M32 = 0.433012635,
+                M33 = 0.74999994,
+                M34 = 0.0,
 
-                m44: 0.99999994);
+                M41 = 0.0,
+                M42 = 0.0,
+                M43 = 0.0,
+                M44 = 0.99999994
+            };
 
             Matrix4x4D actual = mtx.Invert();
 
@@ -1704,23 +1771,25 @@ namespace Tests
         [Test]
         public void Matrix4x4InvertTest1()
         {
-            Matrix4x4D a = new Matrix4x4D(
-                1.0,
-                2.0,
-                3.0,
-                4.0,
-                5.0,
-                6.0,
-                7.0,
-                8.0,
-                9.0,
-                10.0,
-                11.0,
-                12.0,
-                13.0,
-                14.0,
-                15.0,
-                16.0);
+            Matrix4x4D a = new Matrix4x4D
+            {
+                M11 = 1.0,
+                M12 = 2.0,
+                M13 = 3.0,
+                M14 = 4.0,
+                M21 = 5.0,
+                M22 = 6.0,
+                M23 = 7.0,
+                M24 = 8.0,
+                M31 = 9.0,
+                M32 = 10.0,
+                M33 = 11.0,
+                M34 = 12.0,
+                M41 = 13.0,
+                M42 = 14.0,
+                M43 = 15.0,
+                M44 = 16.0
+            };
 
             double detA = a.GetDeterminant();
             Assert.True(MathHelper.Equal(detA, 0.0f), "Matrix4x4D.Invert did not return the expected value.");
@@ -1777,48 +1846,52 @@ namespace Tests
         [Test]
         public void Matrix4x4LerpTest()
         {
-            Matrix4x4D a = new Matrix4x4D(
-                11.0,
-                12.0,
-                13.0,
-                14.0,
-                21.0,
-                22.0,
-                23.0,
-                24.0,
-                31.0,
-                32.0,
-                33.0,
-                34.0,
-                41.0,
-                42.0,
-                43.0,
-                44.0);
+            Matrix4x4D a = new Matrix4x4D
+            {
+                M11 = 11.0,
+                M12 = 12.0,
+                M13 = 13.0,
+                M14 = 14.0,
+                M21 = 21.0,
+                M22 = 22.0,
+                M23 = 23.0,
+                M24 = 24.0,
+                M31 = 31.0,
+                M32 = 32.0,
+                M33 = 33.0,
+                M34 = 34.0,
+                M41 = 41.0,
+                M42 = 42.0,
+                M43 = 43.0,
+                M44 = 44.0
+            };
 
             Matrix4x4D b = GenerateIncrementalMatrixNumber();
 
             double t = 0.5;
 
-            Matrix4x4D expected = new Matrix4x4D(
-                a.M11 + (b.M11 - a.M11) * t,
-                a.M12 + (b.M12 - a.M12) * t,
-                a.M13 + (b.M13 - a.M13) * t,
-                a.M14 + (b.M14 - a.M14) * t,
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = a.M11 + (b.M11 - a.M11) * t,
+                M12 = a.M12 + (b.M12 - a.M12) * t,
+                M13 = a.M13 + (b.M13 - a.M13) * t,
+                M14 = a.M14 + (b.M14 - a.M14) * t,
 
-                a.M21 + (b.M21 - a.M21) * t,
-                a.M22 + (b.M22 - a.M22) * t,
-                a.M23 + (b.M23 - a.M23) * t,
-                a.M24 + (b.M24 - a.M24) * t,
+                M21 = a.M21 + (b.M21 - a.M21) * t,
+                M22 = a.M22 + (b.M22 - a.M22) * t,
+                M23 = a.M23 + (b.M23 - a.M23) * t,
+                M24 = a.M24 + (b.M24 - a.M24) * t,
 
-                a.M31 + (b.M31 - a.M31) * t,
-                a.M32 + (b.M32 - a.M32) * t,
-                a.M33 + (b.M33 - a.M33) * t,
-                a.M34 + (b.M34 - a.M34) * t,
+                M31 = a.M31 + (b.M31 - a.M31) * t,
+                M32 = a.M32 + (b.M32 - a.M32) * t,
+                M33 = a.M33 + (b.M33 - a.M33) * t,
+                M34 = a.M34 + (b.M34 - a.M34) * t,
 
-                a.M41 + (b.M41 - a.M41) * t,
-                a.M42 + (b.M42 - a.M42) * t,
-                a.M43 + (b.M43 - a.M43) * t,
-                a.M44 + (b.M44 - a.M44) * t);
+                M41 = a.M41 + (b.M41 - a.M41) * t,
+                M42 = a.M42 + (b.M42 - a.M42) * t,
+                M43 = a.M43 + (b.M43 - a.M43) * t,
+                M44 = a.M44 + (b.M44 - a.M44) * t
+            };
 
             Matrix4x4D actual;
             actual = Matrix4x4D.Lerp(a, b, t);
@@ -1832,26 +1905,28 @@ namespace Tests
             Matrix4x4D a = GenerateIncrementalMatrixNumber();
             Matrix4x4D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix4x4D expected = new Matrix4x4D(
-                a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41,
-                a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42,
-                a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43,
-                a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44,
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41,
+                M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42,
+                M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43,
+                M14 = a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44,
 
-                a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41,
-                a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42,
-                a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43,
-                a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44,
+                M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41,
+                M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42,
+                M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43,
+                M24 = a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44,
 
-                a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41,
-                a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42,
-                a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43,
-                a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44,
+                M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41,
+                M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42,
+                M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43,
+                M34 = a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44,
 
-                a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41,
-                a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42,
-                a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43,
-                a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44);
+                M41 = a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41,
+                M42 = a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42,
+                M43 = a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43,
+                M44 = a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44
+            };
 
             Matrix4x4D actual = a * b;
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.operator * did not return the expected value.");
@@ -1864,26 +1939,28 @@ namespace Tests
             Matrix4x4D a = GenerateIncrementalMatrixNumber();
             Matrix4x4D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix4x4D expected = new Matrix4x4D(
-                a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41,
-                a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42,
-                a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43,
-                a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44,
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31 + a.M14 * b.M41,
+                M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32 + a.M14 * b.M42,
+                M13 = a.M11 * b.M13 + a.M12 * b.M23 + a.M13 * b.M33 + a.M14 * b.M43,
+                M14 = a.M11 * b.M14 + a.M12 * b.M24 + a.M13 * b.M34 + a.M14 * b.M44,
 
-                a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41,
-                a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42,
-                a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43,
-                a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44,
+                M21 = a.M21 * b.M11 + a.M22 * b.M21 + a.M23 * b.M31 + a.M24 * b.M41,
+                M22 = a.M21 * b.M12 + a.M22 * b.M22 + a.M23 * b.M32 + a.M24 * b.M42,
+                M23 = a.M21 * b.M13 + a.M22 * b.M23 + a.M23 * b.M33 + a.M24 * b.M43,
+                M24 = a.M21 * b.M14 + a.M22 * b.M24 + a.M23 * b.M34 + a.M24 * b.M44,
 
-                a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41,
-                a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42,
-                a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43,
-                a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44,
+                M31 = a.M31 * b.M11 + a.M32 * b.M21 + a.M33 * b.M31 + a.M34 * b.M41,
+                M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32 + a.M34 * b.M42,
+                M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33 + a.M34 * b.M43,
+                M34 = a.M31 * b.M14 + a.M32 * b.M24 + a.M33 * b.M34 + a.M34 * b.M44,
 
-                a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41,
-                a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42,
-                a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43,
-                a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44);
+                M41 = a.M41 * b.M11 + a.M42 * b.M21 + a.M43 * b.M31 + a.M44 * b.M41,
+                M42 = a.M41 * b.M12 + a.M42 * b.M22 + a.M43 * b.M32 + a.M44 * b.M42,
+                M43 = a.M41 * b.M13 + a.M42 * b.M23 + a.M43 * b.M33 + a.M44 * b.M43,
+                M44 = a.M41 * b.M14 + a.M42 * b.M24 + a.M43 * b.M34 + a.M44 * b.M44
+            };
             Matrix4x4D actual;
             actual = Matrix4x4D.Multiply(a, b);
 
@@ -1895,23 +1972,25 @@ namespace Tests
         [Test]
         public void Matrix4x4MultiplyTest4()
         {
-            Matrix4x4D a = new Matrix4x4D(
-                1.0,
-                2.0,
-                3.0,
-                4.0,
-                5.0,
-                -6.0,
-                7.0,
-                -8.0,
-                9.0,
-                10.0,
-                11.0,
-                12.0,
-                13.0,
-                -14.0,
-                15.0,
-                -16.0);
+            Matrix4x4D a = new Matrix4x4D
+            {
+                M11 = 1.0,
+                M12 = 2.0,
+                M13 = 3.0,
+                M14 = 4.0,
+                M21 = 5.0,
+                M22 = -6.0,
+                M23 = 7.0,
+                M24 = -8.0,
+                M31 = 9.0,
+                M32 = 10.0,
+                M33 = 11.0,
+                M34 = 12.0,
+                M41 = 13.0,
+                M42 = -14.0,
+                M43 = 15.0,
+                M44 = -16.0
+            };
 
             Matrix4x4D b = Matrix4x4D.Identity;
 
@@ -1949,23 +2028,25 @@ namespace Tests
         {
             Matrix4x4D m = GenerateIncrementalMatrixNumber();
 
-            Matrix4x4D expected = new Matrix4x4D(
-                -1.0,
-                -2.0,
-                -3.0,
-                -4.0,
-                -5.0,
-                -6.0,
-                -7.0,
-                -8.0,
-                -9.0,
-                -10.0,
-                -11.0,
-                -12.0,
-                -13.0,
-                -14.0,
-                -15.0,
-                -16.0);
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = -1.0,
+                M12 = -2.0,
+                M13 = -3.0,
+                M14 = -4.0,
+                M21 = -5.0,
+                M22 = -6.0,
+                M23 = -7.0,
+                M24 = -8.0,
+                M31 = -9.0,
+                M32 = -10.0,
+                M33 = -11.0,
+                M34 = -12.0,
+                M41 = -13.0,
+                M42 = -14.0,
+                M43 = -15.0,
+                M44 = -16.0
+            };
             Matrix4x4D actual;
 
             actual = Matrix4x4D.Negate(m);
@@ -1989,23 +2070,25 @@ namespace Tests
             Matrix4x4D a = GenerateIncrementalMatrixNumber();
             Matrix4x4D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix4x4D expected = new Matrix4x4D(
-                a.M11 - b.M11,
-                a.M12 - b.M12,
-                a.M13 - b.M13,
-                a.M14 - b.M14,
-                a.M21 - b.M21,
-                a.M22 - b.M22,
-                a.M23 - b.M23,
-                a.M24 - b.M24,
-                a.M31 - b.M31,
-                a.M32 - b.M32,
-                a.M33 - b.M33,
-                a.M34 - b.M34,
-                a.M41 - b.M41,
-                a.M42 - b.M42,
-                a.M43 - b.M43,
-                a.M44 - b.M44);
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = a.M11 - b.M11,
+                M12 = a.M12 - b.M12,
+                M13 = a.M13 - b.M13,
+                M14 = a.M14 - b.M14,
+                M21 = a.M21 - b.M21,
+                M22 = a.M22 - b.M22,
+                M23 = a.M23 - b.M23,
+                M24 = a.M24 - b.M24,
+                M31 = a.M31 - b.M31,
+                M32 = a.M32 - b.M32,
+                M33 = a.M33 - b.M33,
+                M34 = a.M34 - b.M34,
+                M41 = a.M41 - b.M41,
+                M42 = a.M42 - b.M42,
+                M43 = a.M43 - b.M43,
+                M44 = a.M44 - b.M44
+            };
 
             Matrix4x4D actual = a - b;
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.operator - did not return the expected value.");
@@ -2018,23 +2101,25 @@ namespace Tests
             Matrix4x4D a = GenerateIncrementalMatrixNumber();
             Matrix4x4D b = GenerateIncrementalMatrixNumber(-8.0);
 
-            Matrix4x4D expected = new Matrix4x4D(
-                a.M11 - b.M11,
-                a.M12 - b.M12,
-                a.M13 - b.M13,
-                a.M14 - b.M14,
-                a.M21 - b.M21,
-                a.M22 - b.M22,
-                a.M23 - b.M23,
-                a.M24 - b.M24,
-                a.M31 - b.M31,
-                a.M32 - b.M32,
-                a.M33 - b.M33,
-                a.M34 - b.M34,
-                a.M41 - b.M41,
-                a.M42 - b.M42,
-                a.M43 - b.M43,
-                a.M44 - b.M44);
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = a.M11 - b.M11,
+                M12 = a.M12 - b.M12,
+                M13 = a.M13 - b.M13,
+                M14 = a.M14 - b.M14,
+                M21 = a.M21 - b.M21,
+                M22 = a.M22 - b.M22,
+                M23 = a.M23 - b.M23,
+                M24 = a.M24 - b.M24,
+                M31 = a.M31 - b.M31,
+                M32 = a.M32 - b.M32,
+                M33 = a.M33 - b.M33,
+                M34 = a.M34 - b.M34,
+                M41 = a.M41 - b.M41,
+                M42 = a.M42 - b.M42,
+                M43 = a.M43 - b.M43,
+                M44 = a.M44 - b.M44
+            };
 
             Matrix4x4D actual = Matrix4x4D.Subtract(a, b);
             Assert.AreEqual(expected, actual);
@@ -2044,23 +2129,25 @@ namespace Tests
         [Test]
         public void Matrix4x4ToStringTest()
         {
-            Matrix4x4D a = new Matrix4x4D(
-                11.0,
-                -12.0,
-                -13.3,
-                14.4,
-                21.0,
-                22.0,
-                23.0,
-                24.0,
-                31.0,
-                32.0,
-                33.0,
-                34.0,
-                41.0,
-                42.0,
-                43.0,
-                44.0);
+            Matrix4x4D a = new Matrix4x4D
+            {
+                M11 = 11.0,
+                M12 = -12.0,
+                M13 = -13.3,
+                M14 = 14.4,
+                M21 = 21.0,
+                M22 = 22.0,
+                M23 = 23.0,
+                M24 = 24.0,
+                M31 = 31.0,
+                M32 = 32.0,
+                M33 = 33.0,
+                M34 = 34.0,
+                M41 = 41.0,
+                M42 = 42.0,
+                M43 = 43.0,
+                M44 = 44.0
+            };
 
             string expected = string.Format(CultureInfo.CurrentCulture,
                 "{{ {{M11:{0} M12:{1} M13:{2} M14:{3}}} {{M21:{4} M22:{5} M23:{6} M24:{7}}} {{M31:{8} M32:{9} M33:{10} M34:{11}}} {{M41:{12} M42:{13} M43:{14} M44:{15}}} }}",
@@ -2105,7 +2192,7 @@ namespace Tests
 
             // Set value and get value must be same.
             val = new Vector3D(1.0f, 2.0f, 3.0f);
-            a = a.WithTranslation(val);
+            a.Translation = val;
             Assert.AreEqual(val, a.Translation);
 
             // Make sure it only modifies expected value of matrix.
@@ -2122,23 +2209,25 @@ namespace Tests
         {
             Matrix4x4D a = GenerateIncrementalMatrixNumber();
 
-            Matrix4x4D expected = new Matrix4x4D(
-                a.M11,
-                a.M21,
-                a.M31,
-                a.M41,
-                a.M12,
-                a.M22,
-                a.M32,
-                a.M42,
-                a.M13,
-                a.M23,
-                a.M33,
-                a.M43,
-                a.M14,
-                a.M24,
-                a.M34,
-                a.M44);
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = a.M11,
+                M12 = a.M21,
+                M13 = a.M31,
+                M14 = a.M41,
+                M21 = a.M12,
+                M22 = a.M22,
+                M23 = a.M32,
+                M24 = a.M42,
+                M31 = a.M13,
+                M32 = a.M23,
+                M33 = a.M33,
+                M34 = a.M43,
+                M41 = a.M14,
+                M42 = a.M24,
+                M43 = a.M34,
+                M44 = a.M44
+            };
 
             Matrix4x4D actual = Matrix4x4D.Transpose(a);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.Transpose did not return the expected value.");
@@ -2162,23 +2251,25 @@ namespace Tests
         {
             Matrix4x4D a = GenerateIncrementalMatrixNumber();
 
-            Matrix4x4D expected = new Matrix4x4D(
-                -1.0,
-                -2.0,
-                -3.0,
-                -4.0,
-                -5.0,
-                -6.0,
-                -7.0,
-                -8.0,
-                -9.0,
-                -10.0,
-                -11.0,
-                -12.0,
-                -13.0,
-                -14.0,
-                -15.0,
-                -16.0);
+            Matrix4x4D expected = new Matrix4x4D
+            {
+                M11 = -1.0,
+                M12 = -2.0,
+                M13 = -3.0,
+                M14 = -4.0,
+                M21 = -5.0,
+                M22 = -6.0,
+                M23 = -7.0,
+                M24 = -8.0,
+                M31 = -9.0,
+                M32 = -10.0,
+                M33 = -11.0,
+                M34 = -12.0,
+                M41 = -13.0,
+                M42 = -14.0,
+                M43 = -15.0,
+                M44 = -16.0
+            };
 
             Matrix4x4D actual = -a;
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.operator - did not return the expected value.");
@@ -2268,23 +2359,25 @@ namespace Tests
 
         private static Matrix4x4D GenerateIncrementalMatrixNumber(double value = 0.0f)
         {
-            Matrix4x4D a = new Matrix4x4D(
-                value + 1.0,
-                value + 2.0,
-                value + 3.0,
-                value + 4.0,
-                value + 5.0,
-                value + 6.0,
-                value + 7.0,
-                value + 8.0,
-                value + 9.0,
-                value + 10.0,
-                value + 11.0,
-                value + 12.0,
-                value + 13.0,
-                value + 14.0,
-                value + 15.0,
-                value + 16.0);
+            Matrix4x4D a = new Matrix4x4D
+            {
+                M11 = value + 1.0,
+                M12 = value + 2.0,
+                M13 = value + 3.0,
+                M14 = value + 4.0,
+                M21 = value + 5.0,
+                M22 = value + 6.0,
+                M23 = value + 7.0,
+                M24 = value + 8.0,
+                M31 = value + 9.0,
+                M32 = value + 10.0,
+                M33 = value + 11.0,
+                M34 = value + 12.0,
+                M41 = value + 13.0,
+                M42 = value + 14.0,
+                M43 = value + 15.0,
+                M44 = value + 16.0
+            };
             return a;
         }
 
@@ -2294,7 +2387,8 @@ namespace Tests
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f));
-            return m.WithTranslation(new Vector3D(111.0f, 222.0f, 333.0f));
+            m.Translation = new Vector3D(111.0f, 222.0f, 333.0f);
+            return m;
         }
 
         #endregion Private Methods
