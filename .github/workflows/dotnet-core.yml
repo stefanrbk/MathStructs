@@ -40,19 +40,17 @@ jobs:
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
 
     - name: Test NoSimd
-      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoSimd
 
     - name: Test NoAvx
-      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoAvx
 
     - name: Test Release
-      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
     
     - name: Save test log to Action
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: test-logs
         path: ${{ env.TEST_RESULTS_PATH }}
@@ -122,19 +120,17 @@ jobs:
       run: dotnet build '${{ env.SOLUTION_PATH }}' --nologo --verbosity minimal --configuration Release --no-restore
 
     - name: Test NoSimd
-      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoSimd
 
     - name: Test NoAvx
-      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration NoAvx
 
     - name: Test Release
-      continue-on-error: true
       run: dotnet test '${{ env.SOLUTION_PATH }}' --nologo --no-build --logger trx --verbosity normal --configuration Release
     
     - name: Save test log to Action
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: test-logs
         path: ${{ env.TEST_RESULTS_PATH }}
