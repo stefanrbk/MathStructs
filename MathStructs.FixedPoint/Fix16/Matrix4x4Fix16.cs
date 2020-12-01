@@ -1315,59 +1315,67 @@ namespace MathStructs
 
         #endregion Internal Methods
 
-        #region Private Methods
+#region Private Methods
 
-        //[MethodImpl(Optimize)]
-        //private static unsafe Vector128<int> MultiplyRow(Matrix4x4Fix16 value2, Vector128<int> vector)
-        //{
-        //    return Sse2.Add(Sse2.Add(Sse41.Multiply(Sse2.Shuffle(vector, 0x00),
-        //                                            Sse2.LoadVector128((int*)&value2.M11)),
-        //                             Sse41.Multiply(Sse2.Shuffle(vector, 0x55),
-        //                                            Sse2.LoadVector128((int*)&value2.M21))),
-        //                    Sse2.Add(Sse41.Multiply(Sse2.Shuffle(vector, 0xAA),
-        //                                            Sse2.LoadVector128((int*)&value2.M31)),
-        //                             Sse41.Multiply(Sse2.Shuffle(vector, 0xFF),
-        //                                            Sse2.LoadVector128((int*)&value2.M41))));
-        //}
-
+//[MethodImpl(Optimize)]
+//private static unsafe Vector128<int> MultiplyRow(Matrix4x4Fix16 value2, Vector128<int> vector)
+//{
+//    return Sse2.Add(Sse2.Add(Sse41.Multiply(Sse2.Shuffle(vector, 0x00),
+//                                            Sse2.LoadVector128((int*)&value2.M11)),
+//                             Sse41.Multiply(Sse2.Shuffle(vector, 0x55),
+//                                            Sse2.LoadVector128((int*)&value2.M21))),
+//                    Sse2.Add(Sse41.Multiply(Sse2.Shuffle(vector, 0xAA),
+//                                            Sse2.LoadVector128((int*)&value2.M31)),
+//                             Sse41.Multiply(Sse2.Shuffle(vector, 0xFF),
+//                                            Sse2.LoadVector128((int*)&value2.M41))));
+//}
+#if !NOSIMD
         [MethodImpl(Optimize)]
         private static Vector128<float> Permute(Vector128<float> value, byte control) =>
-            Avx.IsSupported ? Avx.Permute(value, control) : Sse.Shuffle(value, value, control);
+#if !NOAVX
+            Avx.IsSupported ? 
+                Avx.Permute(value, control) : 
+#endif
+                Sse.Shuffle(value, value, control);
+#endif
 
-        #endregion Private Methods
+#endregion Private Methods
 
-        #region Private Structs
+#region Private Structs
 
         private struct CanonicalBasis
         {
-            #region Public Fields
+#region Public Fields
 
             public Vector3Fix16 Row0;
             public Vector3Fix16 Row1;
             public Vector3Fix16 Row2;
 
-            #endregion Public Fields
+#endregion Public Fields
         }
 
         private struct VectorBasis
         {
-            #region Public Fields
+#region Public Fields
 
             public unsafe Vector3Fix16* Element0;
             public unsafe Vector3Fix16* Element1;
             public unsafe Vector3Fix16* Element2;
 
-            #endregion Public Fields
+#endregion Public Fields
         }
 
         #endregion Private Structs
 
-        #region Private Classes
+#region Private Classes
+
+#if !NOSIMD
 
         private static class VectorMath
         {
-            #region Public Methods
+#region Public Methods
 
+#if !NOAVX
             [MethodImpl(Optimize)]
             public static bool Equal(Vector256<int> a, Vector256<int> b)
             {
@@ -1376,6 +1384,7 @@ namespace MathStructs
                 else
                     throw new PlatformNotSupportedException();
             }
+#endif
 
             [MethodImpl(Optimize)]
             public static bool Equal(Vector128<int> a, Vector128<int> b)
@@ -1447,7 +1456,7 @@ namespace MathStructs
                 else
                     throw new PlatformNotSupportedException();
             }
-
+#if !NOAVX
             [MethodImpl(Optimize)]
             public static bool NotEqual(Vector256<int> a, Vector256<int> b)
             {
@@ -1456,10 +1465,12 @@ namespace MathStructs
                 else
                     throw new PlatformNotSupportedException();
             }
+#endif
 
-            #endregion Public Methods
+#endregion Public Methods
         }
+#endif
 
-        #endregion Private Classes
+#endregion Private Classes
     }
 }

@@ -213,8 +213,10 @@ namespace MathStructs
         public unsafe static Matrix3x3D Lerp(Matrix3x3D matrix1, Matrix3x3D matrix2, double amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
+#if !NOSIMD
             if (Sse.IsSupported)
                 return Matrix4x4D.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
+#endif
             return new Matrix3x3D(m1.M11 + ( (m2.M11 - m1.M11) * amount ),
                                   m1.M12 + ( (m2.M12 - m1.M12) * amount ),
                                   m1.M13 + ( (m2.M13 - m1.M13) * amount ),
@@ -271,9 +273,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3D operator -(Matrix3x3D value)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (-value.As4x4()).As3x3();
             else
+#endif
                 return new Matrix3x3D(-value.M11, -value.M12, -value.M13,
                                       -value.M21, -value.M22, -value.M23,
                                       -value.M31, -value.M32, -value.M33);
@@ -291,9 +295,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3D operator -(Matrix3x3D left, Matrix3x3D right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() - right.As4x4()).As3x3();
             else
+#endif
                 return new Matrix3x3D(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13,
                                       left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23,
                                       left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33);
@@ -314,9 +320,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static bool operator !=(Matrix3x3D left, Matrix3x3D right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return left.As4x4() != right.As4x4();
             else
+#endif
                 return left.M11 != right.M11 || left.M12 != right.M12 || left.M13 != right.M13 ||
                        left.M21 != right.M21 || left.M22 != right.M22 || left.M23 != right.M23 ||
                        left.M31 != right.M31 || left.M32 != right.M32 || left.M33 != right.M33;
@@ -334,10 +342,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3D operator *(Matrix3x3D left, Matrix3x3D right)
         {
-
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() * right.As4x4()).As3x3();
             else
+#endif
             {
                 return new Matrix3x3D(( left.M11 * right.M11 ) + ( left.M12 * right.M21 ) + ( left.M13 * right.M31 ),
                                       ( left.M11 * right.M12 ) + ( left.M12 * right.M22 ) + ( left.M13 * right.M32 ),
@@ -444,9 +453,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3D operator *(Matrix3x3D left, double right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() * right).As3x3();
             else
+#endif
                 return new Matrix3x3D(left.M11 * right, left.M12 * right, left.M13 * right,
                                       left.M21 * right, left.M22 * right, left.M23 * right,
                                       left.M31 * right, left.M32 * right, left.M33 * right);
@@ -471,9 +482,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3D operator +(Matrix3x3D left, Matrix3x3D right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return (left.As4x4() + right.As4x4()).As3x3();
             else
+#endif
                 return new Matrix3x3D(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13,
                                       left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23,
                                       left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33);
@@ -494,9 +507,11 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static bool operator ==(Matrix3x3D left, Matrix3x3D right)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return left.As4x4() == right.As4x4();
             else
+#endif
                 return left.M11 == right.M11 && left.M12 == right.M12 && left.M13 == right.M13 &&
                        left.M21 == right.M21 && left.M22 == right.M22 && left.M23 == right.M23 &&
                        left.M31 == right.M31 && left.M32 == right.M32 && left.M33 == right.M33;
@@ -524,8 +539,10 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3D Transpose(Matrix3x3D matrix)
         {
+#if !NOSIMD
             if (Sse.IsSupported)
                 return Matrix4x4D.Transpose(matrix.As4x4()).As3x3();
+#endif
             return new Matrix3x3D(matrix.M11, matrix.M21, matrix.M31,
                                   matrix.M12, matrix.M22, matrix.M32,
                                   matrix.M13, matrix.M23, matrix.M33);
@@ -604,13 +621,13 @@ namespace MathStructs
         public Matrix3x3D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m21 = null, double? m22 = null, double? m23 = null, double? m31 = null, double? m32 = null, double? m33 = null) =>
             new Matrix3x3D(m11 ?? M11, m12 ?? M12, m13 ?? M13, m21 ?? M21, m22 ?? M22, m23 ?? M23, m31 ?? M31, m32 ?? M32, m33 ?? M33);
 
-        #endregion Public Methods
+#endregion Public Methods
 
-        #region Internal Methods
+#region Internal Methods
 
         internal Matrix4x4D As4x4() =>
             Matrix4x4D.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
 
-        #endregion Internal Methods
+#endregion Internal Methods
     }
 }
