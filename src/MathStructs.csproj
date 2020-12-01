@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://stefanrbk.github.io/MathStructs</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stefanrbk/MathStructs</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <Configurations>Debug;Release;Test</Configurations>
+    <Configurations>Debug;Release;NoSimd;NoAvx</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,12 +21,20 @@
     <DocumentationFile>C:\Users\stefa\OneDrive\Programming\GitHub\stefanrbk\MathStructs.xml</DocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoSimd|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>NOSIMD</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoAvx|AnyCPU'">
+    <DefineConstants>NOAVX</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
