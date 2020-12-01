@@ -1155,13 +1155,13 @@ namespace Tests
         public void Vector3TransformNormalTest()
         {
             Vector3D v = new Vector3D(1.0f, 2.0f, 3.0f);
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0f)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f));
-            m.M41 = 10.0f;
-            m.M42 = 20.0f;
-            m.M43 = 30.0f;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f)))
+                .With(m41: 10.0f,
+                      m42: 20.0f,
+                      m43: 30.0f);
 
             Vector3D expected = new Vector3D(2.19198728f, 1.53349364f, 2.61602545f);
             Vector3D actual;
@@ -1175,13 +1175,13 @@ namespace Tests
         public void Vector3TransformTest()
         {
             Vector3D v = new Vector3D(1.0f, 2.0f, 3.0f);
-            Matrix4x4D m =
+            Matrix4x4D m = (
                 Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0f)) *
                 Matrix4x4D.CreateRotationY(MathHelper.ToRadians(30.0f)) *
-                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f));
-            m.M41 = 10.0f;
-            m.M42 = 20.0f;
-            m.M43 = 30.0f;
+                Matrix4x4D.CreateRotationZ(MathHelper.ToRadians(30.0f)))
+                .With(m41: 10.0f,
+                      m42: 20.0f,
+                      m43: 30.0f);
 
             Vector3D expected = new Vector3D(12.191987f, 21.533493f, 32.616024f);
             Vector3D actual;
