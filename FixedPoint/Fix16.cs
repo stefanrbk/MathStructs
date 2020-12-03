@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FixedPoint
+﻿namespace System
 {
     public static class Fix16
     {
