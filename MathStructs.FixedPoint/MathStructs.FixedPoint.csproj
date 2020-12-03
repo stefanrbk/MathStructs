@@ -8,9 +8,6 @@
     <Authors>Stefan Kewatt</Authors>
     <Description>MathStructs structures with fixed point values.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 

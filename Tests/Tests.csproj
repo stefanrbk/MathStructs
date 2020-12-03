@@ -8,18 +8,16 @@
     <IsPackable>false</IsPackable>
 
     <Configurations>Debug;Release;Test</Configurations>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FixedPoint\FixedPoint.csproj" />
+    <ProjectReference Include="..\MathStructs.FixedPoint\MathStructs.FixedPoint.csproj" />
     <ProjectReference Include="..\src\MathStructs.csproj" />
   </ItemGroup>
 
