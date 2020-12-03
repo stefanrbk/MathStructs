@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.X86;
+//using System.Runtime.Intrinsics.X86;
 
 namespace MathStructs
 {
@@ -214,8 +214,8 @@ namespace MathStructs
         public unsafe static Matrix3x3F Lerp(Matrix3x3F matrix1, Matrix3x3F matrix2, float amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
-            if (Sse.IsSupported)
-                return Matrix4x4F.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
+            //if (Sse.IsSupported)
+            //    return Matrix4x4F.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
             return new Matrix3x3F(m1.M11 + (m2.M11 - m1.M11) * amount,
                                   m1.M12 + (m2.M12 - m1.M12) * amount,
                                   m1.M13 + (m2.M13 - m1.M13) * amount,
@@ -272,9 +272,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3F operator -(Matrix3x3F value)
         {
-            if (Sse.IsSupported)
-                return (-value.As4x4()).As3x3();
-            else
+            //if (Sse.IsSupported)
+            //    return (-value.As4x4()).As3x3();
+            //else
                 return new Matrix3x3F(-value.M11, -value.M12, -value.M13,
                                       -value.M21, -value.M22, -value.M23,
                                       -value.M31, -value.M32, -value.M33);
@@ -292,9 +292,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3F operator -(Matrix3x3F left, Matrix3x3F right)
         {
-            if (Sse.IsSupported)
-                return (left.As4x4() - right.As4x4()).As3x3();
-            else
+            //if (Sse.IsSupported)
+            //    return (left.As4x4() - right.As4x4()).As3x3();
+            //else
                 return new Matrix3x3F(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13,
                                       left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23,
                                       left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33);
@@ -315,9 +315,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static bool operator !=(Matrix3x3F left, Matrix3x3F right)
         {
-            if (Sse.IsSupported)
-                return left.As4x4() != right.As4x4();
-            else
+            //if (Sse.IsSupported)
+            //    return left.As4x4() != right.As4x4();
+            //else
                 return left.M11 != right.M11 || left.M12 != right.M12 || left.M13 != right.M13 ||
                        left.M21 != right.M21 || left.M22 != right.M22 || left.M23 != right.M23 ||
                        left.M31 != right.M31 || left.M32 != right.M32 || left.M33 != right.M33;
@@ -337,9 +337,9 @@ namespace MathStructs
         {
             var result = new Matrix3x3F();
 
-            if (Sse.IsSupported)
-                result = (left.As4x4() * right.As4x4()).As3x3();
-            else
+            //if (Sse.IsSupported)
+            //    result = (left.As4x4() * right.As4x4()).As3x3();
+            //else
             {
                 result.M11 = left.M11 * right.M11 + left.M12 * right.M21 + left.M13 * right.M31;
                 result.M12 = left.M11 * right.M12 + left.M12 * right.M22 + left.M13 * right.M32;
@@ -448,9 +448,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3F operator *(Matrix3x3F left, float right)
         {
-            if (Sse.IsSupported)
-                return (left.As4x4() * right).As3x3();
-            else
+            //if (Sse.IsSupported)
+            //    return (left.As4x4() * right).As3x3();
+            //else
                 return new Matrix3x3F(left.M11 * right, left.M12 * right, left.M13 * right,
                                       left.M21 * right, left.M22 * right, left.M23 * right,
                                       left.M31 * right, left.M32 * right, left.M33 * right);
@@ -475,9 +475,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe Matrix3x3F operator +(Matrix3x3F left, Matrix3x3F right)
         {
-            if (Sse.IsSupported)
-                return (left.As4x4() + right.As4x4()).As3x3();
-            else
+            //if (Sse.IsSupported)
+            //    return (left.As4x4() + right.As4x4()).As3x3();
+            //else
                 return new Matrix3x3F(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13,
                                       left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23,
                                       left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33);
@@ -498,9 +498,9 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static unsafe bool operator ==(Matrix3x3F left, Matrix3x3F right)
         {
-            if (Sse.IsSupported)
-                return left.As4x4() == right.As4x4();
-            else
+            //if (Sse.IsSupported)
+            //    return left.As4x4() == right.As4x4();
+            //else
                 return left.M11 == right.M11 && left.M12 == right.M12 && left.M13 == right.M13 &&
                        left.M21 == right.M21 && left.M22 == right.M22 && left.M23 == right.M23 &&
                        left.M31 == right.M31 && left.M32 == right.M32 && left.M33 == right.M33;
@@ -528,8 +528,8 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public static Matrix3x3F Transpose(Matrix3x3F matrix)
         {
-            if (Sse.IsSupported)
-                return Matrix4x4F.Transpose(matrix.As4x4()).As3x3();
+            //if (Sse.IsSupported)
+            //    return Matrix4x4F.Transpose(matrix.As4x4()).As3x3();
             return new Matrix3x3F(matrix.M11, matrix.M21, matrix.M31,
                                   matrix.M12, matrix.M22, matrix.M32,
                                   matrix.M13, matrix.M23, matrix.M33);
