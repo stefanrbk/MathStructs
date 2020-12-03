@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics;
-using System.Runtime.Intrinsics.Arm;
-using System.Runtime.Intrinsics.X86;
+//using System.Runtime.Intrinsics;
+//using System.Runtime.Intrinsics.Arm;
+//using System.Runtime.Intrinsics.X86;
 
 namespace MathStructs
 {
@@ -1000,171 +1000,171 @@ namespace MathStructs
             // This implementation is based on the DirectX Math Library XMMatrixInverse method
             // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathMatrix.inl
 
-            if (Sse.IsSupported)
-                return SseImpl(matrix);
+            //if (Sse.IsSupported)
+            //    return SseImpl(matrix);
 
-            return SoftwareFallback(matrix);
+            //return SoftwareFallback(matrix);
 
-            static unsafe Matrix4x4F SseImpl(Matrix4x4F matrix)
-            {
-                if (!Sse.IsSupported)
-                    // Redundant test so we won't preJIT remainder of this method on platforms without SSE.
-                    throw new PlatformNotSupportedException();
+            //static unsafe Matrix4x4F SseImpl(Matrix4x4F matrix)
+            //{
+            //    if (!Sse.IsSupported)
+            //        // Redundant test so we won't preJIT remainder of this method on platforms without SSE.
+            //        throw new PlatformNotSupportedException();
 
-                // Load the matrix values into rows
-                var row1 = Sse.LoadVector128(&matrix.M11);
-                var row2 = Sse.LoadVector128(&matrix.M21);
-                var row3 = Sse.LoadVector128(&matrix.M31);
-                var row4 = Sse.LoadVector128(&matrix.M41);
+            //    // Load the matrix values into rows
+            //    var row1 = Sse.LoadVector128(&matrix.M11);
+            //    var row2 = Sse.LoadVector128(&matrix.M21);
+            //    var row3 = Sse.LoadVector128(&matrix.M31);
+            //    var row4 = Sse.LoadVector128(&matrix.M41);
 
-                // Transpose the matrix
-                var vTemp1 = Sse.Shuffle(row1, row2, 0x44); //_MM_SHUFFLE(1, 0, 1, 0)
-                var vTemp3 = Sse.Shuffle(row1, row2, 0xEE); //_MM_SHUFFLE(3, 2, 3, 2)
-                var vTemp2 = Sse.Shuffle(row3, row4, 0x44); //_MM_SHUFFLE(1, 0, 1, 0)
-                var vTemp4 = Sse.Shuffle(row3, row4, 0xEE); //_MM_SHUFFLE(3, 2, 3, 2)
+            //    // Transpose the matrix
+            //    var vTemp1 = Sse.Shuffle(row1, row2, 0x44); //_MM_SHUFFLE(1, 0, 1, 0)
+            //    var vTemp3 = Sse.Shuffle(row1, row2, 0xEE); //_MM_SHUFFLE(3, 2, 3, 2)
+            //    var vTemp2 = Sse.Shuffle(row3, row4, 0x44); //_MM_SHUFFLE(1, 0, 1, 0)
+            //    var vTemp4 = Sse.Shuffle(row3, row4, 0xEE); //_MM_SHUFFLE(3, 2, 3, 2)
 
-                row1 = Sse.Shuffle(vTemp1, vTemp2, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
-                row2 = Sse.Shuffle(vTemp1, vTemp2, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
-                row3 = Sse.Shuffle(vTemp3, vTemp4, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
-                row4 = Sse.Shuffle(vTemp3, vTemp4, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
+            //    row1 = Sse.Shuffle(vTemp1, vTemp2, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
+            //    row2 = Sse.Shuffle(vTemp1, vTemp2, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
+            //    row3 = Sse.Shuffle(vTemp3, vTemp4, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
+            //    row4 = Sse.Shuffle(vTemp3, vTemp4, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
 
-                var V00 = Permute(row3, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
-                var V10 = Permute(row4, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
-                var V01 = Permute(row1, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
-                var V11 = Permute(row2, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
-                var V02 = Sse.Shuffle(row3, row1, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
-                var V12 = Sse.Shuffle(row4, row2, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
+            //    var V00 = Permute(row3, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
+            //    var V10 = Permute(row4, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
+            //    var V01 = Permute(row1, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
+            //    var V11 = Permute(row2, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
+            //    var V02 = Sse.Shuffle(row3, row1, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
+            //    var V12 = Sse.Shuffle(row4, row2, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
 
-                var D0 = Sse.Multiply(V00, V10);
-                var D1 = Sse.Multiply(V01, V11);
-                var D2 = Sse.Multiply(V02, V12);
+            //    var D0 = Sse.Multiply(V00, V10);
+            //    var D1 = Sse.Multiply(V01, V11);
+            //    var D2 = Sse.Multiply(V02, V12);
 
-                V00 = Permute(row3, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
-                V10 = Permute(row4, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
-                V01 = Permute(row1, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
-                V11 = Permute(row2, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
-                V02 = Sse.Shuffle(row3, row1, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
-                V12 = Sse.Shuffle(row4, row2, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
+            //    V00 = Permute(row3, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
+            //    V10 = Permute(row4, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
+            //    V01 = Permute(row1, 0xEE);           //_MM_SHUFFLE(3, 2, 3, 2)
+            //    V11 = Permute(row2, 0x50);           //_MM_SHUFFLE(1, 1, 0, 0)
+            //    V02 = Sse.Shuffle(row3, row1, 0xDD); //_MM_SHUFFLE(3, 1, 3, 1)
+            //    V12 = Sse.Shuffle(row4, row2, 0x88); //_MM_SHUFFLE(2, 0, 2, 0)
 
-                // Note: We use this expansion pattern instead of Fused Multiply Add
-                // in order to support older hardware
-                D0 = Sse.Subtract(D0, Sse.Multiply(V00, V10));
-                D1 = Sse.Subtract(D1, Sse.Multiply(V01, V11));
-                D2 = Sse.Subtract(D2, Sse.Multiply(V02, V12));
+            //    // Note: We use this expansion pattern instead of Fused Multiply Add
+            //    // in order to support older hardware
+            //    D0 = Sse.Subtract(D0, Sse.Multiply(V00, V10));
+            //    D1 = Sse.Subtract(D1, Sse.Multiply(V01, V11));
+            //    D2 = Sse.Subtract(D2, Sse.Multiply(V02, V12));
 
-                // V11 = D0Y,D0W,D2Y,D2Y
-                V11 = Sse.Shuffle(D0, D2, 0x5D);  //_MM_SHUFFLE(1, 1, 3, 1)
-                V00 = Permute(row2, 0x49);        //_MM_SHUFFLE(1, 0, 2, 1)
-                V10 = Sse.Shuffle(V11, D0, 0x32); //_MM_SHUFFLE(0, 3, 0, 2)
-                V01 = Permute(row1, 0x12);        //_MM_SHUFFLE(0, 1, 0, 2)
-                V11 = Sse.Shuffle(V11, D0, 0x99); //_MM_SHUFFLE(2, 1, 2, 1)
+            //    // V11 = D0Y,D0W,D2Y,D2Y
+            //    V11 = Sse.Shuffle(D0, D2, 0x5D);  //_MM_SHUFFLE(1, 1, 3, 1)
+            //    V00 = Permute(row2, 0x49);        //_MM_SHUFFLE(1, 0, 2, 1)
+            //    V10 = Sse.Shuffle(V11, D0, 0x32); //_MM_SHUFFLE(0, 3, 0, 2)
+            //    V01 = Permute(row1, 0x12);        //_MM_SHUFFLE(0, 1, 0, 2)
+            //    V11 = Sse.Shuffle(V11, D0, 0x99); //_MM_SHUFFLE(2, 1, 2, 1)
 
-                // V13 = D1Y,D1W,D2W,D2W
-                var V13 = Sse.Shuffle(D1, D2, 0xFD); //_MM_SHUFFLE(3, 3, 3, 1)
-                V02 = Permute(row4, 0x49);           //_MM_SHUFFLE(1, 0, 2, 1)
-                V12 = Sse.Shuffle(V13, D1, 0x32);    //_MM_SHUFFLE(0, 3, 0, 2)
-                var V03 = Permute(row3, 0x12);       //_MM_SHUFFLE(0, 1, 0, 2)
-                V13 = Sse.Shuffle(V13, D1, 153);     //_MM_SHUFFLE(2, 1, 2, 1)
+            //    // V13 = D1Y,D1W,D2W,D2W
+            //    var V13 = Sse.Shuffle(D1, D2, 0xFD); //_MM_SHUFFLE(3, 3, 3, 1)
+            //    V02 = Permute(row4, 0x49);           //_MM_SHUFFLE(1, 0, 2, 1)
+            //    V12 = Sse.Shuffle(V13, D1, 0x32);    //_MM_SHUFFLE(0, 3, 0, 2)
+            //    var V03 = Permute(row3, 0x12);       //_MM_SHUFFLE(0, 1, 0, 2)
+            //    V13 = Sse.Shuffle(V13, D1, 153);     //_MM_SHUFFLE(2, 1, 2, 1)
 
-                var C0 = Sse.Multiply(V00, V10);
-                var C2 = Sse.Multiply(V01, V11);
-                var C4 = Sse.Multiply(V02, V12);
-                var C6 = Sse.Multiply(V03, V13);
+            //    var C0 = Sse.Multiply(V00, V10);
+            //    var C2 = Sse.Multiply(V01, V11);
+            //    var C4 = Sse.Multiply(V02, V12);
+            //    var C6 = Sse.Multiply(V03, V13);
 
-                // V11 = D0X,D0Y,D2X,D2X
-                V11 = Sse.Shuffle(D0, D2, 0x04);  //_MM_SHUFFLE(0, 0, 1, 0)
-                V00 = Permute(row2, 0x9E);        //_MM_SHUFFLE(2, 1, 3, 2)
-                V10 = Sse.Shuffle(D0, V11, 0x93); //_MM_SHUFFLE(2, 1, 0, 3)
-                V01 = Permute(row1, 0x7B);        //_MM_SHUFFLE(1, 3, 2, 3)
-                V11 = Sse.Shuffle(D0, V11, 0x26); //_MM_SHUFFLE(0, 2, 1, 2)
+            //    // V11 = D0X,D0Y,D2X,D2X
+            //    V11 = Sse.Shuffle(D0, D2, 0x04);  //_MM_SHUFFLE(0, 0, 1, 0)
+            //    V00 = Permute(row2, 0x9E);        //_MM_SHUFFLE(2, 1, 3, 2)
+            //    V10 = Sse.Shuffle(D0, V11, 0x93); //_MM_SHUFFLE(2, 1, 0, 3)
+            //    V01 = Permute(row1, 0x7B);        //_MM_SHUFFLE(1, 3, 2, 3)
+            //    V11 = Sse.Shuffle(D0, V11, 0x26); //_MM_SHUFFLE(0, 2, 1, 2)
 
-                // V13 = D1X,D1Y,D2Z,D2Z
-                V13 = Sse.Shuffle(D1, D2, 0xA4);  //_MM_SHUFFLE(2, 2, 1, 0)
-                V02 = Permute(row4, 0x9E);        //_MM_SHUFFLE(2, 1, 3, 2)
-                V12 = Sse.Shuffle(D1, V13, 0x93); //_MM_SHUFFLE(2, 1, 0, 3)
-                V03 = Permute(row3, 0x7B);        //_MM_SHUFFLE(1, 3, 2, 3)
-                V13 = Sse.Shuffle(D1, V13, 0x26); //_MM_SHUFFLE(0, 2, 1, 2)
+            //    // V13 = D1X,D1Y,D2Z,D2Z
+            //    V13 = Sse.Shuffle(D1, D2, 0xA4);  //_MM_SHUFFLE(2, 2, 1, 0)
+            //    V02 = Permute(row4, 0x9E);        //_MM_SHUFFLE(2, 1, 3, 2)
+            //    V12 = Sse.Shuffle(D1, V13, 0x93); //_MM_SHUFFLE(2, 1, 0, 3)
+            //    V03 = Permute(row3, 0x7B);        //_MM_SHUFFLE(1, 3, 2, 3)
+            //    V13 = Sse.Shuffle(D1, V13, 0x26); //_MM_SHUFFLE(0, 2, 1, 2)
 
-                C0 = Sse.Subtract(C0, Sse.Multiply(V00, V10));
-                C2 = Sse.Subtract(C2, Sse.Multiply(V01, V11));
-                C4 = Sse.Subtract(C4, Sse.Multiply(V02, V12));
-                C6 = Sse.Subtract(C6, Sse.Multiply(V03, V13));
+            //    C0 = Sse.Subtract(C0, Sse.Multiply(V00, V10));
+            //    C2 = Sse.Subtract(C2, Sse.Multiply(V01, V11));
+            //    C4 = Sse.Subtract(C4, Sse.Multiply(V02, V12));
+            //    C6 = Sse.Subtract(C6, Sse.Multiply(V03, V13));
 
-                V00 = Permute(row2, 0x33); //_MM_SHUFFLE(0, 3, 0, 3)
+            //    V00 = Permute(row2, 0x33); //_MM_SHUFFLE(0, 3, 0, 3)
 
-                // V10 = D0Z,D0Z,D2X,D2Y
-                V10 = Sse.Shuffle(D0, D2, 0x4A); //_MM_SHUFFLE(1, 0, 2, 2)
-                V10 = Permute(V10, 0x2C);        //_MM_SHUFFLE(0, 2, 3, 0)
-                V01 = Permute(row1, 0x8D);       //_MM_SHUFFLE(2, 0, 3, 1)
+            //    // V10 = D0Z,D0Z,D2X,D2Y
+            //    V10 = Sse.Shuffle(D0, D2, 0x4A); //_MM_SHUFFLE(1, 0, 2, 2)
+            //    V10 = Permute(V10, 0x2C);        //_MM_SHUFFLE(0, 2, 3, 0)
+            //    V01 = Permute(row1, 0x8D);       //_MM_SHUFFLE(2, 0, 3, 1)
 
-                // V11 = D0X,D0W,D2X,D2Y
-                V11 = Sse.Shuffle(D0, D2, 0x4C); //_MM_SHUFFLE(1, 0, 3, 0)
-                V11 = Permute(V11, 0x93);        //_MM_SHUFFLE(2, 1, 0, 3)
-                V02 = Permute(row4, 0x33);       //_MM_SHUFFLE(0, 3, 0, 3)
+            //    // V11 = D0X,D0W,D2X,D2Y
+            //    V11 = Sse.Shuffle(D0, D2, 0x4C); //_MM_SHUFFLE(1, 0, 3, 0)
+            //    V11 = Permute(V11, 0x93);        //_MM_SHUFFLE(2, 1, 0, 3)
+            //    V02 = Permute(row4, 0x33);       //_MM_SHUFFLE(0, 3, 0, 3)
 
-                // V12 = D1Z,D1Z,D2Z,D2W
-                V12 = Sse.Shuffle(D1, D2, 0xEA); //_MM_SHUFFLE(3, 2, 2, 2)
-                V12 = Permute(V12, 0x2C);        //_MM_SHUFFLE(0, 2, 3, 0)
-                V03 = Permute(row3, 0x8D);       //_MM_SHUFFLE(2, 0, 3, 1)
+            //    // V12 = D1Z,D1Z,D2Z,D2W
+            //    V12 = Sse.Shuffle(D1, D2, 0xEA); //_MM_SHUFFLE(3, 2, 2, 2)
+            //    V12 = Permute(V12, 0x2C);        //_MM_SHUFFLE(0, 2, 3, 0)
+            //    V03 = Permute(row3, 0x8D);       //_MM_SHUFFLE(2, 0, 3, 1)
 
-                // V13 = D1X,D1W,D2Z,D2W
-                V13 = Sse.Shuffle(D1, D2, 0xEC); //_MM_SHUFFLE(3, 2, 3, 0)
-                V13 = Permute(V13, 0x93);        //_MM_SHUFFLE(2, 1, 0, 3)
+            //    // V13 = D1X,D1W,D2Z,D2W
+            //    V13 = Sse.Shuffle(D1, D2, 0xEC); //_MM_SHUFFLE(3, 2, 3, 0)
+            //    V13 = Permute(V13, 0x93);        //_MM_SHUFFLE(2, 1, 0, 3)
 
-                V00 = Sse.Multiply(V00, V10);
-                V01 = Sse.Multiply(V01, V11);
-                V02 = Sse.Multiply(V02, V12);
-                V03 = Sse.Multiply(V03, V13);
+            //    V00 = Sse.Multiply(V00, V10);
+            //    V01 = Sse.Multiply(V01, V11);
+            //    V02 = Sse.Multiply(V02, V12);
+            //    V03 = Sse.Multiply(V03, V13);
 
-                var C1 = Sse.Subtract(C0, V00);
-                C0 = Sse.Add(C0, V00);
-                var C3 = Sse.Add(C2, V01);
-                C2 = Sse.Subtract(C2, V01);
-                var C5 = Sse.Subtract(C4, V02);
-                C4 = Sse.Add(C4, V02);
-                var C7 = Sse.Add(C6, V03);
-                C6 = Sse.Subtract(C6, V03);
+            //    var C1 = Sse.Subtract(C0, V00);
+            //    C0 = Sse.Add(C0, V00);
+            //    var C3 = Sse.Add(C2, V01);
+            //    C2 = Sse.Subtract(C2, V01);
+            //    var C5 = Sse.Subtract(C4, V02);
+            //    C4 = Sse.Add(C4, V02);
+            //    var C7 = Sse.Add(C6, V03);
+            //    C6 = Sse.Subtract(C6, V03);
 
-                C0 = Sse.Shuffle(C0, C1, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
-                C2 = Sse.Shuffle(C2, C3, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
-                C4 = Sse.Shuffle(C4, C5, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
-                C6 = Sse.Shuffle(C6, C7, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C0 = Sse.Shuffle(C0, C1, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C2 = Sse.Shuffle(C2, C3, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C4 = Sse.Shuffle(C4, C5, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C6 = Sse.Shuffle(C6, C7, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
 
-                C0 = Permute(C0, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
-                C2 = Permute(C2, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
-                C4 = Permute(C4, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
-                C6 = Permute(C6, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C0 = Permute(C0, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C2 = Permute(C2, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C4 = Permute(C4, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
+            //    C6 = Permute(C6, 0xD8); //_MM_SHUFFLE(3, 1, 2, 0)
 
-                // Get the determinant
-                vTemp2 = row1;
-                float det = Vector4F.Dot(C0.AsVector4F(), vTemp2.AsVector4F());
+            //    // Get the determinant
+            //    vTemp2 = row1;
+            //    float det = Vector4F.Dot(C0.AsVector4F(), vTemp2.AsVector4F());
 
-                // Check determinate is not zero
-                if (MathF.Abs(det) < float.Epsilon)
-                    return _nan;
+            //    // Check determinate is not zero
+            //    if (MathF.Abs(det) < float.Epsilon)
+            //        return _nan;
 
-                // Create Vector128<float> copy of the determinant and invert them.
-                var ones = Vector128.Create(1f);
-                var vTemp = Vector128.Create(det);
-                vTemp = Sse.Divide(ones, vTemp);
+            //    // Create Vector128<float> copy of the determinant and invert them.
+            //    var ones = Vector128.Create(1f);
+            //    var vTemp = Vector128.Create(det);
+            //    vTemp = Sse.Divide(ones, vTemp);
 
-                row1 = Sse.Multiply(C0, vTemp);
-                row2 = Sse.Multiply(C2, vTemp);
-                row3 = Sse.Multiply(C4, vTemp);
-                row4 = Sse.Multiply(C6, vTemp);
+            //    row1 = Sse.Multiply(C0, vTemp);
+            //    row2 = Sse.Multiply(C2, vTemp);
+            //    row3 = Sse.Multiply(C4, vTemp);
+            //    row4 = Sse.Multiply(C6, vTemp);
 
-                Unsafe.SkipInit<Matrix4x4F>(out var result);
-                ref var vResult = ref Unsafe.As<Matrix4x4F, Vector128<float>>(ref result);
+            //    Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //    ref var vResult = ref Unsafe.As<Matrix4x4F, Vector128<float>>(ref result);
 
-                vResult = row1;
-                Unsafe.Add(ref vResult, 1) = row2;
-                Unsafe.Add(ref vResult, 2) = row3;
-                Unsafe.Add(ref vResult, 3) = row4;
+            //    vResult = row1;
+            //    Unsafe.Add(ref vResult, 1) = row2;
+            //    Unsafe.Add(ref vResult, 2) = row3;
+            //    Unsafe.Add(ref vResult, 3) = row4;
 
-                return result;
-            }
+            //    return result;
+            //}
 
-            static Matrix4x4F SoftwareFallback(Matrix4x4F matrix)
+            //static Matrix4x4F SoftwareFallback(Matrix4x4F matrix)
             {
                 /*
                  * If you have matrix M, inverse Matrix M⁻¹ can compute
@@ -1331,30 +1331,30 @@ namespace MathStructs
         public unsafe static Matrix4x4F Lerp(Matrix4x4F matrix1, Matrix4x4F matrix2, float amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (Sse.IsSupported)
-            {
-                var amountVec = Vector128.Create(amount);
+            //if (Sse.IsSupported)
+            //{
+            //    var amountVec = Vector128.Create(amount);
 
-                Sse.Store(&result.M11, VectorMath.Lerp(Sse.LoadVector128(&m1.M11), Sse.LoadVector128(&m2.M11), amountVec));
-                Sse.Store(&result.M21, VectorMath.Lerp(Sse.LoadVector128(&m1.M21), Sse.LoadVector128(&m2.M21), amountVec));
-                Sse.Store(&result.M31, VectorMath.Lerp(Sse.LoadVector128(&m1.M31), Sse.LoadVector128(&m2.M31), amountVec));
-                Sse.Store(&result.M41, VectorMath.Lerp(Sse.LoadVector128(&m1.M41), Sse.LoadVector128(&m2.M41), amountVec));
+            //    Sse.Store(&result.M11, VectorMath.Lerp(Sse.LoadVector128(&m1.M11), Sse.LoadVector128(&m2.M11), amountVec));
+            //    Sse.Store(&result.M21, VectorMath.Lerp(Sse.LoadVector128(&m1.M21), Sse.LoadVector128(&m2.M21), amountVec));
+            //    Sse.Store(&result.M31, VectorMath.Lerp(Sse.LoadVector128(&m1.M31), Sse.LoadVector128(&m2.M31), amountVec));
+            //    Sse.Store(&result.M41, VectorMath.Lerp(Sse.LoadVector128(&m1.M41), Sse.LoadVector128(&m2.M41), amountVec));
 
-                return result;
-            }
-            else if (AdvSimd.IsSupported)
-            {
-                var amountVec = Vector128.Create(amount);
+            //    return result;
+            //}
+            //else if (AdvSimd.IsSupported)
+            //{
+            //    var amountVec = Vector128.Create(amount);
 
-                AdvSimd.Store(&result.M11, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M11), AdvSimd.LoadVector128(&matrix2.M11), amountVec));
-                AdvSimd.Store(&result.M21, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M21), AdvSimd.LoadVector128(&matrix2.M21), amountVec));
-                AdvSimd.Store(&result.M31, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M31), AdvSimd.LoadVector128(&matrix2.M31), amountVec));
-                AdvSimd.Store(&result.M41, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M41), AdvSimd.LoadVector128(&matrix2.M41), amountVec));
+            //    AdvSimd.Store(&result.M11, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M11), AdvSimd.LoadVector128(&matrix2.M11), amountVec));
+            //    AdvSimd.Store(&result.M21, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M21), AdvSimd.LoadVector128(&matrix2.M21), amountVec));
+            //    AdvSimd.Store(&result.M31, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M31), AdvSimd.LoadVector128(&matrix2.M31), amountVec));
+            //    AdvSimd.Store(&result.M41, VectorMath.Lerp(AdvSimd.LoadVector128(&matrix1.M41), AdvSimd.LoadVector128(&matrix2.M41), amountVec));
 
-                return result;
-            }
+            //    return result;
+            //}
             return new Matrix4x4F(m1.M11 + (m2.M11 - m1.M11) * amount,
                                   m1.M12 + (m2.M12 - m1.M12) * amount,
                                   m1.M13 + (m2.M13 - m1.M13) * amount,
@@ -1418,37 +1418,37 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator -(Matrix4x4F value)
         {
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (Avx.IsSupported)
-            {
-                var zero = Vector256<float>.Zero;
+            //if (Avx.IsSupported)
+            //{
+            //    var zero = Vector256<float>.Zero;
 
-                Avx.Store(&result.M11, Avx.Subtract(zero, Avx.LoadVector256(&value.M11)));
-                Avx.Store(&result.M31, Avx.Subtract(zero, Avx.LoadVector256(&value.M31)));
+            //    Avx.Store(&result.M11, Avx.Subtract(zero, Avx.LoadVector256(&value.M11)));
+            //    Avx.Store(&result.M31, Avx.Subtract(zero, Avx.LoadVector256(&value.M31)));
 
-                return result;
-            }
-            else if (Sse.IsSupported)
-            {
-                var zero = Vector128<float>.Zero;
+            //    return result;
+            //}
+            //else if (Sse.IsSupported)
+            //{
+            //    var zero = Vector128<float>.Zero;
 
-                Sse.Store(&value.M11, Sse.Subtract(zero, Sse.LoadVector128(&value.M11)));
-                Sse.Store(&value.M21, Sse.Subtract(zero, Sse.LoadVector128(&value.M21)));
-                Sse.Store(&value.M31, Sse.Subtract(zero, Sse.LoadVector128(&value.M31)));
-                Sse.Store(&value.M41, Sse.Subtract(zero, Sse.LoadVector128(&value.M41)));
+            //    Sse.Store(&value.M11, Sse.Subtract(zero, Sse.LoadVector128(&value.M11)));
+            //    Sse.Store(&value.M21, Sse.Subtract(zero, Sse.LoadVector128(&value.M21)));
+            //    Sse.Store(&value.M31, Sse.Subtract(zero, Sse.LoadVector128(&value.M31)));
+            //    Sse.Store(&value.M41, Sse.Subtract(zero, Sse.LoadVector128(&value.M41)));
 
-                return value;
-            }
-            else if (AdvSimd.IsSupported)
-            {
-                AdvSimd.Store(&result.M11, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M11)));
-                AdvSimd.Store(&result.M21, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M21)));
-                AdvSimd.Store(&result.M31, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M31)));
-                AdvSimd.Store(&result.M41, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M41)));
+            //    return value;
+            //}
+            //else if (AdvSimd.IsSupported)
+            //{
+            //    AdvSimd.Store(&result.M11, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M11)));
+            //    AdvSimd.Store(&result.M21, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M21)));
+            //    AdvSimd.Store(&result.M31, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M31)));
+            //    AdvSimd.Store(&result.M41, AdvSimd.Negate(AdvSimd.LoadVector128(&value.M41)));
 
-                return result;
-            }
+            //    return result;
+            //}
             return new Matrix4x4F(-value.M11, -value.M12, -value.M13, -value.M14,
                                   -value.M21, -value.M22, -value.M23, -value.M24,
                                   -value.M31, -value.M32, -value.M33, -value.M34,
@@ -1467,33 +1467,33 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator -(Matrix4x4F left, Matrix4x4F right)
         {
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (Avx.IsSupported)
-            {
-                Avx.Store(&result.M11, Avx.Subtract(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
-                Avx.Store(&result.M31, Avx.Subtract(Avx.LoadVector256(&left.M31), Avx.LoadVector256(&right.M31)));
+            //if (Avx.IsSupported)
+            //{
+            //    Avx.Store(&result.M11, Avx.Subtract(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
+            //    Avx.Store(&result.M31, Avx.Subtract(Avx.LoadVector256(&left.M31), Avx.LoadVector256(&right.M31)));
 
-                return result;
-            }
-            else if (Sse.IsSupported)
-            {
-                Sse.Store(&result.M11, Sse.Subtract(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
-                Sse.Store(&result.M21, Sse.Subtract(Sse.LoadVector128(&left.M21), Sse.LoadVector128(&right.M21)));
-                Sse.Store(&result.M31, Sse.Subtract(Sse.LoadVector128(&left.M31), Sse.LoadVector128(&right.M31)));
-                Sse.Store(&result.M41, Sse.Subtract(Sse.LoadVector128(&left.M41), Sse.LoadVector128(&right.M41)));
+            //    return result;
+            //}
+            //else if (Sse.IsSupported)
+            //{
+            //    Sse.Store(&result.M11, Sse.Subtract(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
+            //    Sse.Store(&result.M21, Sse.Subtract(Sse.LoadVector128(&left.M21), Sse.LoadVector128(&right.M21)));
+            //    Sse.Store(&result.M31, Sse.Subtract(Sse.LoadVector128(&left.M31), Sse.LoadVector128(&right.M31)));
+            //    Sse.Store(&result.M41, Sse.Subtract(Sse.LoadVector128(&left.M41), Sse.LoadVector128(&right.M41)));
 
-                return result;
-            }
-            else if (AdvSimd.IsSupported)
-            {
-                AdvSimd.Store(&result.M11, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
-                AdvSimd.Store(&result.M21, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
-                AdvSimd.Store(&result.M31, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M31), AdvSimd.LoadVector128(&right.M31)));
-                AdvSimd.Store(&result.M41, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
+            //    return result;
+            //}
+            //else if (AdvSimd.IsSupported)
+            //{
+            //    AdvSimd.Store(&result.M11, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
+            //    AdvSimd.Store(&result.M21, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
+            //    AdvSimd.Store(&result.M31, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M31), AdvSimd.LoadVector128(&right.M31)));
+            //    AdvSimd.Store(&result.M41, AdvSimd.Subtract(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
 
-                return result;
-            }
+            //    return result;
+            //}
             return new Matrix4x4F(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13, left.M14 - right.M14,
                                   left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23, left.M24 - right.M24,
                                   left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33, left.M34 - right.M34,
@@ -1515,23 +1515,23 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator !=(Matrix4x4F value1, Matrix4x4F value2)
         {
-            if (AdvSimd.IsSupported)
-                return VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) ||
-                       VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) ||
-                       VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) ||
-                       VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
+            //if (AdvSimd.IsSupported)
+            //    return VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) ||
+            //           VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) ||
+            //           VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) ||
+            //           VectorMath.NotEqual(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
 
-            else if (Avx.IsSupported)
-                return VectorMath.NotEqual(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) ||
-                       VectorMath.NotEqual(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
+            //else if (Avx.IsSupported)
+            //    return VectorMath.NotEqual(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) ||
+            //           VectorMath.NotEqual(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
 
-            else if (Sse.IsSupported)
-                return VectorMath.NotEqual(Sse.LoadVector128(&value1.M11), Sse.LoadVector128(&value2.M11)) ||
-                       VectorMath.NotEqual(Sse.LoadVector128(&value1.M21), Sse.LoadVector128(&value2.M21)) ||
-                       VectorMath.NotEqual(Sse.LoadVector128(&value1.M31), Sse.LoadVector128(&value2.M31)) ||
-                       VectorMath.NotEqual(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
+            //else if (Sse.IsSupported)
+            //    return VectorMath.NotEqual(Sse.LoadVector128(&value1.M11), Sse.LoadVector128(&value2.M11)) ||
+            //           VectorMath.NotEqual(Sse.LoadVector128(&value1.M21), Sse.LoadVector128(&value2.M21)) ||
+            //           VectorMath.NotEqual(Sse.LoadVector128(&value1.M31), Sse.LoadVector128(&value2.M31)) ||
+            //           VectorMath.NotEqual(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
 
-            else
+            //else
                 return value1.M11 != value2.M11 || value1.M22 != value2.M22 ||
                        value1.M33 != value2.M33 || value1.M44 != value2.M44 ||
                        value1.M12 != value2.M12 || value1.M13 != value2.M13 ||
@@ -1554,45 +1554,43 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator *(Matrix4x4F value1, Matrix4x4F value2)
         {
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (Sse.IsSupported)
-            {
-                Sse.Store(&result.M11, MultiplyRow(value2, Sse.LoadVector128(&value1.M11)));
-                Sse.Store(&result.M21, MultiplyRow(value2, Sse.LoadVector128(&value1.M21)));
-                Sse.Store(&result.M31, MultiplyRow(value2, Sse.LoadVector128(&value1.M31)));
-                Sse.Store(&result.M41, MultiplyRow(value2, Sse.LoadVector128(&value1.M41)));
-                return result;
-            }
-            else if (AdvSimd.Arm64.IsSupported)
-            {
-                var M11 = AdvSimd.LoadVector128(&value1.M11);
+            //if (Sse.IsSupported)
+            //{
+            //    Sse.Store(&result.M11, MultiplyRow(value2, Sse.LoadVector128(&value1.M11)));
+            //    Sse.Store(&result.M21, MultiplyRow(value2, Sse.LoadVector128(&value1.M21)));
+            //    Sse.Store(&result.M31, MultiplyRow(value2, Sse.LoadVector128(&value1.M31)));
+            //    Sse.Store(&result.M41, MultiplyRow(value2, Sse.LoadVector128(&value1.M41)));
+            //    return result;
+            //}
+            //else if (AdvSimd.Arm64.IsSupported)
+            //{
+            //    var M11 = AdvSimd.LoadVector128(&value1.M11);
 
-                var vX = AdvSimd.MultiplyBySelectedScalar(AdvSimd.LoadVector128(&value2.M11), M11, 0);
-                var vY = AdvSimd.MultiplyBySelectedScalar(AdvSimd.LoadVector128(&value2.M21), M11, 1);
-                var vZ = AdvSimd.Arm64.FusedMultiplyAddBySelectedScalar(vX, AdvSimd.LoadVector128(&value2.M31), M11, 2);
-                var vW = AdvSimd.Arm64.FusedMultiplyAddBySelectedScalar(vY, AdvSimd.LoadVector128(&value2.M41), M11, 3);
+            //    var vX = AdvSimd.MultiplyBySelectedScalar(AdvSimd.LoadVector128(&value2.M11), M11, 0);
+            //    var vY = AdvSimd.MultiplyBySelectedScalar(AdvSimd.LoadVector128(&value2.M21), M11, 1);
+            //    var vZ = AdvSimd.Arm64.FusedMultiplyAddBySelectedScalar(vX, AdvSimd.LoadVector128(&value2.M31), M11, 2);
+            //    var vW = AdvSimd.Arm64.FusedMultiplyAddBySelectedScalar(vY, AdvSimd.LoadVector128(&value2.M41), M11, 3);
 
-                AdvSimd.Store(&result.M11, AdvSimd.Add(vZ, vW));
-            }
-
-            result.M11 = value1.M11 * value2.M11 + value1.M12 * value2.M21 + value1.M13 * value2.M31 + value1.M14 * value2.M41;
-            result.M12 = value1.M11 * value2.M12 + value1.M12 * value2.M22 + value1.M13 * value2.M32 + value1.M14 * value2.M42;
-            result.M13 = value1.M11 * value2.M13 + value1.M12 * value2.M23 + value1.M13 * value2.M33 + value1.M14 * value2.M43;
-            result.M14 = value1.M11 * value2.M14 + value1.M12 * value2.M24 + value1.M13 * value2.M34 + value1.M14 * value2.M44;
-            result.M21 = value1.M21 * value2.M11 + value1.M22 * value2.M21 + value1.M23 * value2.M31 + value1.M24 * value2.M41;
-            result.M22 = value1.M21 * value2.M12 + value1.M22 * value2.M22 + value1.M23 * value2.M32 + value1.M24 * value2.M42;
-            result.M23 = value1.M21 * value2.M13 + value1.M22 * value2.M23 + value1.M23 * value2.M33 + value1.M24 * value2.M43;
-            result.M24 = value1.M21 * value2.M14 + value1.M22 * value2.M24 + value1.M23 * value2.M34 + value1.M24 * value2.M44;
-            result.M31 = value1.M31 * value2.M11 + value1.M32 * value2.M21 + value1.M33 * value2.M31 + value1.M34 * value2.M41;
-            result.M32 = value1.M31 * value2.M12 + value1.M32 * value2.M22 + value1.M33 * value2.M32 + value1.M34 * value2.M42;
-            result.M33 = value1.M31 * value2.M13 + value1.M32 * value2.M23 + value1.M33 * value2.M33 + value1.M34 * value2.M43;
-            result.M34 = value1.M31 * value2.M14 + value1.M32 * value2.M24 + value1.M33 * value2.M34 + value1.M34 * value2.M44;
-            result.M41 = value1.M41 * value2.M11 + value1.M42 * value2.M21 + value1.M43 * value2.M31 + value1.M44 * value2.M41;
-            result.M42 = value1.M41 * value2.M12 + value1.M42 * value2.M22 + value1.M43 * value2.M32 + value1.M44 * value2.M42;
-            result.M43 = value1.M41 * value2.M13 + value1.M42 * value2.M23 + value1.M43 * value2.M33 + value1.M44 * value2.M43;
-            result.M44 = value1.M41 * value2.M14 + value1.M42 * value2.M24 + value1.M43 * value2.M34 + value1.M44 * value2.M44;
-            return result;
+            //    AdvSimd.Store(&result.M11, AdvSimd.Add(vZ, vW));
+            //}
+            return new Matrix4x4F(value1.M11 * value2.M11 + value1.M12 * value2.M21 + value1.M13 * value2.M31 + value1.M14 * value2.M41,
+                                  value1.M11 * value2.M12 + value1.M12 * value2.M22 + value1.M13 * value2.M32 + value1.M14 * value2.M42,
+                                  value1.M11 * value2.M13 + value1.M12 * value2.M23 + value1.M13 * value2.M33 + value1.M14 * value2.M43,
+                                  value1.M11 * value2.M14 + value1.M12 * value2.M24 + value1.M13 * value2.M34 + value1.M14 * value2.M44,
+                                  value1.M21 * value2.M11 + value1.M22 * value2.M21 + value1.M23 * value2.M31 + value1.M24 * value2.M41,
+                                  value1.M21 * value2.M12 + value1.M22 * value2.M22 + value1.M23 * value2.M32 + value1.M24 * value2.M42,
+                                  value1.M21 * value2.M13 + value1.M22 * value2.M23 + value1.M23 * value2.M33 + value1.M24 * value2.M43,
+                                  value1.M21 * value2.M14 + value1.M22 * value2.M24 + value1.M23 * value2.M34 + value1.M24 * value2.M44,
+                                  value1.M31 * value2.M11 + value1.M32 * value2.M21 + value1.M33 * value2.M31 + value1.M34 * value2.M41,
+                                  value1.M31 * value2.M12 + value1.M32 * value2.M22 + value1.M33 * value2.M32 + value1.M34 * value2.M42,
+                                  value1.M31 * value2.M13 + value1.M32 * value2.M23 + value1.M33 * value2.M33 + value1.M34 * value2.M43,
+                                  value1.M31 * value2.M14 + value1.M32 * value2.M24 + value1.M33 * value2.M34 + value1.M34 * value2.M44,
+                                  value1.M41 * value2.M11 + value1.M42 * value2.M21 + value1.M43 * value2.M31 + value1.M44 * value2.M41,
+                                  value1.M41 * value2.M12 + value1.M42 * value2.M22 + value1.M43 * value2.M32 + value1.M44 * value2.M42,
+                                  value1.M41 * value2.M13 + value1.M42 * value2.M23 + value1.M43 * value2.M33 + value1.M44 * value2.M43,
+                                  value1.M41 * value2.M14 + value1.M42 * value2.M24 + value1.M43 * value2.M34 + value1.M44 * value2.M44);
         }
 
         /// <summary>
@@ -1607,52 +1605,56 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator *(Matrix4x4F value1, float value2)
         {
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (AdvSimd.IsSupported)
-            {
-                var right = Vector128.Create(value2);
-                AdvSimd.Store(&result.M11, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M11), right));
-                AdvSimd.Store(&result.M21, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M21), right));
-                AdvSimd.Store(&result.M31, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M31), right));
-                AdvSimd.Store(&result.M41, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M41), right));
-            }
-            else if (Avx.IsSupported)
-            {
-                var right = Vector256.Create(value2);
+            //if (AdvSimd.IsSupported)
+            //{
+            //    var right = Vector128.Create(value2);
+            //    AdvSimd.Store(&result.M11, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M11), right));
+            //    AdvSimd.Store(&result.M21, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M21), right));
+            //    AdvSimd.Store(&result.M31, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M31), right));
+            //    AdvSimd.Store(&result.M41, AdvSimd.Multiply(AdvSimd.LoadVector128(&value1.M41), right));
 
-                Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&value1.M11), right));
-                Avx.Store(&result.M31, Avx.Multiply(Avx.LoadVector256(&value1.M31), right));
-            }
-            else if (Sse.IsSupported)
-            {
-                Vector128<float> right = Vector128.Create(value2);
-                Sse.Store(&result.M11, Sse.Multiply(Sse.LoadVector128(&value1.M11), right));
-                Sse.Store(&result.M21, Sse.Multiply(Sse.LoadVector128(&value1.M21), right));
-                Sse.Store(&result.M31, Sse.Multiply(Sse.LoadVector128(&value1.M31), right));
-                Sse.Store(&result.M41, Sse.Multiply(Sse.LoadVector128(&value1.M41), right));
-            }
-            else
-            {
-                result.M11 = value1.M11 * value2;
-                result.M12 = value1.M12 * value2;
-                result.M13 = value1.M13 * value2;
-                result.M14 = value1.M14 * value2;
-                result.M21 = value1.M21 * value2;
-                result.M22 = value1.M22 * value2;
-                result.M23 = value1.M23 * value2;
-                result.M24 = value1.M24 * value2;
-                result.M31 = value1.M31 * value2;
-                result.M32 = value1.M32 * value2;
-                result.M33 = value1.M33 * value2;
-                result.M34 = value1.M34 * value2;
-                result.M41 = value1.M41 * value2;
-                result.M42 = value1.M42 * value2;
-                result.M43 = value1.M43 * value2;
-                result.M44 = value1.M44 * value2;
-            }
+            //    return result;
+            //}
+            //else if (Avx.IsSupported)
+            //{
+            //    var right = Vector256.Create(value2);
 
-            return result;
+            //    Avx.Store(&result.M11, Avx.Multiply(Avx.LoadVector256(&value1.M11), right));
+            //    Avx.Store(&result.M31, Avx.Multiply(Avx.LoadVector256(&value1.M31), right));
+
+            //    return result;
+            //}
+            //else if (Sse.IsSupported)
+            //{
+            //    Vector128<float> right = Vector128.Create(value2);
+            //    Sse.Store(&result.M11, Sse.Multiply(Sse.LoadVector128(&value1.M11), right));
+            //    Sse.Store(&result.M21, Sse.Multiply(Sse.LoadVector128(&value1.M21), right));
+            //    Sse.Store(&result.M31, Sse.Multiply(Sse.LoadVector128(&value1.M31), right));
+            //    Sse.Store(&result.M41, Sse.Multiply(Sse.LoadVector128(&value1.M41), right));
+
+            //    return result;
+            //}
+            //else
+            {
+                return new Matrix4x4F(value1.M11 * value2,
+                                      value1.M12 * value2,
+                                      value1.M13 * value2,
+                                      value1.M14 * value2,
+                                      value1.M21 * value2,
+                                      value1.M22 * value2,
+                                      value1.M23 * value2,
+                                      value1.M24 * value2,
+                                      value1.M31 * value2,
+                                      value1.M32 * value2,
+                                      value1.M33 * value2,
+                                      value1.M34 * value2,
+                                      value1.M41 * value2,
+                                      value1.M42 * value2,
+                                      value1.M43 * value2,
+                                      value1.M44 * value2);
+            }
         }
 
         /// <summary>
@@ -1674,34 +1676,34 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F operator +(Matrix4x4F left, Matrix4x4F right)
         {
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (AdvSimd.IsSupported)
-            {
-                AdvSimd.Store(&result.M11, AdvSimd.Add(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
-                AdvSimd.Store(&result.M21, AdvSimd.Add(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
-                AdvSimd.Store(&result.M31, AdvSimd.Add(AdvSimd.LoadVector128(&left.M31), AdvSimd.LoadVector128(&right.M31)));
-                AdvSimd.Store(&result.M41, AdvSimd.Add(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
+            //if (AdvSimd.IsSupported)
+            //{
+            //    AdvSimd.Store(&result.M11, AdvSimd.Add(AdvSimd.LoadVector128(&left.M11), AdvSimd.LoadVector128(&right.M11)));
+            //    AdvSimd.Store(&result.M21, AdvSimd.Add(AdvSimd.LoadVector128(&left.M21), AdvSimd.LoadVector128(&right.M21)));
+            //    AdvSimd.Store(&result.M31, AdvSimd.Add(AdvSimd.LoadVector128(&left.M31), AdvSimd.LoadVector128(&right.M31)));
+            //    AdvSimd.Store(&result.M41, AdvSimd.Add(AdvSimd.LoadVector128(&left.M41), AdvSimd.LoadVector128(&right.M41)));
 
-                return result;
-            }
-            else if (Avx.IsSupported)
-            {
-                Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
-                Avx.Store(&result.M31, Avx.Add(Avx.LoadVector256(&left.M31), Avx.LoadVector256(&right.M31)));
+            //    return result;
+            //}
+            //else if (Avx.IsSupported)
+            //{
+            //    Avx.Store(&result.M11, Avx.Add(Avx.LoadVector256(&left.M11), Avx.LoadVector256(&right.M11)));
+            //    Avx.Store(&result.M31, Avx.Add(Avx.LoadVector256(&left.M31), Avx.LoadVector256(&right.M31)));
 
-                return result;
-            }
-            else if(Sse.IsSupported)
-            {
-                Sse.Store(&result.M11, Sse.Add(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
-                Sse.Store(&result.M21, Sse.Add(Sse.LoadVector128(&left.M21), Sse.LoadVector128(&right.M21)));
-                Sse.Store(&result.M31, Sse.Add(Sse.LoadVector128(&left.M31), Sse.LoadVector128(&right.M31)));
-                Sse.Store(&result.M41, Sse.Add(Sse.LoadVector128(&left.M41), Sse.LoadVector128(&right.M41)));
+            //    return result;
+            //}
+            //else if(Sse.IsSupported)
+            //{
+            //    Sse.Store(&result.M11, Sse.Add(Sse.LoadVector128(&left.M11), Sse.LoadVector128(&right.M11)));
+            //    Sse.Store(&result.M21, Sse.Add(Sse.LoadVector128(&left.M21), Sse.LoadVector128(&right.M21)));
+            //    Sse.Store(&result.M31, Sse.Add(Sse.LoadVector128(&left.M31), Sse.LoadVector128(&right.M31)));
+            //    Sse.Store(&result.M41, Sse.Add(Sse.LoadVector128(&left.M41), Sse.LoadVector128(&right.M41)));
 
-                return result;
-            }
-            else
+            //    return result;
+            //}
+            //else
                 return new Matrix4x4F(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13, left.M14 + right.M14,
                                       left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23, left.M24 + right.M24,
                                       left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33, left.M34 + right.M34,
@@ -1723,23 +1725,23 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static bool operator ==(Matrix4x4F value1, Matrix4x4F value2)
         {
-            if (AdvSimd.IsSupported)
-                return VectorMath.Equal(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) &&
-                       VectorMath.Equal(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) &&
-                       VectorMath.Equal(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) &&
-                       VectorMath.Equal(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
+            //if (AdvSimd.IsSupported)
+            //    return VectorMath.Equal(AdvSimd.LoadVector128(&value1.M11), AdvSimd.LoadVector128(&value2.M11)) &&
+            //           VectorMath.Equal(AdvSimd.LoadVector128(&value1.M21), AdvSimd.LoadVector128(&value2.M21)) &&
+            //           VectorMath.Equal(AdvSimd.LoadVector128(&value1.M31), AdvSimd.LoadVector128(&value2.M31)) &&
+            //           VectorMath.Equal(AdvSimd.LoadVector128(&value1.M41), AdvSimd.LoadVector128(&value2.M41));
 
-            else if (Avx.IsSupported)
-                return VectorMath.Equal(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) &&
-                       VectorMath.Equal(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
+            //else if (Avx.IsSupported)
+            //    return VectorMath.Equal(Avx.LoadVector256(&value1.M11), Avx.LoadVector256(&value2.M11)) &&
+            //           VectorMath.Equal(Avx.LoadVector256(&value1.M31), Avx.LoadVector256(&value2.M31));
 
-            else if (Sse.IsSupported)
-                return VectorMath.Equal(Sse.LoadVector128(&value1.M11), Sse.LoadVector128(&value2.M11)) &&
-                       VectorMath.Equal(Sse.LoadVector128(&value1.M21), Sse.LoadVector128(&value2.M21)) &&
-                       VectorMath.Equal(Sse.LoadVector128(&value1.M31), Sse.LoadVector128(&value2.M31)) &&
-                       VectorMath.Equal(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
+            //else if (Sse.IsSupported)
+            //    return VectorMath.Equal(Sse.LoadVector128(&value1.M11), Sse.LoadVector128(&value2.M11)) &&
+            //           VectorMath.Equal(Sse.LoadVector128(&value1.M21), Sse.LoadVector128(&value2.M21)) &&
+            //           VectorMath.Equal(Sse.LoadVector128(&value1.M31), Sse.LoadVector128(&value2.M31)) &&
+            //           VectorMath.Equal(Sse.LoadVector128(&value1.M41), Sse.LoadVector128(&value2.M41));
 
-            else
+            //else
                 return value1.M11 == value2.M11 && value1.M22 == value2.M22 &&
                        value1.M33 == value2.M33 && value1.M44 == value2.M44 &&
                        value1.M12 == value2.M12 && value1.M13 == value2.M13 &&
@@ -1785,54 +1787,56 @@ namespace MathStructs
         [MethodImpl(Optimize)]
         public unsafe static Matrix4x4F Transpose(Matrix4x4F matrix)
         {
-            Unsafe.SkipInit<Matrix4x4F>(out var result);
+            //Unsafe.SkipInit<Matrix4x4F>(out var result);
 
-            if (AdvSimd.Arm64.IsSupported)
-            {
-                // This implementation is based on the DirectX Math Library XMMatrixTranspose method
-                // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathMatrix.inl
+            //if (AdvSimd.Arm64.IsSupported)
+            //{
+            //    // This implementation is based on the DirectX Math Library XMMatrixTranspose method
+            //    // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathMatrix.inl
 
-                var M11 = AdvSimd.LoadVector128(&matrix.M11);
-                var M31 = AdvSimd.LoadVector128(&matrix.M31);
+            //    var M11 = AdvSimd.LoadVector128(&matrix.M11);
+            //    var M31 = AdvSimd.LoadVector128(&matrix.M31);
 
-                var P00 = AdvSimd.Arm64.ZipLow(M11, M31);
-                var P01 = AdvSimd.Arm64.ZipHigh(M11, M31);
+            //    var P00 = AdvSimd.Arm64.ZipLow(M11, M31);
+            //    var P01 = AdvSimd.Arm64.ZipHigh(M11, M31);
 
-                var M21 = AdvSimd.LoadVector128(&matrix.M21);
-                var M41 = AdvSimd.LoadVector128(&matrix.M41);
+            //    var M21 = AdvSimd.LoadVector128(&matrix.M21);
+            //    var M41 = AdvSimd.LoadVector128(&matrix.M41);
 
-                var P10 = AdvSimd.Arm64.ZipLow(M21, M41);
-                var P11 = AdvSimd.Arm64.ZipHigh(M21, M41);
+            //    var P10 = AdvSimd.Arm64.ZipLow(M21, M41);
+            //    var P11 = AdvSimd.Arm64.ZipHigh(M21, M41);
 
-                AdvSimd.Store(&result.M11, AdvSimd.Arm64.ZipLow(P00, P10));
-                AdvSimd.Store(&result.M21, AdvSimd.Arm64.ZipHigh(P00, P10));
-                AdvSimd.Store(&result.M31, AdvSimd.Arm64.ZipLow(P01, P11));
-                AdvSimd.Store(&result.M41, AdvSimd.Arm64.ZipHigh(P01, P11));
-            }
-            else if (Sse.IsSupported)
-            {
-                var row1 = Sse.LoadVector128(&matrix.M11);
-                var row2 = Sse.LoadVector128(&matrix.M21);
-                var row3 = Sse.LoadVector128(&matrix.M31);
-                var row4 = Sse.LoadVector128(&matrix.M41);
+            //    AdvSimd.Store(&result.M11, AdvSimd.Arm64.ZipLow(P00, P10));
+            //    AdvSimd.Store(&result.M21, AdvSimd.Arm64.ZipHigh(P00, P10));
+            //    AdvSimd.Store(&result.M31, AdvSimd.Arm64.ZipLow(P01, P11));
+            //    AdvSimd.Store(&result.M41, AdvSimd.Arm64.ZipHigh(P01, P11));
 
-                var l12 = Sse.UnpackLow(row1, row2);
-                var l34 = Sse.UnpackLow(row3, row4);
-                var h12 = Sse.UnpackHigh(row1, row2);
-                var h34 = Sse.UnpackHigh(row3, row4);
+            //    return result;
+            //}
+            //else if (Sse.IsSupported)
+            //{
+            //    var row1 = Sse.LoadVector128(&matrix.M11);
+            //    var row2 = Sse.LoadVector128(&matrix.M21);
+            //    var row3 = Sse.LoadVector128(&matrix.M31);
+            //    var row4 = Sse.LoadVector128(&matrix.M41);
 
-                Sse.Store(&result.M11, Sse.MoveLowToHigh(l12, l34));
-                Sse.Store(&result.M21, Sse.MoveHighToLow(l34, l12));
-                Sse.Store(&result.M31, Sse.MoveLowToHigh(h12, h34));
-                Sse.Store(&result.M41, Sse.MoveHighToLow(h34, h12));
-            }
-            else
+            //    var l12 = Sse.UnpackLow(row1, row2);
+            //    var l34 = Sse.UnpackLow(row3, row4);
+            //    var h12 = Sse.UnpackHigh(row1, row2);
+            //    var h34 = Sse.UnpackHigh(row3, row4);
+
+            //    Sse.Store(&result.M11, Sse.MoveLowToHigh(l12, l34));
+            //    Sse.Store(&result.M21, Sse.MoveHighToLow(l34, l12));
+            //    Sse.Store(&result.M31, Sse.MoveLowToHigh(h12, h34));
+            //    Sse.Store(&result.M41, Sse.MoveHighToLow(h34, h12));
+
+            //    return result;
+            //}
+            //else
                 return new Matrix4x4F(matrix.M11, matrix.M21, matrix.M31, matrix.M41,
                                       matrix.M12, matrix.M22, matrix.M32, matrix.M42,
                                       matrix.M13, matrix.M23, matrix.M33, matrix.M43,
                                       matrix.M14, matrix.M24, matrix.M34, matrix.M44);
-
-            return result;
         }
 
         /// <summary>
@@ -2188,22 +2192,22 @@ namespace MathStructs
 
         #region Private Methods
 
-        [MethodImpl(Optimize)]
-        private static unsafe Vector128<float> MultiplyRow(Matrix4x4F value2, Vector128<float> vector)
-        {
-            return Sse.Add(Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0x00),
-                                                Sse.LoadVector128(&value2.M11)),
-                                   Sse.Multiply(Sse.Shuffle(vector, vector, 0x55),
-                                                Sse.LoadVector128(&value2.M21))),
-                           Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0xAA),
-                                                Sse.LoadVector128(&value2.M31)),
-                                   Sse.Multiply(Sse.Shuffle(vector, vector, 0xFF),
-                                                Sse.LoadVector128(&value2.M41))));
-        }
+        //[MethodImpl(Optimize)]
+        //private static unsafe Vector128<float> MultiplyRow(Matrix4x4F value2, Vector128<float> vector)
+        //{
+        //    return Sse.Add(Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0x00),
+        //                                        Sse.LoadVector128(&value2.M11)),
+        //                           Sse.Multiply(Sse.Shuffle(vector, vector, 0x55),
+        //                                        Sse.LoadVector128(&value2.M21))),
+        //                   Sse.Add(Sse.Multiply(Sse.Shuffle(vector, vector, 0xAA),
+        //                                        Sse.LoadVector128(&value2.M31)),
+        //                           Sse.Multiply(Sse.Shuffle(vector, vector, 0xFF),
+        //                                        Sse.LoadVector128(&value2.M41))));
+        //}
 
-        [MethodImpl(Optimize)]
-        private static Vector128<float> Permute(Vector128<float> value, byte control) =>
-            Avx.IsSupported ? Avx.Permute(value, control) : Sse.Shuffle(value, value, control);
+        //[MethodImpl(Optimize)]
+        //private static Vector128<float> Permute(Vector128<float> value, byte control) =>
+        //    Avx.IsSupported ? Avx.Permute(value, control) : Sse.Shuffle(value, value, control);
 
         #endregion Private Methods
 
@@ -2235,104 +2239,104 @@ namespace MathStructs
 
         #region Private Classes
 
-        private static class VectorMath
-        {
-            #region Public Methods
+        //private static class VectorMath
+        //{
+        //    #region Public Methods
 
-            [MethodImpl(Optimize)]
-            public static bool Equal(Vector256<float> a, Vector256<float> b)
-            {
-                if (Avx.IsSupported)
-                    return Avx.MoveMask(Avx.CompareNotEqual(a, b)) == 0;
-                else
-                    throw new PlatformNotSupportedException();
-            }
+        //    [MethodImpl(Optimize)]
+        //    public static bool Equal(Vector256<float> a, Vector256<float> b)
+        //    {
+        //        if (Avx.IsSupported)
+        //            return Avx.MoveMask(Avx.CompareNotEqual(a, b)) == 0;
+        //        else
+        //            throw new PlatformNotSupportedException();
+        //    }
 
-            [MethodImpl(Optimize)]
-            public static bool Equal(Vector128<float> a, Vector128<float> b)
-            {
-                // This implementation is based on the DirectX Math Library XMVector4Equal method
-                // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
+        //    [MethodImpl(Optimize)]
+        //    public static bool Equal(Vector128<float> a, Vector128<float> b)
+        //    {
+        //        // This implementation is based on the DirectX Math Library XMVector4Equal method
+        //        // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
 
-                if (AdvSimd.Arm64.IsSupported)
-                {
-                    var vResult = AdvSimd.CompareEqual(a, b).AsUInt32();
+        //        if (AdvSimd.Arm64.IsSupported)
+        //        {
+        //            var vResult = AdvSimd.CompareEqual(a, b).AsUInt32();
 
-                    var vResult0 = vResult.GetLower().AsByte();
-                    var vResult1 = vResult.GetUpper().AsByte();
+        //            var vResult0 = vResult.GetLower().AsByte();
+        //            var vResult1 = vResult.GetUpper().AsByte();
 
-                    var vTemp10 = AdvSimd.Arm64.ZipLow(vResult0, vResult1);
-                    var vTemp11 = AdvSimd.Arm64.ZipHigh(vResult0, vResult1);
+        //            var vTemp10 = AdvSimd.Arm64.ZipLow(vResult0, vResult1);
+        //            var vTemp11 = AdvSimd.Arm64.ZipHigh(vResult0, vResult1);
 
-                    var vTemp21 = AdvSimd.Arm64.ZipHigh(vTemp10.AsUInt16(), vTemp11.AsUInt16());
-                    return vTemp21.AsUInt32().GetElement(1) == 0xFFFFFFFF;
-                }
+        //            var vTemp21 = AdvSimd.Arm64.ZipHigh(vTemp10.AsUInt16(), vTemp11.AsUInt16());
+        //            return vTemp21.AsUInt32().GetElement(1) == 0xFFFFFFFF;
+        //        }
 
-                else if (Sse.IsSupported)
-                    return Sse.MoveMask(Sse.CompareNotEqual(a, b)) == 0;
+        //        else if (Sse.IsSupported)
+        //            return Sse.MoveMask(Sse.CompareNotEqual(a, b)) == 0;
 
-                else
-                    throw new PlatformNotSupportedException();
-            }
+        //        else
+        //            throw new PlatformNotSupportedException();
+        //    }
 
-            [MethodImpl(Optimize)]
-            public static Vector128<float> Lerp(Vector128<float> a, Vector128<float> b, Vector128<float> t)
-            {
-                // This implementation is based on the DirectX Math Library XMVectorLerp method
-                // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
+        //    [MethodImpl(Optimize)]
+        //    public static Vector128<float> Lerp(Vector128<float> a, Vector128<float> b, Vector128<float> t)
+        //    {
+        //        // This implementation is based on the DirectX Math Library XMVectorLerp method
+        //        // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
 
-                if (AdvSimd.IsSupported)
-                    return AdvSimd.FusedMultiplyAdd(a, AdvSimd.Subtract(b, a), t);
+        //        if (AdvSimd.IsSupported)
+        //            return AdvSimd.FusedMultiplyAdd(a, AdvSimd.Subtract(b, a), t);
 
-                else if (Fma.IsSupported)
-                    return Fma.MultiplyAdd(Sse.Subtract(b, a), t, a);
+        //        else if (Fma.IsSupported)
+        //            return Fma.MultiplyAdd(Sse.Subtract(b, a), t, a);
 
-                else if (Sse.IsSupported)
-                    return Sse.Add(a, Sse.Multiply(Sse.Subtract(b, a), t));
+        //        else if (Sse.IsSupported)
+        //            return Sse.Add(a, Sse.Multiply(Sse.Subtract(b, a), t));
 
-                else
-                    // Redundant test so we won't preJIT remainder of this method on platforms without SIMD.
-                    throw new PlatformNotSupportedException();
-            }
+        //        else
+        //            // Redundant test so we won't preJIT remainder of this method on platforms without SIMD.
+        //            throw new PlatformNotSupportedException();
+        //    }
 
-            [MethodImpl(Optimize)]
-            public static bool NotEqual(Vector128<float> a, Vector128<float> b)
-            {
-                // This implementation is based on the DirectX Math Library XMVector4Equal method
-                // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
+        //    [MethodImpl(Optimize)]
+        //    public static bool NotEqual(Vector128<float> a, Vector128<float> b)
+        //    {
+        //        // This implementation is based on the DirectX Math Library XMVector4Equal method
+        //        // https://github.com/microsoft/DirectXMath/blob/master/Inc/DirectXMathVector.inl
 
-                if (AdvSimd.Arm64.IsSupported)
-                {
-                    var vResult = AdvSimd.CompareEqual(a, b).AsUInt32();
+        //        if (AdvSimd.Arm64.IsSupported)
+        //        {
+        //            var vResult = AdvSimd.CompareEqual(a, b).AsUInt32();
 
-                    var vResult0 = vResult.GetLower().AsByte();
-                    var vResult1 = vResult.GetUpper().AsByte();
+        //            var vResult0 = vResult.GetLower().AsByte();
+        //            var vResult1 = vResult.GetUpper().AsByte();
 
-                    var vTemp10 = AdvSimd.Arm64.ZipLow(vResult0, vResult1);
-                    var vTemp11 = AdvSimd.Arm64.ZipHigh(vResult0, vResult1);
+        //            var vTemp10 = AdvSimd.Arm64.ZipLow(vResult0, vResult1);
+        //            var vTemp11 = AdvSimd.Arm64.ZipHigh(vResult0, vResult1);
 
-                    var vTemp21 = AdvSimd.Arm64.ZipHigh(vTemp10.AsUInt16(), vTemp11.AsUInt16());
-                    return vTemp21.AsUInt32().GetElement(1) != 0xFFFFFFFF;
-                }
+        //            var vTemp21 = AdvSimd.Arm64.ZipHigh(vTemp10.AsUInt16(), vTemp11.AsUInt16());
+        //            return vTemp21.AsUInt32().GetElement(1) != 0xFFFFFFFF;
+        //        }
 
-                else if (Sse.IsSupported)
-                    return Sse.MoveMask(Sse.CompareNotEqual(a, b)) != 0;
+        //        else if (Sse.IsSupported)
+        //            return Sse.MoveMask(Sse.CompareNotEqual(a, b)) != 0;
 
-                else
-                    throw new PlatformNotSupportedException();
-            }
+        //        else
+        //            throw new PlatformNotSupportedException();
+        //    }
 
-            [MethodImpl(Optimize)]
-            public static bool NotEqual(Vector256<float> a, Vector256<float> b)
-            {
-                if (Avx.IsSupported)
-                    return Avx.MoveMask(Avx.CompareNotEqual(a, b)) != 0;
-                else
-                    throw new PlatformNotSupportedException();
-            }
+        //    [MethodImpl(Optimize)]
+        //    public static bool NotEqual(Vector256<float> a, Vector256<float> b)
+        //    {
+        //        if (Avx.IsSupported)
+        //            return Avx.MoveMask(Avx.CompareNotEqual(a, b)) != 0;
+        //        else
+        //            throw new PlatformNotSupportedException();
+        //    }
 
-            #endregion Public Methods
-        }
+        //    #endregion Public Methods
+        //}
 
         #endregion Private Classes
     }
