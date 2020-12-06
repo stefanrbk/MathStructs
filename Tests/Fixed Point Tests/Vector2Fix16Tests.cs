@@ -193,17 +193,17 @@ namespace MathStructs.Tests
             Assert.That(actual, Is.EqualTo(expected), "Vector2Fix16.DistanceSquared did not return the expected value.");
         }
 
-        [Test, Category("Distance")]
-        public void Vector2DistanceTest()
-        {
-            var a = new Vector2Fix16(Fix16.One, 2.ToFix16());
-            var b = new Vector2Fix16(3.ToFix16(), 4.ToFix16());
+        //[Test, Category("Distance")]
+        //public void Vector2DistanceTest()
+        //{
+        //    var a = new Vector2Fix16(Fix16.One, 2.ToFix16());
+        //    var b = new Vector2Fix16(3.ToFix16(), 4.ToFix16());
 
-            var expected = Math.Sqrt(8).ToFix16();
-            var actual = Vector2Fix16.Distance(a, b);
+        //    var expected = Math.Sqrt(8).ToFix16();
+        //    var actual = Vector2Fix16.Distance(a, b);
 
-            Assert.That(actual, Is.EqualTo(expected), "Vector2Fix16.Distance did not return the expected value.");
-        }
+        //    Assert.That(actual, Is.EqualTo(expected), "Vector2Fix16.Distance did not return the expected value.");
+        //}
 
         [Test, Category("Dot")]
         public void Vector2DotTest()
