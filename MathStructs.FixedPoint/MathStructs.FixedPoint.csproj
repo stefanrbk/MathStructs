@@ -18,4 +18,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FixedPoint\FixedPoint.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -16,21 +16,16 @@ namespace MathStructs
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
 
-        public static Vector2Fix16 One => new Vector2Fix16(1.0);
+        public static Vector2Fix16 One => new Vector2Fix16(Fix16.One);
 
-        public static Vector2Fix16 UnitX => new Vector2Fix16(1.0, 0.0);
+        public static Vector2Fix16 UnitX => new Vector2Fix16(Fix16.One, Fix16.Zero);
 
-        public static Vector2Fix16 UnitY => new Vector2Fix16(0.0, 1.0);
+        public static Vector2Fix16 UnitY => new Vector2Fix16(Fix16.Zero, Fix16.One);
 
-        public static Vector2Fix16 Zero => new Vector2Fix16(0.0);
+        public static Vector2Fix16 Zero => new Vector2Fix16(Fix16.Zero);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Vector2Fix16(int value)
-            : this(value, value)
-        {
-        }
-
-        public Vector2Fix16(double value)
             : this(value, value)
         {
         }
@@ -43,41 +38,25 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector2Fix16(double x, double y)
-        {
-            X = (int)x;
-            Y = (int)y;
-        }
+        public static Vector2Fix16 Abs(Vector2Fix16 value) =>
+            new Vector2Fix16(Math.Abs(Fix16.ToDouble(value.X)).ToFix16(),
+                             Math.Abs(Fix16.ToDouble(value.Y)).ToFix16());
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector2Fix16 Abs(Vector2Fix16 value)
-        {
-            return new Vector2Fix16(Math.Abs((double)value.X), Math.Abs((double)value.Y));
-        }
+        public static Vector2Fix16 Add(Vector2Fix16 left, Vector2Fix16 right) =>
+            left + right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector2Fix16 Add(Vector2Fix16 left, Vector2Fix16 right)
-        {
-            return left + right;
-        }
+        public static Vector2Fix16 Clamp(Vector2Fix16 value, Vector2Fix16 min, Vector2Fix16 max) =>
+            Min(Max(value, min), max);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector2Fix16 Clamp(Vector2Fix16 value, Vector2Fix16 min, Vector2Fix16 max)
-        {
-            return Min(Max(value, min), max);
-        }
+        public static int Distance(Vector2Fix16 vector1, Vector2Fix16 vector2) =>
+            ( vector1 - vector2 ).Length();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int Distance(Vector2Fix16 vector1, Vector2Fix16 vector2)
-        {
-            return ( vector1 - vector2 ).Length();
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int DistanceSquared(Vector2Fix16 vector1, Vector2Fix16 vector2)
-        {
-            return ( vector1 - vector2 ).LengthSquared();
-        }
+        public static int DistanceSquared(Vector2Fix16 vector1, Vector2Fix16 vector2) =>
+            ( vector1 - vector2 ).LengthSquared();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2Fix16 Divide(Vector2Fix16 left, Vector2Fix16 right)
@@ -92,10 +71,8 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int Dot(Vector2Fix16 left, Vector2Fix16 right)
-        {
-            return left.X * right.X + left.Y * right.Y;
-        }
+        public static int Dot(Vector2Fix16 left, Vector2Fix16 right) =>
+            (int)( ( (long)left.X * right.X + (long)left.Y * right.Y ) >> 16 );
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2Fix16 Lerp(Vector2Fix16 bounds1, Vector2Fix16 bounds2, int amount)
@@ -224,7 +201,7 @@ namespace MathStructs
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Vector2Fix16 SquareRoot(Vector2Fix16 value)
         {
-            return new Vector2Fix16(Math.Sqrt(value.X), Math.Sqrt(value.Y));
+            return new Vector2Fix16(Math.Sqrt(value.X).ToFix16(), Math.Sqrt(value.Y).ToFix16());
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -258,16 +235,14 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void CopyTo(Span<int> span)
-        {
+        public void CopyTo(Span<int> span) =>
             CopyTo(span, 0);
-        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void CopyTo(Span<int> span, int index)
         {
             if (index < 0 || index >= span.Length)
-                throw new ArgumentOutOfRangeException("index");
+                throw new ArgumentOutOfRangeException(nameof(index));
             if (span.Length - index < 2)
                 throw new ArgumentException("Elements in source is greater than destination");
             span[index] = X;
@@ -282,22 +257,16 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Distance(Vector2Fix16 value)
-        {
-            return Distance(this, value);
-        }
+        public int Distance(Vector2Fix16 value) =>
+            Distance(this, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int DistanceSquared(Vector2Fix16 value)
-        {
-            return DistanceSquared(this, value);
-        }
+        public int DistanceSquared(Vector2Fix16 value) =>
+            DistanceSquared(this, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Dot(Vector2Fix16 vector)
-        {
-            return Dot(this, vector);
-        }
+        public int Dot(Vector2Fix16 vector) =>
+            Dot(this, vector);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override bool Equals(object? obj)
@@ -334,16 +303,12 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Length()
-        {
-            return (int)Math.Sqrt(Dot(this, this));
-        }
+        public int Length() =>
+            (int)Math.Sqrt(Dot(this, this));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int LengthSquared()
-        {
-            return Dot(this, this);
-        }
+        public int LengthSquared() =>
+            Dot(this, this);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Vector2Fix16 Normalize()
@@ -401,5 +366,9 @@ namespace MathStructs
         {
             return new Vector2Fix16(x ?? X, y ?? Y);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Vector2Fix16 With(double? x = null, double? y = null) =>
+            new Vector2Fix16(x?.ToFix16() ?? X, y?.ToFix16() ?? Y);
     }
 }
