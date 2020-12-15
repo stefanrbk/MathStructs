@@ -9,45 +9,39 @@ namespace MathStructs
     public readonly struct Vector4Fix16 : IEquatable<Vector4Fix16>, IFormattable
     {
         [FieldOffset(0)]
-        public readonly int X;
+        public readonly Fix16 X;
 
         [FieldOffset(4)]
-        public readonly int Y;
+        public readonly Fix16 Y;
 
         [FieldOffset(8)]
-        public readonly int Z;
+        public readonly Fix16 Z;
 
         [FieldOffset(12)]
-        public readonly int W;
+        public readonly Fix16 W;
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
 
-        public static Vector4Fix16 One => new Vector4Fix16(1.0);
+        public static Vector4Fix16 One => new(Fix16.One);
 
-        public static Vector4Fix16 UnitW => new Vector4Fix16(0.0, 0.0, 0.0, 1.0);
+        public static Vector4Fix16 UnitW => new(Fix16.Zero, Fix16.Zero, Fix16.Zero, Fix16.One);
 
-        public static Vector4Fix16 UnitX => new Vector4Fix16(1.0, 0.0, 0.0, 0.0);
+        public static Vector4Fix16 UnitX => new(Fix16.One, Fix16.Zero, Fix16.Zero, Fix16.Zero);
 
-        public static Vector4Fix16 UnitY => new Vector4Fix16(0.0, 1.0, 0.0, 0.0);
+        public static Vector4Fix16 UnitY => new(Fix16.Zero, Fix16.One, Fix16.Zero, Fix16.Zero);
 
-        public static Vector4Fix16 UnitZ => new Vector4Fix16(0.0, 0.0, 1.0, 0.0);
+        public static Vector4Fix16 UnitZ => new(Fix16.Zero, Fix16.Zero, Fix16.One, Fix16.Zero);
 
-        public static Vector4Fix16 Zero => new Vector4Fix16(0.0);
+        public static Vector4Fix16 Zero => new(Fix16.Zero);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(int value)
+        public Vector4Fix16(Fix16 value)
             : this(value, value, value, value)
         {
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(double value)
-            : this(value, value, value, value)
-        {
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(int x, int y, int z, int w)
+        public Vector4Fix16(Fix16 x, Fix16 y, Fix16 z, Fix16 w)
         {
             X = x;
             Y = y;
@@ -56,13 +50,7 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(double x, double y, double z, double w)
-            : this((int)x, (int)y, (int)z, (int)w)
-        {
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(Vector3Fix16 vector, int w)
+        public Vector4Fix16(Vector3Fix16 vector, Fix16 w)
         {
             X = vector.X;
             Y = vector.Y;
@@ -71,13 +59,7 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(Vector3Fix16 vector, double w)
-            : this(vector, (int)w)
-        {
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(Vector2Fix16 vector, int z, int w)
+        public Vector4Fix16(Vector2Fix16 vector, Fix16 z, Fix16 w)
         {
             X = vector.X;
             Y = vector.Y;
@@ -86,230 +68,161 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16(Vector2Fix16 vector, double z, double w)
-            : this(vector, (int)z, (int)w)
-        {
-        }
+        public static Vector4Fix16 Abs(Vector4Fix16 value) =>
+            new(Fix16.Abs(value.X), Fix16.Abs(value.Y), Fix16.Abs(value.Z), Fix16.Abs(value.W));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Abs(Vector4Fix16 value)
-        {
-            return new Vector4Fix16(Math.Abs((double)value.X), Math.Abs((double)value.Y), Math.Abs((double)value.Z), Math.Abs((double)value.W));
-        }
+        public static Vector4Fix16 Add(Vector4Fix16 left, Vector4Fix16 right) =>
+            left + right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Add(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return left + right;
-        }
+        public static Vector4Fix16 Clamp(Vector4Fix16 value, Vector4Fix16 min, Vector4Fix16 max) =>
+            Min(Max(value, min), max);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Clamp(Vector4Fix16 value, Vector4Fix16 min, Vector4Fix16 max)
-        {
-            return Min(Max(value, min), max);
-        }
+        public static Fix16 Distance(Vector4Fix16 vector1, Vector4Fix16 vector2) =>
+            ( vector1 - vector2 ).Length();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int Distance(Vector4Fix16 vector1, Vector4Fix16 vector2)
-        {
-            return ( vector1 - vector2 ).Length();
-        }
+        public static Fix16 DistanceSquared(Vector4Fix16 vector1, Vector4Fix16 vector2) =>
+            ( vector1 - vector2 ).LengthSquared();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int DistanceSquared(Vector4Fix16 vector1, Vector4Fix16 vector2)
-        {
-            return ( vector1 - vector2 ).LengthSquared();
-        }
+        public static Vector4Fix16 Divide(Vector4Fix16 left, Vector4Fix16 right) =>
+            left / right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Divide(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return left / right;
-        }
+        public static Vector4Fix16 Divide(Vector4Fix16 left, Fix16 right) =>
+            left / right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Divide(Vector4Fix16 left, int right)
-        {
-            return left / right;
-        }
+        public static Fix16 Dot(Vector4Fix16 left, Vector4Fix16 right) =>
+            ( left.X * right.X ) + ( left.Y * right.Y ) + ( left.Z * right.Z ) + ( left.W * right.W );
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int Dot(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return left.X * right.X + left.Y * right.Y + left.Z * right.Z + left.W * right.W;
-        }
+        public static Vector4Fix16 Lerp(Vector4Fix16 bounds1, Vector4Fix16 bounds2, Fix16 amount) =>
+            ( bounds1 * ( Fix16.One - amount ) ) + ( bounds2 * amount );
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Lerp(Vector4Fix16 bounds1, Vector4Fix16 bounds2, int amount)
-        {
-            return bounds1 * ( 1 - amount ) + bounds2 * amount;
-        }
+        public static Vector4Fix16 Max(Vector4Fix16 left, Vector4Fix16 right) =>
+            new(( left.X > right.X ) ? left.X : right.X, ( left.Y > right.Y ) ? left.Y : right.Y,
+                ( left.Z > right.Z ) ? left.Z : right.Z, ( left.W > right.W ) ? left.W : right.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Max(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return new Vector4Fix16(( left.X > right.X ) ? left.X : right.X, ( left.Y > right.Y ) ? left.Y : right.Y, ( left.Z > right.Z ) ? left.Z : right.Z, ( left.W > right.W ) ? left.W : right.W);
-        }
+        public static Vector4Fix16 Min(Vector4Fix16 left, Vector4Fix16 right) =>
+            new(( left.X < right.X ) ? left.X : right.X, ( left.Y < right.Y ) ? left.Y : right.Y,
+                ( left.Z < right.Z ) ? left.Z : right.Z, ( left.W < right.W ) ? left.W : right.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Min(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return new Vector4Fix16(( left.X < right.X ) ? left.X : right.X, ( left.Y < right.Y ) ? left.Y : right.Y, ( left.Z < right.Z ) ? left.Z : right.Z, ( left.W < right.W ) ? left.W : right.W);
-        }
+        public static Vector4Fix16 Multiply(Vector4Fix16 left, Vector4Fix16 right) =>
+            left * right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Multiply(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return left * right;
-        }
+        public static Vector4Fix16 Multiply(Vector4Fix16 left, Fix16 right) =>
+            left * right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Multiply(Vector4Fix16 left, int right)
-        {
-            return left * right;
-        }
+        public static Vector4Fix16 Multiply(Fix16 left, Vector4Fix16 right) =>
+            left * right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Multiply(int left, Vector4Fix16 right)
-        {
-            return left * right;
-        }
+        public static Vector4Fix16 Negate(Vector4Fix16 value) =>
+            -value;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Negate(Vector4Fix16 value)
-        {
-            return -value;
-        }
+        public static Vector4Fix16 Normalize(Vector4Fix16 vector) =>
+            vector / vector.Length();
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Normalize(Vector4Fix16 vector)
-        {
-            return vector / vector.Length();
-        }
+        public static Vector4Fix16 operator -(Vector4Fix16 value) =>
+            new(-value.X, -value.Y, -value.Z, -value.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator -(Vector4Fix16 value)
-        {
-            return new Vector4Fix16(-value.X, -value.Y, -value.Z, -value.W);
-        }
+        public static Vector4Fix16 operator -(Vector4Fix16 left, Vector4Fix16 right) =>
+            new(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator -(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return new Vector4Fix16(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
-        }
+        public static bool operator !=(Vector4Fix16 left, Vector4Fix16 right) =>
+            left.X != right.X || left.Y != right.Y || left.Z != right.Z || left.W != right.W;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool operator !=(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            if (left.X == right.X && left.Y == right.Y && left.Z == right.Z)
-                return left.W != right.W;
-            return true;
-        }
+        public static Vector4Fix16 operator *(Vector4Fix16 left, Vector4Fix16 right) =>
+            new(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator *(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return new Vector4Fix16(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
-        }
+        public static Vector4Fix16 operator *(Vector4Fix16 left, Fix16 right) =>
+            new(left.X * right, left.Y * right, left.Z * right, left.W * right);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator *(Vector4Fix16 left, int right)
-        {
-            return new Vector4Fix16(left.X * right, left.Y * right, left.Z * right, left.W * right);
-        }
+        public static Vector4Fix16 operator *(Fix16 left, Vector4Fix16 right) =>
+            right * left;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator *(int left, Vector4Fix16 right)
-        {
-            return right * left;
-        }
+        public static Vector4Fix16 operator /(Vector4Fix16 left, Vector4Fix16 right) =>
+            new(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator /(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return new Vector4Fix16(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
-        }
+        public static Vector4Fix16 operator /(Vector4Fix16 left, Fix16 right) =>
+            new(left.X / right, left.Y / right, left.Z / right, left.W / right);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator /(Vector4Fix16 left, int right)
-        {
-            return new Vector4Fix16(left.X / right, left.Y / right, left.Z / right, left.W / right);
-        }
+        public static Vector4Fix16 operator +(Vector4Fix16 value) =>
+            value;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator +(Vector4Fix16 value)
-        {
-            return value;
-        }
+        public static Vector4Fix16 operator +(Vector4Fix16 left, Vector4Fix16 right) =>
+            new(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 operator +(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return new Vector4Fix16(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
-        }
+        public static bool operator ==(Vector4Fix16 left, Vector4Fix16 right) =>
+            left.X == right.X && left.Y == right.Y && left.Z == right.Z && left.W == right.W;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool operator ==(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            if (left.X == right.X && left.Y == right.Y && left.Z == right.Z)
-                return left.W == right.W;
-            return false;
-        }
+        public static Vector4Fix16 SquareRoot(Vector4Fix16 value) =>
+            new(Fix16.Sqrt(value.X), Fix16.Sqrt(value.Y), Fix16.Sqrt(value.Z), Fix16.Sqrt(value.W));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 SquareRoot(Vector4Fix16 value)
-        {
-            return new Vector4Fix16(Math.Sqrt(value.X), Math.Sqrt(value.Y), Math.Sqrt(value.Z), Math.Sqrt(value.W));
-        }
+        public static Vector4Fix16 Subtract(Vector4Fix16 left, Vector4Fix16 right) =>
+            left - right;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Subtract(Vector4Fix16 left, Vector4Fix16 right)
-        {
-            return left - right;
-        }
+        public static Vector4Fix16 Transform(Vector2Fix16 position, Matrix4x4Fix16 matrix) =>
+            new(( position.X * matrix.M11 ) + ( position.Y * matrix.M21 ) + matrix.M41,
+                ( position.X * matrix.M12 ) + ( position.Y * matrix.M22 ) + matrix.M42,
+                ( position.X * matrix.M13 ) + ( position.Y * matrix.M23 ) + matrix.M43,
+                ( position.X * matrix.M14 ) + ( position.Y * matrix.M24 ) + matrix.M44);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Transform(Vector2Fix16 position, Matrix4x4Fix16 matrix)
-        {
-            return new Vector4Fix16(position.X * matrix.M11 + position.Y * matrix.M21 + matrix.M41, position.X * matrix.M12 + position.Y * matrix.M22 + matrix.M42, position.X * matrix.M13 + position.Y * matrix.M23 + matrix.M43, position.X * matrix.M14 + position.Y * matrix.M24 + matrix.M44);
-        }
+        public static Vector4Fix16 Transform(Vector3Fix16 vector, Matrix4x4Fix16 matrix) =>
+            new(( vector.X * matrix.M11 ) + ( vector.Y * matrix.M21 ) + ( vector.Z * matrix.M31 ) + matrix.M41,
+                ( vector.X * matrix.M12 ) + ( vector.Y * matrix.M22 ) + ( vector.Z * matrix.M32 ) + matrix.M42,
+                ( vector.X * matrix.M13 ) + ( vector.Y * matrix.M23 ) + ( vector.Z * matrix.M33 ) + matrix.M43,
+                ( vector.X * matrix.M14 ) + ( vector.Y * matrix.M24 ) + ( vector.Z * matrix.M34 ) + matrix.M44);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Transform(Vector3Fix16 vector, Matrix4x4Fix16 matrix)
-        {
-            return new Vector4Fix16(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41, vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42, vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43, vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + matrix.M44);
-        }
+        public static Vector4Fix16 Transform(Vector4Fix16 vector, Matrix4x4Fix16 matrix) =>
+            new(( vector.X * matrix.M11 ) + ( vector.Y * matrix.M21 ) + ( vector.Z * matrix.M31 ) + ( vector.W * matrix.M41 ),
+                ( vector.X * matrix.M12 ) + ( vector.Y * matrix.M22 ) + ( vector.Z * matrix.M32 ) + ( vector.W * matrix.M42 ),
+                ( vector.X * matrix.M13 ) + ( vector.Y * matrix.M23 ) + ( vector.Z * matrix.M33 ) + ( vector.W * matrix.M43 ),
+                ( vector.X * matrix.M14 ) + ( vector.Y * matrix.M24 ) + ( vector.Z * matrix.M34 ) + ( vector.W * matrix.M44 ));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Vector4Fix16 Transform(Vector4Fix16 vector, Matrix4x4Fix16 matrix)
-        {
-            return new Vector4Fix16(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41, vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42, vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43, vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
-        }
+        public Vector4Fix16 Abs() =>
+            Abs(this);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16 Abs()
-        {
-            return Abs(this);
-        }
+        public Vector4Fix16 Clamp(Vector4Fix16 min, Vector4Fix16 max) =>
+            Clamp(this, min, max);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16 Clamp(Vector4Fix16 min, Vector4Fix16 max)
-        {
-            return Clamp(this, min, max);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void CopyTo(Span<int> span)
-        {
+        public void CopyTo(Span<Fix16> span) =>
             CopyTo(span, 0);
-        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void CopyTo(Span<int> span, int index)
+        public void CopyTo(Span<Fix16> span, int index)
         {
             if (index < 0 || index >= span.Length)
-                throw new ArgumentOutOfRangeException("index");
+                throw new ArgumentOutOfRangeException(nameof(index));
             if (span.Length - index < 4)
                 throw new ArgumentException("Elements in source is greater than destination");
             span[index] = X;
@@ -319,7 +232,7 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Deconstruct(out int x, out int y, out int z, out int w)
+        public void Deconstruct(out Fix16 x, out Fix16 y, out Fix16 z, out Fix16 w)
         {
             x = X;
             y = Y;
@@ -328,14 +241,14 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Deconstruct(out Vector3Fix16 vector, out int w)
+        public void Deconstruct(out Vector3Fix16 vector, out Fix16 w)
         {
             w = W;
             vector = new Vector3Fix16(X, Y, Z);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public void Deconstruct(out Vector2Fix16 vector, out int z, out int w)
+        public void Deconstruct(out Vector2Fix16 vector, out Fix16 z, out Fix16 w)
         {
             vector = new Vector2Fix16(X, Y);
             z = Z;
@@ -343,105 +256,70 @@ namespace MathStructs
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Distance(Vector4Fix16 value)
-        {
-            return Distance(this, value);
-        }
+        public Fix16 Distance(Vector4Fix16 value) =>
+            Distance(this, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int DistanceSquared(Vector4Fix16 value)
-        {
-            return DistanceSquared(this, value);
-        }
+        public Fix16 DistanceSquared(Vector4Fix16 value) =>
+            DistanceSquared(this, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Dot(Vector4Fix16 vector)
-        {
-            return Dot(this, vector);
-        }
+        public Fix16 Dot(Vector4Fix16 vector) =>
+            Dot(this, vector);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object? obj)
-        {
-            if (obj is Vector4Fix16)
-            {
-                Vector4Fix16 vec = (Vector4Fix16)obj;
-                return Equals(vec);
-            }
-            return false;
-        }
+        public override bool Equals(object? obj) =>
+            obj is Vector4Fix16 vec && Equals(vec);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(Vector4Fix16 other)
-        {
-            return this == other;
-        }
+        public bool Equals(Vector4Fix16 other) =>
+            this == other;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(Vector4Fix16 other, int delta)
+        public bool Equals(Vector4Fix16 other, Fix16 delta)
         {
-            if (delta == 0)
+            if (delta == Fix16.Zero)
                 return this == other;
-            Vector4Fix16 vector = Subtract(this, other).Abs();
+            var vector = Subtract(this, other).Abs();
             if (vector.X < delta && vector.Y < delta && vector.Z < delta)
                 return vector.W < delta;
             return false;
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
-        }
+        public override int GetHashCode() =>
+            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int Length()
-        {
-            return (int)Math.Sqrt(Dot(this, this));
-        }
+        public Fix16 Length() =>
+            Fix16.Sqrt(Dot(this, this));
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int LengthSquared()
-        {
-            return Dot(this, this);
-        }
+        public Fix16 LengthSquared() =>
+            Dot(this, this);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16 Normalize()
-        {
-            return Normalize(this);
-        }
+        public Vector4Fix16 Normalize() =>
+            Normalize(this);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16 SquareRoot()
-        {
-            return SquareRoot(this);
-        }
+        public Vector4Fix16 SquareRoot() =>
+            SquareRoot(this);
 
-        public override string ToString()
-        {
-            return ToString("G", CultureInfo.CurrentCulture);
-        }
+        public override string ToString() =>
+            ToString("G", CultureInfo.CurrentCulture);
 
-        public string ToString(string? format)
-        {
-            return ToString(format, CultureInfo.CurrentCulture);
-        }
+        public string ToString(string? format) =>
+            ToString(format, CultureInfo.CurrentCulture);
 
-        public string ToString(string? format, IFormatProvider? formatProvider)
-        {
-            return "<" + X.ToString(format, formatProvider) + ", " + Y.ToString(format, formatProvider) + ", " + Z.ToString(format, formatProvider) + ", " + W.ToString(format, formatProvider) + ">";
-        }
+        public string ToString(string? format, IFormatProvider? formatProvider) =>
+            $"<{X.ToString(format, formatProvider)}, {Y.ToString(format, formatProvider)}, {Z.ToString(format, formatProvider)}, {W.ToString(format, formatProvider)}>";
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16 Transform(Matrix4x4Fix16 matrix)
-        {
-            return Transform(this, matrix);
-        }
+        public Vector4Fix16 Transform(Matrix4x4Fix16 matrix) =>
+            Transform(this, matrix);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Vector4Fix16 With(int? x = null, int? y = null, int? z = null, int? w = null)
-        {
-            return new Vector4Fix16(x ?? X, y ?? Y, z ?? Z, w ?? W);
-        }
+        public Vector4Fix16 With(Fix16? x = null, Fix16? y = null, Fix16? z = null, Fix16? w = null) =>
+            new(x ?? X, y ?? Y, z ?? Z, w ?? W);
     }
 }

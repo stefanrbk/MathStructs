@@ -1,25 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace System.Tests
 {
     [TestFixture]
     public class Fix16Tests
     {
-        public static readonly int[] Fix16ConversionSource = new int[10]
+        public static readonly Fix16[] Fix16ConversionSource = new Fix16[10]
     {
-        0,
-        234,
-        15335424,
-        -2147483648,
-        2147483647,
-        65536,
-        -65536,
-        179145,
-        205887,
-        1
+        Fix16.Raw(0),
+        Fix16.Raw(234),
+        Fix16.Raw(15335424),
+        Fix16.Raw(-2147483648),
+        Fix16.Raw(2147483647),
+        Fix16.Raw(65536),
+        Fix16.Raw(-65536),
+        Fix16.Raw(179145),
+        Fix16.Raw(205887),
+        Fix16.Raw(1)
     };
 
         public static readonly string[] ToStringInvariantCultureExpected = new string[10]
@@ -211,7 +213,7 @@ namespace System.Tests
         16.0,
         16m,
         "16",
-        1048576
+        Fix16.Raw(1048576)
     };
 
         public static readonly long[] ToInt64ExpectedSource = new long[10]
@@ -303,22 +305,22 @@ namespace System.Tests
         new object[2]
         {
             (byte)0,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             (byte)1,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             (byte)234,
-            15335424
+            Fix16.Raw(15335424)
         },
         new object[2]
         {
             Byte.MaxValue,
-            16711680
+            Fix16.Raw(16711680)
         }
     };
 
@@ -327,22 +329,22 @@ namespace System.Tests
         new object[2]
         {
             (sbyte)0,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             (sbyte)1,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             (sbyte)-123,
-            -8060928
+            Fix16.Raw(-8060928)
         },
         new object[2]
         {
             SByte.MaxValue,
-            8323072
+            Fix16.Raw(8323072)
         }
     };
 
@@ -351,22 +353,22 @@ namespace System.Tests
         new object[2]
         {
             (ushort)0,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             (ushort)1,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             (ushort)234,
-            15335424
+            Fix16.Raw(15335424)
         },
         new object[2]
         {
             UInt16.MaxValue,
-            -65536
+            Fix16.Raw(-65536)
         }
     };
 
@@ -375,22 +377,22 @@ namespace System.Tests
         new object[2]
         {
             (short)0,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             (short)1,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             (short)-234,
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             Int16.MaxValue,
-            2147418112
+            Fix16.Raw(2147418112)
         }
     };
 
@@ -399,22 +401,22 @@ namespace System.Tests
         new object[2]
         {
             0u,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1u,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             234u,
-            15335424
+            Fix16.Raw(15335424)
         },
         new object[2]
         {
             65535u,
-            -65536
+            Fix16.Raw(-65536)
         }
     };
 
@@ -423,22 +425,22 @@ namespace System.Tests
         new object[2]
         {
             0,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             -234,
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             32767,
-            2147418112
+            Fix16.Raw(2147418112)
         }
     };
 
@@ -447,22 +449,22 @@ namespace System.Tests
         new object[2]
         {
             0uL,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1uL,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             234uL,
-            15335424
+            Fix16.Raw(15335424)
         },
         new object[2]
         {
             65535uL,
-            -65536
+            Fix16.Raw(-65536)
         }
     };
 
@@ -471,22 +473,22 @@ namespace System.Tests
         new object[2]
         {
             0L,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1L,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             -234L,
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             32767L,
-            2147418112
+            Fix16.Raw(2147418112)
         }
     };
 
@@ -495,22 +497,22 @@ namespace System.Tests
         new object[2]
         {
             (Half)0f,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             (Half)1f,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             (Half)(-234f),
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             (Half)0.5,
-            32768
+            Fix16.Raw(32768)
         }
     };
 
@@ -519,22 +521,22 @@ namespace System.Tests
         new object[2]
         {
             0f,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1f,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             -234f,
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             0.5f,
-            32768
+            Fix16.Raw(32768)
         }
     };
 
@@ -543,22 +545,22 @@ namespace System.Tests
         new object[2]
         {
             0.0,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1.0,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             -234.0,
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             0.5,
-            32768
+            Fix16.Raw(32768)
         }
     };
 
@@ -567,24 +569,81 @@ namespace System.Tests
         new object[2]
         {
             0m,
-            0
+            Fix16.Raw(0)
         },
         new object[2]
         {
             1m,
-            65536
+            Fix16.Raw(65536)
         },
         new object[2]
         {
             -234m,
-            -15335424
+            Fix16.Raw(-15335424)
         },
         new object[2]
         {
             0.5m,
-            32768
+            Fix16.Raw(32768)
         }
     };
+
+        public static readonly Fix16[] ExpSource = new Fix16[]
+        {
+            Fix16.Zero,
+            Fix16.One,
+            Fix16.Raw(681392),
+            Fix16.Raw(-772244),
+            (Fix16)2,
+            (Fix16)2,
+        };
+
+        public static readonly Fix16[][] SqrtSource = new Fix16[][]
+        {
+            new Fix16[] { (Fix16)25, (Fix16)5 },
+            new Fix16[] { (Fix16)16385, (Fix16)(-127.994140625) },
+            new Fix16[] { (Fix16)(-0.0625), (Fix16)(-0.25) },
+        };
+
+        public static readonly double[] SinSource = new double[]
+        {
+            (double)Fix16.Zero,
+            (double)Fix16.Pi,
+            (double)(Fix16.Pi + (Fix16)0.2),
+            (double)-Fix16.Pi,
+            (double)(-Fix16.Pi -(Fix16)0.2),
+            (double)(Fix16.Pi / (Fix16)2),
+            (double)(-Fix16.Pi / (Fix16)2),
+        };
+
+        public static readonly object[] EqualsSource1 = new object[]
+        {
+            new object[] { Fix16.One, true },
+            new object[] { null!, false },
+            new object[] { new object(), false },
+        };
+
+        public static readonly object[] EqualsSource2 = new object[]
+        {
+            new object[] { Fix16.One, Fix16.Zero, true },
+            new object[] { Fix16.Zero, Fix16.Pi, true },
+            new object[] { Fix16.Pi, Fix16.One, false },
+        };
+
+        public static readonly object[] CompareToSource1 = new object[]
+        {
+            new object[] { null!, Is.EqualTo(1) },
+            new object[] { Fix16.Pi, Is.LessThan(0) },
+            new object[] { Fix16.NegOne, Is.GreaterThan(0) },
+            new object[] { Fix16.One, Is.Zero },
+        };
+
+        public static readonly object[] CompareToSource2 = new object[]
+        {
+            new object[] { Fix16.Pi, Is.LessThan(0) },
+            new object[] { Fix16.NegOne, Is.GreaterThan(0) },
+            new object[] { Fix16.One, Is.Zero },
+        };
 
         public static IEnumerable<object[]> ToStringTestGenerator()
         {
@@ -602,236 +661,653 @@ namespace System.Tests
         [Test]
         [Category("Epsilon")]
         public void Epsilon() =>
-            Assert.That(1, Is.EqualTo(1));
+            Assert.That(Fix16.Epsilon, Is.EqualTo(Fix16.Raw(1)));
+
+        [Test]
+        [Category("MaxValue")]
+        public void MaxValue() =>
+            Assert.That(Fix16.MaxValue, Is.EqualTo(Fix16.Raw(Int32.MaxValue)));
+
+        [Test]
+        [Category("MinValue")]
+        public void MinValue() =>
+            Assert.That(Fix16.MinValue, Is.EqualTo(Fix16.Raw(Int32.MinValue)));
+
+        [Test]
+        [Category("Pi")]
+        public void Pi() =>
+            Assert.That(Fix16.Pi, Is.EqualTo((Fix16)Math.PI));
+
+        [Test]
+        [Category("E")]
+        public void E() =>
+            Assert.That(Fix16.E, Is.EqualTo((Fix16)Math.E));
+
+        [Test]
+        [Category("FourDivPi")]
+        public void FourDivPi() =>
+            Assert.That(Fix16.FourDivPi, Is.EqualTo((Fix16)( 4 / Math.PI )));
+
+        [Test]
+        [Category("FourDivPi2")]
+        public void FourDivPi2() =>
+            Assert.That(Fix16.FourDivPi2, Is.EqualTo((Fix16)Math.Pow(4 / Math.PI, 2)));
+
+        [Test]
+        [Category("PiDivFour")]
+        public void PiDivFour() =>
+            Assert.That(Fix16.PiDivFour, Is.EqualTo((Fix16)( Math.PI / 4 )));
+
+        [Test]
+        [Category("ThreePiDivFour")]
+        public void ThreePiDivFour() =>
+            Assert.That(Fix16.ThreePiDivFour, Is.EqualTo((Fix16)( 3 * Math.PI / 4 )));
 
         [Test]
         [Category("ToString")]
         public void ToStringTest() =>
-            Assert.That(Fix16.ToString(163840), Is.EqualTo("2.5"));
+            Assert.That(new Fix16(2.5).ToString(), Is.EqualTo("2.5"));
 
         [TestCaseSource("ToStringTestGenerator")]
         [Category("ToString")]
-        public void ToStringTest1(int value, string expected, CultureInfo culture) =>
-            Assert.That(Fix16.ToString(value, "#,0.################", culture), Is.EqualTo(expected));
+        public void ToStringTest1(Fix16 value, string expected, CultureInfo culture) =>
+            Assert.That(value.ToString("#,0.################", culture), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToBoolean")]
-        public void ToBooleanTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToBooleanExpectedSource")] bool expected) =>
-            Assert.That(Fix16.ToBoolean(value), Is.EqualTo(expected));
+        public void ToBooleanTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToBooleanExpectedSource")] bool expected) =>
+            Assert.That(value.ToBoolean(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToByte")]
-        public void ToByteTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToByteExpectedSource")] byte expected) =>
-            Assert.That(Fix16.ToByte(value), Is.EqualTo(expected));
+        public void ToByteTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToByteExpectedSource")] byte expected) =>
+            Assert.That(value.ToByte(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToDecimal")]
-        public void ToDecimalTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToDecimalExpectedSource")] decimal expected) =>
-            Assert.That(Fix16.ToDecimal(value), Is.EqualTo(expected));
+        public void ToDecimalTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToDecimalExpectedSource")] decimal expected) =>
+            Assert.That(value.ToDecimal(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToDouble")]
-        public void ToDoubleTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToDoubleExpectedSource")] double expected) =>
-            Assert.That(Fix16.ToDouble(value), Is.EqualTo(expected));
+        public void ToDoubleTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToDoubleExpectedSource")] double expected) =>
+            Assert.That(value.ToDouble(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToHalf")]
-        public void ToHalfTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToHalfExpectedSource")] Half expected) =>
-            Assert.That(Fix16.ToHalf(value), Is.EqualTo(expected));
+        public void ToHalfTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToHalfExpectedSource")] Half expected) =>
+            Assert.That(value.ToHalf(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToShort")]
-        public void ToInt16Test([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToInt16ExpectedSource")] short expected) =>
-            Assert.That(Fix16.ToInt16(value), Is.EqualTo(expected));
+        public void ToInt16Test([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToInt16ExpectedSource")] short expected) =>
+            Assert.That(value.ToInt16(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToInt32")]
-        public void ToInt32Test([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToInt32ExpectedSource")] int expected) =>
-            Assert.That(Fix16.ToInt32(value), Is.EqualTo(expected));
+        public void ToInt32Test([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToInt32ExpectedSource")] int expected) =>
+            Assert.That(value.ToInt32(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToInt64")]
-        public void ToInt64Test([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToInt64ExpectedSource")] long expected) =>
-            Assert.That(Fix16.ToInt64(value), Is.EqualTo(expected));
+        public void ToInt64Test([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToInt64ExpectedSource")] long expected) =>
+            Assert.That(value.ToInt64(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToSByte")]
-        public void ToSByteTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToSByteExpectedSource")] sbyte expected) =>
-            Assert.That(Fix16.ToSByte(value), Is.EqualTo(expected));
+        public void ToSByteTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToSByteExpectedSource")] sbyte expected) =>
+            Assert.That(value.ToSByte(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToSingle")]
-        public void ToSingleTest([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToSingleExpectedSource")] float expected) =>
-            Assert.That(Fix16.ToSingle(value), Is.EqualTo(expected));
+        public void ToSingleTest([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToSingleExpectedSource")] float expected) =>
+            Assert.That(value.ToSingle(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToString")]
         public void ToStringTest2([Values("0.5", "0,5")] string expected, [Values("en-US", "fr-FR")] string culture) =>
-            Assert.That(Fix16.ToString(32768, CultureInfo.CreateSpecificCulture(culture)), Is.EqualTo(expected));
+            Assert.That(new Fix16(0.5).ToString(CultureInfo.CreateSpecificCulture(culture)), Is.EqualTo(expected));
 
         [Test]
         [Category("ToType")]
         public void ToTypeTest_null_conversionType_throws_ArgumentNullException() =>
-            Assert.Throws<ArgumentNullException>(() => Fix16.ToType(1048576, null!, null));
+            Assert.Throws<ArgumentNullException>(() => Fix16.Raw(1048576).ToType(null!, null));
 
         [Test]
         [Category("ToType")]
         public void ToTypeTest_DateTime_conversionType_throws_InvalidCastException() =>
-            Assert.Throws<InvalidCastException>(() => Fix16.ToType(1048576, typeof(DateTime), null));
+            Assert.Throws<InvalidCastException>(() => Fix16.Raw(1048576).ToType(typeof(DateTime), null));
 
         [Test]
         [Sequential]
         [Category("ToType")]
         public void ToTypeTest_conversionType([ValueSource("ToTypeTypeSource")] Type type, [ValueSource("ToTypeExpectedSource")] object expected) =>
-            Assert.That(Fix16.ToType(1048576, type, null), Is.EqualTo(expected));
+            Assert.That(Fix16.Raw(1048576).ToType(type, null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToUInt16")]
-        public void ToUInt16Test([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToUInt16ExpectedSource")] ushort expected) =>
-            Assert.That(Fix16.ToUInt16(value), Is.EqualTo(expected));
+        public void ToUInt16Test([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToUInt16ExpectedSource")] ushort expected) =>
+            Assert.That(value.ToUInt16(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToUInt32")]
-        public void ToUInt32Test([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToUInt32ExpectedSource")] uint expected) =>
-            Assert.That(Fix16.ToUInt32(value), Is.EqualTo(expected));
+        public void ToUInt32Test([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToUInt32ExpectedSource")] uint expected) =>
+            Assert.That(value.ToUInt32(null), Is.EqualTo(expected));
 
         [Test]
         [Sequential]
         [Category("ToUInt64")]
-        public void ToUInt64Test([ValueSource("Fix16ConversionSource")] int value, [ValueSource("ToUInt64ExpectedSource")] ulong expected) =>
-            Assert.That(Fix16.ToUInt64(value), Is.EqualTo(expected));
+        public void ToUInt64Test([ValueSource("Fix16ConversionSource")] Fix16 value, [ValueSource("ToUInt64ExpectedSource")] ulong expected) =>
+            Assert.That(value.ToUInt64(null), Is.EqualTo(expected));
 
         [TestCaseSource("FromByteSource")]
         [Category("FromByte")]
-        public void FromByteTest(byte value, int expected) =>
-            Assert.That(Fix16.FromByte(value), Is.EqualTo(expected));
+        public void FromByteTest(byte value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromSByteSource")]
         [Category("FromSByte")]
-        public void FromSByteTest(sbyte value, int expected) =>
-            Assert.That(Fix16.FromSByte(value), Is.EqualTo(expected));
+        public void FromSByteTest(sbyte value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromUInt16Source")]
         [Category("FromUInt16")]
-        public void FromUInt16Test(ushort value, int expected) =>
-            Assert.That(Fix16.FromUInt16(value), Is.EqualTo(expected));
+        public void FromUInt16Test(ushort value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromInt16Source")]
         [Category("FromInt16")]
-        public void FromInt16Test(short value, int expected) =>
-            Assert.That(Fix16.FromInt16(value), Is.EqualTo(expected));
+        public void FromInt16Test(short value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromUInt32Source")]
         [Category("FromUInt32")]
-        public void FromUInt32Test(uint value, int expected) =>
-            Assert.That(Fix16.FromUInt32(value), Is.EqualTo(expected));
+        public void FromUInt32Test(uint value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromInt32Source")]
         [Category("FromInt32")]
-        public void FromInt32Test(int value, int expected) =>
-            Assert.That(Fix16.FromInt32(value), Is.EqualTo(expected));
+        public void FromInt32Test(int value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromUInt64Source")]
         [Category("FromUInt64")]
-        public void FromUInt64Test(ulong value, int expected) =>
-            Assert.That(Fix16.FromUInt64(value), Is.EqualTo(expected));
+        public void FromUInt64Test(ulong value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromInt64Source")]
         [Category("FromInt64")]
-        public void FromInt64Test(long value, int expected) =>
-            Assert.That(Fix16.FromInt64(value), Is.EqualTo(expected));
+        public void FromInt64Test(long value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromHalfSource")]
         [Category("FromHalf")]
-        public void FromHalfTest(Half value, int expected) =>
-            Assert.That(Fix16.FromHalf(value), Is.EqualTo(expected));
+        public void FromHalfTest(Half value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromSingleSource")]
         [Category("FromSingle")]
-        public void FromSingleTest(float value, int expected) =>
-            Assert.That(Fix16.FromSingle(value), Is.EqualTo(expected));
+        public void FromSingleTest(float value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromDoubleSource")]
         [Category("FromDouble")]
-        public void FromDoubleTest(double value, int expected) =>
-            Assert.That(Fix16.FromDouble(value), Is.EqualTo(expected));
+        public void FromDoubleTest(double value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromDecimalSource")]
         [Category("FromDecimal")]
-        public void FromDecimalTest(decimal value, int expected) =>
-            Assert.That(Fix16.FromDecimal(value), Is.EqualTo(expected));
+        public void FromDecimalTest(decimal value, Fix16 expected) =>
+            Assert.That((Fix16)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromByteSource")]
-        [Category("ToFix16")]
-        public void ToFix16Test(byte value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToByte")]
+        public void ToByte(byte expected, Fix16 value) =>
+            Assert.That((byte)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromSByteSource")]
-        [Category("ToFix16")]
-        public void ToFix16Test1(sbyte value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToSByte")]
+        public void ToSByte(sbyte expected, Fix16 value) =>
+            Assert.That((sbyte)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromUInt16Source")]
-        [Category("ToFix16")]
-        public void ToFix16Test2(ushort value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToUInt16")]
+        public void ToUInt16(ushort expected, Fix16 value) =>
+            Assert.That((ushort)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromInt16Source")]
-        [Category("ToFix16")]
-        public void ToFix16Test3(short value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToInt16")]
+        public void ToInt16(short expected, Fix16 value) =>
+            Assert.That((short)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromUInt32Source")]
-        [Category("ToFix16")]
-        public void ToFix16Test4(uint value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToUInt32")]
+        public void ToUInt32(uint expected, Fix16 value) =>
+            Assert.That((uint)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromInt32Source")]
-        [Category("ToFix16")]
-        public void ToFix16Test5(int value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToInt32")]
+        public void ToInt32(int expected, Fix16 value) =>
+            Assert.That((int)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromUInt64Source")]
-        [Category("ToFix16")]
-        public void ToFix16Test6(ulong value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToUInt64")]
+        public void ToUInt64(ulong expected, Fix16 value) =>
+            Assert.That((ulong)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromInt64Source")]
-        [Category("ToFix16")]
-        public void ToFix16Test7(long value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToInt64")]
+        public void ToInt64(long expected, Fix16 value) =>
+            Assert.That((long)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromHalfSource")]
-        [Category("ToFix16")]
-        public void ToFix16Test8(Half value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToHalf")]
+        public void ToHalf(Half expected, Fix16 value) =>
+            Assert.That((Half)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromSingleSource")]
-        [Category("ToFix16")]
-        public void ToFix16Test9(float value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToSingle")]
+        public void ToSingle(float expected, Fix16 value) =>
+            Assert.That((float)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromDoubleSource")]
-        [Category("ToFix16")]
-        public void ToFix16Test10(double value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToDouble")]
+        public void ToDouble(double expected, Fix16 value) =>
+            Assert.That((double)value, Is.EqualTo(expected));
 
         [TestCaseSource("FromDecimalSource")]
-        [Category("ToFix16")]
-        public void ToFix16Test11(decimal value, int expected) =>
-            Assert.That(value.ToFix16(), Is.EqualTo(expected));
+        [Category("ToDecimal")]
+        public void ToDecimal(decimal expected, Fix16 value) =>
+            Assert.That((decimal)value, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_UnaryNegation")]
+        public void NegationTest([Values(-1, 234)] int actual,
+                                 [Values(1, -234)] int expected) =>
+            Assert.That(-(Fix16)actual, Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("op_UnaryNegation")]
+        public void NegationTest2([Values(-1, 234, null)] int? actual,
+                                  [Values(1, -234, null)] int? expected) =>
+            Assert.That(-(Fix16?)actual, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_Multiplication")]
+        public void MultiplicationTest([Values(2.5, Int32.MaxValue)] double left,
+                                       [Values(11, 1.0 / 65535)] double right,
+                                       [Values(27.5, -0.5)] double expected) =>
+            Assert.That((Fix16)left * (Fix16)right, Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("op_Multiplication")]
+        public void MultiplicationTest2([Values(null, 2.5, Int32.MaxValue)] double? left,
+                                        [Values(10, 11, 1.0 / 65535)] double right,
+                                        [Values(null, 27.5, -0.5)] double? expected) =>
+            Assert.That((Fix16?)left * (Fix16)right, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_Multiplication")]
+        public void MultiplicationTest3([Values(10, 2.5, Int32.MaxValue)] double left,
+                                        [Values(null, 11, 1.0 / 65535)] double? right,
+                                        [Values(null, 27.5, -0.5)] double? expected) =>
+            Assert.That((Fix16)left * (Fix16?)right, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_Multiplication")]
+        public void MultiplicationTest4([Values(null, null, 10, 2.5, Int32.MaxValue)] double? left,
+                                        [Values(10, null, null, 11, 1.0 / 65535)] double? right,
+                                        [Values(null, null, null, 27.5, -0.5)] double? expected) =>
+            Assert.That((Fix16?)left * (Fix16?)right, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_Division")]
+        public void DivisionTest([Values(27.5, -10, 2000)] double left,
+                                 [Values(11, 2, -1000)] double right,
+                                 [Values(2.5, -5, -2)] double expected) =>
+            Assert.That((Fix16)left / (Fix16)right, Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("op_Division")]
+        public void DivisionTest2([Values(null, 27.5, -10, 2000)] double? left,
+                                  [Values(10, 11, 2, -1000)] double right,
+                                  [Values(null, 2.5, -5, -2)] double? expected) =>
+            Assert.That((Fix16?)left / (Fix16)right, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_Division")]
+        public void DivisionTest3([Values(10, 27.5, -10, 2000)] double left,
+                                  [Values(null, 11, 2, -1000)] double? right,
+                                  [Values(null, 2.5, -5, -2)] double? expected) =>
+            Assert.That((Fix16)left / (Fix16?)right, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_Division")]
+        public void DivisionTest4([Values(10, null, null, 27.5, -10, 2000)] double? left,
+                                  [Values(null, null, 10, 11, 2, -1000)] double? right,
+                                  [Values(null, null, null, 2.5, -5, -2)] double? expected) =>
+            Assert.That((Fix16?)left / (Fix16?)right, Is.EqualTo((Fix16?)expected));
+
+        [Test, Sequential, Category("op_NullableDivideBy")]
+        public void DivisionTest5([Values(1, 10, null, null, 27.5, -10, 2000)] double? left,
+                                  [Values(0, null, null, 10, 11, 2, -1000)] double? right,
+                                  [Values(null, null, null, null, 2.5, -5, -2)] double? expected) =>
+            Assert.That(Fix16.NullableDivideBy((Fix16?)left, (Fix16?)right), Is.EqualTo((Fix16?)expected));
+
+        [Test]
+        [Category("op_Division")]
+        public void DivisionTest_Divide_by_zero_throws_DivideByZeroException() =>
+            Assert.Throws<DivideByZeroException>(() => _ = Fix16.One / Fix16.Zero);
+
+        [Test, Sequential, Category("op_Equality")]
+        public void EqualityTest([Values(10, -10, 10)] double left,
+                                 [Values(0.5, -10, 10.1)] double right,
+                                 [Values(false, true, false)] bool expected) =>
+            Assert.That((Fix16)left == (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Equality")]
+        public void EqualityTest2([Values(null, 10, -10, 10)] double? left,
+                                  [Values(7, 0.5, -10, 10.1)] double right,
+                                  [Values(false, false, true, false)] bool expected) =>
+            Assert.That((Fix16?)left == (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Equality")]
+        public void EqualityTest3([Values(7, 10, -10, 10)] double left,
+                                  [Values(null, 0.5, -10, 10.1)] double? right,
+                                  [Values(false, false, true, false)] bool expected) =>
+            Assert.That((Fix16)left == (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Equality")]
+        public void EqualityTest4([Values(null, null, 7, 10, -10, 10)] double? left,
+                                  [Values(null, 7, null, 0.5, -10, 10.1)] double? right,
+                                  [Values(false, false, false, false, true, false)] bool expected) =>
+            Assert.That((Fix16?)left == (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Inequality")]
+        public void InequalityTest([Values(10, -10, 10)] double left,
+                                   [Values(0.5, -10, 10.1)] double right,
+                                   [Values(true, false, true)] bool expected) =>
+            Assert.That((Fix16)left != (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Inequality")]
+        public void InequalityTest2([Values(null, 10, -10, 10)] double? left,
+                                    [Values(7, 0.5, -10, 10.1)] double right,
+                                    [Values(true, true, false, true)] bool expected) =>
+            Assert.That((Fix16?)left != (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Inequality")]
+        public void InequalityTest3([Values(7, 10, -10, 10)] double left,
+                                    [Values(null, 0.5, -10, 10.1)] double? right,
+                                    [Values(true, true, false, true)] bool expected) =>
+            Assert.That((Fix16)left != (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Inequality")]
+        public void InequalityTest4([Values(null, null, 7, 10, -10, 10)] double? left,
+                                    [Values(7, null, null, 0.5, -10, 10.1)] double? right,
+                                    [Values(true, true, true, true, false, true)] bool expected) =>
+            Assert.That((Fix16?)left != (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThanOrEqual")]
+        public void GreaterThanOrEqualTest([Values(10, -10, 10)] double left,
+                                           [Values(0.5, -10, 10.1)] double right,
+                                           [Values(true, true, false)] bool expected) =>
+            Assert.That((Fix16)left >= (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThanOrEqual")]
+        public void GreaterThanOrEqualTest2([Values(null, 10, -10, 10)] double? left,
+                                            [Values(7, 0.5, -10, 10.1)] double right,
+                                            [Values(false, true, true, false)] bool expected) =>
+            Assert.That((Fix16?)left >= (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThanOrEqual")]
+        public void GreaterThanOrEqualTest3([Values(7, 10, -10, 10)] double left,
+                                            [Values(null, 0.5, -10, 10.1)] double? right,
+                                            [Values(false, true, true, false)] bool expected) =>
+            Assert.That((Fix16)left >= (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThanOrEqual")]
+        public void GreaterThanOrEqualTest4([Values(null, null, 7, 10, -10, 10)] double? left,
+                                            [Values(7, null, null, 0.5, -10, 10.1)] double? right,
+                                            [Values(false, false, false, true, true, false)] bool expected) =>
+            Assert.That((Fix16?)left >= (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThan")]
+        public void GreaterThanTest([Values(10, -10, 10)] double left,
+                                    [Values(0.5, -10, 10.1)] double right,
+                                    [Values(true, false, false)] bool expected) =>
+            Assert.That((Fix16)left > (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThan")]
+        public void GreaterThanTest2([Values(null, 10, -10, 10)] double? left,
+                                     [Values(7, 0.5, -10, 10.1)] double right,
+                                     [Values(false, true, false, false)] bool expected) =>
+            Assert.That((Fix16?)left > (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThan")]
+        public void GreaterThanTest3([Values(7, 10, -10, 10)] double left,
+                                     [Values(null, 0.5, -10, 10.1)] double? right,
+                                     [Values(false, true, false, false)] bool expected) =>
+            Assert.That((Fix16)left > (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_GreaterThan")]
+        public void GreaterThanTest4([Values(null, null, 7, 10, -10, 10)] double? left,
+                                     [Values(7, null, null, 0.5, -10, 10.1)] double? right,
+                                     [Values(false, false, false, true, false, false)] bool expected) =>
+            Assert.That((Fix16?)left > (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThanOrEqual")]
+        public void LessThanOrEqualTest([Values(10, -10, 10)] double left,
+                                        [Values(0.5, -10, 10.1)] double right,
+                                        [Values(false, true, true)] bool expected) =>
+            Assert.That((Fix16)left <= (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThanOrEqual")]
+        public void LessThanOrEqualTest2([Values(null, 10, -10, 10)] double? left,
+                                         [Values(7, 0.5, -10, 10.1)] double right,
+                                         [Values(false, false, true, true)] bool expected) =>
+            Assert.That((Fix16?)left <= (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThanOrEqual")]
+        public void LessThanOrEqualTest3([Values(7, 10, -10, 10)] double left,
+                                         [Values(null, 0.5, -10, 10.1)] double? right,
+                                         [Values(false, false, true, true)] bool expected) =>
+            Assert.That((Fix16)left <= (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThanOrEqual")]
+        public void LessThanOrEqualTest4([Values(null, null, 7, 10, -10, 10)] double? left,
+                                         [Values(7, null, null, 0.5, -10, 10.1)] double? right,
+                                         [Values(false, false, false, false, true, true)] bool expected) =>
+            Assert.That((Fix16?)left <= (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThan")]
+        public void LessThanTest([Values(10, -10, 10)] double left,
+                                 [Values(0.5, -10, 10.1)] double right,
+                                 [Values(false, false, true)] bool expected) =>
+            Assert.That((Fix16)left < (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThan")]
+        public void LessThanTest2([Values(null, 10, -10, 10)] double? left,
+                                  [Values(7, 0.5, -10, 10.1)] double right,
+                                  [Values(false, false, false, true)] bool expected) =>
+            Assert.That((Fix16?)left < (Fix16)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThan")]
+        public void LessThanTest3([Values(7, 10, -10, 10)] double left,
+                                  [Values(null, 0.5, -10, 10.1)] double? right,
+                                  [Values(false, false, false, true)] bool expected) =>
+            Assert.That((Fix16)left < (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_LessThan")]
+        public void LessThanTest4([Values(null, null, 7, 10, -10, 10)] double? left,
+                                  [Values(7, null, null, 0.5, -10, 10.1)] double? right,
+                                  [Values(false, false, false, false, false, true)] bool expected) =>
+            Assert.That((Fix16?)left < (Fix16?)right, Is.EqualTo(expected));
+
+        [Test, Sequential, Category("op_Addition")]
+        public void AdditionTest([Values(0.5, 1, -10, 7, -3)] double left,
+                                 [Values(0.25, 2, 3, -1, -5)] double right) =>
+            Assert.That((Fix16)left + (Fix16)right, Is.EqualTo((Fix16)( left + right )));
+
+        [Test, Sequential, Category("op_Addition")]
+        public void AdditionTest2([Values(0.5, 1, -10, 7, -3, null)] double? left,
+                                  [Values(0.25, 2, 3, -1, -5, 0)] double right) =>
+            Assert.That((Fix16?)left + (Fix16)right, Is.EqualTo((Fix16?)( left + right )));
+
+        [Test, Sequential, Category("op_Addition")]
+        public void AdditionTest3([Values(0.5, 1, -10, 7, -3, 0)] double left,
+                                  [Values(0.25, 2, 3, -1, -5, null)] double? right) =>
+            Assert.That((Fix16)left + (Fix16?)right, Is.EqualTo((Fix16?)( left + right )));
+
+        [Test, Sequential, Category("op_Addition")]
+        public void AdditionTest4([Values(0.5, 1, -10, 7, -3, 0, null, null)] double? left,
+                                  [Values(0.25, 2, 3, -1, -5, null, null, 0)] double? right) =>
+            Assert.That((Fix16?)left + (Fix16?)right, Is.EqualTo((Fix16?)( left + right )));
+
+        [Test, Sequential, Category("op_Subtraction")]
+        public void SubtractionTest([Values(0.5, 1, -10, 7, -3)] double left,
+                                 [Values(0.25, 2, 3, -1, -5)] double right) =>
+            Assert.That((Fix16)left - (Fix16)right, Is.EqualTo((Fix16)( left - right )));
+
+        [Test, Sequential, Category("op_Subtraction")]
+        public void SubtractionTest2([Values(0.5, 1, -10, 7, -3, null)] double? left,
+                                  [Values(0.25, 2, 3, -1, -5, 0)] double right) =>
+            Assert.That((Fix16?)left - (Fix16)right, Is.EqualTo((Fix16?)( left - right )));
+
+        [Test, Sequential, Category("op_Subtraction")]
+        public void SubtractionTest3([Values(0.5, 1, -10, 7, -3, 0)] double left,
+                                  [Values(0.25, 2, 3, -1, -5, null)] double? right) =>
+            Assert.That((Fix16)left - (Fix16?)right, Is.EqualTo((Fix16?)( left - right )));
+
+        [Test, Sequential, Category("op_Subtraction")]
+        public void SubtractionTest4([Values(0.5, 1, -10, 7, -3, 0, null, null)] double? left,
+                                  [Values(0.25, 2, 3, -1, -5, null, null, 0)] double? right) =>
+            Assert.That((Fix16?)left - (Fix16?)right, Is.EqualTo((Fix16?)( left - right )));
+
+        [Test, Sequential, Category("Lerp")]
+        public void LerpTest([Values(10, 1)] double left,
+                             [Values(11, 3)] double right,
+                             [Values(0x80, 0x20)] byte fraction,
+                             [Values(10.5, 1.25)] double expected) =>
+            Assert.That(Fix16.Lerp((Fix16)left, (Fix16)right, fraction), Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("Lerp")]
+        public void LerpTest2([Values(10, 1)] double left,
+                              [Values(11, 3)] double right,
+                              [Values((ushort)0x8000u, (ushort)0x2000)] ushort fraction,
+                              [Values(10.5, 1.25)] double expected) =>
+            Assert.That(Fix16.Lerp((Fix16)left, (Fix16)right, fraction), Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("Lerp")]
+        public void LerpTest3([Values(10, 1)] double left,
+                              [Values(11, 3)] double right,
+                              [Values(0x80000000u, 0x20000000u)] uint fraction,
+                              [Values(10.5, 1.25)] double expected) =>
+            Assert.That(Fix16.Lerp((Fix16)left, (Fix16)right, fraction), Is.EqualTo((Fix16)expected));
+
+        [TestCaseSource("ExpSource")]
+        [Category("Exp")]
+        public void ExpTest(Fix16 value) =>
+            Assert.That(Fix16.Exp(value), Is.EqualTo(Math.Exp((double)value) >= (double)Fix16.MaxValue ? Fix16.MaxValue : (Fix16)Math.Exp((double)value)).Using<Fix16>((a,b) => Fix16.Equals(a, b, Fix16.Epsilon * new Fix16(5))));
+
+        [TestCaseSource("SqrtSource")]
+        [Category("Sqrt")]
+        public void SqrtTest(Fix16 value, Fix16 expected) =>
+            Assert.That(Fix16.Sqrt(value), Is.EqualTo(expected));
+
+        [TestCaseSource("SinSource")]
+        [Category("Sin")]
+        public void SinTest([Random(-Math.PI, Math.PI, 10)] double value) =>
+            Assert.That(Fix16.Sin((Fix16)value), Is.EqualTo((Fix16)Math.Sin(value)).Using<Fix16>((a,b) => Fix16.Equals(a, b, (Fix16)0.007)));
+
+        [Test]
+        [Category("Sin")]
+        public void SinTest2() =>
+            Assert.That(Fix16.Sin(Fix16.Zero), Is.EqualTo(Fix16.Sin(Fix16.Zero)));
+
+        [TestCaseSource("SinSource")]
+        [Category("Cos")]
+        public void CosTest([Random(-Math.PI, Math.PI, 10)] double value) =>
+            Assert.That(Fix16.Cos((Fix16)value), Is.EqualTo((Fix16)Math.Cos(value)).Using<Fix16>((a, b) => Fix16.Equals(a, b, (Fix16)0.007)));
+
+        [Test]
+        [Category("Tan")]
+        public void TanTest([Random(-1.45, 1.45, 10)] double value) =>
+            Assert.That(Fix16.Tan((Fix16)value), Is.EqualTo((Fix16)Math.Tan(value)).Using<Fix16>((a, b) => Fix16.Equals(a, b, (Fix16)0.6)));
+
+        [Test]
+        [Category("Tan")]
+        public void TanTest2() =>
+            Assert.That(Fix16.Tan(Fix16.Pi / (Fix16)2), Is.Null);
+
+        [Test]
+        [Category("Asin")]
+        public void AsinTest([Values(1.0)][Random(-65535.0/65536, 65535/65536, 10)] double value) =>
+            Assert.That(Fix16.Asin((Fix16)value), Is.EqualTo((Fix16)Math.Asin(value)).Using<Fix16>((a, b) => Fix16.Equals(a, b, (Fix16)0.011)));
+
+        [Test]
+        [Category("Asin")]
+        public void AsinTest2() =>
+            Assert.That(Fix16.Asin((Fix16)1.1), Is.Null);
+
+        [Test]
+        [Category("Acos")]
+        public void AcosTest([Random(-65535.0/65536, 65535/65536, 10)] double value) =>
+            Assert.That(Fix16.Acos((Fix16)value), Is.EqualTo((Fix16)Math.Acos(value)).Using<Fix16>((a, b) => Fix16.Equals(a, b, (Fix16)0.011)));
+
+        [TestCaseSource("SinSource")]
+        [Category("Atan")]
+        public void AtanTest([Random(-Math.PI, Math.PI, 10)] double value) =>
+            Assert.That(Fix16.Atan((Fix16)value), Is.EqualTo((Fix16)Math.Atan(value)).Using<Fix16>((a, b) => Fix16.Equals(a, b, (Fix16)0.011)));
+
+        [Test]
+        [Category("Atan")]
+        public void AtanTest2() =>
+            Assert.That(Fix16.Atan(Fix16.Zero), Is.EqualTo(Fix16.Atan(Fix16.Zero)));
+
+        [Test]
+        [Category("GetTypeCode")]
+        public void GetTypeCodeTest() =>
+            Assert.That(Fix16.Zero.GetTypeCode(), Is.EqualTo((TypeCode)100));
+
+        [Test]
+        [Category("ToChar")]
+        public void ToChar_throws_InvalidCastExceptionTest() =>
+            Assert.Throws<InvalidCastException>(() => Fix16.Zero.ToChar(null));
+
+        [Test]
+        [Category("ToDateTime")]
+        public void ToDateTime_throws_InvalidCastExceptionTest() =>
+            Assert.Throws<InvalidCastException>(() => Fix16.Zero.ToDateTime(null));
+
+        [TestCaseSource("EqualsSource1")]
+        [Category("Equals")]
+        public void EqualsTest(object value, bool expected) =>
+            Assert.That(Fix16.One.Equals(value), Is.EqualTo(expected));
+
+        [Test]
+        [Category("GetHashCode")]
+        public void GetHashCodeTest() =>
+            Assert.That(Fix16.Pi.GetHashCode(), Is.EqualTo(HashCode.Combine(205887, 2)));
+
+        [TestCaseSource("CompareToSource1")]
+        [Category("CompareTo")]
+        public void CompareToTest(object? value, IResolveConstraint expected) =>
+            Assert.That(Fix16.One.CompareTo(value), expected);
+
+        [Test, Category("CompareTo")]
+        public void CompareTo_is_not_Fix16_throws_ArgumentExceptionTest() =>
+            Assert.Throws<ArgumentException>(() => Fix16.One.CompareTo(1));
+
+        [TestCaseSource("CompareToSource2")]
+        [Category("CompareTo")]
+        public void CompareToTest2(Fix16 value, IResolveConstraint expected) =>
+            Assert.That(Fix16.One.CompareTo(value), expected);
+
+        [TestCaseSource("EqualsSource2")]
+        public void EqualsTest2(Fix16 value, Fix16 delta, bool expected) =>
+            Assert.That(Fix16.Equals(Fix16.One, value, delta), Is.EqualTo(expected));
     }
 }

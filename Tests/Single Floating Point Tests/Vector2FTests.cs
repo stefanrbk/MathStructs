@@ -365,7 +365,7 @@ namespace Tests
         }
 
         // A test for Dot (Vector2f, Vector2f)
-        // Dot test with specail float values
+        // Dot test with special float values
         [Test]
         public void Vector2DotTest2()
         {
