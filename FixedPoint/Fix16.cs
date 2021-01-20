@@ -1,8 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.Arm;
+using System.Runtime.Intrinsics.X86;
 
 namespace System
 {
+    public delegate Fix16 OverflowFunc(Fix16 left, Fix16 right, Fix16 opResult);
+
     [StructLayout(LayoutKind.Explicit, Size = 4)]
     public unsafe struct Fix16 : IComparable, IComparable<Fix16>, IConvertible, IEquatable<Fix16>, IFormattable
     {
@@ -91,53 +95,121 @@ namespace System
         public unsafe static explicit operator Half(Fix16 value) =>
             (Half)( *(int*)&value / 65536.0 );
 
-        public unsafe static Fix16 operator -(Fix16 value) =>
-            Raw(-*(int*)&value);
-        public static Fix16? operator -(Fix16? value) =>
-            Raw(-value?._value);
-        public unsafe static Fix16 operator +(Fix16 left, Fix16 right) =>
-            Raw(*(int*)&left + *(int*)&right);
-        public static Fix16? operator +(Fix16? left, Fix16 right) =>
-            Raw(left?._value + right._value);
-        public static Fix16? operator +(Fix16 left, Fix16? right) =>
-            Raw(left._value + right?._value);
-        public static Fix16? operator +(Fix16? left, Fix16? right) =>
-            Raw(left?._value + right?._value);
-        public unsafe static Fix16 operator -(Fix16 left, Fix16 right) =>
-            Raw(*(int*)&left - *(int*)&right);
-        public static Fix16? operator -(Fix16? left, Fix16? right) =>
-            Raw(left?._value - right?._value);
-        public static Fix16? operator -(Fix16? left, Fix16 right) =>
-            Raw(left?._value - right._value);
-        public static Fix16? operator -(Fix16 left, Fix16? right) =>
-            Raw(left._value - right?._value);
-        public static Fix16 operator *(Fix16 left, Fix16 right)
+        private unsafe static Fix16 ThrowIfChecked(Fix16 _1, Fix16 _2, Fix16 value)
         {
+            var i = *(int*)&value;
+            i += Int32.MaxValue;
+            i += Int32.MaxValue;
+            i += 2;
+            return *(Fix16*)&i;
+        }
+
+        private static Fix16 SAddSub(Fix16 left, Fix16 right, Fix16 opResult) =>
+            ( opResult == MinValue )
+            ? ( left > Zero )
+                ? MaxValue
+                : MinValue
+            : opResult;
+
+        private static Fix16 SMulDiv(Fix16 left, Fix16 right, Fix16 opResult) =>
+            ( opResult == MinValue )
+                ? ( ( left >= Zero ) == ( right >= Zero ) )
+                    ? MaxValue
+                    : MinValue
+                : opResult;
+
+        public static Fix16 SaturatedAdd(Fix16 left, Fix16 right)
+        {
+            unchecked
+            {
+                return Add(left, right, SAddSub);
+            }
+        }
+
+        public static Fix16 SaturatedSubtract(Fix16 left, Fix16 right)
+        {
+            unchecked
+            {
+                return Subtract(left, right, SAddSub);
+            }
+        }
+
+        public static Fix16 SaturatedMultiply(Fix16 left, Fix16 right)
+        {
+            unchecked
+            {
+                return Multiply(left, right, SMulDiv);
+            }
+        }
+
+        public static Fix16 SaturatedDivide(Fix16 left, Fix16 right) =>
+            Divide(left, right, SMulDiv);
+
+        public static Fix16 Add(Fix16 left, Fix16 right) =>
+            Add(left, right, ThrowIfChecked);
+
+        public static Fix16 Subtract(Fix16 left, Fix16 right) =>
+            Subtract(left, right, ThrowIfChecked);
+
+        public static Fix16 Multiply(Fix16 left, Fix16 right) =>
+            Multiply(left, right, ThrowIfChecked);
+
+        public static Fix16 Divide(Fix16 left, Fix16 right) =>
+            Divide(left, right, ThrowIfChecked);
+
+        private unsafe static Fix16 Add(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
+        {
+            var l = *(int*)&left;
+            var r = *(int*)&right;
+            var result = l+r;
+
+            if (((~(l^r))&0x80000000 & (l^result)&0x80000000) is not 0)
+                return overflowFunc(left, right, Raw(result));
+
+            return Raw(result);
+        }
+
+        private unsafe static Fix16 Subtract(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
+        {
+            var l = *(int*)&left;
+            var r = *(int*)&right;
+            var result = l-r;
+
+            if (( ( l^r )&0x80000000 & ( l^result )&0x80000000 ) is not 0)
+                return overflowFunc(left, right, Raw(result));
+
+            return Raw(result);
+        }
+
+        private unsafe static Fix16 Multiply(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
+        {
+            var overflow = false;
             var product = (long)*(int*)&left * *(int*)&right;
 
             // The upper 17 bits should all be the same (the sign).
             var upper = product >> 47;
 
             if (product < 0)
+            {
+                if (( ~upper ) is not 0)
+                    overflow = true;
+
                 product--;
+            }
+            else if (upper is not 0)
+                overflow = true;
 
             var result = (int)(product >> 16);
             result += (int)( product & 0x8000 ) >> 15;
 
-            return new Fix16() { _value = result };
+            return overflow
+                ? overflowFunc(left, right, *(Fix16*)&result)
+                : *(Fix16*)&result;
         }
-        public static Fix16? operator *(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue ? left.Value * right.Value : null;
-        public static Fix16? operator *(Fix16? left, Fix16 right) =>
-            left.HasValue ? left.Value * right : null;
-        public static Fix16? operator *(Fix16 left, Fix16? right) =>
-            right.HasValue ? left * right.Value : null;
-        public static Fix16 operator /(Fix16 left, Fix16 right)
+
+        private unsafe static Fix16 Divide(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
         {
-            // This uses the basic binary restoring division algorithm.
-            // It appears to be faster to do the whole division manually than
-            // trying to compose a 64-bit divide out of 32-bit divisions on
-            // platforms without hardware divide.
+            var overflow = false;
 
             if (right == Zero)
                 throw new DivideByZeroException();
@@ -147,60 +219,99 @@ namespace System
             var remainder = a >= 0 ? a : -a;
             var divider = b >= 0 ? b : -b;
             var quotient = 0;
-            var bit = 0x10000;
+            var bitPos = 17;
 
-            // The algorithm requires D >= R
-            while (divider < remainder)
+            if ((divider & 0xFFF00000) is not 0)
             {
-                divider <<= 1;
-                bit <<= 1;
+                var shiftedDiv = (divider >> 17) + 1;
+                quotient = remainder / shiftedDiv;
+                remainder -= (int)( (long)quotient * divider ) >> 17;
             }
 
-            if (bit == 0)
-                return Zero;
-
-            if ((divider & 0x80000000) != 0)
+            while ((divider & 0xF) is 0 && bitPos >= 4)
             {
-                // Perform one step manually to avoid overflows later.
-                // We know that divider's bottom bit is 0 here.
-                if (remainder >= divider)
-                {
-                    quotient |= bit;
-                    remainder -= divider;
-                }
-                divider >>= 1;
-                bit >>= 1;
+                divider >>= 4;
+                bitPos -= 4;
             }
 
-            // Main division loop
-            while (bit != 0 && remainder != 0)
+            while (remainder is not 0 && bitPos >= 0)
             {
-                if (remainder >= divider)
-                {
-                    quotient |= bit;
-                    remainder -= divider;
-                }
+                // Shift remainder as much as we can without overflowing
+                var shift = (int)Clz((uint)remainder);
+                if (shift > bitPos) shift = bitPos;
+                remainder <<= shift;
+                bitPos -= shift;
+
+                var div = remainder / divider;
+                remainder %= divider;
+                quotient += div << bitPos;
+
+                if (( div & ~( -1 >> bitPos ) ) is not 0)
+                    overflow = true;
 
                 remainder <<= 1;
-                bit >>= 1;
+                bitPos--;
             }
 
-            if (remainder >= divider)
-                quotient++;
+            quotient++;
 
-            var result = Fix16.Raw(quotient);
+            var result = quotient >> 1;
 
-            // Figure out the sign of result
-            if (((a ^ b) & 0x80000000) != 0)
+            if (((a^b)&0x80000000) is not 0)
             {
-                if (quotient == Int32.MinValue)
-                    return Zero;
+                if (result == Int32.MinValue)
+                    overflow = true;
 
                 result = -result;
             }
 
-            return result;
+            return overflow
+                ? overflowFunc(left, right, *(Fix16*)&result)
+                : *(Fix16*)&result;
         }
+
+        private static byte Clz(uint x)
+        {
+            if (Lzcnt.IsSupported)
+                return (byte)Lzcnt.LeadingZeroCount(x);
+            else if (ArmBase.IsSupported)
+                return (byte)ArmBase.LeadingZeroCount(x);
+            else
+            {
+                var result = (byte)0;
+                if (x == 0) return 32;
+                while (( x & 0xF0000000 ) is 0) { result += 4; x <<= 4; }
+                while (( x & 0x80000000 ) is 0) { result += 1; x <<=1; }
+                return result;
+            }
+        }
+
+        public unsafe static Fix16 operator -(Fix16 value) =>
+            Raw(-*(int*)&value);
+        public static Fix16? operator -(Fix16? value) =>
+            value is null
+                ? null
+                : Raw(-*(int*)&value);
+        public static Fix16 operator +(Fix16 left, Fix16 right) =>
+            Add(left, right);
+        public static Fix16? operator +(Fix16? left, Fix16? right) =>
+            (left is null || right is null)
+                ? null
+                : Add(left.Value, right.Value);
+        public static Fix16 operator -(Fix16 left, Fix16 right) =>
+            Subtract(left, right);
+        public static Fix16? operator -(Fix16? left, Fix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Subtract(left.Value, right.Value);
+        public static Fix16 operator *(Fix16 left, Fix16 right) =>
+            Multiply(left, right);
+        public static Fix16? operator *(Fix16? left, Fix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Multiply(left.Value, right.Value);
+        public static Fix16 operator /(Fix16 left, Fix16 right) =>
+            Divide(left, right);
         public static Fix16? operator /(Fix16? left, Fix16? right) =>
             left.HasValue && right.HasValue ? left.Value / right.Value : null;
         public static Fix16? operator /(Fix16? left, Fix16 right) =>
