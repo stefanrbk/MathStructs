@@ -12,7 +12,7 @@ namespace System.Tests
     public class Fix16Tests
     {
         #region Test Setup
-        public const double Fix16Max = 32767+65535/65536.0;
+        public const double Fix16Max = 32767+(65535/65536.0);
 
         public const double Fix16Min = -32768;
 
