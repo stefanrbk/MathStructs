@@ -707,17 +707,17 @@ namespace System.Tests
         public void ThreePiDivFour() =>
             Assert.That(UFix16.ThreePiDivFour, Is.EqualTo((UFix16)( 3 * Math.PI / 4 )));
 
-        //    [Test, Category("ctor")]
-        //    public void CtorTest() =>
-        //        Assert.That(new UFix16(20), Is.EqualTo(UFix16.Raw(20<<16)));
+        [Test, Category("ctor")]
+        public void CtorTest() =>
+            Assert.That(new UFix16(20), Is.EqualTo(UFix16.Raw(20<<16)));
 
-        //    [Test, Category("ctor")]
-        //    public void CtorTest2() =>
-        //        Assert.That(new UFix16(2.5), Is.EqualTo(UFix16.Raw(5<<15)));
+        [Test, Category("ctor")]
+        public void CtorTest2() =>
+            Assert.That(new UFix16(2.5), Is.EqualTo(UFix16.Raw(5<<15)));
 
-        //    [Test, Category("ctor")]
-        //    public void CtorTest3() =>
-        //        Assert.That(new UFix16(0.25m), Is.EqualTo(UFix16.Raw(1<<14)));
+        [Test, Category("ctor")]
+        public void CtorTest3() =>
+            Assert.That(new UFix16(0.25m), Is.EqualTo(UFix16.Raw(1<<14)));
 
         //    [Test, Sequential, Category("SaturatedAdd")]
         //    public void SaturatedAddTest([Values(30000, -30000, -30000)] double left,
