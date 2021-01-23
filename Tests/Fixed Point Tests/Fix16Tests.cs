@@ -685,6 +685,18 @@ namespace System.Tests
         public void E() =>
             Assert.That(Fix16.E, Is.EqualTo((Fix16)Math.E));
 
+        [Test, Category("One")]
+        public void One() =>
+            Assert.That(Fix16.One, Is.EqualTo((Fix16)1));
+
+        [Test, Category("Zero")]
+        public void Zero() =>
+            Assert.That(Fix16.Zero, Is.EqualTo((Fix16)0));
+
+        [Test, Category("NegOne")]
+        public void NegOne() =>
+            Assert.That(Fix16.NegOne, Is.EqualTo((Fix16)(-1)));
+
         [Test, Category("FourDivPi")]
         public void FourDivPi() =>
             Assert.That(Fix16.FourDivPi, Is.EqualTo((Fix16)( 4 / Math.PI )));
