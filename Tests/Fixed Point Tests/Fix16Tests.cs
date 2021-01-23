@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
@@ -10,6 +11,11 @@ namespace System.Tests
     [TestFixture]
     public class Fix16Tests
     {
+        #region Test Setup
+        public const double Fix16Max = 32767+65535/65536.0;
+
+        public const double Fix16Min = -32768;
+
         public static readonly Fix16[] Fix16ConversionSource = new Fix16[10]
     {
         Fix16.Raw(0),
@@ -612,8 +618,8 @@ namespace System.Tests
             (double)(Fix16.Pi + (Fix16)0.2),
             (double)-Fix16.Pi,
             (double)(-Fix16.Pi -(Fix16)0.2),
-            (double)(Fix16.Pi / (Fix16)2),
-            (double)(-Fix16.Pi / (Fix16)2),
+            1.57080078125,
+            -1.57080078125,
         };
 
         public static readonly object[] EqualsSource1 = new object[]
@@ -657,54 +663,81 @@ namespace System.Tests
                 };
             }
         }
+        #endregion Test Setup
 
-        [Test]
-        [Category("Epsilon")]
+        [Test, Category("Epsilon")]
         public void Epsilon() =>
             Assert.That(Fix16.Epsilon, Is.EqualTo(Fix16.Raw(1)));
 
-        [Test]
-        [Category("MaxValue")]
+        [Test, Category("MaxValue")]
         public void MaxValue() =>
             Assert.That(Fix16.MaxValue, Is.EqualTo(Fix16.Raw(Int32.MaxValue)));
 
-        [Test]
-        [Category("MinValue")]
+        [Test, Category("MinValue")]
         public void MinValue() =>
             Assert.That(Fix16.MinValue, Is.EqualTo(Fix16.Raw(Int32.MinValue)));
 
-        [Test]
-        [Category("Pi")]
+        [Test, Category("Pi")]
         public void Pi() =>
             Assert.That(Fix16.Pi, Is.EqualTo((Fix16)Math.PI));
 
-        [Test]
-        [Category("E")]
+        [Test, Category("E")]
         public void E() =>
             Assert.That(Fix16.E, Is.EqualTo((Fix16)Math.E));
 
-        [Test]
-        [Category("FourDivPi")]
+        [Test, Category("FourDivPi")]
         public void FourDivPi() =>
             Assert.That(Fix16.FourDivPi, Is.EqualTo((Fix16)( 4 / Math.PI )));
 
-        [Test]
-        [Category("FourDivPi2")]
+        [Test, Category("FourDivPi2")]
         public void FourDivPi2() =>
             Assert.That(Fix16.FourDivPi2, Is.EqualTo((Fix16)Math.Pow(4 / Math.PI, 2)));
 
-        [Test]
-        [Category("PiDivFour")]
+        [Test, Category("PiDivFour")]
         public void PiDivFour() =>
             Assert.That(Fix16.PiDivFour, Is.EqualTo((Fix16)( Math.PI / 4 )));
 
-        [Test]
-        [Category("ThreePiDivFour")]
+        [Test, Category("ThreePiDivFour")]
         public void ThreePiDivFour() =>
             Assert.That(Fix16.ThreePiDivFour, Is.EqualTo((Fix16)( 3 * Math.PI / 4 )));
 
-        [Test]
-        [Category("ToString")]
+        [Test, Category("ctor")]
+        public void CtorTest() =>
+            Assert.That(new Fix16(20), Is.EqualTo(Fix16.Raw(20<<16)));
+
+        [Test, Category("ctor")]
+        public void CtorTest2() =>
+            Assert.That(new Fix16(2.5), Is.EqualTo(Fix16.Raw(5<<15)));
+
+        [Test, Category("ctor")]
+        public void CtorTest3() =>
+            Assert.That(new Fix16(0.25m), Is.EqualTo(Fix16.Raw(1<<14)));
+
+        [Test, Sequential, Category("SaturatedAdd")]
+        public void SaturatedAddTest([Values(30000, -30000, -30000)] double left,
+                                     [Values(10000, -10000,  10000)] double right,
+                                     [Values(Fix16Max, Fix16Min, -20000)] double expected) =>
+            Assert.That(Fix16.SaturatedAdd((Fix16)left, (Fix16)right), Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("SaturatedSubtract")]
+        public void SaturatedSubtractTest([Values(30000, -30000, -10000)] double left,
+                                          [Values(-10000, 10000, 10000)] double right,
+                                          [Values(Fix16Max, Fix16Min, -20000)] double expected) =>
+            Assert.That(Fix16.SaturatedSubtract((Fix16)left, (Fix16)right), Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("SaturatedMultiply")]
+        public void SaturatedMultiplyTest([Values(30, -30, 30000)] double left,
+                                          [Values(10, 30000, 2)] double right,
+                                          [Values(300, Fix16Min, Fix16Max)] double expected) =>
+            Assert.That(Fix16.SaturatedMultiply((Fix16)left, (Fix16)right), Is.EqualTo((Fix16)expected));
+
+        [Test, Sequential, Category("SaturatedDivide")]
+        public void SaturatedDivideTest([Values(30, -10000, 30000)] double left,
+                                        [Values(10, 0.125, 0.5)] double right,
+                                        [Values(3, Fix16Min, Fix16Max)] double expected) =>
+            Assert.That(Fix16.SaturatedDivide((Fix16)left, (Fix16)right), Is.EqualTo((Fix16)expected));
+
+        [Test, Category("ToString")]
         public void ToStringTest() =>
             Assert.That(new Fix16(2.5).ToString(), Is.EqualTo("2.5"));
 
@@ -950,51 +983,27 @@ namespace System.Tests
             Assert.That((Fix16)left * (Fix16)right, Is.EqualTo((Fix16)expected));
 
         [Test, Sequential, Category("op_Multiplication")]
-        public void MultiplicationTest2([Values(null, 2.5, Int32.MaxValue)] double? left,
-                                        [Values(10, 11, 1.0 / 65535)] double right,
-                                        [Values(null, 27.5, -0.5)] double? expected) =>
-            Assert.That((Fix16?)left * (Fix16)right, Is.EqualTo((Fix16?)expected));
-
-        [Test, Sequential, Category("op_Multiplication")]
-        public void MultiplicationTest3([Values(10, 2.5, Int32.MaxValue)] double left,
-                                        [Values(null, 11, 1.0 / 65535)] double? right,
-                                        [Values(null, 27.5, -0.5)] double? expected) =>
-            Assert.That((Fix16)left * (Fix16?)right, Is.EqualTo((Fix16?)expected));
-
-        [Test, Sequential, Category("op_Multiplication")]
         public void MultiplicationTest4([Values(null, null, 10, 2.5, Int32.MaxValue)] double? left,
                                         [Values(10, null, null, 11, 1.0 / 65535)] double? right,
                                         [Values(null, null, null, 27.5, -0.5)] double? expected) =>
             Assert.That((Fix16?)left * (Fix16?)right, Is.EqualTo((Fix16?)expected));
 
         [Test, Sequential, Category("op_Division")]
-        public void DivisionTest([Values(27.5, -10, 2000)] double left,
-                                 [Values(11, 2, -1000)] double right,
-                                 [Values(2.5, -5, -2)] double expected) =>
+        public void DivisionTest([Values(27.5, -10, 2000, 16384)] double left,
+                                 [Values(11, 2, -1000, 0.25)] double right,
+                                 [Values(2.5, -5, -2, 0)] double expected) =>
             Assert.That((Fix16)left / (Fix16)right, Is.EqualTo((Fix16)expected));
 
         [Test, Sequential, Category("op_Division")]
-        public void DivisionTest2([Values(null, 27.5, -10, 2000)] double? left,
-                                  [Values(10, 11, 2, -1000)] double right,
-                                  [Values(null, 2.5, -5, -2)] double? expected) =>
-            Assert.That((Fix16?)left / (Fix16)right, Is.EqualTo((Fix16?)expected));
-
-        [Test, Sequential, Category("op_Division")]
-        public void DivisionTest3([Values(10, 27.5, -10, 2000)] double left,
-                                  [Values(null, 11, 2, -1000)] double? right,
-                                  [Values(null, 2.5, -5, -2)] double? expected) =>
-            Assert.That((Fix16)left / (Fix16?)right, Is.EqualTo((Fix16?)expected));
-
-        [Test, Sequential, Category("op_Division")]
-        public void DivisionTest4([Values(10, null, null, 27.5, -10, 2000)] double? left,
-                                  [Values(null, null, 10, 11, 2, -1000)] double? right,
+        public void DivisionTest2([Values(10, null, null, 27.5, -10, 2)] double? left,
+                                  [Values(null, null, 10, 11, 2, -1)] double? right,
                                   [Values(null, null, null, 2.5, -5, -2)] double? expected) =>
             Assert.That((Fix16?)left / (Fix16?)right, Is.EqualTo((Fix16?)expected));
 
-        [Test, Sequential, Category("op_NullableDivideBy")]
-        public void DivisionTest5([Values(1, 10, null, null, 27.5, -10, 2000)] double? left,
-                                  [Values(0, null, null, 10, 11, 2, -1000)] double? right,
-                                  [Values(null, null, null, null, 2.5, -5, -2)] double? expected) =>
+        [Test, Sequential, Category("NullableDivideBy")]
+        public void NullableDivideByTest([Values(1, 10, null, null, 27.5, -10, 2)] double? left,
+                                         [Values(0, null, null, 10, 11, 2, -1)] double? right,
+                                         [Values(null, null, null, null, 2.5, -5, -2)] double? expected) =>
             Assert.That(Fix16.NullableDivideBy((Fix16?)left, (Fix16?)right), Is.EqualTo((Fix16?)expected));
 
         [Test]
@@ -1261,6 +1270,10 @@ namespace System.Tests
         [Category("Atan")]
         public void AtanTest([Random(-Math.PI, Math.PI, 10)] double value) =>
             Assert.That(Fix16.Atan((Fix16)value), Is.EqualTo((Fix16)Math.Atan(value)).Using<Fix16>((a, b) => Fix16.Equals(a, b, (Fix16)0.011)));
+
+        [Test, Category("Atan2")]
+        public void Atan2Test([Random(-Math.PI, Math.PI, 10)]double x, [Random(-Math.PI, Math.PI, 10)] double y) =>
+            Assert.That(Fix16.Atan2((Fix16)y, (Fix16)x), Is.EqualTo((Fix16)Math.Atan2(y, x)).Using<Fix16>((a,b) => Fix16.Equals(a, b, (Fix16)0.011)));
 
         [Test]
         [Category("Atan")]
