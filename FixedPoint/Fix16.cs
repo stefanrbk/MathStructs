@@ -10,12 +10,14 @@ namespace System
     internal delegate Fix16 OverflowFunc(Fix16 left, Fix16 right, Fix16 opResult);
 
     [StructLayout(LayoutKind.Explicit, Size = 4)]
-    [DebuggerDisplay("{ToString()}")]
+    [DebuggerDisplay("{Debug}")]
     public unsafe struct Fix16 : IComparable, IComparable<Fix16>, IConvertible, IEquatable<Fix16>, IFormattable
     {
         [FieldOffset(0)]
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int _value;
+
+        #region Trig Cache
 
         private static readonly Fix16[] expCacheIndex = new Fix16[4096];
         private static readonly Fix16[] expCacheValue = new Fix16[4096];
@@ -23,27 +25,12 @@ namespace System
         private static readonly Fix16[] sinCacheValue = new Fix16[4096];
         private static readonly (Fix16 x, Fix16 y)[] atanCacheIndex = new (Fix16,Fix16)[4096];
         private static readonly Fix16[] atanCacheValue = new Fix16[4096];
-        private static readonly Dictionary<string, Func<Fix16, IFormatProvider?, object>> toTypeMap = new();
 
-        static Fix16()
-        {
-            toTypeMap.Add(typeof(void).FullName!, (v, p) => throw new ArgumentNullException());
-            toTypeMap.Add(typeof(bool).FullName!, (v, p) => v.ToBoolean(p));
-            toTypeMap.Add(typeof(sbyte).FullName!, (v, p) => v.ToSByte(p));
-            toTypeMap.Add(typeof(byte).FullName!, (v, p) => v.ToByte(p));
-            toTypeMap.Add(typeof(short).FullName!, (v, p) => v.ToInt16(p));
-            toTypeMap.Add(typeof(ushort).FullName!, (v, p) => v.ToUInt16(p));
-            toTypeMap.Add(typeof(int).FullName!, (v, p) => v.ToInt32(p));
-            toTypeMap.Add(typeof(uint).FullName!, (v, p) => v.ToUInt32(p));
-            toTypeMap.Add(typeof(long).FullName!, (v, p) => v.ToInt64(p));
-            toTypeMap.Add(typeof(ulong).FullName!, (v, p) => v.ToUInt64(p));
-            toTypeMap.Add(typeof(Half).FullName!, (v, p) => v.ToHalf(p));
-            toTypeMap.Add(typeof(float).FullName!, (v, p) => v.ToSingle(p));
-            toTypeMap.Add(typeof(double).FullName!, (v, p) => v.ToDouble(p));
-            toTypeMap.Add(typeof(decimal).FullName!, (v, p) => v.ToDecimal(p));
-            toTypeMap.Add(typeof(string).FullName!, (v, p) => v.ToString(p));
-            toTypeMap.Add(typeof(object).FullName!, (v, p) => v);
-        }
+        #endregion Trig Cache
+
+        #region Constants
+
+        public TypeCode GetTypeCode() => (TypeCode)100;
 
         public static Fix16 Epsilon => new() { _value = 1 };
 
@@ -69,280 +56,121 @@ namespace System
 
         public static Fix16 ThreePiDivFour => new() { _value = 0x00025B30 };
 
-        public Fix16(int value) =>
+        #endregion Constants
+
+        #region Constructors
+
+        public Fix16(short value) =>
             _value = value << 16;
 
         public Fix16(double value) =>
-            _value = (int)( (value * 65536.0) + ( value < 0 ? -0.5 : 0.5 ) );
+            _value = (int)( ( value * 65536.0 ) + ( value < 0 ? -0.5 : 0.5 ) );
 
         public Fix16(decimal value) =>
-            _value = (int)( (value * 65536m) + ( value < 0 ? -0.5m : 0.5m ) );
+            _value = (int)( ( value * 65536m ) + ( value < 0 ? -0.5m : 0.5m ) );
 
-        public static explicit operator Fix16(ushort value) =>
-            new(value);
-        public static explicit operator Fix16(int value) =>
-            new(value);
-        public static explicit operator Fix16(uint value) =>
-            new((int)value);
-        public static explicit operator Fix16(long value) =>
-            new((int)value);
-        public static explicit operator Fix16(ulong value) =>
-            new((int)value);
-        public static explicit operator Fix16(Half value) =>
-            new((double)value);
-        public static explicit operator Fix16(double value) =>
-            new(value);
-        public static explicit operator Fix16(decimal value) =>
-            new(value);
+        #endregion Constructors
 
-        public static explicit operator byte(Fix16 value) =>
-            (byte)( *(int*)&value >> 16 );
-        public static explicit operator sbyte(Fix16 value) =>
-            (sbyte)( *(int*)&value >> 16 );
-        public static explicit operator short(Fix16 value) =>
-            (short)( *(int*)&value >> 16 );
-        public static explicit operator ushort(Fix16 value) =>
-            (ushort)( *(int*)&value >> 16 );
-        public static explicit operator int(Fix16 value) =>
-            *(int*)&value >> 16;
-        public static explicit operator uint(Fix16 value) =>
-            (ushort)value;
-        public static explicit operator long(Fix16 value) =>
-            *(int*)&value >> 16;
-        public static explicit operator ulong(Fix16 value) =>
-            (ushort)value;
-        public static explicit operator decimal(Fix16 value) =>
-            *(int*)&value / 65536.0m;
-        public static explicit operator double(Fix16 value) =>
-            *(int*)&value / 65536.0;
-        public static explicit operator float(Fix16 value) =>
-            (float)( *(int*)&value / 65536.0 );
-        public static explicit operator Half(Fix16 value) =>
-            (Half)( *(int*)&value / 65536.0 );
+        #region Static Math Functions
 
-        private static Fix16 ThrowIfChecked(Fix16 _1, Fix16 _2, Fix16 value)
+        #region Overflow Checked Math Functions
+
+        public static Fix16 CheckedAdd(Fix16 left, Fix16 right)
         {
-            var i = *(int*)&value;
-            i += Int32.MaxValue;
-            i += Int32.MaxValue;
-            i += 2;
-            return *(Fix16*)&i;
+            var value = Add(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
         }
 
-        private static Fix16 SAddSub(Fix16 left, Fix16 right, Fix16 _) =>
-            left > Zero
-                ? MaxValue
-                : MinValue;
+        public static Fix16 CheckedSubtract(Fix16 left, Fix16 right)
+        {
+            var value = Subtract(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
+        }
 
-        private static Fix16 SMulDiv(Fix16 left, Fix16 right, Fix16 opResult) =>
-            ( ( left >= Zero ) == ( right >= Zero ) )
-                ? MaxValue
-                : MinValue;
+        public static Fix16 CheckedMultiply(Fix16 left, Fix16 right)
+        {
+            var value = Multiply(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
+        }
 
-        public static Fix16 SaturatedAdd(Fix16 left, Fix16 right) =>
-            unchecked(Add(left, right, SAddSub));
+        public static Fix16 CheckedDivide(Fix16 left, Fix16 right)
+        {
+            var value = Divide(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
+        }
 
-        public static Fix16 SaturatedSubtract(Fix16 left, Fix16 right) =>
-            unchecked(Subtract(left, right, SAddSub));
+        #endregion
 
-        public static Fix16 SaturatedMultiply(Fix16 left, Fix16 right) =>
-            unchecked(Multiply(left, right, SMulDiv));
+        #region Min/Max Bounded Math Functions
 
-        public static Fix16 SaturatedDivide(Fix16 left, Fix16 right) =>
-            unchecked(Divide(left, right, SMulDiv));
+        public static Fix16 SaturatedAdd(Fix16 left, Fix16 right)
+        {
+            var value = Add(left, right, out var overflow);
+
+            return overflow
+                ? left >= 0
+                    ? MaxValue
+                    : MinValue
+                : value;
+        }
+
+        public static Fix16 SaturatedSubtract(Fix16 left, Fix16 right)
+        {
+            var value = Subtract(left, right, out var overflow);
+
+            return overflow
+                ? left >= 0
+                    ? MaxValue
+                    : MinValue
+                : value;
+        }
+
+        public static Fix16 SaturatedMultiply(Fix16 left, Fix16 right)
+        {
+            var value = Multiply(left, right, out var overflow);
+
+            return overflow
+                ? ( left >= 0 ) == ( right >= 0 )
+                    ? MaxValue
+                    : MinValue
+                : value;
+        }
+
+        public static Fix16 SaturatedDivide(Fix16 left, Fix16 right)
+        {
+            var value = Divide(left, right, out var overflow);
+
+            return overflow
+                ? ( left >= 0 ) == ( right >= 0 )
+                    ? MaxValue
+                    : MinValue
+                : value;
+        }
+
+        #endregion Min/Max Bounded Math Functions
+
+        #region Overflow Unchecked Math Functions
 
         public static Fix16 Add(Fix16 left, Fix16 right) =>
-            Add(left, right, ThrowIfChecked);
+            Add(left, right, out var _);
 
         public static Fix16 Subtract(Fix16 left, Fix16 right) =>
-            Subtract(left, right, ThrowIfChecked);
+            Subtract(left, right, out var _);
 
         public static Fix16 Multiply(Fix16 left, Fix16 right) =>
-            Multiply(left, right, ThrowIfChecked);
+            Multiply(left, right, out var _);
 
         public static Fix16 Divide(Fix16 left, Fix16 right) =>
-            Divide(left, right, ThrowIfChecked);
+            Divide(left, right, out var _);
 
-        private static Fix16 Add(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
-        {
-            var l = *(int*)&left;
-            var r = *(int*)&right;
-            var result = l+r;
-
-            if (((~(l^r))&0x80000000 & (l^result)&0x80000000) is not 0)
-                return overflowFunc(left, right, Raw(result));
-
-            return Raw(result);
-        }
-
-        private static Fix16 Subtract(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
-        {
-            var l = *(int*)&left;
-            var r = *(int*)&right;
-            var result = l-r;
-
-            if (( ( l^r )&0x80000000 & ( l^result )&0x80000000 ) is not 0)
-                return overflowFunc(left, right, Raw(result));
-
-            return Raw(result);
-        }
-
-        private static Fix16 Multiply(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
-        {
-            var overflow = false;
-            var product = (long)*(int*)&left * *(int*)&right;
-
-            // The upper 17 bits should all be the same (the sign).
-            var upper = product >> 47;
-
-            if (product < 0)
-            {
-                if (( ~upper ) is not 0)
-                    overflow = true;
-
-                product--;
-            }
-            else if (upper is not 0)
-                overflow = true;
-
-            var result = (int)(product >> 16);
-            result += (int)( product & 0x8000 ) >> 15;
-
-            return overflow
-                ? overflowFunc(left, right, *(Fix16*)&result)
-                : *(Fix16*)&result;
-        }
-
-        private static Fix16 Divide(Fix16 left, Fix16 right, OverflowFunc overflowFunc)
-        {
-            var overflow = false;
-
-            if (right == Zero)
-                throw new DivideByZeroException();
-
-            int a = *(int*)&left, b = *(int*)&right;
-
-            var remainder = (uint)((a >= 0) ? a : -a);
-            var divider = (uint)((b >= 0) ? b : -b);
-            var quotient = 0u;
-            var bitPos = 17;
-
-            while ((divider & 0xF) is 0 && bitPos >= 4)
-            {
-                divider >>= 4;
-                bitPos -= 4;
-            }
-
-            while (remainder is not 0 && bitPos >= 0)
-            {
-                // Shift remainder as much as we can without overflowing
-                var shift = (int)Clz(remainder);
-                if (shift > bitPos) shift = bitPos;
-                remainder <<= shift;
-                bitPos -= shift;
-
-                var div = remainder / divider;
-                remainder %= divider;
-                quotient += div << bitPos;
-
-                if (( div & ~( 0xFFFFFFFF >> bitPos ) ) is not 0)
-                    overflow = true;
-
-                remainder <<= 1;
-                bitPos--;
-            }
-
-            quotient++;
-
-            var result = quotient >> 1;
-
-            if (((a^b)&0x80000000) is not 0)
-                result = (uint)-(int)result;
-
-            return overflow
-                ? overflowFunc(left, right, *(Fix16*)&result)
-                : *(Fix16*)&result;
-        }
-
-        private static byte Clz(uint x)
-        {
-            byte result = 255;
-            var arch = RuntimeInformation.ProcessArchitecture;
-            if (arch is Architecture.X86 or Architecture.X64 && Lzcnt.IsSupported)
-                result = (byte)Lzcnt.LeadingZeroCount(x);
-            else
-                if (arch is Architecture.Arm or Architecture.Arm64 && ArmBase.IsSupported)
-                    result = (byte)ArmBase.LeadingZeroCount(x);
-#if DEBUG
-            var simd = result;
-#else
-            else
-#endif
-            {
-                result = 0;
-                if (x == 0) return 32;
-                    while (( x & 0xF0000000 ) is 0) { result += 4; x <<= 4; }
-                while (( x & 0x80000000 ) is 0) { result += 1; x <<=1; }
-            }
-#if DEBUG
-            if (simd is not 255 && simd != result)
-                throw new Exception($"SIMD result: \"{simd}\" does not match non-SIMD result: \"{result}\"");
-#endif
-            return result;
-        }
-
-        public static Fix16 operator -(Fix16 value) =>
-            Raw(-*(int*)&value);
-        public static Fix16? operator -(Fix16? value) =>
-            value is null
-                ? null
-                : Raw(-value.Value._value);
-        public static Fix16 operator +(Fix16 left, Fix16 right) =>
-            Add(left, right);
-        public static Fix16? operator +(Fix16? left, Fix16? right) =>
-            (left is null || right is null)
-                ? null
-                : Add(left.Value, right.Value);
-        public static Fix16 operator -(Fix16 left, Fix16 right) =>
-            Subtract(left, right);
-        public static Fix16? operator -(Fix16? left, Fix16? right) =>
-            ( left is null || right is null )
-                ? null
-                : Subtract(left.Value, right.Value);
-        public static Fix16 operator *(Fix16 left, Fix16 right) =>
-            Multiply(left, right);
-        public static Fix16? operator *(Fix16? left, Fix16? right) =>
-            ( left is null || right is null )
-                ? null
-                : Multiply(left.Value, right.Value);
-        public static Fix16 operator /(Fix16 left, Fix16 right) =>
-            Divide(left, right);
-        public static Fix16? operator /(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue ? left.Value / right.Value : null;
-        public static bool operator ==(Fix16 left, Fix16 right) =>
-            *(int*)&left == *(int*)&right;
-        public static bool operator ==(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value == right.Value._value;
-        public static bool operator !=(Fix16 left, Fix16 right) =>
-            *(int*)&left != *(int*)&right;
-        public static bool operator !=(Fix16? left, Fix16? right) =>
-            !left.HasValue || !right.HasValue || left.Value._value != right.Value._value;
-        public static bool operator >=(Fix16 left, Fix16 right) =>
-            *(int*)&left >= *(int*)&right;
-        public static bool operator >=(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value >= right.Value._value;
-        public static bool operator <=(Fix16 left, Fix16 right) =>
-            *(int*)&left <= *(int*)&right;
-        public static bool operator <=(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value <= right.Value._value;
-        public static bool operator >(Fix16 left, Fix16 right) =>
-            *(int*)&left > *(int*)&right;
-        public static bool operator >(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value > right.Value._value;
-        public static bool operator <(Fix16 left, Fix16 right) =>
-            *(int*)&left < *(int*)&right;
-        public static bool operator <(Fix16? left, Fix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value < right.Value._value;
+        public static Fix16? NullableDivideBy(Fix16? left, Fix16? right) =>
+            left is Fix16 fLeft
+                ? right is Fix16 fix
+                    ? fix != Zero
+                        ? Divide(fLeft, fix)
+                        : null
+                    : null
+                : null;
 
         public static Fix16 Lerp(Fix16 left, Fix16 right, byte fraction)
         {
@@ -468,8 +296,9 @@ namespace System
             return new Fix16() { _value = ( *(int*)&value + mask ) ^ mask };
         }
 
-        public static Fix16 Raw(int value) =>
-            new() { _value = value };
+        #endregion Overflow Unchecked Math Functions
+
+        #region Trig Functions
 
         public static Fix16 Sin(Fix16 angle)
         {
@@ -565,11 +394,344 @@ namespace System
         public static Fix16 Atan(Fix16 value) =>
             Atan2(value, One);
 
+        #endregion Trig Functions
+
+        #region Private Math Functions
+
+        private static Fix16 Add(Fix16 left, Fix16 right, out bool overflow)
+        {
+            overflow = false;
+            var l = *(int*)&left;
+            var r = *(int*)&right;
+            var result = l+r;
+
+            if (( ( ~( l^r ) )&0x80000000 & ( l^result )&0x80000000 ) is not 0)
+                overflow = true;
+
+            return Raw(result);
+        }
+
+        private static Fix16 Subtract(Fix16 left, Fix16 right, out bool overflow)
+        {
+            overflow = false;
+            var l = *(int*)&left;
+            var r = *(int*)&right;
+            var result = l-r;
+
+            if (( ( l^r )&0x80000000 & ( l^result )&0x80000000 ) is not 0)
+                overflow = true;
+
+            return Raw(result);
+        }
+
+        private static Fix16 Multiply(Fix16 left, Fix16 right, out bool overflow)
+        {
+            overflow = false;
+            var product = (long)*(int*)&left * *(int*)&right;
+
+            // The upper 17 bits should all be the same (the sign).
+            var upper = product >> 47;
+
+            if (product < 0)
+            {
+                if (( ~upper ) is not 0)
+                    overflow = true;
+
+                product--;
+            }
+            else if (upper is not 0)
+                overflow = true;
+
+            var result = (int)(product >> 16);
+            result += (int)( product & 0x8000 ) >> 15;
+
+            return *(Fix16*)&result;
+        }
+
+        private static Fix16 Divide(Fix16 left, Fix16 right, out bool overflow)
+        {
+            overflow = false;
+
+            if (right == Zero)
+                throw new DivideByZeroException();
+
+            int a = *(int*)&left, b = *(int*)&right;
+
+            var remainder = (uint)((a >= 0) ? a : -a);
+            var divider = (uint)((b >= 0) ? b : -b);
+            var quotient = 0u;
+            var bitPos = 17;
+
+            while (( divider & 0xF ) is 0 && bitPos >= 4)
+            {
+                divider >>= 4;
+                bitPos -= 4;
+            }
+
+            while (remainder is not 0 && bitPos >= 0)
+            {
+                // Shift remainder as much as we can without overflowing
+                var shift = (int)Clz(remainder);
+                if (shift > bitPos) shift = bitPos;
+                remainder <<= shift;
+                bitPos -= shift;
+
+                var div = remainder / divider;
+                remainder %= divider;
+                quotient += div << bitPos;
+
+                if (( div & ~( 0xFFFFFFFF >> bitPos ) ) is not 0)
+                    overflow = true;
+
+                remainder <<= 1;
+                bitPos--;
+            }
+
+            quotient++;
+
+            var result = quotient >> 1;
+
+            if (( ( a^b )&0x80000000 ) is not 0)
+                result = (uint)-(int)result;
+
+            return *(Fix16*)&result;
+        }
+
+        private static byte Clz(uint x)
+        {
+            byte result = 255;
+            var arch = RuntimeInformation.ProcessArchitecture;
+            if (arch is Architecture.X86 or Architecture.X64 && Lzcnt.IsSupported)
+                result = (byte)Lzcnt.LeadingZeroCount(x);
+            else
+                if (arch is Architecture.Arm or Architecture.Arm64 && ArmBase.IsSupported)
+                result = (byte)ArmBase.LeadingZeroCount(x);
+#if DEBUG
+            var simd = result;
+#else
+            else
+#endif
+            {
+                result = 0;
+                if (x == 0) return 32;
+                while (( x & 0xF0000000 ) is 0) { result += 4; x <<= 4; }
+                while (( x & 0x80000000 ) is 0) { result += 1; x <<=1; }
+            }
+#if DEBUG
+            if (simd is not 255 && simd != result)
+                throw new Exception($"SIMD result: \"{simd}\" does not match non-SIMD result: \"{result}\"");
+#endif
+            return result;
+        }
+
+        #endregion Private Math Functions
+
+        #endregion Static Math Functions
+
+        #region Operators
+
+        #region Math Operators
+
+        public static Fix16 operator -(Fix16 value) =>
+            Raw(-*(int*)&value);
+        public static Fix16? operator -(Fix16? value) =>
+            value is null
+                ? null
+                : Raw(-value.Value._value);
+        public static Fix16 operator +(Fix16 left, Fix16 right) =>
+            Add(left, right);
+        public static Fix16? operator +(Fix16? left, Fix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Add(left.Value, right.Value);
+        public static Fix16 operator -(Fix16 left, Fix16 right) =>
+            Subtract(left, right);
+        public static Fix16? operator -(Fix16? left, Fix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Subtract(left.Value, right.Value);
+        public static Fix16 operator *(Fix16 left, Fix16 right) =>
+            Multiply(left, right);
+        public static Fix16? operator *(Fix16? left, Fix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Multiply(left.Value, right.Value);
+        public static Fix16 operator /(Fix16 left, Fix16 right) =>
+            Divide(left, right);
+        public static Fix16? operator /(Fix16? left, Fix16? right) =>
+            left.HasValue && right.HasValue ? left.Value / right.Value : null;
+
+        #endregion Math Operators
+
+        #region Conditional Operators
+
+        public static bool operator ==(Fix16 left, Fix16 right) =>
+            *(int*)&left == *(int*)&right;
+        public static bool operator ==(Fix16? left, Fix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value == right.Value._value;
+        public static bool operator !=(Fix16 left, Fix16 right) =>
+            *(int*)&left != *(int*)&right;
+        public static bool operator !=(Fix16? left, Fix16? right) =>
+            !left.HasValue || !right.HasValue || left.Value._value != right.Value._value;
+        public static bool operator >=(Fix16 left, Fix16 right) =>
+            *(int*)&left >= *(int*)&right;
+        public static bool operator >=(Fix16? left, Fix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value >= right.Value._value;
+        public static bool operator <=(Fix16 left, Fix16 right) =>
+            *(int*)&left <= *(int*)&right;
+        public static bool operator <=(Fix16? left, Fix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value <= right.Value._value;
+        public static bool operator >(Fix16 left, Fix16 right) =>
+            *(int*)&left > *(int*)&right;
+        public static bool operator >(Fix16? left, Fix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value > right.Value._value;
+        public static bool operator <(Fix16 left, Fix16 right) =>
+            *(int*)&left < *(int*)&right;
+        public static bool operator <(Fix16? left, Fix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value < right.Value._value;
+
+        #endregion Conditional Operators
+
+        #region Cast Operators
+
+        #region Implicit From Fix16 Operators
+
+        public static implicit operator double(Fix16 value) =>
+            *(int*)&value / 65536.0;
+
+        #endregion Implicit From Fix16 Operators
+
+        #region Explicit From Fix16 Operators
+
+        public static explicit operator byte(Fix16 value) =>
+            (byte)( *(int*)&value >> 16 );
+        public static explicit operator sbyte(Fix16 value) =>
+            (sbyte)( *(int*)&value >> 16 );
+        public static explicit operator short(Fix16 value) =>
+            (short)( *(int*)&value >> 16 );
+        public static explicit operator ushort(Fix16 value) =>
+            (ushort)( *(int*)&value >> 16 );
+        public static explicit operator int(Fix16 value) =>
+            *(int*)&value >> 16;
+        public static explicit operator uint(Fix16 value) =>
+            (ushort)value;
+        public static explicit operator long(Fix16 value) =>
+            *(int*)&value >> 16;
+        public static explicit operator ulong(Fix16 value) =>
+            (ushort)value;
+        public static explicit operator decimal(Fix16 value) =>
+            *(int*)&value / 65536.0m;
+        public static explicit operator float(Fix16 value) =>
+            (float)( *(int*)&value / 65536.0 );
+        public static explicit operator Half(Fix16 value) =>
+            (Half)( *(int*)&value / 65536.0 );
+
+        #endregion Explicit From Fix16 Operators
+
+        #region Implicit To Fix16 Operators
+
+        public static implicit operator Fix16(byte value) =>
+            new(value);
+        public static implicit operator Fix16(short value) =>
+            new(value);
+
+        #endregion Implicit To Fix16 Operators
+
+        #region Explicit To Fix16 Operators
+
+        public static explicit operator Fix16(ushort value) =>
+            new((short)value);
+        public static explicit operator Fix16(int value) =>
+            new((short)value);
+        public static explicit operator Fix16(uint value) =>
+            new((short)value);
+        public static explicit operator Fix16(long value) =>
+            new((short)value);
+        public static explicit operator Fix16(ulong value) =>
+            new((short)value);
+        public static explicit operator Fix16(Half value) =>
+            new((double)value);
+        public static explicit operator Fix16(double value) =>
+            new(value);
+        public static explicit operator Fix16(decimal value) =>
+            new(value);
+
+        #endregion Explicit To Fix16 Operators
+
+        #endregion Cast Operators
+
+        #endregion Operators
+
+        #region Utility Functions
+
+        #region ToString
+
         public override string ToString() =>
             ToString(null, null);
 
         public string ToString(string? format, IFormatProvider? formatProvider) =>
             ( _value / 65536.0 ).ToString(format, formatProvider);
+
+        #endregion ToString
+
+        #region Equals
+
+        public override bool Equals(object? obj) =>
+            obj is Fix16 f && f == this;
+
+        public bool Equals([AllowNull] Fix16 other) =>
+            this == other;
+
+        public static bool Equals(Fix16 left, Fix16 right, Fix16 delta)
+        {
+            if (delta == Zero)
+                return left == right;
+            else
+                return Abs(left - right) <= delta;
+        }
+
+        #endregion Equals
+
+        #region GetHashCode
+
+        public override int GetHashCode() =>
+            HashCode.Combine(_value, 2);
+
+        #endregion GetHashCode
+
+        #region CompareTo
+
+        public int CompareTo(object? obj)
+        {
+            if (obj is null)
+                return 1;
+            if (obj is not Fix16)
+                throw new ArgumentException("Argument must be a Fix16", nameof(obj));
+            return ( this - (Fix16)obj )._value;
+        }
+
+        public int CompareTo([AllowNull] Fix16 other) =>
+            ( this - other )._value;
+
+        #endregion CompareTo
+
+        #region Raw
+
+        public static Fix16 Raw(int value) =>
+            new() { _value = value };
+
+        #endregion Raw
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private double Debug
+        {
+            get => this;
+            set => this = (Fix16)value;
+        }
+
+        #endregion Utility Functions
+
+        #region Explicit IConvertible Implementation
 
         public bool ToBoolean(IFormatProvider? provider) =>
             _value != 0;
@@ -605,7 +767,7 @@ namespace System
             ToString(null, provider);
 
         public object ToType(Type conversionType, IFormatProvider? provider) =>
-            toTypeMap.TryGetValue(conversionType?.FullName ?? typeof(void).FullName!, out var func)
+            FixedPointExtensions.toTypeMap.TryGetValue(conversionType?.FullName ?? typeof(void).FullName!, out var func)
                 ? func(this, provider)
                 : throw new InvalidCastException("Cannot convert from a Q16 fixed-point number to " + conversionType!.FullName);
 
@@ -617,44 +779,12 @@ namespace System
 
         public ulong ToUInt64(IFormatProvider? provider) =>
             (ulong)( _value >> 16 );
-        public TypeCode GetTypeCode() => (TypeCode)100;
-        public char ToChar(IFormatProvider? provider) => throw new InvalidCastException();
-        public DateTime ToDateTime(IFormatProvider? provider) => throw new InvalidCastException();
+        public char ToChar(IFormatProvider? provider) =>
+            throw new InvalidCastException();
+        public DateTime ToDateTime(IFormatProvider? provider) =>
+            throw new InvalidCastException();
 
-        public override bool Equals(object? obj) =>
-            obj is Fix16 f && f == this;
+        #endregion Explicit IConvertible Implementation
 
-        public override int GetHashCode() =>
-            HashCode.Combine(_value, 2);
-        public int CompareTo(object? obj)
-        {
-            if (obj is null)
-                return 1;
-            if (obj is not Fix16)
-                throw new ArgumentException("Argument must be a Fix16", nameof(obj));
-            return (this - (Fix16)obj)._value;
-        }
-
-        public int CompareTo([AllowNull] Fix16 other) =>
-            ( this - other )._value;
-        public bool Equals([AllowNull] Fix16 other) =>
-            this == other;
-
-        public static bool Equals(Fix16 left, Fix16 right, Fix16 delta)
-        {
-            if (delta == Zero)
-                return left == right;
-            else
-                return Abs(left - right) <= delta;
-        }
-
-        public static Fix16? NullableDivideBy(Fix16? left, Fix16? right) =>
-            left is Fix16 fLeft
-                ? right is Fix16 fix
-                    ? fix != Zero
-                        ? Divide(fLeft,fix)
-                        : null
-                    : null
-                : null;
     }
 }

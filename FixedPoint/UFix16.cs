@@ -10,42 +10,15 @@ namespace System
     internal delegate UFix16 UFix16OverflowFunc(UFix16 left, UFix16 right, UFix16 opResult);
 
     [StructLayout(LayoutKind.Explicit, Size = 4)]
-    [DebuggerDisplay("{ToString()}")]
+    [DebuggerDisplay("{Debug}")]
     public unsafe struct UFix16 : IComparable, IComparable<UFix16>, IConvertible, IEquatable<UFix16>, IFormattable
     {
-        public TypeCode GetTypeCode() => (TypeCode)101;
-
         [FieldOffset(0)]
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private uint _value;
 
-        private static readonly UFix16[] expCacheIndex = new UFix16[4096];
-        private static readonly UFix16[] expCacheValue = new UFix16[4096];
-        private static readonly UFix16[] sinCacheIndex = new UFix16[4096];
-        private static readonly UFix16[] sinCacheValue = new UFix16[4096];
-        private static readonly (UFix16 x, UFix16 y)[] atanCacheIndex = new (UFix16,UFix16)[4096];
-        private static readonly UFix16[] atanCacheValue = new UFix16[4096];
-        private static readonly Dictionary<string, Func<UFix16, IFormatProvider?, object>> toTypeMap = new();
-
-        static UFix16()
-        {
-            toTypeMap.Add(typeof(void).FullName!, (v, p) => throw new ArgumentNullException());
-            toTypeMap.Add(typeof(bool).FullName!, (v, p) => v.ToBoolean(p));
-            toTypeMap.Add(typeof(sbyte).FullName!, (v, p) => v.ToSByte(p));
-            toTypeMap.Add(typeof(byte).FullName!, (v, p) => v.ToByte(p));
-            toTypeMap.Add(typeof(short).FullName!, (v, p) => v.ToInt16(p));
-            toTypeMap.Add(typeof(ushort).FullName!, (v, p) => v.ToUInt16(p));
-            toTypeMap.Add(typeof(int).FullName!, (v, p) => v.ToInt32(p));
-            toTypeMap.Add(typeof(uint).FullName!, (v, p) => v.ToUInt32(p));
-            toTypeMap.Add(typeof(long).FullName!, (v, p) => v.ToInt64(p));
-            toTypeMap.Add(typeof(ulong).FullName!, (v, p) => v.ToUInt64(p));
-            toTypeMap.Add(typeof(Half).FullName!, (v, p) => v.ToHalf(p));
-            toTypeMap.Add(typeof(float).FullName!, (v, p) => v.ToSingle(p));
-            toTypeMap.Add(typeof(double).FullName!, (v, p) => v.ToDouble(p));
-            toTypeMap.Add(typeof(decimal).FullName!, (v, p) => v.ToDecimal(p));
-            toTypeMap.Add(typeof(string).FullName!, (v, p) => v.ToString(p));
-            toTypeMap.Add(typeof(object).FullName!, (v, p) => v);
-        }
+        #region Constants
+        public TypeCode GetTypeCode() => (TypeCode)101;
 
         public static UFix16 Epsilon => new() { _value = 1 };
 
@@ -68,275 +41,99 @@ namespace System
         public static UFix16 PiDivFour => new() { _value = 0x0000C910 };
 
         public static UFix16 ThreePiDivFour => new() { _value = 0x00025B30 };
+        #endregion Constants
 
-        public UFix16(uint value) =>
-            _value = value << 16;
+        #region Constructors
+
+        public UFix16(ushort value) =>
+            _value = (uint)value << 16;
 
         public UFix16(double value) =>
-            _value = (uint)( ( value * 65536.0 ) + ( value < 0 ? -0.5 : 0.5 ) );
+            _value = (uint)( ( value * 65536.0 ) + 0.5 );
 
         public UFix16(decimal value) =>
-            _value = (uint)( ( value * 65536m ) + ( value < 0 ? -0.5m : 0.5m ) );
+            _value = (uint)(int)( ( value * 65536m ) + ( value < 0 ? -0.5m : 0.5m ) );
+        #endregion Constructors
 
-        public static explicit operator UFix16(ushort value) =>
-            new(value);
-        public static explicit operator UFix16(int value) =>
-            new((uint)value);
-        public static explicit operator UFix16(uint value) =>
-            new(value);
-        public static explicit operator UFix16(long value) =>
-            new((uint)value);
-        public static explicit operator UFix16(ulong value) =>
-            new((uint)value);
-        public static explicit operator UFix16(Half value) =>
-            new((double)value);
-        public static explicit operator UFix16(double value) =>
-            new(value);
-        public static explicit operator UFix16(decimal value) =>
-            new(value);
+        #region Static Math Functions
 
-        public static explicit operator byte(UFix16 value) =>
-            (byte)( *(uint*)&value >> 16 );
-        public static explicit operator sbyte(UFix16 value) =>
-            (sbyte)( *(uint*)&value >> 16 );
-        public static explicit operator short(UFix16 value) =>
-            (short)( *(uint*)&value >> 16 );
-        public static explicit operator ushort(UFix16 value) =>
-            (ushort)( *(uint*)&value >> 16 );
-        public static explicit operator int(UFix16 value) =>
-            (int)*(uint*)&value >> 16;
-        public static explicit operator uint(UFix16 value) =>
-            (ushort)value;
-        public static explicit operator long(UFix16 value) =>
-            *(uint*)&value >> 16;
-        public static explicit operator ulong(UFix16 value) =>
-            (ushort)value;
-        public static explicit operator decimal(UFix16 value) =>
-            *(uint*)&value / 65536.0m;
-        public static explicit operator double(UFix16 value) =>
-            *(uint*)&value / 65536.0;
-        public static explicit operator float(UFix16 value) =>
-            (float)( *(uint*)&value / 65536.0 );
-        public static explicit operator Half(UFix16 value) =>
-            (Half)( *(uint*)&value / 65536.0 );
-
-        private static UFix16 ThrowIfChecked(UFix16 _1, UFix16 _2, UFix16 value)
+        #region Overflow Checked Math Functions
+        public static UFix16 CheckedAdd(UFix16 left, UFix16 right)
         {
-            var i = *(uint*)&value;
-            i += UInt32.MaxValue;
-            i += UInt32.MaxValue;
-            i += 2;
-            return *(UFix16*)&i;
+            var value = Add(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
         }
 
-        private static UFix16 SAddSub(UFix16 left, UFix16 _1, UFix16 _2) =>
-            left > Zero
+        public static UFix16 CheckedSubtract(UFix16 left, UFix16 right)
+        {
+            var value = Subtract(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
+        }
+
+        public static UFix16 CheckedMultiply(UFix16 left, UFix16 right)
+        {
+            var value = Multiply(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
+        }
+
+        public static UFix16 CheckedDivide(UFix16 left, UFix16 right)
+        {
+            var value = Divide(left, right, out var overflow);
+            return overflow ? throw new OverflowException() : value;
+        }
+        #endregion Overflow Checked Math Functions
+
+        #region Min/Max Bounded Math Functions
+        public static UFix16 SaturatedAdd(UFix16 left, UFix16 right)
+        {
+            var value = Add(left, right, out var overflow);
+
+            return overflow
                 ? MaxValue
-                : MinValue;
+                : value;
+        }
 
-        private static UFix16 SMulDiv(UFix16 left, UFix16 right, UFix16 _) =>
-            ( ( left >= Zero ) == ( right >= Zero ) )
-                ? MaxValue
-                : MinValue;
+        public static UFix16 SaturatedSubtract(UFix16 left, UFix16 right)
+        {
+            var value = Subtract(left, right, out var overflow);
+            return overflow ? MinValue : value;
+        }
 
-        public static UFix16 SaturatedAdd(UFix16 left, UFix16 right) =>
-            unchecked(Add(left, right, SAddSub));
+        public static UFix16 SaturatedMultiply(UFix16 left, UFix16 right)
+        {
+            var value = Multiply(left, right, out var overflow);
+            return overflow ? MaxValue : value;
+        }
 
-        public static UFix16 SaturatedSubtract(UFix16 left, UFix16 right) =>
-            unchecked(Subtract(left, right, SAddSub));
+        public static UFix16 SaturatedDivide(UFix16 left, UFix16 right)
+        {
+            var value = Divide(left, right, out var overflow);
+            return overflow ? MaxValue : value;
+        }
+        #endregion Min/Max Bounded Math Functions
 
-        public static UFix16 SaturatedMultiply(UFix16 left, UFix16 right) =>
-            unchecked(Multiply(left, right, SMulDiv));
-
-        public static UFix16 SaturatedDivide(UFix16 left, UFix16 right) =>
-            unchecked(Divide(left, right, SMulDiv));
+        #region Overflow Unchecked Math Functions
 
         public static UFix16 Add(UFix16 left, UFix16 right) =>
-            Add(left, right, ThrowIfChecked);
+            Add(left, right, out _);
 
         public static UFix16 Subtract(UFix16 left, UFix16 right) =>
-            Subtract(left, right, ThrowIfChecked);
+            Subtract(left, right, out _);
 
         public static UFix16 Multiply(UFix16 left, UFix16 right) =>
-            Multiply(left, right, ThrowIfChecked);
+            Multiply(left, right, out _);
 
         public static UFix16 Divide(UFix16 left, UFix16 right) =>
-            Divide(left, right, ThrowIfChecked);
+            Divide(left, right, out _);
 
-        private static UFix16 Add(UFix16 left, UFix16 right, UFix16OverflowFunc overflowFunc)
-        {
-            var l = *(uint*)&left;
-            var r = *(uint*)&right;
-            var result = l+r;
-
-            if (( ( ~( l^r ) )&0x80000000 & ( l^result )&0x80000000 ) is not 0)
-                return overflowFunc(left, right, Raw(result));
-
-            return Raw(result);
-        }
-
-        private static UFix16 Subtract(UFix16 left, UFix16 right, UFix16OverflowFunc overflowFunc)
-        {
-            var l = *(uint*)&left;
-            var r = *(uint*)&right;
-            var result = l-r;
-
-            if (( ( l^r )&0x80000000 & ( l^result )&0x80000000 ) is not 0)
-                return overflowFunc(left, right, Raw(result));
-
-            return Raw(result);
-        }
-
-        private static UFix16 Multiply(UFix16 left, UFix16 right, UFix16OverflowFunc overflowFunc)
-        {
-            var overflow = false;
-            var product = (long)*(int*)&left * *(int*)&right;
-
-            // The upper 17 bits should all be the same (the sign).
-            var upper = product >> 47;
-
-            if (product < 0)
-            {
-                if (( ~upper ) is not 0)
-                    overflow = true;
-
-                product--;
-            }
-            else if (upper is not 0)
-                overflow = true;
-
-            var result = (int)(product >> 16);
-            result += (int)( product & 0x8000 ) >> 15;
-
-            return overflow
-                ? overflowFunc(left, right, *(UFix16*)&result)
-                : *(UFix16*)&result;
-        }
-
-        private static UFix16 Divide(UFix16 left, UFix16 right, UFix16OverflowFunc overflowFunc)
-        {
-            var overflow = false;
-
-            if (right == Zero)
-                throw new DivideByZeroException();
-
-            int a = *(int*)&left, b = *(int*)&right;
-
-            var remainder = (uint)((a >= 0) ? a : -a);
-            var divider = (uint)((b >= 0) ? b : -b);
-            var quotient = 0u;
-            var bitPos = 17;
-
-            while (( divider & 0xF ) is 0 && bitPos >= 4)
-            {
-                divider >>= 4;
-                bitPos -= 4;
-            }
-
-            while (remainder is not 0 && bitPos >= 0)
-            {
-                // Shift remainder as much as we can without overflowing
-                var shift = (int)Clz(remainder);
-                if (shift > bitPos) shift = bitPos;
-                remainder <<= shift;
-                bitPos -= shift;
-
-                var div = remainder / divider;
-                remainder %= divider;
-                quotient += div << bitPos;
-
-                if (( div & ~( 0xFFFFFFFF >> bitPos ) ) is not 0)
-                    overflow = true;
-
-                remainder <<= 1;
-                bitPos--;
-            }
-
-            quotient++;
-
-            var result = quotient >> 1;
-
-            if (( ( a^b )&0x80000000 ) is not 0)
-                result = (uint)-(int)result;
-
-            return overflow
-                ? overflowFunc(left, right, *(UFix16*)&result)
-                : *(UFix16*)&result;
-        }
-
-        private static byte Clz(uint x)
-        {
-            byte result = 255;
-            var arch = RuntimeInformation.ProcessArchitecture;
-            if (arch is Architecture.X86 or Architecture.X64 && Lzcnt.IsSupported)
-                result = (byte)Lzcnt.LeadingZeroCount(x);
-            else
-                if (arch is Architecture.Arm or Architecture.Arm64 && ArmBase.IsSupported)
-                result = (byte)ArmBase.LeadingZeroCount(x);
-#if DEBUG
-            var simd = result;
-#else
-            else
-#endif
-            {
-                result = 0;
-                if (x == 0) return 32;
-                while (( x & 0xF0000000 ) is 0) { result += 4; x <<= 4; }
-                while (( x & 0x80000000 ) is 0) { result += 1; x <<=1; }
-            }
-#if DEBUG
-            if (simd is not 255 && simd != result)
-                throw new Exception($"SIMD result: \"{simd}\" does not match non-SIMD result: \"{result}\"");
-#endif
-            return result;
-        }
-
-        public static UFix16 operator +(UFix16 left, UFix16 right) =>
-            Add(left, right);
-        public static UFix16? operator +(UFix16? left, UFix16? right) =>
-            ( left is null || right is null )
-                ? null
-                : Add(left.Value, right.Value);
-        public static UFix16 operator -(UFix16 left, UFix16 right) =>
-            Subtract(left, right);
-        public static UFix16? operator -(UFix16? left, UFix16? right) =>
-            ( left is null || right is null )
-                ? null
-                : Subtract(left.Value, right.Value);
-        public static UFix16 operator *(UFix16 left, UFix16 right) =>
-            Multiply(left, right);
-        public static UFix16? operator *(UFix16? left, UFix16? right) =>
-            ( left is null || right is null )
-                ? null
-                : Multiply(left.Value, right.Value);
-        public static UFix16 operator /(UFix16 left, UFix16 right) =>
-            Divide(left, right);
-        public static UFix16? operator /(UFix16? left, UFix16? right) =>
-            left.HasValue && right.HasValue ? left.Value / right.Value : null;
-        public static bool operator ==(UFix16 left, UFix16 right) =>
-            *(uint*)&left == *(uint*)&right;
-        public static bool operator ==(UFix16? left, UFix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value == right.Value._value;
-        public static bool operator !=(UFix16 left, UFix16 right) =>
-            *(uint*)&left != *(uint*)&right;
-        public static bool operator !=(UFix16? left, UFix16? right) =>
-            !left.HasValue || !right.HasValue || left.Value._value != right.Value._value;
-        public static bool operator >=(UFix16 left, UFix16 right) =>
-            *(uint*)&left >= *(uint*)&right;
-        public static bool operator >=(UFix16? left, UFix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value >= right.Value._value;
-        public static bool operator <=(UFix16 left, UFix16 right) =>
-            *(uint*)&left <= *(uint*)&right;
-        public static bool operator <=(UFix16? left, UFix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value <= right.Value._value;
-        public static bool operator >(UFix16 left, UFix16 right) =>
-            *(uint*)&left > *(uint*)&right;
-        public static bool operator >(UFix16? left, UFix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value > right.Value._value;
-        public static bool operator <(UFix16 left, UFix16 right) =>
-            *(uint*)&left < *(uint*)&right;
-        public static bool operator <(UFix16? left, UFix16? right) =>
-            left.HasValue && right.HasValue && left.Value._value < right.Value._value;
+        public static UFix16? NullableDivide(UFix16? left, UFix16? right) =>
+            left is UFix16 fLeft
+                ? right is UFix16 fix
+                    ? fix != Zero
+                        ? Divide(fLeft, fix)
+                        : null
+                    : null
+                : null;
 
         public static UFix16 Lerp(UFix16 left, UFix16 right, byte fraction)
         {
@@ -358,32 +155,11 @@ namespace System
 
         public static UFix16 Lerp(UFix16 left, UFix16 right, uint fraction)
         {
-            var tempOut = left._value * (0 - fraction);
-            tempOut += right._value * fraction;
+            var tempOut = (long)left._value * (0 - fraction);
+            tempOut += (long)right._value * fraction;
             tempOut >>= 32;
             var result = tempOut;
             return *(UFix16*)&result;
-        }
-
-        public static UFix16 Exp(UFix16 value)
-        {
-            if (value == Zero)
-                return One;
-            if (value == One)
-                return E;
-            if (value > new UFix16() { _value = 726817 })
-                return MaxValue;
-
-            var tempIndex = (*(int*)&value ^ (*(int*)&value >> 4)) & 0x0FFF;
-            if (expCacheIndex[tempIndex] == value)
-                return expCacheValue[tempIndex];
-
-            var outValue = (UFix16)Math.Exp((double)value);
-
-            expCacheIndex[tempIndex] = value;
-            expCacheValue[tempIndex] = outValue;
-
-            return outValue;
         }
 
         public static UFix16 Sqrt(UFix16 value)
@@ -425,7 +201,6 @@ namespace System
                     // Then process it again to get the lowest 8 bits.
                     if (num > 65535)
                     {
-                        Console.WriteLine(value.ToString());
                         // The remainder 'num' is too large to be shifted left
                         // by 16, so we have to add 1 to result manually and
                         // adjust 'num' accordingly.
@@ -453,87 +228,273 @@ namespace System
             return new UFix16() { _value = result };
         }
 
-        public static UFix16 Raw(uint value) =>
-            new() { _value = value };
+        #endregion Overflow Unchecked Math Functions
 
-        public static UFix16 Sin(UFix16 angle)
+        #region Private Math Functions
+
+        private static UFix16 Add(UFix16 left, UFix16 right, out bool overflow)
         {
-            var tempAngle = Raw(angle._value % ( Pi._value << 1 ));
+            overflow = false;
+            var l = *(uint*)&left;
+            var r = *(uint*)&right;
+            var result = l+r;
 
-            while (tempAngle > Pi)
-                tempAngle -= Raw(Pi._value << 1);
+            if (result < l || result < r)
+                overflow = true;
 
-            var tempIndex = ( angle._value >> 5 ) & 0xFFF;
-            if (sinCacheIndex[tempIndex] == angle)
-                return sinCacheValue[tempIndex];
-
-            var tempAngleSq = tempAngle * tempAngle;
-            var tempOut = tempAngle._value;
-            tempAngle *= tempAngleSq;
-            tempOut -= tempAngle._value / 6;
-            tempAngle *= tempAngleSq;
-            tempOut += tempAngle._value / 120;
-            tempAngle *= tempAngleSq;
-            tempOut -= tempAngle._value / 5040;
-            tempAngle *= tempAngleSq;
-            tempOut += tempAngle._value / 362880;
-            tempAngle *= tempAngleSq;
-            tempOut -= tempAngle._value / 39916800;
-
-            sinCacheIndex[tempIndex] = angle;
-            sinCacheValue[tempIndex] = Raw(tempOut);
-
-            return Raw(tempOut);
+            return Raw(result);
         }
 
-        public static UFix16 Cos(UFix16 angle) =>
-            Sin(angle + Raw(Pi._value >> 1));
-
-        public static UFix16? Tan(UFix16 angle)
+        private static UFix16 Subtract(UFix16 left, UFix16 right, out bool overflow)
         {
-            var cos = Cos(angle);
-            var halfPi = Pi / (UFix16)2;
-            return cos == Zero || angle == halfPi ? null : Sin(angle) / cos;
+            overflow = false;
+            var l = *(uint*)&left;
+            var r = *(uint*)&right;
+            var result = l-r;
+
+            if (r > l)
+                overflow = true;
+
+            return Raw(result);
         }
 
-        public static UFix16? Asin(UFix16 value)
+        private static UFix16 Multiply(UFix16 left, UFix16 right, out bool overflow)
         {
-            if ( value > One )
-                return null;
-            if (value == One)
-                return Pi / (UFix16)2;
+            overflow = false;
+            var product = (ulong)*(uint*)&left * *(uint*)&right;
 
-            var tempOut = One - (value * value);
-            tempOut = value / Sqrt(tempOut);
-            tempOut = Atan(tempOut);
-            return tempOut;
+            // The upper 16 bits should all be the same (the sign).
+            var upper = product >> 48;
+
+            if (upper is not 0)
+                overflow = true;
+
+            var result = (int)(product >> 16);
+            var temp = *(UFix16*)&result;
+            result += (int)( product & 0x8000 ) >> 15;
+
+            return *(UFix16*)&result;
         }
 
-        public static UFix16? Acos(UFix16 value) =>
-            Raw(Pi._value >> 1) - Asin(value);
-
-        public static UFix16 Atan2(UFix16 y, UFix16 x)
+        private static UFix16 Divide(UFix16 left, UFix16 right, out bool overflow)
         {
-            UFix16 r, r3, angle;
+            overflow = false;
 
-            var hash = x._value ^ y._value;
-            hash ^= hash >> 20;
-            hash &= 0xFFF;
-            if (atanCacheIndex[hash] == (x, y))
-                return atanCacheValue[hash];
+            if (right == Zero)
+                throw new DivideByZeroException();
 
-            r = ( x - y ) / ( x + y );
-            r3 = r * r * r;
-            angle = ( Raw(0x3240) * r3 ) - ( Raw(0xFB50) * r ) + PiDivFour;
+            uint a = *(uint*)&left, b = *(uint*)&right;
 
-            atanCacheIndex[hash] = (x, y);
-            atanCacheValue[hash] = angle;
+            //var result = ((ulong)a <<16) / ((ulong)b<<16);
+            //result >>=16;
 
-            return angle;
+            ulong remainder = a;
+            ulong divider = b;
+            ulong quotient = 0u;
+            var bitPos = 17;
+
+            while (( divider & 0xF ) is 0 && bitPos >= 4)
+            {
+                divider >>= 4;
+                bitPos -= 4;
+            }
+
+            while (remainder is not 0 && bitPos >= 0)
+            {
+                // Shift remainder as much as we can without overflowing
+                var shift = (int)Clz((uint)remainder);
+                if (shift > bitPos) shift = bitPos;
+                remainder <<= shift;
+                bitPos -= shift;
+
+                var div = remainder / divider;
+                remainder %= divider;
+                quotient += div << bitPos;
+
+                var mask = 0x1FFFFFFFFu >> bitPos--;
+                if (( div & ~mask ) is not 0)
+                    overflow = true;
+
+                remainder <<= 1;
+            }
+
+            quotient++;
+
+            var result = quotient >> 1;
+
+            return *(UFix16*)&result;
         }
 
-        public static UFix16 Atan(UFix16 value) =>
-            Atan2(value, One);
+        private static byte Clz(uint x)
+        {
+            byte result = 255;
+            var arch = RuntimeInformation.ProcessArchitecture;
+            if (arch is Architecture.X86 or Architecture.X64 && Lzcnt.IsSupported)
+                result = (byte)Lzcnt.LeadingZeroCount(x);
+            else
+                if (arch is Architecture.Arm or Architecture.Arm64 && ArmBase.IsSupported)
+                result = (byte)ArmBase.LeadingZeroCount(x);
+#if DEBUG
+            var simd = result;
+#else
+            else
+#endif
+            {
+                result = 0;
+                if (x == 0) return 32;
+                while (( x & 0xF0000000 ) is 0) { result += 4; x <<= 4; }
+                while (( x & 0x80000000 ) is 0) { result += 1; x <<=1; }
+            }
+#if DEBUG
+            if (simd is not 255 && simd != result)
+                throw new Exception($"SIMD result: \"{simd}\" does not match non-SIMD result: \"{result}\"");
+#endif
+            return result;
+        }
+
+        #endregion Private Math Functions
+
+        #endregion Static Math Functions
+
+        #region Operators
+
+        #region Math Operators
+
+        public static UFix16 operator +(UFix16 left, UFix16 right) =>
+            Add(left, right);
+        public static UFix16? operator +(UFix16? left, UFix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Add(left.Value, right.Value);
+        public static UFix16 operator -(UFix16 left, UFix16 right) =>
+            Subtract(left, right);
+        public static UFix16? operator -(UFix16? left, UFix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Subtract(left.Value, right.Value);
+        public static UFix16 operator *(UFix16 left, UFix16 right) =>
+            Multiply(left, right);
+        public static UFix16? operator *(UFix16? left, UFix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Multiply(left.Value, right.Value);
+        public static UFix16 operator /(UFix16 left, UFix16 right) =>
+            Divide(left, right);
+        public static UFix16? operator /(UFix16? left, UFix16? right) =>
+            ( left is null || right is null )
+                ? null
+                : Divide(left.Value, right.Value);
+
+        #endregion Math Operators
+
+        #region Conditional Operators
+
+        public static bool operator ==(UFix16 left, UFix16 right) =>
+            *(uint*)&left == *(uint*)&right;
+        public static bool operator ==(UFix16? left, UFix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value == right.Value._value;
+        public static bool operator !=(UFix16 left, UFix16 right) =>
+            *(uint*)&left != *(uint*)&right;
+        public static bool operator !=(UFix16? left, UFix16? right) =>
+            !left.HasValue || !right.HasValue || left.Value._value != right.Value._value;
+        public static bool operator >=(UFix16 left, UFix16 right) =>
+            *(uint*)&left >= *(uint*)&right;
+        public static bool operator >=(UFix16? left, UFix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value >= right.Value._value;
+        public static bool operator <=(UFix16 left, UFix16 right) =>
+            *(uint*)&left <= *(uint*)&right;
+        public static bool operator <=(UFix16? left, UFix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value <= right.Value._value;
+        public static bool operator >(UFix16 left, UFix16 right) =>
+            *(uint*)&left > *(uint*)&right;
+        public static bool operator >(UFix16? left, UFix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value > right.Value._value;
+        public static bool operator <(UFix16 left, UFix16 right) =>
+            *(uint*)&left < *(uint*)&right;
+        public static bool operator <(UFix16? left, UFix16? right) =>
+            left.HasValue && right.HasValue && left.Value._value < right.Value._value;
+
+        #endregion Conditional Operators
+
+        #region Cast Operators
+
+        #region Implicit From UFix16 Operators
+
+        public static implicit operator double(UFix16 value) =>
+            *(uint*)&value / 65536.0;
+
+        #endregion Implicit From UFix16 Operators
+
+        #region Explicit From UFix16 Operators
+
+        public static explicit operator byte(UFix16 value) =>
+            (byte)( *(uint*)&value >> 16 );
+        public static explicit operator sbyte(UFix16 value) =>
+            (sbyte)( *(uint*)&value >> 16 );
+        public static explicit operator short(UFix16 value) =>
+            (short)( *(uint*)&value >> 16 );
+        public static explicit operator ushort(UFix16 value) =>
+            (ushort)( *(uint*)&value >> 16 );
+        public static explicit operator int(UFix16 value) =>
+            (int)( *(uint*)&value >> 16 );
+        public static explicit operator uint(UFix16 value) =>
+            (ushort)value;
+        public static explicit operator long(UFix16 value) =>
+            *(uint*)&value >> 16;
+        public static explicit operator ulong(UFix16 value) =>
+            (ushort)value;
+        public static explicit operator decimal(UFix16 value) =>
+            *(uint*)&value / 65536.0m;
+        public static explicit operator float(UFix16 value) =>
+            (float)( *(uint*)&value / 65536.0 );
+        public static explicit operator Half(UFix16 value) =>
+            (Half)( *(uint*)&value / 65536.0 );
+        public static explicit operator Fix16(UFix16 value) =>
+            *(Fix16*)&value;
+
+        #endregion Explicit From UFix16 Operators
+
+        #region Implicit To UFix16 Operators
+
+        public static implicit operator UFix16(ushort value) =>
+            new(value);
+
+        #endregion Implicit To UFix16 Operators
+
+        #region Explicit To UFix16 Operators
+
+        public static explicit operator UFix16(sbyte value) =>
+            new((double)(byte)value);
+        public static explicit operator UFix16(short value) =>
+            new((double)(ushort)value);
+        public static explicit operator UFix16(int value) =>
+            new((double)(uint)value);
+        public static explicit operator UFix16(uint value) =>
+            new((ushort)value);
+        public static explicit operator UFix16(long value) =>
+            new((double)(ulong)value);
+        public static explicit operator UFix16(ulong value) =>
+            new((ushort)value);
+        public static explicit operator UFix16(Half value) =>
+            new((double)value);
+        public static explicit operator UFix16(float value) =>
+            new(value);
+        public static explicit operator UFix16(decimal value) =>
+            new(value);
+        public static explicit operator UFix16(Fix16 value) =>
+            new(value);
+        public static explicit operator UFix16(double value) =>
+            new (value);
+
+        #endregion Explicit To UFix16 Operators
+
+        #endregion Cast Operators
+
+        #endregion Operators
+
+        #region Utility Functions
+
+        #region ToString
 
         public override string ToString() =>
             ToString(null, null);
@@ -541,71 +502,13 @@ namespace System
         public string ToString(string? format, IFormatProvider? formatProvider) =>
             ( _value / 65536.0 ).ToString(format, formatProvider);
 
-        public bool ToBoolean(IFormatProvider? provider) =>
-            _value != 0;
+        #endregion ToString
 
-        public byte ToByte(IFormatProvider? provider) =>
-            (byte)( _value >> 16 );
-
-        public decimal ToDecimal(IFormatProvider? provider) =>
-            (decimal)( _value / 65536.0 );
-
-        public double ToDouble(IFormatProvider? provider) =>
-            _value / 65536.0;
-
-        public Half ToHalf(IFormatProvider? _) =>
-            (Half)( _value / 65536.0 );
-
-        public short ToInt16(IFormatProvider? provider) =>
-            (short)( _value >> 16 );
-
-        public int ToInt32(IFormatProvider? provider) =>
-            (int)(_value >> 16);
-
-        public long ToInt64(IFormatProvider? provider) =>
-            _value >> 16;
-
-        public sbyte ToSByte(IFormatProvider? provider) =>
-            (sbyte)( _value >> 16 );
-
-        public float ToSingle(IFormatProvider? provider) =>
-            (float)( _value / 65536.0 );
-
-        public string ToString(IFormatProvider? provider) =>
-            ToString(null, provider);
-
-        public object ToType(Type conversionType, IFormatProvider? provider) =>
-            toTypeMap.TryGetValue(conversionType?.FullName ?? typeof(void).FullName!, out var func)
-                ? func(this, provider)
-                : throw new InvalidCastException("Cannot convert from a Q16 fixed-point number to " + conversionType!.FullName);
-
-        public ushort ToUInt16(IFormatProvider? provider) =>
-            (ushort)( _value >> 16 );
-
-        public uint ToUInt32(IFormatProvider? provider) =>
-            _value >> 16;
-
-        public ulong ToUInt64(IFormatProvider? provider) =>
-            _value >> 16;
-        public char ToChar(IFormatProvider? provider) => throw new InvalidCastException();
-        public DateTime ToDateTime(IFormatProvider? provider) => throw new InvalidCastException();
+        #region Equals
 
         public override bool Equals(object? obj) =>
             obj is UFix16 f && f == this;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(_value, 3);
-        public int CompareTo(object? obj)
-        {
-            if (obj is null)
-                return 1;
-            if (obj is not UFix16)
-                throw new ArgumentException("Argument must be a UFix16", nameof(obj));
-            return (int)unchecked(( this - (UFix16)obj )._value);
-        }
-
-        public int CompareTo([AllowNull] UFix16 other) =>
-            (int)unchecked(( this - other )._value);
         public bool Equals([AllowNull] UFix16 other) =>
             this == other;
 
@@ -617,13 +520,98 @@ namespace System
                 return ( right > left ? right - left : left - right ) <= delta;
         }
 
-        public static UFix16? NullableDivideBy(UFix16? left, UFix16? right) =>
-            left is UFix16 fLeft
-                ? right is UFix16 fix
-                    ? fix != Zero
-                        ? Divide(fLeft, fix)
-                        : null
-                    : null
-                : null;
+        #endregion Equals
+
+        #region GetHashCode
+
+        public override int GetHashCode() =>
+            HashCode.Combine(_value, 3);
+
+        #endregion GetHashCode
+
+        #region CompareTo
+
+        public int CompareTo(object? obj)
+        {
+            if (obj is null)
+                return 1;
+            if (obj is not UFix16)
+                throw new ArgumentException("Argument must be a UFix16", nameof(obj));
+            return (int)unchecked(( this - (UFix16)obj )._value);
+        }
+
+        public int CompareTo([AllowNull] UFix16 other) =>
+            (int)unchecked(( this - other )._value);
+
+        #endregion CompareTo
+
+        #region Raw
+
+        public static UFix16 Raw(uint value) =>
+            new() { _value = value };
+
+        #endregion Raw
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private double Debug
+        {
+            get => this;
+            set => this = (UFix16)value;
+        }
+
+        #endregion Utility Functions
+
+        #region Explicit IConvertible Implementation
+
+        bool IConvertible.ToBoolean(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToBoolean(null);
+
+        byte IConvertible.ToByte(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToByte(null);
+
+        decimal IConvertible.ToDecimal(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToDecimal(null);
+
+        double IConvertible.ToDouble(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToDouble(null);
+
+        short IConvertible.ToInt16(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToInt16(null);
+
+        int IConvertible.ToInt32(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToInt32(null);
+
+        long IConvertible.ToInt64(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToInt64(null);
+
+        sbyte IConvertible.ToSByte(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToSByte(null);
+
+        float IConvertible.ToSingle(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToSingle(null);
+
+        string IConvertible.ToString(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToString(null);
+
+        object IConvertible.ToType(Type conversionType, IFormatProvider? provider) =>
+            FixedPointExtensions.toTypeMap.TryGetValue(conversionType?.FullName ?? typeof(void).FullName!, out var func)
+                ? func(this, provider)
+                : throw new InvalidCastException("Cannot convert from a Q16 fixed-point number to " + conversionType!.FullName);
+
+        ushort IConvertible.ToUInt16(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToUInt16(null);
+
+        uint IConvertible.ToUInt32(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToUInt32(null);
+
+        ulong IConvertible.ToUInt64(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToUInt64(null);
+        char IConvertible.ToChar(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToChar(null);
+        DateTime IConvertible.ToDateTime(IFormatProvider? provider) =>
+            ( (IConvertible)(double)this ).ToDateTime(null);
+
+        #endregion Explicit IConvertible Implementation
+
     }
 }
