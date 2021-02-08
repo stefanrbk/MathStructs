@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 //using System.Runtime.Intrinsics.Arm;
 //using System.Runtime.Intrinsics.X86;
 
-namespace MathStructs
+namespace System.Numerics
 {
     /// <summary>
     /// A structure encapsulating a 4x4 matrix of <see cref="Double"/> values.

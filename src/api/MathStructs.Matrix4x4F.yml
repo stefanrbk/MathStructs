@@ -5,7 +5,7 @@ items:
   id: Matrix4x4F
   parent: MathStructs
   children:
-  - MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3F)
+  - MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3)
   - MathStructs.Matrix4x4F.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)
   - MathStructs.Matrix4x4F.Add(MathStructs.Matrix4x4F,MathStructs.Matrix4x4F)
   - MathStructs.Matrix4x4F.CreateBillboard(MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F,MathStructs.Vector3F)
@@ -709,16 +709,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3F)
-  commentId: M:MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3F)
-  id: '#ctor(MathStructs.Matrix3x3F)'
+- uid: MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3)
+  commentId: M:MathStructs.Matrix4x4F.#ctor(MathStructs.Matrix3x3)
+  id: '#ctor(MathStructs.Matrix3x3)'
   parent: MathStructs.Matrix4x4F
   langs:
   - csharp
   - vb
-  name: Matrix4x4F(Matrix3x3F)
-  nameWithType: Matrix4x4F.Matrix4x4F(Matrix3x3F)
-  fullName: MathStructs.Matrix4x4F.Matrix4x4F(MathStructs.Matrix3x3F)
+  name: Matrix4x4F(Matrix3x3)
+  nameWithType: Matrix4x4F.Matrix4x4F(Matrix3x3)
+  fullName: MathStructs.Matrix4x4F.Matrix4x4F(MathStructs.Matrix3x3)
   type: Constructor
   source:
     remote:
@@ -731,15 +731,15 @@ items:
   assemblies:
   - MathStructs
   namespace: MathStructs
-  summary: "\nConstructs a Matrix4x4D from the given <xref href=\"MathStructs.Matrix3x3F\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  summary: "\nConstructs a Matrix4x4D from the given <xref href=\"MathStructs.Matrix3x3\" data-throw-if-not-resolved=\"false\"></xref>.\n"
   example: []
   syntax:
-    content: public Matrix4x4F(Matrix3x3F value)
+    content: public Matrix4x4F(Matrix3x3 value)
     parameters:
     - id: value
-      type: MathStructs.Matrix3x3F
-      description: "\nThe source <xref href=\"MathStructs.Matrix3x3F\" data-throw-if-not-resolved=\"false\"></xref>.\n"
-    content.vb: Public Sub New(value As Matrix3x3F)
+      type: MathStructs.Matrix3x3
+      description: "\nThe source <xref href=\"MathStructs.Matrix3x3\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+    content.vb: Public Sub New(value As Matrix3x3)
   overload: MathStructs.Matrix4x4F.#ctor*
   modifiers.csharp:
   - public
@@ -3522,12 +3522,12 @@ references:
   name: Matrix4x4F
   nameWithType: Matrix4x4F.Matrix4x4F
   fullName: MathStructs.Matrix4x4F.Matrix4x4F
-- uid: MathStructs.Matrix3x3F
-  commentId: T:MathStructs.Matrix3x3F
+- uid: MathStructs.Matrix3x3
+  commentId: T:MathStructs.Matrix3x3
   parent: MathStructs
-  name: Matrix3x3F
-  nameWithType: Matrix3x3F
-  fullName: MathStructs.Matrix3x3F
+  name: Matrix3x3
+  nameWithType: Matrix3x3
+  fullName: MathStructs.Matrix3x3
 - uid: MathStructs.Matrix4x4F.Identity*
   commentId: Overload:MathStructs.Matrix4x4F.Identity
   name: Identity

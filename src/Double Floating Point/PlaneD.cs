@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
     /// <summary>
     /// A structure encapsulating a 3D Plane

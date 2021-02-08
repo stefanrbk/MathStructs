@@ -1,20 +1,21 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
-    public static class Fix16Extensions
+    public unsafe static class Fix16Extensions
     {
-        public static Matrix3x3Fix16 ToMatrix3x3Fix16(this ReadOnlySpan<Fix16> span) =>
+        public static Matrix3x3Fix16 ToMatrix3x3ix16(this ReadOnlySpan<Fix16> span) =>
             new Matrix3x3Fix16(span[0], span[1], span[2],
                                span[3], span[4], span[5],
                                span[6], span[7], span[8]);
 
-        public static Matrix3x3Fix16 ToMatrix3x3Fix16(this Span<Fix16> span) =>
+        public static Matrix3x3Fix16 ToMatrix3x3ix16(this Span<Fix16> span) =>
             new Matrix3x3Fix16(span[0], span[1], span[2],
                                span[3], span[4], span[5],
                                span[6], span[7], span[8]);
 
-        public static Matrix3x3Fix16 ToMatrix3x3Fix16(this Fix16[] array) =>
+        public static Matrix3x3Fix16 ToMatrix3x3ix16(this Fix16[] array) =>
             new Matrix3x3Fix16(array[0], array[1], array[2], array[3], array[4], array[5], array[6], array[7], array[8]);
 
         public static Matrix4x4Fix16 ToMatrix4x4Fix16(this ReadOnlySpan<Fix16> span) =>

@@ -3,16 +3,16 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
     /// <summary>
-    /// A structure encapsulating two double precision floating point values.
+    /// A structure encapsulating four double precision floating point values.
     /// </summary>
     /// <remarks>
-    /// Slower than <see cref="Vector2F"/> but more precise.
+    /// Slower than <see cref="Vector4"/> but more precise.
     /// </remarks>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
-    public struct Vector2D : IEquatable<Vector2D>, IFormattable
+    public struct Vector4D : IEquatable<Vector4D>, IFormattable
     {
         #region Public Fields
 
@@ -27,6 +27,18 @@ namespace MathStructs
         /// </summary>
         [FieldOffset(8)]
         public double Y;
+
+        /// <summary>
+        ///     The Z component of the vector.
+        /// </summary>
+        [FieldOffset(16)]
+        public double Z;
+
+        /// <summary>
+        ///     The W component of the vector.
+        /// </summary>
+        [FieldOffset(24)]
+        public double W;
 
         #endregion Public Fields
 
@@ -45,8 +57,8 @@ namespace MathStructs
         ///     The element to fill the vector with.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector2D(double value)
-            : this(value, value) { }
+        public Vector4D(double value)
+            : this(value, value, value, value) { }
 
         /// <summary>
         ///     Constructs a vector with the given individual elements.
@@ -57,11 +69,58 @@ namespace MathStructs
         /// <param name="y">
         ///     Y component.
         /// </param>
+        /// <param name="z">
+        ///     Z component.
+        /// </param>
+        /// <param name="w">
+        ///     W component.
+        /// </param>
         [MethodImpl(Inline)]
-        public Vector2D(double x, double y)
+        public Vector4D(double x, double y, double z, double w)
         {
             X = x;
             Y = y;
+            Z = z;
+            W = w;
+        }
+
+        /// <summary>
+        ///     Constructs a <see cref="Vector4D"/> from the given <see cref="Vector3D"/> and a W component.
+        /// </summary>
+        /// <param name="vector">
+        ///     The vector to use as the X, Y, and Z components.
+        /// </param>
+        /// <param name="w">
+        ///     The W component.
+        /// </param>
+        [MethodImpl(Inline)]
+        public Vector4D(Vector3D vector, double w)
+        {
+            X = vector.X;
+            Y = vector.Y;
+            Z = vector.Z;
+            W = w;
+        }
+
+        /// <summary>
+        /// Constructs a <see cref="Vector4D"/> from the given <see cref="Vector2D"/> and a Z and W component.
+        /// </summary>
+        /// <param name="vector">
+        ///     The vector to use as the X and Y component.
+        /// </param>
+        /// <param name="z">
+        ///     The Z component.
+        /// </param>
+        /// <param name="w">
+        ///     The W component.
+        /// </param>
+        [MethodImpl(Inline)]
+        public Vector4D(Vector2D vector, double z, double w)
+        {
+            X = vector.X;
+            Y = vector.Y;
+            Z = z;
+            W = w;
         }
 
         #endregion Public Constructors
@@ -69,28 +128,40 @@ namespace MathStructs
         #region Public Properties
 
         /// <summary>
-        /// Returns the vector &lt; 1, 1 &gt;.
+        /// Returns the vector &lt; 1, 1, 1, 1 &gt;.
         /// </summary>
-        public static Vector2D One =>
-            new Vector2D(1d);
+        public static Vector4D One =>
+            new(1f);
 
         /// <summary>
-        /// Returns the vector &lt; 1, 0 &gt;.
+        /// Returns the vector &lt; 0, 0, 0, 1 &gt;.
         /// </summary>
-        public static Vector2D UnitX =>
-            new Vector2D(1d, 0d);
+        public static Vector4D UnitW =>
+            new(0f, 0f, 0f, 1f);
 
         /// <summary>
-        /// Returns the vector &lt; 0, 1 &gt;.
+        /// Returns the vector &lt; 1, 0, 0, 0 &gt;.
         /// </summary>
-        public static Vector2D UnitY =>
-            new Vector2D(0d, 1d);
+        public static Vector4D UnitX =>
+            new(1f, 0f, 0f, 0f);
 
         /// <summary>
-        /// Returns the vector &lt; 0, 0 &gt;.
+        /// Returns the vector &lt; 0, 1, 0, 0 &gt;.
         /// </summary>
-        public static Vector2D Zero =>
-            new Vector2D(0d);
+        public static Vector4D UnitY =>
+            new(0f, 1f, 0f, 0f);
+
+        /// <summary>
+        /// Returns the vector &lt; 0, 0, 1, 0 &gt;.
+        /// </summary>
+        public static Vector4D UnitZ =>
+            new(0f, 0f, 1f, 0f);
+
+        /// <summary>
+        /// Returns the vector &lt; 0, 0, 0, 0 &gt;.
+        /// </summary>
+        public static Vector4D Zero =>
+            new(0f);
 
         #endregion Public Properties
 
@@ -103,8 +174,8 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Abs(Vector2D value) =>
-            new Vector2D(Math.Abs(value.X), Math.Abs(value.Y));
+        public static Vector4D Abs(Vector4D value) =>
+            new(Math.Abs(value.X), Math.Abs(value.Y), Math.Abs(value.Z), Math.Abs(value.W));
 
         /// <summary>
         ///     Adds two vectors together.
@@ -116,7 +187,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Add(Vector2D left, Vector2D right) =>
+        public static Vector4D Add(Vector4D left, Vector4D right) =>
             left + right;
 
         /// <summary>
@@ -132,7 +203,7 @@ namespace MathStructs
         ///     The maximum value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Clamp(Vector2D value, Vector2D min, Vector2D max) =>
+        public static Vector4D Clamp(Vector4D value, Vector4D min, Vector4D max) =>
             Min(Max(value, min), max);
 
         /// <summary>
@@ -145,10 +216,10 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared(Vector2D,Vector2D)"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector4D,Vector4D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public static double Distance(Vector2D vector1, Vector2D vector2) =>
+        public static double Distance(Vector4D vector1, Vector4D vector2) =>
             (vector1 - vector2).Length();
 
         /// <summary>
@@ -161,10 +232,10 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance(Vector2D,Vector2D)"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector4D,Vector4D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public static double DistanceSquared(Vector2D vector1, Vector2D vector2) =>
+        public static double DistanceSquared(Vector4D vector1, Vector4D vector2) =>
             (vector1 - vector2).LengthSquared();
 
         /// <summary>
@@ -177,7 +248,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Divide(Vector2D left, Vector2D right) =>
+        public static Vector4D Divide(Vector4D left, Vector4D right) =>
             left / right;
 
         /// <summary>
@@ -190,7 +261,7 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Divide(Vector2D left, double right) =>
+        public static Vector4D Divide(Vector4D left, double right) =>
             left / right;
 
         /// <summary>
@@ -207,9 +278,11 @@ namespace MathStructs
         ///     The second vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static double Dot(Vector2D left, Vector2D right) =>
+        public static double Dot(Vector4D left, Vector4D right) =>
             left.X * right.X +
-            left.Y * right.Y;
+            left.Y * right.Y +
+            left.Z * right.Z +
+            left.W * right.W;
 
         /// <summary>
         ///     Linearly interpolates between two vectors based on the given weighting.
@@ -224,8 +297,8 @@ namespace MathStructs
         ///     Value between 0 and 1 indicating the weight of the second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Lerp(Vector2D bounds1, Vector2D bounds2, double amount) =>
-            bounds1 * (1d - amount) + bounds2 * amount;
+        public static Vector4D Lerp(Vector4D bounds1, Vector4D bounds2, double amount) =>
+            bounds1 * (1f - amount) + bounds2 * amount;
 
         /// <summary>
         ///     Returns a vector whose elements are the maximum of each of the pairs of elements in the two source vectors.
@@ -237,9 +310,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Max(Vector2D left, Vector2D right) =>
-            new Vector2D(left.X > right.X ? left.X : right.X,
-                         left.Y > right.Y ? left.Y : right.Y);
+        public static Vector4D Max(Vector4D left, Vector4D right) =>
+            new(left.X > right.X ? left.X : right.X, left.Y > right.Y ? left.Y : right.Y, left.Z > right.Z ? left.Z : right.Z, left.W > right.W ? left.W : right.W);
 
         /// <summary>
         ///     Returns a vector whose elements are the minimum of each of the pairs of elements in the two source vectors.
@@ -251,9 +323,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Min(Vector2D left, Vector2D right) =>
-            new Vector2D(left.X < right.X ? left.X : right.X,
-                         left.Y < right.Y ? left.Y : right.Y);
+        public static Vector4D Min(Vector4D left, Vector4D right) =>
+            new(left.X < right.X ? left.X : right.X, left.Y < right.Y ? left.Y : right.Y, left.Z < right.Z ? left.Z : right.Z, left.W < right.W ? left.W : right.W);
 
         /// <summary>
         ///     Multiplies two vectors together.
@@ -265,7 +336,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Multiply(Vector2D left, Vector2D right) =>
+        public static Vector4D Multiply(Vector4D left, Vector4D right) =>
             left * right;
 
         /// <summary>
@@ -278,7 +349,7 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Multiply(Vector2D left, double right) =>
+        public static Vector4D Multiply(Vector4D left, double right) =>
             left * right;
 
         /// <summary>
@@ -291,7 +362,7 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Multiply(double left, Vector2D right) =>
+        public static Vector4D Multiply(double left, Vector4D right) =>
             left * right;
 
         /// <summary>
@@ -301,7 +372,7 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Negate(Vector2D value) =>
+        public static Vector4D Negate(Vector4D value) =>
             -value;
 
         /// <summary>
@@ -311,7 +382,7 @@ namespace MathStructs
         ///     The vector to normalize.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Normalize(Vector2D vector) =>
+        public static Vector4D Normalize(Vector4D vector) =>
             vector / vector.Length();
 
         /// <summary>
@@ -321,8 +392,8 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator -(Vector2D value) =>
-            new Vector2D(-value.X, -value.Y);
+        public static Vector4D operator -(Vector4D value) =>
+            new(-value.X, -value.Y, -value.Z, -value.W);
 
         /// <summary>
         ///     Subtracts the second vector from the first.
@@ -334,8 +405,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator -(Vector2D left, Vector2D right) =>
-            new Vector2D(left.X - right.X, left.Y - right.Y);
+        public static Vector4D operator -(Vector4D left, Vector4D right) =>
+            new(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
 
         /// <summary>
         ///     Returns a boolean indicating whether the two given vectors are not equal.
@@ -350,8 +421,8 @@ namespace MathStructs
         ///     True if the vectors are not equal; False if they are equal.
         /// </returns>
         [MethodImpl(Inline)]
-        public static bool operator !=(Vector2D left, Vector2D right) =>
-            left.X != right.X || left.Y != right.Y;
+        public static bool operator !=(Vector4D left, Vector4D right) =>
+            left.X != right.X || left.Y != right.Y || left.Z != right.Z || left.W != right.W;
 
         /// <summary>
         ///     Multiplies two vectors together.
@@ -363,8 +434,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator *(Vector2D left, Vector2D right) =>
-            new Vector2D(left.X * right.X, left.Y * right.Y);
+        public static Vector4D operator *(Vector4D left, Vector4D right) =>
+            new(left.X * right.X, left.Y * right.Y, left.Z * right.Z, left.W * right.W);
 
         /// <summary>
         ///     Multiplies a vector by the given scalar.
@@ -376,8 +447,8 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator *(Vector2D left, double right) =>
-            new Vector2D(left.X * right, left.Y * right);
+        public static Vector4D operator *(Vector4D left, double right) =>
+            new(left.X * right, left.Y * right, left.Z * right, left.W * right);
 
         /// <summary>
         ///     Multiplies a vector by the given scalar.
@@ -389,7 +460,7 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator *(double left, Vector2D right) =>
+        public static Vector4D operator *(double left, Vector4D right) =>
             right * left;
 
         /// <summary>
@@ -402,8 +473,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator /(Vector2D left, Vector2D right) =>
-            new Vector2D(left.X / right.X, left.Y / right.Y);
+        public static Vector4D operator /(Vector4D left, Vector4D right) =>
+            new(left.X / right.X, left.Y / right.Y, left.Z / right.Z, left.W / right.W);
 
         /// <summary>
         ///     Divides the vector by the given scalar.
@@ -415,14 +486,14 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator /(Vector2D left, double right) =>
-            new Vector2D(left.X / right, left.Y / right);
+        public static Vector4D operator /(Vector4D left, double right) =>
+            new(left.X / right, left.Y / right, left.Z / right, left.W / right);
 
         /// <summary>
         ///     Returns the unary plus of the provided vector (nop).
         /// </summary>
         [MethodImpl(Inline)]
-        public static Vector2D operator +(Vector2D value) =>
+        public static Vector4D operator +(Vector4D value) =>
             value;
 
         /// <summary>
@@ -435,8 +506,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D operator +(Vector2D left, Vector2D right) =>
-            new Vector2D(left.X + right.X, left.Y + right.Y);
+        public static Vector4D operator +(Vector4D left, Vector4D right) =>
+            new(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
 
         /// <summary>
         ///     Returns a boolean indicating whether the two given vectors are equal.
@@ -451,21 +522,8 @@ namespace MathStructs
         ///     True if the vectors are equal; False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
-        public static bool operator ==(Vector2D left, Vector2D right) =>
-            left.X == right.X && left.Y == right.Y;
-
-        /// <summary>
-        /// Returns the reflection of a vector off a surface that has the specified normal.
-        /// </summary>
-        /// <param name="vector">
-        /// The source vector.
-        /// </param>
-        /// <param name="normal">
-        /// The normal of the surface being reflected off.
-        /// </param>
-        [MethodImpl(Inline)]
-        public static Vector2D Reflect(Vector2D vector, Vector2D normal) =>
-            vector - normal * Dot(vector, normal) * 2d;
+        public static bool operator ==(Vector4D left, Vector4D right) =>
+            left.X == right.X && left.Y == right.Y && left.Z == right.Z && left.W == right.W;
 
         /// <summary>
         ///     Returns a vector whose elements are the square root of each of the source vector's elements.
@@ -474,8 +532,8 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D SquareRoot(Vector2D value) =>
-            new Vector2D(Math.Sqrt(value.X), Math.Sqrt(value.Y));
+        public static Vector4D SquareRoot(Vector4D value) =>
+            new(Math.Sqrt(value.X), Math.Sqrt(value.Y), Math.Sqrt(value.Z), Math.Sqrt(value.W));
 
         /// <summary>
         ///     Subtracts the second vector from the first.
@@ -487,8 +545,23 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Subtract(Vector2D left, Vector2D right) =>
+        public static Vector4D Subtract(Vector4D left, Vector4D right) =>
             left - right;
+
+        /// <summary>
+        ///     Transforms a vector by the given matrix.
+        /// </summary>
+        /// <param name="position">
+        ///     The source vector.
+        /// </param>
+        /// <param name="matrix">
+        ///     The transformation matrix.
+        /// </param>
+        [MethodImpl(Inline)]
+        public static Vector4D Transform(Vector2D position, Matrix4x4D matrix)
+        {
+            return new(position.X * matrix.M11 + position.Y * matrix.M21 + matrix.M41, position.X * matrix.M12 + position.Y * matrix.M22 + matrix.M42, position.X * matrix.M13 + position.Y * matrix.M23 + matrix.M43, position.X * matrix.M14 + position.Y * matrix.M24 + matrix.M44);
+        }
 
         /// <summary>
         ///     Transforms a vector by the given matrix.
@@ -500,9 +573,21 @@ namespace MathStructs
         ///     The transformation matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Transform(Vector2D vector, Matrix4x4D matrix) =>
-            new Vector2D(vector.X * matrix.M11 + vector.Y * matrix.M21 + matrix.M41,
-                         vector.X * matrix.M12 + vector.Y * matrix.M22 + matrix.M42);
+        public static Vector4D Transform(Vector3D vector, Matrix4x4D matrix) =>
+            new(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41, vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42, vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43, vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + matrix.M44);
+
+        /// <summary>
+        ///     Transforms a vector by the given matrix.
+        /// </summary>
+        /// <param name="vector">
+        ///     The source vector.
+        /// </param>
+        /// <param name="matrix">
+        ///     The transformation matrix.
+        /// </param>
+        [MethodImpl(Inline)]
+        public static Vector4D Transform(Vector4D vector, Matrix4x4D matrix) =>
+            new(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + vector.W * matrix.M41, vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + vector.W * matrix.M42, vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + vector.W * matrix.M43, vector.X * matrix.M14 + vector.Y * matrix.M24 + vector.Z * matrix.M34 + vector.W * matrix.M44);
 
         /// <summary>
         ///     Transforms a vector by the given <see cref="QuaternionD"/> rotation value.
@@ -514,38 +599,82 @@ namespace MathStructs
         ///     The rotation to apply.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D Transform(Vector2D value, QuaternionD rotation)
+        public static Vector4D Transform(Vector2D value, QuaternionD rotation)
         {
-            var n1 = rotation.X + rotation.X;
-            var n2 = rotation.Y + rotation.Y;
-            var n3 = rotation.Z + rotation.Z;
-            var n4 = rotation.W * n3;
-            var n5 = rotation.X * n1;
-            var n6 = rotation.X * n2;
-            var n7 = rotation.Y * n2;
-            var n8 = rotation.Z * n3;
-            return new Vector2D(value.X * (1 - n7 - n8) + value.Y * (n6 - n4), value.X * (n6 + n4) + value.Y * (1 - n5 - n8));
+            double num = rotation.X + rotation.X;
+            double num2 = rotation.Y + rotation.Y;
+            double num3 = rotation.Z + rotation.Z;
+            double num4 = rotation.W * num;
+            double num5 = rotation.W * num2;
+            double num6 = rotation.W * num3;
+            double num7 = rotation.X * num;
+            double num8 = rotation.X * num2;
+            double num9 = rotation.X * num3;
+            double num10 = rotation.Y * num2;
+            double num11 = rotation.Y * num3;
+            double num12 = rotation.Z * num3;
+            return new(value.X * (1f - num10 - num12) + value.Y * (num8 - num6), value.X * (num8 + num6) + value.Y * (1f - num7 - num12), value.X * (num9 - num5) + value.Y * (num11 + num4), 1f);
         }
 
         /// <summary>
-        /// Transforms a vector normal by the given 4x4 matrix.
+        ///     Transforms a vector by the given <see cref="QuaternionD"/> rotation value.
         /// </summary>
-        /// <param name="normal">
-        /// The source vector.
+        /// <param name="value">
+        ///     The source vector to be rotated.
         /// </param>
-        /// <param name="matrix">
-        /// The matrix.
+        /// <param name="rotation">
+        ///     The rotation to apply.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector2D TransformNormal(Vector2D normal, Matrix4x4D matrix) =>
-            new Vector2D(normal.X * matrix.M11 + normal.Y * matrix.M21,
-                         normal.X * matrix.M12 + normal.Y * matrix.M22);
+        public static Vector4D Transform(Vector3D value, QuaternionD rotation)
+        {
+            double num = rotation.X + rotation.X;
+            double num2 = rotation.Y + rotation.Y;
+            double num3 = rotation.Z + rotation.Z;
+            double num4 = rotation.W * num;
+            double num5 = rotation.W * num2;
+            double num6 = rotation.W * num3;
+            double num7 = rotation.X * num;
+            double num8 = rotation.X * num2;
+            double num9 = rotation.X * num3;
+            double num10 = rotation.Y * num2;
+            double num11 = rotation.Y * num3;
+            double num12 = rotation.Z * num3;
+            return new(value.X * (1f - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1f - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1f - num7 - num10), 1f);
+        }
+
+        /// <summary>
+        ///     Transforms a vector by the given <see cref="QuaternionD"/> rotation value.
+        /// </summary>
+        /// <param name="value">
+        ///     The source vector to be rotated.
+        /// </param>
+        /// <param name="rotation">
+        ///     The rotation to apply.
+        /// </param>
+        [MethodImpl(Inline)]
+        public static Vector4D Transform(Vector4D value, QuaternionD rotation)
+        {
+            double num = rotation.X + rotation.X;
+            double num2 = rotation.Y + rotation.Y;
+            double num3 = rotation.Z + rotation.Z;
+            double num4 = rotation.W * num;
+            double num5 = rotation.W * num2;
+            double num6 = rotation.W * num3;
+            double num7 = rotation.X * num;
+            double num8 = rotation.X * num2;
+            double num9 = rotation.X * num3;
+            double num10 = rotation.Y * num2;
+            double num11 = rotation.Y * num3;
+            double num12 = rotation.Z * num3;
+            return new(value.X * (1f - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1f - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1f - num7 - num10), value.W);
+        }
 
         /// <summary>
         ///     Returns a vector whose elements are the absolute values of each of this vector's elements.
         /// </summary>
         [MethodImpl(Inline)]
-        public Vector2D Abs() =>
+        public Vector4D Abs() =>
             Abs(this);
 
         /// <summary>
@@ -558,7 +687,7 @@ namespace MathStructs
         ///     The maximum value.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector2D Clamp(Vector2D min, Vector2D max) =>
+        public Vector4D Clamp(Vector4D min, Vector4D max) =>
             Clamp(this, min, max);
 
         /// <summary>
@@ -582,10 +711,12 @@ namespace MathStructs
         {
             if (index < 0 || index >= span.Length)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            if (span.Length - index < 2)
+            if (span.Length - index < 4)
                 throw new ArgumentException("Elements in source is greater than destination");
             span[index + 0] = X;
             span[index + 1] = Y;
+            span[index + 2] = Z;
+            span[index + 3] = W;
         }
 
         /// <summary>
@@ -597,11 +728,57 @@ namespace MathStructs
         /// <param name="y">
         ///     The Y of this vector.
         /// </param>
+        /// <param name="z">
+        ///     The Z of this vector.
+        /// </param>
+        /// <param name="w">
+        ///     The W of this vector.
+        /// </param>
         [MethodImpl(Inline)]
-        public void Deconstruct(out double x, out double y)
+        public void Deconstruct(out double x, out double y, out double z, out double w)
         {
             x = X;
             y = Y;
+            z = Z;
+            w = W;
+        }
+
+        /// <summary>
+        ///     Deconstructs this vector into its <see cref="double"/> components and builds the
+        ///     X, Y, and Z into a new <see cref="Vector3D"/>.
+        /// </summary>
+        /// <param name="vector">
+        ///     The X, Y, and Z of this vector as a <see cref="Vector3D"/>.
+        /// </param>
+        /// <param name="w">
+        ///     The W of this vector.
+        /// </param>
+        [MethodImpl(Inline)]
+        public void Deconstruct(out Vector3D vector, out double w)
+        {
+            w = W;
+            vector = new Vector3D(X, Y, Z);
+        }
+
+        /// <summary>
+        ///     Deconstructs this vector into its <see cref="double"/> components and builds the
+        ///     X and Y into a new <see cref="Vector2D"/>.
+        /// </summary>
+        /// <param name="vector">
+        ///     The X and Y of this vector as a <see cref="Vector2D"/>.
+        /// </param>
+        /// <param name="z">
+        ///     The Z of this vector.
+        /// </param>
+        /// <param name="w">
+        ///     The W of this vector.
+        /// </param>
+        [MethodImpl(Inline)]
+        public void Deconstruct(out Vector2D vector, out double z, out double w)
+        {
+            vector = new Vector2D(X, Y);
+            z = Z;
+            w = W;
         }
 
         /// <summary>
@@ -611,10 +788,10 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared(Vector2D)"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector4D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public double Distance(Vector2D value) =>
+        public double Distance(Vector4D value) =>
             Distance(this, value);
 
         /// <summary>
@@ -624,10 +801,10 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance(Vector2D)"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector4D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public double DistanceSquared(Vector2D value) =>
+        public double DistanceSquared(Vector4D value) =>
             DistanceSquared(this, value);
 
         /// <summary>
@@ -641,59 +818,66 @@ namespace MathStructs
         ///     The other vector.
         /// </param>
         [MethodImpl(Inline)]
-        public double Dot(Vector2D vector) =>
+        public double Dot(Vector4D vector) =>
             Dot(this, vector);
 
         /// <summary>
-        ///     Returns a boolean indicating whether the given Object is equal to this <see cref="Vector2D"/> instance.
+        ///     Returns a boolean indicating whether the given Object is equal to this <see cref="Vector4D"/> instance.
         /// </summary>
         /// <param name="obj">
         ///     The Object to compare against.
         /// </param>
         /// <returns>
-        ///     True if the Object is equal to this <see cref="Vector2D"/>;
+        ///     True if the Object is equal to this <see cref="Vector4D"/>;
         ///     False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
         public override bool Equals(object? obj) =>
-            obj is Vector2D vec && Equals(vec);
+            obj is Vector4D vec && Equals(vec);
 
         /// <summary>
-        ///     Returns a boolean indicating whether the given <see cref="Vector2D"/> is equal to this <see cref="Vector2D"/> instance.
+        ///     Returns a boolean indicating whether the given <see cref="Vector4D"/> is equal to this <see cref="Vector4D"/> instance.
         /// </summary>
         /// <param name="other">
-        ///     The <see cref="Vector2D"/> to compare this instance to.
+        ///     The <see cref="Vector4D"/> to compare this instance to.
         /// </param>
         /// <returns>
-        ///     True if the other <see cref="Vector2D"/> is equal to this instance; False otherwise.
+        ///     True if the other <see cref="Vector4D"/> is equal to this instance; False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
-        public bool Equals(Vector2D other) =>
+        public bool Equals(Vector4D other) =>
             this == other;
 
         /// <summary>
-        ///     Returns a boolean indicating whether the given Vector4D is equal to this <see cref="Vector2D"/> instance ± delta.
+        ///     Returns a boolean indicating whether the given Vector4D is equal to this <see cref="Vector4D"/> instance ± delta.
         /// </summary>
         /// <param name="other">
-        ///     The <see cref="Vector2D"/> to compare this instance to.
+        ///     The <see cref="Vector4D"/> to compare this instance to.
         /// </param>
         /// <param name="delta">
         ///     The allowable margin of error to determine equality for each element pair between the vectors.
         /// </param>
         /// <returns>
-        ///     True if the other <see cref="Vector2D"/> is equal to this instance ± delta; False otherwise.
+        ///     True if the other <see cref="Vector4D"/> is equal to this instance ± delta; False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
-        public bool Equals(Vector2D other, double delta) =>
-            delta == 0.0 ? this == other
-                         : Math.Abs(X - other.X) < delta &&
-                           Math.Abs(Y - other.Y) < delta;
+        public bool Equals(Vector4D other, double delta)
+        {
+            if (delta is 0.0)
+                return this == other;
+
+            var vector = Subtract(this, other).Abs();
+            return vector.X < delta &&
+                   vector.Y < delta &&
+                   vector.Z < delta &&
+                   vector.W < delta;
+        }
 
         /// <summary>
         ///     Returns the hash code for this instance.
         /// </summary>
         public override int GetHashCode() =>
-            HashCode.Combine(X.GetHashCode(), Y.GetHashCode());
+            HashCode.Combine(X.GetHashCode(), Y.GetHashCode(), Z.GetHashCode(), W.GetHashCode());
 
         /// <summary>
         ///     Returns the length of the vector.
@@ -719,34 +903,24 @@ namespace MathStructs
         ///     Returns a vector with the same direction as this vector, but with a length of 1.
         /// </summary>
         [MethodImpl(Inline)]
-        public Vector2D Normalize() =>
+        public Vector4D Normalize() =>
             Normalize(this);
-
-        /// <summary>
-        /// Returns the reflection of this vector off a surface that has the specified normal.
-        /// </summary>
-        /// <param name="normal">
-        /// The normal of the surface being reflected off.
-        /// </param>
-        [MethodImpl(Inline)]
-        public Vector2D Reflect(Vector2D normal) =>
-            Reflect(this, normal);
 
         /// <summary>
         ///     Returns a vector whose elements are the square root of each of this vector's elements.
         /// </summary>
         [MethodImpl(Inline)]
-        public Vector2D SquareRoot() =>
+        public Vector4D SquareRoot() =>
             SquareRoot(this);
 
         /// <summary>
-        /// Returns a String representing this <see cref="Vector2D"/> instance.
+        /// Returns a String representing this <see cref="Vector4D"/> instance.
         /// </summary>
         public override string ToString() =>
             ToString("G", CultureInfo.CurrentCulture);
 
         /// <summary>
-        ///     Returns a String representing this <see cref="Vector2D"/> instance, using the specified format to format individual elements.
+        ///     Returns a String representing this Vector4D instance, using the specified format to format individual elements.
         /// </summary>
         /// <param name="format">
         ///     The format of individual elements.
@@ -755,7 +929,7 @@ namespace MathStructs
             ToString(format, CultureInfo.CurrentCulture);
 
         /// <summary>
-        ///     Returns a String representing this <see cref="Vector2D"/> instance, using the specified format to format
+        ///     Returns a String representing this <see cref="Vector4D"/> instance, using the specified format to format
         ///     individual elements and the given <see cref="IFormatProvider"/>.
         /// </summary>
         /// <param name="format">
@@ -764,8 +938,11 @@ namespace MathStructs
         /// <param name="formatProvider">
         ///     The format provider to use when formatting elements.
         /// </param>
-        public string ToString(string? format, IFormatProvider? formatProvider) =>
-            $"<{X.ToString(format, formatProvider)}, {Y.ToString(format, formatProvider)}>";
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            var sep = NumberFormatInfo.GetInstance(formatProvider).NumberGroupSeparator;
+            return $"<{X.ToString(format, formatProvider)}{sep} {Y.ToString(format, formatProvider)}{sep} {Z.ToString(format, formatProvider)}{sep} {W.ToString(format, formatProvider)}>";
+        }
 
         /// <summary>
         ///     Transforms a copy of this vector by the given matrix.
@@ -774,7 +951,7 @@ namespace MathStructs
         ///     The transformation matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector2D Transform(Matrix4x4D matrix) =>
+        public Vector4D Transform(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         /// <summary>
@@ -784,51 +961,27 @@ namespace MathStructs
         ///     The rotation to apply.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector2D Transform(QuaternionD rotation) =>
+        public Vector4D Transfrom(QuaternionD rotation) =>
             Transform(this, rotation);
-
-        /// <summary>
-        /// Transforms this vector normal by the given 4x4 matrix.
-        /// </summary>
-        /// <param name="matrix">
-        /// The matrix.
-        /// </param>
-        [MethodImpl(Inline)]
-        public Vector2D TransformNormal(Matrix4x4D matrix) =>
-            Transform(this, matrix);
-
-        /// <summary>
-        ///     Transforms this vector by the given matrix and returns a <see cref="Vector4D"/>.
-        /// </summary>
-        /// <param name="matrix">
-        ///     The transformation matrix.
-        /// </param>
-        [MethodImpl(Inline)]
-        public Vector4D TransformV4(Matrix4x4D matrix) =>
-            Vector4D.Transform(this, matrix);
-
-        /// <summary>
-        ///     Transforms this vector by the given <see cref="QuaternionD"/> rotation value and returns a <see cref="Vector4D"/>.
-        /// </summary>
-        /// <param name="rotation">
-        ///     The rotation to apply.
-        /// </param>
-        [MethodImpl(Inline)]
-        public Vector4D TransformV4(QuaternionD rotation) =>
-            Vector4D.Transform(this, rotation);
 
         /// <summary>
         ///     Record-like <see langword="with"/>-style constructor
         /// </summary>
         /// <param name="x">
-        ///     If provided, the X value for the new <see cref="Vector2D"/>, otherwise <see cref="X"/>.
+        ///     If provided, the X value for the new <see cref="Vector4D"/>, otherwise <see cref="X"/>.
         /// </param>
         /// <param name="y">
-        ///     If provided, the Y value for the new <see cref="Vector2D"/>, otherwise <see cref="Y"/>.
+        ///     If provided, the Y value for the new <see cref="Vector4D"/>, otherwise <see cref="Y"/>.
+        /// </param>
+        /// <param name="z">
+        ///     If provided, the Z value for the new <see cref="Vector4D"/>, otherwise <see cref="Z"/>.
+        /// </param>
+        /// <param name="w">
+        ///     If provided, the W value for the new <see cref="Vector4D"/>, otherwise <see cref="W"/>.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector2D With(double? x = null, double? y = null) =>
-            new Vector2D(x ?? X, y ?? Y);
+        public Vector4D With(double? x = null, double? y = null, double? z = null, double? w = null) =>
+            new(x ?? X, y ?? Y, z ?? Z, w ?? W);
 
         #endregion Public Methods
     }

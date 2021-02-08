@@ -4,8 +4,8 @@
   items:
   - uid: MathStructs.Matrix3x3D
     name: Matrix3x3D
-  - uid: MathStructs.Matrix3x3F
-    name: Matrix3x3F
+  - uid: MathStructs.Matrix3x3
+    name: Matrix3x3
   - uid: MathStructs.Matrix4x4D
     name: Matrix4x4D
   - uid: MathStructs.Matrix4x4F

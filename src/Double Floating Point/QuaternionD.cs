@@ -2,48 +2,48 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
     /// <summary>
     /// A structure encapsulating a four-dimensional vector (x,y,z,w),
     /// which is used to efficiently rotate an object about the (x,y,z)
     /// vector by the angle theta, where w = cos(theta/2).
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Pack = 4)]
-    public struct QuaternionF : IEquatable<QuaternionF>
+    [StructLayout(LayoutKind.Explicit, Pack = 8)]
+    public struct QuaternionD : IEquatable<QuaternionD>
     {
         #region Public Fields
+
+        /// <summary>
+        /// Specifies the W-value of the vector component of the Quaternion.
+        /// </summary>
+        [FieldOffset(24)]
+        public double W;
 
         /// <summary>
         /// Specifies the X-value of the vector component of the Quaternion.
         /// </summary>
         [FieldOffset(0)]
-        public float X;
+        public double X;
 
         /// <summary>
         /// Specifies the Y-value of the vector component of the Quaternion.
         /// </summary>
-        [FieldOffset(4)]
-        public float Y;
+        [FieldOffset(8)]
+        public double Y;
 
         /// <summary>
         /// Specifies the Z-value of the vector component of the Quaternion.
         /// </summary>
-        [FieldOffset(8)]
-        public float Z;
-
-        /// <summary>
-        /// Specifies the W-value of the vector component of the Quaternion.
-        /// </summary>
-        [FieldOffset(12)]
-        public float W;
+        [FieldOffset(16)]
+        public double Z;
 
         #endregion Public Fields
 
         #region Private Fields
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
-        private readonly static QuaternionF _identity = new(0f, 0f, 0f, 1f);
+        private readonly static QuaternionD _identity = new(0, 0, 0, 1);
 
         #endregion Private Fields
 
@@ -56,7 +56,7 @@ namespace MathStructs
         /// <param name="y">The Y component of the Quaternion.</param>
         /// <param name="z">The Z component of the Quaternion.</param>
         /// <param name="w">The W component of the Quaternion.</param>
-        public QuaternionF(float x, float y, float z, float w)
+        public QuaternionD(double x, double y, double z, double w)
         {
             X = x;
             Y = y;
@@ -69,7 +69,7 @@ namespace MathStructs
         /// </summary>
         /// <param name="vectorPart">The vector part of the Quaternion.</param>
         /// <param name="scalarPart">The rotation part of the Quaternion.</param>
-        public QuaternionF(Vector3F vectorPart, float scalarPart)
+        public QuaternionD(Vector3D vectorPart, double scalarPart)
         {
             X = vectorPart.X;
             Y = vectorPart.Y;
@@ -84,7 +84,7 @@ namespace MathStructs
         /// <summary>
         /// Returns a Quaternion representing no rotation.
         /// </summary>
-        public static QuaternionF Identity => _identity;
+        public static QuaternionD Identity => _identity;
 
         /// <summary>
         /// Returns whether the Quaternion is the identity Quaternion.
@@ -102,7 +102,7 @@ namespace MathStructs
         /// <param name="left">The first source Quaternion.</param>
         /// <param name="right">The second source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Add(QuaternionF left, QuaternionF right) =>
+        public static QuaternionD Add(QuaternionD left, QuaternionD right) =>
             left + right;
 
         /// <summary>
@@ -111,30 +111,25 @@ namespace MathStructs
         /// <param name="value1">The first Quaternion rotation in the series.</param>
         /// <param name="value2">The second Quaternion rotation in the series.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Concatenate(QuaternionF value1, QuaternionF value2)
+        public static QuaternionD Concatenate(QuaternionD value1, QuaternionD value2)
         {
-            float q1x = value2.X;
-            float q1y = value2.Y;
-            float q1z = value2.Z;
-            float q1w = value2.W;
-
-            float q2x = value1.X;
-            float q2y = value1.Y;
-            float q2z = value1.Z;
-            float q2w = value1.W;
-
-            float cx = q1y * q2z - q1z * q2y;
-            float cy = q1z * q2x - q1x * q2z;
-            float cz = q1x * q2y - q1y * q2x;
-
-            float dot = q1x * q2x + q1y * q2y + q1z * q2z;
-
-            QuaternionF result;
-            result.X = q1x * q2w + q2x * q1w + cx;
-            result.Y = q1y * q2w + q2y * q1w + cy;
-            result.Z = q1z * q2w + q2z * q1w + cz;
-            result.W = q1w * q2w - dot;
-
+            double x = value2.X;
+            double y = value2.Y;
+            double z = value2.Z;
+            double w = value2.W;
+            double x2 = value1.X;
+            double y2 = value1.Y;
+            double z2 = value1.Z;
+            double w2 = value1.W;
+            double num = y * z2 - z * y2;
+            double num2 = z * x2 - x * z2;
+            double num3 = x * y2 - y * x2;
+            double num4 = x * x2 + y * y2 + z * z2;
+            QuaternionD result;
+            result.X = x * w2 + x2 * w + num;
+            result.Y = y * w2 + y2 * w + num2;
+            result.Z = z * w2 + z2 * w + num3;
+            result.W = w * w2 - num4;
             return result;
         }
 
@@ -143,7 +138,7 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The Quaternion of which to return the conjugate.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Conjugate(QuaternionF value) =>
+        public static QuaternionD Conjugate(QuaternionD value) =>
             value.Conjugate();
 
         /// <summary>
@@ -153,10 +148,10 @@ namespace MathStructs
         /// calling this function or the resulting Quaternion will be incorrect.</param>
         /// <param name="angle">The angle, in radians, to rotate around the vector.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF CreateFromAxisAngle(Vector3F axis, float angle)
+        public static QuaternionD CreateFromAxisAngle(Vector3D axis, double angle)
         {
-            var x = angle * 0.5f;
-            return new(axis * MathF.Sin(x), MathF.Cos(x));
+            var x = angle * 0.5;
+            return new(axis * Math.Sin(x), Math.Cos(x));
         }
 
         /// <summary>
@@ -164,32 +159,32 @@ namespace MathStructs
         /// </summary>
         /// <param name="matrix">The rotation matrix.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF CreateFromRotationMatrix(Matrix4x4F matrix)
+        public static QuaternionD CreateFromRotationMatrix(Matrix4x4D matrix)
         {
             var n = matrix.M11 + matrix.M22 + matrix.M33;
-            if (n > 0f)
+            if (n > 0)
             {
-                var n2 = MathF.Sqrt(n + 1);
-                var n3 = 0.5f / n2;
-                return new((matrix.M23 - matrix.M32) * n3, (matrix.M31 - matrix.M13) * n3, (matrix.M12 - matrix.M21) * n3, n2 * 0.5f);
+                var n2 = Math.Sqrt(n + 1);
+                var n3 = 0.5 / n2;
+                return new((matrix.M23 - matrix.M32) * n3, (matrix.M31 - matrix.M13) * n3, (matrix.M12 - matrix.M21) * n3, n2 * 0.5);
             }
             else if (matrix.M11 >= matrix.M22 && matrix.M11 >= matrix.M33)
             {
-                var n2 = MathF.Sqrt(1 + matrix.M11 - matrix.M22 - matrix.M33);
-                var n3 = 0.5f / n2;
-                return new(0.5f * n2, (matrix.M12 + matrix.M21) * n3, (matrix.M13 + matrix.M31) * n3, (matrix.M23 - matrix.M32) * n3);
+                var n2 = Math.Sqrt(1 + matrix.M11 - matrix.M22 - matrix.M33);
+                var n3 = 0.5 / n2;
+                return new(0.5 * n2, (matrix.M12 + matrix.M21) * n3, (matrix.M13 + matrix.M31) * n3, (matrix.M23 - matrix.M32) * n3);
             }
             else if (matrix.M22 > matrix.M33)
             {
-                var n2 = MathF.Sqrt(1 + matrix.M22 - matrix.M11 - matrix.M33);
-                var n3 = 0.5f / n2;
-                return new((matrix.M21 + matrix.M12) * n3, 0.5f * n2, (matrix.M32 + matrix.M23) * n3, (matrix.M31 - matrix.M13) * n3);
+                var n2 = Math.Sqrt(1 + matrix.M22 - matrix.M11 - matrix.M33);
+                var n3 = 0.5 / n2;
+                return new((matrix.M21 + matrix.M12) * n3, 0.5 * n2, (matrix.M32 + matrix.M23) * n3, (matrix.M31 - matrix.M13) * n3);
             }
             else
             {
-                var n2 = MathF.Sqrt(1 + matrix.M33 - matrix.M11 - matrix.M22);
-                var n3 = 0.5f / n2;
-                return new((matrix.M31 + matrix.M13) * n3, (matrix.M32 + matrix.M23) * n3, 0.5f * n2, (matrix.M12 - matrix.M21) * n3);
+                var n2 = Math.Sqrt(1 + matrix.M33 - matrix.M11 - matrix.M22);
+                var n3 = 0.5 / n2;
+                return new((matrix.M31 + matrix.M13) * n3, (matrix.M32 + matrix.M23) * n3, 0.5 * n2, (matrix.M12 - matrix.M21) * n3);
             }
         }
 
@@ -200,18 +195,18 @@ namespace MathStructs
         /// <param name="pitch">The pitch angle, in radians, around the X-axis.</param>
         /// <param name="roll">The roll angle, in radians, around the z-axis.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF CreateFromYawPitchRoll(float yaw, float pitch, float roll)
+        public static QuaternionD CreateFromYawPitchRoll(double yaw, double pitch, double roll)
         {
-            yaw *= 0.5f;
-            pitch *= 0.5f;
-            roll *= 0.5f;
+            yaw *= 0.5;
+            pitch *= 0.5;
+            roll *= 0.5;
 
-            var n1 = MathF.Sin(roll);
-            var n2 = MathF.Cos(roll);
-            var n3 = MathF.Sin(pitch);
-            var n4 = MathF.Cos(pitch);
-            var n5 = MathF.Sin(yaw);
-            var n6 = MathF.Cos(yaw);
+            var n1 = Math.Sin(roll);
+            var n2 = Math.Cos(roll);
+            var n3 = Math.Sin(pitch);
+            var n4 = Math.Cos(pitch);
+            var n5 = Math.Sin(yaw);
+            var n6 = Math.Cos(yaw);
 
             return new(n6 * n3 * n2 + n5 * n4 * n1, n5 * n4 * n2 - n6 * n3 * n1, n6 * n4 * n1 - n5 * n3 * n2, n6 * n4 * n2 + n5 * n3 * n1);
         }
@@ -222,7 +217,7 @@ namespace MathStructs
         /// <param name="left">The source Quaternion.</param>
         /// <param name="right">The divisor.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Divide(QuaternionF left, QuaternionF right) =>
+        public static QuaternionD Divide(QuaternionD left, QuaternionD right) =>
             left / right;
 
         /// <summary>
@@ -231,7 +226,7 @@ namespace MathStructs
         /// <param name="left">The first source Quaternion.</param>
         /// <param name="right">The second source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static float Dot(QuaternionF left, QuaternionF right) =>
+        public static double Dot(QuaternionD left, QuaternionD right) =>
             left.Dot(right);
 
         /// <summary>
@@ -239,7 +234,7 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Inverse(QuaternionF value) =>
+        public static QuaternionD Inverse(QuaternionD value) =>
             value.Inverse();
 
         /// <summary>
@@ -249,7 +244,7 @@ namespace MathStructs
         /// <param name="q2">The second source Quaternion.</param>
         /// <param name="amount">The relative weight of the second source Quaternion in the interpolation.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Lerp(QuaternionF q1, QuaternionF q2, float amount)
+        public static QuaternionD Lerp(QuaternionD q1, QuaternionD q2, double amount)
         {
             var n = 1 - amount;
             var n2 = q1.Dot(q2);
@@ -263,7 +258,7 @@ namespace MathStructs
         /// <param name="left">The Quaternion on the left side of the multiplication.</param>
         /// <param name="right">The Quaternion on the right side of the multiplication.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Multiply(QuaternionF left, QuaternionF right) =>
+        public static QuaternionD Multiply(QuaternionD left, QuaternionD right) =>
             left * right;
 
         /// <summary>
@@ -272,7 +267,7 @@ namespace MathStructs
         /// <param name="left">The source Quaternion.</param>
         /// <param name="right">The scalar value.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Multiply(QuaternionF left, float right) =>
+        public static QuaternionD Multiply(QuaternionD left, double right) =>
             left * right;
 
         /// <summary>
@@ -280,7 +275,7 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Negate(QuaternionF value) =>
+        public static QuaternionD Negate(QuaternionD value) =>
             -value;
 
         /// <summary>
@@ -288,7 +283,7 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Normalize(QuaternionF value) =>
+        public static QuaternionD Normalize(QuaternionD value) =>
             value.Normalize();
 
         /// <summary>
@@ -296,7 +291,7 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF operator -(QuaternionF value) =>
+        public static QuaternionD operator -(QuaternionD value) =>
             new(-value.X, -value.Y, -value.Z, -value.W);
 
         /// <summary>
@@ -305,7 +300,7 @@ namespace MathStructs
         /// <param name="left">The first source Quaternion.</param>
         /// <param name="right">The second Quaternion, to be subtracted from the first.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF operator -(QuaternionF left, QuaternionF right) =>
+        public static QuaternionD operator -(QuaternionD left, QuaternionD right) =>
             new(left.X - right.X, left.Y - right.Y, left.Z - right.Z, left.W - right.W);
 
         /// <summary>
@@ -315,7 +310,7 @@ namespace MathStructs
         /// <param name="right">The second Quaternion to compare.</param>
         /// <returns>True if the Quaternions are not equal; False otherwise.</returns>
         [MethodImpl(Inline)]
-        public static bool operator !=(QuaternionF left, QuaternionF right) =>
+        public static bool operator !=(QuaternionD left, QuaternionD right) =>
             !(left == right);
 
         /// <summary>
@@ -324,7 +319,7 @@ namespace MathStructs
         /// <param name="left">The source Quaternion.</param>
         /// <param name="right">The scalar value.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF operator *(QuaternionF left, float right) =>
+        public static QuaternionD operator *(QuaternionD left, double right) =>
             new(left.X * right, left.Y * right, left.Z * right, left.W * right);
 
         /// <summary>
@@ -333,18 +328,17 @@ namespace MathStructs
         /// <param name="left">The Quaternion on the left side of the multiplication.</param>
         /// <param name="right">The Quaternion on the right side of the multiplication.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF operator *(QuaternionF left, QuaternionF right)
+        public static QuaternionD operator *(QuaternionD left, QuaternionD right)
         {
-            (var q1x, var q1y, var q1z, var q1w) = left;
-            (var q2x, var q2y, var q2z, var q2w) = right;
+            (var x, var y, var z, var w) = left;
+            (var x2, var y2, var z2, var w2) = right;
 
-            var cx = q1y * q2z - q1z * q2y;
-            var cy = q1z * q2x - q1x * q2z;
-            var cz = q1x * q2y - q1y * q2x;
+            var n1 = y * z2 - z * y2;
+            var n2 = z * x2 - x * z2;
+            var n3 = x * y2 - y * x2;
+            var n4 = x * x2 + y * y2 + z * z2;
 
-            var dot = q1x * q2x + q1y * q2y + q1z * q2z;
-
-            return new(q1x * q2w + q2x * q1w + cx, q1y * q2w + q2y * q1w + cy, q1z * q2w + q2z * q1w + cz, q1w * q2w - dot);
+            return new(x * w2 + x2 * w + n1, y * w2 + y2 * w + n2, z * w2 + z2 * w + n3, w * w2 - n4);
         }
 
         /// <summary>
@@ -353,34 +347,27 @@ namespace MathStructs
         /// <param name="left">The source Quaternion.</param>
         /// <param name="right">The divisor.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF operator /(QuaternionF left, QuaternionF right)
+        public static QuaternionD operator /(QuaternionD left, QuaternionD right)
         {
-            float q1x = left.X;
-            float q1y = left.Y;
-            float q1z = left.Z;
-            float q1w = left.W;
-
-            float ls = right.X * right.X + right.Y * right.Y + right.Z * right.Z + right.W * right.W;
-            float invNorm = 1f / ls;
-
-            float q2x = -right.X * invNorm;
-            float q2y = -right.Y * invNorm;
-            float q2z = -right.Z * invNorm;
-            float q2w = right.W * invNorm;
-
-            float cx = q1y * q2z - q1z * q2y;
-            float cy = q1z * q2x - q1x * q2z;
-            float cz = q1x * q2y - q1y * q2x;
-
-            float dot = q1x * q2x + q1y * q2y + q1z * q2z;
-
-            QuaternionF result;
-
-            result.X = q1x * q2w + q2x * q1w + cx;
-            result.Y = q1y * q2w + q2y * q1w + cy;
-            result.Z = q1z * q2w + q2z * q1w + cz;
-            result.W = q1w * q2w - dot;
-
+            double x = left.X;
+            double y = left.Y;
+            double z = left.Z;
+            double w = left.W;
+            double num = right.X * right.X + right.Y * right.Y + right.Z * right.Z + right.W * right.W;
+            double num2 = 1 / num;
+            double num3 = (0 - right.X) * num2;
+            double num4 = (0 - right.Y) * num2;
+            double num5 = (0 - right.Z) * num2;
+            double num6 = right.W * num2;
+            double num7 = y * num5 - z * num4;
+            double num8 = z * num3 - x * num5;
+            double num9 = x * num4 - y * num3;
+            double num10 = x * num3 + y * num4 + z * num5;
+            QuaternionD result;
+            result.X = x * num6 + num3 * w + num7;
+            result.Y = y * num6 + num4 * w + num8;
+            result.Z = z * num6 + num5 * w + num9;
+            result.W = w * num6 - num10;
             return result;
         }
 
@@ -388,7 +375,7 @@ namespace MathStructs
         /// Returns the Quaternion. (nop)
         /// </summary>
         [MethodImpl(Inline)]
-        public static QuaternionF operator +(QuaternionF value) =>
+        public static QuaternionD operator +(QuaternionD value) =>
             value;
 
         /// <summary>
@@ -397,7 +384,7 @@ namespace MathStructs
         /// <param name="left">The first source Quaternion.</param>
         /// <param name="right">The second source Quaternion.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF operator +(QuaternionF left, QuaternionF right) =>
+        public static QuaternionD operator +(QuaternionD left, QuaternionD right) =>
             new(left.X + right.X, left.Y + right.Y, left.Z + right.Z, left.W + right.W);
 
         /// <summary>
@@ -407,7 +394,7 @@ namespace MathStructs
         /// <param name="right">The second Quaternion to compare.</param>
         /// <returns>True if the Quaternions are equal; False otherwise.</returns>
         [MethodImpl(Inline)]
-        public static bool operator ==(QuaternionF left, QuaternionF right) =>
+        public static bool operator ==(QuaternionD left, QuaternionD right) =>
             left.X == right.X && left.Y == right.Y && left.Z == right.Z && left.W == right.W;
 
         /// <summary>
@@ -417,7 +404,7 @@ namespace MathStructs
         /// <param name="q2">The second source Quaternion.</param>
         /// <param name="amount">The relative weight of the second source Quaternion in the interpolation.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Slerp(QuaternionF q1, QuaternionF q2, float amount)
+        public static QuaternionD Slerp(QuaternionD q1, QuaternionD q2, double amount)
         {
             var n = q1.Dot(q2);
             var f = false;
@@ -426,19 +413,19 @@ namespace MathStructs
                 f = true;
                 n = -n;
             }
-            float n2, n3;
+            double n2, n3;
 
-            if (n > 0.999999f)
+            if (n > 0.999999)
             {
                 n2 = 1 - amount;
                 n3 = f ? -amount : amount;
             }
             else
             {
-                var n4 = MathF.Acos(n);
-                var n5 = 1 / MathF.Sin(n4);
-                n2 = MathF.Sin((1 - amount) * n4) * n5;
-                n3 = f ? ((-MathF.Sin(amount * n4)) * n5) : (MathF.Sin(amount * n4) * n5);
+                var n4 = Math.Acos(n);
+                var n5 = 1 / Math.Sin(n4);
+                n2 = Math.Sin((1 - amount) * n4) * n5;
+                n3 = f ? ((-Math.Sin(amount * n4)) * n5) : (Math.Sin(amount * n4) * n5);
             }
             return q1 * n2 + q2 * n3;
         }
@@ -449,7 +436,7 @@ namespace MathStructs
         /// <param name="left">The first source Quaternion.</param>
         /// <param name="right">The second Quaternion, to be subtracted from the first.</param>
         [MethodImpl(Inline)]
-        public static QuaternionF Subtract(QuaternionF left, QuaternionF right) =>
+        public static QuaternionD Subtract(QuaternionD left, QuaternionD right) =>
             left - right;
 
         /// <summary>
@@ -457,14 +444,14 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The other Quaternion rotation.</param>
         [MethodImpl(Inline)]
-        public QuaternionF Concatenate(QuaternionF value) =>
+        public QuaternionD Concatenate(QuaternionD value) =>
             Concatenate(this, value);
 
         /// <summary>
         /// Creates the conjugate of this Quaternion.
         /// </summary>
         [MethodImpl(Inline)]
-        public QuaternionF Conjugate() =>
+        public QuaternionD Conjugate() =>
             (-this).With(w: W);
 
         /// <summary>
@@ -475,7 +462,7 @@ namespace MathStructs
         /// <param name="z">The Z-value of the vector component of this Quaternion.</param>
         /// <param name="w">The W-value of the vector component of this Quaternion.</param>
         [MethodImpl(Inline)]
-        public void Deconstruct(out float x, out float y, out float z, out float w)
+        public void Deconstruct(out double x, out double y, out double z, out double w)
         {
             x = X;
             y = Y;
@@ -490,9 +477,9 @@ namespace MathStructs
         /// <param name="vectorPart">The vector component of this Quaternion.</param>
         /// <param name="scalarPart">The scalar component of this Quaternion.</param>
         [MethodImpl(Inline)]
-        public void Deconstruct(out Vector3F vectorPart, out float scalarPart)
+        public void Deconstruct(out Vector3D vectorPart, out double scalarPart)
         {
-            vectorPart = new Vector3F(X, Y, Z);
+            vectorPart = new Vector3D(X, Y, Z);
             scalarPart = W;
         }
 
@@ -501,8 +488,23 @@ namespace MathStructs
         /// </summary>
         /// <param name="value">The other source Quaternion.</param>
         [MethodImpl(Inline)]
-        public float Dot(QuaternionF value) =>
+        public double Dot(QuaternionD value) =>
             X * value.X + Y * value.Y + Z * value.Z + W * value.W;
+
+        /// <summary>
+        /// Returns a boolean indicating whether the given Quaternion is equal to this Quaternion instance
+        /// within a given delta margin of error.
+        /// </summary>
+        /// <param name="other">The Quaternion to compare this instance to.</param>
+        /// <param name="delta">The margin of error for the equality.</param>
+        /// <returns>True if the other Quaternion is within delta of this instance; False otherwise.</returns>
+        [MethodImpl(Inline)]
+        public bool Equals(QuaternionD other, double delta) =>
+            delta == 0.0 ? this == other
+                         : Math.Abs(X - other.X) < delta &&
+                           Math.Abs(Y - other.Y) < delta &&
+                           Math.Abs(Z - other.Z) < delta &&
+                           Math.Abs(W - other.W) < delta;
 
         /// <summary>
         /// Returns a boolean indicating whether the given Quaternion is equal to this Quaternion instance.
@@ -510,7 +512,7 @@ namespace MathStructs
         /// <param name="other">The Quaternion to compare this instance to.</param>
         /// <returns>True if the other Quaternion is equal to this instance; False otherwise.</returns>
         [MethodImpl(Inline)]
-        public bool Equals(QuaternionF other) =>
+        public bool Equals(QuaternionD other) =>
             this == other;
 
         /// <summary>
@@ -520,7 +522,7 @@ namespace MathStructs
         /// <returns>True if the Object is equal to this Quaternion; False otherwise.</returns>
         [MethodImpl(Inline)]
         public override bool Equals(object? obj) =>
-            obj is QuaternionF q && this == q;
+            obj is QuaternionD q && this == q;
 
         /// <summary>
         /// Returns the hash code for this instance.
@@ -533,11 +535,11 @@ namespace MathStructs
         /// Returns the inverse of this Quaternion.
         /// </summary>
         [MethodImpl(Inline)]
-        public QuaternionF Inverse()
+        public QuaternionD Inverse()
         {
-            float num = X * X + Y * Y + Z * Z + W * W;
-            float num2 = 1f / num;
-            QuaternionF result;
+            double num = X * X + Y * Y + Z * Z + W * W;
+            double num2 = 1f / num;
+            QuaternionD result;
             result.X = (0f - X) * num2;
             result.Y = (0f - Y) * num2;
             result.Z = (0f - Z) * num2;
@@ -550,22 +552,22 @@ namespace MathStructs
         /// </summary>
         /// <remarks>More expensive than <see cref="LengthSquared"/> if you need the squared length.</remarks>
         [MethodImpl(Inline)]
-        public float Length() =>
-            MathF.Sqrt(LengthSquared());
+        public double Length() =>
+            Math.Sqrt(LengthSquared());
 
         /// <summary>
         /// Calculates the length of the Quaternion.
         /// </summary>
         /// <remarks>Less expensive than <see cref="Length"/> if you need the squared length.</remarks>
         [MethodImpl(Inline)]
-        public float LengthSquared() =>
+        public double LengthSquared() =>
             X * X + Y * Y + Z * Z + W * W;
 
         /// <summary>
         /// Divides each component of the Quaternion by the length of the Quaternion.
         /// </summary>
         [MethodImpl(Inline)]
-        public QuaternionF Normalize() =>
+        public QuaternionD Normalize() =>
             this * (1 / Length());
 
         /// <summary>
@@ -591,7 +593,7 @@ namespace MathStructs
         ///     If provided, the W value for the new Quaternion, otherwise the <see cref="W"/> of this Quaternion.
         /// </param>
         [MethodImpl(Inline)]
-        public QuaternionF With(float? x = null, float? y = null, float? z = null, float? w = null) =>
+        public QuaternionD With(double? x = null, double? y = null, double? z = null, double? w = null) =>
             new(x ?? X, y ?? Y, z ?? Z, w ?? W);
 
         #endregion Public Methods

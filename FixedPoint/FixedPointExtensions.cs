@@ -59,5 +59,23 @@ namespace System
             (double)value < UFix16.MinValue
                 ? throw new OverflowException()
                 : (UFix16)value;
+        public static Fix16 ToFix16(this Half value, IFormatProvider? _) =>
+            (double)value > Fix16.MaxValue ||
+            (double)value < Fix16.MinValue
+                ? throw new OverflowException()
+                : (Fix16)value;
+        public static UFix8 ToUFix8(this IConvertible value, IFormatProvider? provider)
+        {
+            var d = (UFix8)value.ToSingle(provider);
+            return d > UFix8.MaxValue ||
+                   d < UFix8.MinValue
+                       ? throw new OverflowException()
+                       : d;
+        }
+        public static UFix8 ToUFix8(this Half value, IFormatProvider? _) =>
+            (float)value > UFix8.MaxValue ||
+            (float)value < UFix8.MinValue
+                ? throw new OverflowException()
+                : (UFix8)value;
     }
 }

@@ -1,9 +1,8 @@
-﻿using MathStructs;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using System;
 using System.Globalization;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace Tests

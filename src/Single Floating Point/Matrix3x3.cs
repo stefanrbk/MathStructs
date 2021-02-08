@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 //using System.Runtime.Intrinsics.X86;
 
-namespace MathStructs
+namespace System.Numerics
 {
     /// <summary>
-    /// A structure encapsulating a 3x3 matrix of <see cref="float"/> values.
+    /// A structure encapsulating a 3x3 matrix of <see cref="Single"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 4)]
-    public struct Matrix3x3F : IEquatable<Matrix3x3F>
+    public struct Matrix3x3 : IEquatable<Matrix3x3>
     {
         #region Public Fields
 
@@ -74,18 +75,18 @@ namespace MathStructs
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
-        private static readonly Matrix3x3F _identity = new Matrix3x3F(1, 0, 0, 0, 1, 0, 0, 0, 1);
-        private static readonly Matrix3x3F _nan = new Matrix3x3F(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN);
+        private static readonly Matrix3x3 _identity = new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        private static readonly Matrix3x3 _nan = new Matrix3x3(float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN, float.NaN);
 
         #endregion Private Fields
 
         #region Public Constructors
 
         /// <summary>
-        /// Constructs a <see cref="Matrix3x3F"/> from the given components.
+        /// Constructs a <see cref="Matrix3x3"/> from the given components.
         /// </summary>
         [MethodImpl(Optimize)]
-        public Matrix3x3F(float m11, float m12, float m13, float m21, float m22, float m23, float m31, float m32, float m33)
+        public Matrix3x3(float m11, float m12, float m13, float m21, float m22, float m23, float m31, float m32, float m33)
         {
             M11 = m11;
             M12 = m12;
@@ -105,12 +106,12 @@ namespace MathStructs
         /// <summary>
         /// Returns the multiplicative identity matrix.
         /// </summary>
-        public static Matrix3x3F Identity => _identity;
+        public static Matrix3x3 Identity => _identity;
 
         /// <summary>
         /// Returns a matrix with all values set to NaN.
         /// </summary>
-        public static Matrix3x3F NaN => _nan;
+        public static Matrix3x3 NaN => _nan;
 
         /// <summary>
         /// Returns whether the matrix is the identity matrix.
@@ -132,7 +133,7 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Add(Matrix3x3F left, Matrix3x3F right) =>
+        public static Matrix3x3 Add(Matrix3x3 left, Matrix3x3 right) =>
             left + right;
 
         /// <summary>
@@ -179,7 +180,7 @@ namespace MathStructs
         /// If successful, the inverted matrix; NaN matrix otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Invert(Matrix3x3F matrix)
+        public static Matrix3x3 Invert(Matrix3x3 matrix)
         {
             var det = matrix.GetDeterminant();
             if (MathF.Abs(det) < float.Epsilon)
@@ -187,7 +188,7 @@ namespace MathStructs
 
             var invdet = 1 / det;
 
-            return new Matrix3x3F((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
+            return new Matrix3x3((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
                                   (matrix.M13 * matrix.M32 - matrix.M12 * matrix.M33) * invdet,
                                   (matrix.M12 * matrix.M23 - matrix.M13 * matrix.M22) * invdet,
                                   (matrix.M23 * matrix.M31 - matrix.M21 * matrix.M33) * invdet,
@@ -211,12 +212,12 @@ namespace MathStructs
         /// The relative weight of the second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public unsafe static Matrix3x3F Lerp(Matrix3x3F matrix1, Matrix3x3F matrix2, float amount)
+        public unsafe static Matrix3x3 Lerp(Matrix3x3 matrix1, Matrix3x3 matrix2, float amount)
         {
             (var m1, var m2) = (matrix1, matrix2);
             //if (Sse.IsSupported)
             //    return Matrix4x4F.Lerp(m1.As4x4(), m2.As4x4(), amount).As3x3();
-            return new Matrix3x3F(m1.M11 + (m2.M11 - m1.M11) * amount,
+            return new Matrix3x3(m1.M11 + (m2.M11 - m1.M11) * amount,
                                   m1.M12 + (m2.M12 - m1.M12) * amount,
                                   m1.M13 + (m2.M13 - m1.M13) * amount,
                                   m1.M21 + (m2.M21 - m1.M21) * amount,
@@ -237,7 +238,7 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Multiply(Matrix3x3F left, Matrix3x3F right) =>
+        public static Matrix3x3 Multiply(Matrix3x3 left, Matrix3x3 right) =>
             left * right;
 
         /// <summary>
@@ -250,7 +251,7 @@ namespace MathStructs
         /// The scaling factor.
         /// </param>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Multiply(Matrix3x3F left, float right) =>
+        public static Matrix3x3 Multiply(Matrix3x3 left, float right) =>
             left * right;
 
         /// <summary>
@@ -260,7 +261,7 @@ namespace MathStructs
         /// The source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Negate(Matrix3x3F value) =>
+        public static Matrix3x3 Negate(Matrix3x3 value) =>
             -value;
 
         /// <summary>
@@ -270,12 +271,12 @@ namespace MathStructs
         /// The source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3F operator -(Matrix3x3F value)
+        public static unsafe Matrix3x3 operator -(Matrix3x3 value)
         {
             //if (Sse.IsSupported)
             //    return (-value.As4x4()).As3x3();
             //else
-                return new Matrix3x3F(-value.M11, -value.M12, -value.M13,
+                return new Matrix3x3(-value.M11, -value.M12, -value.M13,
                                       -value.M21, -value.M22, -value.M23,
                                       -value.M31, -value.M32, -value.M33);
         }
@@ -290,12 +291,12 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3F operator -(Matrix3x3F left, Matrix3x3F right)
+        public static unsafe Matrix3x3 operator -(Matrix3x3 left, Matrix3x3 right)
         {
             //if (Sse.IsSupported)
             //    return (left.As4x4() - right.As4x4()).As3x3();
             //else
-                return new Matrix3x3F(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13,
+                return new Matrix3x3(left.M11 - right.M11, left.M12 - right.M12, left.M13 - right.M13,
                                       left.M21 - right.M21, left.M22 - right.M22, left.M23 - right.M23,
                                       left.M31 - right.M31, left.M32 - right.M32, left.M33 - right.M33);
         }
@@ -313,7 +314,7 @@ namespace MathStructs
         /// True if the given matrices are not equal; False if they are equal.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static bool operator !=(Matrix3x3F left, Matrix3x3F right)
+        public static bool operator !=(Matrix3x3 left, Matrix3x3 right)
         {
             //if (Sse.IsSupported)
             //    return left.As4x4() != right.As4x4();
@@ -333,9 +334,9 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3F operator *(Matrix3x3F left, Matrix3x3F right)
+        public static unsafe Matrix3x3 operator *(Matrix3x3 left, Matrix3x3 right)
         {
-            var result = new Matrix3x3F();
+            var result = new Matrix3x3();
 
             //if (Sse.IsSupported)
             //    result = (left.As4x4() * right.As4x4()).As3x3();
@@ -356,7 +357,7 @@ namespace MathStructs
         }
 
         /// <summary>
-        /// Multiplies a matrix by a <see cref="Vector3D"/>.
+        /// Multiplies a matrix by a <see cref="Vector3"/>.
         /// </summary>
         /// <param name="left">
         /// The source matrix.
@@ -365,19 +366,19 @@ namespace MathStructs
         /// The source vector.
         /// </param>
         /// <remarks>
-        /// Multiplying a 3x3 matrix by a 3x1 vector is supposed to result in a 1x3 vector. <see cref="Vector3D"/> has no
+        /// Multiplying a 3x3 matrix by a 3x1 vector is supposed to result in a 1x3 vector. <see cref="Vector3"/> has no
         /// concept of being vertical or horizontal, so the result is "translated" as a 3x1 vector.
         /// </remarks>
         [MethodImpl(Optimize)]
-        public static unsafe Vector3F operator *(Matrix3x3F left, Vector3F right)
+        public static unsafe Vector3 operator *(Matrix3x3 left, Vector3 right)
         {
-            return new Vector3F(left.M11 * right.X + left.M12 * right.Y + left.M13 * right.Z,
-                                left.M21 * right.X + left.M22 * right.Y + left.M23 * right.Z,
-                                left.M31 * right.X + left.M32 * right.Y + left.M33 * right.Z);
+            return new Vector3(left.M11 * right.X + left.M12 * right.Y + left.M13 * right.Z,
+                               left.M21 * right.X + left.M22 * right.Y + left.M23 * right.Z,
+                               left.M31 * right.X + left.M32 * right.Y + left.M33 * right.Z);
         }
 
         /// <summary>
-        /// Multiplies a matrix by a <see cref="Vector3D"/>.
+        /// Multiplies a matrix by a <see cref="Vector3"/>.
         /// </summary>
         /// <param name="left">
         /// The source vector.
@@ -386,15 +387,15 @@ namespace MathStructs
         /// The source matrix.
         /// </param>
         /// <remarks>
-        /// Multiplying a 3x3 matrix by a 3x1 vector is supposed to result in a 1x3 vector. <see cref="Vector3D"/> has no
+        /// Multiplying a 3x3 matrix by a 3x1 vector is supposed to result in a 1x3 vector. <see cref="Vector3"/> has no
         /// concept of being vertical or horizontal, so the result is "translated" as a 3x1 vector.
         /// </remarks>
         [MethodImpl(Optimize)]
-        public static Vector3F operator *(Vector3F left, Matrix3x3F right) =>
+        public static Vector3 operator *(Vector3 left, Matrix3x3 right) =>
             right * left;
 
         /// <summary>
-        /// Multiplies a matrix by a <see cref="Vector4D"/>.
+        /// Multiplies a matrix by a <see cref="Vector4"/>.
         /// </summary>
         /// <param name="left">
         /// The source matrix.
@@ -406,18 +407,18 @@ namespace MathStructs
         /// In a strictly mathematical sense, this method pretends the Matrix3x3D is actually a Matrix4x4D with the extra
         /// cells populated like the identity matrix. Effectively, this multiplies the 3x3 matrix with the XYZ of the 4x1
         /// vector and pulls the W through as the new W.
-        /// Multiplying a 4x4 matrix by a 4x1 vector is supposed to result in a 1x4 vector. <see cref="Vector4D"/> has no
+        /// Multiplying a 4x4 matrix by a 4x1 vector is supposed to result in a 1x4 vector. <see cref="Vector4"/> has no
         /// concept of being vertical or horizontal, so the result is "translated" as a 4x1 vector.
         /// </remarks>
         [MethodImpl(Optimize)]
-        public static unsafe Vector4F operator *(Matrix3x3F left, Vector4F right)
+        public static unsafe Vector4 operator *(Matrix3x3 left, Vector4 right)
         {
             (var v, _) = right;
-            return new Vector4F(left * v, right.W);
+            return new Vector4(left * v, right.W);
         }
 
         /// <summary>
-        /// Multiplies a matrix by a <see cref="Vector4D"/>.
+        /// Multiplies a matrix by a <see cref="Vector4"/>.
         /// </summary>
         /// <param name="left">
         /// The source matrix.
@@ -426,14 +427,14 @@ namespace MathStructs
         /// The source vector.
         /// </param>
         /// <remarks>
-        /// In a strictly mathematical sense, this method pretends the Matrix3x3D is actually a Matrix4x4D with the extra
+        /// In a strictly mathematical sense, this method pretends the Matrix3x3 is actually a Matrix4x4 with the extra
         /// cells populated like the identity matrix. Effectively, this multiplies the 3x3 matrix with the XYZ of the 4x1
         /// vector and pulls the W through as the new W.
-        /// Multiplying a 4x4 matrix by a 4x1 vector is supposed to result in a 1x4 vector. <see cref="Vector4D"/> has no
+        /// Multiplying a 4x4 matrix by a 4x1 vector is supposed to result in a 1x4 vector. <see cref="Vector4"/> has no
         /// concept of being vertical or horizontal, so the result is "translated" as a 4x1 vector.
         /// </remarks>
         [MethodImpl(Optimize)]
-        public static Vector4F operator *(Vector4F left, Matrix3x3F right) =>
+        public static Vector4 operator *(Vector4 left, Matrix3x3 right) =>
             right * left;
 
         /// <summary>
@@ -446,12 +447,12 @@ namespace MathStructs
         /// The scaling factor.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3F operator *(Matrix3x3F left, float right)
+        public static unsafe Matrix3x3 operator *(Matrix3x3 left, float right)
         {
             //if (Sse.IsSupported)
             //    return (left.As4x4() * right).As3x3();
             //else
-                return new Matrix3x3F(left.M11 * right, left.M12 * right, left.M13 * right,
+                return new Matrix3x3(left.M11 * right, left.M12 * right, left.M13 * right,
                                       left.M21 * right, left.M22 * right, left.M23 * right,
                                       left.M31 * right, left.M32 * right, left.M33 * right);
         }
@@ -460,7 +461,7 @@ namespace MathStructs
         /// Returns itself. (nop)
         /// </summary>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F operator +(Matrix3x3F value) =>
+        public static Matrix3x3 operator +(Matrix3x3 value) =>
             value;
 
         /// <summary>
@@ -473,12 +474,12 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static unsafe Matrix3x3F operator +(Matrix3x3F left, Matrix3x3F right)
+        public static unsafe Matrix3x3 operator +(Matrix3x3 left, Matrix3x3 right)
         {
             //if (Sse.IsSupported)
             //    return (left.As4x4() + right.As4x4()).As3x3();
             //else
-                return new Matrix3x3F(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13,
+                return new Matrix3x3(left.M11 + right.M11, left.M12 + right.M12, left.M13 + right.M13,
                                       left.M21 + right.M21, left.M22 + right.M22, left.M23 + right.M23,
                                       left.M31 + right.M31, left.M32 + right.M32, left.M33 + right.M33);
         }
@@ -496,7 +497,7 @@ namespace MathStructs
         /// True if the given matrices are equal; False otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static unsafe bool operator ==(Matrix3x3F left, Matrix3x3F right)
+        public static unsafe bool operator ==(Matrix3x3 left, Matrix3x3 right)
         {
             //if (Sse.IsSupported)
             //    return left.As4x4() == right.As4x4();
@@ -516,7 +517,7 @@ namespace MathStructs
         /// The second source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Subtract(Matrix3x3F left, Matrix3x3F right) =>
+        public static Matrix3x3 Subtract(Matrix3x3 left, Matrix3x3 right) =>
             left - right;
 
         /// <summary>
@@ -526,11 +527,11 @@ namespace MathStructs
         /// The source matrix.
         /// </param>
         [MethodImpl(Optimize)]
-        public static Matrix3x3F Transpose(Matrix3x3F matrix)
+        public static Matrix3x3 Transpose(Matrix3x3 matrix)
         {
             //if (Sse.IsSupported)
             //    return Matrix4x4F.Transpose(matrix.As4x4()).As3x3();
-            return new Matrix3x3F(matrix.M11, matrix.M21, matrix.M31,
+            return new Matrix3x3(matrix.M11, matrix.M21, matrix.M31,
                                   matrix.M12, matrix.M22, matrix.M32,
                                   matrix.M13, matrix.M23, matrix.M33);
         }
@@ -545,7 +546,7 @@ namespace MathStructs
         /// True if the matrices are equal; False otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public bool Equals([AllowNull] Matrix3x3F other) =>
+        public bool Equals([AllowNull] Matrix3x3 other) =>
             this == other;
 
         /// <summary>
@@ -559,7 +560,7 @@ namespace MathStructs
         /// </returns>
         [MethodImpl(Optimize)]
         public override bool Equals(object? obj) =>
-            obj is Matrix3x3F matrix && this == matrix;
+            obj is Matrix3x3 matrix && this == matrix;
 
         /// <summary>
         /// Calculates the determinant of the matrix.
@@ -598,7 +599,7 @@ namespace MathStructs
         /// The inverted matrix or a NaN matrix if the inverse could not be calculated.
         /// </returns>
         [MethodImpl(Optimize)]
-        public Matrix3x3F Invert() =>
+        public Matrix3x3 Invert() =>
             Invert(this);
 
         /// <summary>
@@ -611,15 +612,20 @@ namespace MathStructs
         /// Provides a record-style <see langword="with"/>-like constructor.
         /// </summary>
         [MethodImpl(Optimize)]
-        public Matrix3x3F With(float? m11 = null, float? m12 = null, float? m13 = null, float? m21 = null, float? m22 = null, float? m23 = null, float? m31 = null, float? m32 = null, float? m33 = null) =>
-            new Matrix3x3F(m11 ?? M11, m12 ?? M12, m13 ?? M13, m21 ?? M21, m22 ?? M22, m23 ?? M23, m31 ?? M31, m32 ?? M32, m33 ?? M33);
+        public unsafe Matrix3x3 With(float? m11 = null, float? m12 = null, float? m13 = null, float? m21 = null, float? m22 = null, float? m23 = null, float? m31 = null, float? m32 = null, float? m33 = null)
+        {
+            var array = new float[9];
+            fixed(void* ptr = &this)
+                Marshal.Copy((IntPtr)ptr, array, 0, 9);
 
+            return array.With(new[] { m11, m12, m13, m21, m22, m23, m31, m32, m33 }).ToArray().ToMatrix3x3();
+        }
         #endregion Public Methods
 
         #region Internal Methods
 
-        internal Matrix4x4F As4x4() =>
-            Matrix4x4F.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
+        internal Matrix4x4 As4x4() =>
+            Matrix4x4.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
 
         #endregion Internal Methods
     }

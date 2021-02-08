@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
     [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public readonly struct Matrix3x3Fix16 : IEquatable<Matrix3x3Fix16>

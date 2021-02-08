@@ -4,10 +4,11 @@ using NUnit.Framework;
 
 using System;
 using System.Globalization;
+using System.Numerics;
 
 namespace Tests
 {
-    public class Matrix3x3FTests
+    public class Matrix3x3Tests
     {
         #region Public Methods
 
@@ -15,7 +16,7 @@ namespace Tests
         public void CastTest()
         {
             var span = (new float[] {4.0f, 7.0f, 2.0f, 9.0f, 12.0f, 0.0f, 3.0f, 8.0f, 6.0f}).AsSpan();
-            var vec = span.ToMatrix3x3F();
+            var vec = span.ToMatrix3x3();
 
             Assert.That(vec.M11, Is.EqualTo(span[0]));
             Assert.That(vec.M12, Is.EqualTo(span[1]));
@@ -28,14 +29,14 @@ namespace Tests
             Assert.That(vec.M33, Is.EqualTo(span[8]));
         }
 
-        // A test for operator + (Matrix3x3F, Matrix3x3F)
+        // A test for operator + (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FAdditionTest()
+        public void Matrix3x3AdditionTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 + b.M11,
                 M12 = a.M12 + b.M12,
@@ -48,18 +49,18 @@ namespace Tests
                 M33 = a.M33 + b.M33
             };
 
-            Matrix3x3F actual = a + b;
-            Assert.AreEqual(expected, actual, "Matrix3x3F.operator + did not return the expected value.");
+            Matrix3x3 actual = a + b;
+            Assert.AreEqual(expected, actual, "Matrix3x3.operator + did not return the expected value.");
         }
 
-        // A test for Add (Matrix3x3F, Matrix3x3F)
+        // A test for Add (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FAddTest()
+        public void Matrix3x3AddTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 + b.M11,
                 M12 = a.M12 + b.M12,
@@ -72,31 +73,31 @@ namespace Tests
                 M33 = a.M33 + b.M33
             };
 
-            Matrix3x3F actual = Matrix3x3F.Add(a, b);
+            Matrix3x3 actual = Matrix3x3.Add(a, b);
             Assert.AreEqual(expected, actual);
         }
 
         // A test for Determinant
         [Test]
-        public void Matrix3x3FDeterminantTest()
+        public void Matrix3x3DeterminantTest()
         {
-            Matrix3x3F target = As3x3(
-                    Matrix4x4F.CreateRotationX(MathHelper.ToRadians(30.0f)) *
-                    Matrix4x4F.CreateRotationY(MathHelper.ToRadians(30.0f)) *
-                    Matrix4x4F.CreateRotationZ(MathHelper.ToRadians(30.0f)));
+            Matrix3x3 target = As3x3(
+                    Matrix4x4.CreateRotationX(MathHelper.ToRadians(30.0f)) *
+                    Matrix4x4.CreateRotationY(MathHelper.ToRadians(30.0f)) *
+                    Matrix4x4.CreateRotationZ(MathHelper.ToRadians(30.0f)));
 
             float val = 1.0f;
             float det = target.GetDeterminant();
 
-            Assert.AreEqual(val, det, "Matrix3x3F.Determinant was not set correctly.");
+            Assert.AreEqual(val, det, "Matrix3x3.Determinant was not set correctly.");
         }
 
         // A test for Determinant
         // Determinant test |A| = 1 / |A'|
         [Test]
-        public void Matrix3x3FDeterminantTest1()
+        public void Matrix3x3DeterminantTest1()
         {
-            Matrix3x3F a = new Matrix3x3F
+            Matrix3x3 a = new Matrix3x3
             {
                 M11 = 5.0f,
                 M12 = 2.0f,
@@ -108,23 +109,23 @@ namespace Tests
                 M32 = 1.0f,
                 M33 = 3.14f
             };
-            Matrix3x3F i = a.Invert();
-            Assert.AreNotEqual(i, Matrix3x3F.NaN);
+            Matrix3x3 i = a.Invert();
+            Assert.AreNotEqual(i, Matrix3x3.NaN);
 
             float detA = a.GetDeterminant();
             float detI = i.GetDeterminant();
             float t = 1.0f / detI;
 
             // only accurate to 3 precision
-            Assert.Less(Math.Abs(detA - t), 1e-3, "Matrix3x3F.Determinant was not set correctly.");
+            Assert.Less(Math.Abs(detA - t), 1e-3, "Matrix3x3.Determinant was not set correctly.");
         }
 
-        // A test for operator == (Matrix3x3F, Matrix3x3F)
+        // A test for operator == (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FEqualityTest()
+        public void Matrix3x3EqualityTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber();
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber();
 
             // case 1: compare between same values
             bool expected = true;
@@ -138,49 +139,49 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for Matrix3x3F comparison involving NaN values
+        // A test for Matrix3x3 comparison involving NaN values
         [Test]
-        public void Matrix3x3FEqualsNanTest()
+        public void Matrix3x3EqualsNanTest()
         {
-            Matrix3x3F a = new Matrix3x3F(float.NaN, 0, 0, 0, 0, 0, 0, 0, 0);
-            Matrix3x3F b = new Matrix3x3F(0, float.NaN, 0, 0, 0, 0, 0, 0, 0);
-            Matrix3x3F c = new Matrix3x3F(0, 0, float.NaN, 0, 0, 0, 0, 0, 0);
-            Matrix3x3F d = new Matrix3x3F(0, 0, 0, float.NaN, 0, 0, 0, 0, 0);
-            Matrix3x3F e = new Matrix3x3F(0, 0, 0, 0, float.NaN, 0, 0, 0, 0);
-            Matrix3x3F f = new Matrix3x3F(0, 0, 0, 0, 0, float.NaN, 0, 0, 0);
-            Matrix3x3F g = new Matrix3x3F(0, 0, 0, 0, 0, 0, float.NaN, 0, 0);
-            Matrix3x3F h = new Matrix3x3F(0, 0, 0, 0, 0, 0, 0, float.NaN, 0);
-            Matrix3x3F i = new Matrix3x3F(0, 0, 0, 0, 0, 0, 0, 0, float.NaN);
+            Matrix3x3 a = new Matrix3x3(float.NaN, 0, 0, 0, 0, 0, 0, 0, 0);
+            Matrix3x3 b = new Matrix3x3(0, float.NaN, 0, 0, 0, 0, 0, 0, 0);
+            Matrix3x3 c = new Matrix3x3(0, 0, float.NaN, 0, 0, 0, 0, 0, 0);
+            Matrix3x3 d = new Matrix3x3(0, 0, 0, float.NaN, 0, 0, 0, 0, 0);
+            Matrix3x3 e = new Matrix3x3(0, 0, 0, 0, float.NaN, 0, 0, 0, 0);
+            Matrix3x3 f = new Matrix3x3(0, 0, 0, 0, 0, float.NaN, 0, 0, 0);
+            Matrix3x3 g = new Matrix3x3(0, 0, 0, 0, 0, 0, float.NaN, 0, 0);
+            Matrix3x3 h = new Matrix3x3(0, 0, 0, 0, 0, 0, 0, float.NaN, 0);
+            Matrix3x3 i = new Matrix3x3(0, 0, 0, 0, 0, 0, 0, 0, float.NaN);
 
-            Assert.False(a == new Matrix3x3F());
-            Assert.False(b == new Matrix3x3F());
-            Assert.False(c == new Matrix3x3F());
-            Assert.False(d == new Matrix3x3F());
-            Assert.False(e == new Matrix3x3F());
-            Assert.False(f == new Matrix3x3F());
-            Assert.False(g == new Matrix3x3F());
-            Assert.False(h == new Matrix3x3F());
-            Assert.False(i == new Matrix3x3F());
+            Assert.False(a == new Matrix3x3());
+            Assert.False(b == new Matrix3x3());
+            Assert.False(c == new Matrix3x3());
+            Assert.False(d == new Matrix3x3());
+            Assert.False(e == new Matrix3x3());
+            Assert.False(f == new Matrix3x3());
+            Assert.False(g == new Matrix3x3());
+            Assert.False(h == new Matrix3x3());
+            Assert.False(i == new Matrix3x3());
 
-            Assert.True(a != new Matrix3x3F());
-            Assert.True(b != new Matrix3x3F());
-            Assert.True(c != new Matrix3x3F());
-            Assert.True(d != new Matrix3x3F());
-            Assert.True(e != new Matrix3x3F());
-            Assert.True(f != new Matrix3x3F());
-            Assert.True(g != new Matrix3x3F());
-            Assert.True(h != new Matrix3x3F());
-            Assert.True(i != new Matrix3x3F());
+            Assert.True(a != new Matrix3x3());
+            Assert.True(b != new Matrix3x3());
+            Assert.True(c != new Matrix3x3());
+            Assert.True(d != new Matrix3x3());
+            Assert.True(e != new Matrix3x3());
+            Assert.True(f != new Matrix3x3());
+            Assert.True(g != new Matrix3x3());
+            Assert.True(h != new Matrix3x3());
+            Assert.True(i != new Matrix3x3());
 
-            Assert.False(a.Equals(new Matrix3x3F()));
-            Assert.False(b.Equals(new Matrix3x3F()));
-            Assert.False(c.Equals(new Matrix3x3F()));
-            Assert.False(d.Equals(new Matrix3x3F()));
-            Assert.False(e.Equals(new Matrix3x3F()));
-            Assert.False(f.Equals(new Matrix3x3F()));
-            Assert.False(g.Equals(new Matrix3x3F()));
-            Assert.False(h.Equals(new Matrix3x3F()));
-            Assert.False(i.Equals(new Matrix3x3F()));
+            Assert.False(a.Equals(new Matrix3x3()));
+            Assert.False(b.Equals(new Matrix3x3()));
+            Assert.False(c.Equals(new Matrix3x3()));
+            Assert.False(d.Equals(new Matrix3x3()));
+            Assert.False(e.Equals(new Matrix3x3()));
+            Assert.False(f.Equals(new Matrix3x3()));
+            Assert.False(g.Equals(new Matrix3x3()));
+            Assert.False(h.Equals(new Matrix3x3()));
+            Assert.False(i.Equals(new Matrix3x3()));
 
             Assert.False(a.IsIdentity);
             Assert.False(b.IsIdentity);
@@ -206,10 +207,10 @@ namespace Tests
 
         // A test for Equals (object)
         [Test]
-        public void Matrix3x3FEqualsTest()
+        public void Matrix3x3EqualsTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber();
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber();
 
             // case 1: compare between same values
             object? obj = b;
@@ -226,7 +227,7 @@ namespace Tests
             Assert.AreEqual(expected, actual);
 
             // case 3: compare between different types.
-            obj = new Vector4F();
+            obj = new Vector4();
             expected = false;
             actual = a.Equals(obj);
             Assert.AreEqual(expected, actual);
@@ -238,12 +239,12 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for Equals (Matrix3x3F)
+        // A test for Equals (Matrix3x3)
         [Test]
-        public void Matrix3x3FEqualsTest1()
+        public void Matrix3x3EqualsTest1()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber();
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber();
 
             // case 1: compare between same values
             bool expected = true;
@@ -259,12 +260,12 @@ namespace Tests
 
         // A test to make sure the fields are laid out how we expect
         [Test]
-        public unsafe void Matrix3x3FFieldOffsetTest()
+        public unsafe void Matrix3x3FieldOffsetTest()
         {
-            Matrix3x3F mat = new Matrix3x3F();
+            Matrix3x3 mat = new Matrix3x3();
 
             float* basePtr = &mat.M11; // Take address of first element
-            Matrix3x3F* matPtr = &mat; // Take address of whole matrix
+            Matrix3x3* matPtr = &mat; // Take address of whole matrix
 
             Assert.AreEqual(new IntPtr(basePtr), new IntPtr(matPtr));
 
@@ -283,9 +284,9 @@ namespace Tests
 
         // A test for GetHashCode ()
         [Test]
-        public void Matrix3x3FGetHashCodeTest()
+        public void Matrix3x3GetHashCodeTest()
         {
-            Matrix3x3F target = GenerateIncrementalMatrixNumber();
+            Matrix3x3 target = GenerateIncrementalMatrixNumber();
 
             HashCode hash = default;
 
@@ -309,20 +310,20 @@ namespace Tests
 
         // A test for Identity
         [Test]
-        public void Matrix3x3FIdentityTest()
+        public void Matrix3x3IdentityTest()
         {
-            Matrix3x3F val = new Matrix3x3F();
+            Matrix3x3 val = new Matrix3x3();
             val.M11 = val.M22 = val.M33 = 1.0f;
 
-            Assert.AreEqual(val, Matrix3x3F.Identity, "Matrix3x3F.Indentity was not set correctly.");
+            Assert.AreEqual(val, Matrix3x3.Identity, "Matrix3x3.Indentity was not set correctly.");
         }
 
-        // A test for operator != (Matrix3x3F, Matrix3x3F)
+        // A test for operator != (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FInequalityTest()
+        public void Matrix3x3InequalityTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber();
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber();
 
             // case 1: compare between same values
             bool expected = false;
@@ -336,24 +337,24 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for Invert (Matrix3x3F)
+        // A test for Invert (Matrix3x3)
         [Test]
-        public void Matrix3x3FInvertIdentityTest()
+        public void Matrix3x3InvertIdentityTest()
         {
-            Matrix3x3F mtx = Matrix3x3F.Identity;
+            Matrix3x3 mtx = Matrix3x3.Identity;
 
-            Matrix3x3F actual = mtx.Invert();
-            Assert.AreNotEqual(actual, Matrix3x3F.NaN);
+            Matrix3x3 actual = mtx.Invert();
+            Assert.AreNotEqual(actual, Matrix3x3.NaN);
 
-            Assert.AreEqual(actual, Matrix3x3F.Identity);
+            Assert.AreEqual(actual, Matrix3x3.Identity);
         }
 
-        // A test for Invert (Matrix3x3F)
+        // A test for Invert (Matrix3x3)
         // Non invertible matrix - determinant is zero - singular matrix
         [Test]
-        public void Matrix3x3FInvertTest1()
+        public void Matrix3x3InvertTest1()
         {
-            Matrix3x3F a = new Matrix3x3F
+            Matrix3x3 a = new Matrix3x3
             {
                 M11 = 1.0f,
                 M12 = 2.0f,
@@ -367,40 +368,40 @@ namespace Tests
             };
 
             float detA = a.GetDeterminant();
-            Assert.AreEqual(detA, 0.0f, "Matrix3x3F.Invert did not return the expected value.");
+            Assert.AreEqual(detA, 0.0f, "Matrix3x3.Invert did not return the expected value.");
 
-            Matrix3x3F actual = a.Invert();
+            Matrix3x3 actual = a.Invert();
 
             // all the elements in Actual is NaN
             Assert.True(
                 float.IsNaN(actual.M11) && float.IsNaN(actual.M12) && float.IsNaN(actual.M13) &&
                 float.IsNaN(actual.M21) && float.IsNaN(actual.M22) && float.IsNaN(actual.M23) &&
                 float.IsNaN(actual.M31) && float.IsNaN(actual.M32) && float.IsNaN(actual.M33)
-                , "Matrix3x3F.Invert did not return the expected value.");
+                , "Matrix3x3.Invert did not return the expected value.");
         }
 
         // A test for IsIdentity
         [Test]
-        public void Matrix3x3FIsIdentityTest()
+        public void Matrix3x3IsIdentityTest()
         {
-            Assert.True(Matrix3x3F.Identity.IsIdentity);
-            Assert.True(new Matrix3x3F(1, 0, 0, 0, 1, 0, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(0, 0, 0, 0, 1, 0, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 1, 0, 0, 1, 0, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 1, 0, 1, 0, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 0, 1, 1, 0, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 0, 0, 0, 0, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 0, 0, 1, 1, 0, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 0, 0, 1, 0, 1, 0, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 0, 0, 1, 0, 0, 1, 1).IsIdentity);
-            Assert.False(new Matrix3x3F(1, 0, 0, 0, 1, 0, 0, 0, 0).IsIdentity);
+            Assert.True(Matrix3x3.Identity.IsIdentity);
+            Assert.True(new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(0, 0, 0, 0, 1, 0, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 1, 0, 0, 1, 0, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 1, 0, 1, 0, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 0, 1, 1, 0, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 0, 0, 0, 0, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 0, 0, 1, 1, 0, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 0, 0, 1, 0, 1, 0, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 1, 1).IsIdentity);
+            Assert.False(new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, 0).IsIdentity);
         }
 
-        // A test for Lerp (Matrix3x3F, Matrix3x3F, float)
+        // A test for Lerp (Matrix3x3, Matrix3x3, float)
         [Test]
-        public void Matrix3x3FLerpTest()
+        public void Matrix3x3LerpTest()
         {
-            Matrix3x3F a = new Matrix3x3F
+            Matrix3x3 a = new Matrix3x3
             {
                 M11 = 11.0f,
                 M12 = 12.0f,
@@ -413,11 +414,11 @@ namespace Tests
                 M33 = 31.0f
             };
 
-            Matrix3x3F b = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber();
 
             float t = 0.5f;
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 + (b.M11 - a.M11) * t,
                 M12 = a.M12 + (b.M12 - a.M12) * t,
@@ -432,19 +433,19 @@ namespace Tests
                 M33 = a.M33 + (b.M33 - a.M33) * t
             };
 
-            Matrix3x3F actual;
-            actual = Matrix3x3F.Lerp(a, b, t);
-            Assert.AreEqual(expected, actual, "Matrix3x3F.Lerp did not return the expected value.");
+            Matrix3x3 actual;
+            actual = Matrix3x3.Lerp(a, b, t);
+            Assert.AreEqual(expected, actual, "Matrix3x3.Lerp did not return the expected value.");
         }
 
-        // A test for operator * (Matrix3x3F, Matrix3x3F)
+        // A test for operator * (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FMultiplyTest1()
+        public void Matrix3x3MultiplyTest1()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31,
                 M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32,
@@ -459,18 +460,18 @@ namespace Tests
                 M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33
             };
 
-            Matrix3x3F actual = a * b;
-            Assert.AreEqual(expected, actual, "Matrix3x3F.operator * did not return the expected value.");
+            Matrix3x3 actual = a * b;
+            Assert.AreEqual(expected, actual, "Matrix3x3.operator * did not return the expected value.");
         }
 
-        // A test for Multiply (Matrix3x3F, Matrix3x3F)
+        // A test for Multiply (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FMultiplyTest3()
+        public void Matrix3x3MultiplyTest3()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 * b.M11 + a.M12 * b.M21 + a.M13 * b.M31,
                 M12 = a.M11 * b.M12 + a.M12 * b.M22 + a.M13 * b.M32,
@@ -484,18 +485,18 @@ namespace Tests
                 M32 = a.M31 * b.M12 + a.M32 * b.M22 + a.M33 * b.M32,
                 M33 = a.M31 * b.M13 + a.M32 * b.M23 + a.M33 * b.M33
             };
-            Matrix3x3F actual;
-            actual = Matrix3x3F.Multiply(a, b);
+            Matrix3x3 actual;
+            actual = Matrix3x3.Multiply(a, b);
 
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for operator * (Matrix3x3F, Matrix3x3F)
+        // A test for operator * (Matrix3x3, Matrix3x3)
         // Multiply with identity matrix
         [Test]
-        public void Matrix3x3FMultiplyTest4()
+        public void Matrix3x3MultiplyTest4()
         {
-            Matrix3x3F a = new Matrix3x3F
+            Matrix3x3 a = new Matrix3x3
             {
                 M11 = 1.0f,
                 M12 = 2.0f,
@@ -508,43 +509,43 @@ namespace Tests
                 M33 = 9.0f
             };
 
-            Matrix3x3F b = Matrix3x3F.Identity;
+            Matrix3x3 b = Matrix3x3.Identity;
 
-            Matrix3x3F expected = a;
-            Matrix3x3F actual = a * b;
+            Matrix3x3 expected = a;
+            Matrix3x3 actual = a * b;
 
-            Assert.AreEqual(expected, actual, "Matrix3x3F.operator * did not return the expected value.");
+            Assert.AreEqual(expected, actual, "Matrix3x3.operator * did not return the expected value.");
         }
 
-        // A test for Multiply (Matrix3x3F, float)
+        // A test for Multiply (Matrix3x3, float)
         [Test]
-        public void Matrix3x3FMultiplyTest5()
+        public void Matrix3x3MultiplyTest5()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F expected = new Matrix3x3F(3, 6, 9, 12, 15, 18, 21, 24, 27);
-            Matrix3x3F actual = Matrix3x3F.Multiply(a, 3);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 expected = new Matrix3x3(3, 6, 9, 12, 15, 18, 21, 24, 27);
+            Matrix3x3 actual = Matrix3x3.Multiply(a, 3);
 
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for Multiply (Matrix3x3F, float)
+        // A test for Multiply (Matrix3x3, float)
         [Test]
-        public void Matrix3x3FMultiplyTest6()
+        public void Matrix3x3MultiplyTest6()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F expected = new Matrix3x3F(3, 6, 9, 12, 15, 18, 21, 24, 27);
-            Matrix3x3F actual = a * 3;
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 expected = new Matrix3x3(3, 6, 9, 12, 15, 18, 21, 24, 27);
+            Matrix3x3 actual = a * 3;
 
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for Negate (Matrix3x3F)
+        // A test for Negate (Matrix3x3)
         [Test]
-        public void Matrix3x3FNegateTest()
+        public void Matrix3x3NegateTest()
         {
-            Matrix3x3F m = GenerateIncrementalMatrixNumber();
+            Matrix3x3 m = GenerateIncrementalMatrixNumber();
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = -1.0f,
                 M12 = -2.0f,
@@ -556,20 +557,20 @@ namespace Tests
                 M32 = -8.0f,
                 M33 = -9.0f
             };
-            Matrix3x3F actual;
+            Matrix3x3 actual;
 
-            actual = Matrix3x3F.Negate(m);
+            actual = Matrix3x3.Negate(m);
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for operator - (Matrix3x3F, Matrix3x3F)
+        // A test for operator - (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FSubtractionTest()
+        public void Matrix3x3SubtractionTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 - b.M11,
                 M12 = a.M12 - b.M12,
@@ -582,18 +583,18 @@ namespace Tests
                 M33 = a.M33 - b.M33
             };
 
-            Matrix3x3F actual = a - b;
-            Assert.AreEqual(expected, actual, "Matrix3x3F.operator - did not return the expected value.");
+            Matrix3x3 actual = a - b;
+            Assert.AreEqual(expected, actual, "Matrix3x3.operator - did not return the expected value.");
         }
 
-        // A test for Subtract (Matrix3x3F, Matrix3x3F)
+        // A test for Subtract (Matrix3x3, Matrix3x3)
         [Test]
-        public void Matrix3x3FSubtractTest()
+        public void Matrix3x3SubtractTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
-            Matrix3x3F b = GenerateIncrementalMatrixNumber(-8.0f);
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 b = GenerateIncrementalMatrixNumber(-8.0f);
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11 - b.M11,
                 M12 = a.M12 - b.M12,
@@ -606,15 +607,15 @@ namespace Tests
                 M33 = a.M33 - b.M33
             };
 
-            Matrix3x3F actual = Matrix3x3F.Subtract(a, b);
+            Matrix3x3 actual = Matrix3x3.Subtract(a, b);
             Assert.AreEqual(expected, actual);
         }
 
         // A test for ToString ()
         [Test]
-        public void Matrix3x3FToStringTest()
+        public void Matrix3x3ToStringTest()
         {
-            Matrix3x3F a = new Matrix3x3F
+            Matrix3x3 a = new Matrix3x3
             {
                 M11 = 11.0f,
                 M12 = -12.0f,
@@ -637,13 +638,13 @@ namespace Tests
             Assert.AreEqual(expected, actual);
         }
 
-        // A test for Transpose (Matrix3x3F)
+        // A test for Transpose (Matrix3x3)
         [Test]
-        public void Matrix3x3FTransposeTest()
+        public void Matrix3x3TransposeTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = a.M11,
                 M12 = a.M21,
@@ -656,29 +657,29 @@ namespace Tests
                 M33 = a.M33
             };
 
-            Matrix3x3F actual = Matrix3x3F.Transpose(a);
-            Assert.AreEqual(expected, actual, "Matrix3x3F.Transpose did not return the expected value.");
+            Matrix3x3 actual = Matrix3x3.Transpose(a);
+            Assert.AreEqual(expected, actual, "Matrix3x3.Transpose did not return the expected value.");
         }
 
-        // A test for Transpose (Matrix3x3F)
+        // A test for Transpose (Matrix3x3)
         // Transpose Identity matrix
         [Test]
-        public void Matrix3x3FTransposeTest1()
+        public void Matrix3x3TransposeTest1()
         {
-            Matrix3x3F a = Matrix3x3F.Identity;
-            Matrix3x3F expected = Matrix3x3F.Identity;
+            Matrix3x3 a = Matrix3x3.Identity;
+            Matrix3x3 expected = Matrix3x3.Identity;
 
-            Matrix3x3F actual = Matrix3x3F.Transpose(a);
-            Assert.AreEqual(expected, actual, "Matrix3x3F.Transpose did not return the expected value.");
+            Matrix3x3 actual = Matrix3x3.Transpose(a);
+            Assert.AreEqual(expected, actual, "Matrix3x3.Transpose did not return the expected value.");
         }
 
-        // A test for operator - (Matrix3x3F)
+        // A test for operator - (Matrix3x3)
         [Test]
-        public void Matrix3x3FUnaryNegationTest()
+        public void Matrix3x3UnaryNegationTest()
         {
-            Matrix3x3F a = GenerateIncrementalMatrixNumber();
+            Matrix3x3 a = GenerateIncrementalMatrixNumber();
 
-            Matrix3x3F expected = new Matrix3x3F
+            Matrix3x3 expected = new Matrix3x3
             {
                 M11 = -1.0f,
                 M12 = -2.0f,
@@ -691,22 +692,22 @@ namespace Tests
                 M33 = -9.0f
             };
 
-            Matrix3x3F actual = -a;
-            Assert.AreEqual(expected, actual, "Matrix3x3F.operator - did not return the expected value.");
+            Matrix3x3 actual = -a;
+            Assert.AreEqual(expected, actual, "Matrix3x3.operator - did not return the expected value.");
         }
 
         #endregion Public Methods
 
         #region Private Methods
 
-        //static Matrix4x4F As4x4(Matrix3x3F m) =>
+        //static Matrix4x4F As4x4(Matrix3x3 m) =>
         //    Matrix4x4F.Identity.With(m11: m.M11, m12: m.M12, m13: m.M13, m21: m.M21, m22: m.M22, m23: m.M23, m31: m.M31, m32: m.M32, m33: m.M33);
-        private static Matrix3x3F As3x3(Matrix4x4F m) =>
-            new Matrix3x3F(m.M11, m.M12, m.M13, m.M21, m.M22, m.M23, m.M31, m.M32, m.M33);
+        private static Matrix3x3 As3x3(Matrix4x4 m) =>
+            new Matrix3x3(m.M11, m.M12, m.M13, m.M21, m.M22, m.M23, m.M31, m.M32, m.M33);
 
-        private static Matrix3x3F GenerateIncrementalMatrixNumber(float value = 0.0f)
+        private static Matrix3x3 GenerateIncrementalMatrixNumber(float value = 0.0f)
         {
-            Matrix3x3F a = new Matrix3x3F
+            Matrix3x3 a = new Matrix3x3
             {
                 M11 = value + 1.0f,
                 M12 = value + 2.0f,

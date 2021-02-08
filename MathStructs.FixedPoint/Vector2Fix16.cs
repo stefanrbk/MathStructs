@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
     [StructLayout(LayoutKind.Explicit, Pack = 4)]
     public readonly struct Vector2Fix16 : IEquatable<Vector2Fix16>, IFormattable

@@ -3,16 +3,16 @@ using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace MathStructs
+namespace System.Numerics
 {
     /// <summary>
-    /// A structure encapsulating three single precision floating point values.
+    /// A structure encapsulating three double precision floating point values.
     /// </summary>
     /// <remarks>
-    /// Less precise than <see cref="Vector3D"/> but faster.
+    /// Slower than <see cref="Vector3"/> but more precise.
     /// </remarks>
-    [StructLayout(LayoutKind.Explicit, Pack = 4)]
-    public struct Vector3F : IEquatable<Vector3F>, IFormattable
+    [StructLayout(LayoutKind.Explicit, Pack = 8)]
+    public struct Vector3D : IEquatable<Vector3D>, IFormattable
     {
         #region Public Fields
 
@@ -20,19 +20,19 @@ namespace MathStructs
         ///     The X component of the vector.
         /// </summary>
         [FieldOffset(0)]
-        public float X;
+        public double X;
 
         /// <summary>
         ///     The Y component of the vector.
         /// </summary>
-        [FieldOffset(4)]
-        public float Y;
+        [FieldOffset(8)]
+        public double Y;
 
         /// <summary>
         ///     The Z component of the vector.
         /// </summary>
-        [FieldOffset(8)]
-        public float Z;
+        [FieldOffset(16)]
+        public double Z;
 
         #endregion Public Fields
 
@@ -51,11 +51,11 @@ namespace MathStructs
         ///     The element to fill the vector with.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F(float value)
+        public Vector3D(double value)
             : this(value, value, value) { }
 
         /// <summary>
-        /// Constructs a <see cref="Vector3F"/> from the given <see cref="Vector2F"/> and a Z component.
+        /// Constructs a <see cref="Vector3D"/> from the given <see cref="Vector2D"/> and a Z component.
         /// </summary>
         /// <param name="value">
         ///     The vector to use as the X and Y component.
@@ -64,7 +64,7 @@ namespace MathStructs
         ///     The Z component.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F(Vector2F value, float z)
+        public Vector3D(Vector2D value, double z)
             : this(value.X, value.Y, z) { }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace MathStructs
         ///     Z component.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F(float x, float y, float z)
+        public Vector3D(double x, double y, double z)
         {
             X = x;
             Y = y;
@@ -94,32 +94,32 @@ namespace MathStructs
         /// <summary>
         /// Returns the vector &lt; 1, 1, 1 &gt;.
         /// </summary>
-        public static Vector3F One =>
-            new Vector3F(1f);
+        public static Vector3D One =>
+            new Vector3D(1d);
 
         /// <summary>
         /// Returns the vector &lt; 1, 0, 0 &gt;.
         /// </summary>
-        public static Vector3F UnitX =>
-            new Vector3F(1f, 0f, 0f);
+        public static Vector3D UnitX =>
+            new Vector3D(1d, 0d, 0d);
 
         /// <summary>
         /// Returns the vector &lt; 0, 1, 0 &gt;.
         /// </summary>
-        public static Vector3F UnitY =>
-            new Vector3F(0f, 1f, 0f);
+        public static Vector3D UnitY =>
+            new Vector3D(0d, 1d, 0d);
 
         /// <summary>
         /// Returns the vector &lt; 0, 0, 1 &gt;.
         /// </summary>
-        public static Vector3F UnitZ =>
-            new Vector3F(0f, 0f, 1f);
+        public static Vector3D UnitZ =>
+            new Vector3D(0d, 0d, 1d);
 
         /// <summary>
         /// Returns the vector &lt; 0, 0, 0 &gt;.
         /// </summary>
-        public static Vector3F Zero =>
-            new Vector3F(0f);
+        public static Vector3D Zero =>
+            new Vector3D(0d);
 
         #endregion Public Properties
 
@@ -132,8 +132,8 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Abs(Vector3F value) =>
-            new Vector3F(MathF.Abs(value.X), MathF.Abs(value.Y), MathF.Abs(value.Z));
+        public static Vector3D Abs(Vector3D value) =>
+            new Vector3D(Math.Abs(value.X), Math.Abs(value.Y), Math.Abs(value.Z));
 
         /// <summary>
         ///     Adds two vectors together.
@@ -145,7 +145,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Add(Vector3F left, Vector3F right) =>
+        public static Vector3D Add(Vector3D left, Vector3D right) =>
             left + right;
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace MathStructs
         ///     The maximum value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Clamp(Vector3F value, Vector3F min, Vector3F max) =>
+        public static Vector3D Clamp(Vector3D value, Vector3D min, Vector3D max) =>
             Min(Max(value, min), max);
 
         /// <summary>
@@ -178,8 +178,8 @@ namespace MathStructs
         /// The second vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Cross(Vector3F vector1, Vector3F vector2) =>
-            new Vector3F(vector1.Y * vector2.Z - vector1.Z * vector2.Y, vector1.Z * vector2.X - vector1.X * vector2.Z, vector1.X * vector2.Y - vector1.Y * vector2.X);
+        public static Vector3D Cross(Vector3D vector1, Vector3D vector2) =>
+            new Vector3D(vector1.Y * vector2.Z - vector1.Z * vector2.Y, vector1.Z * vector2.X - vector1.X * vector2.Z, vector1.X * vector2.Y - vector1.Y * vector2.X);
 
         /// <summary>
         ///     Returns the Euclidean distance between the two given points.
@@ -191,10 +191,10 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared(Vector3F,Vector3F)"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector3D,Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public static float Distance(Vector3F vector1, Vector3F vector2) =>
+        public static double Distance(Vector3D vector1, Vector3D vector2) =>
             (vector1 - vector2).Length();
 
         /// <summary>
@@ -207,10 +207,10 @@ namespace MathStructs
         ///     The second point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance(Vector3F,Vector3F)"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector3D,Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public static float DistanceSquared(Vector3F vector1, Vector3F vector2) =>
+        public static double DistanceSquared(Vector3D vector1, Vector3D vector2) =>
             (vector1 - vector2).LengthSquared();
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Divide(Vector3F left, Vector3F right) =>
+        public static Vector3D Divide(Vector3D left, Vector3D right) =>
             left / right;
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Divide(Vector3F left, float right) =>
+        public static Vector3D Divide(Vector3D left, double right) =>
             left / right;
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace MathStructs
         ///     The second vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static float Dot(Vector3F left, Vector3F right) =>
+        public static double Dot(Vector3D left, Vector3D right) =>
             left.X * right.X +
             left.Y * right.Y +
             left.Z * right.Z;
@@ -271,8 +271,8 @@ namespace MathStructs
         ///     Value between 0 and 1 indicating the weight of the second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Lerp(Vector3F bounds1, Vector3F bounds2, float amount) =>
-            bounds1 * (1f - amount) + bounds2 * amount;
+        public static Vector3D Lerp(Vector3D bounds1, Vector3D bounds2, double amount) =>
+            bounds1 * (1d - amount) + bounds2 * amount;
 
         /// <summary>
         ///     Returns a vector whose elements are the maximum of each of the pairs of elements in the two source vectors.
@@ -284,8 +284,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Max(Vector3F left, Vector3F right) =>
-            new Vector3F(left.X > right.X ? left.X : right.X,
+        public static Vector3D Max(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X > right.X ? left.X : right.X,
                          left.Y > right.Y ? left.Y : right.Y,
                          left.Z > right.Z ? left.Z : right.Z);
 
@@ -299,8 +299,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Min(Vector3F left, Vector3F right) =>
-            new Vector3F(left.X < right.X ? left.X : right.X,
+        public static Vector3D Min(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X < right.X ? left.X : right.X,
                          left.Y < right.Y ? left.Y : right.Y,
                          left.Z < right.Z ? left.Z : right.Z);
 
@@ -314,7 +314,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Multiply(Vector3F left, Vector3F right) =>
+        public static Vector3D Multiply(Vector3D left, Vector3D right) =>
             left * right;
 
         /// <summary>
@@ -327,7 +327,7 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Multiply(Vector3F left, float right) =>
+        public static Vector3D Multiply(Vector3D left, double right) =>
             left * right;
 
         /// <summary>
@@ -340,7 +340,7 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Multiply(float left, Vector3F right) =>
+        public static Vector3D Multiply(double left, Vector3D right) =>
             left * right;
 
         /// <summary>
@@ -350,7 +350,7 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Negate(Vector3F value) =>
+        public static Vector3D Negate(Vector3D value) =>
             -value;
 
         /// <summary>
@@ -360,7 +360,7 @@ namespace MathStructs
         ///     The vector to normalize.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Normalize(Vector3F vector) =>
+        public static Vector3D Normalize(Vector3D vector) =>
             vector / vector.Length();
 
         /// <summary>
@@ -370,8 +370,8 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator -(Vector3F value) =>
-            new Vector3F(-value.X, -value.Y, -value.Z);
+        public static Vector3D operator -(Vector3D value) =>
+            new Vector3D(-value.X, -value.Y, -value.Z);
 
         /// <summary>
         ///     Subtracts the second vector from the first.
@@ -383,8 +383,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator -(Vector3F left, Vector3F right) =>
-            new Vector3F(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
+        public static Vector3D operator -(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
 
         /// <summary>
         ///     Returns a boolean indicating whether the two given vectors are not equal.
@@ -399,7 +399,7 @@ namespace MathStructs
         ///     True if the vectors are not equal; False if they are equal.
         /// </returns>
         [MethodImpl(Inline)]
-        public static bool operator !=(Vector3F left, Vector3F right) =>
+        public static bool operator !=(Vector3D left, Vector3D right) =>
             left.X != right.X || left.Y != right.Y || left.Z != right.Z;
 
         /// <summary>
@@ -412,8 +412,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator *(Vector3F left, Vector3F right) =>
-            new Vector3F(left.X * right.X, left.Y * right.Y, left.Z * right.Z);
+        public static Vector3D operator *(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X * right.X, left.Y * right.Y, left.Z * right.Z);
 
         /// <summary>
         ///     Multiplies a vector by the given scalar.
@@ -425,8 +425,8 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator *(Vector3F left, float right) =>
-            new Vector3F(left.X * right, left.Y * right, left.Z * right);
+        public static Vector3D operator *(Vector3D left, double right) =>
+            new Vector3D(left.X * right, left.Y * right, left.Z * right);
 
         /// <summary>
         ///     Multiplies a vector by the given scalar.
@@ -438,7 +438,7 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator *(float left, Vector3F right) =>
+        public static Vector3D operator *(double left, Vector3D right) =>
             right * left;
 
         /// <summary>
@@ -451,8 +451,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator /(Vector3F left, Vector3F right) =>
-            new Vector3F(left.X / right.X, left.Y / right.Y, left.Z / right.Z);
+        public static Vector3D operator /(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X / right.X, left.Y / right.Y, left.Z / right.Z);
 
         /// <summary>
         ///     Divides the vector by the given scalar.
@@ -464,14 +464,14 @@ namespace MathStructs
         ///     The scalar value.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator /(Vector3F left, float right) =>
-            new Vector3F(left.X / right, left.Y / right, left.Z / right);
+        public static Vector3D operator /(Vector3D left, double right) =>
+            new Vector3D(left.X / right, left.Y / right, left.Z / right);
 
         /// <summary>
         ///     Returns the unary plus of the provided vector (nop).
         /// </summary>
         [MethodImpl(Inline)]
-        public static Vector3F operator +(Vector3F value) =>
+        public static Vector3D operator +(Vector3D value) =>
             value;
 
         /// <summary>
@@ -484,8 +484,8 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F operator +(Vector3F left, Vector3F right) =>
-            new Vector3F(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
+        public static Vector3D operator +(Vector3D left, Vector3D right) =>
+            new Vector3D(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
 
         /// <summary>
         ///     Returns a boolean indicating whether the two given vectors are equal.
@@ -500,7 +500,7 @@ namespace MathStructs
         ///     True if the vectors are equal; False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
-        public static bool operator ==(Vector3F left, Vector3F right) =>
+        public static bool operator ==(Vector3D left, Vector3D right) =>
             left.X == right.X && left.Y == right.Y && left.Z == right.Z;
 
         /// <summary>
@@ -513,7 +513,7 @@ namespace MathStructs
         /// The normal of the surface being reflected off.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Reflect(Vector3F vector, Vector3F normal) =>
+        public static Vector3D Reflect(Vector3D vector, Vector3D normal) =>
             vector - normal * Dot(vector, normal) * 2f;
 
         /// <summary>
@@ -523,8 +523,8 @@ namespace MathStructs
         ///     The source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F SquareRoot(Vector3F value) =>
-            new Vector3F(MathF.Sqrt(value.X), MathF.Sqrt(value.Y), MathF.Sqrt(value.Z));
+        public static Vector3D SquareRoot(Vector3D value) =>
+            new Vector3D(Math.Sqrt(value.X), Math.Sqrt(value.Y), Math.Sqrt(value.Z));
 
         /// <summary>
         ///     Subtracts the second vector from the first.
@@ -536,7 +536,7 @@ namespace MathStructs
         ///     The second source vector.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Subtract(Vector3F left, Vector3F right) =>
+        public static Vector3D Subtract(Vector3D left, Vector3D right) =>
             left - right;
 
         /// <summary>
@@ -549,13 +549,13 @@ namespace MathStructs
         ///     The transformation matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Transform(Vector3F vector, Matrix4x4F matrix) =>
-            new Vector3F(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
+        public static Vector3D Transform(Vector3D vector, Matrix4x4D matrix) =>
+            new Vector3D(vector.X * matrix.M11 + vector.Y * matrix.M21 + vector.Z * matrix.M31 + matrix.M41,
                          vector.X * matrix.M12 + vector.Y * matrix.M22 + vector.Z * matrix.M32 + matrix.M42,
                          vector.X * matrix.M13 + vector.Y * matrix.M23 + vector.Z * matrix.M33 + matrix.M43);
 
         /// <summary>
-        ///     Transforms a vector by the given <see cref="QuaternionF"/> rotation value.
+        ///     Transforms a vector by the given <see cref="QuaternionD"/> rotation value.
         /// </summary>
         /// <param name="value">
         ///     The source vector to be rotated.
@@ -564,7 +564,7 @@ namespace MathStructs
         ///     The rotation to apply.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F Transform(Vector3F value, QuaternionF rotation)
+        public static Vector3D Transform(Vector3D value, QuaternionD rotation)
         {
             var num = rotation.X + rotation.X;
             var num2 = rotation.Y + rotation.Y;
@@ -578,7 +578,7 @@ namespace MathStructs
             var num10 = rotation.Y * num2;
             var num11 = rotation.Y * num3;
             var num12 = rotation.Z * num3;
-            return new Vector3F(value.X * (1f - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1f - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1f - num7 - num10));
+            return new Vector3D(value.X * (1d - num10 - num12) + value.Y * (num8 - num6) + value.Z * (num9 + num5), value.X * (num8 + num6) + value.Y * (1d - num7 - num12) + value.Z * (num11 - num4), value.X * (num9 - num5) + value.Y * (num11 + num4) + value.Z * (1d - num7 - num10));
         }
 
         /// <summary>
@@ -591,8 +591,8 @@ namespace MathStructs
         /// The matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public static Vector3F TransformNormal(Vector3F normal, Matrix4x4F matrix) =>
-            new Vector3F(normal.X * matrix.M11 + normal.Y * matrix.M21 + normal.Z * matrix.M31,
+        public static Vector3D TransformNormal(Vector3D normal, Matrix4x4D matrix) =>
+            new Vector3D(normal.X * matrix.M11 + normal.Y * matrix.M21 + normal.Z * matrix.M31,
                          normal.X * matrix.M12 + normal.Y * matrix.M22 + normal.Z * matrix.M32,
                          normal.X * matrix.M13 + normal.Y * matrix.M23 + normal.Z * matrix.M33);
 
@@ -600,7 +600,7 @@ namespace MathStructs
         ///     Returns a vector whose elements are the absolute values of each of this vector's elements.
         /// </summary>
         [MethodImpl(Inline)]
-        public Vector3F Abs() =>
+        public Vector3D Abs() =>
             Abs(this);
 
         /// <summary>
@@ -613,15 +613,15 @@ namespace MathStructs
         ///     The maximum value.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F Clamp(Vector3F min, Vector3F max) =>
+        public Vector3D Clamp(Vector3D min, Vector3D max) =>
             Clamp(this, min, max);
 
         /// <summary>
         ///     Copies the contents of the vector into the given span.
         /// </summary>
         [MethodImpl(Inline)]
-        public void CopyTo(Span<float> span) =>
-            CopyTo(span, 0);
+        public void CopyTo(Span<double> array) =>
+            CopyTo(array, 0);
 
         /// <summary>
         ///     Copies the contents of the vector into the given span, starting from index.
@@ -633,15 +633,15 @@ namespace MathStructs
         ///     If number of elements in source vector is greater than those available in destination span.
         /// </exception>
         [MethodImpl(Inline)]
-        public void CopyTo(Span<float> span, int index)
+        public void CopyTo(Span<double> array, int index)
         {
-            if (index < 0 || index >= span.Length)
+            if (index < 0 || index >= array.Length)
                 throw new ArgumentOutOfRangeException(nameof(index));
-            if (span.Length - index < 3)
+            if (array.Length - index < 3)
                 throw new ArgumentException("Elements in source is greater than destination");
-            span[index + 0] = X;
-            span[index + 1] = Y;
-            span[index + 2] = Z;
+            array[index + 0] = X;
+            array[index + 1] = Y;
+            array[index + 2] = Z;
         }
 
         /// <summary>
@@ -655,28 +655,28 @@ namespace MathStructs
         /// The other vector.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F Cross(Vector3F vector) =>
+        public Vector3D Cross(Vector3D vector) =>
             Cross(this, vector);
 
         /// <summary>
-        ///     Deconstructs this vector into its <see cref="float"/> components and builds the
-        ///     X and Y into a new <see cref="Vector2F"/>.
+        ///     Deconstructs this vector into its <see cref="double"/> components and builds the
+        ///     X and Y into a new <see cref="Vector2D"/>.
         /// </summary>
         /// <param name="vector">
-        ///     The X and Y of this vector as a <see cref="Vector2F"/>.
+        ///     The X and Y of this vector as a <see cref="Vector2D"/>.
         /// </param>
         /// <param name="z">
         ///     The Z of this vector.
         /// </param>
         [MethodImpl(Inline)]
-        public void Deconstruct(out Vector2F vector, out float z)
+        public void Deconstruct(out Vector2D vector, out double z)
         {
-            vector = new Vector2F(X, Y);
+            vector = new Vector2D(X, Y);
             z = Z;
         }
 
         /// <summary>
-        ///     Deconstructs this vector into its <see cref="float"/> components.
+        ///     Deconstructs this vector into its <see cref="double"/> components.
         /// </summary>
         /// <param name="x">
         ///     The X of this vector.
@@ -688,7 +688,7 @@ namespace MathStructs
         ///     The Z of this vector.
         /// </param>
         [MethodImpl(Inline)]
-        public void Deconstruct(out float x, out float y, out float z)
+        public void Deconstruct(out double x, out double y, out double z)
         {
             x = X;
             y = Y;
@@ -702,10 +702,10 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     More expensive than <see cref="DistanceSquared(Vector3F)"/> if you need the squared distance.
+        ///     More expensive than <see cref="DistanceSquared(Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public float Distance(Vector3F value) =>
+        public double Distance(Vector3D value) =>
             Distance(this, value);
 
         /// <summary>
@@ -715,10 +715,10 @@ namespace MathStructs
         ///     The other point.
         /// </param>
         /// <remarks>
-        ///     Less expensive than <see cref="Distance(Vector3F)"/> if you need the squared distance.
+        ///     Less expensive than <see cref="Distance(Vector3D)"/> if you need the squared distance.
         /// </remarks>
         [MethodImpl(Inline)]
-        public float DistanceSquared(Vector3F value) =>
+        public double DistanceSquared(Vector3D value) =>
             DistanceSquared(this, value);
 
         /// <summary>
@@ -732,52 +732,52 @@ namespace MathStructs
         ///     The other vector.
         /// </param>
         [MethodImpl(Inline)]
-        public float Dot(Vector3F vector) =>
+        public double Dot(Vector3D vector) =>
             Dot(this, vector);
 
         /// <summary>
-        ///     Returns a boolean indicating whether the given Object is equal to this <see cref="Vector3F"/> instance.
+        ///     Returns a boolean indicating whether the given Object is equal to this <see cref="Vector3D"/> instance.
         /// </summary>
         /// <param name="obj">
         ///     The Object to compare against.
         /// </param>
         /// <returns>
-        ///     True if the Object is equal to this <see cref="Vector3F"/>;
+        ///     True if the Object is equal to this <see cref="Vector3D"/>;
         ///     False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
         public override bool Equals(object? obj) =>
-            obj is Vector3F vec && Equals(vec);
+            obj is Vector3D vec && Equals(vec);
 
         /// <summary>
-        ///     Returns a boolean indicating whether the given <see cref="Vector3F"/> is equal to this <see cref="Vector3F"/> instance.
+        ///     Returns a boolean indicating whether the given <see cref="Vector3D"/> is equal to this <see cref="Vector3D"/> instance.
         /// </summary>
         /// <param name="other">
-        ///     The <see cref="Vector3F"/> to compare this instance to.
+        ///     The <see cref="Vector3D"/> to compare this instance to.
         /// </param>
         /// <returns>
-        ///     True if the other <see cref="Vector3F"/> is equal to this instance; False otherwise.
+        ///     True if the other <see cref="Vector3D"/> is equal to this instance; False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
-        public bool Equals(Vector3F other) =>
+        public bool Equals(Vector3D other) =>
             this == other;
 
         /// <summary>
-        ///     Returns a boolean indicating whether the given Vector4D is equal to this <see cref="Vector3F"/> instance ± delta.
+        ///     Returns a boolean indicating whether the given Vector4D is equal to this <see cref="Vector3D"/> instance ± delta.
         /// </summary>
         /// <param name="other">
-        ///     The <see cref="Vector3F"/> to compare this instance to.
+        ///     The <see cref="Vector3D"/> to compare this instance to.
         /// </param>
         /// <param name="delta">
         ///     The allowable margin of error to determine equality for each element pair between the vectors.
         /// </param>
         /// <returns>
-        ///     True if the other <see cref="Vector3F"/> is equal to this instance ± delta; False otherwise.
+        ///     True if the other <see cref="Vector3D"/> is equal to this instance ± delta; False otherwise.
         /// </returns>
         [MethodImpl(Inline)]
-        public bool Equals(Vector3F other, double delta)
+        public bool Equals(Vector3D other, double delta)
         {
-            if (delta is 0.0f)
+            if (delta is 0.0)
                 return this == other;
 
             var vector = Subtract(this, other).Abs();
@@ -799,8 +799,8 @@ namespace MathStructs
         ///     <see cref="LengthSquared"/> is cheaper to use if you need the squared length.
         /// </remarks>
         [MethodImpl(Inline)]
-        public float Length() =>
-            MathF.Sqrt(Dot(this, this));
+        public double Length() =>
+            Math.Sqrt(Dot(this, this));
 
         /// <summary>
         ///     Returns the length of the vector squared.
@@ -809,14 +809,14 @@ namespace MathStructs
         ///     This operation is cheaper than <see cref="Length"/> if you need the squared length.
         /// </remarks>
         [MethodImpl(Inline)]
-        public float LengthSquared() =>
+        public double LengthSquared() =>
             Dot(this, this);
 
         /// <summary>
         ///     Returns a vector with the same direction as this vector, but with a length of 1.
         /// </summary>
         [MethodImpl(Inline)]
-        public Vector3F Normalize() =>
+        public Vector3D Normalize() =>
             Normalize(this);
 
         /// <summary>
@@ -826,24 +826,24 @@ namespace MathStructs
         /// The normal of the surface being reflected off.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F Reflect(Vector3F normal) =>
+        public Vector3D Reflect(Vector3D normal) =>
             Reflect(this, normal);
 
         /// <summary>
         ///     Returns a vector whose elements are the square root of each of this vector's elements.
         /// </summary>
         [MethodImpl(Inline)]
-        public Vector3F SquareRoot() =>
+        public Vector3D SquareRoot() =>
             SquareRoot(this);
 
         /// <summary>
-        /// Returns a String representing this <see cref="Vector3F"/> instance.
+        /// Returns a String representing this <see cref="Vector3D"/> instance.
         /// </summary>
         public override string ToString() =>
             ToString("G", CultureInfo.CurrentCulture);
 
         /// <summary>
-        ///     Returns a String representing this <see cref="Vector3F"/> instance, using the specified format to format individual elements.
+        ///     Returns a String representing this <see cref="Vector3D"/> instance, using the specified format to format individual elements.
         /// </summary>
         /// <param name="format">
         ///     The format of individual elements.
@@ -852,7 +852,7 @@ namespace MathStructs
             ToString(format, CultureInfo.CurrentCulture);
 
         /// <summary>
-        ///     Returns a String representing this <see cref="Vector3F"/> instance, using the specified format to format
+        ///     Returns a String representing this <see cref="Vector3D"/> instance, using the specified format to format
         ///     individual elements and the given <see cref="IFormatProvider"/>.
         /// </summary>
         /// <param name="format">
@@ -871,7 +871,7 @@ namespace MathStructs
         ///     The transformation matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F Transform(Matrix4x4F matrix) =>
+        public Vector3D Transform(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         /// <summary>
@@ -881,44 +881,44 @@ namespace MathStructs
         /// The matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F TransformNormal(Matrix4x4F matrix) =>
+        public Vector3D TransformNormal(Matrix4x4D matrix) =>
             Transform(this, matrix);
 
         /// <summary>
-        ///     Transforms this vector by the given matrix and returns a <see cref="Vector4F"/>.
+        ///     Transforms this vector by the given matrix and returns a <see cref="Vector4D"/>.
         /// </summary>
         /// <param name="matrix">
         ///     The transformation matrix.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector4F TransformV4(Matrix4x4F matrix) =>
-            Vector4F.Transform(this, matrix);
+        public Vector4D TransformV4(Matrix4x4D matrix) =>
+            Vector4D.Transform(this, matrix);
 
         /// <summary>
-        ///     Transforms this vector by the given <see cref="QuaternionF"/> rotation value and returns a <see cref="Vector4F"/>.
+        ///     Transforms this vector by the given <see cref="QuaternionD"/> rotation value and returns a <see cref="Vector4D"/>.
         /// </summary>
         /// <param name="rotation">
         ///     The rotation to apply.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector4F TransformV4(QuaternionF rotation) =>
-            Vector4F.Transform(this, rotation);
+        public Vector4D TransformV4(QuaternionD rotation) =>
+            Vector4D.Transform(this, rotation);
 
         /// <summary>
         ///     Record-like <see langword="with"/>-style constructor
         /// </summary>
         /// <param name="x">
-        ///     If provided, the X value for the new <see cref="Vector3F"/>, otherwise <see cref="X"/>.
+        ///     If provided, the X value for the new <see cref="Vector3D"/>, otherwise <see cref="X"/>.
         /// </param>
         /// <param name="y">
-        ///     If provided, the Y value for the new <see cref="Vector3F"/>, otherwise <see cref="Y"/>.
+        ///     If provided, the Y value for the new <see cref="Vector3D"/>, otherwise <see cref="Y"/>.
         /// </param>
         /// <param name="z">
-        ///     If provided, the Z value for the new <see cref="Vector3F"/>, otherwise <see cref="Z"/>.
+        ///     If provided, the Z value for the new <see cref="Vector3D"/>, otherwise <see cref="Z"/>.
         /// </param>
         [MethodImpl(Inline)]
-        public Vector3F With(float? x = null, float? y = null, float? z = null) =>
-            new Vector3F(x ?? X, y ?? Y, z ?? Z);
+        public Vector3D With(double? x = null, double? y = null, double? z = null) =>
+            new Vector3D(x ?? X, y ?? Y, z ?? Z);
 
         #endregion Public Methods
     }

@@ -5,7 +5,7 @@ items:
   id: MathStructs
   children:
   - MathStructs.Matrix3x3D
-  - MathStructs.Matrix3x3F
+  - MathStructs.Matrix3x3
   - MathStructs.Matrix4x4D
   - MathStructs.Matrix4x4F
   - MathStructs.PlaneD
@@ -34,12 +34,12 @@ references:
   name: Matrix3x3D
   nameWithType: Matrix3x3D
   fullName: MathStructs.Matrix3x3D
-- uid: MathStructs.Matrix3x3F
-  commentId: T:MathStructs.Matrix3x3F
+- uid: MathStructs.Matrix3x3
+  commentId: T:MathStructs.Matrix3x3
   parent: MathStructs
-  name: Matrix3x3F
-  nameWithType: Matrix3x3F
-  fullName: MathStructs.Matrix3x3F
+  name: Matrix3x3
+  nameWithType: Matrix3x3
+  fullName: MathStructs.Matrix3x3
 - uid: MathStructs.Matrix4x4D
   commentId: T:MathStructs.Matrix4x4D
   parent: MathStructs
