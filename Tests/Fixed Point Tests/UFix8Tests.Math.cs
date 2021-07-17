@@ -34,6 +34,7 @@ namespace System.Tests
                     ( Fix(right) != 0 )
                         ? ( ( Fix(left) / Fix(right) ) is <= UFix8Max and >= UFix8Min )
                             ? Is.EqualTo((UFix8)( Fix(left) / Fix(right) ))
+                                .Using<UFix8>((l, r) => MathF.Abs(l-r) <= UFix8.Epsilon)
                             : Throws.TypeOf<OverflowException>()
                         : Throws.TypeOf<DivideByZeroException>());
 
@@ -55,7 +56,7 @@ namespace System.Tests
 
         [TestCaseSource("DivideSource"), Sequential, Category("Divide")]
         public void DivideTest([RandDiv1, RandDivOver1] float left, [RandDiv2, RandDivOver2] float right) =>
-            Assert.That(() => UFix8.Divide((UFix8)left, (UFix8)right), Fix(right) != 0 ? Is.EqualTo((UFix8)( Fix(left) / Fix(right) )) : Throws.TypeOf<DivideByZeroException>());
+            Assert.That(() => UFix8.Divide((UFix8)left, (UFix8)right), Fix(right) != 0 ? Is.EqualTo((UFix8)( Fix(left) / Fix(right) )).Using<UFix8>((l,r) => MathF.Abs(l-r) <= UFix8.Epsilon) : Throws.TypeOf<DivideByZeroException>());
 
         [TestCaseSource("NullableDivideSource"), Sequential, Category("NullableDivide")]
         public void NullableDivideByTest(float? left, float? right, float? expected) =>

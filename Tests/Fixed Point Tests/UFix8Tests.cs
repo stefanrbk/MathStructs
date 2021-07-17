@@ -36,6 +36,7 @@ namespace System.Tests
             new[]{ 200f, 2f },
             new[]{ 200f, 200f },
             new[]{ 100f, 0.5f },
+            new[]{ 17.960836f, 1.9959123f }
         };
         public static readonly float?[][] NullableDivideSource = new[]
         {
