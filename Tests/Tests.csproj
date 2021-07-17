@@ -8,19 +8,21 @@
     <IsPackable>false</IsPackable>
 
     <Configurations>Debug;Release;Test</Configurations>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Fixed Point Tests\Fix16TestsOld.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.12.0" />
@@ -29,6 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FixedPoint\FixedPoint.csproj" />
+    <ProjectReference Include="..\MathStructs.FixedPoint\MathStructs.FixedPoint.csproj" />
     <ProjectReference Include="..\src\MathStructs.csproj" />
   </ItemGroup>
 
