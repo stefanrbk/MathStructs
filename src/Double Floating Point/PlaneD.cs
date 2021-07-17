@@ -151,7 +151,7 @@ namespace System.Numerics
         [MethodImpl(Optimize)]
         public static PlaneD Transform(PlaneD plane, Matrix4x4D matrix)
         {
-            var result = matrix.Invert();
+            Matrix4x4D.Invert(matrix, out var result);
             (var x, var y, var z, var d) = plane;
             return new PlaneD(x * result.M11 + y * result.M12 + z * result.M13 + d * result.M14,
                               x * result.M21 + y * result.M22 + z * result.M23 + d * result.M24,

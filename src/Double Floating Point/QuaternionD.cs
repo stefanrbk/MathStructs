@@ -372,13 +372,6 @@ namespace System.Numerics
         }
 
         /// <summary>
-        /// Returns the Quaternion. (nop)
-        /// </summary>
-        [MethodImpl(Inline)]
-        public static QuaternionD operator +(QuaternionD value) =>
-            value;
-
-        /// <summary>
         /// Adds two Quaternions element-by-element.
         /// </summary>
         /// <param name="left">The first source Quaternion.</param>
@@ -452,7 +445,7 @@ namespace System.Numerics
         /// </summary>
         [MethodImpl(Inline)]
         public QuaternionD Conjugate() =>
-            (-this).With(w: W);
+            new(-X, -Y, -Z, W);
 
         /// <summary>
         /// Deconstructs this Quaternion into it's separate components.
@@ -576,25 +569,6 @@ namespace System.Numerics
         [MethodImpl(Inline)]
         public override string ToString() =>
             $"{{X:{X} Y:{Y} Z:{Z} W:{W}}}";
-
-        /// <summary>
-        ///     Record-like <see langword="with"/>-style constructor
-        /// </summary>
-        /// <param name="x">
-        ///     If provided, the X value for the new Quaternion, otherwise the <see cref="X"/> of this Quaternion.
-        /// </param>
-        /// <param name="y">
-        ///     If provided, the Y value for the new Quaternion, otherwise the <see cref="Y"/> of this Quaternion.
-        /// </param>
-        /// <param name="z">
-        ///     If provided, the Z value for the new Quaternion, otherwise the <see cref="Z"/> of this Quaternion.
-        /// </param>
-        /// <param name="w">
-        ///     If provided, the W value for the new Quaternion, otherwise the <see cref="W"/> of this Quaternion.
-        /// </param>
-        [MethodImpl(Inline)]
-        public QuaternionD With(double? x = null, double? y = null, double? z = null, double? w = null) =>
-            new(x ?? X, y ?? Y, z ?? Z, w ?? W);
 
         #endregion Public Methods
     }

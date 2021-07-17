@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 //using System.Runtime.Intrinsics;
@@ -11,7 +12,7 @@ namespace System.Numerics
     /// A structure encapsulating a 4x4 matrix of <see cref="Double"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
-    public struct Matrix4x4D
+    public partial struct Matrix4x4D : IEquatable<Matrix4x4D>
     {
         #region Public Fields
 
@@ -117,6 +118,9 @@ namespace System.Numerics
 
         private const MethodImplOptions Inline = MethodImplOptions.AggressiveInlining;
         private const MethodImplOptions Optimize = Inline | MethodImplOptions.AggressiveOptimization;
+        private const double BillboardEpsilon = 1e-4;
+        private const double BillboardMinAngle = 1.0 - (0.1 * (Math.PI / 180.0)); // 0.1 degrees
+        private const double DecomposeEpsilon = 0.0001;
 
         #endregion Private Fields
 
@@ -147,6 +151,33 @@ namespace System.Numerics
             M42 = m42;
             M43 = m43;
             M44 = m44;
+        }
+
+        /// <summary>
+        /// Constructs a Matrix4x4D from the given <see cref="Matrix3x2D"/>.
+        /// </summary>
+        /// <param name="value">
+        /// The source <see cref="Matrix3x2D"/>.
+        /// </param>
+        [MethodImpl(Optimize)]
+        public Matrix4x4D(Matrix3x2D value)
+        {
+            M11 = value.M11;
+            M12 = value.M12;
+            M13 = 0;
+            M14 = 0;
+            M21 = value.M21;
+            M22 = value.M22;
+            M23 = 0;
+            M24 = 0;
+            M31 = 0;
+            M32 = 0;
+            M33 = 1;
+            M34 = 0;
+            M41 = value.M31;
+            M42 = value.M32;
+            M43 = 0;
+            M44 = 1;
         }
 
         /// <summary>
@@ -280,23 +311,27 @@ namespace System.Numerics
         /// </param>
         public static Matrix4x4D CreateBillboard(Vector3D objectPosition, Vector3D cameraPosition, Vector3D cameraUpVector, Vector3D cameraForwardVector)
         {
-            var left = objectPosition - cameraPosition;
-            var num = left.LengthSquared();
-            left = ( !( num < 0.0001f ) ) ? left * ( 1f / Math.Sqrt(num) ) : -cameraForwardVector;
-            var v1 = cameraUpVector.Cross(left).Normalize();
-            var v2 = left.Cross(v1);
-            return Identity.With(m11: v1.X,
-                                  m12: v1.Y,
-                                  m13: v1.Z,
-                                  m21: v2.X,
-                                  m22: v2.Y,
-                                  m23: v2.Z,
-                                  m31: left.X,
-                                  m32: left.Y,
-                                  m33: left.Z,
-                                  m41: objectPosition.X,
-                                  m42: objectPosition.Y,
-                                  m43: objectPosition.Z);
+            var zaxis = objectPosition - cameraPosition;
+            var norm = zaxis.LengthSquared();
+            zaxis =  norm < BillboardEpsilon ? -cameraForwardVector : zaxis * ( 1.0 / Math.Sqrt(norm) );
+            var xaxis = cameraUpVector.Cross(zaxis).Normalize();
+            var yaxis = zaxis.Cross(xaxis);
+            return new(xaxis.X,
+                       xaxis.Y,
+                       xaxis.Z,
+                       0,
+                       yaxis.X,
+                       yaxis.Y,
+                       yaxis.Z,
+                       0,
+                       zaxis.X,
+                       zaxis.Y,
+                       zaxis.Z,
+                       0,
+                       objectPosition.X,
+                       objectPosition.Y,
+                       objectPosition.Z,
+                       1);
         }
 
         /// <summary>
@@ -319,37 +354,41 @@ namespace System.Numerics
         /// </param>
         public static Matrix4x4D CreateConstrainedBillboard(Vector3D objectPosition, Vector3D cameraPosition, Vector3D rotateAxis, Vector3D cameraForwardVector, Vector3D objectForwardVector)
         {
-            var left = objectPosition - cameraPosition;
-            var num = left.LengthSquared();
-            left = ( !( num < 0.0001f ) ) ? left * ( 1f / Math.Sqrt(num) ) : -cameraForwardVector;
-            Vector3D v1 = rotateAxis, v2, v3;
-            var x = rotateAxis.Dot(left);
-            if (Math.Abs(x) > 0.998254657f)
+            var faceDir = objectPosition - cameraPosition;
+            var norm = faceDir.LengthSquared();
+            faceDir = norm < 0.0001f ? -cameraForwardVector : faceDir * ( 1.0 / Math.Sqrt(norm) );
+            Vector3D yaxis = rotateAxis, zaxis, xaxis;
+            var dot = rotateAxis.Dot(faceDir);
+            if (Math.Abs(dot) > BillboardMinAngle)
             {
-                v2 = objectForwardVector;
-                x = rotateAxis.Dot(v2);
-                if (Math.Abs(x) > 0.998254657f)
-                    v2 = ( Math.Abs(rotateAxis.Z) > 0.998254657f ) ? Vector3D.UnitX : -Vector3D.UnitZ;
-                v3 = rotateAxis.Cross(v2).Normalize();
-                v2 = v3.Cross(rotateAxis).Normalize();
+                zaxis = objectForwardVector;
+                dot = rotateAxis.Dot(zaxis);
+                if (Math.Abs(dot) > BillboardMinAngle)
+                    zaxis = ( Math.Abs(rotateAxis.Z) > BillboardMinAngle ) ? Vector3D.UnitX : -Vector3D.UnitZ;
+                xaxis = rotateAxis.Cross(zaxis).Normalize();
+                zaxis = xaxis.Cross(rotateAxis).Normalize();
             }
             else
             {
-                v3 = rotateAxis.Cross(left).Normalize();
-                v2 = v3.Cross(v1).Normalize();
+                xaxis = rotateAxis.Cross(faceDir).Normalize();
+                zaxis = xaxis.Cross(yaxis).Normalize();
             }
-            return Identity.With(m11: v3.X,
-                                  m12: v3.Y,
-                                  m13: v3.Z,
-                                  m21: v1.X,
-                                  m22: v1.Y,
-                                  m23: v1.Z,
-                                  m31: v2.X,
-                                  m32: v2.Y,
-                                  m33: v2.Z,
-                                  m41: objectPosition.X,
-                                  m42: objectPosition.Y,
-                                  m43: objectPosition.Z);
+            return new(xaxis.X,
+                       xaxis.Y,
+                       xaxis.Z,
+                       0,
+                       yaxis.X,
+                       yaxis.Y,
+                       yaxis.Z,
+                       0,
+                       zaxis.X,
+                       zaxis.Y,
+                       zaxis.Z,
+                       0,
+                       objectPosition.X,
+                       objectPosition.Y,
+                       objectPosition.Z,
+                       1);
         }
 
         /// <summary>
@@ -394,18 +433,22 @@ namespace System.Numerics
             (var xx, var yy, var zz) = (x * x, y * y, z * z);
             (var xy, var xz, var yz) = (x * y, x * z, y * z);
 
-            return Identity.With(m11: xx + ( ca * ( 1 - xx ) ),
-                                 m22: yy + ( ca * ( 1 - yy ) ),
-                                 m33: zz + ( ca * ( 1 - zz ) ),
+            var result = Identity;
 
-                                 m12: xy - ( ca * xy ) + ( sa * z ),
-                                 m13: xz - ( ca * xz ) - ( sa * y ),
+            result.M11 = xx + ( ca * ( 1 - xx ) );
+            result.M22 = yy + ( ca * ( 1 - yy ) );
+            result.M33 = zz + ( ca * ( 1 - zz ) );
+                       
+            result.M12 = xy - ( ca * xy ) + ( sa * z );
+            result.M13 = xz - ( ca * xz ) - ( sa * y );
+                       
+            result.M21 = xy - ( ca * xy ) - ( sa * z );
+            result.M23 = yz - ( ca * yz ) + ( sa * x );
+                       
+            result.M31 = xz - ( ca * xz ) + ( sa * y );
+            result.M32 = yz - ( ca * yz ) - ( sa * x );
 
-                                 m21: xy - ( ca * xy ) - ( sa * z ),
-                                 m23: yz - ( ca * yz ) + ( sa * x ),
-
-                                 m31: xz - ( ca * xz ) + ( sa * y ),
-                                 m32: yz - ( ca * yz ) - ( sa * x ));
+            return result;
         }
 
         /// <summary>
@@ -426,16 +469,19 @@ namespace System.Numerics
             var n8 = q.Y * q.Z;
             var n9 = q.X * q.W;
 
-            return Identity.With(m11: 1 - ( 2 * ( n2 + n3 ) ),
-                                 m22: 1 - ( 2 * ( n3 + n1 ) ),
-                                 m33: 1 - ( 2 * ( n2 + n1 ) ),
+            var result = Identity;
 
-                                 m12: 2 * ( n4 + n5 ),
-                                 m13: 2 * ( n6 - n7 ),
-                                 m21: 2 * ( n4 - n5 ),
-                                 m23: 2 * ( n8 + n9 ),
-                                 m31: 2 * ( n6 + n7 ),
-                                 m32: 2 * ( n8 - n9 ));
+            result.M11 = 1 - ( 2 * ( n2 + n3 ) );
+            result.M22 = 1 - ( 2 * ( n3 + n1 ) );
+            result.M33 = 1 - ( 2 * ( n2 + n1 ) );
+            result.M12 = 2 * ( n4 + n5 );
+            result.M13 = 2 * ( n6 - n7 );
+            result.M21 = 2 * ( n4 - n5 );
+            result.M23 = 2 * ( n8 + n9 );
+            result.M31 = 2 * ( n6 + n7 );
+            result.M32 = 2 * ( n8 - n9 );
+
+            return result;
         }
 
         /// <summary>
@@ -469,18 +515,22 @@ namespace System.Numerics
             var v2 = cameraUpVector.Cross(v1).Normalize();
             var v3 = v1.Cross(v2);
 
-            return Identity.With(m11:  v2.X,
-                                 m12:  v3.X,
-                                 m13:  v1.X,
-                                 m21:  v2.Y,
-                                 m22:  v3.Y,
-                                 m23:  v1.Y,
-                                 m31:  v2.Z,
-                                 m32:  v3.Z,
-                                 m33:  v1.Z,
-                                 m41: -v2.Dot(cameraPosition),
-                                 m42: -v3.Dot(cameraPosition),
-                                 m43: -v1.Dot(cameraPosition));
+            return new( v2.X,
+                        v3.X,
+                        v1.X,
+                        0,
+                        v2.Y,
+                        v3.Y,
+                        v1.Y,
+                        0,
+                        v2.Z,
+                        v3.Z,
+                        v1.Z,
+                        0,
+                       -v2.Dot(cameraPosition),
+                       -v3.Dot(cameraPosition),
+                       -v1.Dot(cameraPosition),
+                        1);
         }
 
         /// <summary>
@@ -498,11 +548,17 @@ namespace System.Numerics
         /// <param name="zFarPlane">
         /// Maximum Z-value of the view volume.
         /// </param>
-        public static Matrix4x4D CreateOrthographic(double width, double height, double zNearPlane, double zFarPlane) =>
-            Identity.With(m11: 2.0        / width,
-                          m22: 2.0        / height,
-                          m33: 1.0        / ( zNearPlane - zFarPlane ),
-                          m43: zNearPlane / ( zNearPlane - zFarPlane ));
+        public static Matrix4x4D CreateOrthographic(double width, double height, double zNearPlane, double zFarPlane)
+        {
+            var result = Identity;
+
+            result.M11 = 2.0        / width;
+            result.M22 = 2.0        / height;
+            result.M33 = 1.0        / ( zNearPlane - zFarPlane );
+            result.M43 = zNearPlane / ( zNearPlane - zFarPlane );
+
+            return result;
+        }
 
         /// <summary>
         /// Builds a customized, orthographic projection matrix.
@@ -525,13 +581,19 @@ namespace System.Numerics
         /// <param name="zFarPlane">
         /// Maximum Z-value of the view volume.
         /// </param>
-        public static Matrix4x4D CreateOrthographicOffCenter(double left, double right, double bottom, double top, double zNearPlane, double zFarPlane) =>
-            Identity.With(m11: 2.0              / ( right      - left ),
-                          m22: 2.0              / ( top        - bottom ),
-                          m33: 1.0              / ( zNearPlane - zFarPlane ),
-                          m41: ( left + right ) / ( left       - right ),
-                          m42: ( top + bottom ) / ( bottom     - top ),
-                          m43: zNearPlane       / ( zNearPlane - zFarPlane ));
+        public static Matrix4x4D CreateOrthographicOffCenter(double left, double right, double bottom, double top, double zNearPlane, double zFarPlane)
+        {
+            var result = Identity;
+
+            result.M11 = 2.0              / ( right      - left );
+            result.M22 = 2.0              / ( top        - bottom );
+            result.M33 = 1.0              / ( zNearPlane - zFarPlane );
+            result.M41 = ( left + right ) / ( left       - right );
+            result.M42 = ( top + bottom ) / ( bottom     - top );
+            result.M43 = zNearPlane       / ( zNearPlane - zFarPlane );
+
+            return result;
+        }
 
         /// <summary>
         /// Create a perspective projection matrix from the given view volume dimension.
@@ -558,11 +620,16 @@ namespace System.Numerics
                 throw new ArgumentOutOfRangeException(nameof(nearPlaneDistance));
 
             var negFarRange = Double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
-            return default(Matrix4x4D).With(m11: 2.0 * nearPlaneDistance / width,
-                                            m22: 2.0 * nearPlaneDistance / height,
-                                            m33: negFarRange,
-                                            m34: -1.0,
-                                            m43: nearPlaneDistance * negFarRange);
+
+            var result = default(Matrix4x4D);
+
+            result.M11 = 2.0 * nearPlaneDistance / width;
+            result.M22 = 2.0 * nearPlaneDistance / height;
+            result.M33 = negFarRange;
+            result.M34 = -1.0;
+            result.M43 = nearPlaneDistance * negFarRange;
+
+            return result;
         }
 
         /// <summary>
@@ -595,11 +662,16 @@ namespace System.Numerics
             var xScale = yScale / aspectRatio;
 
             var negFarRange = Double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
-            return default(Matrix4x4D).With(m11: xScale,
-                                            m22: yScale,
-                                            m33: negFarRange,
-                                            m34: -1,
-                                            m43: nearPlaneDistance * negFarRange);
+
+            var result = default(Matrix4x4D);
+
+            result.M11 = xScale;
+            result.M22 = yScale;
+            result.M33 = negFarRange;
+            result.M34 = -1;
+            result.M43 = nearPlaneDistance * negFarRange;
+
+            return result;
         }
 
         /// <summary>
@@ -633,14 +705,19 @@ namespace System.Numerics
                 throw new ArgumentOutOfRangeException(nameof(nearPlaneDistance));
 
             var negFarRange = Double.IsPositiveInfinity(farPlaneDistance) ? -1.0 : (farPlaneDistance / (nearPlaneDistance - farPlaneDistance));
-            return Identity.With(m11: 2.0 * nearPlaneDistance / ( right - left ),
-                                 m22: 2.0 * nearPlaneDistance / ( top - bottom ),
-                                 m31: ( left + right ) / ( right - left ),
-                                 m32: ( top + bottom ) / ( top - bottom ),
-                                 m33: negFarRange,
-                                 m34: -1.0,
-                                 m43: nearPlaneDistance * negFarRange,
-                                 m44: 0);
+
+            var result = Identity;
+
+            result.M11 = 2.0 * nearPlaneDistance / ( right - left );
+            result.M22 = 2.0 * nearPlaneDistance / ( top - bottom );
+            result.M31 = ( left + right ) / ( right - left );
+            result.M32 = ( top + bottom ) / ( top - bottom );
+            result.M33 = negFarRange;
+            result.M34 = -1.0;
+            result.M43 = nearPlaneDistance * negFarRange;
+            result.M44 = 0;
+
+            return result;
         }
 
         /// <summary>
@@ -654,18 +731,23 @@ namespace System.Numerics
             value = value.Normalize();
             var v1 = value.Normal;
             var v2 = -2 * v1;
-            return Identity.With(m11: ( v2.X * v1.X ) + 1,
-                                 m22: ( v2.Y * v1.Y ) + 1,
-                                 m33: ( v2.Z * v1.Z ) + 1,
-                                 m12:   v2.Y * v1.X,
-                                 m13:   v2.Z * v1.X,
-                                 m21:   v2.X * v1.Y,
-                                 m23:   v2.Z * v1.Y,
-                                 m31:   v2.X * v1.Z,
-                                 m32:   v2.Y * v1.Z,
-                                 m41:   v2.X * value.D,
-                                 m42:   v2.Y * value.D,
-                                 m43:   v2.Z * value.D);
+
+            return new(( v2.X * v1.X ) + 1,
+                         v2.Y * v1.X,
+                         v2.Z * v1.X,
+                         0,
+                         v2.X * v1.Y,
+                       ( v2.Y * v1.Y ) + 1,
+                         v2.Z * v1.Y,
+                         0,
+                         v2.X * v1.Z,
+                         v2.Y * v1.Z,
+                       ( v2.Z * v1.Z ) + 1,
+                         0,
+                         v2.X * value.D,
+                         v2.Y * value.D,
+                         v2.Z * value.D,
+                         1);
         }
 
         /// <summary>
@@ -684,7 +766,14 @@ namespace System.Numerics
                 [   0  -s   c   0   ]
                 [   0   0   0   1   ] */
 
-            return Identity.With(m22: c, m23: s, m32: -s, m33: c);
+            var result = Identity;
+
+            result.M22 = c;
+            result.M23 = s;
+            result.M32 = -s;
+            result.M33 = c;
+
+            return result;
         }
 
         /// <summary>
@@ -708,7 +797,16 @@ namespace System.Numerics
                 [   0  -s   c   0   ]
                 [   0   y   z   1   ] */
 
-            return CreateRotationX(radians).With(m42: y, m43: z);
+            var result = Identity;
+
+            result.M22 = c;
+            result.M23 = s;
+            result.M32 = -s;
+            result.M33 = c;
+            result.M42 = y;
+            result.M43 = z;
+
+            return result;
         }
 
         /// <summary>
@@ -727,7 +825,14 @@ namespace System.Numerics
                 [   s   0   c   0   ]
                 [   0   0   0   1   ] */
 
-            return Identity.With(m11: c, m13: -s, m31: s, m33: c);
+            var result = Identity;
+
+            result.M11 = c;
+            result.M13 = -s;
+            result.M31 = s;
+            result.M33 = c;
+
+            return result;
         }
 
         /// <summary>
@@ -751,7 +856,16 @@ namespace System.Numerics
                 [   s   0   c   0   ]
                 [   x   0   z   1   ] */
 
-            return CreateRotationY(radians).With(m41: x, m43: z);
+            var result = Identity;
+
+            result.M11 = c;
+            result.M13 = -s;
+            result.M31 = s;
+            result.M33 = c;
+            result.M41 = x;
+            result.M43 = z;
+
+            return result;
         }
 
         /// <summary>
@@ -770,7 +884,14 @@ namespace System.Numerics
                 [   0   0   1   0   ]
                 [   0   0   0   1   ] */
 
-            return Identity.With(m11: c, m12: s, m21: -s, m22: c);
+            var result = Identity;
+
+            result.M11 = c;
+            result.M12 = s;
+            result.M21 = -s;
+            result.M22 = c;
+
+            return result;
         }
 
         /// <summary>
@@ -794,7 +915,16 @@ namespace System.Numerics
                 [   0   0   1   0   ]
                 [   x   y   0   1   ] */
 
-            return CreateRotationZ(radians).With(m41: x, m42: y);
+            var result = Identity;
+
+            result.M11 = c;
+            result.M12 = s;
+            result.M21 = -s;
+            result.M22 = c;
+            result.M41 = x;
+            result.M42 = y;
+
+            return result;
         }
 
         /// <summary>
@@ -809,8 +939,16 @@ namespace System.Numerics
         /// <param name="zScale">
         /// Value to scale by on the Z-axis.
         /// </param>
-        public static Matrix4x4D CreateScale(double xScale, double yScale, double zScale) =>
-            Identity.With(m11: xScale, m22: yScale, m33: zScale);
+        public static Matrix4x4D CreateScale(double xScale, double yScale, double zScale)
+        {
+            var result = Identity;
+
+            result.M11 = xScale;
+            result.M22 = yScale;
+            result.M33 = zScale;
+
+            return result;
+        }
 
         /// <summary>
         /// Creates a scaling matrix with a center point.
@@ -829,10 +967,20 @@ namespace System.Numerics
         /// </param>
         public static Matrix4x4D CreateScale(double xScale, double yScale, double zScale, Vector3D centerPoint)
         {
-            var m1 = centerPoint.X * (1 - xScale);
-            var m2 = centerPoint.Y * (1 - yScale);
-            var m3 = centerPoint.Z * (1 - zScale);
-            return CreateScale(xScale, yScale, zScale).With(m41: m1, m42: m2, m43: m3);
+            var tx = centerPoint.X * (1 - xScale);
+            var ty = centerPoint.Y * (1 - yScale);
+            var tz = centerPoint.Z * (1 - zScale);
+
+            var result = Identity;
+
+            result.M11 = xScale;
+            result.M22 = yScale;
+            result.M33 = zScale;
+            result.M41 = tx;
+            result.M42 = ty;
+            result.M43 = tz;
+
+            return result;
         }
 
         /// <summary>
@@ -876,7 +1024,7 @@ namespace System.Numerics
             CreateScale(scale, scale, scale, centerPoint);
 
         /// <summary>
-        /// Creates a Matrix that flattens geometry into a specified Plan as if casting a shadow from a specified light source.
+        /// Creates a Matrix that flattens geometry into a specified Plane as if casting a shadow from a specified light source.
         /// </summary>
         /// <param name="lightDirection">
         /// The direction from which the light that will cast the shadow is coming.
@@ -889,19 +1037,23 @@ namespace System.Numerics
             plane = plane.Normalize();
             var n = plane.Normal.Dot(lightDirection);
             var v = -new Vector4D(plane.Normal, plane.D);
-            return Identity.With(m11: ( v.X * lightDirection.X ) + n,
-                                 m12:   v.X * lightDirection.Y,
-                                 m13:   v.X * lightDirection.Z,
-                                 m21:   v.Y * lightDirection.X,
-                                 m22: ( v.Y * lightDirection.Y ) + n,
-                                 m23:   v.Y * lightDirection.Z,
-                                 m31:   v.Z * lightDirection.X,
-                                 m32:   v.Z * lightDirection.Y,
-                                 m33: ( v.Z * lightDirection.Z ) + n,
-                                 m41:   v.W * lightDirection.X,
-                                 m42:   v.W * lightDirection.Y,
-                                 m43:   v.W * lightDirection.Z,
-                                 m44: n);
+
+            return new(( v.X * lightDirection.X ) + n,
+                         v.X * lightDirection.Y,
+                         v.X * lightDirection.Z,
+                         0,
+                         v.Y * lightDirection.X,
+                       ( v.Y * lightDirection.Y ) + n,
+                         v.Y * lightDirection.Z,
+                         0,
+                         v.Z * lightDirection.X,
+                         v.Z * lightDirection.Y,
+                       ( v.Z * lightDirection.Z ) + n,
+                         0,
+                         v.W * lightDirection.X,
+                         v.W * lightDirection.Y,
+                         v.W * lightDirection.Z,
+                       n);
         }
 
         /// <summary>
@@ -925,8 +1077,16 @@ namespace System.Numerics
         /// <param name="zPosition">
         /// The amount to translate on the Z-axis.
         /// </param>
-        public static Matrix4x4D CreateTranslation(double xPosition, double yPosition, double zPosition) =>
-            Identity.With(m41: xPosition, m42: yPosition, m43: zPosition);
+        public static Matrix4x4D CreateTranslation(double xPosition, double yPosition, double zPosition)
+        {
+            var result = Identity;
+
+            result.M41 = xPosition;
+            result.M42 = yPosition;
+            result.M43 = zPosition;
+
+            return result;
+        }
 
         /// <summary>
         /// Creates a world matrix with the specified parameters.
@@ -946,15 +1106,19 @@ namespace System.Numerics
             var v2 = up.Cross(v1).Normalize();
             var v3 = v1.Cross(v2);
 
-            return CreateTranslation(position).With(m11: v2.X,
-                                                    m12: v2.Y,
-                                                    m13: v2.Z,
-                                                    m21: v3.X,
-                                                    m22: v3.Y,
-                                                    m23: v3.Z,
-                                                    m31: v1.X,
-                                                    m32: v1.Y,
-                                                    m33: v1.Z);
+            var result = CreateTranslation(position);
+            
+            result.M11 = v2.X;
+            result.M12 = v2.Y;
+            result.M13 = v2.Z;
+            result.M21 = v3.X;
+            result.M22 = v3.Y;
+            result.M23 = v3.Z;
+            result.M31 = v1.X;
+            result.M32 = v1.Y;
+            result.M33 = v1.Z;
+
+            return result;
         }
 
         /// <summary>
@@ -992,8 +1156,9 @@ namespace System.Numerics
         /// If successful, the inverted matrix; NaN matrix otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static Matrix4x4D Invert(Matrix4x4D matrix)
+        public static bool Invert(Matrix4x4D matrix, out Matrix4x4D result)
         {
+            result = NaN;
             /*
              * If you have matrix M, inverse Matrix M⁻¹ can compute
              *
@@ -1107,7 +1272,7 @@ namespace System.Numerics
             var det = (a * a11) + (b * a12) + (c * a13) + (d * a14);
 
             if (Math.Abs(det) < Double.Epsilon)
-                return NaN;
+                return false;
 
             var invDet = 1 / det;
 
@@ -1124,22 +1289,23 @@ namespace System.Numerics
             var el_hi = (e * l) -(h * i);
             var ek_gi = (e * k) -(g * i);
             var ej_fi = (e * j) -(f * i);
-            return new(m11: a11 * invDet,
-                       m21: a12 * invDet,
-                       m31: a13 * invDet,
-                       m41: a14 * invDet,
-                       m12: -( ( b * kp_lo ) - ( c * jp_ln ) + ( d * jo_kn ) ) * invDet,
-                       m22:  ( ( a * kp_lo ) - ( c * ip_lm ) + ( d * io_km ) ) * invDet,
-                       m32: -( ( a * jp_ln ) - ( b * ip_lm ) + ( d * in_jm ) ) * invDet,
-                       m42:  ( ( a * jo_kn ) - ( b * io_km ) + ( c * in_jm ) ) * invDet,
-                       m13:  ( ( b * gp_ho ) - ( c * fp_hn ) + ( d * fo_gn ) ) * invDet,
-                       m23: -( ( a * gp_ho ) - ( c * ep_hm ) + ( d * eo_gm ) ) * invDet,
-                       m33:  ( ( a * fp_hn ) - ( b * ep_hm ) + ( d * en_fm ) ) * invDet,
-                       m43: -( ( a * fo_gn ) - ( b * eo_gm ) + ( c * en_fm ) ) * invDet,
-                       m14: -( ( b * gl_hk ) - ( c * fl_hj ) + ( d * fk_gj ) ) * invDet,
-                       m24:  ( ( a * gl_hk ) - ( c * el_hi ) + ( d * ek_gi ) ) * invDet,
-                       m34: -( ( a * fl_hj ) - ( b * el_hi ) + ( d * ej_fi ) ) * invDet,
-                       m44:  ( ( a * fk_gj ) - ( b * ek_gi ) + ( c * ej_fi ) ) * invDet);
+            result = new(m11: a11 * invDet,
+                         m21: a12 * invDet,
+                         m31: a13 * invDet,
+                         m41: a14 * invDet,
+                         m12: -( ( b * kp_lo ) - ( c * jp_ln ) + ( d * jo_kn ) ) * invDet,
+                         m22:  ( ( a * kp_lo ) - ( c * ip_lm ) + ( d * io_km ) ) * invDet,
+                         m32: -( ( a * jp_ln ) - ( b * ip_lm ) + ( d * in_jm ) ) * invDet,
+                         m42:  ( ( a * jo_kn ) - ( b * io_km ) + ( c * in_jm ) ) * invDet,
+                         m13:  ( ( b * gp_ho ) - ( c * fp_hn ) + ( d * fo_gn ) ) * invDet,
+                         m23: -( ( a * gp_ho ) - ( c * ep_hm ) + ( d * eo_gm ) ) * invDet,
+                         m33:  ( ( a * fp_hn ) - ( b * ep_hm ) + ( d * en_fm ) ) * invDet,
+                         m43: -( ( a * fo_gn ) - ( b * eo_gm ) + ( c * en_fm ) ) * invDet,
+                         m14: -( ( b * gl_hk ) - ( c * fl_hj ) + ( d * fk_gj ) ) * invDet,
+                         m24:  ( ( a * gl_hk ) - ( c * el_hi ) + ( d * ek_gi ) ) * invDet,
+                         m34: -( ( a * fl_hj ) - ( b * el_hi ) + ( d * ej_fi ) ) * invDet,
+                         m44:  ( ( a * fk_gj ) - ( b * ek_gi ) + ( c * ej_fi ) ) * invDet);
+            return true;
         }
 
         /// <summary>
@@ -1587,13 +1753,6 @@ namespace System.Numerics
         }
 
         /// <summary>
-        /// Returns itself.
-        /// </summary>
-        [MethodImpl(Optimize)]
-        public static Matrix4x4D operator +(Matrix4x4D value) =>
-            value;
-
-        /// <summary>
         /// Adds two matrices together.
         /// </summary>
         /// <param name="left">
@@ -1795,12 +1954,12 @@ namespace System.Numerics
                                 (0u, 2u, 1u) :
                                 (0u, 1u, 2u);
 
-                if (pfScales[a] < 0.0001f)
+                if (pfScales[a] < DecomposeEpsilon)
                     *pVectorBasis[a] = pCanonicalBasis[a];
 
                 *pVectorBasis[a] = pVectorBasis[a]->Normalize();
 
-                if (pfScales[b] < 0.0001f)
+                if (pfScales[b] < DecomposeEpsilon)
                 {
                     var fAbsX = Math.Abs(pVectorBasis[a]->X);
                     var fAbsY = Math.Abs(pVectorBasis[a]->Y);
@@ -1844,7 +2003,7 @@ namespace System.Numerics
                 det -= 1;
                 det *= det;
 
-                if (0.0001f < det)
+                if (DecomposeEpsilon < det)
                 {
                     // Non-SRT matrix encountered
                     rotation = QuaternionD.Identity;
@@ -1881,14 +2040,8 @@ namespace System.Numerics
         /// True if the Object is equal to this matrix; False otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public override readonly bool Equals(object? obj)
-        {
-            if (obj is Matrix4x4D value)
-            {
-                return this == value;
-            }
-            return false;
-        }
+        public override readonly bool Equals(object? obj) =>
+            (obj is Matrix4x4D value) && (this == value);
 
         /// <summary>
         /// Calculates the determinant of the matrix.
@@ -1923,22 +2076,10 @@ namespace System.Numerics
              * add: 6 + 8 + 3 = 17
              * mul: 12 + 16 = 28
              */
-            var a = M11;
-            var b = M12;
-            var c = M13;
-            var d = M14;
-            var e = M21;
-            var f = M22;
-            var g = M23;
-            var h = M24;
-            var i = M31;
-            var j = M32;
-            var k = M33;
-            var l = M34;
-            var m = M41;
-            var n = M42;
-            var o = M43;
-            var p = M44;
+            double a = M11, b = M12, c = M13, d = M14;
+            double e = M21, f = M22, g = M23, h = M24;
+            double i = M31, j = M32, k = M33, l = M34;
+            double m = M41, n = M42, o = M43, p = M44;
 
             var kp_lo = (k * p) -(l * o);
             var jp_ln = (j * p) -(l * n);
@@ -1977,16 +2118,6 @@ namespace System.Numerics
             hash.Add(M44);
             return hash.ToHashCode();
         }
-
-        /// <summary>
-        /// Attempts to calculate the inverse of this matrix. If successful, the inverted matrix will be returned.
-        /// </summary>
-        /// <returns>
-        /// The inverted matrix or a NaN matrix if the inverse could not be calculated.
-        /// </returns>
-        [MethodImpl(Optimize)]
-        public Matrix4x4D Invert() =>
-            Invert(this);
 
         /// <summary>
         /// Returns a String representing this matrix instance.
@@ -2053,31 +2184,6 @@ namespace System.Numerics
         [MethodImpl(Optimize)]
         public Matrix4x4D Transpose() =>
             Transpose(this);
-
-        /// <summary>
-        /// Provides a record-style <see langword="with"/>-like constructor.
-        /// </summary>
-        [MethodImpl(Optimize)]
-        public Matrix4x4D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m14 = null,
-                               double? m21 = null, double? m22 = null, double? m23 = null, double? m24 = null,
-                               double? m31 = null, double? m32 = null, double? m33 = null, double? m34 = null,
-                               double? m41 = null, double? m42 = null, double? m43 = null, double? m44 = null) =>
-            new(m11 ?? M11,
-                m12 ?? M12,
-                m13 ?? M13,
-                m14 ?? M14,
-                m21 ?? M21,
-                m22 ?? M22,
-                m23 ?? M23,
-                m24 ?? M24,
-                m31 ?? M31,
-                m32 ?? M32,
-                m33 ?? M33,
-                m34 ?? M34,
-                m41 ?? M41,
-                m42 ?? M42,
-                m43 ?? M43,
-                m44 ?? M44);
 
         #endregion Public Methods
 

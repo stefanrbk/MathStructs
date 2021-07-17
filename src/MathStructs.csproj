@@ -15,6 +15,7 @@
     <Configurations>Debug;Release;Test</Configurations>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>System.Numerics</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

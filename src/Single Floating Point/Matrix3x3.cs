@@ -171,6 +171,80 @@ namespace System.Numerics
         }
 
         /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateTranslation(float xPosition, float yPosition) =>
+            (Matrix3x3)Matrix3x2.CreateTranslation(xPosition, yPosition);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateTranslation(Vector2 position) =>
+            CreateTranslation(position.X, position.Y);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateScale(float xScale, float yScale) =>
+            (Matrix3x3)Matrix3x2.CreateScale(xScale, yScale);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateScale(float scale) =>
+            CreateScale(scale, scale);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateScale(Vector2 scales) =>
+            CreateScale(scales.X, scales.Y);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateScale(float xScale, float yScale, Vector2 centerPoint) =>
+            (Matrix3x3)Matrix3x2.CreateScale(xScale, yScale, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateScale(float scale, Vector2 centerPoint) =>
+            CreateScale(scale, scale, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateScale(Vector2 scales, Vector2 centerPoint) =>
+            CreateScale(scales.X, scales.Y, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateSkew(float radiansX, float radiansY) =>
+            (Matrix3x3)Matrix3x2.CreateSkew(radiansX, radiansY);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateSkew(float radiansX, float radiansY, Vector2 centerPoint) =>
+            (Matrix3x3)Matrix3x2.CreateSkew(radiansX, radiansY, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateRotation(float radians) =>
+            (Matrix3x3)Matrix3x2.CreateRotation(radians);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3 CreateRotation(float radians, Vector2 centerPoint) =>
+            (Matrix3x3)Matrix3x2.CreateRotation(radians, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static explicit operator Matrix3x3(Matrix3x2 matrix) =>
+            new Matrix3x3(matrix.M11, matrix.M12, 0,
+                           matrix.M21, matrix.M22, 0,
+                           matrix.M31, matrix.M32, 1);
+
+        /// <summary>
+        /// </summary>
+        public static explicit operator Matrix3x2(Matrix3x3 matrix) =>
+            new Matrix3x2(matrix.M11, matrix.M12,
+                           matrix.M21, matrix.M22,
+                           matrix.M31, matrix.M32);
+
+        /// <summary>
         /// Attempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.
         /// </summary>
         /// <param name="matrix">
@@ -180,15 +254,16 @@ namespace System.Numerics
         /// If successful, the inverted matrix; NaN matrix otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static Matrix3x3 Invert(Matrix3x3 matrix)
+        public static bool Invert(Matrix3x3 matrix, out Matrix3x3 result)
         {
+            result = _nan;
             var det = matrix.GetDeterminant();
             if (MathF.Abs(det) < float.Epsilon)
-                return _nan;
+                return false;
 
             var invdet = 1 / det;
 
-            return new Matrix3x3((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
+            result = new Matrix3x3((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
                                   (matrix.M13 * matrix.M32 - matrix.M12 * matrix.M33) * invdet,
                                   (matrix.M12 * matrix.M23 - matrix.M13 * matrix.M22) * invdet,
                                   (matrix.M23 * matrix.M31 - matrix.M21 * matrix.M33) * invdet,
@@ -197,6 +272,7 @@ namespace System.Numerics
                                   (matrix.M21 * matrix.M32 - matrix.M31 * matrix.M22) * invdet,
                                   (matrix.M31 * matrix.M12 - matrix.M11 * matrix.M32) * invdet,
                                   (matrix.M11 * matrix.M22 - matrix.M21 * matrix.M12) * invdet);
+            return true;
         }
 
         /// <summary>
@@ -593,39 +669,30 @@ namespace System.Numerics
         }
 
         /// <summary>
-        /// Attempts to calculate the inverse of this matrix. If successful, the inverted matrix will be returned.
-        /// </summary>
-        /// <returns>
-        /// The inverted matrix or a NaN matrix if the inverse could not be calculated.
-        /// </returns>
-        [MethodImpl(Optimize)]
-        public Matrix3x3 Invert() =>
-            Invert(this);
-
-        /// <summary>
         /// Returns a String representing this matrix instance.
         /// </summary>
         public override string ToString() =>
             $"{{ {{M11:{M11} M12:{M12} M13:{M13}}} {{M21:{M21} M22:{M22} M23:{M23}}} {{M31:{M31} M32:{M32} M33:{M33}}} }}";
-
-        /// <summary>
-        /// Provides a record-style <see langword="with"/>-like constructor.
-        /// </summary>
-        [MethodImpl(Optimize)]
-        public unsafe Matrix3x3 With(float? m11 = null, float? m12 = null, float? m13 = null, float? m21 = null, float? m22 = null, float? m23 = null, float? m31 = null, float? m32 = null, float? m33 = null)
-        {
-            var array = new float[9];
-            fixed(void* ptr = &this)
-                Marshal.Copy((IntPtr)ptr, array, 0, 9);
-
-            return array.With(new[] { m11, m12, m13, m21, m22, m23, m31, m32, m33 }).ToArray().ToMatrix3x3();
-        }
         #endregion Public Methods
 
         #region Internal Methods
 
-        internal Matrix4x4 As4x4() =>
-            Matrix4x4.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
+        internal Matrix4x4 As4x4()
+        {
+            var result = Matrix4x4.Identity;
+
+            result.M11 = M11;
+            result.M12 = M12;
+            result.M13 = M13;
+            result.M21 = M21;
+            result.M22 = M22;
+            result.M23 = M23;
+            result.M31 = M31;
+            result.M32 = M32;
+            result.M33 = M33;
+
+            return result;
+        }
 
         #endregion Internal Methods
     }

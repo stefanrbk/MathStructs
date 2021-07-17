@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 //using System.Runtime.Intrinsics.X86;
@@ -7,7 +8,7 @@ using System.Runtime.InteropServices;
 namespace System.Numerics
 {
     /// <summary>
-    /// A structure encapsulating a 3x3 matrix of <see cref="double"/> values.
+    /// A structure encapsulating a 3x3 matrix of <see cref="Double"/> values.
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Pack = 8)]
     public struct Matrix3x3D : IEquatable<Matrix3x3D>
@@ -171,6 +172,66 @@ namespace System.Numerics
         }
 
         /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateTranslation(double xPosition, double yPosition) =>
+            (Matrix3x3D)Matrix3x2D.CreateTranslation(xPosition, yPosition);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateTranslation(Vector2D position) =>
+            CreateTranslation(position.X, position.Y);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateScale(double xScale, double yScale) =>
+            (Matrix3x3D)Matrix3x2D.CreateScale(xScale, yScale);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateScale(double scale) =>
+            CreateScale(scale, scale);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateScale(Vector2D scales) =>
+            CreateScale(scales.X, scales.Y);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateScale(double xScale, double yScale, Vector2D centerPoint) =>
+            (Matrix3x3D)Matrix3x2D.CreateScale(xScale, yScale, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateScale(double scale, Vector2D centerPoint) =>
+            CreateScale(scale, scale, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateScale(Vector2D scales, Vector2D centerPoint) =>
+            CreateScale(scales.X, scales.Y, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateSkew(double radiansX, double radiansY) =>
+            (Matrix3x3D)Matrix3x2D.CreateSkew(radiansX, radiansY);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateSkew(double radiansX, double radiansY, Vector2D centerPoint) =>
+            (Matrix3x3D)Matrix3x2D.CreateSkew(radiansX, radiansY, centerPoint);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateRotation(double radians) =>
+            (Matrix3x3D)Matrix3x2D.CreateRotation(radians);
+
+        /// <summary>
+        /// </summary>
+        public static Matrix3x3D CreateRotation(double radians, Vector2D centerPoint) =>
+            (Matrix3x3D)Matrix3x2D.CreateRotation(radians, centerPoint);
+
+        /// <summary>
         /// Attempts to calculate the inverse of the given matrix. If successful, the result will contain the inverted matrix.
         /// </summary>
         /// <param name="matrix">
@@ -180,15 +241,17 @@ namespace System.Numerics
         /// If successful, the inverted matrix; NaN matrix otherwise.
         /// </returns>
         [MethodImpl(Optimize)]
-        public static Matrix3x3D Invert(Matrix3x3D matrix)
+        public static bool Invert(Matrix3x3D matrix, out Matrix3x3D result)
         {
+            result = _nan;
+
             var det = matrix.GetDeterminant();
             if (Math.Abs(det) < double.Epsilon)
-                return _nan;
+                return false;
 
             var invdet = 1 / det;
 
-            return new Matrix3x3D((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
+            result = new Matrix3x3D((matrix.M22 * matrix.M33 - matrix.M32 * matrix.M23) * invdet,
                                   (matrix.M13 * matrix.M32 - matrix.M12 * matrix.M33) * invdet,
                                   (matrix.M12 * matrix.M23 - matrix.M13 * matrix.M22) * invdet,
                                   (matrix.M23 * matrix.M31 - matrix.M21 * matrix.M33) * invdet,
@@ -197,6 +260,7 @@ namespace System.Numerics
                                   (matrix.M21 * matrix.M32 - matrix.M31 * matrix.M22) * invdet,
                                   (matrix.M31 * matrix.M12 - matrix.M11 * matrix.M32) * invdet,
                                   (matrix.M11 * matrix.M22 - matrix.M21 * matrix.M12) * invdet);
+            return true;
         }
 
         /// <summary>
@@ -508,6 +572,20 @@ namespace System.Numerics
         }
 
         /// <summary>
+        /// </summary>
+        public static explicit operator Matrix3x3D(Matrix3x2D matrix) =>
+            new Matrix3x3D(matrix.M11, matrix.M12, 0,
+                           matrix.M21, matrix.M22, 0,
+                           matrix.M31, matrix.M32, 1);
+
+        /// <summary>
+        /// </summary>
+        public static explicit operator Matrix3x2D(Matrix3x3D matrix) =>
+            new Matrix3x2D(matrix.M11, matrix.M12,
+                           matrix.M21, matrix.M22,
+                           matrix.M31, matrix.M32);
+
+        /// <summary>
         /// Subtracts the second matrix from the first.
         /// </summary>
         /// <param name="left">
@@ -590,31 +668,31 @@ namespace System.Numerics
         }
 
         /// <summary>
-        /// Attempts to calculate the inverse of this matrix. If successful, the inverted matrix will be returned.
-        /// </summary>
-        [MethodImpl(Optimize)]
-        public Matrix3x3D Invert() =>
-            Invert(this);
-
-        /// <summary>
         /// Returns a String representing this matrix instance.
         /// </summary>
         public override string ToString() =>
             $"{{ {{M11:{M11} M12:{M12} M13:{M13}}} {{M21:{M21} M22:{M22} M23:{M23}}} {{M31:{M31} M32:{M32} M33:{M33}}} }}";
 
-        /// <summary>
-        /// Provides a record-style <see langword="with"/>-like constructor.
-        /// </summary>
-        [MethodImpl(Optimize)]
-        public Matrix3x3D With(double? m11 = null, double? m12 = null, double? m13 = null, double? m21 = null, double? m22 = null, double? m23 = null, double? m31 = null, double? m32 = null, double? m33 = null) =>
-            new Matrix3x3D(m11 ?? M11, m12 ?? M12, m13 ?? M13, m21 ?? M21, m22 ?? M22, m23 ?? M23, m31 ?? M31, m32 ?? M32, m33 ?? M33);
-
         #endregion Public Methods
 
         #region Internal Methods
 
-        internal Matrix4x4D As4x4() =>
-            Matrix4x4D.Identity.With(m11: M11, m12: M12, m13: M13, m21: M21, m22: M22, m23: M23, m31: M31, m32: M32, m33: M33);
+        internal Matrix4x4D As4x4()
+        {
+            var result = Matrix4x4D.Identity;
+
+            result.M11 = M11;
+            result.M12 = M12;
+            result.M13 = M13;
+            result.M21 = M21;
+            result.M22 = M22;
+            result.M23 = M23;
+            result.M31 = M31;
+            result.M32 = M32;
+            result.M33 = M33;
+
+            return result;
+        }
 
         #endregion Internal Methods
     }

@@ -78,7 +78,7 @@ namespace System.Tests
 
         [TestCaseSource("SqrtSource"),Category("Sqrt")]
         public void SqrtTest(double value) =>
-            Assert.That(Fix16.Sqrt((Fix16)value), Is.EqualTo((value < 0 ? -1 : 1) * (Fix16)Math.Sqrt(Math.Abs(Fix(value)))));
+            Assert.That(Fix16.Sqrt((Fix16)value), Is.EqualTo((Fix16)((value < 0 ? -1 : 1) * Math.Sqrt(Math.Abs(Fix(value))))));
 
         #endregion Overflow Unchecked Math Functions
 

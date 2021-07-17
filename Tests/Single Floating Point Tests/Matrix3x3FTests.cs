@@ -109,7 +109,7 @@ namespace Tests
                 M32 = 1.0f,
                 M33 = 3.14f
             };
-            Matrix3x3 i = a.Invert();
+            Matrix3x3.Invert(a, out var i);
             Assert.AreNotEqual(i, Matrix3x3.NaN);
 
             float detA = a.GetDeterminant();
@@ -343,7 +343,7 @@ namespace Tests
         {
             Matrix3x3 mtx = Matrix3x3.Identity;
 
-            Matrix3x3 actual = mtx.Invert();
+            Matrix3x3.Invert(mtx, out var actual);
             Assert.AreNotEqual(actual, Matrix3x3.NaN);
 
             Assert.AreEqual(actual, Matrix3x3.Identity);
@@ -370,7 +370,7 @@ namespace Tests
             float detA = a.GetDeterminant();
             Assert.AreEqual(detA, 0.0f, "Matrix3x3.Invert did not return the expected value.");
 
-            Matrix3x3 actual = a.Invert();
+            Matrix3x3.Invert(a, out var actual);
 
             // all the elements in Actual is NaN
             Assert.True(

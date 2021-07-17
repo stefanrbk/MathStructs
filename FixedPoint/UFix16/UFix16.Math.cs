@@ -96,8 +96,8 @@ namespace System
             // in if vs. time spent in the while loop
             // when searching for the starting value.
             bit = ( num & 0xFFF00000 ) != 0 ?
-                      1 << 30 :
-                      1 << 18;
+                      1u << 30 :
+                      1u << 18;
 
             while (bit > num) bit >>= 2;
 
