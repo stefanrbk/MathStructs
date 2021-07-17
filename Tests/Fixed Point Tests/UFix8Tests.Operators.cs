@@ -33,7 +33,7 @@ namespace System.Tests
 
         [Test, Sequential, Category("op_Divide")]
         public void DivisionTest([RandDiv1] float left, [RandDiv2] float right) =>
-            Assert.That((UFix8)left / (UFix8)right, Is.EqualTo((UFix8)( Fix(left) / Fix(right) )));
+            Assert.That((UFix8)left / (UFix8)right, Is.EqualTo((UFix8)Fix( Fix(left) / Fix(right) )));
 
         [Test, Sequential, Category("op_Divide")]
         public void DivisionTest2([RandDiv1, Values(0f, null)] float? left, [RandDiv2, Values(null, 0f)] float? right) =>
