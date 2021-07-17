@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>2.0.1-Alpha</Version>
+    <Version>2.0.2-Alpha</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Stefan Kewatt</Authors>
     <Description>A collection of math related structures which are not included with dotnet.</Description>
