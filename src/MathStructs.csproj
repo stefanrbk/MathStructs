@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.0.0-Pre5</Version>
+    <Version>2.0.1-Alpha</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Stefan Kewatt</Authors>
     <Description>A collection of math related structures which are not included with dotnet.</Description>
@@ -13,29 +13,40 @@
     <RepositoryUrl>https://github.com/stefanrbk/MathStructs</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Configurations>Debug;Release;Test</Configurations>
-    <AssemblyVersion>1.0.0.5</AssemblyVersion>
-    <FileVersion>1.0.0.5</FileVersion>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>System.Numerics</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>DEBUG</DefineConstants>
     <DocumentationFile>C:\Users\stefa\OneDrive\Programming\GitHub\stefanrbk\MathStructs.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
+    <Compile Remove="api\**" />
+    <EmbeddedResource Remove="api\**" />
+    <None Remove="api\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="docfx.json" />
+    <None Remove="index.md" />
+    <None Remove="log.txt" />
+    <None Remove="toc.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Link="LICENSE">
       <PackagePath></PackagePath>
+      <Pack>True</Pack>
     </None>
   </ItemGroup>
 

@@ -1,17 +1,91 @@
-﻿using MathStructs;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace Tests
 {
     public class Matrix4x4DTests
     {
+        [Test]
+        public void ConstructorTest()
+        {
+            var actual = new Matrix4x4D( 1,  2,  3,  4,
+                                         5,  6,  7,  8,
+                                         9, 10, 11, 12,
+                                        13, 14, 15, 16);
+            var expected = GenerateIncrementalMatrixNumber();
+
+            Assert.That(actual.M11, Is.EqualTo(expected.M11));
+            Assert.That(actual.M12, Is.EqualTo(expected.M12));
+            Assert.That(actual.M13, Is.EqualTo(expected.M13));
+            Assert.That(actual.M14, Is.EqualTo(expected.M14));
+            Assert.That(actual.M21, Is.EqualTo(expected.M21));
+            Assert.That(actual.M22, Is.EqualTo(expected.M22));
+            Assert.That(actual.M23, Is.EqualTo(expected.M23));
+            Assert.That(actual.M24, Is.EqualTo(expected.M24));
+            Assert.That(actual.M31, Is.EqualTo(expected.M31));
+            Assert.That(actual.M32, Is.EqualTo(expected.M32));
+            Assert.That(actual.M33, Is.EqualTo(expected.M33));
+            Assert.That(actual.M34, Is.EqualTo(expected.M34));
+            Assert.That(actual.M41, Is.EqualTo(expected.M41));
+            Assert.That(actual.M42, Is.EqualTo(expected.M42));
+            Assert.That(actual.M43, Is.EqualTo(expected.M43));
+            Assert.That(actual.M44, Is.EqualTo(expected.M44));
+        }
+
+        [Test]
+        public void ConstructorTest1()
+        {
+            var expected = new Matrix3x2D(1, 2, 3, 4, 5, 6);
+            var actual = new Matrix4x4D(expected);
+
+            Assert.That(actual.M11, Is.EqualTo(expected.M11));
+            Assert.That(actual.M12, Is.EqualTo(expected.M12));
+            Assert.That(actual.M13, Is.EqualTo(0.0));
+            Assert.That(actual.M14, Is.EqualTo(0.0));
+            Assert.That(actual.M21, Is.EqualTo(expected.M21));
+            Assert.That(actual.M22, Is.EqualTo(expected.M22));
+            Assert.That(actual.M23, Is.EqualTo(0.0));
+            Assert.That(actual.M24, Is.EqualTo(0.0));
+            Assert.That(actual.M31, Is.EqualTo(0.0));
+            Assert.That(actual.M32, Is.EqualTo(0.0));
+            Assert.That(actual.M33, Is.EqualTo(1.0));
+            Assert.That(actual.M34, Is.EqualTo(0.0));
+            Assert.That(actual.M41, Is.EqualTo(expected.M31));
+            Assert.That(actual.M42, Is.EqualTo(expected.M32));
+            Assert.That(actual.M43, Is.EqualTo(0.0));
+            Assert.That(actual.M44, Is.EqualTo(1.0));
+        }
+
+        [Test]
+        public void ConstructorTest2()
+        {
+            var expected = new Matrix3x3D(1, 2, 3, 4, 5, 6, 7, 8, 9);
+            var actual = new Matrix4x4D(expected);
+
+            Assert.That(actual.M11, Is.EqualTo(expected.M11));
+            Assert.That(actual.M12, Is.EqualTo(expected.M12));
+            Assert.That(actual.M13, Is.EqualTo(expected.M13));
+            Assert.That(actual.M14, Is.EqualTo(0.0));
+            Assert.That(actual.M21, Is.EqualTo(expected.M21));
+            Assert.That(actual.M22, Is.EqualTo(expected.M22));
+            Assert.That(actual.M23, Is.EqualTo(expected.M23));
+            Assert.That(actual.M24, Is.EqualTo(0.0));
+            Assert.That(actual.M31, Is.EqualTo(expected.M31));
+            Assert.That(actual.M32, Is.EqualTo(expected.M32));
+            Assert.That(actual.M33, Is.EqualTo(expected.M33));
+            Assert.That(actual.M34, Is.EqualTo(0.0));
+            Assert.That(actual.M41, Is.EqualTo(0.0));
+            Assert.That(actual.M42, Is.EqualTo(0.0));
+            Assert.That(actual.M43, Is.EqualTo(0.0));
+            Assert.That(actual.M44, Is.EqualTo(1.0));
+        }
+
         [Test, Category("op_Explicit")]
         public void CastTest()
         {
@@ -1186,7 +1260,7 @@ namespace Tests
 
         // A test for Determinant
         [Test]
-        public void Matrix4x4DeterminantTest()
+        public void Matrix4x4DDeterminantTest()
         {
             var target =
                     Matrix4x4D.CreateRotationX(MathHelper.ToRadians(30.0)) *
@@ -1223,7 +1297,7 @@ namespace Tests
                 M43 = 4.0,
                 M44 = 1.0
             };
-            var i = a.Invert();
+            Matrix4x4D.Invert(a, out var i);
             Assert.AreNotEqual(Matrix4x4D.NaN, i);
 
             var detA = a.GetDeterminant();
@@ -1614,12 +1688,12 @@ namespace Tests
 
         // A test for Identity
         [Test]
-        public void Matrix4x4IdentityTest()
+        public void Matrix4x4DIdentityTest()
         {
-            Matrix4x4D val = new Matrix4x4D();
-            val.M11 = val.M22 = val.M33 = val.M44 = 1.0f;
+            var val = new Matrix4x4D();
+            val.M11 = val.M22 = val.M33 = val.M44 = 1.0;
 
-            Assert.True(MathHelper.Equal(val, Matrix4x4D.Identity), "Matrix4x4D.Indentity was not set correctly.");
+            Assert.That(Matrix4x4D.Identity, Is.EqualTo(val).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.Indentity was not set correctly.");
         }
 
         // A test for operator != (Matrix4x4D, Matrix4x4D)
@@ -1649,7 +1723,7 @@ namespace Tests
                             Matrix4x4D.CreateScale(23, 42, -666) *
                             Matrix4x4D.CreateTranslation(17, 53, 89);
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Matrix4x4D i = mtx * actual;
@@ -1662,7 +1736,7 @@ namespace Tests
         {
             Matrix4x4D mtx = Matrix4x4D.Identity;
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Assert.True(MathHelper.Equal(actual, Matrix4x4D.Identity));
@@ -1674,7 +1748,7 @@ namespace Tests
         {
             Matrix4x4D mtx = Matrix4x4D.CreatePerspectiveFieldOfView(1, 1.333f, 0.1f, 666);
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Matrix4x4D i = mtx * actual;
@@ -1691,7 +1765,7 @@ namespace Tests
                                           8.0f, 9.0f, 1.0f, 0.0f,
                                           4.0f, 7.0f, 3.0f, 0.0f);
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Matrix4x4D i = mtx * actual;
@@ -1704,7 +1778,7 @@ namespace Tests
         {
             Matrix4x4D mtx = Matrix4x4D.CreateFromYawPitchRoll(3, 4, 5);
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Matrix4x4D i = mtx * actual;
@@ -1717,7 +1791,7 @@ namespace Tests
         {
             Matrix4x4D mtx = Matrix4x4D.CreateScale(23, 42, -666);
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Matrix4x4D i = mtx * actual;
@@ -1756,7 +1830,7 @@ namespace Tests
                 M44 = 0.99999994
             };
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
 
             Assert.True(actual != Matrix4x4D.NaN);
             Assert.That(actual, Is.EqualTo(expected).Using<Matrix4x4D>(MathHelper.Equal), "Matrix4x4D.Invert did not return the expected value.");
@@ -1794,7 +1868,7 @@ namespace Tests
             double detA = a.GetDeterminant();
             Assert.True(MathHelper.Equal(detA, 0.0f), "Matrix4x4D.Invert did not return the expected value.");
 
-            Matrix4x4D actual = a.Invert();
+            Matrix4x4D.Invert(a, out var actual);
 
             // all the elements in Actual is NaN
             Assert.True(
@@ -1811,7 +1885,7 @@ namespace Tests
         {
             Matrix4x4D mtx = Matrix4x4D.CreateTranslation(23, 42, 666);
 
-            Matrix4x4D actual = mtx.Invert();
+            Matrix4x4D.Invert(mtx, out var actual);
             Assert.True(actual != Matrix4x4D.NaN);
 
             Matrix4x4D i = mtx * actual;

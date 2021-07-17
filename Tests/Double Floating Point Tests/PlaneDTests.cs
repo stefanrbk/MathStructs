@@ -1,9 +1,8 @@
-﻿using MathStructs;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using System;
 using System.Globalization;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace Tests
@@ -306,7 +305,7 @@ namespace Tests
             m.M43 = 30.0f;
 
             PlaneD expected = new PlaneD();
-            Matrix4x4D inv = m.Invert();
+            Matrix4x4D.Invert(m, out var inv);
             Matrix4x4D itm = Matrix4x4D.Transpose(inv);
             double x = target.Normal.X, y = target.Normal.Y, z = target.Normal.Z, w = target.D;
             expected.Normal = new Vector3D(

@@ -1,799 +1,524 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
+using NUnit.Framework.Constraints;
+using NUnit.Framework.Internal;
+
 using System.Collections.Generic;
 using System.Globalization;
-
-using NUnit.Framework;
+using System.Linq.Expressions;
 
 namespace System.Tests
 {
-    [TestFixture]
-    public class UFix16Tests
+    [TestFixture(TestOf = typeof(UFix16))]
+    public partial class UFix16Tests
     {
-        public static IEnumerable<object[]> SourceGenerator1(int value1, int value2)
-        {
-            var UFix16ConversionSource = new uint[9]
-            {
-                0u,
-                234u,
-                15335424u,
-                0u,
-                4294967295u,
-                65536u,
-                179145u,
-                205887u,
-                1u
-            };
-            var ToStringInvariantCultureExpected = new string[9]
-            {
-                "0",
-                "0.003570556640625",
-                "234",
-                "0",
-                "65,535.9999847412",
-                "1",
-                "2.73353576660156",
-                "3.14158630371094",
-                "0.0000152587890625"
-            };
-            var ToStringUnitedStatesExpected = new string[9]
-            {
-                "0",
-                "0.003570556640625",
-                "234",
-                "0",
-                "65,535.9999847412",
-                "1",
-                "2.73353576660156",
-                "3.14158630371094",
-                "0.0000152587890625"
-            };
-            var ToStringSouthAfricanExpected = new string[9]
-            {
-                "0",
-                "0,003570556640625",
-                "234",
-                "0",
-                "65\u00a0535,9999847412",
-                "1",
-                "2,73353576660156",
-                "3,14158630371094",
-                "0,0000152587890625"
-            };
-            var ToStringIndianUrduExpected = new string[9]
-            {
-                "0",
-                "0٫003570556640625",
-                "234",
-                "0",
-                "65٬535٫9999847412",
-                "1",
-                "2٫73353576660156",
-                "3٫14158630371094",
-                "0٫0000152587890625"
-            };
-            var ToBooleanExpectedSource = new bool[9]
-            {
-                false,
-                true,
-                true,
-                false,
-                true,
-                true,
-                true,
-                true,
-                true
-            };
-            var ToByteExpectedSource = new byte[9]
-            {
-                0,
-                0,
-                234,
-                0,
-                255,
-                1,
-                2,
-                3,
-                0
-            };
-            var ToDecimalExpectedSource = new decimal[9]
-            {
-                0m,
-                0.003570556640625m,
-                234m,
-                0m,
-                65535.9999847412m,
-                1m,
-                2.73353576660156m,
-                3.14158630371094m,
-                0.0000152587890625m
-            };
-            var ToDoubleExpectedSource = new double[9]
-            {
-                0.0,
-                0.003570556640625,
-                234.0,
-                0.0,
-                65535.999984741211,
-                1.0,
-                2.7335357666015625,
-                3.1415863037109375,
-                1.52587890625E-05
-            };
-            var ToHalfExpectedSource = new Half[9]
-            {
-                (Half)0f,
-                (Half)0.00357,
-                (Half)234f,
-                (Half)0f,
-                Half.PositiveInfinity,
-                (Half)1f,
-                (Half)2.734,
-                (Half)3.14,
-                (Half)1.526E-05
-            };
-            var ToInt16ExpectedSource = new short[9]
-            {
-                0,
-                0,
-                234,
-                0,
-                -1,
-                1,
-                2,
-                3,
-                0
-            };
-            var ToInt32ExpectedSource = new int[9]
-            {
-                0,
-                0,
-                234,
-                0,
-                65535,
-                1,
-                2,
-                3,
-                0
-            };
-            var ToTypeTypeSource = new Type[15]
-            {
-                typeof(bool),
-                typeof(sbyte),
-                typeof(byte),
-                typeof(short),
-                typeof(ushort),
-                typeof(int),
-                typeof(uint),
-                typeof(long),
-                typeof(ulong),
-                typeof(Half),
-                typeof(float),
-                typeof(double),
-                typeof(decimal),
-                typeof(string),
-                typeof(object)
-            };
-            var ToTypeExpectedSource = new object[15]
-            {
-                true,
-                (sbyte)16,
-                (byte)16,
-                (short)16,
-                (ushort)16,
-                16,
-                16u,
-                16L,
-                16uL,
-                (Half)16f,
-                16f,
-                16.0,
-                16m,
-                "16",
-                1048576
-            };
-            var ToInt64ExpectedSource = new long[9]
-            {
-                0L,
-                0L,
-                234L,
-                0L,
-                65535L,
-                1L,
-                2L,
-                3L,
-                0L
-            };
-            var ToSByteExpectedSource = new sbyte[9]
-            {
-                0,
-                0,
-                -22,
-                0,
-                -1,
-                1,
-                2,
-                3,
-                0
-            };
-            var ToSingleExpectedSource = new float[9]
-            {
-                0f,
-                0.00357055664f,
-                234f,
-                0f,
-                65536f,
-                1f,
-                2.73353577f,
-                3.1415863f,
-                1.52587891E-05f
-            };
-            var ToUInt16ExpectedSource = new ushort[9]
-            {
-                0,
-                0,
-                234,
-                0,
-                65535,
-                1,
-                2,
-                3,
-                0
-            };
-            var ToUInt32ExpectedSource = new uint[9]
-            {
-                0u,
-                0u,
-                234u,
-                0u,
-                65535u,
-                1u,
-                2u,
-                3u,
-                0u
-            };
-            var ToUInt64ExpectedSource = new ulong[9]
-            {
-                0uL,
-                0uL,
-                234uL,
-                0uL,
-                65535uL,
-                1uL,
-                2uL,
-                3uL,
-                0uL
-            };
-            var array1 = value1 switch
-            {
-                1 => ToStringInvariantCultureExpected.GetEnumerator(),
-                2 => ToStringUnitedStatesExpected.GetEnumerator(),
-                3 => ToStringSouthAfricanExpected.GetEnumerator(),
-                4 => ToStringIndianUrduExpected.GetEnumerator(),
-                5 => ToBooleanExpectedSource.GetEnumerator(),
-                6 => ToByteExpectedSource.GetEnumerator(),
-                7 => ToSByteExpectedSource.GetEnumerator(),
-                8 => ToInt16ExpectedSource.GetEnumerator(),
-                9 => ToUInt16ExpectedSource.GetEnumerator(),
-                10 => ToInt32ExpectedSource.GetEnumerator(),
-                11 => ToUInt32ExpectedSource.GetEnumerator(),
-                12 => ToInt64ExpectedSource.GetEnumerator(),
-                13 => ToUInt64ExpectedSource.GetEnumerator(),
-                14 => ToHalfExpectedSource.GetEnumerator(),
-                15 => ToSingleExpectedSource.GetEnumerator(),
-                16 => ToDoubleExpectedSource.GetEnumerator(),
-                17 => ToDecimalExpectedSource.GetEnumerator(),
-                18 => ToTypeTypeSource.GetEnumerator(),
-                19 => ToTypeExpectedSource.GetEnumerator(),
-                _ => UFix16ConversionSource.GetEnumerator(),
-            };
-            var array2 = value2 switch
-            {
-                1 => ToStringInvariantCultureExpected.GetEnumerator(),
-                2 => ToStringUnitedStatesExpected.GetEnumerator(),
-                3 => ToStringSouthAfricanExpected.GetEnumerator(),
-                4 => ToStringIndianUrduExpected.GetEnumerator(),
-                5 => ToBooleanExpectedSource.GetEnumerator(),
-                6 => ToByteExpectedSource.GetEnumerator(),
-                7 => ToSByteExpectedSource.GetEnumerator(),
-                8 => ToInt16ExpectedSource.GetEnumerator(),
-                9 => ToUInt16ExpectedSource.GetEnumerator(),
-                10 => ToInt32ExpectedSource.GetEnumerator(),
-                11 => ToUInt32ExpectedSource.GetEnumerator(),
-                12 => ToInt64ExpectedSource.GetEnumerator(),
-                13 => ToUInt64ExpectedSource.GetEnumerator(),
-                14 => ToHalfExpectedSource.GetEnumerator(),
-                15 => ToSingleExpectedSource.GetEnumerator(),
-                16 => ToDoubleExpectedSource.GetEnumerator(),
-                17 => ToDecimalExpectedSource.GetEnumerator(),
-                18 => ToTypeTypeSource.GetEnumerator(),
-                19 => ToTypeExpectedSource.GetEnumerator(),
-                _ => UFix16ConversionSource.GetEnumerator(),
-            };
-            while (array1.MoveNext() && array2.MoveNext())
-            {
-                yield return new object[2]
-                {
-                    array1.Current,
-                    array2.Current
-                };
-            }
-        }
+        public const double UFix16Max = 65535+(65535/65536.0);
 
-        public static IEnumerable<object[]> SourceGenerator2(int value)
-        {
-            var FromByteSource = new(byte, uint)[4]
-            {
-                (0, 0u),
-                (1, 65536u),
-                (234, 15335424u),
-                (Byte.MaxValue, 16711680u)
-            };
-            var FromSByteSource = new(sbyte, uint)[4]
-            {
-                (0, 0u),
-                (1, 65536u),
-                (-123, 4286906368u),
-                (SByte.MaxValue, 8323072u)
-            };
-            var FromUInt16Source = new(ushort, uint)[4]
-            {
-                (0, 0u),
-                (1, 65536u),
-                (234, 15335424u),
-                (UInt16.MaxValue, 4294901760u)
-            };
-            var FromInt16Source = new(short, uint)[4]
-            {
-                (0, 0u),
-                (1, 65536u),
-                (-234, 4279631872u),
-                (Int16.MaxValue, 2147418112u)
-            };
-            var FromUInt32Source = new(uint, uint)[4]
-            {
-                (0u, 0u),
-                (1u, 65536u),
-                (234u, 15335424u),
-                (65535u, 4294901760u)
-            };
-            var FromInt32Source = new(int, uint)[4]
-            {
-                (0, 0u),
-                (1, 65536u),
-                (-234, 4279631872u),
-                (32767, 2147418112u)
-            };
-            var FromUInt64Source = new(ulong, uint)[4]
-            {
-                (0uL, 0u),
-                (1uL, 65536u),
-                (234uL, 15335424u),
-                (65535uL, 4294901760u)
-            };
-            var FromInt64Source = new(long, uint)[4]
-            {
-                (0L, 0u),
-                (1L, 65536u),
-                (-234L, 4279631872u),
-                (32767L, 2147418112u)
-            };
-            var FromHalfSource = new(Half, uint)[4]
-            {
-                ((Half)0f, 0u),
-                ((Half)1f, 65536u),
-                ((Half)(-234f), 4279631872u),
-                ((Half)0.5, 32768u)
-            };
-            var FromSingleSource = new(float, uint)[4]
-            {
-                (0f, 0u),
-                (1f, 65536u),
-                (-234f, 4279631872u),
-                (0.5f, 32768u)
-            };
-            var FromDoubleSource = new(double, uint)[4]
-            {
-                (0.0, 0u),
-                (1.0, 65536u),
-                (-234.0, 4279631872u),
-                (0.5, 32768u)
-            };
-            var FromDecimalSource = new(decimal, uint)[4]
-            {
-                (0m, 0u),
-                (1m, 65536u),
-                (-234m, 4279631872u),
-                (0.5m, 32768u)
-            };
-            switch (value)
-            {
-                case 0:
-                    {
-                        var array8 = FromByteSource;
-                        for (var num = 0; num < array8.Length; num++)
-                        {
-                            var j = array8[num];
-                            yield return new object[2]
-                            {
-                                j.Item1,
-                                j.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 1:
-                    {
-                        var array12 = FromSByteSource;
-                        for (var num = 0; num < array12.Length; num++)
-                        {
-                            var k = array12[num];
-                            yield return new object[2]
-                            {
-                                k.Item1,
-                                k.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        var array4 = FromInt16Source;
-                        for (var num = 0; num < array4.Length; num++)
-                        {
-                            var l = array4[num];
-                            yield return new object[2]
-                            {
-                                l.Item1,
-                                l.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 3:
-                    {
-                        var array10 = FromUInt16Source;
-                        for (var num = 0; num < array10.Length; num++)
-                        {
-                            var m = array10[num];
-                            yield return new object[2]
-                            {
-                                m.Item1,
-                                m.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 4:
-                    {
-                        var array6 = FromInt32Source;
-                        for (var num = 0; num < array6.Length; num++)
-                        {
-                            var n = array6[num];
-                            yield return new object[2]
-                            {
-                                n.Item1,
-                                n.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 5:
-                    {
-                        var array2 = FromUInt32Source;
-                        for (var num = 0; num < array2.Length; num++)
-                        {
-                            var i2 = array2[num];
-                            yield return new object[2]
-                            {
-                                i2.Item1,
-                                i2.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 6:
-                    {
-                        var array11 = FromInt64Source;
-                        for (var num = 0; num < array11.Length; num++)
-                        {
-                            var i3 = array11[num];
-                            yield return new object[2] { i3.Item1, i3.Item2 };
-                        }
-                        break;
-                    }
-                case 7:
-                    {
-                        var array9 = FromUInt64Source;
-                        for (var num = 0; num < array9.Length; num++)
-                        {
-                            var i4 = array9[num];
-                            yield return new object[2] { i4.Item1, i4.Item2 };
-                        }
-                        break;
-                    }
-                case 8:
-                    {
-                        var array7 = FromHalfSource;
-                        for (var num = 0; num < array7.Length; num++)
-                        {
-                            var i5 = array7[num];
-                            yield return new object[2]
-                            {
-                                i5.Item1,
-                                i5.Item2
-                            };
-                        }
-                        break;
-                    }
-                case 9:
-                    {
-                        var array5 = FromSingleSource;
-                        for (var num = 0; num < array5.Length; num++)
-                        {
-                            var i6 = array5[num];
-                            yield return new object[2] { i6.Item1, i6.Item2 };
-                        }
-                        break;
-                    }
-                case 10:
-                    {
-                        var array3 = FromDoubleSource;
-                        for (var num = 0; num < array3.Length; num++)
-                        {
-                            var i7 = array3[num];
-                            yield return new object[2] { i7.Item1, i7.Item2 };
-                        }
-                        break;
-                    }
-                default:
-                    {
-                        var array = FromDecimalSource;
-                        for (var num = 0; num < array.Length; num++)
-                        {
-                            var i = array[num];
-                            yield return new object[2] { i.Item1, i.Item2 };
-                        }
-                        break;
-                    }
-            }
-        }
+        public const double UFix16Min = 0;
 
+        public static readonly double[][] AddSource = new[]
+        {
+            new[]{ 0d, 0 },
+            new[]{ 60000d, 1 },
+        };
+        public static readonly double[][] SubtractSource = new[]
+        {
+            new[]{ 0d, 0 },
+            new[]{ 60000, 10d },
+        };
+        public static readonly double[][] MultiplySource = new[]
+        {
+            new[]{ 60000, 0.5 },
+            new[]{ 300, 200d },
+            new[]{ 0.125, 60000 },
+        };
+        public static readonly double[][] DivideSource = new[]
+        {
+            new[]{ 60000, 2d },
+            new[]{ 60000, 60000d },
+            new[]{ 30000, 0.5 },
+        };
+        public static readonly double?[][] NullableDivideSource = new[]
+        {
+            new double?[]{ 1, 0, null },
+            new double?[]{ 10, null, null },
+            new double?[]{ null, null, null },
+            new double?[]{ null, 10, null },
+            new double?[]{ 27.5, 11, 2.5 },
+            new double?[]{ 2, 1, 2 },
+        };
+        public static readonly double[][] EqualitySource = new[]
+        {
+            new[]{ 10, 0.5 },
+            new[]{ -10, -10.0 },
+            new[]{ 10, 10.1 },
+        };
+        public static readonly double?[][] NullableEqualitySource = new[]
+        {
+            new double?[]{ null, null },
+            new double?[]{ null, 7 },
+            new double?[]{ 7, null },
+        };
+        public static readonly double[] UFix16Source = new[]
+        {
+            0,
+            0.003570556640625,
+            234,
+            65535.9999847412109375,
+            1,
+            2.7335357666015625,
+            3.1415863037109375,
+            0.0000152587890625,
+        };
+        public static readonly byte[] ToByteSource = new byte[]
+        {
+            0,
+            0,
+            234,
+            255,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly sbyte[] ToSByteSource = new sbyte[]
+        {
+            0,
+            0,
+            127,
+            127,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly short[] ToShortSource = new short[]
+        {
+            0,
+            0,
+            234,
+            32767,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly ushort[] ToUShortSource = new ushort[]
+        {
+            0,
+            0,
+            234,
+            65535,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly int[] ToIntSource = new int[]
+        {
+            0,
+            0,
+            234,
+            65535,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly uint[] ToUIntSource = new uint[]
+        {
+            0,
+            0,
+            234,
+            65535,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly long[] ToLongSource = new long[]
+        {
+            0,
+            0,
+            234,
+            65535,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly ulong[] ToULongSource = new ulong[]
+        {
+            0,
+            0,
+            234,
+            65535,
+            1,
+            2,
+            3,
+            0,
+        };
+        public static readonly Half[] ToHalfSource = new Half[]
+        {
+            (Half)0,
+            (Half)0.00357,
+            (Half)234,
+            (Half)65535,
+            (Half)1,
+            (Half)2.734,
+            (Half)3.14,
+            (Half)0.00001526,
+        };
+        public static readonly float[] ToFloatSource = new float[]
+        {
+            0,
+            0.00357055664f,
+            234,
+            65536,
+            1,
+            2.73353577f,
+            3.1415863f,
+            0.0000152587891f,
+        };
+        public static readonly double[] ToDoubleSource = new[]
+        {
+            0,
+            0.003570556640625,
+            234,
+            65535.9999847412109375,
+            1,
+            2.7335357666015625,
+            3.1415863037109375,
+            0.0000152587890625,
+        };
+        public static readonly Fix16[] ToFix16Source = new[]
+        {
+            (Fix16)0,
+            (Fix16)0.003570556640625,
+            (Fix16)234,
+            (Fix16)32767.9999847412109375,
+            (Fix16)1,
+            (Fix16)2.7335357666015625,
+            (Fix16)3.1415863037109375,
+            (Fix16)0.0000152587890625,
+        };
+        public static readonly decimal[] ToDecimalSource = new decimal[]
+        {
+            0,
+            0.003570556640625m,
+            234,
+            65535.9999847412m,
+            1,
+            2.73353576660156m,
+            3.14158630371094m,
+            0.0000152587890625m,
+        };
+        public static readonly Type[] ToTypeTypesSource = new Type[]
+        {
+            null!,
+            typeof(bool),
+            typeof(byte),
+            typeof(sbyte),
+            typeof(short),
+            typeof(ushort),
+            typeof(int),
+            typeof(uint),
+            typeof(long),
+            typeof(ulong),
+            typeof(float),
+            typeof(double),
+            typeof(decimal),
+            typeof(string),
+            typeof(char),
+            typeof(DateTime),
+        };
+        public static readonly double[] ToTypeValuesSource = new double[]
+        {
+            0,
+            1,
+            0.1,
+            60000,
+            120000,
+        };
+        public static readonly object[] LerpSource = new object[]
+        {
+            new object[] { 10.0, 11.0, (byte)0x80, 10.5 },
+            new object[] { 1.0, 3.0, (byte)0x20, 1.25 },
+        };
+        public static readonly object[] Lerp2Source = new object[]
+        {
+            new object[] { 10.0, 11.0, (ushort)0x8000, 10.5 },
+            new object[] { 1.0, 3.0, (ushort)0x2000, 1.25 },
+        };
+        public static readonly object[] Lerp3Source = new object[]
+        {
+            new object[] { 10.0, 11.0, (uint)0x80000000, 10.5 },
+            new object[] { 1.0, 3.0, (uint)0x20000000, 1.25 },
+        };
+        public static readonly double[] SqrtSource = new double[]
+            {
+                25,
+                16385,
+                0.0625,
+            };
+        public static readonly UFix16[] UFix16ConversionSource = new UFix16[]
+        {
+            UFix16.Raw(0),
+            UFix16.Raw(234),
+            UFix16.Raw(15335424),
+            UFix16.Raw(2147483647),
+            UFix16.Raw(65536),
+            UFix16.Raw(179145),
+            UFix16.Raw(205887),
+            UFix16.Raw(1)
+        };
+        public static readonly string[] ToStringInvariantCultureExpected = new string[]
+        {
+            "0",
+            "0.003570556640625",
+            "234",
+            "32,767.9999847412",
+            "1",
+            "2.73353576660156",
+            "3.14158630371094",
+            "0.0000152587890625"
+        };
         public static IEnumerable<object[]> ToStringTestGenerator()
         {
-            var invarGen = SourceGenerator1(0, 1);
-            //SourceGenerator1(0, 2);
-            //SourceGenerator1(0, 3);
-            //SourceGenerator1(0, 4);
-            foreach (var i in invarGen)
+            for (var i = 0; i < UFix16ConversionSource.Length; i++)
             {
                 yield return new object[3]
                 {
-                    i[0],
-                    i[1],
+                    UFix16ConversionSource[i],
+                    ToStringInvariantCultureExpected[i],
                     CultureInfo.InvariantCulture
                 };
             }
         }
+        public static readonly object[] EqualsSource1 = new object[]
+            {
+                new object[] { UFix16.One, true },
+                new object[] { null!, false },
+                new object[] { new object(), false },
+            };
+        public static readonly object[] EqualsSource2 = new object[]
+            {
+                new object[] { UFix16.One, UFix16.Zero, true },
+                new object[] { UFix16.Zero, UFix16.Pi, true },
+                new object[] { UFix16.Pi, UFix16.One, false },
+            };
+        public static readonly object[] CompareToSource1 = new object[]
+            {
+                new object[] { null!, Is.EqualTo(1) },
+                new object[] { UFix16.Pi, Is.LessThan(0) },
+                new object[] { UFix16.Epsilon, Is.GreaterThan(0) },
+                new object[] { UFix16.One, Is.Zero },
+            };
+        public static readonly object[] CompareToSource2 = new object[]
+            {
+                new object[] { UFix16.Pi, Is.LessThan(0) },
+                new object[] { UFix16.Epsilon, Is.GreaterThan(0) },
+                new object[] { UFix16.One, Is.Zero },
+            };
+        public static IEnumerable<object[]> ByteToUFix16Source()
+        {
+            yield return new object[] { (byte)0, UFix16.Zero };
+            yield return new object[] { (byte)255, (UFix16)255 };
+            yield return new object[] { (byte)3, (UFix16)3 };
+        }
+        public static IEnumerable<object[]> SByteToUFix16Source()
+        {
+            yield return new object[] { (sbyte)0, UFix16.Zero };
+            yield return new object[] { (sbyte)-22, UFix16.MinValue };
+            yield return new object[] { (sbyte)-1, UFix16.MinValue };
+            yield return new object[] { (sbyte)7, (UFix16)7 };
+        }
+        public static IEnumerable<object[]> ShortToUFix16Source()
+        {
+            yield return new object[] { (short)0, UFix16.Zero };
+            yield return new object[] { (short)234, (UFix16)234 };
+            yield return new object[] { (short)-1, UFix16.MinValue };
+            yield return new object[] { (short)-50, UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> UShortToUFix16Source()
+        {
+            yield return new object[] { (ushort)0, UFix16.Zero };
+            yield return new object[] { (ushort)234, (UFix16)234 };
+            yield return new object[] { (ushort)65535, (UFix16)65535 };
+            yield return new object[] { (ushort)206, (UFix16)206 };
+        }
+        public static IEnumerable<object[]> IntToUFix16Source()
+        {
+            yield return new object[] { 0, UFix16.Zero };
+            yield return new object[] { 234, (UFix16)234 };
+            yield return new object[] { -1, UFix16.MinValue };
+            yield return new object[] { -50, UFix16.MinValue };
+            yield return new object[] { 338170388, UFix16.MaxValue };
+            yield return new object[] { -1589604192, UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> UIntToUFix16Source()
+        {
+            yield return new object[] { 0u, UFix16.Zero };
+            yield return new object[] { 234u, (UFix16)234 };
+            yield return new object[] { unchecked((uint)-1), UFix16.MaxValue };
+            yield return new object[] { unchecked((uint)-50), UFix16.MaxValue };
+            yield return new object[] { 338170388u, UFix16.MaxValue };
+            yield return new object[] { 2705363104, UFix16.MaxValue };
+        }
+        public static IEnumerable<object[]> LongToUFix16Source()
+        {
+            yield return new object[] { (long)0, UFix16.Zero };
+            yield return new object[] { (long)234, (UFix16)234 };
+            yield return new object[] { (long)-1, UFix16.MinValue };
+            yield return new object[] { (long)-50, UFix16.MinValue };
+            yield return new object[] { (long)338170388, UFix16.MaxValue };
+            yield return new object[] { (long)-1589604192, UFix16.MinValue };
+            yield return new object[] { (long)0x0400002014281214, UFix16.MaxValue };
+            yield return new object[] { (long)-0x7FFFFBFD7AFDBD80, UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> ULongToUFix16Source()
+        {
+            yield return new object[] { (ulong)0, UFix16.Zero };
+            yield return new object[] { (ulong)234, (UFix16)234 };
+            yield return new object[] { (ulong)65535, (UFix16)65535 };
+            yield return new object[] { (ulong)206, (UFix16)206 };
+            yield return new object[] { (ulong)338170388, UFix16.MaxValue };
+            yield return new object[] { (ulong)0xA14090A0, UFix16.MaxValue };
+            yield return new object[] { (ulong)0x0400002014281214u, UFix16.MaxValue };
+            yield return new object[] { (ulong)0x8000040285024280u, UFix16.MaxValue };
+        }
+        public static IEnumerable<object[]> HalfToUFix16Source()
+        {
+            yield return new object[] { (Half)0, UFix16.Zero };
+            yield return new object[] { (Half)234, (UFix16)234 };
+            yield return new object[] { (Half)( -1 ), UFix16.MinValue };
+            yield return new object[] { (Half)( -73 ), UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> FloatToUFix16Source()
+        {
+            yield return new object[] { 0f, UFix16.Zero };
+            yield return new object[] { 234f, (UFix16)234 };
+            yield return new object[] { -1f, UFix16.MinValue };
+            yield return new object[] { -73f, UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> DoubleToUFix16Source()
+        {
+            yield return new object[] { 0d, UFix16.Zero };
+            yield return new object[] { 234d, (UFix16)234 };
+            yield return new object[] { -1d, UFix16.MinValue };
+            yield return new object[] { -73d, UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> DecimalToUFix16Source()
+        {
+            yield return new object[] { 0m, UFix16.Zero };
+            yield return new object[] { 234m, (UFix16)234 };
+            yield return new object[] { -1m, UFix16.MinValue };
+            yield return new object[] { -73m, UFix16.MinValue };
+        }
+        public static IEnumerable<object[]> Fix16ToUFix16Source()
+        {
+            yield return new object[] { (Fix16)0, UFix16.Zero };
+            yield return new object[] { (Fix16)234, (UFix16)234 };
+            yield return new object[] { (Fix16)( -1d ), UFix16.MinValue };
+            yield return new object[] { (Fix16)( -73d ), UFix16.MinValue };
+        }
 
-        [Test]
-        [Category("Epsilon")]
-        public void Epsilon() =>
-            Assert.That(1u, Is.EqualTo(1));
+        private static double Fix(double value) =>
+            (UFix16)value;
+        private static double? Fix(double? value) =>
+            (UFix16?)value;
+        private static double FixNullIsNaN(double? value) =>
+            value is null
+                ? Double.NaN
+                : (UFix16)value;
+        private static void ToTypeTest<T>(Func<IFormatProvider?, T> actualFunc, Func<IFormatProvider?, T> expectedFunc) where T : IConvertible
+        {
+            IConvertible actual, expected;
+            try { actual = actualFunc(null); }
+            catch (Exception e) { Assert.That(() => expectedFunc(null), Throws.TypeOf(e.GetType())); return; }
 
-        [Test]
-        [Category("ToString")]
-        public void ToStringTest() =>
-            Assert.That(UFix16.ToString(163840u), Is.EqualTo("2.5"));
+            try { expected = expectedFunc(null); } catch (Exception e) { Assert.Fail($"Expected: {e.GetType().FullName} thrown  But was: {actual}"); return; }
 
-        [TestCaseSource("ToStringTestGenerator")]
-        [Category("ToString")]
-        public void ToStringTest1(uint value, string expected, CultureInfo culture) =>
-            Assert.That(UFix16.ToString(value, "#,0.################", culture), Is.EqualTo(expected));
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+        private static void ToTypeTest(Func<Half> actualFunc, Func<Half> expectedFunc)
+        {
+            Half actual, expected;
+            try { actual = actualFunc(); }
+            catch (Exception e) { Assert.That(expectedFunc, Throws.TypeOf(e.GetType())); return; }
 
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 5 })]
-        [Category("ToBoolean")]
-        public void ToBooleanTest(uint value, bool expected) =>
-            Assert.That(UFix16.ToBoolean(value), Is.EqualTo(expected));
+            try { expected = expectedFunc(); } catch (Exception e) { Assert.Fail($"Expected: {e.GetType().FullName} thrown  But was: {actual}"); return; }
 
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 6 })]
-        [Category("ToByte")]
-        public void ToByteTest(uint value, byte expected) =>
-            Assert.That(UFix16.ToByte(value), Is.EqualTo(expected));
+            Assert.That(actual, Is.EqualTo(expected));
+        }
 
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 17 })]
-        [Category("ToDecimal")]
-        public void ToDecimalTest(uint value, decimal expected) =>
-            Assert.That(UFix16.ToDecimal(value), Is.EqualTo(expected));
+        #region Attributes
 
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 16 })]
-        [Category("ToDouble")]
-        public void ToDoubleTest(uint value, double expected) =>
-            Assert.That(UFix16.ToDouble(value), Is.EqualTo(expected));
+        public abstract class RandMathAttribute : RandomAttribute
+        {
+            public RandMathAttribute(double min, double max, int count = 20) : base(min, max, count) { }
+        }
+        public class RandAddAttribute : RandMathAttribute
+        {
+            public RandAddAttribute() : base(0, UFix16Max / 2) { }
+        }
+        public class RandAddOverAttribute : RandMathAttribute
+        {
+            public RandAddOverAttribute() : base(0, UFix16Max) { }
+        }
+        public class RandSub1Attribute : RandMathAttribute
+        {
+            public RandSub1Attribute() : base(UFix16Max / 2, UFix16Max) { }
+        }
+        public class RandSub2Attribute : RandMathAttribute
+        {
+            public RandSub2Attribute() : base(UFix16Min, UFix16Max / 2) { }
+        }
+        public class RandSubOverAttribute : RandMathAttribute
+        {
+            public RandSubOverAttribute() : base(UFix16Min, UFix16Max) { }
+        }
+        public class RandMulAttribute : RandMathAttribute
+        {
+            public RandMulAttribute() : base(UFix16Min, 256 - ( 1 / 65536d )) { }
+        }
+        public class RandMulOverAttribute : RandMathAttribute
+        {
+            public RandMulOverAttribute() : base(UFix16Min, 512 - ( 1 / 65536d )) { }
+        }
+        public class RandDiv1Attribute : RandMathAttribute
+        {
+            public RandDiv1Attribute() : base(UFix16Min, UFix16Max) { }
+        }
+        public class RandDiv2Attribute : RandMathAttribute
+        {
+            public RandDiv2Attribute() : base(1, UFix16Max/2) { }
+        }
+        public class RandDivOver1Attribute : RandMathAttribute
+        {
+            public RandDivOver1Attribute() : base(0, UFix16Max/3) { }
+        }
+        public class RandDivOver2Attribute : RandMathAttribute
+        {
+            public RandDivOver2Attribute() : base(1 / 65536d, 2) { }
+        }
+        public class RandExpAttribute : RandMathAttribute
+        {
+            public RandExpAttribute() : base(0, 726817.0 / 65536) { }
+        }
+        public class RandZeroNintyAttribute : RandMathAttribute
+        {
+            public RandZeroNintyAttribute() : base(0, Math.PI / 2) { }
+        }
 
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 14 })]
-        [Category("ToHalf")]
-        public void ToHalfTest(uint value, Half expected) =>
-            Assert.That(UFix16.ToHalf(value), Is.EqualTo(expected));
+        public class RandHalf1Attribute : RandomAttribute
+        {
+            public RandHalf1Attribute() : base((ushort)0, (ushort)31743, 20) { }
+        }
+        public class RandHalf2Attribute : RandomAttribute
+        {
+            public RandHalf2Attribute() : base((ushort)32768, (ushort)64512, 4) { }
+        }
 
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 8 })]
-        [Category("ToInt16")]
-        public void ToInt16Test(uint value, short expected) =>
-            Assert.That(UFix16.ToInt16(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 10 })]
-        [Category("ToInt32")]
-        public void ToInt32Test(uint value, int expected) =>
-            Assert.That(UFix16.ToInt32(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 12 })]
-        [Category("ToInt64")]
-        public void ToInt64Test(uint value, long expected) =>
-            Assert.That(UFix16.ToInt64(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 7 })]
-        [Category("ToSByte")]
-        public void ToSByteTest(uint value, sbyte expected) =>
-            Assert.That(UFix16.ToSByte(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 15 })]
-        [Category("ToSingle")]
-        public void ToSingleTest(uint value, float expected) =>
-            Assert.That(UFix16.ToSingle(value), Is.EqualTo(expected));
-
-        [Test]
-        [Sequential]
-        [Category("ToString")]
-        public void ToStringTest2([Values("0.5", "0,5")] string expected, [Values("en-US", "fr-FR")] string culture) =>
-            Assert.That(UFix16.ToString(32768u, CultureInfo.CreateSpecificCulture(culture)), Is.EqualTo(expected));
-
-        [Test]
-        [Category("ToType")]
-        public void ToTypeTest_null_conversionType_throws_ArgumentNullException() =>
-            Assert.Throws<ArgumentNullException>(() => UFix16.ToType(1048576u, null!, null));
-
-        [Test]
-        [Category("ToType")]
-        public void ToTypeTest_DateTime_conversionType_throws_InvalidCastException() =>
-            Assert.Throws<InvalidCastException>(() => UFix16.ToType(1048576u, typeof(DateTime), null));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 18, 19 })]
-        [Category("ToType")]
-        public void ToTypeTest_conversionType(Type type, object expected) =>
-            Assert.That(UFix16.ToType(1048576u, type, null), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 9 })]
-        [Category("ToUInt16")]
-        public void ToUInt16Test(uint value, ushort expected) =>
-            Assert.That(UFix16.ToUInt16(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 11 })]
-        [Category("ToUInt32")]
-        public void ToUInt32Test(uint value, uint expected) =>
-            Assert.That(UFix16.ToUInt32(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator1", new object[] { 0, 13 })]
-        [Category("ToUInt64")]
-        public void ToUInt64Test(uint value, ulong expected) =>
-            Assert.That(UFix16.ToUInt64(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 0 })]
-        [Category("FromByte")]
-        public void FromByteTest(byte value, uint expected) =>
-            Assert.That(UFix16.FromByte(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 1 })]
-        [Category("FromSByte")]
-        public void FromSByteTest(sbyte value, uint expected) =>
-            Assert.That(UFix16.FromSByte(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 3 })]
-        [Category("FromUInt16")]
-        public void FromUInt16Test(ushort value, uint expected) =>
-            Assert.That(UFix16.FromUInt16(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 2 })]
-        [Category("FromInt16")]
-        public void FromInt16Test(short value, uint expected) =>
-            Assert.That(UFix16.FromInt16(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 5 })]
-        [Category("FromUInt32")]
-        public void FromUInt32Test(uint value, uint expected) =>
-            Assert.That(UFix16.FromUInt32(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 4 })]
-        [Category("FromInt32")]
-        public void FromInt32Test(int value, uint expected) =>
-            Assert.That(UFix16.FromInt32(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 7 })]
-        [Category("FromUInt64")]
-        public void FromUInt64Test(ulong value, uint expected) =>
-            Assert.That(UFix16.FromUInt64(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 6 })]
-        [Category("FromInt64")]
-        public void FromInt64Test(long value, uint expected) =>
-            Assert.That(UFix16.FromInt64(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 8 })]
-        [Category("FromHalf")]
-        public void FromHalfTest(Half value, uint expected) =>
-            Assert.That(UFix16.FromHalf(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 9 })]
-        [Category("FromSingle")]
-        public void FromSingleTest(float value, uint expected) =>
-            Assert.That(UFix16.FromSingle(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 10 })]
-        [Category("FromDouble")]
-        public void FromDoubleTest(double value, uint expected) =>
-            Assert.That(UFix16.FromDouble(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 11 })]
-        [Category("FromDecimal")]
-        public void FromDecimalTest(decimal value, uint expected) =>
-            Assert.That(UFix16.FromDecimal(value), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 0 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test(byte value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 1 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test1(sbyte value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 3 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test2(ushort value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 2 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test3(short value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 5 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test4(uint value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 4 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test5(int value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 7 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test6(ulong value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 6 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test7(long value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 8 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test8(Half value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 9 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test9(float value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 10 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test10(double value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
-
-        [TestCaseSource("SourceGenerator2", new object[] { 11 })]
-        [Category("ToUFix16")]
-        public void ToUFix16Test11(decimal value, uint expected) =>
-            Assert.That(value.ToUFix16(), Is.EqualTo(expected));
+        #endregion Attributes
     }
 }
